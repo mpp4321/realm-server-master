@@ -1,0 +1,47 @@
+﻿<Worlds>
+	<World name="Dreamland">
+		<Maps></Maps>
+		<BlockSight>2</BlockSight>
+	</World>
+	<World name="Nexus" id="-1">
+		<Maps>Nexus/0.jm</Maps>
+		<Background>0</Background>
+		<AllowTeleport>true</AllowTeleport>
+		<ShowDisplays>true</ShowDisplays>
+		<BlockSight>0</BlockSight>
+		<Persist>true</Persist>
+		<Music>ruins</Music>
+	</World>
+	<World name="Vault" id="-5">
+		<Maps>Vault/0.jm</Maps>
+		<Portals>0x0720</Portals>
+		<Background>0</Background>
+		<ShowDisplays>true</ShowDisplays>
+		<BlockSight>0</BlockSight>
+		<IsTemplate>true</IsTemplate>
+		<Music>hotel</Music>
+	</World>
+	<World name="Realm">
+		<Maps>Realm/0.wmap</Maps>
+		<Portals>0x0712</Portals>
+		<Background>0</Background>
+		<AllowTeleport>true</AllowTeleport>
+		<Persist>true</Persist>
+		<BlockSight>0</BlockSight>
+		<Music>the1</Music>
+	</World>
+	<World name="GuildHall" display="Guild Hall" id="-3">
+		<Maps>GuildHall/0.jm;GuildHall/1.jm;GuildHall/2.jm;GuildHall/3.jm</Maps>
+		<Portals>0x072f</Portals>
+		<Background>0</Background>
+		<BlockSight>0</BlockSight>
+		<ShowDisplays>true</ShowDisplays>
+		<IsTemplate>true</IsTemplate>
+		<Music>home</Music>
+	</World>
+	<World name="OryxCastle" display="Oryx's Castle">
+		<Maps>OryxCastle/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+	</World>
+</Worlds>
