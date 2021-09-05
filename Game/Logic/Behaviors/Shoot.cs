@@ -4,6 +4,7 @@ using RotMG.Networking;
 using RotMG.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RotMG.Game.Logic.Behaviors
 {
@@ -11,7 +12,7 @@ namespace RotMG.Game.Logic.Behaviors
     {
         public const int PredictNumTicks = 4;
 
-        public readonly float Range;
+        public readonly float Range = 8.0f;
         public readonly byte Count;
         public readonly float ShootAngle;
         public readonly float? FixedAngle;
@@ -72,10 +73,12 @@ namespace RotMG.Game.Logic.Behaviors
                 if (host.HasConditionEffect(ConditionEffectIndex.Dazed))
                     count = (byte)Math.Ceiling(count / 2f);
 
-                var target = host.GetNearestPlayer(Range);
+                Player target = null;
+                if(Range > 0) 
+                    target = host.GetNearestPlayer(Range) as Player;
                 if (target != null || DefaultAngle != null || FixedAngle != null)
                 {
-                    var desc = host.Desc.Projectiles[Index];
+                    var desc = host.Desc.Projectiles[Index + host.Desc.Projectiles.First().Key];
                     float angle = 0;
 
                     if (FixedAngle != null)
@@ -86,13 +89,19 @@ namespace RotMG.Game.Logic.Behaviors
                     {
                         if (Predictive != 0 && Predictive > MathUtils.NextFloat())
                         {
-                            var history = target.TryGetHistory(1);
-                            var targetX = target.Position.X + PredictNumTicks * (target.Position.X - history.X);
-                            var targetY = target.Position.Y + PredictNumTicks * (target.Position.Y - history.Y);
-                            angle = (float)Math.Atan2(targetY - host.Position.Y, targetX - host.Position.Y);
+                            Vector2 history = target.TryGetHistory(1);
+                            Vector2 targetPos = target.Position;
+                            targetPos -= history;
+                            targetPos *= PredictNumTicks;
+                            targetPos += target.Position;
+                            Vector2 dirVector = targetPos - host.Position;
+                            angle = (float) Math.Atan2(dirVector.Y, dirVector.X);
+                            Program.Print(PrintType.Info, dirVector);
                         }
                         else
-                            angle = (float)Math.Atan2(target.Position.Y - host.Position.Y, target.Position.X - host.Position.X);
+                        {
+                            angle = (float) Math.Atan2(target.Position.Y - host.Position.Y, target.Position.X - host.Position.X);
+                        }
                     }
                     else if (DefaultAngle != null)
                         angle = (float)DefaultAngle;

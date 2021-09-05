@@ -36,7 +36,7 @@ namespace RotMG.Game.Logic.Behaviors
         public Follow(float speed, float acquireRange = 10, float range = 6,
             int duration = 0, Cooldown coolDown = new Cooldown())
         {
-            this.speed = speed;
+            this.speed = speed / (Settings.TicksPerSecond / 5);
             this.acquireRange = acquireRange;
             this.range = range;
             this.duration = duration;
@@ -96,7 +96,7 @@ namespace RotMG.Game.Logic.Behaviors
                         vect.X -= _Random.Next(-2, 2) / 2f;
                         vect.Y -= _Random.Next(-2, 2) / 2f;
                         vect.Normalize();
-                        float dist = host.GetSpeed(speed) * (Settings.MillisecondsPerTick / 1000f);
+                        float dist = host.GetSpeed(speed) * Settings.SecondsPerTick;
                         host.ValidateAndMove(vect * dist + host.Position);
                     }
                     else

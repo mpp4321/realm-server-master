@@ -162,6 +162,10 @@ namespace RotMG.Game.Entities
 
         public void SetPrivateSV(StatType type, object value)
         {
+            if(type <= StatType.ItemData19 && type >= StatType.ItemData0)
+            {
+                value = ItemDesc.ExportItemDataJson(value as ItemDataJson);
+            }
             PrivateSVs[type] = value;
         }
 

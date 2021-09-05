@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
+using Newtonsoft.Json;
 
 namespace RotMG.Common
 {
@@ -193,6 +194,7 @@ namespace RotMG.Common
     public class ObjectDesc
     {
         public readonly string Id;
+        public readonly string Group;
         public readonly ushort Type;
 
         public readonly string DisplayId;
@@ -239,6 +241,7 @@ namespace RotMG.Common
             Type = type;
 
             DisplayId = e.ParseString("DisplayId", Id);
+            Group = e.ParseString("Group");
 
             Static = e.ParseBool("Static");
             Class = e.ParseString("Class");
@@ -308,7 +311,7 @@ namespace RotMG.Common
     {
         public readonly ItemType[] SlotTypes;
         public readonly int[] Equipment;
-        public readonly int[] ItemDatas;
+        public readonly string[] ItemDatas;
         public readonly StatDesc[] Stats;
         public readonly int[] StartingValues;
 
@@ -321,9 +324,9 @@ namespace RotMG.Common
             for (var k = 0; k < 20; k++)
                 Equipment[k] = k >= equipment.Length ? -1 : equipment[k];
 
-            ItemDatas = new int[20];
+            ItemDatas = new string[20];
             for (var k = 0; k < 20; k++)
-                ItemDatas[k] = -1;
+                ItemDatas[k] = "{}";
 
             Stats = new StatDesc[8];
             for (var i = 0; i < Stats.Length; i++)
@@ -448,8 +451,29 @@ namespace RotMG.Common
         }
     }
     
+    public class ItemDataJson
+    {
+
+        public int Meta { get; set; } = -1;
+
+    }
+
     public class ItemDesc
     {
+
+        public static ItemDataJson ParseItemDataJson(string p)
+        {
+            if (p == null) return new ItemDataJson() { Meta = -1 };
+            return JsonConvert.DeserializeObject<ItemDataJson>(p);
+        }
+
+        public static string ExportItemDataJson(ItemDataJson j)
+        {
+            if (j == null) return "{\"Meta\": -1}";
+            return JsonConvert.SerializeObject(j);
+        }
+
+
         public const float RateOfFireMultiplier = 0.05f;
         public const float DamageMultiplier = 0.05f;
         public const float CooldownMultiplier = 0.05f;
@@ -523,13 +547,13 @@ namespace RotMG.Common
 
         static ItemType[] ModifiableTypes = WeaponTypes.Concat(ArmorTypes).Concat(RingTypes).Concat(AbilityTypes).ToArray();
 
-        public static float GetStat(int data, ItemData i, float multiplier)
+        public static float GetStat(ItemDataJson data, ItemData i, float multiplier)
         {
-            var rank = GetRank(data);
+            var rank = GetRank(data.Meta);
             if (rank == -1)
                 return 0;
             var value = 0;
-            if (HasStat(data, i))
+            if (HasStat(data.Meta, i))
             {
                 value += rank;
             }

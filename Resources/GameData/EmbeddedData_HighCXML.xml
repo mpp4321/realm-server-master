@@ -461,14 +461,7 @@
 			<Damage>48</Damage>
 			<Size>80</Size>
 			<LifetimeMS>1500</LifetimeMS>
-			
 		</Projectile>
-		
-		
-		
-			
-		
-
 	</Object>
 
 	<Object type="0x0958" id="Left Horizontal Trap">

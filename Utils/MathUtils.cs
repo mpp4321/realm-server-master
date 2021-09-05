@@ -128,6 +128,13 @@ namespace RotMG.Utils
             return v1 * v1 + v2 * v2;
         }
 
+        public static double AngleDifference(double source, double target)
+        {
+            var a = target - source;
+            a += (a > Math.PI) ? -2 * Math.PI : (a < -Math.PI) ? 2 * Math.PI : 0;
+            return a;
+        }
+
         public static float Lerp(float value1, float value2, float amount)
         {
             return value1 + (value2 - value1) * amount;

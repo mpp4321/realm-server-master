@@ -22,6 +22,11 @@ namespace RotMG.Game.Logic.Behaviors
             this.entity = entity;
         }
 
+        public override void Enter(Entity host)
+        {
+            host.StateObject[Id] = null;
+        }
+
         public override bool Tick(Entity host)
         {
             var state = host.StateObject[Id];
@@ -38,11 +43,12 @@ namespace RotMG.Game.Logic.Behaviors
 
             if (e != null)
             {
-                Vector2 vect;
+                Vector2 vect = Vector2.Zero;
                 vect = e.Position - host.Position;
                 vect.Normalize();
                 float dist = host.GetSpeed(speed) * (Settings.MillisecondsPerTick / 1000f);
-                host.ValidateAndMove(-dist * vect + host.Position);
+                if(dist > 0)
+                    host.ValidateAndMove(-dist * vect + host.Position);
 
                 if (cooldown <= 0)
                 {

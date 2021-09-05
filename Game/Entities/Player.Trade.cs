@@ -88,7 +88,7 @@ namespace RotMG.Game.Entities
                     myItems[i] = new TradeItem
                     {
                         Item = Inventory[i],
-                        ItemData = ItemDatas[i],
+                        ItemData = ItemDesc.ExportItemDataJson(ItemDatas[i]),
                         SlotType = Resources.Type2Player[Type].SlotTypes[i],
                         Included = false,
                         Tradeable = Inventory[i] != -1 && i >= 4 &&
@@ -99,7 +99,7 @@ namespace RotMG.Game.Entities
                     theirItems[i] = new TradeItem
                     {
                         Item = partner.Inventory[i],
-                        ItemData = partner.ItemDatas[i],
+                        ItemData = ItemDesc.ExportItemDataJson(partner.ItemDatas[i]),
                         SlotType = Resources.Type2Player[partner.Type].SlotTypes[i],
                         Included = false,
                         Tradeable = partner.Inventory[i] != -1 && i >= 4 &&
@@ -186,8 +186,8 @@ namespace RotMG.Game.Entities
 
         private void DoTrade()
         {
-            var myItems = new List<Tuple<int, int>>();
-            var theirItems = new List<Tuple<int, int>>();
+            var myItems = new List<Tuple<int, string>>();
+            var theirItems = new List<Tuple<int, string>>();
 
             if (TradePartner == null || !TradePartner.Parent.Equals(Parent))
             {
@@ -210,13 +210,13 @@ namespace RotMG.Game.Entities
             {
                 if (Trade[i])
                 {
-                    myItems.Add(Tuple.Create(Inventory[i], ItemDatas[i]));
+                    myItems.Add(Tuple.Create(Inventory[i], ItemDesc.ExportItemDataJson(ItemDatas[i])));
                     Inventory[i] = -1;
                 }
 
                 if (TradePartner.Trade[i])
                 {
-                    theirItems.Add(Tuple.Create(TradePartner.Inventory[i], TradePartner.ItemDatas[i]));
+                    theirItems.Add(Tuple.Create(TradePartner.Inventory[i], ItemDesc.ExportItemDataJson(TradePartner.ItemDatas[i])));
                     TradePartner.Inventory[i] = -1;
                 }
             }
@@ -229,7 +229,7 @@ namespace RotMG.Game.Entities
                         TradePartner.Trade[i])
                     {
                         TradePartner.Inventory[i] = item.Item1;
-                        TradePartner.ItemDatas[i] = item.Item2;
+                        TradePartner.ItemDatas[i] = ItemDesc.ParseItemDataJson(item.Item2);
                         TradePartner.Trade[i] = false;
                         break;
                     }
@@ -244,7 +244,7 @@ namespace RotMG.Game.Entities
                         Trade[i])
                     {
                         Inventory[i] = item.Item1;
-                        ItemDatas[i] = item.Item2;
+                        ItemDatas[i] = ItemDesc.ParseItemDataJson(item.Item2);
                         Trade[i] = false;
                         break;
                     }

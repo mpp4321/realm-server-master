@@ -3,6 +3,7 @@ using RotMG.Networking;
 using RotMG.Utils;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace RotMG.Common
 {
@@ -72,7 +73,11 @@ namespace RotMG.Common
             foreach (var k in Stats)
             {
                 wtr.Write((byte)k.Key);
-                if (IsStringStat(k.Key))
+                if (k.Key >= StatType.ItemData0 && k.Key <= StatType.ItemData19)
+                {
+                    wtr.Write(ItemDesc.ExportItemDataJson((ItemDataJson)k.Value));
+                }
+                else if (IsStringStat(k.Key))
                     wtr.Write((string)k.Value);
                 else 
                     wtr.Write((int)k.Value);
@@ -81,6 +86,7 @@ namespace RotMG.Common
 
         public static bool IsStringStat(StatType stat)
         {
+            if (stat >= StatType.ItemData0 && stat <= StatType.ItemData19) return true;
             switch (stat)
             {
                 case StatType.Name:
@@ -141,7 +147,7 @@ namespace RotMG.Common
     public struct TradeItem
     {
         public int Item;
-        public int ItemData;
+        public string ItemData;
         public ItemType SlotType;
         public bool Tradeable;
         public bool Included;
@@ -149,7 +155,7 @@ namespace RotMG.Common
         public void Write(PacketWriter wtr)
         {
             wtr.Write(Item);
-            wtr.Write(ItemData);
+            wtr.Write(Encoding.UTF8.GetBytes(ItemData));
             wtr.Write((int)SlotType);
             wtr.Write(Tradeable);
             wtr.Write(Included);
@@ -160,6 +166,14 @@ namespace RotMG.Common
     {
         public float X;
         public float Y;
+
+        public static readonly Vector2 Zero = new Vector2(0,0);
+
+        public Vector2(double rad)
+        {
+            X = (float) Math.Cos(rad);
+            Y = (float) Math.Sin(rad);
+        }
 
         public Vector2(float x, float y)
         {

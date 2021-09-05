@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using RotMG.Game.Logic;
 using RotMG.Game.Worlds;
 using RotMG.Networking;
+using System.Linq;
 
 namespace RotMG.Game
 {
@@ -205,6 +206,14 @@ namespace RotMG.Game
 
                 UpdateCount++;
             }
+        }
+
+        public void BroadcastPacketNearby(byte[] packet, Vector2 target)
+        {
+            var players = PlayerChunks.HitTest(target, Player.SightRadius).ToArray();
+
+            foreach (var en in players)
+                (en as Player).Client.Send(packet);
         }
 
         //public IntPoint CastLine(int x, int y, int x2, int y2)

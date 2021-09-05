@@ -23,12 +23,12 @@ namespace RotMG.Game.Entities
         private static byte[] ValidInvSwap = GameServer.InvResult(0);
 
         public int[] Inventory { get; set; }
-        public int[] ItemDatas { get; set; }
+        public ItemDataJson[] ItemDatas { get; set; }
 
         public void InitInventory(CharacterModel character)
         {
             Inventory = character.Inventory.ToArray();
-            ItemDatas = character.ItemDatas.ToArray();
+            ItemDatas = character.ItemDataJsons.ToArray();
             UpdateInventory();
         }
 
@@ -47,7 +47,7 @@ namespace RotMG.Game.Entities
                     Boosts[s.Key] += s.Value;
 
                 var data = ItemDatas[i];
-                if (data == -1)
+                if (data.Meta == -1)
                     continue;
 
                 Boosts[0] += (int)ItemDesc.GetStat(data, ItemData.MaxHP, 5);
@@ -115,7 +115,7 @@ namespace RotMG.Game.Entities
             }
 
             var item = Inventory[slot];
-            int data = ItemDatas[slot];
+            ItemDataJson data = ItemDatas[slot];
 
             if (item == -1)
             {
@@ -126,7 +126,7 @@ namespace RotMG.Game.Entities
             }
 
             Inventory[slot] = -1;
-            ItemDatas[slot] = -1;
+            ItemDatas[slot] = new ItemDataJson() { Meta = -1 };
             UpdateInventorySlot(slot);
 
             var container = new Container(Container.PurpleBag, AccountId, 120000);

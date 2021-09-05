@@ -18,7 +18,8 @@ namespace RotMG.Game.Logic
 
         public LootDef(string item, float chance = 1, float threshold = 0, int min = 0)
         {
-            Item = Resources.IdLower2Item[item.ToLower()].Type;
+            if(item != null)
+                Item = Resources.IdLower2Item[item.ToLower()].Type;
             Threshold = threshold;
             Chance = chance;
             Min = min;
@@ -180,7 +181,7 @@ namespace RotMG.Game.Logic
                 {
                     var roll = Resources.Type2Item[loot[k]].Roll();
                     c.Inventory[k] = loot[k];
-                    c.ItemDatas[k] = roll.Item1 ? (int) roll.Item2 : -1;
+                    c.ItemDatas[k] = new ItemDataJson() { Meta = roll.Item1 ? (int)roll.Item2 : -1 };
                     c.UpdateInventorySlot(k);
                 }
                 loot.RemoveRange(0, bagCount);

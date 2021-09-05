@@ -96,7 +96,7 @@ namespace RotMG.Game.Entities
             }
         }
 
-        public int GetNextDamageSeeded(int min, int max, int data)
+        public int GetNextDamageSeeded(int min, int max, ItemDataJson data)
         {
             var dmgMod = ItemDesc.GetStat(data, ItemData.Damage, ItemDesc.DamageMultiplier);
             var minDmg = min + (int)(min * dmgMod);
@@ -104,7 +104,7 @@ namespace RotMG.Game.Entities
             return (int)Client.Random.NextIntRange((uint)minDmg, (uint)maxDmg);
         }
 
-        public int GetNextDamage(int min, int max, int data)
+        public int GetNextDamage(int min, int max, ItemDataJson data)
         {
             var dmgMod = ItemDesc.GetStat(data, ItemData.Damage, ItemDesc.DamageMultiplier);
             var minDmg = min + (int)(min * dmgMod);

@@ -395,14 +395,6 @@
 			<LifetimeMS>6000</LifetimeMS>
 			<ConditionEffect duration="20">Quiet</ConditionEffect>
 		</Projectile>
-		
-					
-
-
-
-
-
-
 	</Object>
 
 	<Object type="0x6d8" id="Leviathan">
@@ -431,8 +423,65 @@
 			<Speed>85</Speed>
 			<LifetimeMS>1800</LifetimeMS>
 		</Projectile>
-
-
-
 	</Object>
+	<Object type="0x6e8" id="Lucky Ent God">
+      <Group>Gods</Group>
+      <Enemy/>
+      <Class>Character</Class>
+      <AnimatedTexture>
+         <File>chars16x16dMountains1</File>
+         <Index>0x04</Index>
+      </AnimatedTexture>
+      <HitSound>monster/ents_hit</HitSound>
+      <DeathSound>monster/ents_death</DeathSound>
+      <Size>150</Size>
+      <MaxHitPoints>10000</MaxHitPoints>
+      <Defense>40</Defense>
+      <Terrain>Mountains</Terrain>
+      <SpawnProb>0.8</SpawnProb>
+      <PerRealmMax>1</PerRealmMax>
+      <XpMult>0</XpMult>
+      <Quest/>
+      <Level>20</Level>
+      <God/>
+      <Projectile id="0">
+         <ObjectId>Fire Bolt</ObjectId>
+         <Damage>100</Damage>
+         <Speed>80</Speed>
+         <LifetimeMS>2000</LifetimeMS>
+         <MultiHit/>
+      </Projectile>
+   </Object>
+   
+   <Object type="0x6f8" id="Lucky Djinn">
+      <Group>Gods</Group>
+      <Enemy/>
+      <Class>Character</Class>
+      <AnimatedTexture>
+         <File>chars16x16dMountains1</File>
+         <Index>0x03</Index>
+      </AnimatedTexture>
+      <HitSound>monster/djinn_hit</HitSound>
+      <DeathSound>monster/djinn_death</DeathSound>
+      <Size>100</Size>
+      <MaxHitPoints>10000</MaxHitPoints>
+      <Defense>40</Defense>
+      <Terrain>Mountains</Terrain>
+      <SpawnProb>0.8</SpawnProb>
+      <PerRealmMax>1</PerRealmMax>
+      <XpMult>0</XpMult>
+      <Quest/>
+      <Level>20</Level>
+      <Flying/>
+      <God/>
+      <Projectile id="0">
+         <ObjectId>White Bullet</ObjectId>
+         <Damage>100</Damage>
+         <Speed>60</Speed>
+         <Size>60</Size>
+         <LifetimeMS>1500</LifetimeMS>
+         <MultiHit/>
+      </Projectile>
+   </Object>
+
 </Objects>

@@ -51,11 +51,16 @@ namespace RotMG.Game.Logic.Loots
                 .ToArray();
 
             foreach (var item in items)
+            {
+#if DEBUG
+                if (item == null) throw new Exception("Error creating tiered loot");
+#endif
                 LootDefs.Add(new LootDef(
                     item.Id,
                     chance / items.Length,
                     threshold,
                     min));
+            }
         }
     }
 }

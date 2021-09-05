@@ -29,6 +29,7 @@ namespace RotMG.Networking
                     foreach (var charId in acc.AliveChars)
                     {
                         var character = Database.LoadCharacter(acc, charId);
+                        if (character == null) continue;
                         var export = character.Export();
                         export.Add(new XAttribute("id", charId));
                         data.Add(export);

@@ -119,7 +119,7 @@ namespace RotMG.Game.SetPieces
             {
                 var roll = Resources.Type2Item[loot[k]].Roll();
                 c.Inventory[k] = loot[k];
-                c.ItemDatas[k] = roll.Item1 ? (int) roll.Item2 : -1;
+                c.ItemDatas[k] = new ItemDataJson() { Meta = roll.Item1 ? (int)roll.Item2 : -1 };
                 c.UpdateInventorySlot(k);
             }
 

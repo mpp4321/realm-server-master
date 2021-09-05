@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 using RotMG.Game;
+using System;
 
 namespace RotMG.Common
 {
@@ -31,6 +32,9 @@ namespace RotMG.Common
             {
                 Data = XElement.Parse(File.ReadAllText(Path));
                 Load();
+            } else
+            {
+                Console.WriteLine("Failed to load " + Path);
             }
         }
 
@@ -80,7 +84,10 @@ namespace RotMG.Common
         public int MP;
         public int[] Stats;
         public int[] Inventory;
-        public int[] ItemDatas;
+        public string[] ItemDatas;
+
+        public ItemDataJson[] ItemDataJsons = Enumerable.Repeat(new ItemDataJson() { Meta = -1 }, 20).ToArray();
+
         public int Fame;
         public int Tex1;
         public int Tex2;
@@ -110,7 +117,10 @@ namespace RotMG.Common
             MP = Data.ParseInt("MP");
             Stats = Data.ParseIntArray("Stats", ",");
             Inventory = Data.ParseIntArray("Equipment", ",");
-            ItemDatas = Data.ParseIntArray("ItemDatas", ",");
+            ItemDatas = Data.ParseStringArray("ItemDatas", ",");
+
+            ItemDataJsons = ItemDatas?.Select(a => ItemDesc.ParseItemDataJson(a)).ToArray();
+
             Fame = Data.ParseInt("Fame");
             Tex1 = Data.ParseInt("Tex1");
             Tex2 = Data.ParseInt("Tex2");
@@ -162,7 +172,7 @@ namespace RotMG.Common
                 data.Add(new XElement("Exp", Experience));
                 data.Add(new XElement("CurrentFame", Fame));
                 data.Add(new XElement("Equipment", string.Join(",", Inventory)));
-                data.Add(new XElement("ItemDatas", string.Join(",", ItemDatas)));
+                data.Add(new XElement("ItemDatas", string.Join(",", ItemDataJsons.Select(a => ItemDesc.ExportItemDataJson(a)).ToArray())));
                 data.Add(new XElement("MaxHitPoints", Stats[0]));
                 data.Add(new XElement("HitPoints", HP));
                 data.Add(new XElement("MaxMagicPoints", Stats[1]));
@@ -186,7 +196,7 @@ namespace RotMG.Common
                 data.Add(new XElement("MP", MP));
                 data.Add(new XElement("Stats", string.Join(",", Stats)));
                 data.Add(new XElement("Equipment", string.Join(",", Inventory)));
-                data.Add(new XElement("ItemDatas", string.Join(",", ItemDatas)));
+                data.Add(new XElement("ItemDatas", string.Join(",", ItemDataJsons.Select(a => ItemDesc.ExportItemDataJson(a)).ToArray())));
                 data.Add(new XElement("Fame", Fame));
                 data.Add(new XElement("Tex1", Tex1));
                 data.Add(new XElement("Tex2", Tex2));

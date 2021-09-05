@@ -27,8 +27,8 @@ namespace RotMG.Game.Logic.Behaviors
                 {
                     State foundState = i.Behavior.States.Values.Where(
                         a => a.StringId.Equals(_targetStateName)
-                    ).FirstOrDefault(null);
-                    if(foundState != null)
+                    ).FirstOrDefault();
+                    if(foundState != default(State))
                     {
                         i.CurrentStates.Clear();
                         i.CurrentStates.Add(

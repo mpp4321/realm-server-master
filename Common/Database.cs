@@ -883,7 +883,7 @@ namespace RotMG.Common
                 if (character.Inventory[k] != -1)
                 {
                     wellEquipped += Resources.Type2Item[(ushort)character.Inventory[k]].FameBonus;
-                    wellEquipped += (int)ItemDesc.GetStat(character.ItemDatas[k], ItemData.FameBonus, 1);
+                    wellEquipped += (int) ItemDesc.GetStat(ItemDesc.ParseItemDataJson(character.ItemDatas[k]), ItemData.FameBonus, 1);
                 }
             if (wellEquipped > 0)
             {

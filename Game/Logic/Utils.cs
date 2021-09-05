@@ -31,5 +31,19 @@ namespace RotMG.Game.Logic
             return ret;
         }
 
+        public static int CountEntity(this Entity entity, float dist, string group)
+        {
+            if (entity.Parent == null) return 0;
+            int ret = 0;
+            foreach (var i in entity.Parent.EntityChunks.HitTest(entity.Position, dist))
+            {
+                if (!i.Desc.Group.Equals(group)) continue;
+                var d = MathUtils.Distance(i.Position, entity.Position);
+                if (d < dist)
+                    ret++;
+            }
+            return ret;
+        }
+
     }
 }

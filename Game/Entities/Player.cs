@@ -206,6 +206,7 @@ namespace RotMG.Game.Entities
                 SetSV(StatType.LegendaryRank, 0);
 
             FameStats = client.Character.FameStats;
+
             InitInventory(client.Character);
             InitStats(client.Character);
             InitLevel(client.Character);
@@ -227,12 +228,13 @@ namespace RotMG.Game.Entities
             Client.Character.Experience = EXP;
             Client.Character.Fame = CharFame;
             Client.Character.Inventory = Inventory.ToArray();
-            Client.Character.ItemDatas = ItemDatas.ToArray();
+            Client.Character.ItemDataJsons = ItemDatas.ToArray();
             Client.Character.Stats = Stats.ToArray();
         }
 
         public override void Init()
         {
+            base.Init();
             TileUpdates = new int[Parent.Width, Parent.Height];
             EntityUpdates = new Dictionary<int, int>();
             Entities = new HashSet<Entity>();

@@ -161,6 +161,9 @@ namespace RotMG.Game
             set => TrySetSV(StatType.Name, _name = value);
         }
 
+        private int _altTexture;
+        public int AltTextureIndex { get => _altTexture; set => TrySetSV(StatType.AltTexture, _altTexture = value); }
+
         public int UpdateCount;
         public Dictionary<StatType, object> SVs;
         public Dictionary<StatType, object> NewSVs;
@@ -330,6 +333,11 @@ namespace RotMG.Game
             var done = false;
             while (!done)
             {
+                if (float.IsNaN(tds) || float.IsNaN(ds))
+                {
+                    done = true;
+                    continue;
+                }
                 if (tds + ds >= 1)
                 {
                     ds = 1 - tds;
@@ -605,7 +613,7 @@ namespace RotMG.Game
                             subIndex++;
                             if (states.Count > 0)
                             {
-                                if (subIndex == i) CurrentStates.Add(states[targetState]);
+                                if (subIndex == i && states.ContainsKey(targetState)) CurrentStates.Add(states[targetState]);
                                 else CurrentStates.Add(states.Values.First());
                                 states = CurrentStates.Last().States;
                             }

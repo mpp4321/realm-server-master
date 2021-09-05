@@ -15,7 +15,8 @@ namespace RotMG.Game.Logic.Database
                 new State(
                     "base",
                     new Prioritize(
-                        new Follow(0.85f, range: 1, duration: 5000, coolDown: 0),
+                        //new Follow(0.85f, range: 1, duration: 5000, coolDown: 0),
+                        new BuzzBehavior(speed: 1f),
                         new Wander(0.4f)
                         ),
                     new Shoot(3, cooldown: 2500)

@@ -18,10 +18,10 @@ namespace RotMG.Game.Logic.Behaviors
             this.altitude = altitude;
         }
 
-        public void Tick(Entity host)
+        public override bool Tick(Entity host)
         {
             if (host.HasConditionEffect(ConditionEffectIndex.Paralyzed))
-                return;
+                return false;
 
             var map = host.Parent.Map;
             var tile = map.Tiles[(int)host.Position.X, (int)host.Position.Y];
@@ -33,8 +33,9 @@ namespace RotMG.Game.Logic.Behaviors
                 float dist = host.GetSpeed(speed) * Settings.MillisecondsPerTick;
 
                 host.ValidateAndMove(new Vector2(host.Position.X + vect.X * dist, host.Position.Y + vect.Y * dist));
-
+                return true;
             }
+            return false;
         }
     }
 }

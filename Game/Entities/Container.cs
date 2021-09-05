@@ -7,7 +7,7 @@ namespace RotMG.Game.Entities
     public interface IContainer
     {
         public int[] Inventory { get; set; }
-        public int[] ItemDatas { get; set; }
+        public ItemDataJson[] ItemDatas { get; set; }
         public void UpdateInventory();
         public void UpdateInventorySlot(int slot);
         public bool ValidSlot(int slot);
@@ -43,17 +43,17 @@ namespace RotMG.Game.Entities
         }
         
         public int[] Inventory { get; set; }
-        public int[] ItemDatas { get; set; }
+        public ItemDataJson[] ItemDatas { get; set; }
 
         public Container(ushort type, int ownerId, int? lifetime) : base(type, lifetime)
         {
             OwnerId = ownerId;
             Inventory = new int[MaxSlots];
-            ItemDatas = new int[MaxSlots];
+            ItemDatas = new ItemDataJson[MaxSlots];
             for (var i = 0; i < MaxSlots; i++)
             {
                 Inventory[i] = -1;
-                ItemDatas[i] = -1;
+                ItemDatas[i] = new ItemDataJson() { Meta = 0 };
             }
         }
 

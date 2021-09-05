@@ -25,6 +25,11 @@ namespace RotMG.Utils
             return d;
         }
 
+        public static Entity GetNearestSmart(this Entity entity, float radius, bool targetPlayers)
+        {
+            return targetPlayers ? GetNearestPlayer(entity, radius) : GetNearestEnemy(entity, radius);
+        }
+
         public static Entity GetNearestEntity(this Entity entity, float radius)
         {
 #if DEBUG
@@ -45,6 +50,17 @@ namespace RotMG.Utils
             }
             return nearest;
         }
+
+        public static IEnumerable<Entity> GetNearbyEntities(this Entity entity, float radius)
+        {
+#if DEBUG
+            if (entity == null || entity.Parent == null || radius <= 0)
+                throw new Exception();
+#endif
+            return entity.Parent.EntityChunks.HitTest(entity.Position, radius);
+        }
+
+
 
         public static Entity GetNearestEntity(this Entity entity, float radius, ushort objId)
         {

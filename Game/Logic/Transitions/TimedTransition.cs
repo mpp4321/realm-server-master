@@ -1,14 +1,18 @@
 ﻿using RotMG.Common;
+using System;
 
 namespace RotMG.Game.Logic.Transitions
 {
     public class TimedTransition : Transition
     {
+        public static Random Random = new Random();
         public readonly int Time;
+        public readonly bool Randomized;
 
-        public TimedTransition(string targetState, int time = 1000) : base(targetState)
+        public TimedTransition(string targetState, int time = 1000, bool randomized=false) : base(targetState)
         {
             Time = time;
+            Randomized = randomized;
         }
 
         public override void Enter(Entity host)
@@ -21,7 +25,7 @@ namespace RotMG.Game.Logic.Transitions
             host.StateCooldown[Id] -= Settings.MillisecondsPerTick;
             if (host.StateCooldown[Id] <= 0)
             {
-                host.StateCooldown[Id] = Time;
+                host.StateCooldown[Id] = Randomized ? Random.Next(Time) : Time;
                 return true;
             }
             return false;

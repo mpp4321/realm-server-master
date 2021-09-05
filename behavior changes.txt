@@ -1,0 +1,19 @@
+# Copy paste info for formatting behaviors
+
+\.Init -> db.Init
+
+State\([^\"] -> State("base",
+
+(\s+\))[^\,] -> $1;
+
+TimedTransition\((\d+), \s(.+)\) -> TimedTransition($2, $1)
+
+projectileIndex -> index
+coolDown -> cooldown
+
+(\d+\.\d+) -> $1f
+
+ItemType -> LootType
+HpLessTransition -> HealthTransition
+
+EntitiesNotExistsTransition\((.+), (\d+), (.+)\) -> EntitiesNotExistsTransition($2, $3, $1)
