@@ -3,6 +3,7 @@ using RotMG.Game.Logic.Behaviors;
 using RotMG.Game.Logic.Conditionals;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
+using RotMG.Utils;
 using static RotMG.Game.Logic.Loots.TierLoot;
 
 namespace RotMG.Game.Logic.Database
@@ -222,7 +223,11 @@ namespace RotMG.Game.Logic.Database
                         new StayAbove(1, 200),
                         new Wander(0.4f)
                         ),
-                    new Shoot(12, index: 0, count: 4, shootAngle: 10, cooldown: 100),
+                    new Shoot(12, index: 0, count: 4, shootAngle: 10, cooldown: 200, callback: (e) => {
+
+                        e.Parent?.MoveEntity(e, e.Position + new Vector2(MathUtils.NextFloat(), MathUtils.NextFloat()));
+
+                    }),
                     new Shoot(10, index: 1, predictive: 1, cooldown: 1000),
                     new Reproduce(densityMax: 3),
                     new Reproduce("Sprite Child", 5, 5, 5000)

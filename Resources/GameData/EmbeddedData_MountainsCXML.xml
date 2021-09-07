@@ -34,7 +34,7 @@
 		<HitSound>monster/sprite_god_hit</HitSound>
 		<DeathSound>monster/sprite_god_death</DeathSound>
 		<Size>100</Size>
-		<MaxHitPoints>2000</MaxHitPoints>
+		<MaxHitPoints>500</MaxHitPoints>
 		<Defense>12</Defense>
 		<Terrain>Mountains</Terrain>
 		<SpawnProb>1.0</SpawnProb>
@@ -42,9 +42,9 @@
 		<God/>
 		<Projectile id="0">
 			<ObjectId>Purple Magic</ObjectId>
-			<Damage>100</Damage>
+			<Damage>60</Damage>
 			<Speed>70</Speed>
-			<LifetimeMS>2000</LifetimeMS>
+			<LifetimeMS>500</LifetimeMS>
 		</Projectile>
 		<Projectile id="1">
 			<ObjectId>Grey Boomerang</ObjectId>
@@ -88,7 +88,7 @@
 		<God/>
 		<Projectile id="0">
 			<ObjectId>Green Bolt</ObjectId>
-			<Damage>100</Damage>
+			<Damage>80</Damage>
 			<Speed>70</Speed>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>

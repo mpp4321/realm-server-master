@@ -27,7 +27,9 @@ namespace RotMG.Game.Logic.Behaviors
         public int? DamageOverride = null;
 
         public readonly ConditionEffectIndex[] effect; 
-        public readonly int effect_duration; 
+        public readonly int effect_duration;
+
+        public Action<Entity> Callback;
 
         public Shoot(
             float range = 5, 
@@ -43,7 +45,8 @@ namespace RotMG.Game.Logic.Behaviors
             int cooldownVariance = 0,
             int cooldown = 0,
             ConditionEffectIndex[] effect = null,
-            int effect_duration = 0)
+            int effect_duration = 0,
+            Action<Entity> callback = null)
         {
             Range = range;
             Count = count;
@@ -57,6 +60,7 @@ namespace RotMG.Game.Logic.Behaviors
             CooldownOffset = cooldownOffset;
             CooldownVariance = cooldownVariance;
             Cooldown = cooldown;
+            Callback = callback;
 
             this.effect = effect ?? new ConditionEffectIndex[] { };
             this.effect_duration = effect_duration;
@@ -140,6 +144,7 @@ namespace RotMG.Game.Logic.Behaviors
                                     e.ApplyConditionEffect(eff, effect_duration);
                                 }
                             }
+                            if(Callback != null) Callback(e);
                         });
                         projectiles.Add(p);
                     }
