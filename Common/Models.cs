@@ -52,7 +52,7 @@ namespace RotMG.Common
     {
         public readonly int Id;
         public int[] Inventory;
-        public int[] ItemDatas;
+        public string[] ItemDatas;
 
         public VaultChestModel(int accountId, int key) : base($"vault.{accountId}.{key}")
         {
@@ -62,7 +62,8 @@ namespace RotMG.Common
         protected override void Load()
         {
             Inventory = Data.ParseIntArray("Inventory", ",");
-            ItemDatas = Data.ParseIntArray("ItemDatas", ",");
+            ItemDatas = Data.ParseStringArray("ItemDatas", ",");
+            if (ItemDatas == null) ItemDatas = Enumerable.Repeat("{\"Meta\": -1}", 20).ToArray();
         }
 
         public override XElement Export(bool appExport = true)

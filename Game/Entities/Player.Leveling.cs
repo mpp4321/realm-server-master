@@ -40,6 +40,18 @@ namespace RotMG.Game.Entities
             if (character.Experience != 0) EXP = character.Experience;
             if (character.Fame != 0) CharFame = character.Fame;
             var classStat = Client.Account.Stats.GetClassStats(Type);
+            if(classStat == null)
+            {
+                var temp__ = Client.Account.Stats.ClassStats.ToList();
+                temp__.Add(new ClassStatsInfo
+                {
+                    BestFame = 0,
+                    BestLevel = 0,
+                    ObjectType = Type
+                });
+                Client.Account.Stats.ClassStats = temp__.ToArray();
+                classStat = Client.Account.Stats.GetClassStats(Type);
+            }
             NextClassQuestFame = GetNextClassQuestFame(classStat.BestFame > CharFame ? classStat.BestFame : CharFame);
             NextLevelEXP = GetNextLevelEXP(Level);
             GainEXP(0);

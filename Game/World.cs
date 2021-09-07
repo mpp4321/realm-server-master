@@ -211,9 +211,9 @@ namespace RotMG.Game
         public void BroadcastPacketNearby(byte[] packet, Vector2 target)
         {
             var players = PlayerChunks.HitTest(target, Player.SightRadius).ToArray();
-
+            if (players == null) return;
             foreach (var en in players)
-                (en as Player).Client.Send(packet);
+                (en as Player)?.Client.Send(packet);
         }
 
         //public IntPoint CastLine(int x, int y, int x2, int y2)
@@ -413,6 +413,7 @@ namespace RotMG.Game
 
             en.Id = ++NextObjectId;
             en.Parent = this;
+            en.SpawnPoint = at;
             en.Position = at;
             MoveEntity(en, en.Position);
 

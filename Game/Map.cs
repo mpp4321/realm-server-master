@@ -84,6 +84,11 @@ namespace RotMG.Game
         public int Width;
         public int Height;
         public Dictionary<Region, List<IntPoint>> Regions;
+
+        public bool IsWithin(IntPoint x)
+        {
+            return x.X >= 0 && x.Y >= 0 && x.X < Width && x.Y < Height;
+        }
         
         public void ProjectOntoWorld(World world, IntPoint pos)
         {

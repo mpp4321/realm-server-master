@@ -44,8 +44,7 @@ namespace RotMG.Game.Logic.Behaviors
                 float dist = host.GetSpeed(speed) * Settings.SecondsPerTick;
                 host.ValidateAndMove(vect * dist + host.Position);
             }
-
-            return true;
+            return false;
         }
 
     }

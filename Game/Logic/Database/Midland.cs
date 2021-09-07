@@ -12,6 +12,21 @@ namespace RotMG.Game.Logic.Database
     {
         public void Init(BehaviorDb db)
         {
+            db.EveryInit = new IBehavior[]
+            {
+                new TierLoot(4, LootType.Weapon, 0.2f),
+                new TierLoot(5, LootType.Weapon, 0.1f),
+                new TierLoot(6, LootType.Weapon, 0.05f),
+                new TierLoot(4, LootType.Armor, 0.2f),
+                new TierLoot(5, LootType.Armor, 0.1f),
+                new TierLoot(6, LootType.Armor, 0.05f),
+                new TierLoot(2, LootType.Ring, 0.2f),
+                new TierLoot(3, LootType.Ring, 0.1f),
+                new TierLoot(4, LootType.Ring, 0.05f),
+                new TierLoot(2, LootType.Ability, 0.1f),
+                new TierLoot(3, LootType.Ability, 0.05f),
+            };
+
 
             db.Init("Fire Sprite",
                 new State("base",
@@ -239,11 +254,11 @@ namespace RotMG.Game.Logic.Database
                             new Wander(0.5f)
                             ),
                         new Shoot(8, cooldown: 1200),
-                        new TossObject("Sludget", range: 3, angle: 20, coolDown: 100000, throwEffect: true),
-                        new TossObject("Sludget", range: 3, angle: 92, coolDown: 100000, throwEffect: true),
-                        new TossObject("Sludget", range: 3, angle: 164, coolDown: 100000, throwEffect: true),
-                        new TossObject("Sludget", range: 3, angle: 236, coolDown: 100000, throwEffect: true),
-                        new TossObject("Sludget", range: 3, angle: 308, coolDown: 100000, throwEffect: true),
+                        new TossObject("Sludget", range: 3, angle: 20, cooldown: 100000, throwEffect: true),
+                        new TossObject("Sludget", range: 3, angle: 92, cooldown: 100000, throwEffect: true),
+                        new TossObject("Sludget", range: 3, angle: 164, cooldown: 100000, throwEffect: true),
+                        new TossObject("Sludget", range: 3, angle: 236, cooldown: 100000, throwEffect: true),
+                        new TossObject("Sludget", range: 3, angle: 308, cooldown: 100000, throwEffect: true),
                         new TimedTransition("pause", 8000)
                         ),
                     new State("pause",
@@ -341,7 +356,7 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                         ),
                     new Shoot(1),
-                    new Reproduce(densityMax: 5, densityRadius: 20, coolDown: 20000)
+                    new Reproduce(densityMax: 5, densityRadius: 20, cooldown: 20000)
                     ),
                 new ItemLoot("Health Potion", 0.2f),
                 new ItemLoot("Magic Potion", 0.2f),
@@ -351,7 +366,7 @@ namespace RotMG.Game.Logic.Database
                 new State("base",
                     new Wander(0.8f),
                     new Shoot(9),
-                    new Reproduce(densityMax: 3, densityRadius: 15, coolDown: 45000)
+                    new Reproduce(densityMax: 3, densityRadius: 15, cooldown: 45000)
                     ),
                 new ItemLoot("Health Potion", 0.2f),
                 new ItemLoot("Magic Potion", 0.1f)
@@ -844,6 +859,7 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(1, LootType.Ability, 0.38f),
                 new ItemLoot("Magic Potion", 0.03f)
             );
+            db.EveryInit = new IBehavior[] { };
         }
     }
 }

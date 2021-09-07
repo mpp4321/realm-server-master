@@ -53,6 +53,7 @@ namespace RotMG.Game.Logic
     {
         public static int NextId;
         public Dictionary<int, BehaviorModel> Models;
+        public IBehavior[] EveryInit = new IBehavior[] { };
 
         public BehaviorDb()
         {
@@ -79,6 +80,7 @@ namespace RotMG.Game.Logic
                 throw new Exception("Behavior already resolved for this entity.");
 #endif
 
+            behaviors = behaviors.Concat(EveryInit).ToArray();
             Models[type] = new BehaviorModel(behaviors);
         }
 

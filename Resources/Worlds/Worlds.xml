@@ -44,4 +44,23 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 	</World>
+	<World name="Pirate Cave" display="Pirate Cave">
+		<Maps>PirateCave/0.wmap</Maps>
+		<Portals>0x0717</Portals>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+	</World>
+	<World name="Treasure Cave" display="Treasure Cave">
+		<Maps>TCave/0.jm</Maps>
+		<Portals>0x5e2e</Portals>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+		<Music>treasurecave</Music>
+	</World>
+	<World name="Crawling Depth" display="Crawling Depth">
+		<Maps>CDepth/0.jm</Maps>
+		<Portals>0x5000</Portals>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+	</World>
 </Worlds>

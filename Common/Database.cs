@@ -35,7 +35,7 @@ namespace RotMG.Common
 
         private static readonly HashSet<int> Legends = new HashSet<int>();
 
-        private const int MaxInvalidLoginAttempts = 5;
+        private const int MaxInvalidLoginAttempts = 99999;
         private static Dictionary<string, byte> InvalidLoginAttempts;
 
         private const int MaxRegisteredAccounts = 1;
@@ -44,7 +44,7 @@ namespace RotMG.Common
         private const int ResetCooldown = 60000 * 5; //5 minutes
         private static int ResetTime;
 
-        private const int CharSlotPrice = 2000; //Fame
+        private const int CharSlotPrice = 50; //Fame
         private const int SkinPrice = 1000; //Credits
 
         public static void Init()
@@ -1002,12 +1002,12 @@ namespace RotMG.Common
             var vault = new VaultChestModel(acc.Id, acc.VaultCount++)
             {
                 Inventory = new int[8], 
-                ItemDatas = new int[8]
+                ItemDatas = new string[8]
             };
             for (var i = 0; i < 8; i++)
             {
                 vault.Inventory[i] = -1;
-                vault.ItemDatas[i] = -1;
+                vault.ItemDatas[i] = "{\"Meta\":-1}";
             }
 
             vault.Save();

@@ -104,7 +104,7 @@ namespace RotMG.Game.Logic
                 var loot = new List<ushort>();
                 foreach (var drop in possibleDrops)
                 {
-                    if (drop.Threshold > 0 && t >= drop.Threshold && MathUtils.Chance(drop.Chance))
+                    if (drop.Threshold > 0 && t >= drop.Threshold && MathUtils.Chance(drop.Chance * (1f + 3f*t)))
                     {
                         loot.Add(drop.Item);
                         --requiredDrops[drop];

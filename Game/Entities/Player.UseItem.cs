@@ -58,7 +58,7 @@ namespace RotMG.Game.Entities
 #if DEBUG
                 Program.Print(PrintType.Error, "Invalid time useitem");
 #endif
-                Client.Disconnect();
+                //Client.Disconnect();
                 return;
             }
 

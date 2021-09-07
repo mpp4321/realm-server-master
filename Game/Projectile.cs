@@ -7,6 +7,7 @@ namespace RotMG.Game
 {
     public class Projectile
     {
+        public readonly Action<Entity> OnHitDelegate = null;
         public readonly Entity Owner;
         public readonly ProjectileDesc Desc;
         public readonly int Id;
@@ -17,7 +18,7 @@ namespace RotMG.Game
 
         public int Time;
 
-        public Projectile(Entity owner, ProjectileDesc desc, int id, int time, float angle, Vector2 startPos, int damage)
+        public Projectile(Entity owner, ProjectileDesc desc, int id, int time, float angle, Vector2 startPos, int damage, Action<Entity> hitDelegate=null)
         {
             Owner = owner;
             Desc = desc;
@@ -27,6 +28,7 @@ namespace RotMG.Game
             StartPosition = startPos;
             Damage = damage;
             Hit = new HashSet<int>();
+            OnHitDelegate = hitDelegate;
         }
 
         public bool CanHit(Entity en)

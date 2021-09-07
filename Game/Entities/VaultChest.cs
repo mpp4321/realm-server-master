@@ -1,4 +1,5 @@
 using RotMG.Common;
+using System.Linq;
 
 namespace RotMG.Game.Entities
 {
@@ -10,6 +11,7 @@ namespace RotMG.Game.Entities
         public VaultChest(VaultChestModel model) : base(0x0504, -1, null)
         {
             Inventory = model.Inventory;
+            ItemDatas = model.ItemDatas.Select(a => a == null ? new ItemDataJson() { Meta = -1 } : ItemDesc.ParseOrDefault(a)).ToArray();
             _model = model;
             UpdateInventory();
         }
@@ -17,6 +19,7 @@ namespace RotMG.Game.Entities
         public override void UpdateInventorySlot(int slot)
         {
             base.UpdateInventorySlot(slot);
+            _model.ItemDatas = ItemDatas.Select(a => ItemDesc.ExportItemDataJson(a)).ToArray();
             _model.Save();
         }
     }

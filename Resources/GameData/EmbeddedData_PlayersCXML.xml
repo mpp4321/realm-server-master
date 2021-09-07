@@ -22,7 +22,7 @@
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="0" max="2">Attack</LevelIncrease>
 		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
-		<LevelIncrease min="1" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="3" max="5">Speed</LevelIncrease>
 		<LevelIncrease min="1" max="2">Dexterity</LevelIncrease>
 		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
 		<LevelIncrease min="0" max="2">MpRegen</LevelIncrease>
@@ -49,7 +49,7 @@
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
 		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
-		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="3" max="5">Speed</LevelIncrease>
 		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
 		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
 		<LevelIncrease min="0" max="2">MpRegen</LevelIncrease>
@@ -76,7 +76,7 @@
 		<LevelIncrease min="5" max="15">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
 		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
-		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="3" max="5">Speed</LevelIncrease>
 		<LevelIncrease min="1" max="2">Dexterity</LevelIncrease>
 		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
 		<LevelIncrease min="0" max="2">MpRegen</LevelIncrease>
@@ -103,7 +103,7 @@
 		<LevelIncrease min="5" max="15">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="0" max="2">Attack</LevelIncrease>
 		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
-		<LevelIncrease min="1" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="3" max="5">Speed</LevelIncrease>
 		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
 		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
 		<LevelIncrease min="1" max="2">MpRegen</LevelIncrease>
@@ -130,7 +130,7 @@
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
 		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
-		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="3" max="5">Speed</LevelIncrease>
 		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
 		<LevelIncrease min="1" max="2">HpRegen</LevelIncrease>
 		<LevelIncrease min="0" max="2">MpRegen</LevelIncrease>
@@ -157,7 +157,7 @@
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
 		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
-		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="3" max="5">Speed</LevelIncrease>
 		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
 		<LevelIncrease min="1" max="2">HpRegen</LevelIncrease>
 		<LevelIncrease min="0" max="2">MpRegen</LevelIncrease>
@@ -184,7 +184,7 @@
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
 		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
-		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="3" max="5">Speed</LevelIncrease>
 		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
 		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
 		<LevelIncrease min="1" max="2">MpRegen</LevelIncrease>
@@ -211,7 +211,7 @@
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="0" max="2">Attack</LevelIncrease>
 		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
-		<LevelIncrease min="1" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="3" max="5">Speed</LevelIncrease>
 		<LevelIncrease min="1" max="2">Dexterity</LevelIncrease>
 		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
 		<LevelIncrease min="1" max="2">MpRegen</LevelIncrease>
@@ -238,7 +238,7 @@
 		<LevelIncrease min="5" max="15">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
 		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
-		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="3" max="5">Speed</LevelIncrease>
 		<LevelIncrease min="1" max="2">Dexterity</LevelIncrease>
 		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
 		<LevelIncrease min="1" max="2">MpRegen</LevelIncrease>
@@ -265,7 +265,7 @@
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
 		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
-		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="3" max="5">Speed</LevelIncrease>
 		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
 		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
 		<LevelIncrease min="0" max="2">MpRegen</LevelIncrease>
@@ -292,7 +292,7 @@
 		<LevelIncrease min="5" max="15">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
 		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
-		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="3" max="5">Speed</LevelIncrease>
 		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
 		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
 		<LevelIncrease min="1" max="2">MpRegen</LevelIncrease>
@@ -319,7 +319,7 @@
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
 		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
-		<LevelIncrease min="1" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="3" max="5">Speed</LevelIncrease>
 		<LevelIncrease min="1" max="2">Dexterity</LevelIncrease>
 		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
 		<LevelIncrease min="0" max="2">MpRegen</LevelIncrease>
@@ -346,7 +346,7 @@
 		<LevelIncrease min="5" max="15">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
 		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
-		<LevelIncrease min="1" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="3" max="5">Speed</LevelIncrease>
 		<LevelIncrease min="0" max="2">Dexterity</LevelIncrease>
 		<LevelIncrease min="1" max="2">HpRegen</LevelIncrease>
 		<LevelIncrease min="1" max="2">MpRegen</LevelIncrease>
@@ -374,9 +374,37 @@
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
 		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
-		<LevelIncrease min="0" max="2">Speed</LevelIncrease>
+		<LevelIncrease min="3" max="5">Speed</LevelIncrease>
 		<LevelIncrease min="1" max="2">Dexterity</LevelIncrease>
 		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
 		<LevelIncrease min="1" max="2">MpRegen</LevelIncrease>
 	</Object>
+	<Object type="0x0327" id="Freak">
+		<Class>Player</Class>
+		<Description>The freak depends on his bling and fingers.</Description>
+		<AnimatedTexture><File>players</File><Index>13</Index></AnimatedTexture>
+		<HitSound>player/rogue_hit</HitSound>
+		<DeathSound>player/rogue_death</DeathSound>
+		<Player/>
+		<BloodProb>1.0</BloodProb>
+		<SlotTypes>8, 9, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+		<Equipment>0xa04, 0xa4f, 0xa4f, 0xa4f, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1</Equipment>
+		<MaxHitPoints max="720">150</MaxHitPoints>
+		<MaxMagicPoints max="252">100</MaxMagicPoints>
+		<Attack max="70">15</Attack>
+		<Defense max="25">0</Defense>
+		<Speed max="60">10</Speed>
+		<Dexterity max="70">12</Dexterity>
+		<HpRegen max="70">10</HpRegen>
+		<MpRegen max="70">12</MpRegen>
+		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
+		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
+		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
+		<LevelIncrease min="0" max="0">Defense</LevelIncrease>
+		<LevelIncrease min="3" max="5">Speed</LevelIncrease>
+		<LevelIncrease min="1" max="2">Dexterity</LevelIncrease>
+		<LevelIncrease min="0" max="1">HpRegen</LevelIncrease>
+		<LevelIncrease min="1" max="2">MpRegen</LevelIncrease>
+	</Object>
+	
 </Objects>

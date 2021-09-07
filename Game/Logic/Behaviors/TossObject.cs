@@ -35,7 +35,7 @@ namespace RotMG.Game.Logic.Behaviors
         private readonly bool _throwEffect;
 
         public TossObject(string child, float range = 5, float? angle = null,
-            Cooldown coolDown = new Cooldown(), int coolDownOffset = 0, 
+            Cooldown cooldown = new Cooldown(), int coolDownOffset = 0, 
             bool tossInvis = false, float probability = 1, string group = null,
             float? minAngle = null, float? maxAngle = null,
             float? minRange = null, float? maxRange = null,
@@ -53,7 +53,7 @@ namespace RotMG.Game.Logic.Behaviors
             
             _range = range;
             _angle = angle * MathF.PI / 180;
-            _coolDown = coolDown.Normalize();
+            _coolDown = cooldown.Normalize();
             _coolDownOffset = coolDownOffset;
             _tossInvis = tossInvis;
             _probability = probability;
@@ -196,14 +196,17 @@ namespace RotMG.Game.Logic.Behaviors
 
                     });
                     cool = _coolDown.Next(Random);
+                    host.StateObject[Id] = cool;
+                    return true;
                 }
             }
             else
+            {
                 cool -= Settings.MillisecondsPerTick;
+            }
 
             host.StateObject[Id] = cool;
-
-            return true;
+            return false;
         }
     }
 }

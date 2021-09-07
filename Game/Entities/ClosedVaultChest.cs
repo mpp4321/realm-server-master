@@ -7,7 +7,7 @@ namespace RotMG.Game.Entities
     {
         public ClosedVaultChest() : base(0x0505)
         {
-            Price = 100;
+            Price = 5;
             Currency = Currency.Fame;
         }
 

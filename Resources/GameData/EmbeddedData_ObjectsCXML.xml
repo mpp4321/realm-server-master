@@ -648,6 +648,12 @@
         <DungeonName>Beachzone</DungeonName>
         <Texture><File>lofiObj3</File><Index>0x192</Index></Texture>
     </Object>
+	<Object type="0x5000" id="Crawling Depths Portal">
+        <Class>Portal</Class>
+        <IntergamePortal/>
+        <DungeonName>Crawling Depth</DungeonName>
+        <Texture><File>lofiObj3</File><Index>0x192</Index></Texture>
+    </Object>
     <Object type="0x0743" id="Gift Chest Closed">
         <Class>ClosedGiftChest</Class>
         <Texture><File>lofiObj2</File><Index>0x7e</Index></Texture>

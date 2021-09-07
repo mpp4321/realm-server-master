@@ -16,7 +16,7 @@ namespace RotMG.Game.Logic.Behaviors
 
         float probability = 1;
         bool broadcast = false;
-        Cooldown cooldown = new Cooldown(0, 0);
+        Cooldown cooldown = new Cooldown(1000, 500);
         string[] text;
         int? ordered;
 

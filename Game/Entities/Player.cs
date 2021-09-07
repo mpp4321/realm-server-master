@@ -9,7 +9,7 @@ namespace RotMG.Game.Entities
 {
     public partial class Player : Entity, IContainer
     {
-        private const int MaxLatencyMS = 2000;
+        private const int MaxLatencyMS = 4000;
         public const int MaxPotions = 6;
 
         public static int[] Stars = 

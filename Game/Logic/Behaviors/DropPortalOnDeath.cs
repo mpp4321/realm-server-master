@@ -15,7 +15,13 @@ namespace RotMG.Game.Logic.Behaviors
 
         public DropPortalOnDeath(string target, float probability = 1, int timeout = 30)
         {
-            _target = Resources.Id2Object[target].Type;
+
+            if (Resources.Id2Object.ContainsKey(target))
+            {
+                _target = Resources.Id2Object[target].Type;
+            }
+            else _target = 0x0717;
+
             _probability = probability;
             _timeout = timeout; // a value of 0 means never timeout, 
             // null means use xml timeout, 
@@ -37,7 +43,7 @@ namespace RotMG.Game.Logic.Behaviors
                     {
                         try
                         {
-                            host.Parent.RemoveEntity(entity);
+                            host.Parent?.RemoveEntity(entity);
                         }
                         catch
                         //couldn't remove portal, Owner became null. Should be fixed with RealmManager implementation

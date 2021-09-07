@@ -50,6 +50,7 @@ namespace RotMG.Game.Logic.Behaviors
 
         public override bool Tick(Entity host)
         {
+            var returnType = false;
             var state = host.StateObject[Id];
             FollowState s;
             if (state == null) s = new FollowState();
@@ -73,6 +74,7 @@ namespace RotMG.Game.Logic.Behaviors
                     }
                     else if (s.RemainingTime > 0)
                         s.RemainingTime -= Settings.MillisecondsPerTick;
+                    returnType = false;
                     break;
                 case F.Acquired:
                     if (player == null)
@@ -104,6 +106,7 @@ namespace RotMG.Game.Logic.Behaviors
                         s.State = F.Resting;
                         s.RemainingTime = 0;
                     }
+                    returnType = s.State == F.Acquired;
                     break;
                 case F.Resting:
                     if (player == null)
@@ -120,12 +123,13 @@ namespace RotMG.Game.Logic.Behaviors
                         s.RemainingTime = duration;
                         goto case F.Acquired;
                     }
+                    returnType = false;
                     break;
 
             }
 
             host.StateObject[Id] = s;
-            return true;
+            return s.State == F.Acquired;
         }
     }
 }

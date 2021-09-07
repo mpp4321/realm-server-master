@@ -26,6 +26,9 @@ namespace RotMG.Game.Logic.Behaviors
         public readonly int Cooldown;
         public int? DamageOverride = null;
 
+        public readonly ConditionEffectIndex[] effect; 
+        public readonly int effect_duration; 
+
         public Shoot(
             float range = 5, 
             byte count = 1, 
@@ -38,7 +41,9 @@ namespace RotMG.Game.Logic.Behaviors
             float predictive = 0,
             int cooldownOffset = 0,
             int cooldownVariance = 0,
-            int cooldown = 0)
+            int cooldown = 0,
+            ConditionEffectIndex[] effect = null,
+            int effect_duration = 0)
         {
             Range = range;
             Count = count;
@@ -52,6 +57,9 @@ namespace RotMG.Game.Logic.Behaviors
             CooldownOffset = cooldownOffset;
             CooldownVariance = cooldownVariance;
             Cooldown = cooldown;
+
+            this.effect = effect ?? new ConditionEffectIndex[] { };
+            this.effect_duration = effect_duration;
         }
 
         public override void Enter(Entity host)
@@ -123,7 +131,18 @@ namespace RotMG.Game.Logic.Behaviors
 
                     var projectiles = new List<Projectile>();
                     for (byte k = 0; k < count; k++)
-                        projectiles.Add(new Projectile(host, desc, startId + k, Manager.TotalTime, startAngle + ShootAngle * k, host.Position, damage));
+                    {
+                        var p = new Projectile(host, desc, startId + k, Manager.TotalTime, startAngle + ShootAngle * k, host.Position, damage, (e) => { 
+                            if(effect.Length > 0)
+                            {
+                                foreach(var eff in effect)
+                                {
+                                    e.ApplyConditionEffect(eff, effect_duration);
+                                }
+                            }
+                        });
+                        projectiles.Add(p);
+                    }
 
                     var packet = GameServer.EnemyShoot(startId, host.Id, desc.BulletType, host.Position, startAngle, (short)damage, count, ShootAngle);
                     

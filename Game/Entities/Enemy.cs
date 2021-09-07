@@ -65,7 +65,7 @@ namespace RotMG.Game.Entities
                         exp = Player.GetNextLevelEXP(player.Level) / 10;
                     if (player.GainEXP(exp))
                         foreach (var p in l)
-                            if (!p.Equals(player)) 
+                            if (!p?.Equals(player) ?? false) 
                                 (p as Player).FameStats.LevelUpAssists++;
                 }
             }
@@ -147,6 +147,8 @@ namespace RotMG.Game.Entities
                 throw new Exception("Projectile owner is not player");
 #endif
             (projectile.Owner as Player).FameStats.ShotsThatDamage++;
+            if(projectile.OnHitDelegate != null)
+                projectile.OnHitDelegate(this);
             return Damage(projectile.Owner as Player, projectile.Damage, projectile.Desc.Effects, projectile.Desc.ArmorPiercing);
         }
 

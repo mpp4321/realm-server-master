@@ -124,12 +124,12 @@ namespace RotMG.Game.Entities
 
         public float GetHPRegen()
         {
-            return 1 + GetStat(6) * .12f;
+            return 1 + GetStat(6) * .12f * 2f;
         }
 
         public float GetMPRegen()
         {
-            return 0.5f + GetStat(7) * .06f;
+            return 0.5f + GetStat(7) * .06f * 3f;
         }
 
         public bool CanMPRegen()

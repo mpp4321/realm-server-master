@@ -45,7 +45,7 @@ namespace RotMG.Game.Entities
 
     public partial class Player
     {
-        private const int TimeUntilAckTimeout = 2000;
+        private const int TimeUntilAckTimeout = 10000;
         private const int TickProjectilesDelay = 2000;
         private const float RateOfFireThreshold = 1.1f;
         private const float EnemyHitRangeAllowance = 1.7f;
@@ -406,6 +406,8 @@ namespace RotMG.Game.Entities
 
         public override bool HitByProjectile(Projectile projectile)
         {
+            if(projectile.OnHitDelegate != null)
+                projectile.OnHitDelegate(this);
             return Damage(Resources.Type2Object[projectile.Desc.ContainerType].DisplayId,
                    projectile.Damage, 
                    projectile.Desc.Effects, 

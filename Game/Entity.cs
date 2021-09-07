@@ -113,6 +113,7 @@ namespace RotMG.Game
         public ushort Type;
         public ObjectDesc Desc;
         public Vector2 Position;
+        public Vector2 SpawnPoint;
         public Chunk CurrentChunk;
         public World Parent;
 

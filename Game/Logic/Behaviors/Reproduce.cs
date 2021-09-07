@@ -25,21 +25,21 @@ namespace RotMG.Game.Logic.Behaviors
         public Reproduce(string children = null,
             float densityRadius = 10,
             int densityMax = 5,
-            Cooldown coolDown = new Cooldown(),
+            Cooldown cooldown = new Cooldown(),
             Region region = Region.None,
             double regionRange = 10)
         {
             _children = children == null ? null : (ushort?) Resources.Id2Object[children].Type;
             _densityRadius = densityRadius;
             _densityMax = densityMax;
-            _coolDown = coolDown.Normalize(60000);
+            _coolDown = cooldown.Normalize(60000);
             _region = region;
             _regionRange = regionRange;
         }
 
         public override void Enter(Entity host) {
 
-            host.StateCooldown.Add(Id, _coolDown.Next(_Random));
+            host.StateCooldown[Id] = _coolDown.Next(_Random);
 
             if (_region == Region.None)
                 return;

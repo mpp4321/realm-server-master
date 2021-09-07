@@ -605,7 +605,9 @@ namespace RotMG.Networking
 
                 var seed = (uint)MathUtils.NextInt(1, int.MaxValue - 1);
                 client.Random = new wRandom(seed);
+                Console.WriteLine("Sending mapinfo");
                 client.Send(MapInfo(world.Width, world.Height, world.Name, world.DisplayName, seed, world.Background, world.ShowDisplays, world.AllowTeleport, world.Music));
+                Console.WriteLine("Sent mapinfo");
                 client.State = ProtocolState.Awaiting; //Allow the processing of Load/Create.
             }
         }

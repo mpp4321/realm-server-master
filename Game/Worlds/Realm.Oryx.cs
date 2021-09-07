@@ -541,7 +541,9 @@ namespace RotMG.Game.Worlds
                     Tuple.Create("Rock Bot", 0.05),
                     Tuple.Create("Djinn", 0.09),
                     Tuple.Create("Leviathan", 0.09),
-                    Tuple.Create("Arena Headless Horseman", 0.04)
+                    Tuple.Create("Arena Headless Horseman", 0.04),
+                    Tuple.Create("Lucky Ent God", 0.01),
+                    Tuple.Create("Lucky Djinn", 0.01),
                 })
             },
         };

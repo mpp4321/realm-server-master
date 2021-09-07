@@ -461,6 +461,18 @@ namespace RotMG.Common
     public class ItemDesc
     {
 
+        public static ItemDataJson ParseOrDefault(string p)
+        {
+            try
+            {
+                var parsed = ParseItemDataJson(p);
+                return parsed;
+            } catch
+            {
+                return new ItemDataJson() { Meta = -1 };
+            }
+        }
+
         public static ItemDataJson ParseItemDataJson(string p)
         {
             if (p == null) return new ItemDataJson() { Meta = -1 };

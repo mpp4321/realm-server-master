@@ -155,7 +155,9 @@ namespace RotMG.Common
         public void Write(PacketWriter wtr)
         {
             wtr.Write(Item);
-            wtr.Write(Encoding.UTF8.GetBytes(ItemData));
+            var itemDataBytes = Encoding.UTF8.GetBytes(ItemData);
+            wtr.Write((short)itemDataBytes.Length);
+            wtr.Write(itemDataBytes);
             wtr.Write((int)SlotType);
             wtr.Write(Tradeable);
             wtr.Write(Included);
