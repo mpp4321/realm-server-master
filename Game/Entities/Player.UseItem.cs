@@ -51,6 +51,25 @@ namespace RotMG.Game.Entities
             Manager.AddTimedAction(2000, Client.Disconnect);
         }
 
+        public int ParseStatForScale(string val)
+        {
+            switch(val)
+            {
+                case "Attack": return GetStat(2);
+                case "Defense": return GetStat(3);
+                case "Speed": return GetStat(4);
+                case "Dexterity": return GetStat(5);
+                case "Vitality": return GetStat(6);
+                case "Wisdom": return GetStat(7);
+            }
+            return GetStat(7);
+        }
+
+        public static int StatScaling(int stat, float amount, int min, float scale)
+        {
+            return (int)(((stat - min) * scale) + amount);
+        }
+
         public void TryUseItem(int time, SlotData slot, Vector2 target)
         {
             if (!ValidTime(time))
@@ -164,15 +183,16 @@ namespace RotMG.Game.Entities
             Action callback = null;
             foreach (var eff in desc.ActivateEffects)
             {
+                var statForScale = ParseStatForScale(eff.StatForScale);
                 switch (eff.Index)
                 {
                     case ActivateEffectIndex.Heal:
                         if (!HasConditionEffect(ConditionEffectIndex.Sick))
-                            Heal(eff.Amount, false);
+                            Heal(StatScaling(statForScale, eff.Amount, eff.StatMin, eff.StatScale), false);
                         break;
                     case ActivateEffectIndex.Magic:
                         if (!HasConditionEffect(ConditionEffectIndex.Quiet))
-                            Heal(eff.Amount, true);
+                            Heal(StatScaling(statForScale, eff.Amount, eff.StatMin, eff.StatScale), true);
                         break;
                     case ActivateEffectIndex.IncrementStat:
                         if (eff.Stat == -1)
@@ -208,11 +228,12 @@ namespace RotMG.Game.Entities
                             var stars = new List<byte[]>();
                             var seeked = new HashSet<Entity>();
                             var startId = NextAEProjectileId;
-                            NextAEProjectileId += eff.Amount;
+                            var amt = StatScaling(statForScale, eff.Amount, eff.StatMin, eff.StatScale);
+                            NextAEProjectileId += amt;
 
                             var angle = Position.Angle(target);
                             var cone = MathF.PI / 8;
-                            for (var i = 0; i < eff.Amount; i++)
+                            for (var i = 0; i < amt; i++)
                             {
                                 var t = this.GetNearestEnemy(8, angle, cone, target, seeked) ?? this.GetNearestEnemy(6, seeked);
                                 if (t != null) seeked.Add(t);
@@ -243,27 +264,29 @@ namespace RotMG.Game.Entities
                     case ActivateEffectIndex.VampireBlast: //Maybe optimize this...?
                         if (inRange)
                         {
+                            var radius = StatScaling(statForScale, eff.Radius, eff.StatMin, eff.StatRangeScale);
                             var line = GameServer.ShowEffect(ShowEffectIndex.Line, Id, 0xFFFF0000 , target);
-                            var burst = GameServer.ShowEffect(ShowEffectIndex.Burst, Id, 0xFFFF0000, target, new Vector2(target.X + eff.Radius, target.Y));
+                            var burst = GameServer.ShowEffect(ShowEffectIndex.Burst, Id, 0xFFFF0000, target, new Vector2(target.X + radius, target.Y));
                             var lifeSucked = 0;
 
                             var enemies = new List<Entity>();
                             var players = new List<Entity>();
                             var flows = new List<byte[]>();
 
-                            foreach (var j in Parent.EntityChunks.HitTest(target, eff.Radius))
+                            foreach (var j in Parent.EntityChunks.HitTest(target, radius))
                             {
                                 if (j is Enemy k && 
                                     !k.HasConditionEffect(ConditionEffectIndex.Invincible) && 
                                     !k.HasConditionEffect(ConditionEffectIndex.Stasis))
                                 {
-                                    k.Damage(this, eff.TotalDamage, eff.Effects, true, true);
-                                    lifeSucked += eff.TotalDamage;
+                                    var dmg = StatScaling(statForScale, eff.TotalDamage, eff.StatMin, eff.StatScale);
+                                    k.Damage(this, dmg, eff.Effects, true, true);
+                                    lifeSucked += dmg;
                                     enemies.Add(k);
                                 }
                             }
 
-                            foreach (var j in Parent.PlayerChunks.HitTest(Position, eff.Radius))
+                            foreach (var j in Parent.PlayerChunks.HitTest(Position, radius))
                             {
                                 if (j is Player k)
                                 {
@@ -351,7 +374,9 @@ namespace RotMG.Game.Entities
                             {
                                 if (Parent != null)
                                 {
-                                    Parent.AddEntity(new Trap(this, eff.Radius, eff.TotalDamage, eff.Effects), target);
+                                    var radius = StatScaling(statForScale, eff.Radius, eff.StatMin, eff.StatRangeScale);
+                                    var tdamage = StatScaling(statForScale, eff.TotalDamage, eff.StatMin, eff.StatScale);
+                                    Parent.AddEntity(new Trap(this, radius, tdamage, eff.Effects), target);
                                 }
                             });
                         }
@@ -390,7 +415,8 @@ namespace RotMG.Game.Entities
                                 var targets = new HashSet<Entity>();
                                 var pkts = new List<byte[]>();
                                 targets.Add(current);
-                                (current as Enemy).Damage(this, eff.TotalDamage, eff.Effects, false, true);
+                                var dmg = StatScaling(statForScale, eff.TotalDamage, eff.StatMin, eff.StatScale); 
+                                (current as Enemy).Damage(this, dmg, eff.Effects, false, true);
                                 for (var i = 1; i < eff.MaxTargets + 1; i++)
                                 {
                                     pkts.Add(GameServer.ShowEffect(ShowEffectIndex.Lightning, prev.Id, 0xffff0088,
@@ -414,7 +440,7 @@ namespace RotMG.Game.Entities
                                     if (next == null) break;
 
                                     targets.Add(next);
-                                    (next as Enemy).Damage(this, eff.TotalDamage, eff.Effects, false, true);
+                                    (next as Enemy).Damage(this, dmg, eff.Effects, false, true);
                                     prev = current;
                                     current = next;
                                 }
@@ -453,7 +479,12 @@ namespace RotMG.Game.Entities
                                                 k.Client.Send(nova);
                                         foreach (var j in Parent.EntityChunks.HitTest(placeholder.Position, eff.Radius))
                                             if (j is Enemy e)
-                                                e.ApplyPoison(this, new ConditionEffectDesc[0], (int)(eff.TotalDamage / (eff.DurationMS / 1000f)), eff.TotalDamage);
+                                            {
+                                                var dmg = StatScaling(statForScale, eff.TotalDamage, eff.StatMin, eff.StatScale);
+                                                e.ApplyPoison(this, new ConditionEffectDesc[0], (int)(dmg
+                                                    / (StatScaling(statForScale, eff.DurationMS, eff.StatMin, eff.StatScale)
+                                                    / 1000f)), dmg);
+                                            }
                                     }
                                     placeholder.Parent.RemoveEntity(placeholder);
                                 }
@@ -462,13 +493,14 @@ namespace RotMG.Game.Entities
                         break;
                     case ActivateEffectIndex.HealNova:
                         {
-                            var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, Id, 0xffffffff, new Vector2(eff.Range, 0));
-                            foreach (var j in Parent.PlayerChunks.HitTest(Position, Math.Max(eff.Range, SightRadius)))
+                            var range = StatScaling(statForScale, eff.Range, eff.StatMin, eff.StatScale);
+                            var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, Id, 0xffffffff, new Vector2(range, 0));
+                            foreach (var j in Parent.PlayerChunks.HitTest(Position, Math.Max(range, SightRadius)))
                             {
                                 if (j is Player k)
                                 {
                                     if (Position.Distance(j) <= eff.Range)
-                                        k.Heal(eff.Amount, false);
+                                        k.Heal(StatScaling(statForScale, eff.Amount, eff.StatMin, eff.StatScale), false);
                                     if (k.Client.Account.Effects || k.Equals(this))
                                         k.Client.Send(nova);
                                 }
@@ -477,14 +509,15 @@ namespace RotMG.Game.Entities
                         break;
                     case ActivateEffectIndex.ConditionEffectAura:
                         {
+                            var range = StatScaling(statForScale, eff.Range, eff.StatMin, eff.StatScale);
                             var color = eff.Effect == ConditionEffectIndex.Damaging ? 0xffff0000 : 0xffffffff;
-                            var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, Id, color, new Vector2(eff.Range, 0));
-                            foreach (var j in Parent.PlayerChunks.HitTest(Position, Math.Max(eff.Range, SightRadius)))
+                            var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, Id, color, new Vector2(range, 0));
+                            foreach (var j in Parent.PlayerChunks.HitTest(Position, Math.Max(range, SightRadius)))
                             {
                                 if (j is Player k)
                                 {
                                     if (Position.Distance(j) <= eff.Range)
-                                        k.ApplyConditionEffect(eff.Effect, eff.DurationMS);
+                                        k.ApplyConditionEffect(eff.Effect, StatScaling(statForScale, eff.DurationMS, eff.StatMin, eff.StatDurationScale));
                                     if (k.Client.Account.Effects || k.Equals(this))
                                         k.Client.Send(nova);
                                 }
@@ -493,7 +526,7 @@ namespace RotMG.Game.Entities
                         break;
                     case ActivateEffectIndex.ConditionEffectSelf:
                         {
-                            ApplyConditionEffect(eff.Effect, eff.DurationMS);
+                            ApplyConditionEffect(eff.Effect, StatScaling(statForScale, eff.DurationMS, eff.StatMin, eff.StatDurationScale));
 
                             var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, Id, 0xffffffff, new Vector2(1, 0));
                             foreach (var j in Parent.PlayerChunks.HitTest(Position, SightRadius))
@@ -516,7 +549,7 @@ namespace RotMG.Game.Entities
                             Teleport(time, target, true);
                         break;
                     case ActivateEffectIndex.Decoy:
-                        Parent.AddEntity(new Decoy(this, Position.Angle(target), eff.DurationMS), Position);
+                        Parent.AddEntity(new Decoy(this, Position.Angle(target), StatScaling(statForScale, eff.DurationMS, eff.StatMin, eff.StatScale)), Position);
                         break;
                     case ActivateEffectIndex.BulletNova:
                         if (inRange)

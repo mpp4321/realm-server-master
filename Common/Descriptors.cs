@@ -427,6 +427,16 @@ namespace RotMG.Common
         public readonly uint? Color;
         public readonly int MaxTargets;
         public readonly int Stat;
+
+        public readonly bool UseWisMod = false;
+
+        public readonly string StatForScale;
+
+        public readonly float StatScale;
+        public readonly float StatDurationScale;
+        public readonly float StatRangeScale;
+
+        public readonly int StatMin;
         
         public ActivateEffectDesc(XElement e)
         {
@@ -440,6 +450,13 @@ namespace RotMG.Common
             Radius = e.ParseFloat("@radius");
             MaxTargets = e.ParseInt("@maxTargets");
             Stat = e.ParseInt("@stat", -1);
+
+            StatMin = e.ParseInt("@statMin", 0);
+            StatScale = e.ParseFloat("@statScale", 0.0f);
+            StatDurationScale = e.ParseFloat("@statDurationScale", 0.0f);
+            StatRangeScale = e.ParseFloat("@statRangeScale", 0.0f);
+            UseWisMod = e.ParseBool("useWisMod", false);
+            StatForScale = e.ParseString("statForScale", "Wisdom");
 
             Effects = new ConditionEffectDesc[1]
             {

@@ -3475,7 +3475,7 @@
         <Usable/>
         <BagType>0</BagType>
         <MpCost>70</MpCost>
-        <Activate effect="Healing" duration="5" range="5.5">ConditionEffectAura</Activate>
+        <Activate effect="Healing" duration="5" range="5.5" useWisMod="true" statDurationScale="2.0">ConditionEffectAura</Activate>
         <Activate effect="Damaging" duration="5" range="5.5">ConditionEffectAura</Activate>
     </Object>
     <Object type="0xad9" id="Seal of the Pilgrim">
