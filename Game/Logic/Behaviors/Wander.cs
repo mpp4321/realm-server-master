@@ -43,11 +43,5 @@ namespace RotMG.Game.Logic.Behaviors
             return true;
         }
 
-        public override void Exit(Entity host)
-        {
-            host.StateObject[Id] = null;
-        }
-
-        public override void Death(Entity host) { }
     }
 }

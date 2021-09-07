@@ -22,11 +22,11 @@ namespace RotMG.Game.Logic.Behaviors
         private readonly int? _amount;
         private readonly int? _mpHealAmount;
 
-        public HealEntity(float range, string name = null, int? healAmount = null, int? mpHealAmount = null, Cooldown coolDown = new Cooldown())
+        public HealEntity(float range, string name = null, int? healAmount = null, int? mpHealAmount = null, Cooldown cooldown = new Cooldown())
         {
             _range = range;
             _name = name;
-            _coolDown = coolDown.Normalize();
+            _coolDown = cooldown.Normalize();
             _amount = healAmount;
             _mpHealAmount = mpHealAmount;
         }

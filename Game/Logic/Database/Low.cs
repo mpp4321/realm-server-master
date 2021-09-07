@@ -49,8 +49,8 @@ namespace RotMG.Game.Logic.Database
                         new Follow(0.75f, range: 6),
                         new Wander(0.4f)
                         ),
-                    new Spawn("Hobbit Archer", maxChildren: 4, coolDown: 12000, givesNoXp: false),
-                    new Spawn("Hobbit Rogue", maxChildren: 3, coolDown: 6000, givesNoXp: false)
+                    new Spawn("Hobbit Archer", maxChildren: 4, cooldown: 12000, givesNoXp: false),
+                    new Spawn("Hobbit Rogue", maxChildren: 3, cooldown: 6000, givesNoXp: false)
                     ),
                 new TierLoot(2, LootType.Weapon, 0.3f),
                 new TierLoot(2, LootType.Armor, 0.3f),
@@ -120,8 +120,8 @@ namespace RotMG.Game.Logic.Database
                         new Follow(0.75f, range: 6),
                         new Wander(0.4f)
                         ),
-                    new Spawn("Undead Hobbit Archer", maxChildren: 4, coolDown: 12000, givesNoXp: false),
-                    new Spawn("Undead Hobbit Rogue", maxChildren: 3, coolDown: 6000, givesNoXp: false)
+                    new Spawn("Undead Hobbit Archer", maxChildren: 4, cooldown: 12000, givesNoXp: false),
+                    new Spawn("Undead Hobbit Rogue", maxChildren: 3, cooldown: 6000, givesNoXp: false)
                     ),
                 new TierLoot(3, LootType.Weapon, 0.3f),
                 new TierLoot(3, LootType.Armor, 0.3f),
@@ -183,7 +183,7 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new State("hurt",
                         new SetAltTexture(2),
-                        new Spawn("Lil Sumo", coolDown: 200),
+                        new Spawn("Lil Sumo", cooldown: 200),
                         new TimedTransition("awake", 1000)
                         ),
                     new State("awake",
@@ -256,9 +256,9 @@ namespace RotMG.Game.Logic.Database
                             ),
                         new TimedTransition("idle", 2000)
                         ),
-                    new Spawn("Elf Archer", maxChildren: 2, coolDown: 15000, givesNoXp: false),
-                    new Spawn("Elf Swordsman", maxChildren: 4, coolDown: 7000, givesNoXp: false),
-                    new Spawn("Elf Mage", maxChildren: 1, coolDown: 8000, givesNoXp: false)
+                    new Spawn("Elf Archer", maxChildren: 2, cooldown: 15000, givesNoXp: false),
+                    new Spawn("Elf Swordsman", maxChildren: 4, cooldown: 7000, givesNoXp: false),
+                    new Spawn("Elf Mage", maxChildren: 1, cooldown: 8000, givesNoXp: false)
                     ),
                 new TierLoot(2, LootType.Weapon, 0.36f),
                 new TierLoot(2, LootType.Armor, 0.36f),
@@ -363,8 +363,8 @@ namespace RotMG.Game.Logic.Database
                             new StayBack(0.5f, distance: 6)
                             )
                         ),
-                    new Spawn("Goblin Rogue", maxChildren: 7, coolDown: 12000, givesNoXp: false),
-                    new Spawn("Goblin Warrior", maxChildren: 7, coolDown: 12000, givesNoXp: false)
+                    new Spawn("Goblin Rogue", maxChildren: 7, cooldown: 12000, givesNoXp: false),
+                    new Spawn("Goblin Warrior", maxChildren: 7, cooldown: 12000, givesNoXp: false)
                     ),
                 new TierLoot(3, LootType.Weapon, 0.3f),
                 new TierLoot(3, LootType.Armor, 0.3f),
@@ -436,8 +436,8 @@ namespace RotMG.Game.Logic.Database
                         new Follow(0.6f, range: 4),
                         new Wander(0.4f)
                         ),
-                    new Spawn("Sandsman Archer", maxChildren: 2, coolDown: 10000, givesNoXp: false),
-                    new Spawn("Sandsman Sorcerer", maxChildren: 3, coolDown: 8000, givesNoXp: false)
+                    new Spawn("Sandsman Archer", maxChildren: 2, cooldown: 10000, givesNoXp: false),
+                    new Spawn("Sandsman Sorcerer", maxChildren: 3, cooldown: 8000, givesNoXp: false)
                     ),
                 new TierLoot(3, LootType.Weapon, 0.3f),
                 new TierLoot(3, LootType.Armor, 0.3f),

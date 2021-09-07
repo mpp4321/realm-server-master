@@ -130,7 +130,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Bandit Leader",
                 new State(
                     "base",
-                    new Spawn("Bandit Enemy", coolDown: 8000, maxChildren: 4, givesNoXp: false),
+                    new Spawn("Bandit Enemy", cooldown: 8000, maxChildren: 4, givesNoXp: false),
                     new State("bold",
                         new State("warn_about_grenades",
                             new Taunt(0.15, "Catch!"),

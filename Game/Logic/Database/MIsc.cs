@@ -14,7 +14,7 @@ namespace RotMG.Game.Logic.Database
         {
             db.Init("White Fountain", new State(
                     "base",
-                    new HealEntity(12, "Players", healAmount: 500, mpHealAmount: 500, coolDown: 100)
+                    new HealEntity(12, "Players", healAmount: 500, mpHealAmount: 500, cooldown: 100)
                 ));
 
             db.EveryInit = new MobDrop[] {

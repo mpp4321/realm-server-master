@@ -68,7 +68,7 @@ namespace RotMG.Game.Logic.Database
                 new State("base",
                     new DropPortalOnDeath("Spider Den Portal", 0.1f),
                     new Shoot(3),
-                    new Spawn("Orc Queen", maxChildren: 2, coolDown: 60000, givesNoXp: false),
+                    new Spawn("Orc Queen", maxChildren: 2, cooldown: 60000, givesNoXp: false),
                     new Prioritize(
                         new StayAbove(1.4f, 60),
                         new Follow(0.6f, range: 1, duration: 3000, coolDown: 3000),
@@ -85,8 +85,8 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Orc Queen",
                 new State("base",
-                    new Spawn("Orc Mage", maxChildren: 2, coolDown: 8000, givesNoXp: false),
-                    new Spawn("Orc Warrior", maxChildren: 3, coolDown: 8000, givesNoXp: false),
+                    new Spawn("Orc Mage", maxChildren: 2, cooldown: 8000, givesNoXp: false),
+                    new Spawn("Orc Warrior", maxChildren: 3, cooldown: 8000, givesNoXp: false),
                     new Prioritize(
                         new StayAbove(1.4f, 60),
                         new Protect(0.8f, "Orc King", acquireRange: 11, protectionRange: 7, reprotectRange: 5.4f),
@@ -187,8 +187,8 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Wasp Queen",
                 new State("base",
-                    new Spawn("Worker Wasp", maxChildren: 5, coolDown: 3400, givesNoXp: false),
-                    new Spawn("Warrior Wasp", maxChildren: 2, coolDown: 4400, givesNoXp: false),
+                    new Spawn("Worker Wasp", maxChildren: 5, cooldown: 3400, givesNoXp: false),
+                    new Spawn("Warrior Wasp", maxChildren: 2, cooldown: 4400, givesNoXp: false),
                     new State("idle",
                         new StayAbove(0.4f, 60),
                         new Wander(0.55f),
@@ -513,9 +513,9 @@ namespace RotMG.Game.Logic.Database
             db.Init("Werelion",
                 new State("base",
                     new DropPortalOnDeath("Spider Den Portal", 0.1f),
-                    new Spawn("Weretiger", maxChildren: 1, coolDown: 23000, givesNoXp: false),
-                    new Spawn("Wereleopard", maxChildren: 2, coolDown: 9000, givesNoXp: false),
-                    new Spawn("Werepanther", maxChildren: 3, coolDown: 15000, givesNoXp: false),
+                    new Spawn("Weretiger", maxChildren: 1, cooldown: 23000, givesNoXp: false),
+                    new Spawn("Wereleopard", maxChildren: 2, cooldown: 9000, givesNoXp: false),
+                    new Spawn("Werepanther", maxChildren: 3, cooldown: 15000, givesNoXp: false),
                     new Shoot(4, cooldown: 2000),
                     new State("idle",
                         new Prioritize(
@@ -612,7 +612,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Horned Drake",
                 new State("base",
-                    new Spawn("Drake Baby", maxChildren: 1, initialSpawn: 1, coolDown: 50000, givesNoXp: false),
+                    new Spawn("Drake Baby", maxChildren: 1, initialSpawn: 1, cooldown: 50000, givesNoXp: false),
                     new State("idle",
                         new StayAbove(0.8f, 60),
                         new PlayerWithinTransition(10, "get_player")

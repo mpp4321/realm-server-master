@@ -92,9 +92,9 @@ namespace RotMG.Game.Logic.Database
             db.Init("Ogre King",
                 new State("base",
                     new DropPortalOnDeath("Snake Pit Portal", 20, timeout: 100),
-                    new Spawn("Ogre Warrior", 4, coolDown: 12000),
-                    new Spawn("Ogre Mage", 2, coolDown: 16000),
-                    new Spawn("Ogre Wizard", 2, coolDown: 20000),
+                    new Spawn("Ogre Warrior", 4, cooldown: 12000),
+                    new Spawn("Ogre Mage", 2, cooldown: 16000),
+                    new Spawn("Ogre Wizard", 2, cooldown: 20000),
                     new State("idle",
                         new Prioritize(
                             new StayAbove(0.3f, 160),
@@ -438,7 +438,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Flamer King",
                 new State("base",
-                    new Spawn("Flamer", 5, coolDown: 10000),
+                    new Spawn("Flamer", 5, cooldown: 10000),
                     new State("Attacking",
                         new State("Charge",
                             new Follow(0.7f, range: 0.1f),

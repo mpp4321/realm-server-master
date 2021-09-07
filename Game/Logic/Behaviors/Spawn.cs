@@ -20,13 +20,15 @@ namespace RotMG.Game.Logic.Behaviors
         private readonly int _initialSpawn;
         private Cooldown _coolDown;
         private readonly ushort _children;
+        private readonly float dispersion;
 
-        public Spawn(string children, int maxChildren = 5, double initialSpawn = 0.5, Cooldown coolDown = new Cooldown(), bool givesNoXp = true)
+        public Spawn(string children, int maxChildren = 5, double initialSpawn = 0.5, Cooldown cooldown = new Cooldown(), bool givesNoXp = true, float dispersion=0.0f)
         {
             _children = Resources.Id2Object[children].Type;
             _maxChildren = maxChildren;
             _initialSpawn = (int)(maxChildren * initialSpawn);
-            _coolDown = coolDown.Normalize(0);
+            _coolDown = cooldown.Normalize(0);
+            this.dispersion = dispersion;
         }
 
         public override void Enter(Entity host)
@@ -51,7 +53,9 @@ namespace RotMG.Game.Logic.Behaviors
                     enemyEntity.Terrain = enemyHost.Terrain;
                 }
 
-                host.Parent.AddEntity(entity, host.Position);
+                Func<int> gen = () => (_Random.Next(1) == 1 ? -1 : 1);
+                var vectDispersion = new Vector2(gen() * dispersion, gen() * dispersion);
+                host.Parent.AddEntity(entity, host.Position + vectDispersion);
                 (host.StateObject[Id] as SpawnState).CurrentNumber++;
             }
         }
@@ -67,7 +71,10 @@ namespace RotMG.Game.Logic.Behaviors
             {
                 Entity entity = Entity.Resolve(_children);
                 entity.Parent = host.Parent;
-                host.Parent.AddEntity(entity, host.Position);
+
+                Func<int> gen = () => (_Random.Next(1) == 1 ? -1 : 1);
+                var vectDispersion = new Vector2(gen() * dispersion, gen() * dispersion);
+                host.Parent.AddEntity(entity, host.Position + vectDispersion);
 
                 var enemyHost = host as Enemy;
                 var enemyEntity = entity as Enemy;

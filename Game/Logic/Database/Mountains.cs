@@ -307,15 +307,15 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Rock Bot",
                 new State("base",
-                    new Spawn("Paper Bot", maxChildren: 1, initialSpawn: 1, coolDown: 10000, givesNoXp: false),
-                    new Spawn("Steel Bot", maxChildren: 1, initialSpawn: 1, coolDown: 10000, givesNoXp: false),
+                    new Spawn("Paper Bot", maxChildren: 1, initialSpawn: 1, cooldown: 10000, givesNoXp: false),
+                    new Spawn("Steel Bot", maxChildren: 1, initialSpawn: 1, cooldown: 10000, givesNoXp: false),
                     new Swirl(speed: 0.6f, radius: 3, targeted: false),
                     new State("Waiting",
                         new PlayerWithinTransition(15, "Attacking")
                         ),
                     new State("Attacking",
                         new Shoot(8, cooldown: 2000),
-                        new HealEntity(8, "Papers", coolDown: 1000),
+                        new HealEntity(8, "Papers", cooldown: 1000),
                         new Taunt(0.5f, "We are impervious to non-mystic attacks!"),
                         new TimedTransition("Waiting", 10000)
                         )
@@ -339,7 +339,7 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new State("Attack",
                         new Shoot(8, count: 3, shootAngle: 20, cooldown: 800),
-                        new HealEntity(8, "Steels", coolDown: 1000),
+                        new HealEntity(8, "Steels", cooldown: 1000),
                         new NoPlayerWithinTransition(30, "Idle"),
                         new HealthTransition(0.2f, "Explode")
                         ),
@@ -366,7 +366,7 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new State("Attack",
                         new Shoot(8, count: 3, shootAngle: 20, cooldown: 800),
-                        new HealEntity(8, "Rocks", coolDown: 1000),
+                        new HealEntity(8, "Rocks", cooldown: 1000),
                         new Taunt(0.5f, "Silly squishy. We heal our brothers in a circle."),
                         new NoPlayerWithinTransition(30, "Idle"),
                         new HealthTransition(0.2f, "Explode")

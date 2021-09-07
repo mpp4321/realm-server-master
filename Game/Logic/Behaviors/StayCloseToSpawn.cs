@@ -30,7 +30,7 @@ namespace RotMG.Game.Logic.Behaviors
             if (host.HasConditionEffect(ConditionEffectIndex.Paralyzed))
                 return false;
 
-            if (!(host.StateObject[Id] is Vector2))
+            if (!(host.StateObject.GetValueOrDefault(Id) is Vector2))
             {
                 host.StateObject[Id] = host.Position;
                 return false;

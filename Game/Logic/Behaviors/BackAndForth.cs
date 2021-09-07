@@ -20,7 +20,8 @@ namespace RotMG.Game.Logic.Behaviors
 
         public override void Enter(Entity host)
         {
-            host.StateObject[Id] = null;
+            if(!host.StateObject.ContainsKey(Id))
+                host.StateObject[Id] = null;
         }
 
         public override bool Tick(Entity host)
