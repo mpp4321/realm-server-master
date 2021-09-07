@@ -65,9 +65,14 @@ namespace RotMG.Game.Entities
             return GetStat(7);
         }
 
+        public static float StatScalingF(int stat, float amount, int min, float scale)
+        {
+            return (MathF.Max(0, (stat - min)) * scale) + amount;
+        }
+
         public static int StatScaling(int stat, float amount, int min, float scale)
         {
-            return (int)(((stat - min) * scale) + amount);
+            return (int) StatScalingF(stat, amount, min, scale);
         }
 
         public void TryUseItem(int time, SlotData slot, Vector2 target)
@@ -264,7 +269,7 @@ namespace RotMG.Game.Entities
                     case ActivateEffectIndex.VampireBlast: //Maybe optimize this...?
                         if (inRange)
                         {
-                            var radius = StatScaling(statForScale, eff.Radius, eff.StatMin, eff.StatRangeScale);
+                            var radius = StatScalingF(statForScale, eff.Radius, eff.StatMin, eff.StatRangeScale);
                             var line = GameServer.ShowEffect(ShowEffectIndex.Line, Id, 0xFFFF0000 , target);
                             var burst = GameServer.ShowEffect(ShowEffectIndex.Burst, Id, 0xFFFF0000, target, new Vector2(target.X + radius, target.Y));
                             var lifeSucked = 0;
@@ -374,7 +379,7 @@ namespace RotMG.Game.Entities
                             {
                                 if (Parent != null)
                                 {
-                                    var radius = StatScaling(statForScale, eff.Radius, eff.StatMin, eff.StatRangeScale);
+                                    var radius = StatScalingF(statForScale, eff.Radius, eff.StatMin, eff.StatRangeScale);
                                     var tdamage = StatScaling(statForScale, eff.TotalDamage, eff.StatMin, eff.StatScale);
                                     Parent.AddEntity(new Trap(this, radius, tdamage, eff.Effects), target);
                                 }
@@ -493,7 +498,7 @@ namespace RotMG.Game.Entities
                         break;
                     case ActivateEffectIndex.HealNova:
                         {
-                            var range = StatScaling(statForScale, eff.Range, eff.StatMin, eff.StatScale);
+                            var range = StatScalingF(statForScale, eff.Range, eff.StatMin, eff.StatRangeScale);
                             var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, Id, 0xffffffff, new Vector2(range, 0));
                             foreach (var j in Parent.PlayerChunks.HitTest(Position, Math.Max(range, SightRadius)))
                             {
@@ -509,7 +514,7 @@ namespace RotMG.Game.Entities
                         break;
                     case ActivateEffectIndex.ConditionEffectAura:
                         {
-                            var range = StatScaling(statForScale, eff.Range, eff.StatMin, eff.StatScale);
+                            var range = StatScalingF(statForScale, eff.Range, eff.StatMin, eff.StatRangeScale);
                             var color = eff.Effect == ConditionEffectIndex.Damaging ? 0xffff0000 : 0xffffffff;
                             var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, Id, color, new Vector2(range, 0));
                             foreach (var j in Parent.PlayerChunks.HitTest(Position, Math.Max(range, SightRadius)))
