@@ -2503,7 +2503,7 @@
         <Consumable/>
         <Potion/>
         <BagType>0</BagType>
-        <Activate range="10" amount="100">HealNova</Activate>
+        <Activate range="10" amount="100" useWisMod="true" statMin="30" statScale="10.0">HealNova</Activate>
     </Object>
     <Object type="0x707" id="Healing Ichor">
         <Class>Equipment</Class>
@@ -3356,7 +3356,7 @@
         <Usable/>
         <BagType>0</BagType>
         <MpCost>60</MpCost>
-        <Activate range="5" amount="100">HealNova</Activate>
+        <Activate range="5" amount="100" useWisMod="true" statMin="30" statScale="1.0">HealNova</Activate>
     </Object>
     <Object type="0xad7" id="Remedy Tome">
         <Class>Equipment</Class>
@@ -3369,7 +3369,7 @@
         <Usable/>
         <BagType>0</BagType>
         <MpCost>65</MpCost>
-        <Activate range="5.5" amount="130">HealNova</Activate>
+        <Activate range="5.5" amount="130" useWisMod="true" statMin="30" statScale="2.0">HealNova</Activate>
     </Object>
     <Object type="0xa32" id="Spirit Salve Tome">
         <Class>Equipment</Class>
@@ -3382,7 +3382,7 @@
         <Usable/>
         <BagType>0</BagType>
         <MpCost>70</MpCost>
-        <Activate range="6" amount="165">HealNova</Activate>
+        <Activate range="6" amount="165" useWisMod="true" statMin="30" statScale="2.0">HealNova</Activate>
     </Object>
     <Object type="0xad8" id="Tome of Rejuvenation">
         <Class>Equipment</Class>
@@ -3396,7 +3396,7 @@
         <BagType>1</BagType>
         <FameBonus>1</FameBonus>
         <MpCost>75</MpCost>
-        <Activate range="6.5" amount="205">HealNova</Activate>
+        <Activate range="6.5" amount="205" useWisMod="true" statMin="30" statScale="3.0">HealNova</Activate>
     </Object>
     <Object type="0xa33" id="Tome of Renewing">
         <Class>Equipment</Class>
@@ -3410,7 +3410,7 @@
         <BagType>1</BagType>
         <FameBonus>2</FameBonus>
         <MpCost>80</MpCost>
-        <Activate range="7" amount="250">HealNova</Activate>
+        <Activate range="7" amount="250" useWisMod="true" statMin="30" statScale="4.0">HealNova</Activate>
     </Object>
     <Object type="0xa5b" id="Tome of Divine Favor">
         <Class>Equipment</Class>
@@ -3424,7 +3424,7 @@
         <BagType>2</BagType>
         <FameBonus>3</FameBonus>
         <MpCost>85</MpCost>
-        <Activate range="8" amount="300">HealNova</Activate>
+        <Activate range="8" amount="300" useWisMod="true" statMin="30" statScale="5.0">HealNova</Activate>
     </Object>
     <Object type="0xb25" id="Tome of Holy Guidance">
         <Class>Equipment</Class>
@@ -3440,7 +3440,7 @@
         <BagType>2</BagType>
         <FameBonus>4</FameBonus>
         <MpCost>85</MpCost>
-        <Activate range="8" amount="300">HealNova</Activate>
+        <Activate range="8" amount="300" useWisMod="true" statMin="30" statScale="6.0">HealNova</Activate>
     </Object>
     <Object type="0xa50" id="Pirate Rum">
         <Class>Equipment</Class>
@@ -3475,7 +3475,7 @@
         <Usable/>
         <BagType>0</BagType>
         <MpCost>70</MpCost>
-        <Activate effect="Healing" duration="5" range="5.5" useWisMod="true" statDurationScale="2.0">ConditionEffectAura</Activate>
+        <Activate effect="Healing" duration="5" range="5.5">ConditionEffectAura</Activate>
         <Activate effect="Damaging" duration="5" range="5.5">ConditionEffectAura</Activate>
     </Object>
     <Object type="0xad9" id="Seal of the Pilgrim">
@@ -4635,7 +4635,7 @@
         <Usable/>
         <BagType>0</BagType>
         <MpCost>30</MpCost>
-        <Activate radius="2.5" totalDamage="150" duration="5">PoisonGrenade</Activate>
+        <Activate radius="2.5" totalDamage="150" duration="5" useWisMod="true" statMin="30" statScale="10.0">PoisonGrenade</Activate>
     </Object>
     <Object type="0xaa4" id="Spider Venom">
         <Class>Equipment</Class>
@@ -4647,7 +4647,7 @@
         <Usable/>
         <BagType>0</BagType>
         <MpCost>45</MpCost>
-        <Activate radius="3" totalDamage="250" duration="5.5">PoisonGrenade</Activate>
+        <Activate radius="3" totalDamage="250" duration="5.5" useWisMod="true" statMin="30" statScale="20.0">PoisonGrenade</Activate>
     </Object>
     <Object type="0xaa5" id="Pit Viper Poison">
         <Class>Equipment</Class>
@@ -4659,7 +4659,7 @@
         <Usable/>
         <BagType>0</BagType>
         <MpCost>65</MpCost>
-        <Activate radius="3.5" totalDamage="400" duration="6">PoisonGrenade</Activate>
+        <Activate radius="3.5" totalDamage="400" duration="6" useWisMod="true" statMin="30" statScale="30.0">PoisonGrenade</Activate>
     </Object>
     <Object type="0xaa6" id="Stingray Poison">
         <Class>Equipment</Class>
@@ -4672,7 +4672,7 @@
         <BagType>1</BagType>
         <FameBonus>1</FameBonus>
         <MpCost>80</MpCost>
-        <Activate radius="4" totalDamage="550" duration="6.5">PoisonGrenade</Activate>
+        <Activate radius="4" totalDamage="550" duration="6.5" useWisMod="true" statMin="30" statScale="40.0">PoisonGrenade</Activate>
     </Object>
     <Object type="0xaa7" id="Felwasp Toxin">
         <Class>Equipment</Class>
@@ -4685,7 +4685,7 @@
         <BagType>1</BagType>
         <FameBonus>2</FameBonus>
         <MpCost>95</MpCost>
-        <Activate radius="4.5" totalDamage="700" duration="7">PoisonGrenade</Activate>
+        <Activate radius="4.5" totalDamage="700" duration="7" useWisMod="true" statMin="30" statScale="50.0">PoisonGrenade</Activate>
     </Object>
     <Object type="0xaa8" id="Nightwing Venom">
         <Class>Equipment</Class>
@@ -4698,7 +4698,7 @@
         <BagType>2</BagType>
         <FameBonus>3</FameBonus>
         <MpCost>110</MpCost>
-        <Activate radius="5" totalDamage="900" duration="7.5">PoisonGrenade</Activate>
+        <Activate radius="5" totalDamage="900" duration="7.5" useWisMod="true" statMin="30" statScale="60.0">PoisonGrenade</Activate>
     </Object>
     <Object type="0xb2a" id="Baneserpent Poison">
         <Class>Equipment</Class>
@@ -4713,7 +4713,7 @@
         <BagType>2</BagType>
         <FameBonus>4</FameBonus>
         <MpCost>110</MpCost>
-        <Activate radius="5" totalDamage="900" duration="7.5">PoisonGrenade</Activate>
+        <Activate radius="5" totalDamage="900" duration="7.5" useWisMod="true" statMin="30" statScale="70.0">PoisonGrenade</Activate>
     </Object>
     <Object type="0xaaa" id="Necrotic Skull">
         <Class>Equipment</Class>
@@ -4725,7 +4725,7 @@
         <Usable/>
         <BagType>0</BagType>
         <MpCost>40</MpCost>
-        <Activate radius="2.5" totalDamage="25">VampireBlast</Activate>
+        <Activate radius="2.5" totalDamage="25" useWisMod="true" statMin="30" statScale="5.0">VampireBlast</Activate>
     </Object>
     <Object type="0xaab" id="Breathtaker Skull">
         <Class>Equipment</Class>
@@ -4737,7 +4737,7 @@
         <Usable/>
         <BagType>0</BagType>
         <MpCost>60</MpCost>
-        <Activate radius="2.75" totalDamage="45">VampireBlast</Activate>
+        <Activate radius="2.75" totalDamage="45" useWisMod="true" statMin="30" statScale="10.0">VampireBlast</Activate>
     </Object>
     <Object type="0xaac" id="Heartstealer Skull">
         <Class>Equipment</Class>
@@ -4749,7 +4749,7 @@
         <Usable/>
         <BagType>0</BagType>
         <MpCost>80</MpCost>
-        <Activate radius="3" totalDamage="70">VampireBlast</Activate>
+        <Activate radius="3" totalDamage="70" useWisMod="true" statMin="30" statScale="15.0">VampireBlast</Activate>
     </Object>
     <Object type="0xaad" id="Soul Siphon Skull">
         <Class>Equipment</Class>
@@ -4762,7 +4762,7 @@
         <BagType>1</BagType>
         <FameBonus>1</FameBonus>
         <MpCost>100</MpCost>
-        <Activate radius="3.25" totalDamage="100">VampireBlast</Activate>
+        <Activate radius="3.25" totalDamage="100" useWisMod="true" statMin="30" statScale="20.0">VampireBlast</Activate>
     </Object>
     <Object type="0xaae" id="Essence Tap Skull">
         <Class>Equipment</Class>
@@ -4775,7 +4775,7 @@
         <BagType>1</BagType>
         <FameBonus>2</FameBonus>
         <MpCost>120</MpCost>
-        <Activate radius="3.5" totalDamage="125">VampireBlast</Activate>
+        <Activate radius="3.5" totalDamage="125" useWisMod="true" statMin="30" statScale="25.0">VampireBlast</Activate>
     </Object>
     <Object type="0xaaf" id="Lifedrinker Skull">
         <Class>Equipment</Class>
@@ -4788,7 +4788,7 @@
         <BagType>2</BagType>
         <FameBonus>3</FameBonus>
         <MpCost>140</MpCost>
-        <Activate radius="3.75" totalDamage="150">VampireBlast</Activate>
+        <Activate radius="3.75" totalDamage="150" useWisMod="true" statMin="30" statScale="30.0">VampireBlast</Activate>
     </Object>
     <Object type="0xb2b" id="Bloodsucker Skull">
         <Class>Equipment</Class>
@@ -4803,7 +4803,7 @@
         <BagType>2</BagType>
         <FameBonus>4</FameBonus>
         <MpCost>140</MpCost>
-        <Activate radius="3.75" totalDamage="150">VampireBlast</Activate>
+        <Activate radius="3.75" totalDamage="150" useWisMod="true" statMin="30" statScale="35.0">VampireBlast</Activate>
     </Object>
     
     <Object type="0x911" id="Skull of Endless Torment">
@@ -5659,7 +5659,7 @@
         <BagType>4</BagType>
         <FameBonus>6</FameBonus>
         <MpCost>100</MpCost>
-        <Activate amount="250" range="6">HealNova</Activate>
+        <Activate amount="250" range="6" useWisMod="true" statMin="30" statScale="3.0">HealNova</Activate>
         <Activate effect="Armored" duration="4">ConditionEffectSelf</Activate>
     </Object>
 
@@ -5676,7 +5676,7 @@
         <BagType>4</BagType>
         <FameBonus>6</FameBonus>
         <MpCost>100</MpCost>
-        <Activate amount="250" range="6">HealNova</Activate>
+        <Activate amount="250" range="6" useWisMod="true" statMin="30" statScale="3.0">HealNova</Activate>
         <Activate range="6" effect="Speedy" checkExistingEffect="Hexed">ClearConditionEffectAura</Activate>
         <Activate range="6">RemoveNegativeConditions</Activate>
     </Object>
