@@ -3,6 +3,7 @@ using RotMG.Networking;
 using RotMG.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RotMG.Game.Entities
 {
@@ -66,6 +67,7 @@ namespace RotMG.Game.Entities
         public int[,] TileUpdates;
         public Dictionary<int, int> EntityUpdates;
         public HashSet<Entity> Entities;
+        public HashSet<int> ToRemoveFromClient = new HashSet<int>();
         public HashSet<IntPoint> CalculatedSightCircle;
 
         public void SendNewTick()
@@ -91,8 +93,10 @@ namespace RotMG.Game.Entities
 
             var tiles = new List<TileData>();
             var adds = new List<ObjectDefinition>();
-            var drops = new List<ObjectDrop>();
-            var droppedIds = new HashSet<int>();
+
+            var drops = ToRemoveFromClient.Select(a => new ObjectDrop() { Id=a, Explode=Dead }).ToList();
+            var droppedIds = ToRemoveFromClient.ToHashSet();
+            ToRemoveFromClient.Clear();
 
             if (nUpdate)
             {

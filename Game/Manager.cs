@@ -81,7 +81,14 @@ namespace RotMG.Game
         public static void RemoveWorld(World world)
         {
             if (!world.IsTemplate)
-                world.Portal?.Parent.RemoveEntity(world.Portal);
+            {
+                if (world.Portal?.Parent == null) {
+                    var v = world.Portal?.LastWorldID ?? -1;
+                    if(v != -1)
+                        Worlds[v].RemoveEntity(world.Portal);
+                } else
+                    world.Portal?.Parent?.RemoveEntity(world.Portal);
+            }
             world.Dispose();
             Worlds.Remove(world.Id);
             if (world is Realm)

@@ -125,9 +125,9 @@
 		<DeathSound>monster/flying_brain_death</DeathSound>
 		<Size>140</Size>
 		<ShadowSize>100</ShadowSize>
-		<MaxHitPoints>4200</MaxHitPoints>
+		<MaxHitPoints>8200</MaxHitPoints>
 		<Defense>15</Defense>
-		<XpMult>0.85</XpMult>
+		<XpMult>10.85</XpMult>
 		
 		<God/>
 		<StasisImmune/>
@@ -157,18 +157,8 @@
 			<Speed>60</Speed>
 			<Size>80</Size>
 			<LifetimeMS>1200</LifetimeMS>
+			<ConditionEffect duration="5">Bleeding</ConditionEffect>
 		</Projectile>
-			
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	</Object>
 	
 	<Object type="0x0dc4" id="Boss Totem">
@@ -183,23 +173,18 @@
 		<Size>120</Size>
 		<ShadowSize>80</ShadowSize>
 		<OccupySquare/>
+		<MaxHitPoints>1200</MaxHitPoints>
+		<Defense>5</Defense>
+		<XpMult>2.85</XpMult>
 		
 		<Projectile id="0">
 			<ObjectId>Totem Fire Wall</ObjectId>
 			<Damage>50</Damage>
-			<Speed>40</Speed>
+			<Speed>30</Speed>
 			<Size>100</Size>
-			<LifetimeMS>1600</LifetimeMS>
+			<LifetimeMS>500</LifetimeMS>
 			<PassesCover/>
 		</Projectile>
-		
-		
-		
-		
-		
-		
-		
-		
 		
 	</Object>
 	
@@ -316,7 +301,7 @@
 		
 		<Projectile id="0">
 			<ObjectId>Ghost Shot</ObjectId>
-			<Damage>25</Damage>
+			<Damage>100</Damage>
 			<Speed>45</Speed>
 			<Size>90</Size>
 			<LifetimeMS>1000</LifetimeMS>
@@ -366,7 +351,7 @@
 		
 		<Projectile id="0">
 			<ObjectId>Basilisk Acid</ObjectId>
-			<Damage>30</Damage>
+			<Damage>40</Damage>
 			<Speed>65</Speed>
 			<Size>100</Size>
 			<LifetimeMS>1000</LifetimeMS>
@@ -392,7 +377,7 @@
 		
 		<Projectile id="0">
 			<ObjectId>Basilisk Acid</ObjectId>
-			<Damage>30</Damage>
+			<Damage>60</Damage>
 			<Speed>65</Speed>
 			<Size>100</Size>
 			<LifetimeMS>1000</LifetimeMS>
@@ -402,7 +387,7 @@
 		
 		<Projectile id="1">
 			<ObjectId>Basilisk Beam</ObjectId>
-			<Damage>30</Damage>
+			<Damage>60</Damage>
 			<Speed>38</Speed>
 			<Size>80</Size>
 			<LifetimeMS>800</LifetimeMS>
@@ -411,7 +396,7 @@
 		
 		<Projectile id="2">
 			<ObjectId>Basilisk Beam</ObjectId>
-			<Damage>35</Damage>
+			<Damage>90</Damage>
 			<Speed>45</Speed>
 			<Size>130</Size>
 			<LifetimeMS>800</LifetimeMS>
@@ -420,7 +405,7 @@
 		
 		<Projectile id="3">
 			<ObjectId>Basilisk Beam</ObjectId>
-			<Damage>45</Damage>
+			<Damage>100</Damage>
 			<Speed>55</Speed>
 			<Size>180</Size>
 			<LifetimeMS>800</LifetimeMS>
@@ -447,7 +432,7 @@
 		
 		<Projectile id="0">
 			<ObjectId>Shaman Star</ObjectId>
-			<Damage>10</Damage>
+			<Damage>0</Damage>
 			<Speed>45</Speed>
 			<Size>80</Size>
 			<LifetimeMS>1000</LifetimeMS>
@@ -469,19 +454,16 @@
 		<DeathSound>monster/flying_brain_death</DeathSound>
 		<Size>100</Size>
 		<ShadowSize>100</ShadowSize>
-		<MaxHitPoints>300</MaxHitPoints>
+		<MaxHitPoints>600</MaxHitPoints>
 		<Defense>20</Defense>
-		
 		
 		<Projectile id="0">
 			<ObjectId>Mask Blast</ObjectId>
-			<Damage>10</Damage>
+			<Damage>200</Damage>
 			<Speed>30</Speed>
-			<Size>80</Size>
+			<Size>160</Size>
 			<LifetimeMS>800</LifetimeMS>
 		</Projectile>
-			
-		
 	</Object>
 	
 	<Object type="0x0dd2" id="Mask Hunter">
@@ -500,7 +482,7 @@
 		
 		<Projectile id="0">
 			<ObjectId>Hunter Spear</ObjectId>
-			<Damage>25</Damage>
+			<Damage>45</Damage>
 			<Speed>60</Speed>
 			<Size>80</Size>
 			<LifetimeMS>1000</LifetimeMS>

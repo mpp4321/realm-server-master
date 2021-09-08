@@ -619,7 +619,7 @@ namespace RotMG.Common
             return ((ItemData)data & i) != 0;
         }
 
-        public Tuple<bool, ItemData> Roll()
+        public Tuple<bool, ItemData> Roll(float modifier=1f, int shift=0)
         {
             ItemData data = 0;
             if (!ModifiableTypes.Contains(SlotType))
@@ -628,11 +628,11 @@ namespace RotMG.Common
             if (!MathUtils.Chance(.5f))
                 return Tuple.Create(false, data);
 
-            var rank = -1;
-            var chance = .5f;
+            var rank = -1 + shift;
+            var chance = .5f * modifier;
             for (var i = 0; i < 8; i++)
             {
-                if (MathUtils.Chance(chance))
+                if (MathUtils.Chance(chance) && rank < 9)
                     rank++;
                 else break;
             }
@@ -691,6 +691,7 @@ namespace RotMG.Common
         public readonly int Tex1;
         public readonly int Tex2;
         public readonly int Doses;
+        public readonly string UniqueEffect;
 
         public readonly KeyValuePair<int, int>[] StatBoosts;
         public readonly ActivateEffectDesc[] ActivateEffects;
@@ -719,6 +720,7 @@ namespace RotMG.Common
             Soulbound = e.ParseBool("Soulbound");
             CooldownMS = (int)(e.ParseFloat("Cooldown", .2f) * 1000);
             Resurrects = e.ParseBool("Resurrects");
+            UniqueEffect = e.ParseString("UniqueEffect", null);
             Tex1 = (int)e.ParseUInt("Tex1");
             Tex2 = (int)e.ParseUInt("Tex2");
 

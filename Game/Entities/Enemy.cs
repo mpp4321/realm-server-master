@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using RotMG.Game.Worlds;
+using RotMG.Game.Logic.ItemEffs;
 
 namespace RotMG.Game.Entities
 {
@@ -47,6 +48,8 @@ namespace RotMG.Game.Entities
 #if DEBUG
             if (killer == null)
                 throw new Exception("Undefined killer");
+            if (Dead == true)
+                throw new Exception("Already dead");
 #endif
 
             if (Parent is Realm realm)
@@ -104,6 +107,11 @@ namespace RotMG.Game.Entities
                 throw new Exception("Undefined hitter");
 #endif
 
+            if (Dead)
+            {
+
+                return false;
+            }
 
             foreach (var eff in effects)
                 ApplyConditionEffect(eff.Effect, eff.DurationMS);
@@ -149,6 +157,13 @@ namespace RotMG.Game.Entities
             (projectile.Owner as Player).FameStats.ShotsThatDamage++;
             if(projectile.OnHitDelegate != null)
                 projectile.OnHitDelegate(this);
+
+            if(projectile.UniqueEffects != null)
+            {
+                foreach(var eff in projectile.UniqueEffects)
+                    ItemHandlerRegistry.Registry[eff].OnEnemyHit(this, projectile);
+            }
+
             return Damage(projectile.Owner as Player, projectile.Damage, projectile.Desc.Effects, projectile.Desc.ArmorPiercing);
         }
 

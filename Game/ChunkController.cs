@@ -82,7 +82,7 @@ namespace RotMG.Game
         public void Remove(Entity en)
         {
 #if DEBUG
-            if (en == null)
+            if (en == null) 
                 throw new Exception("Entity is undefined.");
             if (en.CurrentChunk == null)
                 throw new Exception("Chunk is undefined.");

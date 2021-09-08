@@ -115,7 +115,16 @@ namespace RotMG.Game
         public Vector2 Position;
         public Vector2 SpawnPoint;
         public Chunk CurrentChunk;
-        public World Parent;
+
+        public int LastWorldID = -1;
+
+        private World _world;
+
+        public World Parent { get => _world ?? Manager.Worlds.GetValueOrDefault(LastWorldID); set {
+                _world = value;
+                LastWorldID = _world?.Id ?? LastWorldID;
+            }
+        }
 
         public BehaviorModel Behavior;
         public List<State> CurrentStates;

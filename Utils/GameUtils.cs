@@ -11,7 +11,7 @@ namespace RotMG.Utils
         public static int GetDefenseDamage(this Entity entity, int damage, int defense, bool pierces)
         {
 #if DEBUG
-            if (entity == null || entity.Parent == null)
+            if (entity == null)
                 throw new Exception("Undefined entity");
 #endif
             if (pierces)

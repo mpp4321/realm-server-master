@@ -1,4 +1,5 @@
 ﻿using RotMG.Common;
+using RotMG.Game.Logic.ItemEffs;
 using RotMG.Networking;
 using RotMG.Utils;
 using System;
@@ -181,6 +182,16 @@ namespace RotMG.Game.Entities
                     Program.Print(PrintType.Error, "Not enough MP");
 #endif
                     return;
+                }
+
+                var itemId = Inventory[slot.SlotId];
+                var itemData = ItemDatas[slot.SlotId];
+                var itemDesc = Resources.Type2Item[(ushort)(itemId)];
+                var uef = itemDesc.UniqueEffect;
+
+                if(ItemHandlerRegistry.Registry.ContainsKey(uef))
+                {
+                    ItemHandlerRegistry.Registry[uef].OnAbilityUse(target, itemDesc, itemData);
                 }
             }
 

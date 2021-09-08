@@ -16,13 +16,18 @@ namespace RotMG.Game.Logic
         public readonly float Chance;
         public readonly int Min;
 
-        public LootDef(string item, float chance = 1, float threshold = 0, int min = 0)
+        public readonly float ModifyRarityTier;
+        public readonly int BaseRarityShift;
+
+        public LootDef(string item, float chance = 1, float threshold = 0, int min = 0, int rarityShift = 0, float rarityModifier = 1f)
         {
             if(item != null)
                 Item = Resources.IdLower2Item[item.ToLower()].Type;
             Threshold = threshold;
             Chance = chance;
             Min = min;
+            ModifyRarityTier = rarityModifier;
+            BaseRarityShift = rarityShift;
         }
     }
     

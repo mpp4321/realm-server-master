@@ -1,4 +1,5 @@
 ﻿using RotMG.Common;
+using RotMG.Game.Logic.ItemEffs;
 using RotMG.Networking;
 using RotMG.Utils;
 using System;
@@ -131,6 +132,9 @@ namespace RotMG.Game.Entities
 #if DEBUG
                     Program.Print(PrintType.Error, "Invalid enemy target");
 #endif
+                    //Add entity to remove next update call
+                    ToRemoveFromClient.Add(targetId);
+
                     return;
                 }
                 var elapsed = time - p.Time;
@@ -269,7 +273,9 @@ namespace RotMG.Game.Entities
                     for (var i = 0; i < numShots; i++)
                     {
                         var damage = (int)(GetNextDamageSeeded(desc.Projectile.MinDamage, desc.Projectile.MaxDamage, ItemDatas[1]) * GetAttackMultiplier());
+                        //var uneffs = this.Inventory.Take(4).Select(a => Resources.Type2Item[Convert.ToUInt16(a)].UniqueEffect).Where(a => a != null).ToArray();
                         var projectile = new Projectile(this, desc.Projectile, startId - i, time, angle + arcGap * i, pos, damage);
+
                         ShotProjectiles.Add(projectile.Id, projectile);
                     }
 
@@ -298,7 +304,8 @@ namespace RotMG.Game.Entities
                     for (var i = 0; i < numShots; i++)
                     {
                         var damage = (int)(GetNextDamageSeeded(desc.Projectile.MinDamage, desc.Projectile.MaxDamage, ItemDatas[0]) * GetAttackMultiplier());
-                        var projectile = new Projectile(this, desc.Projectile, startId - i, time, angle + arcGap * i, pos, damage);
+                        var uneffs = this.Inventory.Take(4).Select(a => a > 0 ? Resources.Type2Item[(ushort)a].UniqueEffect : null).Where(a => a != null).ToArray();
+                        var projectile = new Projectile(this, desc.Projectile, startId - i, time, angle + arcGap * i, pos, damage, uniqueEff: uneffs);
                         ShotProjectiles.Add(projectile.Id, projectile);
                     }
 
@@ -408,6 +415,11 @@ namespace RotMG.Game.Entities
         {
             if(projectile.OnHitDelegate != null)
                 projectile.OnHitDelegate(this);
+            if(projectile.UniqueEffects != null)
+            {
+                foreach(var eff in projectile.UniqueEffects)
+                    ItemHandlerRegistry.Registry[eff].OnHitByEnemy(this, projectile.Owner, projectile);
+            }
             return Damage(Resources.Type2Object[projectile.Desc.ContainerType].DisplayId,
                    projectile.Damage, 
                    projectile.Desc.Effects, 

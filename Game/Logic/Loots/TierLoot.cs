@@ -15,7 +15,7 @@ namespace RotMG.Game.Logic.Loots
             Potion
         }
 
-        public TierLoot(byte tier, LootType type, float chance = 1, float threshold = 0, int min = 0)
+        public TierLoot(byte tier, LootType type, float chance = 1, float threshold = 0, int min = 0, float rm = 1.0f, int rs=0)
         {
             ItemType[] types = new ItemType[0];
             switch (type)
@@ -59,7 +59,7 @@ namespace RotMG.Game.Logic.Loots
                     item.Id,
                     chance / items.Length,
                     threshold,
-                    min));
+                    min, rs, rm));
             }
         }
     }

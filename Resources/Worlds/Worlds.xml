@@ -63,4 +63,10 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 	</World>
+	<World name="Forbidden Jungle" display="Forbidden Jungle">
+		<Maps>ForbiddenJungle/0.jm</Maps>
+		<Portals>0x0733</Portals>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+	</World>
 </Worlds>
