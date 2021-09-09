@@ -149,16 +149,16 @@ namespace RotMG.Game.Logic
                 }
             }
 
-            AddBagsToWorld(enemy, publicLoot, privateLoot);
+            AddBagsToWorld(enemy, publicLoot, privateLoot, killer);
         }
 
-        private void AddBagsToWorld(Enemy enemy, List<ushort> publicLoot, Dictionary<Player, List<ushort>> playerLoot)
+        private void AddBagsToWorld(Enemy enemy, List<ushort> publicLoot, Dictionary<Player, List<ushort>> playerLoot, Player killer)
         {
             foreach (var (player, loot) in playerLoot)
             {
                 ShowBags(enemy, loot, player, player.AccountId);
             }
-            ShowBags(enemy, publicLoot, null, -1);
+            ShowBags(enemy, publicLoot, killer, -1);
         }
 
         private void ShowBags(Enemy enemy, List<ushort> loot, Player player, int ownerId)
@@ -184,9 +184,11 @@ namespace RotMG.Game.Logic
                 var c = new Container(Container.FromBagType(bagType), ownerId, 40000 * bagType);
                 for (var k = 0; k < bagCount; k++)
                 {
-                    var roll = Resources.Type2Item[loot[k]].Roll();
+                    ItemDataModType vtype = ItemDataModType.Classical;
+                    Enum.TryParse<ItemDataModType>(player?.Client?.Character.ItemDataModifier, out vtype);
+                    var roll = Resources.Type2Item[loot[k]].Roll(smod: vtype);
                     c.Inventory[k] = loot[k];
-                    c.ItemDatas[k] = new ItemDataJson() { Meta = roll.Item1 ? (int)roll.Item2 : -1 };
+                    c.ItemDatas[k] = roll.Item1 ? roll.Item2 : new ItemDataJson() { Meta=-1 };
                     c.UpdateInventorySlot(k);
                 }
                 loot.RemoveRange(0, bagCount);

@@ -25,6 +25,7 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(3, LootType.Ring, 0.05f),
                 new TierLoot(1, LootType.Ability, 0.1f),
                 new TierLoot(2, LootType.Ability, 0.05f),
+                new DropPortalOnDeath("Pirate Cave Portal", 0.01f)
             };
 
             db.Init("Hobbit Mage",

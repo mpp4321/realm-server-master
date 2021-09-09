@@ -120,6 +120,8 @@ namespace RotMG.Game
 
         private World _world;
 
+        public World ParentNullable { get => _world; }
+
         public World Parent { get => _world ?? Manager.Worlds.GetValueOrDefault(LastWorldID); set {
                 _world = value;
                 LastWorldID = _world?.Id ?? LastWorldID;

@@ -198,7 +198,7 @@ namespace RotMG.Game.Entities
 
                 if (en.Desc.Static)
                 {
-                    if (en.Parent == null || !SightCircle.Contains(point))
+                    if (en.ParentNullable == null || !SightCircle.Contains(point))
                     {
                         drops.Add(en.GetObjectDrop());
                         droppedIds.Add(en.Id);
@@ -207,7 +207,7 @@ namespace RotMG.Game.Entities
                 }
                 else
                 {
-                    if (en.Parent == null || !sight.Contains(point) && !en.Desc.Player && en != Quest)
+                    if (en.ParentNullable == null || !sight.Contains(point) && !en.Desc.Player && en != Quest)
                     {
                         drops.Add(en.GetObjectDrop());
                         droppedIds.Add(en.Id);

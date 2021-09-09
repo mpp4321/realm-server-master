@@ -39,7 +39,7 @@ namespace RotMG.Game.Logic.Behaviors
 
             Entity e = entity != null ? 
                 GameUtils.GetNearestEntity(host, distance, Resources.Id2Object[entity].Type) : 
-                GameUtils.GetNearestEntity(host, distance);
+                GameUtils.GetNearestPlayer(host, distance);
 
             if (e != null)
             {

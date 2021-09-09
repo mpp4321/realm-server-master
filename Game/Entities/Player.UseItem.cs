@@ -189,7 +189,7 @@ namespace RotMG.Game.Entities
                 var itemDesc = Resources.Type2Item[(ushort)(itemId)];
                 var uef = itemDesc.UniqueEffect;
 
-                if(ItemHandlerRegistry.Registry.ContainsKey(uef))
+                if(uef != null && ItemHandlerRegistry.Registry.ContainsKey(uef))
                 {
                     ItemHandlerRegistry.Registry[uef].OnAbilityUse(target, itemDesc, itemData);
                 }
@@ -642,6 +642,12 @@ namespace RotMG.Game.Entities
                         //     if (nearbyPlayers.Contains(player))
                         //         player.Client.Send(notif);
                         // }
+                        break;
+                    case ActivateEffectIndex.ItemDataModifier:
+                        SaveToCharacter();
+                        Client.Character.ItemDataModifier = eff.StatForScale;
+                        Client.Character.Save();
+                        SendInfo("Your luck begins to change.");
                         break;
 #if DEBUG
                     default:

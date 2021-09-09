@@ -106,7 +106,7 @@ namespace RotMG.Game.SetPieces
                     var pt = new IntPoint();
                     Rect rect;
 
-                    var max = 50;
+                    var max = 100;
                     do
                     {
                         pt.X = MathUtils.Next(world.Width);

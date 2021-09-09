@@ -458,7 +458,9 @@ namespace RotMG.Game
                 throw new Exception("Entity is null.");
             if (en.Id == 0)
                 throw new Exception("Entity has not been added yet.");
-#endif     
+#endif
+            if (en == null || EntityChunks == null) return;
+
             if (en is StaticObject)
             {
                 Statics.Remove(en.Id);
@@ -466,35 +468,40 @@ namespace RotMG.Game
                 return;
             }
 
-            if (en is Player)
+            try
             {
-                Players.Remove(en.Id);
-                PlayerChunks.Remove(en);
-            }
-            else if (en is Decoy)
-            {
-                Entities.Remove(en.Id);
-                PlayerChunks.Remove(en);
-            }
-            else
-            {
-                Entities.Remove(en.Id);
-                EntityChunks.Remove(en);
-
-                if (en.Desc.Quest)
+                if (en is Player)
                 {
-                    Quests.Remove(en.Id);
-                    foreach (var player in Players.Values)
-                        player.TryGetNextQuest(en);
-                    
+                    Players.Remove(en?.Id ?? 0);
+                    PlayerChunks?.Remove(en);
                 }
-            }
+                else if (en is Decoy)
+                {
+                    Entities.Remove(en.Id);
+                    PlayerChunks?.Remove(en);
+                }
+                else
+                {
+                    Entities.Remove(en.Id);
+                    EntityChunks.Remove(en);
 
-            if (Constants.ContainsKey(en.Id))
+                    if (en.Desc.Quest)
+                    {
+                        Quests.Remove(en.Id);
+                        foreach (var player in Players.Values)
+                            player.TryGetNextQuest(en);
+
+                    }
+                }
+
+                if (Constants.ContainsKey(en.Id))
+                {
+                    Constants.Remove(en.Id);
+                }
+            } catch
             {
-                Constants.Remove(en.Id);
+                Console.WriteLine("Failed to remove entity, may have been removed already");
             }
-
             en.Dispose();
         }
 

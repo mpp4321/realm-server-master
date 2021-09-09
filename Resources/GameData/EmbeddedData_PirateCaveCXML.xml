@@ -9,16 +9,15 @@
 		<DeathSound>monster/pirate_king_death</DeathSound>
 		<Size>80</Size>
 		<MaxHitPoints>800</MaxHitPoints>
-		<Defense>3</Defense>
+		<Defense>8</Defense>
 		<Quest/>
-		<StasisImmune/>
 		<Level>1</Level>
 		<XpMult>0.8</XpMult>
 		<NoArticle/>
 		
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
-			<Damage>17</Damage>
+			<Damage>20</Damage>
 			<Speed>75</Speed>
 			<LifetimeMS>1500</LifetimeMS>
 		</Projectile>
@@ -28,7 +27,12 @@
 			<Speed>130</Speed>
 			<LifetimeMS>1100</LifetimeMS>
 		</Projectile>
-        
+        <Projectile id="2">
+			<ObjectId>Blade</ObjectId>
+			<Damage>10</Damage>
+			<Speed>100</Speed>
+			<LifetimeMS>1500</LifetimeMS>
+		</Projectile>
 		
 		
 	</Object>
@@ -43,13 +47,13 @@
 		<HitSound>monster/pirates_hit</HitSound>
 		<DeathSound>monster/pirates_death</DeathSound>
 		<Size>105</Size>
-		<MaxHitPoints>65</MaxHitPoints>
-		<Defense>0</Defense>
+		<MaxHitPoints>120</MaxHitPoints>
+		<Defense>2</Defense>
 		<Projectile id="0">
 			<ObjectId>Black Ball</ObjectId>
-			<Damage>8</Damage>
+			<Damage>10</Damage>
 			<Speed>180</Speed>
-			<LifetimeMS>500</LifetimeMS>
+			<LifetimeMS>250</LifetimeMS>
 		</Projectile>
 	</Object>
 	<Object type="0x684" id="Pirate Commander">
@@ -60,13 +64,13 @@
 		<HitSound>monster/pirates_hit</HitSound>
 		<DeathSound>monster/pirates_death</DeathSound>
 		<Size>110</Size>
-		<MaxHitPoints>75</MaxHitPoints>
-		<Defense>0</Defense>
+		<MaxHitPoints>150</MaxHitPoints>
+		<Defense>2</Defense>
 		<Projectile id="0">
 			<ObjectId>Black Ball</ObjectId>
-			<Damage>10</Damage>
+			<Damage>15</Damage>
 			<Speed>180</Speed>
-			<LifetimeMS>500</LifetimeMS>
+			<LifetimeMS>250</LifetimeMS>
 		</Projectile>
 	</Object>
 	<Object type="0x685" id="Pirate Captain">
@@ -77,13 +81,13 @@
 		<HitSound>monster/pirates_hit</HitSound>
 		<DeathSound>monster/pirates_death</DeathSound>
 		<Size>115</Size>
-		<MaxHitPoints>85</MaxHitPoints>
-		<Defense>0</Defense>
+		<MaxHitPoints>150</MaxHitPoints>
+		<Defense>1</Defense>
 		<Projectile id="0">
-			<ObjectId>Black Ball</ObjectId>
-			<Damage>12</Damage>
+			<ObjectId>Blade</ObjectId>
+			<Damage>8</Damage>
 			<Speed>180</Speed>
-			<LifetimeMS>500</LifetimeMS>
+			<LifetimeMS>200</LifetimeMS>
 		</Projectile>
 	</Object>
 	<Object type="0x686" id="Pirate Admiral">
@@ -94,11 +98,11 @@
 		<HitSound>monster/pirates_hit</HitSound>
 		<DeathSound>monster/pirates_death</DeathSound>
 		<Size>120</Size>
-		<MaxHitPoints>95</MaxHitPoints>
-		<Defense>0</Defense>
+		<MaxHitPoints>120</MaxHitPoints>
+		<Defense>1</Defense>
 		<Projectile id="0">
 			<ObjectId>Black Ball</ObjectId>
-			<Damage>14</Damage>
+			<Damage>6</Damage>
 			<Speed>180</Speed>
 			<LifetimeMS>500</LifetimeMS>
 		</Projectile>
@@ -111,7 +115,7 @@
 		<HitSound>monster/cave_pirates_hit</HitSound>
 		<DeathSound>monster/cave_pirates_death</DeathSound>
 		<Size>100</Size>
-		<MaxHitPoints>10</MaxHitPoints>
+		<MaxHitPoints>100</MaxHitPoints>
 		<Defense>0</Defense>
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
@@ -128,7 +132,7 @@
 		<HitSound>monster/cave_pirates_hit</HitSound>
 		<DeathSound>monster/cave_pirates_death</DeathSound>
 		<Size>100</Size>
-		<MaxHitPoints>15</MaxHitPoints>
+		<MaxHitPoints>45</MaxHitPoints>
 		<Defense>0</Defense>
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
@@ -145,7 +149,7 @@
 		<HitSound>monster/cave_pirates_hit</HitSound>
 		<DeathSound>monster/cave_pirates_death</DeathSound>
 		<Size>100</Size>
-		<MaxHitPoints>20</MaxHitPoints>
+		<MaxHitPoints>80</MaxHitPoints>
 		<Defense>0</Defense>
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
@@ -164,6 +168,12 @@
 		<Size>100</Size>
 		<MaxHitPoints>5</MaxHitPoints>
 		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>6</Damage>
+			<Speed>60</Speed>
+			<LifetimeMS>600</LifetimeMS>
+		</Projectile>
 	</Object>
 	<Object type="0x68b" id="Cave Pirate Parrot">
 		<Group>Cave Pirate Pets</Group>
@@ -173,8 +183,14 @@
 		<HitSound>monster/cave_pirates_hit</HitSound>
 		<DeathSound>monster/cave_pirates_death</DeathSound>
 		<Size>70</Size>
-		<MaxHitPoints>5</MaxHitPoints>
+		<MaxHitPoints>50</MaxHitPoints>
 		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>4</Damage>
+			<Speed>180</Speed>
+			<LifetimeMS>150</LifetimeMS>
+		</Projectile>
 	</Object>
 	<Object type="0x68c" id="Cave Pirate Macaw">
 		<Group>Cave Pirate Pets</Group>
@@ -184,8 +200,14 @@
 		<HitSound>monster/cave_pirates_hit</HitSound>
 		<DeathSound>monster/cave_pirates_death</DeathSound>
 		<Size>70</Size>
-		<MaxHitPoints>5</MaxHitPoints>
+		<MaxHitPoints>50</MaxHitPoints>
 		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>4</Damage>
+			<Speed>180</Speed>
+			<LifetimeMS>150</LifetimeMS>
+		</Projectile>
 	</Object>
 	<Object type="0x68d" id="Cave Pirate Monkey">
 		<Group>Cave Pirate Pets</Group>
@@ -197,6 +219,12 @@
 		<Size>70</Size>
 		<MaxHitPoints>5</MaxHitPoints>
 		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Blade</ObjectId>
+			<Damage>7</Damage>
+			<Speed>180</Speed>
+			<LifetimeMS>350</LifetimeMS>
+		</Projectile>
 	</Object>
 	<Object type="0x68e" id="Cave Pirate Hunchback">
 		<Group>Cave Pirate Pets</Group>

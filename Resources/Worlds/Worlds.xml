@@ -45,7 +45,7 @@
 		<BlockSight>1</BlockSight>
 	</World>
 	<World name="Pirate Cave" display="Pirate Cave">
-		<Maps>PirateCave/0.wmap</Maps>
+		<Maps>PirateCave/0.jm</Maps>
 		<Portals>0x0717</Portals>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>

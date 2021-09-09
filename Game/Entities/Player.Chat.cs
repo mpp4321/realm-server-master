@@ -275,9 +275,9 @@ namespace RotMG.Game.Entities
                             {
                                 var i = Inventory[slot];
                                 var roll = Resources.Type2Item[(ushort)i].Roll();
-                                while ((roll.Item2 & ItemData.T7) == 0)
+                                while (((ItemData)roll.Item2.Meta & ItemData.T7) == 0)
                                     roll = Resources.Type2Item[(ushort)i].Roll();
-                                ItemDatas[slot] = new ItemDataJson() { Meta = !roll.Item1 ? -1 : (int)roll.Item2 };
+                                ItemDatas[slot] = !roll.Item1 ? new ItemDataJson() { Meta = -1 } : roll.Item2;
                                 UpdateInventorySlot(slot);
                                 RecalculateEquipBonuses();
                             }
@@ -292,7 +292,7 @@ namespace RotMG.Game.Entities
                                 {
                                     var roll = Resources.Type2Item[(ushort)Inventory[k]].Roll();
                                     var i = Inventory[k];
-                                    ItemDatas[k] = new ItemDataJson() { Meta = !roll.Item1 ? -1 : (int)roll.Item2 };
+                                    ItemDatas[k] = !roll.Item1 ? new ItemDataJson() { Meta=-1} : roll.Item2;
                                     UpdateInventorySlot(k);
                                     RecalculateEquipBonuses();
                                 }

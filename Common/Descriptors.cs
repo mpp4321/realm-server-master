@@ -137,7 +137,8 @@ namespace RotMG.Common
         Shuriken,
         DazeBlast,
         Backpack,
-        PermaPet
+        PermaPet,
+        ItemDataModifier
     }
 
     public enum ShowEffectIndex
@@ -456,7 +457,7 @@ namespace RotMG.Common
             StatDurationScale = e.ParseFloat("@statDurationScale", 0.0f);
             StatRangeScale = e.ParseFloat("@statRangeScale", 0.0f);
             UseWisMod = e.ParseBool("useWisMod", false);
-            StatForScale = e.ParseString("statForScale", "Wisdom");
+            StatForScale = e.ParseString("@statForScale", "Wisdom");
 
             Effects = new ConditionEffectDesc[1]
             {
@@ -472,11 +473,137 @@ namespace RotMG.Common
     {
 
         public int Meta { get; set; } = -1;
+        public Dictionary<ulong, int> ExtraStatBonuses = new Dictionary<ulong, int>();
+        
+        public int GetStatBonus(ItemData k)
+        {
+            if (ExtraStatBonuses == null) ExtraStatBonuses = new Dictionary<ulong, int>();
+            return ExtraStatBonuses.ContainsKey((ulong)k) 
+                ? ExtraStatBonuses[(ulong)k] 
+                : 0;
+        }
 
     }
 
+    public enum ItemDataModType {
+        Classical, Strength, Wisdom, Agile,
+        Insanity
+    }
+
+    public interface IItemDataModifier
+    {
+        public Dictionary<ItemData, int> GenerateStats(ref ItemDataJson meta);
+    }
+
+    struct ClassicalDataGenerator : IItemDataModifier
+    {
+        public Dictionary<ItemData, int> GenerateStats(ref ItemDataJson meta)
+        {
+            return new Dictionary<ItemData, int>();
+        }
+    }
+
+    struct StrengthDataGenerator : IItemDataModifier
+    {
+        public Dictionary<ItemData, int> GenerateStats(ref ItemDataJson meta)
+        {
+            //atleast 1
+            var rank = ItemDesc.GetRank(meta.Meta);
+            return new Dictionary<ItemData, int>()
+            {
+                [ItemData.Attack] = MathUtils.NextInt(rank, 3 * rank),
+                [ItemData.Dexterity] = -1 * MathUtils.NextInt(rank, 3*rank)
+            };
+        }
+    }
+
+    struct WisdomDataGenerator : IItemDataModifier
+    {
+        public Dictionary<ItemData, int> GenerateStats(ref ItemDataJson meta)
+        {
+            var rank = ItemDesc.GetRank(meta.Meta);
+            return new Dictionary<ItemData, int>()
+            {
+                [ItemData.Wisdom] = MathUtils.NextInt(rank, 3 + (int)(1.25f * rank)),
+                [ItemData.Dexterity] = MathUtils.NextInt(-3 * rank, -1 * rank),
+                [ItemData.Attack] = MathUtils.NextInt(-3 * rank, -1 * rank)
+            };
+        }
+    }
+
+    struct AgileDataGenerator : IItemDataModifier
+    {
+        public Dictionary<ItemData, int> GenerateStats(ref ItemDataJson meta)
+        {
+            var rank = ItemDesc.GetRank(meta.Meta);
+            return new Dictionary<ItemData, int>()
+            {
+                [ItemData.Attack] = -1 * MathUtils.NextInt(rank, 3 + rank),
+                [ItemData.Dexterity] = MathUtils.NextInt(rank, 3 + (int)(1.25f * rank)),
+                [ItemData.Speed] = MathUtils.NextInt(rank, 3 * rank),
+                [ItemData.RateOfFire] = MathUtils.NextInt(rank),
+            };
+        }
+    }
+
+    struct InsanityDataGenerator : IItemDataModifier
+    {
+        static ItemData[] RandomChoices = new ItemData[]
+        {
+
+            ItemData.Attack, ItemData.Defense, ItemData.Speed, ItemData.Dexterity,
+            ItemData.Vitality, ItemData.Wisdom
+
+        };
+        public Dictionary<ItemData, int> GenerateStats(ref ItemDataJson meta)
+        {
+            var rank = ItemDesc.GetRank(meta.Meta);
+            var d = new Dictionary<ItemData, int>();
+            var points = 0;
+            HashSet<ItemData> chosen = new HashSet<ItemData>();
+            for(int i = 0; i < MathUtils.NextInt(2, 4); i++)
+            {
+                ItemData idc = ItemData.T0;
+                while(idc == ItemData.T0 || chosen.Contains(idc))
+                {
+                    idc = RandomChoices[MathUtils.NextInt(RandomChoices.Length)];
+                }
+                d[idc] = MathUtils.NextInt(MathUtils.PlusMinus() * 2 * rank + points);
+                points -= d[idc];
+                chosen.Add(idc);
+            }
+            Console.WriteLine(d);
+            return d;
+        }
+    }
+
+    public class ItemDataModifiers
+    {
+        public static Dictionary<ItemDataModType, IItemDataModifier> Registry = new Dictionary<ItemDataModType, IItemDataModifier>();
+        static ItemDataModifiers()
+        {
+            Registry[ItemDataModType.Classical] = new ClassicalDataGenerator();
+            Registry[ItemDataModType.Strength] = new StrengthDataGenerator();
+            Registry[ItemDataModType.Wisdom] = new WisdomDataGenerator();
+            Registry[ItemDataModType.Agile] = new AgileDataGenerator();
+            Registry[ItemDataModType.Insanity] = new InsanityDataGenerator();
+        }
+    }
+
+
     public class ItemDesc
     {
+        static ItemDesc() {
+
+            JsonConvert.DefaultSettings = () => { 
+                var settings = new JsonSerializerSettings();
+                settings.MissingMemberHandling = MissingMemberHandling.Ignore;
+                settings.DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate;
+                
+                return settings; 
+            };
+
+        }
 
         public static ItemDataJson ParseOrDefault(string p)
         {
@@ -586,7 +713,7 @@ namespace RotMG.Common
             {
                 value += rank;
             }
-            return value * multiplier;
+            return value * multiplier + data.GetStatBonus(i);
         }
 
         public static int GetRank(int data)
@@ -619,14 +746,27 @@ namespace RotMG.Common
             return ((ItemData)data & i) != 0;
         }
 
-        public Tuple<bool, ItemData> Roll(float modifier=1f, int shift=0)
+        public ItemDataJson FinalizeItemData(ItemDataModType? smod, ItemData data)
+        {
+            ItemDataJson j = new ItemDataJson() { Meta = (int)data };
+            if (smod.HasValue)
+            {
+                var d = ItemDataModifiers.Registry[smod.Value].GenerateStats(ref j);
+                j.ExtraStatBonuses = new Dictionary<ulong, int>(d.Select(a => 
+                    new KeyValuePair<ulong, int>((ulong)a.Key, a.Value)
+                ).ToList());
+            }
+            return j;
+        }
+
+        public Tuple<bool, ItemDataJson> Roll(float modifier=1f, int shift=0, ItemDataModType? smod=ItemDataModType.Classical)
         {
             ItemData data = 0;
             if (!ModifiableTypes.Contains(SlotType))
-                return Tuple.Create(false, data);
+                return Tuple.Create(false, FinalizeItemData(smod, data));
 
             if (!MathUtils.Chance(.5f))
-                return Tuple.Create(false, data);
+                return Tuple.Create(false, FinalizeItemData(smod, data));
 
             var rank = -1 + shift;
             var chance = .5f * modifier;
@@ -637,7 +777,7 @@ namespace RotMG.Common
                 else break;
             }
             if (rank == -1) 
-                return Tuple.Create(false, data);
+                return Tuple.Create(false, FinalizeItemData(smod, data));
 
             data |= (ItemData)((ulong)1 << rank);
 
@@ -665,7 +805,7 @@ namespace RotMG.Common
                 data |= k;
             }
 
-            return Tuple.Create(true, data);
+            return Tuple.Create(true, FinalizeItemData(smod, data));
         }
 
         public readonly string Id;

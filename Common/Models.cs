@@ -85,6 +85,9 @@ namespace RotMG.Common
         public int MP;
         public int[] Stats;
         public int[] Inventory;
+
+        public string ItemDataModifier;
+
         public string[] ItemDatas;
 
         public ItemDataJson[] ItemDataJsons = Enumerable.Repeat(new ItemDataJson() { Meta = -1 }, 20).ToArray();
@@ -118,7 +121,7 @@ namespace RotMG.Common
             MP = Data.ParseInt("MP");
             Stats = Data.ParseIntArray("Stats", ",");
             Inventory = Data.ParseIntArray("Equipment", ",");
-            ItemDatas = Data.ParseStringArray("ItemDatas", ",");
+            ItemDatas = Data.ParseStringArray("ItemDatas", null, regex: new System.Text.RegularExpressions.Regex(@"(?<=}),(?={)"));
 
             ItemDataJsons = ItemDatas?.Select(a => ItemDesc.ParseItemDataJson(a)).ToArray();
 
@@ -136,6 +139,7 @@ namespace RotMG.Common
             HasBackpack = Data.ParseBool("HasBackpack");
             FameStats = new FameStatsInfo(Data.Element("FameStats"));
             PetId = Data.ParseInt("PetId");
+            ItemDataModifier = Data.ParseString("ItemDataModifier", "Classical");
         }
 
         public XElement ExportFame()
@@ -211,6 +215,7 @@ namespace RotMG.Common
                 data.Add(new XElement("DeathFame", DeathFame));
                 data.Add(new XElement("DeathTime", DeathTime));
                 data.Add(new XElement("PetId", PetId));
+                data.Add(new XElement("ItemDataModifier", ItemDataModifier));
                 data.Add(FameStats.Export(appExport));
             }
             return data;

@@ -43,7 +43,7 @@ namespace RotMG.Game.Logic.Behaviors
                     {
                         try
                         {
-                            host.Parent?.RemoveEntity(entity);
+                            entity.Parent?.RemoveEntity(entity);
                         }
                         catch
                         //couldn't remove portal, Owner became null. Should be fixed with RealmManager implementation

@@ -367,6 +367,7 @@
             <MinDamage>20</MinDamage>
             <MaxDamage>40</MaxDamage>
             <LifetimeMS>770</LifetimeMS>
+            <MultiHit/>
         </Projectile>
         <BagType>0</BagType>
         <OldSound>magicShoot</OldSound>
@@ -381,6 +382,7 @@
         <RateOfFire>1</RateOfFire>
         <Sound>weapon/missile_wand</Sound>
         <Projectile>
+            <MultiHit/>
             <ObjectId>Blue Magic</ObjectId>
             <Speed>130</Speed>
             <MinDamage>30</MinDamage>
@@ -405,6 +407,7 @@
             <MinDamage>35</MinDamage>
             <MaxDamage>55</MaxDamage>
             <LifetimeMS>770</LifetimeMS>
+            <MultiHit/>
         </Projectile>
         <BagType>0</BagType>
         <OldSound>magicShoot</OldSound>
@@ -424,6 +427,7 @@
             <MinDamage>40</MinDamage>
             <MaxDamage>60</MaxDamage>
             <LifetimeMS>770</LifetimeMS>
+            <MultiHit/>
         </Projectile>
         <BagType>0</BagType>
         <OldSound>magicShoot</OldSound>
@@ -443,6 +447,7 @@
             <MinDamage>50</MinDamage>
             <MaxDamage>70</MaxDamage>
             <LifetimeMS>770</LifetimeMS>
+            <MultiHit/>
         </Projectile>
         <BagType>0</BagType>
         <OldSound>magicShoot</OldSound>
@@ -462,6 +467,7 @@
             <MinDamage>60</MinDamage>
             <MaxDamage>80</MaxDamage>
             <LifetimeMS>770</LifetimeMS>
+            <MultiHit/>
         </Projectile>
         <BagType>0</BagType>
         <OldSound>magicShoot</OldSound>
@@ -481,6 +487,7 @@
             <MinDamage>70</MinDamage>
             <MaxDamage>90</MaxDamage>
             <LifetimeMS>770</LifetimeMS>
+            <MultiHit/>
         </Projectile>
         <BagType>1</BagType>
         <OldSound>magicShoot</OldSound>
@@ -500,6 +507,7 @@
             <MinDamage>80</MinDamage>
             <MaxDamage>100</MaxDamage>
             <LifetimeMS>770</LifetimeMS>
+            <MultiHit/>
         </Projectile>
         <BagType>1</BagType>
         <OldSound>magicShoot</OldSound>
@@ -518,6 +526,7 @@
             <MinDamage>50</MinDamage>
             <MaxDamage>150</MaxDamage>
             <LifetimeMS>770</LifetimeMS>
+            <MultiHit/>
         </Projectile>
         <BagType>1</BagType>
         <OldSound>magicShoot</OldSound>
@@ -537,6 +546,7 @@
             <MinDamage>80</MinDamage>
             <MaxDamage>120</MaxDamage>
             <LifetimeMS>770</LifetimeMS>
+            <MultiHit/>
         </Projectile>
         <BagType>1</BagType>
         <FameBonus>1</FameBonus>
@@ -557,6 +567,7 @@
             <MinDamage>85</MinDamage>
             <MaxDamage>125</MaxDamage>
             <LifetimeMS>770</LifetimeMS>
+            <MultiHit/>
         </Projectile>
         <BagType>1</BagType>
         <FameBonus>1</FameBonus>
@@ -577,6 +588,7 @@
             <MinDamage>85</MinDamage>
             <MaxDamage>130</MaxDamage>
             <LifetimeMS>770</LifetimeMS>
+            <MultiHit/>
         </Projectile>
         <BagType>2</BagType>
         <FameBonus>2</FameBonus>
@@ -597,6 +609,7 @@
             <MinDamage>90</MinDamage>
             <MaxDamage>130</MaxDamage>
             <LifetimeMS>770</LifetimeMS>
+            <MultiHit/>
         </Projectile>
         <BagType>2</BagType>
         <FameBonus>3</FameBonus>
@@ -617,6 +630,7 @@
             <MinDamage>90</MinDamage>
             <MaxDamage>135</MaxDamage>
             <LifetimeMS>770</LifetimeMS>
+            <MultiHit/>
         </Projectile>
         <BagType>2</BagType>
         <FameBonus>4</FameBonus>
@@ -638,6 +652,7 @@
             <MinDamage>95</MinDamage>
             <MaxDamage>135</MaxDamage>
             <LifetimeMS>770</LifetimeMS>
+            <MultiHit/>
         </Projectile>
         <BagType>2</BagType>
         <FameBonus>4</FameBonus>
@@ -659,6 +674,7 @@
             <MinDamage>95</MinDamage>
             <MaxDamage>140</MaxDamage>
             <LifetimeMS>770</LifetimeMS>
+            <MultiHit/>
         </Projectile>
         <BagType>2</BagType>
         <FameBonus>5</FameBonus>
@@ -7134,5 +7150,337 @@
         <BagType>4</BagType>
         <UniqueEffect>PoisonDagger</UniqueEffect>
         <OldSound>daggerSwing</OldSound>
+    </Object>
+	<Object type="0xc73" id="Sturdy Pegleg">
+        <Class>Equipment</Class>
+        <Item/>
+        <Texture><File>lofiObj5</File><Index>0xd2</Index></Texture>
+        <SlotType>1</SlotType>
+        <Description>A heavy wooden pegleg "borrowed" from a willing pirate. Packs quite a kick.</Description>
+        <RateOfFire>0.8</RateOfFire>
+        <Sound>weapon/blunt_sword</Sound>
+        <Projectile>
+            <ObjectId>Blade</ObjectId>
+            <Speed>120</Speed>
+            <MinDamage>190</MinDamage>
+            <MaxDamage>210</MaxDamage>
+            <LifetimeMS>458</LifetimeMS>
+        </Projectile>
+        <BagType>4</BagType>
+        <OldSound>bladeSwing</OldSound>
+    </Object>
+    <Object type="0xc74" id="Strength Medal">
+		<Class>Equipment</Class>
+        <Texture><File>lofiObj3</File><Index>0x178</Index></Texture>
+        <SlotType>10</SlotType>
+        <Description>An idol which manipulates RNG.</Description>
+        <Sound>use_potion</Sound>
+        <Activate statForScale="Strength">ItemDataModifier</Activate>
+        <Consumable/>
+    </Object>
+    <Object type="0xc75" id="Agility Medal">
+		<Class>Equipment</Class>
+        <Texture><File>lofiObj3</File><Index>0x178</Index></Texture>
+        <SlotType>10</SlotType>
+        <Description>An idol which manipulates RNG.</Description>
+        <Sound>use_potion</Sound>
+        <Activate statForScale="Agile">ItemDataModifier</Activate>
+        <Consumable/>
+    </Object>
+    <Object type="0xc76" id="Wisdom Medal">
+		<Class>Equipment</Class>
+        <Texture><File>lofiObj3</File><Index>0x178</Index></Texture>
+        <SlotType>10</SlotType>
+        <Description>An idol which manipulates RNG.</Description>
+        <Sound>use_potion</Sound>
+        <Activate statForScale="Wisdom">ItemDataModifier</Activate>
+        <Consumable/>
+    </Object>
+    <Object type="0xc77" id="Insanity Medal">
+		<Class>Equipment</Class>
+        <Texture><File>lofiObj3</File><Index>0x178</Index></Texture>
+        <SlotType>10</SlotType>
+        <Description>An idol which manipulates RNG.</Description>
+        <Sound>use_potion</Sound>
+        <Activate statForScale="Insanity">ItemDataModifier</Activate>
+        <Consumable/>
+    </Object>
+    <Object type="0xc78" id="Fire Battle Staff">
+        <Class>Equipment</Class>
+        <Item/>
+        <Texture><File>lofiObj5</File><Index>0xe0</Index></Texture>
+        <SlotType>8</SlotType>
+        <Tier>0</Tier>
+        <Description>A battle staff that casts a simple fire spell.</Description>
+        <RateOfFire>1</RateOfFire>
+        <Sound>weapon/fire_wand</Sound>
+        <Projectile>
+            <ObjectId>Red Fire</ObjectId>
+            <Speed>130</Speed>
+            <MinDamage>40</MinDamage>
+            <MaxDamage>80</MaxDamage>
+            <LifetimeMS>400</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>0.5</Frequency>
+        </Projectile>
+        <BagType>0</BagType>
+        <OldSound>magicShoot</OldSound>
+    </Object>
+    <Object type="0xc79" id="Force Battle Staff">
+        <Class>Equipment</Class>
+        <Item/>
+        <Texture><File>lofiObj5</File><Index>0xe1</Index></Texture>
+        <SlotType>8</SlotType>
+        <Tier>1</Tier>
+        <Description>A battle staff that emits bolts of pure force.</Description>
+        <RateOfFire>1</RateOfFire>
+        <Sound>weapon/missile_wand</Sound>
+        <Projectile>
+            <ObjectId>Blue Magic</ObjectId>
+            <Speed>130</Speed>
+            <MinDamage>60</MinDamage>
+            <MaxDamage>100</MaxDamage>
+            <LifetimeMS>400</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>0.5</Frequency>
+        </Projectile>
+        <BagType>0</BagType>
+        <OldSound>magicShoot</OldSound>
+    </Object>
+    <Object type="0xc7a" id="Power Battle Staff">
+        <Class>Equipment</Class>
+        <Item/>
+        <Texture><File>lofiObj5</File><Index>0xe2</Index></Texture>
+        <SlotType>8</SlotType>
+        <Tier>2</Tier>
+        <Description>A battle staff that fires power bolts.</Description>
+        <RateOfFire>1</RateOfFire>
+        <Sound>weapon/missile_wand</Sound>
+        <Projectile>
+            <ObjectId>Blue Magic</ObjectId>
+            <Speed>130</Speed>
+            <MinDamage>70</MinDamage>
+            <MaxDamage>110</MaxDamage>
+            <LifetimeMS>400</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>0.5</Frequency>
+        </Projectile>
+        <BagType>0</BagType>
+        <OldSound>magicShoot</OldSound>
+    </Object>
+    <Object type="0xc7b" id="Missile Battle Staff">
+        <Class>Equipment</Class>
+        <Item/>
+        <Texture><File>lofiObj5</File><Index>0xe3</Index></Texture>
+        <SlotType>8</SlotType>
+        <Tier>3</Tier>
+        <Description>A battle staff that casts a strong missile.</Description>
+        <RateOfFire>1</RateOfFire>
+        <Sound>weapon/missile_wand</Sound>
+        <Projectile>
+            <ObjectId>Blue Magic</ObjectId>
+            <Speed>130</Speed>
+            <MinDamage>80</MinDamage>
+            <MaxDamage>120</MaxDamage>
+            <LifetimeMS>400</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>0.5</Frequency>
+        </Projectile>
+        <BagType>0</BagType>
+        <OldSound>magicShoot</OldSound>
+    </Object>
+    <Object type="0xc7c" id="Eldritch Battle Staff">
+        <Class>Equipment</Class>
+        <Item/>
+        <Texture><File>lofiObj5</File><Index>0xe4</Index></Texture>
+        <SlotType>8</SlotType>
+        <Tier>4</Tier>
+        <Description>A battle staff that shoots dark eldritch energy.</Description>
+        <RateOfFire>1</RateOfFire>
+        <Sound>weapon/missile_wand</Sound>
+        <Projectile>
+            <ObjectId>Blue Magic</ObjectId>
+            <Speed>130</Speed>
+            <MinDamage>100</MinDamage>
+            <MaxDamage>140</MaxDamage>
+            <LifetimeMS>400</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>0.5</Frequency>
+        </Projectile>
+        <BagType>0</BagType>
+        <OldSound>magicShoot</OldSound>
+    </Object>
+    <Object type="0xc7d" id="Hell's Fire Battle Staff">
+        <Class>Equipment</Class>
+        <Item/>
+        <Texture><File>lofiObj5</File><Index>0xe5</Index></Texture>
+        <SlotType>8</SlotType>
+        <Tier>5</Tier>
+        <Description>A wand that casts a strong fire spell.</Description>
+        <RateOfFire>1</RateOfFire>
+        <Sound>weapon/hells_fire_wand</Sound>
+        <Projectile>
+            <ObjectId>Purple Magic</ObjectId>
+            <Speed>130</Speed>
+            <MinDamage>120</MinDamage>
+            <MaxDamage>160</MaxDamage>
+            <LifetimeMS>400</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>0.5</Frequency>
+        </Projectile>
+        <BagType>0</BagType>
+        <OldSound>magicShoot</OldSound>
+    </Object>
+    <Object type="0xc7e" id="Battle Staff of Dark Magic">
+        <Class>Equipment</Class>
+        <Item/>
+        <Texture><File>lofiObj5</File><Index>0xe6</Index></Texture>
+        <SlotType>8</SlotType>
+        <Tier>6</Tier>
+        <Description>A wand that casts a bolt of pure magic force.</Description>
+        <RateOfFire>1</RateOfFire>
+        <Sound>weapon/wand_of_dark_magic</Sound>
+        <Projectile>
+            <ObjectId>Pink Bolt</ObjectId>
+            <Speed>130</Speed>
+            <MinDamage>140</MinDamage>
+            <MaxDamage>180</MaxDamage>
+            <LifetimeMS>400</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>0.5</Frequency>
+        </Projectile>
+        <BagType>1</BagType>
+        <OldSound>magicShoot</OldSound>
+    </Object>
+    <Object type="0xc7f" id="Battle Staff of Arcane Flame">
+        <Class>Equipment</Class>
+        <Item/>
+        <Texture><File>lofiObj5</File><Index>0xe7</Index></Texture>
+        <SlotType>8</SlotType>
+        <Tier>7</Tier>
+        <Description>A deadly battle staff that channels magefire from the nether planes.</Description>
+        <RateOfFire>1</RateOfFire>
+        <Sound>weapon/wand_of_dark_magic</Sound>
+        <Projectile>
+            <ObjectId>Red Fire</ObjectId>
+            <Speed>130</Speed>
+            <MinDamage>80</MinDamage>
+            <MaxDamage>100</MaxDamage>
+            <LifetimeMS>400</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>0.5</Frequency>
+        </Projectile>
+        <BagType>1</BagType>
+        <OldSound>magicShoot</OldSound>
+    </Object>
+    <Object type="0xc80" id="Battle Staff of Death">
+        <Class>Equipment</Class>
+        <Item/>
+        <Texture><File>lofiObj5</File><Index>0xe8</Index></Texture>
+        <SlotType>8</SlotType>
+        <Tier>8</Tier>
+        <Description>A fearsome battle staff that fires bolts of penetrating death magic.</Description>
+        <RateOfFire>1</RateOfFire>
+        <Sound>weapon/wand_of_death</Sound>
+        <Projectile>
+            <ObjectId>Green Magic</ObjectId>
+            <Speed>130</Speed>
+            <MinDamage>160</MinDamage>
+            <MaxDamage>240</MaxDamage>
+            <LifetimeMS>400</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>0.5</Frequency>
+        </Projectile>
+        <BagType>1</BagType>
+        <FameBonus>1</FameBonus>
+        <OldSound>magicShoot</OldSound>
+    </Object>
+    <Object type="0xc81" id="Battle Staff of Deep Sorcery">
+        <Class>Equipment</Class>
+        <Item/>
+        <Texture><File>lofiObj5</File><Index>0xe9</Index></Texture>
+        <SlotType>8</SlotType>
+        <Tier>9</Tier>
+        <Description>A mysterious battle staff of otherworldly origin, imbued with the purest of arcane energies.</Description>
+        <RateOfFire>1</RateOfFire>
+        <Sound>weapon/wand_of_death</Sound>
+        <Projectile>
+            <ObjectId>Purple Magic</ObjectId>
+            <Speed>130</Speed>
+            <MinDamage>170</MinDamage>
+            <MaxDamage>250</MaxDamage>
+            <LifetimeMS>400</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>0.5</Frequency>
+        </Projectile>
+        <BagType>1</BagType>
+        <FameBonus>1</FameBonus>
+        <OldSound>magicShoot</OldSound>
+    </Object>
+    <Object type="0xc82" id="Battle Staff of Shadow">
+        <Class>Equipment</Class>
+        <Item/>
+        <Texture><File>lofiObj5</File><Index>0xea</Index></Texture>
+        <SlotType>8</SlotType>
+        <Tier>10</Tier>
+        <Description>A battle staff of demonic enigmas, cloaked in darkness and crackling with dark enchantments.</Description>
+        <RateOfFire>1</RateOfFire>
+        <Sound>weapon/wand_of_death</Sound>
+        <Projectile>
+            <ObjectId>Red Fire</ObjectId>
+            <Speed>130</Speed>
+            <MinDamage>170</MinDamage>
+            <MaxDamage>260</MaxDamage>
+            <LifetimeMS>400</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>0.5</Frequency>
+        </Projectile>
+        <BagType>2</BagType>
+        <FameBonus>2</FameBonus>
+        <OldSound>magicShoot</OldSound>
+    </Object>
+    <Object type="0xc83" id="Battle Staff of Ancient Warning">
+        <Class>Equipment</Class>
+        <Item/>
+        <Texture><File>lofiObj5</File><Index>0xeb</Index></Texture>
+        <SlotType>8</SlotType>
+        <Tier>11</Tier>
+        <Description>A centuries-old battle staff of great power, heralding long-destined destruction.</Description>
+        <RateOfFire>1</RateOfFire>
+        <Sound>weapon/wand_of_death</Sound>
+        <Projectile>
+            <ObjectId>Green Magic</ObjectId>
+            <Speed>130</Speed>
+            <MinDamage>180</MinDamage>
+            <MaxDamage>260</MaxDamage>
+            <LifetimeMS>400</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>0.5</Frequency>
+        </Projectile>
+        <BagType>2</BagType>
+        <FameBonus>3</FameBonus>
+        <OldSound>magicShoot</OldSound>
+    </Object>
+    <Object type="0xc84" id="Battle Staff of Recompense">
+        <Class>Equipment</Class>
+        <Item/>
+        <Texture><File>lofiObj5</File><Index>0xec</Index></Texture>
+        <SlotType>8</SlotType>
+        <Tier>12</Tier>
+        <Description>A great golden battle staff of the heavens, created by angels to wreak justice on the slayers of the innocent.</Description>
+        <RateOfFire>1</RateOfFire>
+        <Sound>weapon/wand_of_death</Sound>
+        <Projectile>
+            <ObjectId>Blue Magic</ObjectId>
+            <Speed>130</Speed>
+            <MinDamage>180</MinDamage>
+            <MaxDamage>270</MaxDamage>
+            <LifetimeMS>400</LifetimeMS>
+            <Amplitude>0.5</Amplitude>
+            <Frequency>0.5</Frequency>
+        </Projectile>
+        <BagType>2</BagType>
+        <FameBonus>4</FameBonus>
+        <OldSound>magicShoot</OldSound>
     </Object>
 </Objects>
