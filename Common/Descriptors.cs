@@ -420,6 +420,8 @@ namespace RotMG.Common
         public readonly ConditionEffectDesc[] Effects;
         public readonly ConditionEffectIndex Effect;
         public readonly string Id;
+        //Map name valid for use here
+        public readonly string Map;
         public readonly int DurationMS;
         public readonly float Range;
         public readonly int Amount;
@@ -436,6 +438,9 @@ namespace RotMG.Common
         public readonly float StatScale;
         public readonly float StatDurationScale;
         public readonly float StatRangeScale;
+
+        //Position to teleport to for cracked prisms
+        public readonly Vector2 Position;
 
         public readonly int StatMin;
         
@@ -458,6 +463,9 @@ namespace RotMG.Common
             StatRangeScale = e.ParseFloat("@statRangeScale", 0.0f);
             UseWisMod = e.ParseBool("useWisMod", false);
             StatForScale = e.ParseString("@statForScale", "Wisdom");
+
+            Position = new Vector2(e.ParseInt("@posx", 0), e.ParseInt("@posy", 0));
+            Map = e.ParseString("@map", null);
 
             Effects = new ConditionEffectDesc[1]
             {
@@ -799,7 +807,7 @@ namespace RotMG.Common
                 if (s.Contains(k))
                     continue;
                 if (k == ItemData.Damage 
-                    && Projectile == null)
+                    && !HasProjectile)
                     continue;
                 s.Add(k);
                 data |= k;
@@ -835,7 +843,16 @@ namespace RotMG.Common
 
         public readonly KeyValuePair<int, int>[] StatBoosts;
         public readonly ActivateEffectDesc[] ActivateEffects;
-        public readonly ProjectileDesc Projectile;
+
+        public readonly ProjectileDesc[] Projectile;
+        public bool HasProjectile { get { return Projectile.Length > 0; } }
+        public ProjectileDesc FirstProjectile { get { return HasProjectile ? Projectile[0] : null; } }
+
+        public ProjectileDesc NextProjectile(int id)
+        {
+            if (!HasProjectile) return null;
+            return Projectile[Math.Abs(id) % Projectile.Length];
+        }
 
         public ItemDesc(XElement e, string id, ushort type)
         {
@@ -876,8 +893,14 @@ namespace RotMG.Common
                 activate.Add(new ActivateEffectDesc(i));
             ActivateEffects = activate.ToArray();
 
-            if (e.Element("Projectile") != null)
-                Projectile = new ProjectileDesc(e.Element("Projectile"), Type);
+            var pXMLs = e.Elements("Projectile");
+            if (pXMLs.Count() > 0) 
+            {
+                Projectile = pXMLs.Select(a => new ProjectileDesc(a, Type)).ToArray();
+            } else
+            {
+                Projectile = new ProjectileDesc[] { };
+            }
         }
     }
 

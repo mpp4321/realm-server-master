@@ -1682,4 +1682,9 @@
         <Class>Projectile</Class>
         <Texture><File>lofiObj3</File><Index>0x32a</Index></Texture>
     </Object>
+    <Object type="0x2150" id="TWand Projectile">
+        <Class>Projectile</Class>
+        <Texture><File>lofiObj2</File><Index>0xaa</Index></Texture>
+		<AngleCorrection>1</AngleCorrection>
+    </Object>
 </Objects>

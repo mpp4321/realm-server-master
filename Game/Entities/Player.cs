@@ -410,6 +410,7 @@ namespace RotMG.Game.Entities
                 GetNextQuest(false);
 
             TickRegens();
+            TickBoosts();
             TickProjectiles();
             base.Tick();
         }

@@ -624,13 +624,17 @@ namespace RotMG.Game.Logic.Database
                             new Wander(0.8f)
                             ),
                         new State("one_shot",
-                            new Shoot(8, predictive: 0.1f, cooldown: 800),
-                            new TimedTransition("three_shot", 900)
+                            new Shoot(15, 5, 5, index: 1, cooldown: 800),
+                            new Shoot(15, 5, 5, index: 1, cooldown: 800, cooldownOffset: 200),
+                            new Shoot(15, 5, 5, index: 1, cooldown: 800, cooldownOffset: 400),
+                            new Shoot(15, 5, 5, index: 1, cooldown: 800, cooldownOffset: 600),
+                            new Shoot(15, 5, 5, index: 1, cooldown: 800, cooldownOffset: 800),
+                            new TimedTransition("three_shot", 800)
                             ),
                         new State("three_shot",
                             new Shoot(8, count: 3, shootAngle: 40, predictive: 0.1f, cooldown: 100000,
                                 cooldownOffset: 800),
-                            new TimedTransition("one_shot", 2000)
+                            new TimedTransition("one_shot", 800)
                             )
                         ),
                     new State("protect_me",

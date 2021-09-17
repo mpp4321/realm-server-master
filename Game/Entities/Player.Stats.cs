@@ -17,6 +17,20 @@ namespace RotMG.Game.Entities
 
         public int[] Stats;
         public int[] Boosts;
+        //Temporary effect boosts, like tinctures and elixrs
+
+        public class BoostTimer
+        {
+            public int index;
+
+            //Seconds left in timer
+            public float timer;
+
+            public int amount;
+        }
+
+        public List<BoostTimer> EffectBoosts = new List<BoostTimer>();
+
         public Dictionary<StatType, object> PrivateSVs;
 
         float _hpRegenCounter;
@@ -61,7 +75,7 @@ namespace RotMG.Game.Entities
             if (index < 0 || index >= Stats.Length)
                 throw new Exception("Stat out of bounds");
 #endif
-            return Stats[index] + Boosts[index];
+            return Stats[index] + Boosts[index] + GetTemporaryStatBoost(index);
         }
 
         public float GetMovementSpeed()
@@ -169,24 +183,43 @@ namespace RotMG.Game.Entities
             PrivateSVs[type] = value;
         }
 
+        public int GetTemporaryStatBoost(int index)
+        {
+            return EffectBoosts.Where(a => a.index == index).Select(a => a.amount).Sum();
+        }
+
         public void UpdateStats()
         {
-            TrySetSV(StatType.MaxHp, Stats[0] + Boosts[0]);
-            TrySetSV(StatType.MaxHpBoost, Boosts[0]);
-            TrySetSV(StatType.MaxMp, Stats[1] + Boosts[1]);
-            TrySetSV(StatType.MaxMpBoost, Boosts[1]);
-            SetPrivateSV(StatType.Attack, Stats[2] + Boosts[2]);
-            SetPrivateSV(StatType.AttackBoost, Boosts[2]);
-            SetPrivateSV(StatType.Defense, Stats[3] + Boosts[3]);
-            SetPrivateSV(StatType.DefenseBoost, Boosts[3]);
-            TrySetSV(StatType.Speed, Stats[4] + Boosts[4]);
-            TrySetSV(StatType.SpeedBoost, Boosts[4]);
-            TrySetSV(StatType.Dexterity, Stats[5] + Boosts[5]);
-            TrySetSV(StatType.DexterityBoost, Boosts[5]);
-            SetPrivateSV(StatType.Vitality, Stats[6] + Boosts[6]);
-            SetPrivateSV(StatType.VitalityBoost, Boosts[6]);
-            SetPrivateSV(StatType.Wisdom, Stats[7] + Boosts[7]);
-            SetPrivateSV(StatType.WisdomBoost, Boosts[7]);
+            TrySetSV(StatType.MaxHp, Stats[0] + Boosts[0] + GetTemporaryStatBoost(0));
+            TrySetSV(StatType.MaxHpBoost, Boosts[0] + GetTemporaryStatBoost(0));
+            TrySetSV(StatType.MaxMp, Stats[1] + Boosts[1] + GetTemporaryStatBoost(1));
+            TrySetSV(StatType.MaxMpBoost, Boosts[1] + GetTemporaryStatBoost(1));
+            SetPrivateSV(StatType.Attack, Stats[2] + Boosts[2] + GetTemporaryStatBoost(2));
+            SetPrivateSV(StatType.AttackBoost, Boosts[2] + GetTemporaryStatBoost(2));
+            SetPrivateSV(StatType.Defense, Stats[3] + Boosts[3] + GetTemporaryStatBoost(3));
+            SetPrivateSV(StatType.DefenseBoost, Boosts[3] + GetTemporaryStatBoost(3));
+            TrySetSV(StatType.Speed, Stats[4] + Boosts[4] + GetTemporaryStatBoost(4));
+            TrySetSV(StatType.SpeedBoost, Boosts[4] + GetTemporaryStatBoost(4));
+            TrySetSV(StatType.Dexterity, Stats[5] + Boosts[5] + GetTemporaryStatBoost(5));
+            TrySetSV(StatType.DexterityBoost, Boosts[5] + GetTemporaryStatBoost(5));
+            SetPrivateSV(StatType.Vitality, Stats[6] + Boosts[6] + GetTemporaryStatBoost(6));
+            SetPrivateSV(StatType.VitalityBoost, Boosts[6] + GetTemporaryStatBoost(6));
+            SetPrivateSV(StatType.Wisdom, Stats[7] + Boosts[7] + GetTemporaryStatBoost(7));
+            SetPrivateSV(StatType.WisdomBoost, Boosts[7] + GetTemporaryStatBoost(7));
         }
+
+        public void TickBoosts()
+        {
+            for(int i = 0; i < EffectBoosts.Count; i++)
+            {
+                EffectBoosts[i].timer -= Settings.SecondsPerTick;
+            }
+            if(this.EffectBoosts.Any(a => a.timer < 0f))
+            {
+                this.EffectBoosts = this.EffectBoosts.Where(a => a.timer > 0f).ToList();
+                UpdateStats();
+            }
+        }
+
     }
 }

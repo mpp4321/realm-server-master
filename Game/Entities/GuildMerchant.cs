@@ -47,7 +47,7 @@ namespace RotMG.Game.Entities
                 player.SendError("Internal server error");
                 return;
             }
-            
+
             Database.IncrementCurrency(guild, -Price);
             player.Client.Send(GameServer.BuyResult(0, BuyResult.Ok));
         }

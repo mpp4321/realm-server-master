@@ -13,6 +13,8 @@ namespace RotMG.Game.Logic.ItemEffs
         static ItemHandlerRegistry()
         {
             Registry.Add("PoisonDagger", new PoisonousDagger());
+            Registry.Add("CuriousEyeball", new CuriousEyeball());
+            Registry.Add("SpectralCloth", new SpectralCloth());
         }
 
     }

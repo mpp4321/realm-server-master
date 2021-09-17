@@ -272,9 +272,9 @@ namespace RotMG.Game.Entities
                     var angle = attackAngle - totalArc / 2f;
                     for (var i = 0; i < numShots; i++)
                     {
-                        var damage = (int)(GetNextDamageSeeded(desc.Projectile.MinDamage, desc.Projectile.MaxDamage, ItemDatas[1]) * GetAttackMultiplier());
+                        var damage = (int)(GetNextDamageSeeded(desc.NextProjectile(startId - i).MinDamage, desc.NextProjectile(startId - i).MaxDamage, ItemDatas[1]) * GetAttackMultiplier());
                         //var uneffs = this.Inventory.Take(4).Select(a => Resources.Type2Item[Convert.ToUInt16(a)].UniqueEffect).Where(a => a != null).ToArray();
-                        var projectile = new Projectile(this, desc.Projectile, startId - i, time, angle + arcGap * i, pos, damage);
+                        var projectile = new Projectile(this, desc.NextProjectile(startId - i), startId - i, time, angle + arcGap * i, pos, damage);
 
                         ShotProjectiles.Add(projectile.Id, projectile);
                     }
@@ -303,9 +303,9 @@ namespace RotMG.Game.Entities
                     var angle = attackAngle - totalArc / 2f;
                     for (var i = 0; i < numShots; i++)
                     {
-                        var damage = (int)(GetNextDamageSeeded(desc.Projectile.MinDamage, desc.Projectile.MaxDamage, ItemDatas[0]) * GetAttackMultiplier());
+                        var damage = (int)(GetNextDamageSeeded(desc.NextProjectile(startId - i).MinDamage, desc.NextProjectile(startId - i).MaxDamage, ItemDatas[0]) * GetAttackMultiplier());
                         var uneffs = this.Inventory.Take(4).Select(a => a > 0 ? Resources.Type2Item[(ushort)a].UniqueEffect : null).Where(a => a != null).ToArray();
-                        var projectile = new Projectile(this, desc.Projectile, startId - i, time, angle + arcGap * i, pos, damage, uniqueEff: uneffs);
+                        var projectile = new Projectile(this, desc.NextProjectile(startId - i), startId - i, time, angle + arcGap * i, pos, damage, uniqueEff: uneffs);
                         ShotProjectiles.Add(projectile.Id, projectile);
                     }
 
@@ -415,10 +415,13 @@ namespace RotMG.Game.Entities
         {
             if(projectile.OnHitDelegate != null)
                 projectile.OnHitDelegate(this);
-            if(projectile.UniqueEffects != null)
+            for(int i = 0; i < 4; i++)
             {
-                foreach(var eff in projectile.UniqueEffects)
-                    ItemHandlerRegistry.Registry[eff].OnHitByEnemy(this, projectile.Owner, projectile);
+                var itemdesc = Resources.Type2Item.GetValueOrDefault((ushort)Inventory[i]);
+                if(itemdesc?.UniqueEffect != null)
+                {
+                    ItemHandlerRegistry.Registry[itemdesc.UniqueEffect].OnHitByEnemy(this, projectile.Owner, projectile);
+                }
             }
             return Damage(Resources.Type2Object[projectile.Desc.ContainerType].DisplayId,
                    projectile.Damage, 

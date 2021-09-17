@@ -1125,7 +1125,12 @@
 			<Size>110</Size>
 			<LifetimeMS>1500</LifetimeMS>
 		</Projectile>		
-
+		  <Projectile id="1">
+			 <ObjectId>Directed Explosion</ObjectId>
+			 <Damage>25</Damage>
+			 <Speed>25</Speed>
+			 <LifetimeMS>2000</LifetimeMS>
+		  </Projectile>
 		
 		
 
@@ -1151,7 +1156,13 @@
 			<Speed>65</Speed>
 			<Size>80</Size>
 			<LifetimeMS>1300</LifetimeMS>
-		</Projectile>		
+		</Projectile>
+		  <Projectile id="1">
+			 <ObjectId>Directed Explosion</ObjectId>
+			 <Damage>15</Damage>
+			 <Speed>25</Speed>
+			 <LifetimeMS>2000</LifetimeMS>
+		  </Projectile>		
 
 	</Object>
 

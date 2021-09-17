@@ -29,7 +29,42 @@ namespace RotMG.Game.Worlds
             }
 
             RealmSpawns = new List<IntPoint>(GetAllRegion(Region.RealmPortal));
+
+            InitShops();
+
             SpawnRealms();
+        }
+
+        private void InitShops()
+        {
+            foreach (var shop1Point in GetAllRegion(Region.Store1))
+            {
+                var shopEntity = new NexusShop(0x01ca);
+
+                //So client gets these values
+                shopEntity.TrySetSV(StatType.MerchandiseType, 0xc89);
+                shopEntity.TrySetSV(StatType.MerchandiseCount, 999);
+
+                shopEntity.Price = 3;
+                shopEntity.Currency = Currency.Fame;
+
+                AddEntity(shopEntity, shop1Point.ToVector2());
+            }
+
+            foreach (var shop1Point in GetAllRegion(Region.Store2))
+            {
+                var shopEntity = new NexusShop(0x01ca);
+
+                //So client gets these values
+                shopEntity.TrySetSV(StatType.MerchandiseType, 0xc8a);
+                shopEntity.TrySetSV(StatType.MerchandiseCount, 999);
+
+                shopEntity.Price = 3;
+                shopEntity.Currency = Currency.Fame;
+
+
+                AddEntity(shopEntity, shop1Point.ToVector2());
+            }
         }
 
         public override void RemoveEntity(Entity en)

@@ -253,11 +253,11 @@ namespace RotMG.Game.Entities
                             {
                                 var t = this.GetNearestEnemy(8, angle, cone, target, seeked) ?? this.GetNearestEnemy(6, seeked);
                                 if (t != null) seeked.Add(t);
-                                var d = GetNextDamage(desc.Projectile.MinDamage, desc.Projectile.MaxDamage, ItemDatas[slot.SlotId]);
+                                var d = GetNextDamage(desc.NextProjectile(startId + i).MinDamage, desc.NextProjectile(startId + i).MaxDamage, ItemDatas[slot.SlotId]);
                                 var a = t == null ? MathUtils.NextAngle() : Position.Angle(t.Position);
                                 var p = new List<Projectile>()
                                 {
-                                     new Projectile(this, desc.Projectile, startId + i, time, a, Position, d)
+                                     new Projectile(this, desc.NextProjectile(startId + i), startId + i, time, a, Position, d)
                                 };
 
                                 stars.Add(GameServer.ServerPlayerShoot(startId + i, Id, desc.Type, Position, a, 0, p));
@@ -561,7 +561,11 @@ namespace RotMG.Game.Entities
                             ShootAEs.Enqueue(desc.Type);
                         break;
                     case ActivateEffectIndex.Teleport:
-                        if (inRange)
+                        if (eff.Position.X != 0 && eff.Position.Y != 0 && (eff.Map?.Equals(Parent.Name) ?? false))
+                        {
+                            Teleport(time, eff.Position, false);
+                        }
+                        else if (inRange) //Less than 0 means its a manual teleport thingy like a scroll
                             Teleport(time, target, true);
                         break;
                     case ActivateEffectIndex.Decoy:
@@ -577,8 +581,8 @@ namespace RotMG.Game.Entities
                             NextAEProjectileId += novaCount;
                             for (var i = 0; i < novaCount; i++)
                             {
-                                var d = GetNextDamage(desc.Projectile.MinDamage, desc.Projectile.MaxDamage, ItemDatas[slot.SlotId]);
-                                var p = new Projectile(this, desc.Projectile, startId + i, time, angleInc * i, target, d);
+                                var d = GetNextDamage(desc.NextProjectile(startId + i).MinDamage, desc.NextProjectile(startId + i).MaxDamage, ItemDatas[slot.SlotId]);
+                                var p = new Projectile(this, desc.NextProjectile(startId - i), startId + i, time, angleInc * i, target, d);
                                 projs.Add(p);
                             }
 
@@ -648,6 +652,18 @@ namespace RotMG.Game.Entities
                         Client.Character.ItemDataModifier = eff.StatForScale;
                         Client.Character.Save();
                         SendInfo("Your luck begins to change.");
+                        break;
+                    case ActivateEffectIndex.StatBoostSelf:
+
+                        EffectBoosts.Add(new BoostTimer()
+                        {
+                            amount = eff.Amount,
+                            timer = eff.DurationMS / 1000,
+                            index = eff.Stat
+                        });
+
+                        UpdateStats();
+
                         break;
 #if DEBUG
                     default:
