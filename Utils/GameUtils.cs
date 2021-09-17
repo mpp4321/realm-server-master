@@ -25,9 +25,9 @@ namespace RotMG.Utils
             return d;
         }
 
-        public static Entity GetNearestSmart(this Entity entity, float radius, bool targetPlayers)
+        public static Entity GetNearestSmart(this Entity entity, float radius, bool targetPlayers, Func<Entity, bool> pred = null)
         {
-            return targetPlayers ? GetNearestPlayer(entity, radius) : GetNearestEnemy(entity, radius);
+            return targetPlayers ? GetNearestPlayer(entity, radius, pred) : GetNearestEnemy(entity, radius);
         }
 
         public static Entity GetNearestEntity(this Entity entity, float radius)
@@ -129,7 +129,7 @@ namespace RotMG.Utils
             var dist = float.MaxValue;
             foreach (var en in entity.Parent.EntityChunks.HitTest(entity.Position, radius))
             {
-                if (!(en is Enemy))
+                if (!(en is Enemy) || en.Desc.Friendly)
                     continue;
 
                 if (en.HasConditionEffect(ConditionEffectIndex.Invincible) ||
@@ -244,7 +244,7 @@ namespace RotMG.Utils
             return nearest;
         }
 
-        public static Entity GetNearestPlayer(this Entity entity, float radius)
+        public static Entity GetNearestPlayer(this Entity entity, float radius, Func<Entity, bool> pred = null)
         {
 #if DEBUG
             if (entity == null || entity.Parent == null || radius <= 0)
@@ -256,6 +256,11 @@ namespace RotMG.Utils
             {
                 if (en.HasConditionEffect(ConditionEffectIndex.Invisible))
                     continue;
+
+                if(pred != null && !pred(en))
+                {
+                    continue;
+                }
 
                 float d;
                 if ((d = entity.Position.Distance(en.Position)) < dist)

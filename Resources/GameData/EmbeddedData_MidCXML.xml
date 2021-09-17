@@ -471,9 +471,10 @@
 
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
-			<Damage>19</Damage>
+			<Damage>40</Damage>
 			<Speed>70</Speed>
 			<LifetimeMS>1200</LifetimeMS>
+			<ConditionEffect duration="0.5">Stunned</ConditionEffect>
 		</Projectile>
 
 
@@ -855,7 +856,7 @@
 		
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
-			<Damage>10</Damage>
+			<Damage>20</Damage>
 			<Speed>60</Speed>
 			<Size>80</Size>
 			<LifetimeMS>600</LifetimeMS>

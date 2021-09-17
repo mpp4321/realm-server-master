@@ -270,24 +270,19 @@
 
 		<Projectile id="0">
 			<ObjectId>Pink Bolt</ObjectId>
-			<Damage>100</Damage>
+			<Damage>50</Damage>
 			<Speed>50</Speed>
 			<LifetimeMS>3000</LifetimeMS>
 			<Size>120</Size>
 		</Projectile>
 		<Projectile id="1">
 			<ObjectId>Fire Mystic Shot</ObjectId>
-			<Damage>110</Damage>
+			<Damage>200</Damage>
 			<Speed>9</Speed>
 			<LifetimeMS>10000</LifetimeMS>
 			<PassesCover/>
 			<Parametric/>
 		</Projectile>
-
-
-
-
-
 	</Object>
 
 	<Object type="0x669" id="Imp">

@@ -26,9 +26,10 @@ namespace RotMG.Game.Logic.Behaviors
         private Cooldown _coolDown;
         private readonly bool _targetPlayers;
         private readonly Action<Entity, Entity, ChargeState> _callB;
+        private readonly Func<Entity, bool> pred;
 
         public Charge(double speed = 4, float range = 10, Cooldown coolDown = new Cooldown(), bool targetPlayers = true,
-            Action<Entity, Entity, ChargeState> callback = null
+            Action<Entity, Entity, ChargeState> callback = null, Func<Entity, bool> pred = null
         )
         {
             _speed = (float)speed;
@@ -36,6 +37,7 @@ namespace RotMG.Game.Logic.Behaviors
             _coolDown = coolDown.Normalize(2000);
             _targetPlayers = targetPlayers;
             _callB = callback;
+            this.pred = pred;
         }
 
         public override void Enter(Entity host)
@@ -45,6 +47,7 @@ namespace RotMG.Game.Logic.Behaviors
 
         public override bool Tick(Entity host)
         {
+            bool returnState = false;
             var s = (host.StateObject[Id] == null) ?
                 new ChargeState() :
                 (ChargeState)host.StateObject[Id];
@@ -56,7 +59,7 @@ namespace RotMG.Game.Logic.Behaviors
             {
                 if (s.Direction == new Vector2(0, 0))
                 {
-                    Entity player = GameUtils.GetNearestSmart(host, _range, _targetPlayers);
+                    Entity player = GameUtils.GetNearestSmart(host, _range, _targetPlayers, pred);
                     if (player != null && player.Position != host.Position)
                     {
                         s.Direction = player.Position - host.Position;
@@ -86,12 +89,13 @@ namespace RotMG.Game.Logic.Behaviors
             {
                 float dist = host.GetSpeed(_speed) * Settings.SecondsPerTick;
                 host.ValidateAndMove(host.Position + dist * s.Direction);
+                returnState = true;
             }
 
             s.RemainingTime -= Settings.MillisecondsPerTick;
 
             host.StateObject[Id] = s;
-            return true;
+            return returnState;
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using RotMG.Common;
+using RotMG.Game.Logic.ItemEffs;
 using RotMG.Networking;
 using RotMG.Utils;
 using System;
@@ -412,6 +413,15 @@ namespace RotMG.Game.Entities
             TickRegens();
             TickBoosts();
             TickProjectiles();
+
+            //Iterate equipment and tick unique effs, maybe once every couple ticks for performance?
+            for(int i = 0; i < 4; i++)
+            {
+                var eff = Resources.Type2Item.GetValueOrDefault((ushort) Inventory[i])?.UniqueEffect;
+                if(eff != null)
+                    ItemHandlerRegistry.Registry[eff].OnTick(this);
+            }
+
             base.Tick();
         }
 

@@ -9014,4 +9014,136 @@
     <Consumable></Consumable>
     <BagType>2</BagType>
   </Object>
+  <Object type="0xc8b" id="Crumbling Construct">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj5</File>
+      <Index>0xd7</Index>
+    </Texture>
+    <SlotType>7</SlotType>
+    <Description>Armor made from the souls of brother constructs.</Description>
+    <ActivateOnEquip stat="3" amount="50">IncrementStat</ActivateOnEquip>
+    <UniqueEffect>Crumbling</UniqueEffect>
+    <BagType>4</BagType>
+  </Object>
+  <Object type="0xc8c" id="Garment of Medusa">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj5</File>
+      <Index>0xd6</Index>
+    </Texture>
+    <SlotType>6</SlotType>
+    <Description>A sleak snake armor which is fit for a god.</Description>
+    <ActivateOnEquip stat="3" amount="11">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="4" amount="3">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="5" amount="3">IncrementStat</ActivateOnEquip>
+    <UniqueEffect>MedusaGarment</UniqueEffect>
+    <BagType>4</BagType>
+    <FameBonus>1</FameBonus>
+  </Object>
+  <Object type="0xc8d" id="Sanguine Femur">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj5</File>
+      <Index>0xd9</Index>
+    </Texture>
+    <SlotType>24</SlotType>
+    <Tier>0</Tier>
+    <Description>A femer which empowers demon kind with unknown power.</Description>
+    <RateOfFire>1</RateOfFire>
+    <Sound>weapon/long_sword</Sound>
+    <Projectile>
+      <ObjectId>Demonic Projectile</ObjectId>
+      <Speed>100</Speed>
+      <MinDamage>75</MinDamage>
+      <MaxDamage>100</MaxDamage>
+      <LifetimeMS>800</LifetimeMS>
+      <Amplitude>0.5</Amplitude>
+      <Frequency>1</Frequency>
+      <Size>100</Size>
+      <Boomerang />
+      <MultiHit />
+    </Projectile>
+    <Projectile>
+      <ObjectId>Fire Mystic Shot</ObjectId>
+      <Speed>25</Speed>
+      <MinDamage>50</MinDamage>
+      <MaxDamage>75</MaxDamage>
+      <LifetimeMS>1520</LifetimeMS>
+      <Amplitude>0.75</Amplitude>
+      <Frequency>2</Frequency>
+      <Size>140</Size>
+      <MultiHit />
+    </Projectile>
+    <NumProjectiles>6</NumProjectiles>
+    <ArcGap>6</ArcGap>
+    <BagType>4</BagType>
+  </Object>
+  <Object type="0xc8e" id="Pumpkin Staff">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj5</File>
+      <Index>0xdb</Index>
+    </Texture>
+    <SlotType>17</SlotType>
+    <Description>A halloween magic staff.</Description>
+    <RateOfFire>1</RateOfFire>
+    <Sound>weapon/fire_wand</Sound>
+    <Projectile>
+      <ObjectId>Pumpkin Projectile</ObjectId>
+      <Speed>160</Speed>
+      <MinDamage>60</MinDamage>
+      <MaxDamage>80</MaxDamage>
+      <LifetimeMS>440</LifetimeMS>
+      <MultiHit/>
+    </Projectile>
+    <BagType>5</BagType>
+    <NumProjectiles>3</NumProjectiles>
+    <FameBonus>5</FameBonus>
+    <OldSound>magicShoot</OldSound>
+  </Object>
+  <Object type="0xc8f" id="Pumpkin Bow">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj5</File>
+      <Index>0xdc</Index>
+    </Texture>
+    <SlotType>3</SlotType>
+    <Description>A bow that shoots magical pumpkins!</Description>
+    <RateOfFire>1</RateOfFire>
+    <Sound>weapon/golden_bow</Sound>
+    <Projectile>
+      <ObjectId>Pumpkin Projectile</ObjectId>
+      <Speed>180</Speed>
+      <MinDamage>60</MinDamage>
+      <MaxDamage>100</MaxDamage>
+      <LifetimeMS>475</LifetimeMS>
+      <Amplitude>0.5</Amplitude>
+      <Frequency>2</Frequency>
+    </Projectile>
+    <BagType>5</BagType>
+    <FameBonus>5</FameBonus>
+    <NumProjectiles>2</NumProjectiles>
+    <OldSound>arrowShoot</OldSound>
+  </Object>
+  <Object type="0xc90" id="Mini Brain Orb">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj5</File>
+      <Index>0xde</Index>
+    </Texture>
+    <SlotType>21</SlotType>
+    <Description>A brain.</Description>
+    <Usable/>
+    <BagType>5</BagType>
+    <MpCost>120</MpCost>
+    <UniqueEffect>BrainOrb</UniqueEffect>
+    <Activate duration="1">StasisBlast</Activate>
+  </Object>
 </Objects>

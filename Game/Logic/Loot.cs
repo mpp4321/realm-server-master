@@ -178,14 +178,14 @@ namespace RotMG.Game.Logic
                 {
                     if (bagType == 2) player.FameStats.CyanBags++;
                     else if (bagType == 3) player.FameStats.BlueBags++;
-                    else if (bagType == 4) player.FameStats.WhiteBags++;
+                    else if (bagType >= 4) player.FameStats.WhiteBags++;
                 }
 
                 var c = new Container(Container.FromBagType(bagType), ownerId, 40000 * bagType);
                 for (var k = 0; k < bagCount; k++)
                 {
                     ItemDataModType vtype = ItemDataModType.Classical;
-                    Enum.TryParse<ItemDataModType>(player?.Client?.Character.ItemDataModifier, out vtype);
+                    Enum.TryParse<ItemDataModType>(player?.Client?.Character?.ItemDataModifier, out vtype);
                     var roll = Resources.Type2Item[loot[k]].Roll(smod: vtype);
                     c.Inventory[k] = loot[k];
                     c.ItemDatas[k] = roll.Item1 ? roll.Item2 : new ItemDataJson() { Meta=-1 };

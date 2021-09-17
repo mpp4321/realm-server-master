@@ -27,6 +27,8 @@ namespace RotMG.Game.Entities
             public float timer;
 
             public int amount;
+
+            public int id = -1;
         }
 
         public List<BoostTimer> EffectBoosts = new List<BoostTimer>();

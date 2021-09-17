@@ -28,6 +28,7 @@ namespace RotMG.Game.Logic.Behaviors
 
         public readonly ConditionEffectIndex[] effect; 
         public readonly int effect_duration;
+        public readonly Func<Entity, Player> playerOwner;
 
         public Action<Entity> Callback;
 
@@ -46,7 +47,8 @@ namespace RotMG.Game.Logic.Behaviors
             int cooldown = 0,
             ConditionEffectIndex[] effect = null,
             int effect_duration = 0,
-            Action<Entity> callback = null)
+            Action<Entity> callback = null,
+            Func<Entity, Player> playerOwner = null)
         {
             Range = range;
             Count = count;
@@ -64,6 +66,7 @@ namespace RotMG.Game.Logic.Behaviors
 
             this.effect = effect ?? new ConditionEffectIndex[] { };
             this.effect_duration = effect_duration;
+            this.playerOwner = playerOwner;
         }
 
         public override void Enter(Entity host)
@@ -85,9 +88,14 @@ namespace RotMG.Game.Logic.Behaviors
                 if (host.HasConditionEffect(ConditionEffectIndex.Dazed))
                     count = (byte)Math.Ceiling(count / 2f);
 
-                Player target = null;
-                if(Range > 0) 
-                    target = host.GetNearestPlayer(Range) as Player;
+                Entity target = null;
+                if (playerOwner != null)
+                {
+                    target = host.GetNearestEnemy(Range);
+                }
+                else if (Range > 0)
+                    target = host.GetNearestPlayer(Range); 
+
                 if (target != null || DefaultAngle != null || FixedAngle != null)
                 {
                     var desc = host.Desc.Projectiles[Index + host.Desc.Projectiles.First().Key];
@@ -131,12 +139,13 @@ namespace RotMG.Game.Logic.Behaviors
                     var damage = DamageOverride ?? desc.Damage;
                     var startAngle = angle - ShootAngle * (count - 1) / 2;
                     var startId = host.Parent.NextProjectileId;
+                    var owner = playerOwner != null ? playerOwner(host) : host;
                     host.Parent.NextProjectileId += count;
 
                     var projectiles = new List<Projectile>();
                     for (byte k = 0; k < count; k++)
                     {
-                        var p = new Projectile(host, desc, startId + k, Manager.TotalTime, startAngle + ShootAngle * k, host.Position, damage, (e) => { 
+                        var p = new Projectile(owner, desc, startId + k, Manager.TotalTime, startAngle + ShootAngle * k, host.Position, damage, (e) => { 
                             if(effect.Length > 0)
                             {
                                 foreach(var eff in effect)
@@ -146,7 +155,12 @@ namespace RotMG.Game.Logic.Behaviors
                             }
                             if(Callback != null) Callback(e);
                         });
+                       
                         projectiles.Add(p);
+                        if(owner is Player pl)
+                        {
+                            pl.ShotProjectiles.Add(p.Id, p);
+                        }
                     }
 
                     var packet = GameServer.EnemyShoot(startId, host.Id, desc.BulletType, host.Position, startAngle, (short)damage, count, ShootAngle);

@@ -10,7 +10,7 @@ using System.Text;
 
 namespace RotMG.Game.Logic.ItemEffs.ItemDB
 {
-    class SpectralCloth : IItemHandler
+    class Crumbling : IItemHandler
     {
         public void OnAbilityUse(Vector2 position, ItemDesc desc, ItemDataJson itemdata, Player player)
         {
@@ -22,21 +22,27 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
 
         public void OnHitByEnemy(Player hitBy, Entity hit, Projectile by)
         {
-            if(MathUtils.NextFloat() < (0.105f - 0.03f*hitBy.EffectBoosts.Count))
+
+            float chance = 0.105f;
+
+            if (hitBy.Stats[3] + hitBy.Boosts[3] + hitBy.GetTemporaryStatBoost(3) > by.Damage) chance = 0.03f;
+
+            if(MathUtils.NextFloat() < chance)
             {
                 hitBy.Parent.BroadcastPacketNearby(GameServer.Notification
                 (
                     hitBy.Id,
-                    "Wis Boost!",
+                    "Crumble",
                     0xffAEC6CF
                 ), hitBy.Position);
 
                 hitBy.EffectBoosts.Add(new Player.BoostTimer()
                 {
-                    amount = 12,
+                    amount = -10,
                     timer = 5.0f,
-                    index = 7
+                    index = 3
                 });
+
                 hitBy.UpdateStats();
             }
         }

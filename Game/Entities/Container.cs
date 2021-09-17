@@ -21,7 +21,9 @@ namespace RotMG.Game.Entities
         public const ushort PurpleBag = 0x0506;
         public const ushort CyanBag = 0x0507;
         public const ushort BlueBag = 0x0508;
-        public const ushort WhiteBag = 0x0509;
+        public const ushort SmallWhiteBag = 0x0509;
+        public const ushort WhiteBag = 0x5002;
+
         public static ushort FromBagType(int bagType) 
         {
             switch (bagType) 
@@ -30,7 +32,8 @@ namespace RotMG.Game.Entities
                 case 1: return PurpleBag;
                 case 2: return CyanBag;
                 case 3: return BlueBag;
-                case 4: return WhiteBag;
+                case 4: return SmallWhiteBag;
+                case 5: return WhiteBag;
             }
             throw new Exception("Invalid bag type");
         }

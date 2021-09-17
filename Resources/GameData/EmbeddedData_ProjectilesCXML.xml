@@ -1685,6 +1685,15 @@
     <Object type="0x2150" id="TWand Projectile">
         <Class>Projectile</Class>
         <Texture><File>lofiObj2</File><Index>0xaa</Index></Texture>
-		<AngleCorrection>1</AngleCorrection>
+        <AngleCorrection>1</AngleCorrection>
     </Object>
+    <Object type="0x2151" id="Demonic Projectile">
+        <Class>Projectile</Class>
+        <Texture><File>lofiObj5</File><Index>0xda</Index></Texture>
+        <AngleCorrection>1</AngleCorrection>
+    </Object>    <Object type="0x2152" id="Pumpkin Projectile">
+        <Class>Projectile</Class>
+        <Texture><File>lofiObj5</File><Index>0xdd</Index></Texture>
+    </Object>
+
 </Objects>

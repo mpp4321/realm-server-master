@@ -10,7 +10,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
 {
     class PoisonousDagger : IItemHandler
     {
-        public void OnAbilityUse(Vector2 position, ItemDesc desc, ItemDataJson itemdata)
+        public void OnAbilityUse(Vector2 position, ItemDesc desc, ItemDataJson itemdata, Player player)
         {
         }
 
@@ -25,6 +25,10 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
         }
 
         public void OnHitByEnemy(Player hitBy, Entity hit, Projectile by)
+        {
+        }
+
+        public void OnTick(Player p)
         {
         }
     }

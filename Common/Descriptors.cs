@@ -201,6 +201,7 @@ namespace RotMG.Common
         public readonly string DisplayId;
 
         public readonly bool Static;
+        public readonly bool Friendly;
         public readonly string Class;
         public readonly bool BlocksSight;
 
@@ -245,6 +246,7 @@ namespace RotMG.Common
             Group = e.ParseString("Group");
 
             Static = e.ParseBool("Static");
+            Friendly = e.ParseBool("Friendly");
             Class = e.ParseString("Class");
             BlocksSight = e.ParseBool("BlocksSight");
 
@@ -851,7 +853,10 @@ namespace RotMG.Common
         public ProjectileDesc NextProjectile(int id)
         {
             if (!HasProjectile) return null;
-            return Projectile[Math.Abs(id) % Projectile.Length];
+            var m = Projectile.Length;
+            var r = id % m;
+            var slot = r < 0 ? r + m : r;
+            return Projectile[slot];
         }
 
         public ItemDesc(XElement e, string id, ushort type)

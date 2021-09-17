@@ -13,7 +13,9 @@ namespace RotMG.Game.Logic.ItemEffs
 
         abstract void OnHitByEnemy(Player hit, Entity hitBy, Projectile by);
 
-        abstract void OnAbilityUse(Vector2 position, ItemDesc desc, ItemDataJson itemdata);
+        abstract void OnAbilityUse(Vector2 position, ItemDesc desc, ItemDataJson itemdata, Player player);
+
+        abstract void OnTick(Player p);
 
     }
 }

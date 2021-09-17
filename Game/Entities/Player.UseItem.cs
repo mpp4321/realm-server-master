@@ -191,7 +191,7 @@ namespace RotMG.Game.Entities
 
                 if(uef != null && ItemHandlerRegistry.Registry.ContainsKey(uef))
                 {
-                    ItemHandlerRegistry.Registry[uef].OnAbilityUse(target, itemDesc, itemData);
+                    ItemHandlerRegistry.Registry[uef].OnAbilityUse(target, itemDesc, itemData, this);
                 }
             }
 

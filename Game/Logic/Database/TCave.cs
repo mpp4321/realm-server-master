@@ -1,9 +1,12 @@
 ﻿using RotMG.Common;
+using RotMG.Game.Entities;
 using RotMG.Game.Logic.Behaviors;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
+using RotMG.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using static RotMG.Game.Logic.Loots.TierLoot;
 
@@ -214,6 +217,15 @@ namespace RotMG.Game.Logic.Database
                 new State("base",
                     //new HPScale(30),
                     new DropPortalOnDeath(target: "Realm Portal", probability: 1),
+                    new OnDeath((e) => {
+                        foreach (var a in GameUtils.GetNearbyEntities(e, 10).OfType<Enemy>())
+                        {
+                            var s = Manager.Behaviors.Models[a.Type].States
+                                .FirstOrDefault(a => a.Value.StringId == "Die");
+                            if(s.Value != null)
+                                a.CurrentStates.Add(s.Value);
+                        }
+                    }),
                     new State("Ini",
                         new HealthTransition(threshold: 0.99f, targetState: "Q1 Spawn Minion")
                         ),
@@ -237,7 +249,7 @@ namespace RotMG.Game.Logic.Database
                     new State("Q1 Invulnerable",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                         //order Expand
-                        new EntitiesNotExistsTransition(99, "Q1 Vulnerable Transition", "Treasure Oryx Defender"),
+                        new EntitiesNotExistsTransition(10, "Q1 Vulnerable Transition", "Treasure Oryx Defender"),
                         new TimedTransition("Q1 Vulnerable Transition", 30000)
                         ),
                     new State("Q1 Vulnerable Transition",
@@ -279,7 +291,7 @@ namespace RotMG.Game.Logic.Database
                     new State("Q2 Invulnerable",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                         //order expand
-                        new EntitiesNotExistsTransition(99, "Q2 Vulnerable Transition", "Treasure Oryx Defender"),
+                        new EntitiesNotExistsTransition(10, "Q2 Vulnerable Transition", "Treasure Oryx Defender"),
                         new TimedTransition("Q2 Vulnerable Transition", 30000)
                         ),
                     new State("Q2 Vulnerable Transition",
@@ -406,7 +418,6 @@ namespace RotMG.Game.Logic.Database
             db.Init("Gold Planet",
                 new State("base",
                     new ConditionalEffect(ConditionEffectIndex.Invincible),
-                    new EntitiesNotExistsTransition(999, targetState: "Die", "Golden Oryx Effigy"),
                     new Prioritize(
                         new Orbit(speed: 0.5f, radius: 7, acquireRange: 20, target: "Golden Oryx Effigy", speedVariance: 0, radiusVariance: 0)
                         ),

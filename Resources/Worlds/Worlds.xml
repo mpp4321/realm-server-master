@@ -69,4 +69,10 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 	</World>
+	<World name="Crypt" display="Crypt">
+		<Maps>Crypt/0.jm</Maps>
+		<Portals>0x074b</Portals>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+	</World>
 </Worlds>

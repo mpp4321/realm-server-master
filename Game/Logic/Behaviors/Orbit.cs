@@ -17,6 +17,7 @@ namespace RotMG.Game.Logic.Behaviors
             public float Speed;
             public float Radius;
             public int Direction;
+            public Entity entity = null;
         }
 
         float speed;
@@ -63,11 +64,15 @@ namespace RotMG.Game.Logic.Behaviors
             if (host.HasConditionEffect(ConditionEffectIndex.Paralyzed))
                 return false;
 
-            Entity entity = null;
-            if (target.HasValue)
-                entity = GameUtils.GetNearestEntity(host, acquireRange, target.Value);
-            else
-                entity = GameUtils.GetNearestEntity(host, acquireRange);
+            if(s.entity == null)
+            {
+                if (target.HasValue)
+                    s.entity = GameUtils.GetNearestEntity(host, acquireRange, target.Value);
+                else
+                    s.entity = GameUtils.GetNearestEntity(host, acquireRange);
+            }
+
+            Entity entity = s.entity;
 
             if (entity != null)
             {

@@ -39,6 +39,7 @@ namespace RotMG.Game.Logic.Behaviors
 
         public override bool Tick(Entity host)
         {
+            bool returnState = false;
             var state = host.StateObject[Id];
             ProtectState s;
             if (state == null) s = ProtectState.DontKnowWhere;
@@ -70,6 +71,7 @@ namespace RotMG.Game.Logic.Behaviors
                         vect.Normalize();
                         float dist = host.GetSpeed(speed) * (Settings.MillisecondsPerTick / 1000f);
                         host.ValidateAndMove(vect * dist + host.Position);
+                        returnState = true;
                     }
                     else
                     {
@@ -93,7 +95,7 @@ namespace RotMG.Game.Logic.Behaviors
             }
 
             host.StateObject[Id] = s;
-            return true;
+            return returnState;
         }
     }
 }

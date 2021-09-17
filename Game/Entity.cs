@@ -145,6 +145,13 @@ namespace RotMG.Game
             set => TrySetSV(StatType.Condition, (int)(_conditionEffects = value));
         }
 
+        private Player _owner;
+        public Player PlayerOwner
+        {
+            get => _owner;
+            set => _owner = value;
+        }
+
         private int _hp;
         public int Hp
         {

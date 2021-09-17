@@ -150,7 +150,7 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Ogre Warrior",
                 new State("base",
-                    new Shoot(3, predictive: 0.5f),
+                    new Shoot(3),
                     new Prioritize(
                         new StayAbove(1.2f, 160),
                         new Protect(1.2f, "Ogre King", 15, 10, 5),
@@ -163,7 +163,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Ogre Mage",
                 new State("base",
-                    new Shoot(10, predictive: 0.3f),
+                    new Shoot(10),
                     new Prioritize(
                         new StayAbove(1.2f, 160),
                         new Protect(1.2f, "Ogre King", 30, 10, reprotectRange: 1),
@@ -221,7 +221,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Night Elf Archer",
                 new State("base",
-                    new Shoot(10, predictive: 1),
+                    new Shoot(10),
                     new Prioritize(
                         new StayAbove(0.4f, 160),
                         new Follow(1.5f, range: 7),
@@ -232,7 +232,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Night Elf Warrior",
                 new State("base",
-                    new Shoot(3, predictive: 1),
+                    new Shoot(3),
                     new Prioritize(
                         new StayAbove(0.4f, 160),
                         new Follow(1.5f, range: 1),
@@ -243,7 +243,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Night Elf Mage",
                 new State("base",
-                    new Shoot(10, predictive: 1),
+                    new Shoot(10),
                     new Prioritize(
                         new StayAbove(0.4f, 160),
                         new Follow(1.5f, range: 7),
@@ -254,7 +254,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Night Elf Veteran",
                 new State("base",
-                    new Shoot(10, predictive: 1),
+                    new Shoot(10),
                     new Prioritize(
                         new StayAbove(0.4f, 160),
                         new Follow(1.5f, range: 7),
@@ -265,7 +265,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Night Elf King",
                 new State("base",
-                    new Shoot(10, predictive: 1),
+                    new Shoot(10),
                     new Prioritize(
                         new StayAbove(0.4f, 160),
                         new Follow(1.5f, range: 7),

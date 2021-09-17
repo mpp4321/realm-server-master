@@ -248,6 +248,15 @@
         <Class>Container</Class>
         <Container/>
 		<Loot/>
+        <Texture><File>lofiObj3</File><Index>0x5b8</Index></Texture>
+        <Size>80</Size>
+        <SlotTypes>0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+    </Object>
+	<Object type="0x5002" id="Loot Bag 6">
+        <DisplayId>Loot Bag</DisplayId>
+        <Class>Container</Class>
+        <Container/>
+		<Loot/>
         <Texture><File>lofiObj4</File><Index>0x94</Index></Texture>
         <Size>80</Size>
         <SlotTypes>0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
@@ -712,22 +721,10 @@
         <ShadowSize>0</ShadowSize>
     </Object>
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <Object type="0x074b" id="Haunted Cemetery Portal">
+    <Object type="0x074b" id="Crypt Portal">
         <Class>Portal</Class>
         <IntergamePortal/>
-        <DungeonName>Haunted Cemetery</DungeonName>
+        <DungeonName>Crypt</DungeonName>
         <Texture><File>lofiObj3</File><Index>0x318</Index></Texture>
 		<Animation prob="0.4" period="1.8">
 			<Frame time="0.2"><Texture><File>lofiObj3</File><Index>0x319</Index></Texture></Frame>
@@ -739,22 +736,23 @@
 		</Animation>
     </Object>
     
-    <Object type="0x5e29" id="Halloween Bat">
-		<Enemy/>
-		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8rEncounters</File><Index>26</Index></AnimatedTexture>
-		<HitSound>monster/bats_hit</HitSound>
-		<DeathSound>monster/bats_death</DeathSound>
-		
-		<MaxHitPoints>125</MaxHitPoints>
-		<Defense>25</Defense>
-		<XpMult>1</XpMult>
-		<Z>0.24</Z>
-		<Flying/>
-   		<Size>80</Size>
-		<ShadowSize>80</ShadowSize>
-		
-	</Object>
+    <Object type="0x5004" id="Mini Flying Brain">
+      <Enemy/>
+      <Class>Character</Class>
+      <Texture>
+        <File>lofiObj5</File>
+        <Index>0xde</Index>
+      </Texture>
+      <Friendly/>
+      <Size>80</Size>
+      <ShadowSize>80</ShadowSize>
+      <Projectile id="0">
+          <ObjectId>Red Fire</ObjectId>
+          <Speed>120</Speed>
+          <Damage>50</Damage>
+          <LifetimeMS>2000</LifetimeMS>
+      </Projectile>
+    </Object>
     
     <Object type="0x074c" id="Nexus Turkey">
         <DisplayId>Turkey</DisplayId>

@@ -124,6 +124,9 @@ namespace RotMG.Game
                     }
                     else
                         world.AddEntity(Entity.Resolve(spTile.ObjectType), new Vector2(projX + 0.5f, projY + 0.5f));
+                } else
+                {
+                    world.RemoveStatic(projX, projY);
                 }
             }
         }
