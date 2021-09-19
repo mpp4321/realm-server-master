@@ -16,7 +16,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
             {
                 Enemy e = new Enemy(0x5004);
 
-                e.ApplyConditionEffect(ConditionEffectIndex.StasisImmune, 3000);
+                e.ApplyConditionEffect(ConditionEffectIndex.StasisImmune, 10000);
 
                 p.Parent.AddEntity(e, j.Position);
                 e.PlayerOwner = p;
