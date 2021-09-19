@@ -304,8 +304,10 @@ namespace RotMG.Game.Entities
                     for (var i = 0; i < numShots; i++)
                     {
                         var damage = (int)(GetNextDamageSeeded(desc.NextProjectile(startId - i).MinDamage, desc.NextProjectile(startId - i).MaxDamage, ItemDatas[0]) * GetAttackMultiplier());
-                        var uneffs = this.Inventory.Take(4).Select(a => a > 0 ? Resources.Type2Item[(ushort)a].UniqueEffect : null).Where(a => a != null).ToArray();
-                        var projectile = new Projectile(this, desc.NextProjectile(startId - i), startId - i, time, angle + arcGap * i, pos, damage, uniqueEff: uneffs);
+                        var uneffs = this.Inventory.Take(4).Select(a => a > 0 ? Resources.Type2Item[(ushort)a].UniqueEffect : null).Where(a => a != null);
+                        var compeffs = this.ItemDatas.Take(4).Select(a => a.ItemComponent != null ? a.ItemComponent : null).Where(a => a != null);
+                        uneffs = uneffs.Concat(compeffs);
+                        var projectile = new Projectile(this, desc.NextProjectile(startId - i), startId - i, time, angle + arcGap * i, pos, damage, uniqueEff: uneffs.ToArray());
                         ShotProjectiles.Add(projectile.Id, projectile);
                     }
 

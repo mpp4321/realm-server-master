@@ -9179,4 +9179,15 @@
     <FameBonus>4</FameBonus>
     <MpCost>110</MpCost>
   </Object>
+  <Object type="0xc94" id="Fire Rune">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj5</File>
+      <Index>0xc8</Index>
+    </Texture>
+    <Description>The flame of a ritual fueled by human sacrifice captured before the ritual could be completed.</Description>
+    <Component>FireRune</Component>
+    <BagType>5</BagType>
+  </Object>
 </Objects>
