@@ -3,6 +3,7 @@ using RotMG.Game.Logic.Behaviors;
 using RotMG.Game.Logic.Conditionals;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
+using static RotMG.Game.Logic.LootDef;
 using ItemType = RotMG.Game.Logic.Loots.TierLoot.LootType;
 
 namespace RotMG.Game.Logic.Database
@@ -46,10 +47,10 @@ namespace RotMG.Game.Logic.Database
                     )
                 ),
                 new DropPortalOnDeath("Realm Portal", 1f),
-                new Threshold(0.01f, new ItemLoot("Sturdy Pegleg", 0.1f), new TierLoot(4, ItemType.Ring, 1.0f, rs: 2),
+                new Threshold(0.01f, new ItemLoot("Sturdy Pegleg", 0.1f), new TierLoot(4, ItemType.Ring, 1.0f, r: new RarityModifiedData(1f, 2)),
                 
-                    new TierLoot(4, ItemType.Armor, 0.3f, rs: 1),
-                    new TierLoot(5, ItemType.Armor, 0.4f, rs: 1)
+                    new TierLoot(4, ItemType.Armor, 0.3f, r: new RarityModifiedData(1f, 1)),
+                    new TierLoot(5, ItemType.Armor, 0.4f, r: new RarityModifiedData(1f, 1))
                 
                 )
             );

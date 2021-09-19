@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static RotMG.Game.Logic.LootDef;
 using static RotMG.Game.Logic.Loots.TierLoot;
 
 namespace RotMG.Game.Logic.Database
@@ -546,25 +547,24 @@ namespace RotMG.Game.Logic.Database
             //Sumo dungeon boss
             db.Init("Karate King",
                 new State("fire",
-                    new Shoot(10, 4, 0, 2, 0f, MathF.PI / 8f),
-                    new Shoot(10, 8, 45, 1, 0f),
+                    new Shoot(10, 4, shootAngle: 90, index: 2, fixedAngle: 0f, rotateAngle: 45f),
+                    new Shoot(10, 8, 45, 1, 0f, 45f, cooldown: 2000),
                     new Prioritize(false,
-                        new Follow(0.8f, range: 1),
+                        new Follow(1.6f, range: 1),
                         new Wander(0.4f)
                     )
                 ),
                 new Threshold(0.01f,
-                    LootTemplates.BasicPots(0.05f).Concat(
+                    // there are 6 pots in this so its really 0.006 for pot
+                    LootTemplates.BasicPots(0.001f).Concat(
                         new MobDrop[] {
-                            new TierLoot(6, TierLoot.LootType.Weapon, 1f, rs: 2),
-                            new TierLoot(6, TierLoot.LootType.Armor, 1f, rs: 2),
+                            new TierLoot(6, TierLoot.LootType.Weapon, 1f, r: new RarityModifiedData(1f, 2)),
+                            new TierLoot(6, TierLoot.LootType.Armor, 1f, r: new RarityModifiedData(1f, 2)),
+                            new ItemLoot("Dragonsoul Sword", 0.2f, r: new RarityModifiedData(1.1f, 3, true))
                         }
                     ).ToArray()
                 )
             );
-
-
-
         }
     }
 }

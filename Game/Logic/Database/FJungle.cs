@@ -22,7 +22,7 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(2, TierLoot.LootType.Ability, 0.05f),
                 new TierLoot(3, TierLoot.LootType.Ability, 0.02f),
                 new TierLoot(4, TierLoot.LootType.Ability, 0.01f),
-                new TierLoot(2, TierLoot.LootType.Ring, 0.02f, rm: 1.2f, rs: 2),
+                new TierLoot(2, TierLoot.LootType.Ring, 0.02f, r: new LootDef.RarityModifiedData(1.2f, 1)),
                 new ItemLoot("Health Potion", 0.25f),
                 new ItemLoot("Magic Potion", 0.25f)
             };
@@ -47,7 +47,7 @@ namespace RotMG.Game.Logic.Database
                         new NoPlayerWithinTransition(30, "Waiting")
                         )
                     ),
-                    new ItemLoot("Great Fang", 0.2f), new ItemLoot("Anatis Staff", 0.1f, fm: 1.9f, fs: 2)
+                    new ItemLoot("Great Fang", 0.2f), new ItemLoot("Anatis Staff", 0.1f, r: new LootDef.RarityModifiedData(1.8f, 2) { AlwaysRare = true })
             );
 
             db.Init("Great Snake Egg",

@@ -22,10 +22,10 @@ namespace RotMG.Game.Logic.Database
             return new MobDrop[] { 
                 new ItemLoot("Potion of Speed", chance),
                 new ItemLoot("Potion of Vitality", chance),
-                new ItemLoot("Potion of Wisdom", .5f),
-                new ItemLoot("Potion of Dexterity", .5f),
-                new ItemLoot("Potion of Attack", .5f),
-                new ItemLoot("Potion of Defense", .5f)
+                new ItemLoot("Potion of Wisdom", chance),
+                new ItemLoot("Potion of Dexterity", chance),
+                new ItemLoot("Potion of Attack", chance),
+                new ItemLoot("Potion of Defense", chance)
             };
         }
     }

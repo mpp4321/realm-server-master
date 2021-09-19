@@ -22,7 +22,7 @@ namespace RotMG.Game.Logic.Loots
                     Resources.Type2Item[lootDef.Item].Id, 
                     overrides.Chance >= 0 ? overrides.Chance : lootDef.Chance,
                     overrides.Threshold >= 0 ? overrides.Threshold : lootDef.Threshold,
-                    overrides.Min >= 0 ? overrides.Min : lootDef.Min));
+                    overrides.Min >= 0 ? overrides.Min : lootDef.Min, lootDef.RareData));
             }
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using RotMG.Common;
+using static RotMG.Game.Logic.LootDef;
 
 namespace RotMG.Game.Logic.Loots
 {
@@ -15,7 +16,7 @@ namespace RotMG.Game.Logic.Loots
             Potion
         }
 
-        public TierLoot(byte tier, LootType type, float chance = 1, float threshold = 0, int min = 0, float rm = 1.0f, int rs=0)
+        public TierLoot(byte tier, LootType type, float chance = 1, float threshold = 0, int min = 0, RarityModifiedData r=null)
         {
             ItemType[] types = new ItemType[0];
             switch (type)
@@ -59,7 +60,7 @@ namespace RotMG.Game.Logic.Loots
                     item.Id,
                     chance / items.Length,
                     threshold,
-                    min, rs, rm));
+                    min, r));
             }
         }
     }
