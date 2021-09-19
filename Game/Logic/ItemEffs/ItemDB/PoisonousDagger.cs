@@ -20,7 +20,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
             {
                 if (!(hit is Enemy en) || !(by.Owner is Player pl))
                     return;
-                en.ApplyPoison(pl, new ConditionEffectDesc[] { }, 500, 500);
+                en.ApplyPoison(pl, new ConditionEffectDesc[] { }, 100, 500);
             }
         }
 
