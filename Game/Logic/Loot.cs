@@ -78,8 +78,8 @@ namespace RotMG.Game.Logic
         {
             var possibleDrops = GetPossibleDrops();
             possibleDrops.AddRange(enemy.Parent.WorldLoot.GetPossibleDrops());
-            var dropDictionary = possibleDrops.ToDictionary(drop => drop.Item, drop => drop);
-            var requiredDrops = possibleDrops.ToDictionary(drop => drop.Item, drop => drop.Min);
+            var dropDictionary = possibleDrops.GroupBy(d => d.Item).ToDictionary(drop => drop.Key, drop => drop.First());
+            var requiredDrops = possibleDrops.GroupBy(d => d.Item).ToDictionary(drop => drop.Key, drop => drop.Sum(a => a.Min));
 
             var publicLoot = new List<LootDef>();
             foreach (var drop in possibleDrops)
