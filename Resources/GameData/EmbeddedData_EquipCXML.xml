@@ -9179,4 +9179,30 @@
     <FameBonus>4</FameBonus>
     <MpCost>110</MpCost>
   </Object>
+   <Object type="0xc93" id="Dragonfire">
+	<Class>Equipment</Class>
+	<Item/>
+	<Texture>
+		<File>lofiObj5</File>
+		<Index>0x70</Index>
+	</Texture>
+	<SlotType>17</SlotType>
+	<Description>A staff of tungsten built around the ever-living bile gland of a horned drake. Upon contact with the air, the bile ingnites violently, causing perpetual flame.</Description>
+	<RateOfFire>1.25</RateOfFire>
+	<Sound>weapon/wand_of_death</Sound>
+	<Projectile>
+		<ObjectId>Directed Explosion</ObjectId>
+		<Speed>70</Speed>
+		<MinDamage>30</MinDamage>
+		<MaxDamage>60</MaxDamage>
+		<LifetimeMS>1200</LifetimeMS>
+		<Amplitude>0.8</Amplitude>
+		<Frequency>2</Frequency>
+		<ArmorPiercing>true</ArmorPiercing>
+	</Projectile>
+	<BagType>4</BagType>
+	<NumProjectiles>3</NumProjectiles>
+	<ArcGap>8</ArcGap>
+	<OldSound>magicShoot</OldSound>
+</Object>
 </Objects>
