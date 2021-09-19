@@ -9193,8 +9193,8 @@
 	<Projectile>
 		<ObjectId>Directed Explosion</ObjectId>
 		<Speed>70</Speed>
-		<MinDamage>30</MinDamage>
-		<MaxDamage>60</MaxDamage>
+		<MinDamage>50</MinDamage>
+		<MaxDamage>80</MaxDamage>
 		<LifetimeMS>1200</LifetimeMS>
 		<Amplitude>0.8</Amplitude>
 		<Frequency>2</Frequency>
