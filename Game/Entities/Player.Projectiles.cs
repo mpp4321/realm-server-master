@@ -413,6 +413,8 @@ namespace RotMG.Game.Entities
 
         public override bool HitByProjectile(Projectile projectile)
         {
+            if (projectile.Owner is Player)
+                return false;
             if(projectile.OnHitDelegate != null)
                 projectile.OnHitDelegate(this);
             for(int i = 0; i < 4; i++)

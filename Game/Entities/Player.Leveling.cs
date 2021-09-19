@@ -59,6 +59,7 @@ namespace RotMG.Game.Entities
 
         public bool GainEXP(int exp)
         {
+            exp = 2 * exp;
             EXP += exp;
 
             var newFame = EXP / EXPPerFame;

@@ -53,6 +53,20 @@ namespace RotMG.Common
             LoadNews();
         }
 
+        public static ObjectDesc ClosestObjectToString(string givenId)
+        {
+            return IdLower2Object.Where(
+                    a => a.Key.Contains(givenId)
+                ).FirstOrDefault().Value;
+        }
+
+        public static ItemDesc ClosestItemToString(string givenId)
+        {
+            return IdLower2Item.Where(
+                    a => a.Key.Contains(givenId)
+                ).FirstOrDefault().Value;
+        }
+
         private static void LoadGameData()
         {
             var paths = Directory.EnumerateFiles(CombineResourcePath("GameData/"), "*.xml", SearchOption.TopDirectoryOnly).ToArray();

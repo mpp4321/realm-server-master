@@ -3,6 +3,7 @@ using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using static RotMG.Game.Logic.Loots.TierLoot;
 
@@ -518,7 +519,8 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(1, LootType.Ring, 0.05f),
                 new TierLoot(1, LootType.Ability, 0.28f),
                 new ItemLoot("Health Potion", 0.02f),
-                new ItemLoot("Magic Potion", 0.02f)
+                new ItemLoot("Magic Potion", 0.02f),
+                new ItemLoot("Giant Claw Blade", 0.03f)
             );
             db.Init("Sand Devil",
                 new State("base",
@@ -540,6 +542,29 @@ namespace RotMG.Game.Logic.Database
                     )
             );;
             db.EveryInit = new IBehavior[] { };
+
+            //Sumo dungeon boss
+            db.Init("Karate King",
+                new State("fire",
+                    new Shoot(10, 4, 0, 2, 0f, MathF.PI / 8f),
+                    new Shoot(10, 8, 45, 1, 0f),
+                    new Prioritize(false,
+                        new Follow(0.8f, range: 1),
+                        new Wander(0.4f)
+                    )
+                ),
+                new Threshold(0.01f,
+                    LootTemplates.BasicPots(0.05f).Concat(
+                        new MobDrop[] {
+                            new TierLoot(6, TierLoot.LootType.Weapon, 1f, rs: 2),
+                            new TierLoot(6, TierLoot.LootType.Armor, 1f, rs: 2),
+                        }
+                    ).ToArray()
+                )
+            );
+
+
+
         }
     }
 }

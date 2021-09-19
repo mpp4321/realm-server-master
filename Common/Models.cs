@@ -62,7 +62,7 @@ namespace RotMG.Common
         protected override void Load()
         {
             Inventory = Data.ParseIntArray("Inventory", ",");
-            ItemDatas = Data.ParseStringArray("ItemDatas", ",");
+            ItemDatas = Data.ParseStringArray("ItemDatas", null, regex: new System.Text.RegularExpressions.Regex(@"(?<=}),(?={)"));
             if (ItemDatas == null) ItemDatas = Enumerable.Repeat("{\"Meta\": -1}", 20).ToArray();
         }
 
@@ -122,9 +122,7 @@ namespace RotMG.Common
             Stats = Data.ParseIntArray("Stats", ",");
             Inventory = Data.ParseIntArray("Equipment", ",");
             ItemDatas = Data.ParseStringArray("ItemDatas", null, regex: new System.Text.RegularExpressions.Regex(@"(?<=}),(?={)"));
-
             ItemDataJsons = ItemDatas?.Select(a => ItemDesc.ParseItemDataJson(a)).ToArray();
-
             Fame = Data.ParseInt("Fame");
             Tex1 = Data.ParseInt("Tex1");
             Tex2 = Data.ParseInt("Tex2");

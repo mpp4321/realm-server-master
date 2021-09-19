@@ -23,8 +23,8 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(3, TierLoot.LootType.Ability, 0.02f),
                 new TierLoot(4, TierLoot.LootType.Ability, 0.01f),
                 new TierLoot(2, TierLoot.LootType.Ring, 0.02f, rm: 1.2f, rs: 2),
-                new ItemLoot("Health Potion"),
-                new ItemLoot("Magic Potion")
+                new ItemLoot("Health Potion", 0.25f),
+                new ItemLoot("Magic Potion", 0.25f)
             };
 
             db.Init("Great Coil Snake",
@@ -143,15 +143,14 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(1, 5, cooldown: 1600, fixedAngle: 270, cooldownOffset: 1200, shootAngle: 72),
                     new Shoot(1, 5, cooldown: 1600, fixedAngle: 315, cooldownOffset: 1400, shootAngle: 72),
                     new Shoot(1, 5, cooldown: 1600, fixedAngle: 360, cooldownOffset: 1600, shootAngle: 72),
-                    new TossObject("Totem Spirit", cooldown: 8000, range:11),
-                    new TossObject("Basilisk", cooldown: 10000, range: 11)
+                    new TossObject("Totem Spirit", cooldown: 16000, range:11)
                 ));
 
             db.Init("Mixcoatl the Masked God", new State("base",
                 new State("Wait",
                         new PlayerWithinTransition(10.5f, "start")
                     ),
-                new State("restart", 
+                new State("restart",
                         new Flash(0xff0000, 1.0f, 5),
                         new TimedTransition("start")
                     ),
@@ -170,8 +169,9 @@ namespace RotMG.Game.Logic.Database
                         new Shoot(1, 3, cooldown: 10000, fixedAngle: 360, cooldownOffset: 800, shootAngle: 72),
                         new TimedTransition("Wait", 800))
                     ),
-                    new Threshold(0.01f, new ItemLoot("Potion of Vitality", 1f), new ItemLoot("Robe of the Tlatoani", 0.1f), new ItemLoot("Cracked Crystal Skull", 0.1f),
-                                         new ItemLoot("Staff of the Crystal Serpent", 0.1f), new ItemLoot("Crystal Bone Ring", 0.1f))
+                    new Threshold(0.01f, new ItemLoot("Potion of Vitality", 1f), new ItemLoot("Robe of the Tlatoani", 0.05f), new ItemLoot("Cracked Crystal Skull", 0.05f),
+                                         new ItemLoot("Staff of the Crystal Serpent", 0.05f), new ItemLoot("Crystal Bone Ring", 0.05f),
+                                         new ItemLoot("Captured Ritual Flame", 0.05f))
                 );
         }
     }

@@ -18,6 +18,7 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("Crumbling", new Crumbling());
             Registry.Add("MedusaGarment", new OutOfCombatSpeed());
             Registry.Add("BrainOrb", new BrainOrb());
+            Registry.Add("PoisonFire", new PoisonFire());
         }
 
     }

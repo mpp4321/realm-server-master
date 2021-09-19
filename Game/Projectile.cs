@@ -50,8 +50,16 @@ namespace RotMG.Game
         {
             var p = new Vector2(StartPosition.X, StartPosition.Y);
             var speed = Desc.Speed;
-            if (Desc.Accelerate) speed *= elapsed / Desc.LifetimeMS;
-            if (Desc.Decelerate) speed *= 2 - elapsed / Desc.LifetimeMS;
+
+            if (Desc.DoAccelerate)
+            {
+                var elapsedWithDelay = MathF.Max(0, elapsed - Desc.AccelerateDelay);
+                var speedIncreaseByLifeTime = elapsedWithDelay * (Desc.Accelerate / 1000);
+                //speed *= elapsed / Desc.LifetimeMS;
+                speed += speedIncreaseByLifeTime;
+            }
+            //if (Desc.Decelerate != 0.0f) speed *= 2 - elapsed / Desc.LifetimeMS;
+
             var dist = elapsed * (speed / 10000f);
             var phase = Id % 2 == 0 ? 0 : MathF.PI;
             if (Desc.Wavy)

@@ -68,6 +68,7 @@
 		<Portals>0x0733</Portals>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
+		<Music>jungletemple</Music>
 	</World>
 	<World name="Crypt" display="Crypt">
 		<Maps>Crypt/0.jm</Maps>

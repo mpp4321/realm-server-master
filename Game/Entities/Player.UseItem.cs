@@ -654,16 +654,34 @@ namespace RotMG.Game.Entities
                         SendInfo("Your luck begins to change.");
                         break;
                     case ActivateEffectIndex.StatBoostSelf:
-
                         EffectBoosts.Add(new BoostTimer()
                         {
                             amount = eff.Amount,
                             timer = eff.DurationMS / 1000,
                             index = eff.Stat
                         });
-
                         UpdateStats();
-
+                        break;
+                    case ActivateEffectIndex.StatBoostAura:
+                        {
+                            var range = eff.Range;
+                            var color = eff.Color.HasValue ? eff.Color.Value : 0xffffffff;
+                            var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, Id, color, new Vector2(range, 0));
+                            foreach (var j in Parent.PlayerChunks.HitTest(Position, Math.Max(range, SightRadius)))
+                            {
+                                if (j is Player k)
+                                {
+                                    k.EffectBoosts.Add(new BoostTimer()
+                                    {
+                                        amount = eff.Amount,
+                                        timer = eff.DurationMS / 1000,
+                                        index = eff.Stat
+                                    });
+                                    k.UpdateStats();
+                                    k.Client.Send(nova);
+                                }
+                            }
+                        }
                         break;
 #if DEBUG
                     default:

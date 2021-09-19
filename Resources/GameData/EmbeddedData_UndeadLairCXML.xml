@@ -7,8 +7,8 @@
 		<HitSound>monster/ghost_god_hit</HitSound>
 		<DeathSound>monster/ghost_god_death</DeathSound>
 		<Size>100</Size>
-		<MaxHitPoints>8000</MaxHitPoints>
-		<Defense>12</Defense>
+		<MaxHitPoints>16000</MaxHitPoints>
+		<Defense>42</Defense>
 		<Flying/>
 		<Quest/>
 		<God/>
@@ -16,13 +16,11 @@
 		<Level>1</Level>
 		<XpMult>0.7</XpMult>
 		<NoArticle/>
-
-		
 		<Projectile id="0">
 			<ObjectId>White Bullet</ObjectId>
 			<Speed>80</Speed>
 			<Damage>75</Damage>
-			<Size>25</Size>
+			<Size>80</Size>
 			<LifetimeMS>1500</LifetimeMS>
 			<ArmorPiercing/>
 		</Projectile>		
@@ -30,48 +28,20 @@
 			<ObjectId>Brown Magic</ObjectId>
 			<Speed>90</Speed>
 			<Damage>45</Damage>
-			<Size>40</Size>
+			<Size>80</Size>
 			<LifetimeMS>2600</LifetimeMS>
-			<Boomerang/>
 			<Amplitude>2</Amplitude>
 			<Frequency>2.5</Frequency>
-			<ConditionEffect duration="1">Quiet</ConditionEffect>
+			<ConditionEffect duration="1">Hexed</ConditionEffect>
 		</Projectile>			
 		<Projectile id="2">
 			<ObjectId>Yellow Star</ObjectId>
 			<Speed>57</Speed>
 			<Damage>65</Damage>
-			<Size>80</Size>
+			<Size>120</Size>
 			<LifetimeMS>3000</LifetimeMS>
 			<ConditionEffect duration="1.5">Confused</ConditionEffect>
 		</Projectile>
-		<Projectile id="4">
-			<ObjectId>White Bullet</ObjectId>
-			<Speed>40</Speed>
-			<Damage>160</Damage>
-			<Size>80</Size>
-			<LifetimeMS>4000</LifetimeMS>
-		</Projectile>		
-		<Projectile id="5">
-			<ObjectId>White Bullet</ObjectId>
-			<Speed>70</Speed>
-			<Damage>60</Damage>
-			<Size>60</Size>
-			<LifetimeMS>2000</LifetimeMS>
-		</Projectile>		
-		
-			
-
-
-					
-
-		
-		
-		
-
-
-
-		
 	</Object>	
 	
 	<Object type="0x0d91" id="Lair Skeleton">

@@ -29,6 +29,7 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(6, LootType.Ring, 0.05f),
                 new TierLoot(3, LootType.Ability, 0.1f),
                 new TierLoot(4, LootType.Ability, 0.05f),
+                new ItemLoot("Cracked Dangerous Prism", 0.005f)
             };
 
             db.Init("Arena Horseman Anchor",
@@ -293,7 +294,8 @@ namespace RotMG.Game.Logic.Database
                     LootTemplates.MountainDrops()
                     ),
                 new Threshold(0.01f,
-                    new ItemLoot("Potion of Attack", 0.05f)
+                    new ItemLoot("Potion of Attack", 0.05f),
+                    new ItemLoot("Mini Brain Orb", 0.005f)
                     )
             );
             db.Init("Slime God",

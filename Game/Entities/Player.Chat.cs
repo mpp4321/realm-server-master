@@ -31,6 +31,11 @@ namespace RotMG.Game.Entities
             "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute"
         };
 
+        internal int GetStatTotal(int v)
+        {
+            return Stats[v] + Boosts[v] + GetTemporaryStatBoost(v);
+        }
+
         public void SendInfo(string text) => Client.Send(GameServer.Text("", 0, -1, 0, "", text));
         public void SendError(string text) => Client.Send(GameServer.Text("*Error*", 0, -1, 0, "", text));
         public void SendHelp(string text) => Client.Send(GameServer.Text("*Help*", 0, -1, 0, "", text));
@@ -328,7 +333,9 @@ namespace RotMG.Game.Entities
                                 SendError("Usage: /give <item name>");
                                 return;
                             }
-                            if (Resources.IdLower2Item.TryGetValue(input.ToLower(), out var item))
+
+                            var item = Resources.ClosestItemToString(input.ToLower());
+                            if (item != null)
                             {
                                 if (GiveItem(item.Type))
                                     SendInfo("Success");
@@ -403,8 +410,10 @@ namespace RotMG.Game.Entities
                             int spawnCount;
                             if (!int.TryParse(j[0], out spawnCount))
                                 spawnCount = -1;
-                            if (Resources.IdLower2Object.TryGetValue(
-                                (spawnCount == -1 ? input : string.Join(' ', j.Skip(1))).ToLower(), out var desc))
+
+                            var desc = Resources.ClosestObjectToString((spawnCount == -1 ? input : string.Join(' ', j.Skip(1))));
+
+                            if (desc != null)
                             {
                                 if (spawnCount == -1) spawnCount = 1;
                                 if (desc.Player || desc.Static)

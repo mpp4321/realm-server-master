@@ -84,7 +84,7 @@ namespace RotMG.Game
             {
                 if (world.Portal?.Parent == null) {
                     var v = world.Portal?.LastWorldID ?? -1;
-                    if(v != -1)
+                    if(v != -1 && Worlds.ContainsKey(v))
                         Worlds[v].RemoveEntity(world.Portal);
                 } else
                     world.Portal?.Parent?.RemoveEntity(world.Portal);

@@ -961,8 +961,10 @@ namespace RotMG.Common
         public readonly float Frequency;
         public readonly float Magnitude;
 
-        public readonly bool Accelerate;
-        public readonly bool Decelerate;
+        public readonly bool DoAccelerate;
+        public readonly float Accelerate;
+        public readonly float AccelerateDelay;
+        public readonly float SpeedClamp;
 
         public readonly ushort ContainerType;
 
@@ -993,8 +995,10 @@ namespace RotMG.Common
             Frequency = e.ParseFloat("Frequency", 1);
             Magnitude = e.ParseFloat("Magnitude", 3);
 
-            Accelerate = e.ParseBool("Accelerate");
-            Decelerate = e.ParseBool("Decelerate");
+            DoAccelerate = e.ParseBool("DoAccelerate");
+            Accelerate = e.ParseFloat("Accelerate");
+            Accelerate = e.ParseFloat("AccelerateDelay");
+            SpeedClamp = e.ParseFloat("SpeedClamp");
         }
     }
 
