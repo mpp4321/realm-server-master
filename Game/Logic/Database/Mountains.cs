@@ -5,6 +5,7 @@ using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
 using RotMG.Utils;
 using System.Linq;
+using static RotMG.Game.Logic.LootDef;
 using static RotMG.Game.Logic.Loots.TierLoot;
 
 namespace RotMG.Game.Logic.Database
@@ -191,7 +192,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.01f,
                     new ItemLoot("Potion of Speed", 0.05f),
-                    new ItemLoot("Spectral Gown", 0.02f, fm: 1.2f)
+                    new ItemLoot("Spectral Gown", 0.02f, r: new RarityModifiedData(1.2f))
                     ),
                 new Threshold(.01f,
                     LootTemplates.MountainDrops()
@@ -213,7 +214,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.01f,
                     new ItemLoot("Potion of Speed", 0.05f),
-                    new ItemLoot("Garment of Medusa", 0.02f, fm: 1.2f)
+                    new ItemLoot("Garment of Medusa", 0.02f, r: new RarityModifiedData(1.2f))
                     ),
                 new Threshold(.01f,
                     LootTemplates.MountainDrops()
@@ -276,7 +277,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.01f,
                     new ItemLoot("Potion of Defense", 0.05f),
-                    new ItemLoot("Curious Eyeball", 0.02f, fm: 1.2f)
+                    new ItemLoot("Curious Eyeball", 0.02f, r: new RarityModifiedData(1.2f))
                     )
             );
             db.Init("Flying Brain",
@@ -336,7 +337,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.04f,
                     new ItemLoot("Potion of Attack", 0.05f),
-                    new ItemLoot("Crumbling Construct", 0.02f, fm: 1.2f)
+                    new ItemLoot("Crumbling Construct", 0.02f, r: new RarityModifiedData(1.2f))
                     )
             );
             db.Init("Paper Bot",
@@ -365,7 +366,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.04f,
                     new ItemLoot("Potion of Attack", 0.05f),
-                    new ItemLoot("Crumbling Construct", 0.02f, fm: 1.2f)
+                    new ItemLoot("Crumbling Construct", 0.02f, r: new RarityModifiedData(1.2f))
                     )
             );
             db.Init("Steel Bot",
@@ -394,7 +395,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.04f,
                     new ItemLoot("Potion of Attack", 0.05f),
-                    new ItemLoot("Crumbling Construct", 0.02f, fm: 1.2f)
+                    new ItemLoot("Crumbling Construct", 0.02f, r: new RarityModifiedData(1.2f))
                     )
             );
             db.Init("Djinn",
@@ -528,7 +529,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.01f,
                     new ItemLoot("Potion of Vitality", 1.0f),
-                    new ItemLoot("Sanguine Femur", 0.02f, fm: 1.2f)
+                    new ItemLoot("Sanguine Femur", 0.02f, r: new RarityModifiedData(1.2f))
                 ),
             new Threshold(.01f,
                     LootTemplates.MountainDrops().Concat(

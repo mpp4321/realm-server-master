@@ -1,11 +1,13 @@
-﻿namespace RotMG.Game.Logic.Loots
+﻿using static RotMG.Game.Logic.LootDef;
+
+namespace RotMG.Game.Logic.Loots
 {
     public class ItemLoot : MobDrop
     {
-        public ItemLoot(string item, float chance = 1, float threshold = 0, int min = 0, float fm=1.0f, int fs=0)
+        public ItemLoot(string item, float chance = 1, float threshold = 0, int min = 0, RarityModifiedData r=null)
         {
             LootDefs.Add(new LootDef(
-                item, chance, threshold, min, fs, fm));
+                item, chance, threshold, min, r));
         }
     }
 }

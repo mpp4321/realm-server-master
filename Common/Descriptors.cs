@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 using Newtonsoft.Json;
+using static RotMG.Game.Logic.LootDef;
 
 namespace RotMG.Common
 {
@@ -769,25 +770,28 @@ namespace RotMG.Common
             return j;
         }
 
-        public Tuple<bool, ItemDataJson> Roll(float modifier=1f, int shift=0, ItemDataModType? smod=ItemDataModType.Classical)
+        public Tuple<bool, ItemDataJson> Roll(RarityModifiedData r=null, ItemDataModType? smod=ItemDataModType.Classical)
         {
+            r = r ?? new RarityModifiedData();
             ItemData data = 0;
             if (!ModifiableTypes.Contains(SlotType))
                 return Tuple.Create(false, FinalizeItemData(smod, data));
 
-            if (!MathUtils.Chance(.5f))
+            if (!MathUtils.Chance(.5f) && !r.AlwaysRare)
                 return Tuple.Create(false, FinalizeItemData(smod, data));
 
-            var rank = -1 + shift;
-            var chance = .5f * modifier;
-            for (var i = 0; i < 8; i++)
+            var rank = -1;
+            var chance = .5f * r.RarityMod;
+            for (var i = 0; i < 8 - r.RarityShift; i++)
             {
                 if (MathUtils.Chance(chance) && rank < 9)
                     rank++;
                 else break;
             }
-            if (rank == -1) 
+            if (rank == -1 && !r.AlwaysRare) 
                 return Tuple.Create(false, FinalizeItemData(smod, data));
+            //Considering the -1 rank
+            rank += r.RarityShift + (r.AlwaysRare ? 1 : 0);
 
             data |= (ItemData)((ulong)1 << rank);
 
