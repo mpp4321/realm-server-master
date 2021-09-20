@@ -8453,7 +8453,7 @@
     <BagType>4</BagType>
     <OldSound>bladeSwing</OldSound>
   </Object>
-  <Object type="0xc71" id="Snake Kendo">
+  <Object type="0xc71" id="Kendo 'Stick'">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -8461,7 +8461,7 @@
       <Index>0xd1</Index>
     </Texture>
     <SlotType>24</SlotType>
-    <Description>Long kendo!</Description>
+    <Description>A makeshift katana! Definitely not a very straight, hard snake.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/blunt_sword</Sound>
     <Projectile>
@@ -9160,7 +9160,7 @@
     <UniqueEffect>PoisonFire</UniqueEffect>
     <BagType>4</BagType>
     <FameBonus>4</FameBonus>
-    <MpCost>110</MpCost>
+    <MpCost>130</MpCost>
   </Object>
   <Object type="0xc92" id="Captured Ritual Flame of Doom">
     <Class>Equipment</Class>
