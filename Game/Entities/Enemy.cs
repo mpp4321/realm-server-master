@@ -48,8 +48,8 @@ namespace RotMG.Game.Entities
 #if DEBUG
             if (killer == null)
                 throw new Exception("Undefined killer");
-            if (Dead == true)
-                throw new Exception("Already dead");
+            //if (Dead == true)
+            //    throw new Exception("Already dead");
 #endif
 
             if (Parent is Realm realm)

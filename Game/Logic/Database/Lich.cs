@@ -5,6 +5,7 @@ using RotMG.Game.Logic.Transitions;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static RotMG.Game.Logic.LootDef;
 using static RotMG.Game.Logic.Loots.TierLoot;
 
 namespace RotMG.Game.Logic.Database
@@ -315,11 +316,40 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new Shoot(10)
                     ),
-                new ItemLoot("Hell's Fire Wand", 0.02f),
-                new ItemLoot("Slayer Staff", 0.02f),
-                new ItemLoot("Golden Sword", 0.02f),
-                new ItemLoot("Golden Dagger", 0.02f)
-            );;
+                new ItemLoot("Potion of Mana", 0.01f),
+                new ItemLoot("Hell's Fire Wand", 0.02f, r: new RarityModifiedData(1.5f, 2)),
+                new ItemLoot("Slayer Staff", 0.02f, r: new RarityModifiedData(1.5f, 2)),
+                new ItemLoot("Golden Sword", 0.02f, r: new RarityModifiedData(1.5f, 2)),
+                new ItemLoot("Golden Dagger", 0.02f, r: new RarityModifiedData(1.5f, 2))
+            );
+
+            db.Init("Deathmage",
+                    new State("init",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new Spawn("Skeleton", cooldown: 100),
+                        new TimedTransition("base", 3000)
+                    ),
+                    new State("base",
+
+                        new Prioritize(false, 
+                            new Follow(1f, 10, 6),
+                            new Wander(0.6f)
+                        ),
+
+                        new Shoot(12, 3, shootAngle: 10, 0, cooldown: 1000),
+                        new Shoot(12, 1, index: 1, cooldown: 2000),
+                        new Shoot(12, 4, shootAngle: 90, fixedAngle: 0, rotateAngle: 10, index: 2, cooldown: 2000),
+                        new HealSelf(cooldown: 500, 50)
+                    ),
+
+                    new ItemLoot("Potion of Mana", 0.01f),
+                    new ItemLoot("Lifedrinker Skull", 0.02f, r: new RarityModifiedData(1.5f, 2)),
+                    new ItemLoot("Eldritch Battle Staff", 0.05f, r: new RarityModifiedData(1.5f, 4, true)),
+                    new ItemLoot("Staff of Necrotic Arcana", 0.02f, r: new RarityModifiedData(1.5f, 2)),
+                    new ItemLoot("Theurgy Wand", 0.005f, r: new RarityModifiedData(1.5f, 2))
+
+                );
+
         }
     }
 }
