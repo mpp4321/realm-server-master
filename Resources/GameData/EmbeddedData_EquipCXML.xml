@@ -9179,7 +9179,7 @@
     <FameBonus>4</FameBonus>
     <MpCost>110</MpCost>
   </Object>
-   <Object type="0xc93" id="Dragonfire">
+   <Object type="0xc93" id="Drake's Dialect">
 	<Class>Equipment</Class>
 	<Item/>
 	<Texture>
@@ -9187,7 +9187,7 @@
 		<Index>0x70</Index>
 	</Texture>
 	<SlotType>17</SlotType>
-	<Description>A staff of tungsten built around the ever-living bile gland of a horned drake. Upon contact with the air, the bile ingnites violently, causing perpetual flame.</Description>
+	<Description>The still living tongue of a horned drake impaled on a stake; it still writhes and articulates from time to time. A steady drip of incredibly hot saliva drips from it.</Description>
 	<RateOfFire>1.25</RateOfFire>
 	<Sound>weapon/wand_of_death</Sound>
 	<Projectile>
