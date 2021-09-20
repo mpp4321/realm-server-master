@@ -22,7 +22,7 @@ namespace RotMG.Game.Entities
         {
             "commands", "g", "guild", "tell", "allyshots", "allydamage", "effects", "sounds", "vault", "realm",
             "notifications", "online", "who", "server", "pos", "loc", "where", "find", "fame", "famestats", "stats",
-            "trade", "currentsong", "song", "mix"
+            "trade", "currentsong", "song", "mix", "quest"
         };
 
         private readonly string[] _rankedCommands =
@@ -299,6 +299,21 @@ namespace RotMG.Game.Entities
                             var slot1 = int.Parse(j[0]);
                             var slot2 = int.Parse(j[1]);
                             Mix.DoMix(this, slot1, slot2);
+                        }
+                        break;
+                    case "/quest":
+                        {
+                            if(j.Length > 0)
+                            {
+                                var questName = string.Join(' ', j);
+                                PrioritizeQuest = questName;
+                                SendInfo("You are prioritizing " + PrioritizeQuest);
+                            } else
+                            {
+                                PrioritizeQuest = null;
+                                SendInfo("You are no longer prioritizing a quest.");
+                            }
+                            GetNextQuest(true);
                         }
                         break;
                     case "/setcomp":

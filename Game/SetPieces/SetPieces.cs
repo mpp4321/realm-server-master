@@ -46,10 +46,10 @@ namespace RotMG.Game.SetPieces
                 SetPiece("Ghost King", new Tower(), 8, 15, Terrain.HighForest, Terrain.HighPlains),
                 SetPiece("", new TempleA(), 10, 20, Terrain.MidForest, Terrain.MidPlains),
                 SetPiece("", new TempleB(), 10, 20, Terrain.MidForest, Terrain.MidPlains),
-                SetPiece("Oasis Giant", new Oasis(), 0, 5, Terrain.LowSand, Terrain.MidSand),
-                SetPiece("Phoenix Lord", new Pyre(), 0, 5, Terrain.MidSand, Terrain.HighSand),
-                SetPiece("Red Demon",new LavaFissure(), 3, 5, Terrain.Mountains),
-                SetPiece("", new Crystal(), 1, 1, Terrain.Mountains),
+                SetPiece("Oasis Giant", new Oasis(), 3, 8, Terrain.LowSand, Terrain.MidSand),
+                SetPiece("Phoenix Lord", new Pyre(), 3, 8, Terrain.MidSand, Terrain.HighSand),
+                SetPiece("Red Demon",new LavaFissure(), 3, 8, Terrain.Mountains),
+                SetPiece("", new Crystal(), 1, 2, Terrain.Mountains),
                 SetPiece("", new KageKami(), 2, 3, Terrain.HighForest, Terrain.HighPlains)
             };
 

@@ -13,6 +13,8 @@ namespace RotMG.Game.Entities
         private const int MaxLatencyMS = 4000;
         public const int MaxPotions = 6;
 
+        public String PrioritizeQuest = null;
+
         public static int[] Stars = 
         {
             20,

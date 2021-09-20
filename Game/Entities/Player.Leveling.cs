@@ -159,8 +159,13 @@ namespace RotMG.Game.Entities
                 if (!QuestDat.TryGetValue(i.Desc.Id, out var x))
                     continue;
 
-                if (Level >= x.Item2 && Level <= x.Item3)
+
+                var hasPriority = PrioritizeQuest != null;
+                var isPrioritized = hasPriority && i.Desc.DisplayId.ToLower().Contains(PrioritizeQuest.ToLower());
+
+                if ((Level >= x.Item2 && Level <= x.Item3) || isPrioritized)
                 {
+                    if (hasPriority && !isPrioritized) continue;
                     var score = (20 - Math.Abs((i.Desc.Level == -1 ? 0 : i.Desc.Level) - Level)) * x.Item1 -   //priority * level diff
                                 Position.Distance(i) / 100;    //minus 1 for every 100 tile distance
                     if (bestScore == null || score > bestScore)
