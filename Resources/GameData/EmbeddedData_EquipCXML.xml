@@ -6588,7 +6588,7 @@
       <ObjectId>Crystal Serpent Missile</ObjectId>
       <Speed>100</Speed>
       <MinDamage>50</MinDamage>
-      <MaxDamage>120</MaxDamage>
+      <MaxDamage>170</MaxDamage>
       <LifetimeMS>975</LifetimeMS>
       <Amplitude>0.46</Amplitude>
       <Frequency>0.98</Frequency>
