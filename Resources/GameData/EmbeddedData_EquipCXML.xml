@@ -8444,8 +8444,8 @@
     <Projectile>
       <ObjectId>Kendo Slash</ObjectId>
       <Speed>120</Speed>
-      <MinDamage>50</MinDamage>
-      <MaxDamage>70</MaxDamage>
+      <MinDamage>70</MinDamage>
+      <MaxDamage>100</MaxDamage>
       <LifetimeMS>350</LifetimeMS>
       <MultiHit/>
     </Projectile>
