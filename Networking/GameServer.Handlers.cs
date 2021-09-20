@@ -586,7 +586,6 @@ namespace RotMG.Networking
                 Manager.AccountIdToClientId[client.Account.Id] = client.Id;
                 var world = Manager.GetWorld(gameId, client);
 
-#if DEBUG
                 if (client.TargetWorldId == Manager.EditorId)
                 {
                     Program.Print(PrintType.Debug, "Loading editor world");
@@ -594,7 +593,6 @@ namespace RotMG.Networking
                     world = new World(map, Resources.Worlds["Dreamland"]);
                     client.TargetWorldId = Manager.AddWorld(world);
                 }
-#endif
 
                 if (world == null)
                 {
