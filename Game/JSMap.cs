@@ -20,6 +20,7 @@ namespace RotMG.Game
             for (var i = 0; i < json.dict.Length; i++)
             {
                 var o = json.dict[i];
+
                 dict[(ushort)i] = new MapTile
                 {
                     GroundType = o.ground == null ? (ushort)255 : Resources.Id2Tile[o.ground].Type,

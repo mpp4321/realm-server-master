@@ -247,9 +247,10 @@ namespace RotMG.Utils
         public static Entity GetNearestPlayer(this Entity entity, float radius, Func<Entity, bool> pred = null)
         {
 #if DEBUG
-            if (entity == null || entity.Parent == null || radius <= 0)
+            if (entity == null || entity.Parent == null)
                 throw new Exception();
 #endif
+            if (radius <= 0) return null;
             Entity nearest = null;
             var dist = float.MaxValue;
             foreach (var en in entity.Parent.PlayerChunks.HitTest(entity.Position, radius))
