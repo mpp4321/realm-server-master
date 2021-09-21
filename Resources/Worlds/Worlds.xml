@@ -10,7 +10,7 @@
 		<ShowDisplays>true</ShowDisplays>
 		<BlockSight>0</BlockSight>
 		<Persist>true</Persist>
-		<Music>ruins</Music>
+		<Music>Toe_Beans</Music>
 	</World>
 	<World name="Vault" id="-5">
 		<Maps>Vault/0.jm</Maps>
@@ -49,6 +49,7 @@
 		<Portals>0x0717</Portals>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
+		<Music>PIRATECAVE2</Music>
 	</World>
 	<World name="Abyss of Demons" display="Abyss of Demons">
 		<Maps>Abyss/0.jm</Maps>
@@ -82,6 +83,7 @@
 		<Portals>0x074b</Portals>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
+		<Music>CRYPT</Music>
 	</World>
 	<World name="TheRing" display="The Ring">
 		<Maps>TheRing/0.jm</Maps>
