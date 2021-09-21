@@ -173,7 +173,7 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Health Potion", 0.04f)
             );
             db.Init("Sumo Master",
-                new DropPortalOnDeath("The Ring", 1f),
+                new DropPortalOnDeath("The Ring Portal", 1f),
                 new State("base",
                     new State("sleeping1",
                         new SetAltTexture(0),

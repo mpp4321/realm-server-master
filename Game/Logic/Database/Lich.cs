@@ -324,7 +324,7 @@ namespace RotMG.Game.Logic.Database
             );
 
             db.Init("Deathmage",
-                    new DropPortalOnDeath("Crypt", 1f),
+                    new DropPortalOnDeath("Crypt Portal", 1f),
                     new State("init",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                         new Spawn("Skeleton", cooldown: 100),
