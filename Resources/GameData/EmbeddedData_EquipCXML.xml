@@ -6588,7 +6588,7 @@
       <ObjectId>Crystal Serpent Missile</ObjectId>
       <Speed>100</Speed>
       <MinDamage>50</MinDamage>
-      <MaxDamage>120</MaxDamage>
+      <MaxDamage>170</MaxDamage>
       <LifetimeMS>975</LifetimeMS>
       <Amplitude>0.46</Amplitude>
       <Frequency>0.98</Frequency>
@@ -8443,8 +8443,8 @@
     <Projectile>
       <ObjectId>Kendo Slash</ObjectId>
       <Speed>120</Speed>
-      <MinDamage>50</MinDamage>
-      <MaxDamage>70</MaxDamage>
+      <MinDamage>70</MinDamage>
+      <MaxDamage>100</MaxDamage>
       <LifetimeMS>350</LifetimeMS>
       <MultiHit/>
     </Projectile>
@@ -8452,7 +8452,7 @@
     <BagType>4</BagType>
     <OldSound>bladeSwing</OldSound>
   </Object>
-  <Object type="0xc71" id="Snake Kendo">
+  <Object type="0xc71" id="Kendo 'Stick'">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -8460,7 +8460,7 @@
       <Index>0xd1</Index>
     </Texture>
     <SlotType>24</SlotType>
-    <Description>Long kendo!</Description>
+    <Description>A makeshift katana! Definitely not a very straight, hard snake.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/blunt_sword</Sound>
     <Projectile>
@@ -9159,7 +9159,7 @@
     <UniqueEffect>PoisonFire</UniqueEffect>
     <BagType>4</BagType>
     <FameBonus>4</FameBonus>
-    <MpCost>110</MpCost>
+    <MpCost>130</MpCost>
   </Object>
   <Object type="0xc92" id="Captured Ritual Flame of Doom">
     <Class>Equipment</Class>
@@ -9178,6 +9178,32 @@
     <FameBonus>4</FameBonus>
     <MpCost>110</MpCost>
   </Object>
+   <Object type="0xc93" id="Drake's Dialect">
+	<Class>Equipment</Class>
+	<Item/>
+	<Texture>
+		<File>lofiObj5</File>
+		<Index>0x70</Index>
+	</Texture>
+	<SlotType>17</SlotType>
+	<Description>The still living tongue of a horned drake impaled on a stake; it still writhes and articulates from time to time. A steady drip of incredibly hot saliva drips from it.</Description>
+	<RateOfFire>1.25</RateOfFire>
+	<Sound>weapon/wand_of_death</Sound>
+	<Projectile>
+		<ObjectId>Directed Explosion</ObjectId>
+		<Speed>70</Speed>
+		<MinDamage>50</MinDamage>
+		<MaxDamage>80</MaxDamage>
+		<LifetimeMS>1200</LifetimeMS>
+		<Amplitude>0.8</Amplitude>
+		<Frequency>2</Frequency>
+		<ArmorPiercing>true</ArmorPiercing>
+	</Projectile>
+	<BagType>4</BagType>
+	<NumProjectiles>3</NumProjectiles>
+	<ArcGap>8</ArcGap>
+	<OldSound>magicShoot</OldSound>
+</Object>
   <Object type="0xc94" id="Fire Rune">
     <Class>Equipment</Class>
     <Item/>
