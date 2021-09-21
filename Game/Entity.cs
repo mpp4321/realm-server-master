@@ -131,6 +131,20 @@ namespace RotMG.Game
         public BehaviorModel Behavior;
         public List<State> CurrentStates;
         public Dictionary<int, int> StateCooldown; //Used for cooldowns (could be merged with DynamicObjects but it's faster this way)
+
+        //TODO figure out why statecooldown is getting incorrectly removed
+        public int GetStateCooldown(int id)
+        {
+            if(StateCooldown.ContainsKey(id))
+            {
+                return StateCooldown[id];
+            } else
+            {
+                StateCooldown[id] = 0;
+            }
+            return StateCooldown[id];
+        }
+
         public Dictionary<int, object> StateObject; //Used for things like WanderStates etc.
         public List<Vector2> History;
         public bool Dead;

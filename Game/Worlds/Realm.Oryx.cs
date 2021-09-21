@@ -723,9 +723,12 @@ namespace RotMG.Game.Worlds
             if (!CriticalEnemies.TryGetValue(enemy.Desc.Id, out var tauntData))
                 return;
             
-            _criticalEnemyCounts[enemy.Desc.Id]--;
-            if (_criticalEnemyCounts[enemy.Desc.Id] == 0)
-                _criticalEnemyCounts.Remove(enemy.Desc.Id);
+            //In case of admin spawn
+            if(_criticalEnemyCounts.ContainsKey(enemy.Desc.Id)) {
+                _criticalEnemyCounts[enemy.Desc.Id]--;
+                if (_criticalEnemyCounts[enemy.Desc.Id] == 0)
+                    _criticalEnemyCounts.Remove(enemy.Desc.Id);
+            }
             
             if (_criticalEnemyCounts.Count == 0)
                 Close();

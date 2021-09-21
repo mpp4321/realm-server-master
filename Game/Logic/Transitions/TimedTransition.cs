@@ -22,6 +22,7 @@ namespace RotMG.Game.Logic.Transitions
 
         public override bool Tick(Entity host)
         {
+            host.GetStateCooldown(Id);
             host.StateCooldown[Id] -= Settings.MillisecondsPerTick;
             if (host.StateCooldown[Id] <= 0)
             {

@@ -63,6 +63,11 @@ namespace RotMG.Game.Logic.Behaviors
 
         public override bool Tick(Entity host)
         {
+            //setpiece seem to have entering issues
+            if(!(host.StateCooldown.ContainsKey(Id)))
+            {
+                host.StateCooldown[Id] = 0;
+            }
             host.StateCooldown[Id] -= Settings.MillisecondsPerTick;
             if (host.StateCooldown[Id] <= 0)
             {
