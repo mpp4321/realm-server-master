@@ -217,12 +217,13 @@ namespace RotMG.Game.Logic.Database
                 new State("base",
                     //new HPScale(30),
                     new DropPortalOnDeath(target: "Realm Portal", probability: 1),
-                    new OnDeath((e) => {
+                    new OnDeath((e) =>
+                    {
                         foreach (var a in GameUtils.GetNearbyEntities(e, 10).OfType<Enemy>())
                         {
                             var s = Manager.Behaviors.Models[a.Type].States
                                 .FirstOrDefault(a => a.Value.StringId == "Die");
-                            if(s.Value != null)
+                            if (s.Value != null)
                                 a.CurrentStates.Add(s.Value);
                         }
                     }),
@@ -404,7 +405,13 @@ namespace RotMG.Game.Logic.Database
                         )
                 ),
                 new Threshold(0.005f,
-                   LootTemplates.BasicPots()
+                   LootTemplates.BasicPots(0.8f).Concat(new []
+                   {
+                       new TierLoot(9, LootType.Weapon, 0.2f),
+                       new TierLoot(9, LootType.Armor, 0.2f),
+                       new TierLoot(5, LootType.Ability, 0.05f),
+                       new TierLoot(6, LootType.Ring, 0.01f)
+                   }).ToArray()
                 )
             );
             db.Init("Treasure Oryx Defender",

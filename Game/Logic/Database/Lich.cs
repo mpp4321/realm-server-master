@@ -293,7 +293,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(10)
                     ),
                 new ItemLoot("Magic Potion", 0.02f),
-                new ItemLoot("Spirit Salve Tome", 0.02f)
+                new ItemLoot("Spirit Salve Tome", 0.3f, r: new RarityModifiedData(1f, 4, true))
             );
             db.Init("Mummy King",
                 new State("base",
@@ -305,7 +305,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(10)
                     ),
                 new ItemLoot("Magic Potion", 0.02f),
-                new ItemLoot("Spirit Salve Tome", 0.02f)
+                new ItemLoot("Spirit Salve Tome", 0.3f, r: new RarityModifiedData(1f, 4, true))
             );
             db.Init("Mummy Pharaoh",
                 new State("base",
@@ -316,14 +316,15 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new Shoot(10)
                     ),
-                new ItemLoot("Potion of Mana", 0.01f),
-                new ItemLoot("Hell's Fire Wand", 0.02f, r: new RarityModifiedData(1.5f, 2)),
-                new ItemLoot("Slayer Staff", 0.02f, r: new RarityModifiedData(1.5f, 2)),
-                new ItemLoot("Golden Sword", 0.02f, r: new RarityModifiedData(1.5f, 2)),
-                new ItemLoot("Golden Dagger", 0.02f, r: new RarityModifiedData(1.5f, 2))
+                new ItemLoot("Potion of Mana", 0.15f),
+                new ItemLoot("Hell's Fire Wand", 0.20f, r: new RarityModifiedData(1.5f, 2)),
+                new ItemLoot("Slayer Staff", 0.20f, r: new RarityModifiedData(1.5f, 2)),
+                new ItemLoot("Golden Sword", 0.20f, r: new RarityModifiedData(1.5f, 2)),
+                new ItemLoot("Golden Dagger", 0.20f, r: new RarityModifiedData(1.5f, 2))
             );
 
             db.Init("Deathmage",
+                    new DropPortalOnDeath("Crypt", 1f),
                     new State("init",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                         new Spawn("Skeleton", cooldown: 100),
@@ -342,11 +343,11 @@ namespace RotMG.Game.Logic.Database
                         new HealSelf(cooldown: 500, 50)
                     ),
 
-                    new ItemLoot("Potion of Mana", 0.01f),
-                    new ItemLoot("Lifedrinker Skull", 0.02f, r: new RarityModifiedData(1.5f, 2)),
-                    new ItemLoot("Eldritch Battle Staff", 0.05f, r: new RarityModifiedData(1.5f, 4, true)),
-                    new ItemLoot("Staff of Necrotic Arcana", 0.02f, r: new RarityModifiedData(1.5f, 2)),
-                    new ItemLoot("Theurgy Wand", 0.005f, r: new RarityModifiedData(1.5f, 2))
+                    new ItemLoot("Potion of Mana", 0.15f),
+                    new ItemLoot("Lifedrinker Skull", 0.08f, r: new RarityModifiedData(1.5f, 2)),
+                    new ItemLoot("Eldritch Battle Staff", 0.08f, r: new RarityModifiedData(1.5f, 4, true)),
+                    new ItemLoot("Staff of Necrotic Arcana", 0.08f, r: new RarityModifiedData(1.5f, 2)),
+                    new ItemLoot("Theurgy Wand", 0.03f, r: new RarityModifiedData(1.5f, 2))
 
                 );
 

@@ -269,7 +269,7 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                         ),
                     new Shoot(12, index: 0, count: 5, shootAngle: 72, predictive: 0.5f, cooldown: 750),
-                    new Shoot(10, index: 1, predictive: 1),
+                    new Shoot(10, index: 1, cooldown: 300),
                     new Reproduce(densityMax: 3)
                     ),
                 new Threshold(0.01f,
@@ -296,7 +296,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.01f,
                     new ItemLoot("Potion of Attack", 0.05f),
-                    new ItemLoot("Mini Brain Orb", 0.005f)
+                    new ItemLoot("Mini Brain Orb", 0.01f)
                     )
             );
             db.Init("Slime God",

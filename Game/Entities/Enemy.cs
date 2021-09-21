@@ -107,9 +107,8 @@ namespace RotMG.Game.Entities
                 throw new Exception("Undefined hitter");
 #endif
 
-            if (Dead)
+            if (Dead || Desc.Friendly)
             {
-
                 return false;
             }
 

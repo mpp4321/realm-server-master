@@ -8256,7 +8256,6 @@
       <EffectInfo name="Duration" description="30 min"/>
     </ExtraTooltipData>
     <Consumable/>
-
     <LTBoosted/>
     <Timer>1800</Timer>
     <BagType>0</BagType>
