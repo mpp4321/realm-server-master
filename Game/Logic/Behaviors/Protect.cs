@@ -22,6 +22,7 @@ namespace RotMG.Game.Logic.Behaviors
         float acquireRange;
         float protectionRange;
         float reprotectRange;
+
         public Protect(float speed, string protectee, double acquireRange = 10, double protectionRange = 2, double reprotectRange = 1)
         {
             this.speed = speed;

@@ -147,6 +147,46 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Helm of the Juggernaut", 0.002f)
                 )
             );
+
+            db.Init("Skull Shrine",
+                new State("base",
+                    new Shoot(30, 4, 9, cooldown: 1500, predictive: 1f), // add prediction after fixing it...
+                    new Reproduce("Blue Flaming Skull", 20, 5, cooldown: 1000)
+                    ),
+                new Threshold(0.03f,
+                    new ItemLoot("Orb of Conflict", 0.005f)
+                    ),
+            new Threshold(0.005f,
+                    LootTemplates.BasicPots(0.5f)
+                )
+            );
+            db.Init("Red Flaming Skull",
+                new State("base",
+                    new State("Orbit Skull Shrine",
+                        new Prioritize(
+                            new Protect(.2f, "Skull Shrine", 30, 15, 15),
+                            new Wander(.2f)
+                            ),
+                            new EntitiesNotExistsTransition( 40, "Wander", "Skull Shrine")
+                        ),
+                    new State("Wander",
+                        new Wander(.2f)
+                        ),
+                    new Shoot(12, 2, 10, cooldown: 750)
+                    )
+            );
+            db.Init("Blue Flaming Skull",
+                new State("base",
+                    new State("Orbit Skull Shrine",
+                        new Orbit(1.0f, 15, 40, "Skull Shrine", .6f, 10),
+                        new EntitiesNotExistsTransition(40, "Wander", "Skull Shrine")
+                        ),
+                    new State("Wander",
+                        new Wander(1.0f)
+                        ),
+                    new Shoot(12, 2, 10, cooldown: 750)
+                    )
+            );
         }
     }
 }
