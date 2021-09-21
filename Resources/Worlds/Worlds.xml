@@ -50,6 +50,13 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 	</World>
+	<World name="Abyss of Demons" display="Abyss of Demons">
+		<Maps>Abyss/0.jm</Maps>
+		<Portals>0x071b</Portals>
+		<Background>0</Background>
+		<AllowTeleport>true</AllowTeleport>
+		<BlockSight>1</BlockSight>
+	</World>
 	<World name="Treasure Cave" display="Treasure Cave">
 		<Maps>TCave/0.jm</Maps>
 		<Portals>0x5e2e</Portals>
@@ -73,6 +80,12 @@
 	<World name="Crypt" display="Crypt">
 		<Maps>Crypt/0.jm</Maps>
 		<Portals>0x074b</Portals>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+	</World>
+	<World name="TheRing" display="The Ring">
+		<Maps>TheRing/0.jm</Maps>
+		<Portals>0x5007</Portals>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 	</World>

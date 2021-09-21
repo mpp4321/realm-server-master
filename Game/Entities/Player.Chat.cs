@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using RotMG.Game.SetPieces;
 using RotMG.Game.Worlds;
 using RotMG.Utils;
+using RotMG.Game.Logic.Mechanics;
 
 namespace RotMG.Game.Entities
 {
@@ -21,14 +22,14 @@ namespace RotMG.Game.Entities
         {
             "commands", "g", "guild", "tell", "allyshots", "allydamage", "effects", "sounds", "vault", "realm",
             "notifications", "online", "who", "server", "pos", "loc", "where", "find", "fame", "famestats", "stats",
-            "trade", "currentsong", "song"
+            "trade", "currentsong", "song", "mix", "quest"
         };
 
         private readonly string[] _rankedCommands =
         {
             "announce", "announcement", "legendary", "roll", "disconnect", "dcAll", "dc", "songs", "changesong",
             "terminate", "stop", "gimme", "give", "gift", "closerealm", "rank", "create", "spawn", "killall",
-            "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute"
+            "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute", "setcomp"
         };
 
         internal int GetStatTotal(int v)
@@ -285,6 +286,50 @@ namespace RotMG.Game.Entities
                                 ItemDatas[slot] = !roll.Item1 ? new ItemDataJson() { Meta = -1 } : roll.Item2;
                                 UpdateInventorySlot(slot);
                                 RecalculateEquipBonuses();
+                            }
+                        }
+                        break;
+                    case "/mix":
+                        {
+                            if (j.Length < 2)
+                            {
+                                SendError("Usage: /mix <slot1> <slot2>");
+                                return;
+                            }
+                            var slot1 = int.Parse(j[0]);
+                            var slot2 = int.Parse(j[1]);
+                            Mix.DoMix(this, slot1, slot2);
+                        }
+                        break;
+                    case "/quest":
+                        {
+                            if(j.Length > 0)
+                            {
+                                var questName = string.Join(' ', j);
+                                PrioritizeQuest = questName;
+                                SendInfo("You are prioritizing " + PrioritizeQuest);
+                            } else
+                            {
+                                PrioritizeQuest = null;
+                                SendInfo("You are no longer prioritizing a quest.");
+                            }
+                            GetNextQuest(true);
+                        }
+                        break;
+                    case "/setcomp":
+                        if (Client.Account.Ranked)
+                        {
+                            if (j.Length < 2)
+                            {
+                                SendError("Usage: /setcomp <slot> <id>");
+                                return;
+                            }
+                            var slot = int.Parse(j[0]);
+                            var id = j[1];
+                            if (Inventory[slot] != -1)
+                            {
+                                ItemDatas[slot].ItemComponent = id;
+                                UpdateInventorySlot(slot);
                             }
                         }
                         break;

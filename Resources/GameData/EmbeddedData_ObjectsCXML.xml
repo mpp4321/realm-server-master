@@ -927,6 +927,15 @@
       <Index>0x192</Index>
     </Texture>
   </Object>
+  <Object type="0x5007" id="The Ring Portal">
+    <Class>Portal</Class>
+    <IntergamePortal/>
+    <DungeonName>The Ring</DungeonName>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x192</Index>
+    </Texture>
+  </Object>
   <Object type="0x0743" id="Gift Chest Closed">
     <Class>ClosedGiftChest</Class>
     <Texture>

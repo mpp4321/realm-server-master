@@ -779,19 +779,33 @@
 		<AnimatedTexture><File>chars8x8rHero1</File><Index>0x00</Index></AnimatedTexture>
 		<HitSound>monster/skeletons_hit</HitSound>
 		<DeathSound>monster/skeletons_death</DeathSound>
-		<Size>100</Size>
-		<MaxHitPoints>900</MaxHitPoints>
-		<Defense>11</Defense>
+		<Size>130</Size>
+		<MaxHitPoints>1800</MaxHitPoints>
+		<Defense>21</Defense>
 		<Quest/>
-		<Level>7</Level>
-		<XpMult>3.0</XpMult>
+		<Level>12</Level>
+		<XpMult>6.0</XpMult>
 		<Projectile id="0">
-			<ObjectId>Blue Magic</ObjectId>
-			<Damage>25</Damage>
+			<ObjectId>TWand Projectile</ObjectId>
+			<Damage>50</Damage>
 			<Speed>80</Speed>
+			<LifetimeMS>1500</LifetimeMS>
+			<Size>100</Size>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Blue Magic</ObjectId>
+			<Damage>125</Damage>
+			<Speed>40</Speed>
 			<LifetimeMS>3000</LifetimeMS>
-			<Size>120</Size>
-			
+			<Size>200</Size>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Grey Star</ObjectId>
+			<Damage>15</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>500</LifetimeMS>
+			<Size>100</Size>
+			<ConditionEffect duration="5">Weak</ConditionEffect>
 		</Projectile>
 	</Object>
 

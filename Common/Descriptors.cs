@@ -485,6 +485,7 @@ namespace RotMG.Common
 
         public int Meta { get; set; } = -1;
         public Dictionary<ulong, int> ExtraStatBonuses = new Dictionary<ulong, int>();
+        public string ItemComponent = null;
         
         public int GetStatBonus(ItemData k)
         {
@@ -845,7 +846,10 @@ namespace RotMG.Common
         public readonly int Tex1;
         public readonly int Tex2;
         public readonly int Doses;
+        //The string identifier for the unique effect, look at ItemHandlerRegistry
         public readonly string UniqueEffect;
+        //The component identifier for mixing items, look at ComponentFactory, this is for recipes
+        public readonly string Component;
 
         public readonly KeyValuePair<int, int>[] StatBoosts;
         public readonly ActivateEffectDesc[] ActivateEffects;
@@ -887,6 +891,7 @@ namespace RotMG.Common
             CooldownMS = (int)(e.ParseFloat("Cooldown", .2f) * 1000);
             Resurrects = e.ParseBool("Resurrects");
             UniqueEffect = e.ParseString("UniqueEffect", null);
+            Component = e.ParseString("Component", null);
             Tex1 = (int)e.ParseUInt("Tex1");
             Tex2 = (int)e.ParseUInt("Tex2");
 
