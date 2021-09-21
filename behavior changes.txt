@@ -9,7 +9,7 @@ State\([^\"] -> State("base",
 
 (\s+\))[^\,] -> $1;
 
-TimedTransition\((\d+), \s(.+)\) -> TimedTransition($2, $1)
+TimedTransition\((\d+), (.+)\) -> TimedTransition($2, $1)
 
 projectileIndex -> index
 coolDown -> cooldown
@@ -20,3 +20,5 @@ ItemType -> LootType
 HpLessTransition -> HealthTransition
 
 EntitiesNotExistsTransition\((.+), (\d+), (.+)\) -> EntitiesNotExistsTransition($2, $3, $1)
+
+EntitiesWithinTransition\((.+), (.+), -> EntitiesWithinTransition($2, $1,

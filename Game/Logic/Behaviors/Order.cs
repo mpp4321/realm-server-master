@@ -25,15 +25,12 @@ namespace RotMG.Game.Logic.Behaviors
             {
                 if(!i.CurrentStates.Any(a => a.StringId.Equals(_targetStateName)))
                 {
-                    State foundState = i.Behavior.States.Values.Where(
-                        a => a.StringId.Equals(_targetStateName)
-                    ).FirstOrDefault();
-                    if(foundState != default(State))
+                    var s = i.Behavior.States.Values.Select(a => OrderOnDeath.FindNestedState(a, _targetStateName)).FirstOrDefault(a => a != null);
+
+                    if (s != null)
                     {
                         i.CurrentStates.Clear();
-                        i.CurrentStates.Add(
-                            foundState
-                        );
+                        i.CurrentStates.Add(s);
                     }
                 }
             }

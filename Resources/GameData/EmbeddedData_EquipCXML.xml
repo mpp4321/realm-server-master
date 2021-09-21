@@ -9206,7 +9206,7 @@
     <Component>FireRune</Component>
     <BagType>5</BagType>
   </Object>
-  <Object type="0xc93" id="Dragonfire">
+  <Object type="0xc95" id="Dragonfire">
     <Class>Equipment</Class>
     <Item/>
     <Texture>

@@ -38,7 +38,6 @@ namespace RotMG.Game.Logic.Behaviors
         }
 
         public override void Enter(Entity host) {
-
             host.StateCooldown[Id] = _coolDown.Next(_Random);
 
             if (_region == Region.None)

@@ -217,16 +217,7 @@ namespace RotMG.Game.Logic.Database
                 new State("base",
                     //new HPScale(30),
                     new DropPortalOnDeath(target: "Realm Portal", probability: 1),
-                    new OnDeath((e) =>
-                    {
-                        foreach (var a in GameUtils.GetNearbyEntities(e, 10).OfType<Enemy>())
-                        {
-                            var s = Manager.Behaviors.Models[a.Type].States
-                                .FirstOrDefault(a => a.Value.StringId == "Die");
-                            if (s.Value != null)
-                                a.CurrentStates.Add(s.Value);
-                        }
-                    }),
+                    new OrderOnDeath(20, "Gold Planet", "Die"),
                     new State("Ini",
                         new HealthTransition(threshold: 0.99f, targetState: "Q1 Spawn Minion")
                         ),
