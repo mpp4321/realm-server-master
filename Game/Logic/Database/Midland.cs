@@ -661,7 +661,7 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(3, LootType.Ability, 0.01f),
                 new ItemLoot("Health Potion", 0.3f),
                 new ItemLoot("Magic Potion", 0.1f),
-                new ItemLoot("Dragonfire", 0.025f)
+                new ItemLoot("Drake's Dialect", 0.025f)
             );
             db.Init("Drake Baby",
                 new State("base",

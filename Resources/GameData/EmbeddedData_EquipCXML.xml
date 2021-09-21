@@ -6253,7 +6253,7 @@
     <Usable/>
     <BagType>0</BagType>
     <MpCost>60</MpCost>
-    <Activate totalDamage="50" maxTargets="3">Lightning</Activate>
+    <Activate totalDamage="50" maxTargets="3" useWisMod="true" statMin="30" statScale="5.0">Lightning</Activate>
   </Object>
   <Object type="0xb2e" id="Discharge Scepter">
     <Class>Equipment</Class>
@@ -6269,7 +6269,7 @@
     <Usable/>
     <BagType>0</BagType>
     <MpCost>65</MpCost>
-    <Activate totalDamage="80" maxTargets="4">Lightning</Activate>
+    <Activate totalDamage="80" maxTargets="4" useWisMod="true" statMin="30" statScale="10.0">Lightning</Activate>
   </Object>
   <Object type="0xb2f" id="Thunderclap Scepter">
     <Class>Equipment</Class>
@@ -6285,7 +6285,7 @@
     <Usable/>
     <BagType>0</BagType>
     <MpCost>70</MpCost>
-    <Activate totalDamage="110" maxTargets="5">Lightning</Activate>
+    <Activate totalDamage="110" maxTargets="5" useWisMod="true" statMin="30" statScale="15.0">Lightning</Activate>
   </Object>
   <Object type="0xb30" id="Arcblast Scepter">
     <Class>Equipment</Class>
@@ -6302,7 +6302,7 @@
     <BagType>1</BagType>
     <FameBonus>1</FameBonus>
     <MpCost>75</MpCost>
-    <Activate totalDamage="140" maxTargets="6">Lightning</Activate>
+    <Activate totalDamage="140" maxTargets="6" useWisMod="true" statMin="30" statScale="20.0">Lightning</Activate>
   </Object>
   <Object type="0xb31" id="Cloudflash Scepter">
     <Class>Equipment</Class>
@@ -6319,7 +6319,7 @@
     <BagType>1</BagType>
     <FameBonus>2</FameBonus>
     <MpCost>80</MpCost>
-    <Activate totalDamage="170" maxTargets="7">Lightning</Activate>
+    <Activate totalDamage="170" maxTargets="7" useWisMod="true" statMin="30" statScale="25.0">Lightning</Activate>
   </Object>
   <Object type="0xb32" id="Scepter of Skybolts">
     <Class>Equipment</Class>
@@ -6336,7 +6336,7 @@
     <BagType>2</BagType>
     <FameBonus>3</FameBonus>
     <MpCost>85</MpCost>
-    <Activate totalDamage="200" maxTargets="8">Lightning</Activate>
+    <Activate totalDamage="200" maxTargets="8" useWisMod="true" statMin="30" statScale="30.0">Lightning</Activate>
   </Object>
   <Object type="0xb33" id="Scepter of Storms">
     <Class>Equipment</Class>
@@ -6355,7 +6355,7 @@
     <BagType>2</BagType>
     <FameBonus>4</FameBonus>
     <MpCost>85</MpCost>
-    <Activate totalDamage="200" maxTargets="8">Lightning</Activate>
+    <Activate totalDamage="200" maxTargets="8" useWisMod="true" statMin="30" statScale="35.0">Lightning</Activate>
   </Object>
   <Object type="0xb3e" id="Amulet of Resurrection">
     <Class>Equipment</Class>
@@ -6365,7 +6365,6 @@
       <Index>0x50</Index>
     </Texture>
     <SlotType>9</SlotType>
-
     <Description>An amulet that protects the wearer from even death itself.</Description>
     <Resurrects/>
     <ActivateOnEquip stat="2" amount="2">IncrementStat</ActivateOnEquip>
@@ -6390,7 +6389,6 @@
     <Description>The sacred blade of the Cult of Admin.  Not to be trifled with.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_dagger</Sound>
-
     <Projectile>
       <ObjectId>Blade</ObjectId>
       <Speed>120</Speed>
@@ -6412,7 +6410,6 @@
     <Description>A key which opens an entrance to an Undead Lair.</Description>
     <Sound>use_key</Sound>
     <Consumable/>
-
     <Activate id="Undead Lair Portal">Create</Activate>
   </Object>
   <Object type="0x705" id="Pirate Cave Key">
@@ -6426,7 +6423,6 @@
     <Description>A key which opens an entrance to a Pirate Cave.</Description>
     <Sound>use_key</Sound>
     <Consumable/>
-
     <Activate id="Pirate Cave Portal">Create</Activate>
   </Object>
   <Object type="0x706" id="Spider Den Key">
@@ -6440,7 +6436,6 @@
     <Description>A key which opens an entrance to a Spider Den.</Description>
     <Sound>use_key</Sound>
     <Consumable/>
-
     <Activate id="Spider Den Portal">Create</Activate>
   </Object>
   <Object type="0x70a" id="Abyss of Demons Key">
@@ -6454,7 +6449,6 @@
     <Description>A key which opens an entrance to an Abyss of Demons.</Description>
     <Sound>use_key</Sound>
     <Consumable/>
-
     <Activate id="Abyss of Demons Portal">Create</Activate>
   </Object>
   <Object type="0x70b" id="Snake Pit Key">
@@ -6482,7 +6476,6 @@
     <Description>A key which opens an entrance to a Tomb of Ancients.</Description>
     <Sound>use_key</Sound>
     <Consumable/>
-
     <Activate id="Tomb of the Ancients Portal">Create</Activate>
   </Object>
   <Object type="0x71f" id="Sprite World Key">
@@ -6496,7 +6489,6 @@
     <Description>A key which opens an entrance to a Sprite World.</Description>
     <Sound>use_key</Sound>
     <Consumable/>
-
     <Activate id="Glowing Portal">Create</Activate>
   </Object>
   <Object type="0x722" id="Wine Cellar Incantation">
@@ -6524,7 +6516,6 @@
     <Description>A key which opens an entrance to an Ocean Trench.</Description>
     <Sound>use_key</Sound>
     <Consumable/>
-
     <Activate id="Ocean Trench Portal">Create</Activate>
   </Object>
   <Object type="0xc12" id="Coral Juice">

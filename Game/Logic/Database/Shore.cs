@@ -61,7 +61,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new ItemLoot("Health Potion", 0.03f),
                 new ItemLoot("Magic Potion", 0.02f),
-                new ItemLoot("Snake Kendo", 0.02f)
+                new ItemLoot("Kendo 'Stick'", 0.02f)
             );
             db.Init("Poison Scorpion",
                 new State(
