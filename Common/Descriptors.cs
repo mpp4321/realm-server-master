@@ -971,9 +971,13 @@ namespace RotMG.Common
         public readonly float Magnitude;
 
         public readonly bool DoAccelerate;
+        public readonly bool DoBurst;
         public readonly float Accelerate;
         public readonly float AccelerateDelay;
         public readonly float SpeedClamp;
+
+        public readonly int BurstCount;
+        public readonly int BurstDelay;
 
         public readonly ushort ContainerType;
 
@@ -1008,6 +1012,11 @@ namespace RotMG.Common
             Accelerate = e.ParseFloat("Accelerate");
             Accelerate = e.ParseFloat("AccelerateDelay");
             SpeedClamp = e.ParseFloat("SpeedClamp");
+
+            BurstCount = e.ParseInt("Burst");
+            DoBurst = BurstCount > 0;
+            BurstDelay = e.ParseInt("BurstCooldown");
+
         }
     }
 

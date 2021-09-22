@@ -1695,5 +1695,21 @@
         <Class>Projectile</Class>
         <Texture><File>lofiObj5</File><Index>0xdd</Index></Texture>
     </Object>
-
+    <Object type="0x2153" id="Thunder Projectile">
+        <Class>Projectile</Class>
+        <Texture><File>lofiProjs</File><Index>0x75</Index></Texture>
+        <AngleCorrection>-1</AngleCorrection>
+    </Object>
+    <Object type="0x2154" id="Thunder Cloud">
+      <Enemy/>
+      <Friendly/>
+      <Class>Character</Class>
+      <Texture>
+        <File>lofiProjsBig</File>
+        <Index>0x10</Index>
+      </Texture>
+      <Size>200</Size>
+      <ShadowSize>40</ShadowSize>
+      <ShadowColor>0xFFFF00</ShadowColor>
+    </Object>
 </Objects>

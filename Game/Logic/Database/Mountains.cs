@@ -19,18 +19,19 @@ namespace RotMG.Game.Logic.Database
         {
             db.EveryInit = new IBehavior[]
             {
-                new TierLoot(7, LootType.Weapon, 0.2f),
-                new TierLoot(8, LootType.Weapon, 0.1f),
-                new TierLoot(9, LootType.Weapon, 0.05f),
-                new TierLoot(7, LootType.Armor, 0.2f),
-                new TierLoot(8, LootType.Armor, 0.1f),
-                new TierLoot(9, LootType.Armor, 0.05f),
-                new TierLoot(4, LootType.Ring, 0.2f),
+                new TierLoot(7, LootType.Weapon, 0.5f),
+                new TierLoot(8, LootType.Weapon, 0.4f),
+                new TierLoot(9, LootType.Weapon, 0.3f),
+                new TierLoot(7, LootType.Armor, 0.5f),
+                new TierLoot(8, LootType.Armor, 0.4f),
+                new TierLoot(9, LootType.Armor, 0.3f),
+                new TierLoot(4, LootType.Ring, 0.4f),
                 new TierLoot(5, LootType.Ring, 0.1f),
                 new TierLoot(6, LootType.Ring, 0.05f),
                 new TierLoot(3, LootType.Ability, 0.1f),
                 new TierLoot(4, LootType.Ability, 0.05f),
-                new ItemLoot("Cracked Dangerous Prism", 0.005f)
+                new TierLoot(5, LootType.Ability, 0.01f),
+                new ItemLoot("Cracked Dangerous Prism", 0.015f)
             };
 
             db.Init("Arena Horseman Anchor",
@@ -156,7 +157,7 @@ namespace RotMG.Game.Logic.Database
                     LootTemplates.MountainDrops()
                     ),
                 new Threshold(0.18f,
-                    new ItemLoot("Potion of Defense", 0.05f),
+                    new ItemLoot("Potion of Defense", 0.25f),
                     new TierLoot(10, LootType.Ability, 0.2f),
                     new TierLoot(10, LootType.Ring, 0.2f)
                     )
@@ -169,11 +170,10 @@ namespace RotMG.Game.Logic.Database
                         new Follow(1, range: 7),
                         new Wander(0.4f)
                         ),
-                    new Shoot(10, count: 3, shootAngle: 20, predictive: 1, cooldown: 500),
-                    new Reproduce(densityMax: 3)
+                    new Shoot(10, count: 3, shootAngle: 20, predictive: 1, cooldown: 500)
                     ),
                 new Threshold(0.01f,
-                    new ItemLoot("Potion of Vitality", 0.05f)
+                    new ItemLoot("Potion of Vitality", 0.25f)
                     ),
             new Threshold(.01f,
                     LootTemplates.MountainDrops()
@@ -187,11 +187,10 @@ namespace RotMG.Game.Logic.Database
                         new Follow(1, range: 2),
                         new Wander(0.4f)
                         ),
-                    new Shoot(10, count: 8, shootAngle: (360/8), predictive: 1, cooldown: 500),
-                    new Reproduce(densityMax: 3)
+                    new Shoot(10, count: 8, shootAngle: (360/8), predictive: 1, cooldown: 500)
                     ),
                 new Threshold(0.01f,
-                    new ItemLoot("Potion of Speed", 0.05f),
+                    new ItemLoot("Potion of Wisdom", 0.25f),
                     new ItemLoot("Spectral Gown", 0.02f, r: new RarityModifiedData(1.2f))
                     ),
                 new Threshold(.01f,
@@ -209,8 +208,7 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new Shoot(10, count: 5, shootAngle: 10, predictive: 1, cooldown: 2000),
                     new TossObject("Snake", throwEffect: true),
-                    new Grenade(damage: 30, effect: ConditionEffectIndex.Bleeding, effectDuration: 200, cooldown: 600),
-                    new Reproduce(densityMax: 3)
+                    new Grenade(damage: 30, effect: ConditionEffectIndex.Bleeding, effectDuration: 200, cooldown: 600)
                     ),
                 new Threshold(0.01f,
                     new ItemLoot("Potion of Speed", 0.05f),
@@ -234,7 +232,6 @@ namespace RotMG.Game.Logic.Database
 
                     }),
                     new Shoot(10, index: 1, predictive: 1, cooldown: 1000),
-                    new Reproduce(densityMax: 3),
                     new Reproduce("Sprite Child", 5, 5, 5000)
                     ),
                 new Threshold(0.01f,
@@ -252,13 +249,13 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                         ),
                     new Shoot(12, count: 5, shootAngle: 10, predictive: 1, cooldown: 1250),
-                    new Reproduce(densityMax: 3)
+                    new Shoot(12, count: 2, shootAngle: 10, predictive: 1, cooldown: 2500, index: 1)
                     ),
                 new Threshold(0.01f,
                     LootTemplates.MountainDrops()
                     ),
                 new Threshold(0.01f,
-                    new ItemLoot("Potion of Defense", 0.05f)
+                    new ItemLoot("Potion of Defense", 0.25f)
                     )
             );
             db.Init("Beholder",
@@ -276,7 +273,7 @@ namespace RotMG.Game.Logic.Database
                     LootTemplates.MountainDrops()
                     ),
                 new Threshold(0.01f,
-                    new ItemLoot("Potion of Defense", 0.05f),
+                    new ItemLoot("Potion of Defense", 0.25f),
                     new ItemLoot("Curious Eyeball", 0.02f, r: new RarityModifiedData(1.2f))
                     )
             );
@@ -284,18 +281,18 @@ namespace RotMG.Game.Logic.Database
                 new State("base",
                     new Prioritize(
                         new StayAbove(1, 200),
-                        new Follow(1, range: 7),
+                        new Follow(1, range: 1),
                         new Wander(0.4f)
                         ),
                     new Shoot(12, count: 5, shootAngle: 72, cooldown: 500),
-                    new Reproduce(densityMax: 3),
+                    new Shoot(12, count: 8, shootAngle: 45, cooldown: 1000),
                     new DropPortalOnDeath("Mad Lab Portal", .5f)
                     ),
                 new Threshold(0.01f,
                     LootTemplates.MountainDrops()
                     ),
                 new Threshold(0.01f,
-                    new ItemLoot("Potion of Attack", 0.05f),
+                    new ItemLoot("Potion of Attack", 0.25f),
                     new ItemLoot("Mini Brain Orb", 0.01f)
                     )
             );
@@ -307,14 +304,13 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                         ),
                     new Shoot(12, index: 0, count: 5, shootAngle: 10, predictive: 1, cooldown: 1000),
-                    new Shoot(10, index: 1, predictive: 1, cooldown: 650),
-                    new Reproduce(densityMax: 2)
+                    new Shoot(10, index: 1, predictive: 1, cooldown: 650)
                     ),
                 new Threshold(0.01f,
                     LootTemplates.MountainDrops()
                     ),
                 new Threshold(0.01f,
-                    new ItemLoot("Potion of Defense", 0.05f)
+                    new ItemLoot("Potion of Defense", 0.25f)
                     )
             );
             db.Init("Rock Bot",
@@ -336,7 +332,7 @@ namespace RotMG.Game.Logic.Database
                     LootTemplates.MountainDrops()
                     ),
                 new Threshold(0.04f,
-                    new ItemLoot("Potion of Attack", 0.05f),
+                    new ItemLoot("Potion of Attack", 0.15f),
                     new ItemLoot("Crumbling Construct", 0.02f, r: new RarityModifiedData(1.2f))
                     )
             );
@@ -365,7 +361,7 @@ namespace RotMG.Game.Logic.Database
                     LootTemplates.MountainDrops()
                     ),
                 new Threshold(0.04f,
-                    new ItemLoot("Potion of Attack", 0.05f),
+                    new ItemLoot("Potion of Attack", 0.15f),
                     new ItemLoot("Crumbling Construct", 0.02f, r: new RarityModifiedData(1.2f))
                     )
             );
@@ -394,7 +390,7 @@ namespace RotMG.Game.Logic.Database
                     LootTemplates.MountainDrops()
                     ),
                 new Threshold(0.04f,
-                    new ItemLoot("Potion of Attack", 0.05f),
+                    new ItemLoot("Potion of Attack", 0.15f),
                     new ItemLoot("Crumbling Construct", 0.02f, r: new RarityModifiedData(1.2f))
                     )
             );
@@ -471,7 +467,7 @@ namespace RotMG.Game.Logic.Database
                     LootTemplates.MountainDrops()
                     ),
                 new Threshold(0.01f,
-                    new ItemLoot("Potion of Wisdom", 0.05f)
+                    new ItemLoot("Potion of Wisdom", 0.15f)
                     )
             );
             db.Init("Leviathan",
@@ -511,7 +507,7 @@ namespace RotMG.Game.Logic.Database
                     LootTemplates.MountainDrops()
                     ),
                 new Threshold(0.01f,
-                    new ItemLoot("Potion of Wisdom", 0.05f)
+                    new ItemLoot("Potion of Wisdom", 0.25f)
                     )
             ));
 
@@ -533,7 +529,7 @@ namespace RotMG.Game.Logic.Database
                 ),
             new Threshold(.01f,
                     LootTemplates.MountainDrops().Concat(
-                        LootTemplates.BasicPots(0.01f)
+                        LootTemplates.BasicPots(0.25f)
                     ).ToArray()
                 )
                 );

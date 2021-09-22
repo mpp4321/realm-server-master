@@ -13,6 +13,12 @@ namespace RotMG.Game.Logic.Behaviors
         float flashPeriod;
         int flashRepeats;
 
+        /*
+         * Makes enemies flash periodically, 
+         * color is a hex number representing the color 0x(AA)(RR)(GG)(BB)
+         * flashPeriod is the time to flash once
+         * flashRepeats is the amount to flash
+         */
         public Flash(uint color, double flashPeriod, int flashRepeats)
         {
             this.color = color;

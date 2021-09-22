@@ -222,7 +222,7 @@ namespace RotMG.Networking
             var name = rdr.ReadString();
             var account = client.Account;
 
-            if (account.Stats.Fame < 1000)
+            if (account.Stats.Fame < 200)
                 return;
 
             if (!string.IsNullOrEmpty(account.GuildName))

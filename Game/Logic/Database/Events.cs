@@ -151,7 +151,8 @@ namespace RotMG.Game.Logic.Database
             db.Init("Skull Shrine",
                 new State("base",
                     new Shoot(30, 4, 9, cooldown: 1500, predictive: 1f), // add prediction after fixing it...
-                    new Reproduce("Blue Flaming Skull", 20, 5, cooldown: 1000)
+                    new Reproduce("Blue Flaming Skull", 20, 5, cooldown: 100),
+                    new Reproduce("Red Flaming Skull", 20, 5, cooldown: 3000)
                     ),
                 new Threshold(0.03f,
                     new ItemLoot("Orb of Conflict", 0.005f)
@@ -187,6 +188,339 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(12, 2, 10, cooldown: 750)
                     )
             );
+
+            db.Init("Grand Sphinx",
+                new State("base",
+                    new DropPortalOnDeath("Tomb of the Ancients Portal", 1.0f),
+                    new State("Spawned",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new Reproduce("Horrid Reaper", 30, 4, cooldown: 100),
+                        new TimedTransition("Attack1", 500)
+                        ),
+                    new State("Attack1",
+                        new Prioritize(
+                            new Wander(0.5f)
+                            ),
+                        new Shoot(12, count: 1, cooldown: 800),
+                        new Shoot(12, count: 3, shootAngle: 10, cooldown: 1000),
+                        new Shoot(12, count: 1, shootAngle: 130, cooldown: 1000),
+                        new Shoot(12, count: 1, shootAngle: 230, cooldown: 1000),
+                        new TimedTransition("TransAttack2", 6000)
+                        ),
+                    new State("TransAttack2",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new Wander(0.5f),
+                        new Flash(0x00FF0C, .25f, 8),
+                        new Taunt(0.99f, "You hide behind rocks like cowards but you cannot hide from this!"),
+                        new TimedTransition("Attack2", 2000)
+                        ),
+                    new State("Attack2",
+                        new Prioritize(
+                            new Wander(0.5f)
+                            ),
+                        new Shoot(0, count: 8, shootAngle: 10, fixedAngle: 0, rotateAngle: 70, cooldown: 2000,
+                            index: 1),
+                        new Shoot(0, count: 8, shootAngle: 10, fixedAngle: 180, rotateAngle: 70, cooldown: 2000,
+                            index: 1),
+                        new TimedTransition("TransAttack3", 6200)
+                        ),
+                    new State("TransAttack3",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new Wander(0.5f),
+                        new Flash(0x00FF0C, .25f, 8),
+                        new TimedTransition("Attack3", 2000)
+                        ),
+                    new State("Attack3",
+                        new Prioritize(
+                            new Wander(0.5f)
+                            ),
+                        new Shoot(20, count: 9, fixedAngle: 360 / 9, index: 2, cooldown: 2300),
+                        new TimedTransition("TransAttack1", 6000),
+                        new State("Shoot1",
+                            new Shoot(20, count: 2, shootAngle: 4, index: 2, cooldown: 700),
+                            new TimedRandomTransition(1000,
+                                "Shoot1",
+                                "Shoot2"
+                                )
+                            ),
+                        new State("Shoot2",
+                            new Shoot(20, count: 8, shootAngle: 5, index: 2, cooldown: 1100),
+                            new TimedRandomTransition(1000,
+                                "Shoot1",
+                                "Shoot2"
+                                )
+                            )
+                        ),
+                    new State("TransAttack1",
+                        new ConditionalEffect(ConditionEffectIndex.Invincible),
+                        new Wander(0.5f),
+                        new Flash(0x00FF0C, .25f, 8),
+                        new TimedTransition("Attack1", 2000),
+                        new HealthTransition(0.15f, "Order")
+                        ),
+                    new State("Order",
+                        new Wander(0.5f),
+                        new ConditionalEffect(ConditionEffectIndex.Invincible),
+                        new Order(30, "Horrid Reaper", "Die"),
+                        new TimedTransition("Attack1", 1900)
+                        )
+                    ),
+                new Threshold(0.005f,
+                        LootTemplates.BasicPots()
+                    ),
+                //new Threshold(0.01f,
+                //    new ItemLoot("Sovereign Garments", 0.007f),
+                //    new ItemLoot("Ancient Pendant", 0.007f)
+                //    ),
+                new Threshold(0.03f,
+                    new ItemLoot("Helm of the Juggernaut", 0.005f),
+                    new ItemLoot("Spear of the Storm", 0.005f)
+                    )
+            );
+            db.Init("Horrid Reaper",
+                new State("base",
+                        new ConditionalEffect(ConditionEffectIndex.Invincible),
+                    new State("Move",
+                        new Prioritize(
+                            new StayCloseToSpawn(3, 10),
+                            new Wander(3)
+                            ),
+                        new EntitiesNotExistsTransition( 50, "Die", "Grand Sphinx"), //Just to be sure
+                        new TimedRandomTransition(2000, "Attack")
+                        ),
+                    new State("Attack",
+                        new Shoot(0, count: 6, fixedAngle: 360 / 6, cooldown: 700),
+                        new PlayerWithinTransition(2, "Follow"),
+                        new TimedRandomTransition(5000, "Move")
+                        ),
+                    new State("Follow",
+                        new Prioritize(
+                            new Follow(0.7f, 10, 3)
+                            ),
+                        new Shoot(7, count: 1, cooldown: 700),
+                        new TimedRandomTransition(5000, "Move")
+                        ),
+                    new State("Die",
+                        new Taunt(0.99f, "OOaoaoAaAoaAAOOAoaaoooaa!!!"),
+                        new Decay(1000)
+                        )
+                    )
+            );
+
+
+            db.Init("Cube God",
+                new State("base",
+                    new Wander(.3f),
+                    new Shoot(30, 9, 10, 0, predictive: .5f, cooldown: 750),
+                    new Shoot(30, 4, 10, 1, predictive: .5f, cooldown: 1500)
+                    //  new Reproduce("Cube Overseer", 30, 10, cooldown: 1500)
+                    ),
+                  new Threshold(.005f,
+                     LootTemplates.BasicPots()
+                     ),
+                  new Threshold(0.01f,
+                    new ItemLoot("Dirk of Cronus", 0.005f)
+                  )
+                );
+            db.Init("Cube Overseer",
+                new State("base",
+                    new Prioritize(
+                        new Orbit(.375f, 10, 30, "Cube God", .075f, 5),
+                        new Wander(.375f)
+                        ),
+                    new Reproduce("Cube Defender", 12, 10, cooldown: 1000),
+                    new Reproduce("Cube Blaster", 30, 10, cooldown: 1000),
+                    new Shoot(10, 4, 10, 0, cooldown: 750),
+                    new Shoot(10, index: 1, cooldown: 1500)
+                    ),
+                new Threshold(.01f,
+                    new ItemLoot("Fire Sword", .05f)
+                    )
+            );
+            db.Init("Cube Defender",
+                new State("base",
+                    new Prioritize(
+                        new Orbit(1.05f, 5, 15, "Cube Overseer", .15f, 3),
+                        new Wander(1.05f)
+                        ),
+                    new Shoot(10, cooldown: 500)
+                    )
+            );
+            db.Init("Cube Blaster",
+                new State("base",
+                    new State("Orbit",
+                        new Prioritize(
+                            new Orbit(1.05f, 7.5f, 40, "Cube Overseer", .15f, 3),
+                            new Wander(1.05f)
+                            ),
+                        new EntitiesNotExistsTransition(10, "Follow", "Cube Overseer")
+                        ),
+                    new State("Follow",
+                        new Prioritize(
+                            new Follow(.75f, 10, 1, 5000),
+                            new Wander(1.05f)
+                            ),
+                        new EntitiesNotExistsTransition(10, "Orbit","Cube Defender"),
+                        new TimedTransition("Orbit", 5000)
+                        ),
+                    new Shoot(10, 2, 10, 1, predictive: 1, cooldown: 500),
+                    new Shoot(10, predictive: 1, cooldown: 1500)
+                    )
+            );
+
+            db.Init("Lord of the Lost Lands",
+                new State("base",
+                    new State("Waiting",
+                        new HealthTransition(0.99f, "Start1.0f")
+                        ),
+                    new State("Start1.0f",
+                        new HealthTransition(0.1f, "Dead"),
+                        new State("Start",
+                            new SetAltTexture(0),
+                            new Prioritize(
+                                new Wander(0.8f)
+                                ),
+                            new Shoot(0, count: 7, shootAngle: 10, fixedAngle: 180, cooldown: 2000),
+                            new Shoot(0, count: 7, shootAngle: 10, fixedAngle: 0, cooldown: 2000),
+                            new TossObject("Guardian of the Lost Lands", 5, cooldown: 1000, throwEffect: true),
+                            new TimedTransition("Spawning Guardian", 100)
+                            ),
+                        new State("Spawning Guardian",
+                            new TossObject("Guardian of the Lost Lands", 5, cooldown: 1000, throwEffect: true),
+                            new TimedTransition("Attack", 3100)
+                            ),
+                        new State("Attack",
+                            new SetAltTexture(0),
+                            new Wander(0.8f),
+                            new PlayerWithinTransition(1, "Follow"),
+                            new TimedTransition("Gathering", 10000),
+                            new State("Attack1.0f",
+                                new TimedRandomTransition(3000,
+                                    "Attack1.1f",
+                                    "Attack1.2f"),
+                                new State("Attack1.1f",
+                                    new Shoot(12, count: 7, shootAngle: 10, cooldown: 2000),
+                                    new Shoot(12, count: 7, shootAngle: 190, cooldown: 2000),
+                                    new TimedTransition("Attack1.0f", 2000)
+                                    ),
+                                new State("Attack1.2f",
+                                    new Shoot(0, count: 7, shootAngle: 10, fixedAngle: 180, cooldown: 3000),
+                                    new Shoot(0, count: 7, shootAngle: 10, fixedAngle: 0, cooldown: 3000),
+                                    new TimedTransition("Attack1.0f", 2000)
+                                    )
+                                )
+                            ),
+                        new State("Follow",
+                            new Prioritize(
+                                new Follow(1, 20, 3),
+                                new Wander(0.4f)
+                                ),
+                            new Shoot(20, count: 7, shootAngle: 10, cooldown: 1300),
+                            new TimedTransition("Gathering", 5000)
+                            ),
+                        new State("Gathering",
+                            new Taunt(0.99f, "Gathering power!"),
+                            new SetAltTexture(3),
+                            new TimedTransition("Gathering1.0f", 2000)
+                            ),
+                        new State("Gathering1.0f",
+                            new TimedTransition("Protection", 5000),
+                            new State("Gathering1.1f",
+                                new Shoot(30, 4, fixedAngle: 90, index: 1, cooldown: 2000),
+                                new TimedTransition("Gathering1.2f", 1500)
+                                ),
+                            new State("Gathering1.2f",
+                                new Shoot(30, 4, fixedAngle: 45, index: 1, cooldown: 2000),
+                                new TimedTransition("Gathering1.1f", 1500)
+                                )
+                            ),
+                        new State("Protection",
+                            new SetAltTexture(0),
+                            new TossObject("Protection Crystal", 4, angle: 0, cooldown: 5000, throwEffect: true),
+                            new TossObject("Protection Crystal", 4, angle: 45, cooldown: 5000, throwEffect: true),
+                            new TossObject("Protection Crystal", 4, angle: 90, cooldown: 5000, throwEffect: true),
+                            new TossObject("Protection Crystal", 4, angle: 135, cooldown: 5000, throwEffect: true),
+                            new TossObject("Protection Crystal", 4, angle: 180, cooldown: 5000, throwEffect: true),
+                            new TossObject("Protection Crystal", 4, angle: 225, cooldown: 5000, throwEffect: true),
+                            new TossObject("Protection Crystal", 4, angle: 270, cooldown: 5000, throwEffect: true),
+                            new TossObject("Protection Crystal", 4, angle: 315, cooldown: 5000, throwEffect: true),
+                            new EntitiesWithinTransition(10, "Protection Crystal", "Waiting")
+                            )
+                        ),
+                    new State("Waiting",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new SetAltTexture(1),
+                        new EntitiesNotExistsTransition(10, "Start1.0f","Protection Crystal")
+                        ),
+                    new State("Dead",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new SetAltTexture(3),
+                        new Taunt(0.99f, "NOOOO!!!!!!"),
+                        new Flash(0xFF0000, .1f, 1000),
+                        new TimedTransition("Suicide", 2000)
+                        ),
+                    new State("Suicide",
+                        new ConditionalEffect(ConditionEffectIndex.StunImmune, true),
+                        new Shoot(0, 8, fixedAngle: 360 / 8, index: 1),
+                        new Suicide()
+                        )
+                    ),
+                new Threshold(0.03f,
+                        new ItemLoot("Shield of Ogmur", 0.002f),
+                        new ItemLoot("Mithril Shield", 0.1f),
+                        new ItemLoot("Magic Nova Spell", 0.1f),
+                        new ItemLoot("Cloak of Endless Twilight", 0.1f),
+                        new ItemLoot("Golden Quiver", 0.1f)
+                    ),
+                new Threshold(0.005f,
+                    LootTemplates.BasicPots()
+                    )
+            );
+            db.Init("Protection Crystal",
+                new State("base",
+                    new Prioritize(
+                        new Orbit(0.3f, 4, 10, "Lord of the Lost Lands")
+                        ),
+                    new Shoot(8, count: 4, shootAngle: 7, cooldown: 500)
+                    )
+            );
+            db.Init("Guardian of the Lost Lands",
+                new State("base",
+                    new State("Full",
+                        new Spawn("Knight of the Lost Lands", 2, 1, cooldown: 4000),
+                        new Prioritize(
+                            new Follow(0.6f, 20, 6),
+                            new Wander(0.2f)
+                            ),
+                        new Shoot(10, count: 8, fixedAngle: 360 / 8, cooldown: 3000, index: 1),
+                        new Shoot(10, count: 5, shootAngle: 10, cooldown: 1500),
+                        new HealthTransition(0.25f, "Low")
+                        ),
+                    new State("Low",
+                        new Prioritize(
+                            new StayBack(0.6f, 5),
+                            new Wander(0.2f)
+                            ),
+                        new Shoot(10, count: 8, fixedAngle: 360 / 8, cooldown: 3000, index: 1),
+                        new Shoot(10, count: 5, shootAngle: 10, cooldown: 1500)
+                        )
+                    ),
+                new ItemLoot("Health Potion", 0.1f),
+                new ItemLoot("Magic Potion", 0.1f)
+            );
+            db.Init("Knight of the Lost Lands",
+                new State("base",
+                    new Prioritize(
+                        new Follow(1, 20, 4),
+                        new StayBack(0.5f, 2),
+                        new Wander(0.3f)
+                        ),
+                    new Shoot(13, 1, cooldown: 700)
+                    ),
+                new ItemLoot("Health Potion", 0.1f),
+                new ItemLoot("Magic Potion", 0.1f)
+            );
+
         }
     }
 }

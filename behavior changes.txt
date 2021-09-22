@@ -14,7 +14,7 @@ TimedTransition\((\d+), (.+)\) -> TimedTransition($2, $1)
 projectileIndex -> index
 coolDown -> cooldown
 
-(\d+\.\d+) -> $1f
+(\d*\.\d+) -> $1f
 
 ItemType -> LootType
 HpLessTransition -> HealthTransition

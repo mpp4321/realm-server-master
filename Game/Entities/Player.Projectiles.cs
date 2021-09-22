@@ -61,8 +61,11 @@ namespace RotMG.Game.Entities
         public Dictionary<int, Projectile> ShotProjectiles;
         public int NextAEProjectileId = int.MinValue; //Goes up positively from bottom (Server sided projectiles)
         public int NextProjectileId; //Goes down negatively (Client sided projectiles)
+
         public int ShotTime;
         public int ShotDuration;
+        public int BurstShotDelay = 0;
+        public int BurstShotCount = 0;
 
         public void TickProjectiles()
         {
@@ -296,11 +299,14 @@ namespace RotMG.Game.Entities
             }
             else
             {
-                if (time > ShotTime + ShotDuration)
+                if (time > ShotTime + ShotDuration + BurstShotDelay)
                 {
+                    //Reset burst shot delay
+                    BurstShotDelay = 0;
                     var arcGap = desc.ArcGap * MathUtils.ToRadians;
                     var totalArc = arcGap * (numShots - 1);
                     var angle = attackAngle - totalArc / 2f;
+                    var noMoreBursts = false;
                     for (var i = 0; i < numShots; i++)
                     {
                         var damage = (int)(GetNextDamageSeeded(desc.NextProjectile(startId - i).MinDamage, desc.NextProjectile(startId - i).MaxDamage, ItemDatas[0]) * GetAttackMultiplier());
@@ -308,6 +314,19 @@ namespace RotMG.Game.Entities
                         var compeffs = this.ItemDatas.Take(4).Select(a => a.ItemComponent != null ? a.ItemComponent : null).Where(a => a != null);
                         uneffs = uneffs.Concat(compeffs);
                         var projectile = new Projectile(this, desc.NextProjectile(startId - i), startId - i, time, angle + arcGap * i, pos, damage, uniqueEff: uneffs.ToArray());
+                        if(projectile.Desc.DoBurst)
+                        {
+                            if (noMoreBursts) continue;
+                            var bc = projectile.Desc.BurstCount;
+                            if(BurstShotCount > bc)
+                            {
+                                BurstShotDelay = projectile.Desc.BurstDelay;
+                                BurstShotCount = 0;
+                                noMoreBursts = true;
+                                continue;
+                            }
+                            BurstShotCount += 1;
+                        }
                         ShotProjectiles.Add(projectile.Id, projectile);
                     }
 
@@ -323,7 +342,6 @@ namespace RotMG.Game.Entities
                     ShotDuration = (int)(1f / GetAttackFrequency() * (1f / rateOfFire) * (1f / RateOfFireThreshold));
                     ShotTime = time;
                 }
-
                 else
                 {
 #if DEBUG

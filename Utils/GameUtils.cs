@@ -244,6 +244,13 @@ namespace RotMG.Utils
             return nearest;
         }
 
+        public static Vector2 RandomPointWithin(Vector2 point, float radius)
+        {
+            var dir1 = MathUtils.PlusMinus();
+            var dir2 = MathUtils.PlusMinus();
+            return point + new Vector2(MathUtils.NextFloat(0, radius) * dir1, MathUtils.NextFloat(0, radius) * dir2);
+        }
+
         public static Entity GetNearestPlayer(this Entity entity, float radius, Func<Entity, bool> pred = null)
         {
 #if DEBUG

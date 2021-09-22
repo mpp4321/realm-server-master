@@ -357,7 +357,7 @@ namespace RotMG.Game.Entities
             });
         }
 
-        public bool Damage(string hitter, int damage, ConditionEffectDesc[] effects, bool pierces)
+        public bool Damage(string hitter, int damage, ConditionEffectDesc[] effects, bool pierces, bool showSelf = false)
         {
 #if DEBUG
             if (HasConditionEffect(ConditionEffectIndex.Invincible))
@@ -393,7 +393,7 @@ namespace RotMG.Game.Entities
 
             var packet = GameServer.Damage(Id, effects.Select(k => k.Effect).ToArray(), damageWithDefense);
             foreach (var en in Parent.PlayerChunks.HitTest(Position, SightRadius))
-                if (en is Player player && player.Client.Account.AllyDamage && !player.Equals(this))
+                if (en is Player player && player.Client.Account.AllyDamage && (showSelf || !player.Equals(this)))
                     player.Client.Send(packet);
             return false;
         }

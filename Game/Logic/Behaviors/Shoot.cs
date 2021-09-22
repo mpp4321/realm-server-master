@@ -71,9 +71,9 @@ namespace RotMG.Game.Logic.Behaviors
 
         public override void Enter(Entity host)
         {
-            host.StateCooldown.Add(Id, CooldownOffset);
+            host.StateCooldown[Id] = CooldownOffset;
             if (RotateAngle != null) 
-                host.StateObject.Add(Id, 0);
+                host.StateObject[Id] = 0;
         }
 
         public override bool Tick(Entity host)
@@ -89,6 +89,7 @@ namespace RotMG.Game.Logic.Behaviors
                     count = (byte)Math.Ceiling(count / 2f);
 
                 Entity target = null;
+
                 if (playerOwner != null)
                 {
                     target = host.GetNearestEnemy(Range);

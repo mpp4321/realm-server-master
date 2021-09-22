@@ -16,6 +16,25 @@ namespace RotMG.Game.Logic.Database
         public void Init(BehaviorDb db)
         {
 
+            db.Init("Thunder Cloud", 
+                new State("Base", 
+                        new TimedTransition("Die", 3000)
+                    ),
+                new State("Die", 
+                    new OnDeath( (h) =>
+                    {
+                        var foundPlayer = h.GetNearbyPlayers(3).Where(a => a == h.PlayerOwner).FirstOrDefault();
+                        var aoe = GameServer.ShowEffect(ShowEffectIndex.Nova, h.Id, 0xffffff00, new Vector2(3f, 0));
+                        if(foundPlayer != null)
+                        {
+                            (foundPlayer as Player).Damage(h.Desc.DisplayId, 300, new ConditionEffectDesc[] { }, true);
+                        }
+                        h.PlayerOwner.Client.Send(aoe);
+                    }),
+                    new Suicide()
+                )
+                );
+
             db.Init("Mini Flying Brain",
                 new State("Base", 
                         new Wander(0.4f),

@@ -21,6 +21,7 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("MedusaGarment", new OutOfCombatSpeed());
             Registry.Add("BrainOrb", new BrainOrb());
             Registry.Add("PoisonFire", new PoisonFire());
+            Registry.Add("Electricity", new Electricity());
 
             //components
             Registry.Add("FireRune", new FireRune());

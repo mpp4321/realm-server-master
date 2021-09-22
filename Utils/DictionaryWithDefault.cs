@@ -17,6 +17,7 @@ namespace RotMG.Utils
         {
             _default = defaultValue;
         }
+
         public new TValue this[TKey key]
         {
             get
@@ -24,7 +25,9 @@ namespace RotMG.Utils
                 TValue t;
                 return base.TryGetValue(key, out t) ? t : _default;
             }
-            set { base[key] = value; }
+            set { 
+                base[key] = value;
+            }
         }
     }
 }

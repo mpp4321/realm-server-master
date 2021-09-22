@@ -52,6 +52,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new ItemLoot("Health Potion", 0.03f)
             );
+
             db.Init("Snake",
                 new State(
                     "base",

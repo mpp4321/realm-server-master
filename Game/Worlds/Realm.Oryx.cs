@@ -528,7 +528,7 @@ namespace RotMG.Game.Worlds
                 })
             },
             { Terrain.Mountains, Tuple.Create(
-                100, new []
+                600, new []
                 {
                     Tuple.Create("White Demon", 0.1),
                     Tuple.Create("Sprite God", 0.11),

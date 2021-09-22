@@ -1073,7 +1073,7 @@
     <Projectile id="0">
       <ObjectId>Red Fire</ObjectId>
       <Speed>120</Speed>
-      <Damage>50</Damage>
+      <Damage>90</Damage>
       <LifetimeMS>2000</LifetimeMS>
     </Projectile>
   </Object>
