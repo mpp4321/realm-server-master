@@ -4,7 +4,7 @@
 		<BlockSight>2</BlockSight>
 	</World>
 	<World name="Nexus" id="-1">
-		<Maps>Nexus/0.jm</Maps>
+		<Maps>Nexus/1.jm</Maps>
 		<Background>0</Background>
 		<AllowTeleport>true</AllowTeleport>
 		<ShowDisplays>true</ShowDisplays>

@@ -12,7 +12,9 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
         public void OnAbilityUse(Vector2 position, ItemDesc desc, ItemDataJson itemdata, Player p)
         {
 
-            foreach (var j in p.Parent.EntityChunks.HitTest(position, 3).OfType<Enemy>().Where(a => a.Type != 0x5004))
+            var iter = p.Parent.EntityChunks.HitTest(position, 3).OfType<Enemy>().Where(a => a.Type != 0x5004);
+            if (iter.Count() > 5) iter = iter.Take(5);
+            foreach (var j in iter)
             {
                 Enemy e = new Enemy(0x5004);
 

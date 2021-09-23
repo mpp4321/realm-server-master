@@ -54,9 +54,6 @@
 			<ConditionEffect duration="10">Quiet</ConditionEffect>
 			<ParticleTrail/>
 		</Projectile>
-
-
-
 	</Object>
 	
 	<Object type="0x653" id="Sprite Child">

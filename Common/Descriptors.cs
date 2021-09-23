@@ -1008,9 +1008,9 @@ namespace RotMG.Common
             Frequency = e.ParseFloat("Frequency", 1);
             Magnitude = e.ParseFloat("Magnitude", 3);
 
-            DoAccelerate = e.ParseBool("DoAccelerate");
             Accelerate = e.ParseFloat("Accelerate");
-            Accelerate = e.ParseFloat("AccelerateDelay");
+            DoAccelerate = Accelerate > 0.0f;
+            AccelerateDelay = e.ParseFloat("AccelerateDelay");
             SpeedClamp = e.ParseFloat("SpeedClamp");
 
             BurstCount = e.ParseInt("Burst");

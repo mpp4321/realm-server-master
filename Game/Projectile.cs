@@ -51,7 +51,7 @@ namespace RotMG.Game
             var p = new Vector2(StartPosition.X, StartPosition.Y);
             var speed = Desc.Speed;
 
-            if (Desc.DoAccelerate)
+            if (Desc.DoAccelerate && elapsed > 0)
             {
                 var elapsedWithDelay = MathF.Max(0, elapsed - Desc.AccelerateDelay);
                 var speedIncreaseByLifeTime = elapsedWithDelay * (Desc.Accelerate / 1000);

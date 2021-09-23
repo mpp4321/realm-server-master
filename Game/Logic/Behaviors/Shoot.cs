@@ -160,7 +160,8 @@ namespace RotMG.Game.Logic.Behaviors
                         projectiles.Add(p);
                         if(owner is Player pl)
                         {
-                            pl.ShotProjectiles.Add(p.Id, p);
+                            //if(pl.ShotProjectiles.ContainsKey(p.Id)) bad
+                            pl.ShotProjectiles[p.Id] = p;
                         }
                     }
 
