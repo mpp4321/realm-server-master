@@ -1,4 +1,5 @@
-﻿using RotMG.Game.Logic.Behaviors;
+﻿using RotMG.Common;
+using RotMG.Game.Logic.Behaviors;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
 using System;
@@ -71,7 +72,7 @@ namespace RotMG.Game.Logic.Database
                     new Spawn("Orc Queen", maxChildren: 2, cooldown: 60000, givesNoXp: false),
                     new Prioritize(
                         new StayAbove(1.4f, 60),
-                        new Follow(0.6f, range: 1, duration: 3000, coolDown: 3000),
+                        new Follow(0.6f, range: 1, duration: 3000, cooldown: 3000),
                         new Wander(0.6f)
                         )
                     ),
@@ -320,7 +321,7 @@ namespace RotMG.Game.Logic.Database
                     new State("circle",
                         new Prioritize(
                             new StayAbove(0.4f, 60),
-                            new Follow(4, acquireRange: 11, range: 3.5f, duration: 1000, coolDown: 5000),
+                            new Follow(4, acquireRange: 11, range: 3.5f, duration: 1000, cooldown: 5000),
                             new Orbit(1.9f, 3.5f, acquireRange: 12),
                             new Wander(0.4f)
                             ),
@@ -456,7 +457,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(4),
                     new State("Default",
                         new Prioritize(
-                            new Follow(1.0f, acquireRange: 9, range: 2, duration: 3000, coolDown: 1000),
+                            new Follow(1.0f, acquireRange: 9, range: 2, duration: 3000, cooldown: 1000),
                             new Wander(0.4f)
                             )
                         ),
@@ -483,7 +484,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Dwarf King",
                 new State("base",
-                    new SpawnGroup("Dwarves", maxChildren: 10, coolDown: 8000),
+                    new SpawnGroup("Dwarves", maxChildren: 10, cooldown: 8000),
                     new Shoot(4, cooldown: 2000),
                     new State("Circling",
                         new Prioritize(
@@ -620,7 +621,7 @@ namespace RotMG.Game.Logic.Database
                     new State("get_player",
                         new Prioritize(
                             new StayAbove(0.8f, 60),
-                            new Follow(0.8f, range: 2.7f, acquireRange: 10, duration: 5000, coolDown: 1800),
+                            new Follow(0.8f, range: 2.7f, acquireRange: 10, duration: 5000, cooldown: 1800),
                             new Wander(0.8f)
                             ),
                         new State("one_shot",
@@ -835,7 +836,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Desert Werewolf",
                 new State("base",
-                    new SpawnGroup("Wargs", maxChildren: 8, coolDown: 8000),
+                    new SpawnGroup("Wargs", maxChildren: 8, cooldown: 8000),
                     new State("unharmed",
                         new Shoot(8, index: 0, predictive: 0.3f, cooldown: 1000, cooldownOffset: 500),
                         new Prioritize(
@@ -865,6 +866,359 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Magic Potion", 0.03f)
             );
             db.EveryInit = new IBehavior[] { };
+
+            db.Init("Ent Ancient",
+                new State("base",
+                    new DropPortalOnDeath("Belladonna's Garden", 1),
+                    new State("Idle",
+                        new StayCloseToSpawn(0.1f, range: 6),
+                        new Wander(0.1f),
+                        new HealthTransition(0.99999f, "EvaluationStart1")
+                        ),
+                    new State("EvaluationStart1",
+                        new Taunt("Uhh. So... sleepy..."),
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new Prioritize(
+                            new StayCloseToSpawn(0.2f, range: 3),
+                            new Wander(0.2f)
+                            ),
+                        new TimedTransition("EvaluationStart2", 2500)
+                        ),
+                    new State("EvaluationStart2",
+                        new Flash(0x0000ff, 0.1f, 60),
+                        new Shoot(10, count: 2, shootAngle: 180, cooldown: 800),
+                        new Prioritize(
+                            new StayCloseToSpawn(0.3f, range: 5),
+                            new Wander(0.3f)
+                            ),
+                        new HealthTransition(0.87f, "EvaluationEnd"),
+                        new TimedTransition("EvaluationEnd", 6000)
+                        ),
+                    new State("EvaluationEnd",
+                        new HealthTransition(0.875f, "HugeMob"),
+                        new HealthTransition(0.952f, "Mob"),
+                        new HealthTransition(0.985f, "SmallGroup"),
+                        new HealthTransition(0.99999f, "Solo")
+                        ),
+                    new State("HugeMob",
+                        new Taunt("You are many, yet the sum of your years is nothing."),
+                        new Spawn("Greater Nature Sprite", maxChildren: 6, initialSpawn: 0, cooldown: 400),
+                        new TossObject("Ent", range: 3, angle: 0, cooldown: 100000, throwEffect: true),
+                        new TossObject("Ent", range: 3, angle: 180, cooldown: 100000, throwEffect: true),
+                        new TossObject("Ent", range: 5, angle: 10, cooldown: 100000, throwEffect: true),
+                        new TossObject("Ent", range: 5, angle: 190, cooldown: 100000, throwEffect: true),
+                        new TossObject("Ent", range: 5, angle: 70, cooldown: 100000, throwEffect: true),
+                        new TossObject("Ent", range: 7, angle: 20, cooldown: 100000, throwEffect: true),
+                        new TossObject("Ent", range: 7, angle: 200, cooldown: 100000, throwEffect: true),
+                        new TossObject("Ent", range: 7, angle: 80, cooldown: 100000, throwEffect: true),
+                        new TossObject("Ent", range: 10, angle: 30, cooldown: 100000, throwEffect: true),
+                        new TossObject("Ent", range: 10, angle: 210, cooldown: 100000, throwEffect: true),
+                        new TossObject("Ent", range: 10, angle: 90, cooldown: 100000, throwEffect: true),
+                        new TimedTransition("Wait", 5000)
+                        ),
+                    new State("Mob",
+                        new Taunt("Little flies, little flies... we will swat you."),
+                        new Spawn("Greater Nature Sprite", maxChildren: 3, initialSpawn: 0, cooldown: 1000),
+                        new TossObject("Ent", range: 3, angle: 0, cooldown: 100000, throwEffect: true),
+                        new TossObject("Ent", range: 4, angle: 180, cooldown: 100000, throwEffect: true),
+                        new TossObject("Ent", range: 5, angle: 10, cooldown: 100000, throwEffect: true),
+                        new TossObject("Ent", range: 6, angle: 190, cooldown: 100000, throwEffect: true),
+                        new TossObject("Ent", range: 7, angle: 20, cooldown: 100000, throwEffect: true),
+                        new TimedTransition("Wait", 5000)
+                        ),
+                    new State("SmallGroup",
+                        new Taunt("It will be trivial to dispose of you."),
+                        new Spawn("Greater Nature Sprite", maxChildren: 1, initialSpawn: 1, cooldown: 100000),
+                        new TossObject("Ent", range: 3, angle: 0, cooldown: 100000, throwEffect: true),
+                        new TossObject("Ent", range: 4.5f, angle: 180, cooldown: 100000, throwEffect: true),
+                        new TimedTransition("Wait", 3000)
+                        ),
+                    new State("Solo",
+                        new Taunt("Mmm? Did you say something, mortal?"),
+                        new TimedTransition("Wait", 3000)
+                        ),
+                    new State("Wait",
+                        new Transform("Actual Ent Ancient")
+                        )
+                    )
+            );;
+            db.Init("Actual Ent Ancient",
+                new State("base",
+                    new Prioritize(
+                        new StayCloseToSpawn(0.2f, range: 6),
+                        new Wander(0.2f)
+                        ),
+                    new Spawn("Ent Sapling", maxChildren: 3, initialSpawn: 0, cooldown: 3000, givesNoXp: false),
+                    new State("Start",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new ChangeSize(11, 160),
+                        new Shoot(10, index: 0, count: 1),
+                        new TimedTransition("Growing1", 1600),
+                        new HealthTransition(0.9f, "Growing1")
+                        ),
+                    new State("Growing1",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new ChangeSize(11, 180),
+                        new Shoot(10, index: 1, count: 3, shootAngle: 120),
+                        new TimedTransition("Growing2", 1600),
+                        new HealthTransition(0.8f, "Growing2")
+                        ),
+                    new State("Growing2",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new ChangeSize(11, 200),
+                        new Taunt(0.35f, "Little mortals, your years are my minutes."),
+                        new Shoot(10, index: 2, count: 1),
+                        new TimedTransition("Growing3", 1600),
+                        new HealthTransition(0.7f, "Growing3")
+                        ),
+                    new State("Growing3",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new ChangeSize(11, 220),
+                        new Shoot(10, index: 3, count: 1),
+                        new TimedTransition("Growing4", 1600),
+                        new HealthTransition(0.6f, "Growing4")
+                        ),
+                    new State("Growing4",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new ChangeSize(11, 240),
+                        new Taunt(0.35f, "No axe can fell me!"),
+                        new Shoot(10, index: 4, count: 3, shootAngle: 120),
+                        new TimedTransition("Growing5", 1600),
+                        new HealthTransition(0.5f, "Growing5")
+                        ),
+                    new State("Growing5",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new ChangeSize(11, 260),
+                        new Shoot(10, index: 5, count: 1),
+                        new TimedTransition("Growing6", 1600),
+                        new HealthTransition(0.45f, "Growing6")
+                        ),
+                    new State("Growing6",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new ChangeSize(11, 280),
+                        new Taunt(0.35f, "Yes, YES..."),
+                        new Shoot(10, index: 6, count: 1),
+                        new TimedTransition("Growing7", 1600),
+                        new HealthTransition(0.4f, "Growing7")
+                        ),
+                    new State("Growing7",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new ChangeSize(11, 300),
+                        new Shoot(10, index: 7, count: 3, shootAngle: 120),
+                        new TimedTransition("Growing8", 1600),
+                        new HealthTransition(0.36f, "Growing8")
+                        ),
+                    new State("Growing8",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new ChangeSize(11, 320),
+                        new Taunt(0.35f, "I am the FOREST!!"),
+                        new Shoot(10, index: 8, count: 1),
+                        new TimedTransition("Growing9", 1600),
+                        new HealthTransition(0.32f, "Growing9")
+                        ),
+                    new State("Growing9",
+                        new ChangeSize(11, 340),
+                        new Taunt(1.0f, "YOU WILL DIE!!!"),
+                        new Shoot(10, index: 9, count: 1),
+                        new State("convert_sprites",
+                            new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                            new Order(50, "Greater Nature Sprite", "Transform"),
+                            new TimedTransition("shielded", 2000)
+                            ),
+                        new State("received_armor",
+                            new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                            new ConditionalEffect(ConditionEffectIndex.Armored, perm: true),
+                            new TimedTransition("shielded", 1000)
+                            ),
+                        new State("shielded",
+                            new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                            new TimedTransition("unshielded", 4000)
+                            ),
+                        new State("unshielded",
+                            new Shoot(10, index: 3, count: 3, shootAngle: 120, cooldown: 700),
+                            new TimedTransition("shielded", 4000)
+                            )
+                        )
+                    ),
+                new Threshold(.001f,
+                    new TierLoot(4, LootType.Ring, 0.5f, r: new LootDef.RarityModifiedData(1.0f, 2)),
+                    new TierLoot(6, LootType.Weapon, 0.3f),
+                    new TierLoot(7, LootType.Weapon, 0.1f),
+                    new TierLoot(8, LootType.Armor, 0.3f),
+                    new TierLoot(9, LootType.Armor, 0.1f),
+                    new TierLoot(3, LootType.Ability, 0.95f),
+                    new TierLoot(4, LootType.Ability, 0.25f),
+                    new TierLoot(5, LootType.Ability, 0.05f)
+                    ),
+                new ItemLoot("Health Potion", 0.7f),
+                new ItemLoot("Magic Potion", 0.7f),
+                new ItemLoot("Tincture of Defense", 1f)
+            );
+            db.Init("Ent",
+                new State("base",
+                    new Prioritize(
+                        new Protect(0.25f, "Ent Ancient", acquireRange: 12, protectionRange: 7, reprotectRange: 7),
+                        new Follow(0.25f, range: 1, acquireRange: 9),
+                        new Shoot(10, count: 5, shootAngle: 72, fixedAngle: 30, cooldown: 1600, cooldownOffset: 800)
+                        ),
+                    new Shoot(10, predictive: 0.4f, cooldown: 600),
+                    new Decay(90000)
+                    ),
+                new ItemLoot("Tincture of Dexterity", 0.1f)
+            );
+            db.Init("Ent Sapling",
+                new State("base",
+                    new Prioritize(
+                        new Protect(0.55f, "Ent Ancient", acquireRange: 10, protectionRange: 4, reprotectRange: 4),
+                        new Wander(0.55f)
+                        ),
+                    new Shoot(10, cooldown: 1000)
+                    )
+            );
+            db.Init("Greater Nature Sprite",
+                new State("base",
+                    new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                    new Shoot(10, count: 4, shootAngle: 10),
+                    new Prioritize(
+                        new StayCloseToSpawn(1.5f, 11),
+                        new Orbit(1.5f, 4, acquireRange: 7),
+                        new Follow(200, acquireRange: 7, range: 2),
+                        new Follow(0.3f, acquireRange: 7, range: 0.2f)
+                        ),
+                    new State("Idle"),
+                    new State("Transform",
+                        new Transform("Actual Greater Nature Sprite")
+                        ),
+                    new Decay(90000)
+                    )
+            );
+            db.Init("Actual Greater Nature Sprite",
+                new State("base",
+                    new Flash(0xff484848, 0.6f, 1000),
+                    new Spawn("Ent", maxChildren: 2, initialSpawn: 0, cooldown: 3000, givesNoXp: false),
+                    new HealEntity(15, "Heros", cooldown: 200),
+                    new State("armor_ent_ancient",
+                        new Order(30, "Actual Ent Ancient", "received_armor"),
+                        new TimedTransition("last_fight", 1000)
+                        ),
+                    new State("last_fight",
+                        new Shoot(10, count: 4, shootAngle: 10),
+                        new Prioritize(
+                            new StayCloseToSpawn(1.5f, 11),
+                            new Orbit(1.5f, 4, acquireRange: 7),
+                            new Follow(200, acquireRange: 7, range: 2),
+                            new Follow(0.3f, acquireRange: 7, range: 0.2f)
+                            )
+                        ),
+                    new Decay(60000)
+                    ),
+                new ItemLoot("Magic Potion", 0.25f),
+                new Threshold(.01f,
+                    new ItemLoot("Tincture of Life", 0.56f),
+                    new ItemLoot("Quiver of Thunder", 0.002f),
+                    new TierLoot(10, LootType.Armor, 0.3f, r: new LootDef.RarityModifiedData(1.0f, 3)),
+                    new TierLoot(6, LootType.Ability, 0.01f)
+                    )
+            );
+
+            db.Init("Phoenix Lord",
+                new State("base",
+                    new Shoot(10, count: 4, shootAngle: 7, predictive: 0.5f, cooldown: 600),
+                    new Prioritize(
+                        new StayCloseToSpawn(0.3f, 2),
+                        new Wander(0.4f)
+                        ),
+                    new SpawnGroup("Pyre", maxChildren: 16, cooldown: 5000),
+                    new Taunt(0.7f, 10000,
+                        "Alas, {PLAYER}, you will taste death but once!",
+                        "I have met many like you, {PLAYER}, in my thrice thousand years!",
+                        "Purge yourself, {PLAYER}, in the heat of my flames!",
+                        "The ashes of past heroes cover my plains!",
+                        "Some die and are ashes, but I am ever reborn!"
+                        ),
+                    new TransformOnDeath("Phoenix Egg")
+                    )
+            );
+            db.Init("Birdman Chief",
+                new State("base",
+                    new Prioritize(
+                        new Protect(0.5f, "Phoenix Lord", acquireRange: 15, protectionRange: 10, reprotectRange: 3),
+                        new Follow(1, range: 9),
+                        new Wander(0.5f)
+                        ),
+                    new Shoot(10)
+                    ),
+                new ItemLoot("Magic Potion", 0.05f)
+            );
+            db.Init("Birdman",
+                new State("base",
+                    new Prioritize(
+                        new Protect(0.5f, "Phoenix Lord", acquireRange: 15, protectionRange: 11, reprotectRange: 3),
+                        new Follow(1, range: 7),
+                        new Wander(0.5f)
+                        ),
+                    new Shoot(10, predictive: 0.5f)
+                    ),
+                new ItemLoot("Health Potion", 0.05f)
+            );
+            db.Init("Phoenix Egg",
+                new State("base",
+                    new State("shielded",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new TimedTransition("unshielded", 2000)
+                        ),
+                    new State("unshielded",
+                        new Flash(0xff0000, 1, 5000),
+                        new State("grow",
+                            new ChangeSize(20, 150),
+                            new TimedTransition("shrink", 800)
+                            ),
+                        new State("shrink",
+                            new ChangeSize(-20, 130),
+                            new TimedTransition("grow", 800)
+                            )
+                        ),
+                    new TransformOnDeath("Phoenix Reborn")
+                    )
+            );
+            db.Init("Phoenix Reborn",
+                new State("base",
+                    new Prioritize(
+                        new StayCloseToSpawn(0.9f, 5),
+                        new Wander(0.9f)
+                        ),
+                    new SpawnGroup("Pyre", maxChildren: 4, cooldown: 1000),
+                    new State("born_anew",
+                        new Shoot(10, index: 0, count: 12, shootAngle: 30, fixedAngle: 10, cooldown: 100000,
+                            cooldownOffset: 500),
+                        new Shoot(10, index: 0, count: 12, shootAngle: 30, fixedAngle: 25, cooldown: 100000,
+                            cooldownOffset: 1000),
+                        new TimedTransition("xxx", 1800)
+                        ),
+                    new State("xxx",
+                        new Shoot(10, index: 1, count: 4, shootAngle: 7, predictive: 0.5f, cooldown: 600),
+                        new TimedTransition("yyy", 2800)
+                        ),
+                    new State("yyy",
+                        new Shoot(10, index: 0, count: 12, shootAngle: 30, fixedAngle: 10, cooldown: 100000,
+                            cooldownOffset: 500),
+                        new Shoot(10, index: 0, count: 12, shootAngle: 30, fixedAngle: 25, cooldown: 100000,
+                            cooldownOffset: 1000),
+                        new Shoot(10, index: 1, predictive: 0.5f, cooldown: 350),
+                        new TimedTransition("xxx", 4500)
+                        )
+                    ),
+                new Threshold(0.1f,
+                new ItemLoot("Large Stony Cloth", 0.03f),
+                new ItemLoot("Small Stony Cloth", 0.03f),
+                new ItemLoot("Large Tan Diamond Cloth", 0.03f),
+                new ItemLoot("Small Tan Diamond Cloth", 0.03f),
+                new ItemLoot("Large Smiley Cloth", 0.03f),
+                new ItemLoot("Small Smiley Cloth", 0.03f)
+                    )
+            );
+
+
         }
     }
 }

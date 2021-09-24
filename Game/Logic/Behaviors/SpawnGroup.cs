@@ -26,14 +26,14 @@ namespace RotMG.Game.Logic.Behaviors
         ushort[] children;
         double radius;
 
-        public SpawnGroup(string group, int maxChildren = 5, double initialSpawn = 0.5, Cooldown coolDown = new Cooldown(), double radius = 0)
+        public SpawnGroup(string group, int maxChildren = 5, double initialSpawn = 0.5, Cooldown cooldown = new Cooldown(), double radius = 0)
         {
             this.children = Resources.Id2Object.Values
                 .Where(x => x.Group == group)
                 .Select(x => x.Type).ToArray();
             this.maxChildren = maxChildren;
             this.initialSpawn = (int)(maxChildren * initialSpawn);
-            this.coolDown = coolDown.Normalize(0);
+            this.coolDown = cooldown.Normalize(0);
             this.radius = radius;
         }
 

@@ -86,7 +86,9 @@ namespace RotMG.Game.Worlds
                 var type = Resources.Id2Object["Nexus Portal"].Type;
                 var portal = new Portal(type, null);
                 var world = Manager.AddWorld(Resources.PortalId2World[type]);
+
                 world.Portal = portal;
+
                 portal.WorldInstance = world;
                 portal.Name = world.DisplayName + " (0)";
                 var index = MathUtils.Next(RealmSpawns.Count);

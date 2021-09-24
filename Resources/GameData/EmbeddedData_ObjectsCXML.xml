@@ -328,6 +328,7 @@
   <Object type="0x0703" id="Portal of Cowardice">
     <Class>Portal</Class>
     <IntergamePortal/>
+    <LeavePortal/>
     <Texture>
       <File>lofiEnvironment</File>
       <Index>0x7c</Index>
@@ -337,6 +338,7 @@
   <Object type="0x0704" id="Realm Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
+    <LeavePortal/>
     <Texture>
       <File>lofiEnvironment</File>
       <Index>0x7c</Index>
@@ -354,6 +356,7 @@
   <Object type="0x070d" id="Glowing Portal of Cowardice">
     <Class>Portal</Class>
     <IntergamePortal/>
+    <LeavePortal/>
     <Texture>
       <File>lofiEnvironment2</File>
       <Index>0x36</Index>
@@ -363,6 +366,7 @@
   <Object type="0x070e" id="Glowing Realm Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
+    <LeavePortal/>
     <Texture>
       <File>lofiEnvironment2</File>
       <Index>0x36</Index>

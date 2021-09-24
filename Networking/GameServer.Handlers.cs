@@ -652,8 +652,11 @@ namespace RotMG.Networking
                 client.Player = new Player(client);
                 client.State = ProtocolState.Connected;
                 client.Send(CreateSuccess(world.AddEntity(client.Player, world.GetSpawnRegion().ToVector2()), client.Character.Id));
+                client.Player.CreateAndAddPet(client.Character.PetId);
             }
         }
+
+        
 
         private static void Move(Client client, PacketReader rdr)
         {

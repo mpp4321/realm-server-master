@@ -78,6 +78,7 @@ namespace RotMG.Common
     public class CharacterModel : DatabaseModel
     {
         public readonly int Id;
+
         public int Experience;
         public int Level;
         public int ClassType;

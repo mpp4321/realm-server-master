@@ -8,7 +8,7 @@ using wServer.logic;
 
 namespace RotMG.Game.Logic.Behaviors
 {
-    class Follow : Behavior
+    class PetFollow : Behavior
     {
         //State storage: follow state
 
@@ -28,19 +28,17 @@ namespace RotMG.Game.Logic.Behaviors
         }
 
         float speed;
-        float acquireRange;
         float range;
         int duration;
         Cooldown coolDown;
 
-        public Follow(float speed, float acquireRange = 10, float range = 6,
-            int duration = 0, Cooldown cooldown = new Cooldown())
+        public PetFollow(float speed, float range = 6,
+            int duration = 0, Cooldown coolDown = new Cooldown())
         {
             this.speed = speed / (Settings.TicksPerSecond / 5);
-            this.acquireRange = acquireRange;
             this.range = range;
             this.duration = duration;
-            this.coolDown = cooldown.Normalize(duration == 0 ? 0 : 1000);
+            this.coolDown = coolDown.Normalize(duration == 0 ? 0 : 1000);
         }
 
         public override void Enter(Entity host)
@@ -59,17 +57,24 @@ namespace RotMG.Game.Logic.Behaviors
             if (host.HasConditionEffect(ConditionEffectIndex.Paralyzed))
                 return false;
 
-            var player = GameUtils.GetNearestPlayer(host, acquireRange);
+            var player = host.PlayerOwner;
+
+            if(player?.Parent != host.Parent)
+            {
+                host.Parent?.RemoveEntity(host);
+                return false;
+            }
 
             Vector2 vect;
             switch (s.State)
             {
                 case F.DontKnowWhere:
-                    if (player != null && s.RemainingTime <= 0)
+                    if (s.RemainingTime <= 0)
                     {
                         s.State = F.Acquired;
                         if (duration > 0)
                             s.RemainingTime = duration;
+                        host.Parent.MoveEntity(host, player.Position);
                         goto case F.Acquired;
                     }
                     else if (s.RemainingTime > 0)
@@ -93,7 +98,12 @@ namespace RotMG.Game.Logic.Behaviors
                         s.RemainingTime -= Settings.MillisecondsPerTick;
 
                     vect = player.Position - host.Position;
-                    if (vect.Length() > range)
+                    if(vect.Length() > 20)
+                    {
+                        s.State = F.Resting;
+                        s.RemainingTime = 0;
+                    }
+                    else if (vect.Length() > range)
                     {
                         vect.X -= _Random.Next(-2, 2) / 2f;
                         vect.Y -= _Random.Next(-2, 2) / 2f;
@@ -109,7 +119,7 @@ namespace RotMG.Game.Logic.Behaviors
                     returnType = s.State == F.Acquired;
                     break;
                 case F.Resting:
-                    if (player == null)
+                    if (player == null || (player.Position - host.Position).Length() > 20)
                     {
                         s.State = F.DontKnowWhere;
                         if (duration > 0)

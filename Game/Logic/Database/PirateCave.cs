@@ -91,7 +91,7 @@ namespace RotMG.Game.Logic.Database
                     new PlayerWithinTransition(10f, "Attack")
                     ),
                 new State("Attack",
-                    new Follow(speed: 0.7f, duration: 3000, coolDown: 700),
+                    new Follow(speed: 0.7f, duration: 3000, cooldown: 700),
                     new Shoot(cooldown: 500, cooldownVariance: 300)
                 )
             );
@@ -101,7 +101,7 @@ namespace RotMG.Game.Logic.Database
                     new PlayerWithinTransition(10f, "Attack")
                     ),
                 new State("Attack",
-                    new Follow(0.4f, duration: 2500, coolDown: 1500),
+                    new Follow(0.4f, duration: 2500, cooldown: 1500),
                     new Shoot(cooldown: 300, cooldownVariance: 150)
                 )
             );
@@ -111,7 +111,7 @@ namespace RotMG.Game.Logic.Database
                     new PlayerWithinTransition(10.0f, "Attack")
                     ),
                 new State("Attack",
-                    new Follow(speed: 0.4f, duration: 2750, coolDown: 1200),
+                    new Follow(speed: 0.4f, duration: 2750, cooldown: 1200),
                     new Shoot(cooldown: 800, cooldownVariance: 300, angleOffset: 12, predictive: 0.3f)
                 )
             );

@@ -56,7 +56,7 @@ namespace RotMG.Networking
             {
                 Program.Print(PrintType.Debug, $"Disconnecting client from <{_socket.RemoteEndPoint}>");
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 Program.Print(PrintType.Error, ex.ToString());
             }
@@ -108,6 +108,7 @@ namespace RotMG.Networking
             _receive.Reset();
             _pending.Clear();
             Account = null;
+            CleanupPet();
             Player = null;
             Character = null;
             Random = null;
@@ -116,6 +117,14 @@ namespace RotMG.Networking
             //Push back client to queue
             Manager.RemoveClient(this);
             GameServer.AddBack(this);
+        }
+
+        private void CleanupPet()
+        {
+            if (Player?.Pet != null)
+            {
+                Player.Pet.Parent.RemoveEntity(Player.Pet);
+            }
         }
 
         public void BeginHandling(Socket socket, string ip)

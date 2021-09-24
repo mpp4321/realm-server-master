@@ -9,9 +9,7 @@
     <Description>A cute and affectionate cat.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
-    <Activate objectId="Black Cat" cooldown="10">PermaPet</Activate>
+    <Activate id="Black Cat" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1600" id="Black Cat">
@@ -31,9 +29,7 @@
     <Description>A cute and affectionate cat.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
-    <Activate objectId="Grey Cat" cooldown="10">PermaPet</Activate>
+    <Activate id="Grey Cat" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1601" id="Grey Cat">
@@ -43,7 +39,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1502" id="Orange Cat Generator">
     <DisplayId>Orange Cat</DisplayId>
     <Class>Equipment</Class>
@@ -53,9 +48,7 @@
     <Description>A cute and affectionate cat.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
-    <Activate objectId="Orange Cat" cooldown="10">PermaPet</Activate>
+    <Activate id="Orange Cat" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1602" id="Orange Cat">
@@ -65,7 +58,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1503" id="Tan Cat Generator">
     <DisplayId>Tan Cat</DisplayId>
     <Class>Equipment</Class>
@@ -76,9 +68,7 @@
     <Description>A cute and affectionate cat.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
-    <Activate objectId="Tan Cat" cooldown="10">PermaPet</Activate>
+    <Activate id="Tan Cat" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1603" id="Tan Cat">
@@ -89,7 +79,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1504" id="Yellow Cat Generator">
     <DisplayId>Yellow Cat</DisplayId>
     <Class>Equipment</Class>
@@ -100,9 +89,7 @@
     <Description>A cute and affectionate cat.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
-    <Activate objectId="Yellow Cat" cooldown="10">PermaPet</Activate>
+    <Activate id="Yellow Cat" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1604" id="Yellow Cat">
@@ -113,7 +100,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1505" id="Brown Pup Generator">
     <DisplayId>Brown Pup</DisplayId>
     <Class>Equipment</Class>
@@ -123,9 +109,7 @@
     <Description>A loyal and friendly pup.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
-    <Activate objectId="Brown Pup" cooldown="10">PermaPet</Activate>
+    <Activate id="Brown Pup" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1605" id="Brown Pup">
@@ -135,7 +119,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1506" id="Grey Pup Generator">
     <DisplayId>Grey Pup</DisplayId>
     <Class>Equipment</Class>
@@ -148,7 +131,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Grey Pup" cooldown="10">PermaPet</Activate>
+    <Activate id="Grey Pup" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1606" id="Grey Pup">
@@ -172,7 +155,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Golden Pup" cooldown="10">PermaPet</Activate>
+    <Activate id="Golden Pup" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1607" id="Golden Pup">
@@ -196,7 +179,7 @@
     <InvUse/>
     
     
-    <Activate objectId="White Cat" cooldown="10">PermaPet</Activate>
+    <Activate id="White Cat" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1608" id="White Cat">
@@ -219,7 +202,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Blue Snail" cooldown="10">PermaPet</Activate>
+    <Activate id="Blue Snail" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1609" id="Blue Snail">
@@ -241,7 +224,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Grey Wolf" cooldown="10">PermaPet</Activate>
+    <Activate id="Grey Wolf" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x160a" id="Grey Wolf">
@@ -263,7 +246,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Brown Fox" cooldown="10">PermaPet</Activate>
+    <Activate id="Brown Fox" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x160b" id="Brown Fox">
@@ -285,7 +268,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Green Frog" cooldown="10">PermaPet</Activate>
+    <Activate id="Green Frog" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x160c" id="Green Frog">
@@ -307,7 +290,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Lion" cooldown="10">PermaPet</Activate>
+    <Activate id="Lion" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x160d" id="Lion">
@@ -329,7 +312,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Penguin" cooldown="10">PermaPet</Activate>
+    <Activate id="Penguin" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x160e" id="Penguin">
@@ -351,7 +334,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Sheepdog" cooldown="10">PermaPet</Activate>
+    <Activate id="Sheepdog" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x160f" id="Sheepdog">
@@ -373,7 +356,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Panda" cooldown="10">PermaPet</Activate>
+    <Activate id="Panda" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1610" id="Panda">
@@ -396,7 +379,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Purple Snail" cooldown="10">PermaPet</Activate>
+    <Activate id="Purple Snail" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1611" id="Purple Snail">
@@ -421,7 +404,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Black Wolf" cooldown="10">PermaPet</Activate>
+    <Activate id="Black Wolf" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1612" id="Black Wolf">
@@ -446,7 +429,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Grey Fox" cooldown="10">PermaPet</Activate>
+    <Activate id="Grey Fox" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1613" id="Grey Fox">
@@ -470,7 +453,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Purple Frog" cooldown="10">PermaPet</Activate>
+    <Activate id="Purple Frog" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1614" id="Purple Frog">
@@ -494,7 +477,7 @@
     <InvUse/>
     
     
-    <Activate objectId="White Lion" cooldown="10">PermaPet</Activate>
+    <Activate id="White Lion" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1615" id="White Lion">
@@ -518,7 +501,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Green Penguin" cooldown="10">PermaPet</Activate>
+    <Activate id="Green Penguin" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1616" id="Green Penguin">
@@ -542,7 +525,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Golden Sheepdog" cooldown="10">PermaPet</Activate>
+    <Activate id="Golden Sheepdog" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1617" id="Golden Sheepdog">
@@ -565,7 +548,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Bluebird" cooldown="10">PermaPet</Activate>
+    <Activate id="Bluebird" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1618" id="Bluebird">
@@ -586,7 +569,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Chick" cooldown="10">PermaPet</Activate>
+    <Activate id="Chick" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1619" id="Chick">
@@ -607,7 +590,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Pig" cooldown="10">PermaPet</Activate>
+    <Activate id="Pig" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x161a" id="Pig">
@@ -629,7 +612,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Sea Slurp" cooldown="10">PermaPet</Activate>
+    <Activate id="Sea Slurp" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x161b" id="Sea Slurp">
@@ -651,7 +634,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Squirrel" cooldown="10">PermaPet</Activate>
+    <Activate id="Squirrel" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x161c" id="Squirrel">
@@ -674,7 +657,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Bat" cooldown="10">PermaPet</Activate>
+    <Activate id="Bat" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x161d" id="Bat">
@@ -706,7 +689,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Lil' Ghost" cooldown="10">PermaPet</Activate>
+    <Activate id="Lil' Ghost" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x161e" id="Lil' Ghost">
@@ -728,7 +711,7 @@
     <Description>Give this valentine to a friend!</Description>
     <Sound>spell/light_heal</Sound>
     <Consumable/>
-    <Activate objectId="Valentine" cooldown="10" removeSelf="false">PermaPet</Activate>
+    <Activate id="Valentine" cooldown="10" removeSelf="false">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x161f" id="Valentine">
@@ -756,7 +739,7 @@
     <InvUse/>
     
     
-    <Activate objectId="Leprechaun" cooldown="10">PermaPet</Activate>
+    <Activate id="Leprechaun" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1620" id="Leprechaun">
@@ -776,7 +759,7 @@
     <Sound>spell/light_heal</Sound>
     <Consumable/>
     
-    <Activate objectId="Lil' Oryx" cooldown="10">PermaPet</Activate>
+    <Activate id="Lil' Oryx" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x1621" id="Lil' Oryx">
@@ -799,7 +782,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Toucan" cooldown="10">PermaPet</Activate>
+	    <Activate id="Toucan" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x1622" id="Toucan">
@@ -824,7 +807,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Skunk" cooldown="10">PermaPet</Activate>
+	    <Activate id="Skunk" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x1623" id="Skunk">
@@ -846,7 +829,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Mallard" cooldown="10">PermaPet</Activate>
+	    <Activate id="Mallard" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x1624" id="Mallard">
@@ -868,7 +851,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Duck" cooldown="10">PermaPet</Activate>
+	    <Activate id="Duck" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x1625" id="Duck">
@@ -890,7 +873,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Eagle" cooldown="10">PermaPet</Activate>
+	    <Activate id="Eagle" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x1626" id="Eagle">
@@ -915,7 +898,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Turtle" cooldown="10">PermaPet</Activate>
+	    <Activate id="Turtle" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x1627" id="Turtle">
@@ -937,7 +920,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Jelly" cooldown="10">PermaPet</Activate>
+	    <Activate id="Jelly" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x1628" id="Jelly">
@@ -959,7 +942,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Bee" cooldown="10">PermaPet</Activate>
+	    <Activate id="Bee" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x1629" id="Bee">
@@ -986,7 +969,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Raven" cooldown="10">PermaPet</Activate>
+	    <Activate id="Raven" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x162a" id="Raven">
@@ -1011,7 +994,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Purple Penguin" cooldown="10">PermaPet</Activate>
+	    <Activate id="Purple Penguin" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x162b" id="Purple Penguin">
@@ -1034,7 +1017,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Grass Penguin" cooldown="10">PermaPet</Activate>
+	    <Activate id="Grass Penguin" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x162c" id="Grass Penguin">
@@ -1057,7 +1040,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Elf" cooldown="10">PermaPet</Activate>
+	    <Activate id="Elf" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 	<Object type="0x162d" id="Elf">
@@ -1079,7 +1062,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Crab" cooldown="10">PermaPet</Activate>
+	    <Activate id="Crab" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x162e" id="Crab">
@@ -1102,7 +1085,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Hamster" cooldown="10">PermaPet</Activate>
+	    <Activate id="Hamster" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x162f" id="Hamster">
@@ -1124,7 +1107,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Dino" cooldown="10">PermaPet</Activate>
+	    <Activate id="Dino" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x1630" id="Dino">
@@ -1146,7 +1129,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Elephant" cooldown="10">PermaPet</Activate>
+	    <Activate id="Elephant" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x1631" id="Elephant">
@@ -1168,7 +1151,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Demon Frog" cooldown="10">PermaPet</Activate>
+	    <Activate id="Demon Frog" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x1632" id="Demon Frog">
@@ -1190,7 +1173,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Gargoyle" cooldown="10">PermaPet</Activate>
+	    <Activate id="Gargoyle" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x1633" id="Gargoyle">
@@ -1215,7 +1198,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Gummy Bear" cooldown="10">PermaPet</Activate>
+	    <Activate id="Gummy Bear" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 	<Object type="0x1634" id="Gummy Bear">
@@ -1237,7 +1220,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Dragonfly" cooldown="10">PermaPet</Activate>
+	    <Activate id="Dragonfly" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x1635" id="Dragonfly">
@@ -1264,7 +1247,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Lil' Cyclops" cooldown="10">PermaPet</Activate>
+	    <Activate id="Lil' Cyclops" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 	<Object type="0x1636" id="Lil' Cyclops">
@@ -1285,7 +1268,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Snowy Owl" cooldown="10">PermaPet</Activate>
+	    <Activate id="Snowy Owl" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x1637" id="Snowy Owl">
@@ -1311,7 +1294,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Turkey" cooldown="10">PermaPet</Activate>
+	    <Activate id="Turkey" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x1638" id="Turkey">
@@ -1332,7 +1315,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Baby" cooldown="10">PermaPet</Activate>
+	    <Activate id="Baby" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x1639" id="Baby">
@@ -1353,7 +1336,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Baby Dragon" cooldown="10">PermaPet</Activate>
+	    <Activate id="Baby Dragon" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 		<Object type="0x163a" id="Baby Dragon">
@@ -1373,7 +1356,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Karate Penguin Red" cooldown="10">PermaPet</Activate>
+	    <Activate id="Karate Penguin Red" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 	<Object type="0x163b" id="Karate Penguin Red">
@@ -1394,7 +1377,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Karate Penguin Blue" cooldown="10">PermaPet</Activate>
+	    <Activate id="Karate Penguin Blue" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 	<Object type="0x163c" id="Karate Penguin Blue">
@@ -1415,7 +1398,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Karate Penguin Yellow" cooldown="10">PermaPet</Activate>
+	    <Activate id="Karate Penguin Yellow" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 	<Object type="0x163d" id="Karate Penguin Yellow">
@@ -1436,7 +1419,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Karate Penguin Purple" cooldown="10">PermaPet</Activate>
+	    <Activate id="Karate Penguin Purple" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 	<Object type="0x163e" id="Karate Penguin Purple">
@@ -1455,7 +1438,7 @@
 		<Description>Play with this ball on the beach! (Requires a buddy!)</Description>
 		<BagType>2</BagType>
         <InvUse/>
-        <Activate objectId="Beach Ball" cooldown="1" hideEffect="true">PermaPet</Activate>
+        <Activate id="Beach Ball" cooldown="1" hideEffect="true">PermaPet</Activate>
 		
 	</Object>
 	<Object type="0x163f" id="Beach Ball">
@@ -1476,7 +1459,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Robobuddy" cooldown="10">PermaPet</Activate>
+	    <Activate id="Robobuddy" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 	<Object type="0x1640" id="Robobuddy">
@@ -1496,7 +1479,7 @@
 	    <InvUse/>
 	    
 	    
-	    <Activate objectId="Snowman" cooldown="10">PermaPet</Activate>
+	    <Activate id="Snowman" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
 	<Object type="0x1641" id="Snowman">
@@ -1516,7 +1499,7 @@
         <InvUse/>
         
         
-        <Activate objectId="Black Ant" cooldown="10">PermaPet</Activate>
+        <Activate id="Black Ant" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x1642" id="Black Ant">
@@ -1536,7 +1519,7 @@
         <InvUse/>
         
         
-        <Activate objectId="Blue Ant" cooldown="10">PermaPet</Activate>
+        <Activate id="Blue Ant" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x1643" id="Blue Ant">
@@ -1556,7 +1539,7 @@
         <InvUse/>
         
         
-        <Activate objectId="Green Ant" cooldown="10">PermaPet</Activate>
+        <Activate id="Green Ant" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x1644" id="Green Ant">
@@ -1576,7 +1559,7 @@
         <InvUse/>
         
         
-        <Activate objectId="Red Ant" cooldown="10">PermaPet</Activate>
+        <Activate id="Red Ant" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x1645" id="Red Ant">
@@ -1596,7 +1579,7 @@
         <InvUse/>
         
         
-        <Activate objectId="Purple Ant" cooldown="10">PermaPet</Activate>
+        <Activate id="Purple Ant" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x1646" id="Purple Ant">
@@ -1621,7 +1604,7 @@
         <InvUse/>
         
         
-        <Activate objectId="Beer Slurp" cooldown="10">PermaPet</Activate>
+        <Activate id="Beer Slurp" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x1647" id="Beer Slurp">
@@ -1652,7 +1635,7 @@
         <Description>TEST FOR: ObjectToss</Description>
         <BagType>2</BagType>
         <InvUse/>
-        <Activate objectId="Ball" cooldown="1" hideEffect="true">PermaPet</Activate>
+        <Activate id="Ball" cooldown="1" hideEffect="true">PermaPet</Activate>
         
     </Object>
     
@@ -1675,7 +1658,7 @@
         <InvUse/>
         
         
-        <Activate objectId="Peppermint Snail" cooldown="10">PermaPet</Activate>
+        <Activate id="Peppermint Snail" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x1649" id="Peppermint Snail">
@@ -1695,7 +1678,7 @@
         <InvUse/>
         
         
-        <Activate objectId="Relief Oriole" cooldown="10">PermaPet</Activate>
+        <Activate id="Relief Oriole" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x164a" id="Relief Oriole">
@@ -1721,7 +1704,7 @@
         <InvUse/>
         
         
-        <Activate objectId="Relief Goldfinch" cooldown="10">PermaPet</Activate>
+        <Activate id="Relief Goldfinch" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x164b" id="Relief Goldfinch">
@@ -1747,7 +1730,7 @@
         <InvUse/>
         
         
-        <Activate objectId="Relief Bluebird" cooldown="10">PermaPet</Activate>
+        <Activate id="Relief Bluebird" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x164c" id="Relief Bluebird">
@@ -1773,7 +1756,7 @@
         <InvUse/>
         
         
-        <Activate objectId="Relief Cardinal" cooldown="10">PermaPet</Activate>
+        <Activate id="Relief Cardinal" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x164d" id="Relief Cardinal">
@@ -1799,7 +1782,7 @@
         <InvUse/>
         
         
-        <Activate objectId="Tamed Werewolf Cub" cooldown="10">PermaPet</Activate>
+        <Activate id="Tamed Werewolf Cub" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x164e" id="Tamed Werewolf Cub">
@@ -1821,7 +1804,7 @@
         <InvUse/>
         
         
-        <Activate objectId="Tomb Snake" cooldown="10">PermaPet</Activate>
+        <Activate id="Tomb Snake" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x164f" id="Tomb Snake">
@@ -1844,7 +1827,7 @@
         <InvUse/>
         
         
-        <Activate objectId="Ninja Cat" cooldown="10">PermaPet</Activate>
+        <Activate id="Ninja Cat" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x1650" id="Ninja Cat">
@@ -1865,7 +1848,7 @@
         <InvUse/>
         
         
-        <Activate objectId="Praying Mantis" cooldown="10">PermaPet</Activate>
+        <Activate id="Praying Mantis" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x1651" id="Praying Mantis">
@@ -1888,7 +1871,7 @@
         <InvUse/>
         
         
-        <Activate objectId="Dreidel" cooldown="10">PermaPet</Activate>
+        <Activate id="Dreidel" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x1652" id="Dreidel">

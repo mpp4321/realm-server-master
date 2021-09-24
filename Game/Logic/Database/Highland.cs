@@ -515,7 +515,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(10, 2, 20, predictive: 0.3f, cooldown: 750),
                     new Prioritize(
                         new StayAbove(1, 150),
-                        new Follow(2, range: 2.5f, acquireRange: 10.5f, duration: 2200, coolDown: 3200),
+                        new Follow(2, range: 2.5f, acquireRange: 10.5f, duration: 2200, cooldown: 3200),
                         new Wander(0.9f)
                         )
                     )
@@ -525,7 +525,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(10, 2, 20, predictive: 0.3f, cooldown: 750),
                     new Prioritize(
                         new StayAbove(9, 150),
-                        new Follow(1.8f, range: 2.2f, acquireRange: 10.5f, duration: 3000, coolDown: 3000),
+                        new Follow(1.8f, range: 2.2f, acquireRange: 10.5f, duration: 3000, cooldown: 3000),
                         new Wander(0.75f)
                         )
                     ),
@@ -538,7 +538,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(10, 3, 15, predictive: 0.3f, cooldown: 750),
                     new Prioritize(
                         new StayAbove(9, 150),
-                        new Follow(1.4f, range: 1.8f, acquireRange: 10.5f, duration: 4000, coolDown: 2000),
+                        new Follow(1.4f, range: 1.8f, acquireRange: 10.5f, duration: 4000, cooldown: 2000),
                         new Wander(0.75f)
                         )
                     ),

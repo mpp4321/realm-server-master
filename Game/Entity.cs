@@ -730,6 +730,7 @@ namespace RotMG.Game
                 case "CaveWall":
                     return new ConnectedObject(type);
                 case "Portal":
+                    if (desc.LeavePortal) return new IntergamePortal(type);
                     return new Portal(type);
                 case "GuildMerchant":
                     return new GuildMerchant(type);

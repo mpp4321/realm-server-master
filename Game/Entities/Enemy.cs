@@ -97,8 +97,6 @@ namespace RotMG.Game.Entities
         public bool Damage(Player hitter, int damage, ConditionEffectDesc[] effects, bool pierces, bool showToHitter = false)
         {
 #if DEBUG
-            if (HasConditionEffect(ConditionEffectIndex.Invincible))
-                throw new Exception("Entity should not be damaged if invincible");
             if (HasConditionEffect(ConditionEffectIndex.Stasis))
                 throw new Exception("Entity should not be damaged if stasised");
             if (effects == null)

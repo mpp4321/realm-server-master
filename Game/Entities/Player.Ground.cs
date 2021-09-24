@@ -232,6 +232,7 @@ namespace RotMG.Game.Entities
                 player.Client.Send(go);
             }
 
+            Pet?.Parent.MoveEntity(Pet, pos);
             return true;
         }
     }

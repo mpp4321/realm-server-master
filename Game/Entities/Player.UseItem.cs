@@ -16,6 +16,8 @@ namespace RotMG.Game.Entities
         public int UseDuration;
         public int UseTime;
 
+        public Entity Pet = null;
+
         public void UsePortal(int objectId)
         {
             var entity = Parent.GetEntity(objectId);
@@ -683,6 +685,16 @@ namespace RotMG.Game.Entities
                             }
                         }
                         break;
+                    case ActivateEffectIndex.PermaPet:
+                        if(Pet != null)
+                        {
+                            Pet.Parent?.RemoveEntity(Pet);
+                        }
+                        string objId = eff.Id;
+                        int petId = Resources.Id2Object[objId].Type;
+                        CreateAndAddPet(petId);
+                        SendInfo("Enjoy your new pet!");
+                        break;
 #if DEBUG
                     default:
                         Program.Print(PrintType.Error, $"Unhandled AE <{eff.Index.ToString()}>");
@@ -713,5 +725,17 @@ namespace RotMG.Game.Entities
 
             callback?.Invoke();
         }
+
+        public Entity CreateAndAddPet(int id)
+        {
+            if (id <= 0) return null;
+            Entity pet = new Entity((ushort) id);
+            pet.PlayerOwner = this;
+            Client.Character.PetId = id; 
+            Parent.AddEntity(pet, Position);
+            Pet = pet;
+            return pet;
+        }
+
     }
 }

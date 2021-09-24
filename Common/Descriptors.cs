@@ -232,6 +232,7 @@ namespace RotMG.Common
         public readonly int Defense;
 
         public readonly string DungeonName;
+        public readonly bool LeavePortal;
 
         public readonly SpawnData SpawnData;
         public readonly int PerRealmMax;
@@ -252,6 +253,7 @@ namespace RotMG.Common
             BlocksSight = e.ParseBool("BlocksSight");
 
             OccupySquare = e.ParseBool("OccupySquare");
+            LeavePortal = e.ParseBool("LeavePortal");
             FullOccupy = e.ParseBool("FullOccupy");
             EnemyOccupySquare = e.ParseBool("EnemyOccupySquare");
 
@@ -655,8 +657,7 @@ namespace RotMG.Common
             ItemData.Speed, 
             ItemData.Dexterity, 
             ItemData.Vitality, 
-            ItemData.Wisdom, 
-            ItemData.FameBonus,
+            ItemData.Wisdom
         };
 
         static ItemData[] AbilityModifiers = GlobalModifiers.Concat(

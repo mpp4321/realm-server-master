@@ -10,6 +10,10 @@ namespace RotMG.Game.Entities
         
         public World WorldInstance;
 
+        public World PortalParent;
+        public Vector2 PortalPosition;
+
+
         private bool _usable;
         public bool Usable
         {
@@ -19,7 +23,7 @@ namespace RotMG.Game.Entities
         
         public Portal(ushort type, int? lifetime = 30000) : base(type, lifetime) { }
 
-        public World GetWorldInstance(Client connectingClient)
+        public virtual World GetWorldInstance(Client connectingClient)
         {
             if (WorldInstance != null)
                 return WorldInstance;
@@ -37,6 +41,8 @@ namespace RotMG.Game.Entities
                 return world;
             
             world = WorldInstance = Manager.AddWorld(worldDesc, connectingClient);
+            WorldInstance.FromWorld = Parent;
+            world.FromWorldPosition = Position;
             world.Portal = this;
 
             return world;

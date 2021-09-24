@@ -416,7 +416,7 @@ namespace RotMG.Game.Logic.Database
                         new Shoot(4, index: 0, count: 1, predictive: 0.1f, cooldown: 900),
                         new Prioritize(
                             new StayAbove(0.4f, 25),
-                            new Follow(0.9f, acquireRange: 11, range: 3.5f, duration: 1000, coolDown: 5000),
+                            new Follow(0.9f, acquireRange: 11, range: 3.5f, duration: 1000, cooldown: 5000),
                             new Orbit(1.3f, 3.5f, acquireRange: 12),
                             new Wander(0.7f)
                             ),

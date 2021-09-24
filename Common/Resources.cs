@@ -88,7 +88,9 @@ namespace RotMG.Common
                     if (Type2Object.ContainsKey(type) || Type2Item.ContainsKey(type))
                         throw new Exception($"Duplicate type <{id}:{type}>");
                     if (Id2Object.ContainsKey(id) || Id2Item.ContainsKey(id))
-                        throw new Exception($"Duplicate ID <{id}:{type}>");
+                    {
+                        throw new Exception($"Duplicate ID <{id}:{type}> from <{Id2Object[id]} : {Id2Item[id]}>");
+                    }
 #endif
 
                     switch (e.ParseString("Class"))

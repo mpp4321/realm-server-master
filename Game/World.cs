@@ -58,7 +58,9 @@ namespace RotMG.Game
         public string Music;
 
         public Portal Portal;
-
+        public World FromWorld;
+        public Vector2 FromWorldPosition;
+       
         private bool _closed;
         public bool Closed
         {
@@ -416,6 +418,12 @@ namespace RotMG.Game
             en.SpawnPoint = at;
             en.Position = at;
             MoveEntity(en, en.Position);
+
+            if(en is Portal por)
+            {
+                por.PortalParent = FromWorld;
+                por.PortalPosition = FromWorldPosition;
+            }
 
             if (en is StaticObject)
             {

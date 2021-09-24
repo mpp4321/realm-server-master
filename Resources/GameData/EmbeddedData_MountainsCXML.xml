@@ -44,7 +44,7 @@
 			<ObjectId>Purple Magic</ObjectId>
 			<Damage>60</Damage>
 			<Speed>70</Speed>
-			<LifetimeMS>500</LifetimeMS>
+			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
 		<Projectile id="1">
 			<ObjectId>Grey Boomerang</ObjectId>

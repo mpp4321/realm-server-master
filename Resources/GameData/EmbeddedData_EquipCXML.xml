@@ -9046,7 +9046,6 @@
       <Index>0xd9</Index>
     </Texture>
     <SlotType>24</SlotType>
-    <Tier>0</Tier>
     <Description>A femer which empowers demon kind with unknown power.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
@@ -9075,7 +9074,7 @@
     </Projectile>
     <NumProjectiles>6</NumProjectiles>
     <ArcGap>6</ArcGap>
-    <BagType>4</BagType>
+    <BagType>5</BagType>
   </Object>
   <Object type="0xc8e" id="Pumpkin Staff">
     <Class>Equipment</Class>
@@ -9154,7 +9153,7 @@
     <ActivateOnEquip stat="7" amount="2">IncrementStat</ActivateOnEquip>
     <Usable/>
     <UniqueEffect>PoisonFire</UniqueEffect>
-    <BagType>4</BagType>
+    <BagType>5</BagType>
     <FameBonus>4</FameBonus>
     <MpCost>130</MpCost>
   </Object>
@@ -9266,6 +9265,56 @@
     <NumProjectiles>3</NumProjectiles>
     <ArcGap>10</ArcGap>
     <UniqueEffect>Electricity</UniqueEffect>
+    <OldSound>magicShoot</OldSound>
+  </Object>
+  <Object type="0xc97" id="Soul of the Lost Land">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj5</File>
+      <Index>0xca</Index>
+    </Texture>
+    <Animation period="1.0">
+      <Frame>
+        <Texture>
+          <File>lofiObj5</File>
+          <Index>0xca</Index>
+        </Texture>
+      </Frame>
+      <Frame>
+        <Texture>
+          <File>lofiObj5</File>
+          <Index>0xcb</Index>
+        </Texture>
+      </Frame>
+      <Frame>
+        <Texture>
+          <File>lofiObj5</File>
+          <Index>0xcc</Index>
+        </Texture>
+      </Frame>
+      <Frame>
+        <Texture>
+          <File>lofiObj5</File>
+          <Index>0xcb</Index>
+        </Texture>
+      </Frame>
+    </Animation>
+    <SlotType>8</SlotType>
+    <Description>A lost soul harnessed for power.</Description>
+    <RateOfFire>0.20</RateOfFire>
+    <Sound>weapon/wand_of_death</Sound>
+    <Projectile>
+      <ObjectId>Vortex</ObjectId>
+      <Speed>50</Speed>
+      <MinDamage>500</MinDamage>
+      <MaxDamage>1000</MaxDamage>
+      <LifetimeMS>3000</LifetimeMS>
+      <Size>300</Size>
+      <MultiHit/>
+    </Projectile>
+    <BagType>5</BagType>
+    <NumProjectiles>1</NumProjectiles>
     <OldSound>magicShoot</OldSound>
   </Object>
 </Objects>

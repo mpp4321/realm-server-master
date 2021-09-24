@@ -227,9 +227,7 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                         ),
                     new Shoot(12, index: 0, count: 4, shootAngle: 10, cooldown: 200, callback: (e) => {
-
                         e.Parent?.MoveEntity(e, e.Position + new Vector2(MathUtils.NextFloat(), MathUtils.NextFloat()));
-
                     }),
                     new Shoot(10, index: 1, predictive: 1, cooldown: 1000),
                     new Reproduce("Sprite Child", 5, 5, 5000)
