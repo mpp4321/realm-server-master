@@ -2007,17 +2007,59 @@
 			<Index>0x240</Index>
 		</Texture>
 	</Ground>
-	<Ground type="0x92" id="Tunnel Hole M">
+	<Ground type="0x92" id="Tunnel Hole Up">
 		<Texture>
 			<File>lofiObj3</File>
 			<Index>0x241</Index>
 		</Texture>
 		<NoWalk/>
 	</Ground>
-	<Ground type="0x93" id="Tunnel Ground M">
+	<Ground type="0x93" id="Tunnel Ground Up">
 		<Texture>
 			<File>lofiObj3</File>
 			<Index>0x242</Index>
+		</Texture>
+		<NoWalk/>
+	</Ground>
+	<Ground type="0xb01f" id="Tunnel Hole Down">
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x5d3</Index>
+		</Texture>
+		<NoWalk/>
+	</Ground>
+	<Ground type="0xb02a" id="Tunnel Ground Down">
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x5d4</Index>
+		</Texture>
+		<NoWalk/>
+	</Ground>
+	<Ground type="0xb02b" id="Tunnel Hole Left">
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x5d5</Index>
+		</Texture>
+		<NoWalk/>
+	</Ground>
+	<Ground type="0xb02c" id="Tunnel Ground Left">
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x5d6</Index>
+		</Texture>
+		<NoWalk/>
+	</Ground>
+	<Ground type="0xb02d" id="Tunnel Hole Right">
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x5d3</Index>
+		</Texture>
+		<NoWalk/>
+	</Ground>
+	<Ground type="0xb02e" id="Tunnel Ground Right">
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x5d8</Index>
 		</Texture>
 		<NoWalk/>
 	</Ground>
@@ -3984,7 +4026,7 @@
 		</Texture>
 	</Ground>
 		<!-- Lost Halls XML !-->
-      <Ground type="0x7931" id="Lost Halls Floor">
+	<Ground type="0x7931" id="Lost Halls Floor">
       <RandomTexture>
          <Texture>
             <File>lostHallsObjects8x8</File>
@@ -4057,3 +4099,4 @@
       </RandomTexture>
    </Ground>
 </GroundTypes>
+<!-- Next is : 0xb02f !-->
