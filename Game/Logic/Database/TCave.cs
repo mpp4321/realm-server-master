@@ -68,6 +68,8 @@ namespace RotMG.Game.Logic.Database
                     new GroundTransition("Track S End", "Move Up"),
                     new GroundTransition("Track W End", "Move Left"),
                     new GroundTransition("Track E End", "Move Right"),
+                    new GroundTransition("Track SW Corner", "Move Right"),
+                    new GroundTransition("Track SE Corner", "Move Left"),
                     new MoveLine(0.5f, 90)
                     ),
                 new State("Move Up",
@@ -75,6 +77,8 @@ namespace RotMG.Game.Logic.Database
                     new GroundTransition("Track S End", "Move Up"),
                     new GroundTransition("Track W End", "Move Left"),
                     new GroundTransition("Track E End", "Move Right"),
+                    new GroundTransition("Track NW Corner", "Move Right"),
+                    new GroundTransition("Track NE Corner", "Move Left"),
                     new MoveLine(0.5f, -90)
                     ),
                 new State("Move Left",
@@ -82,6 +86,8 @@ namespace RotMG.Game.Logic.Database
                     new GroundTransition("Track S End", "Move Up"),
                     new GroundTransition("Track W End", "Move Left"),
                     new GroundTransition("Track E End", "Move Right"),
+                    new GroundTransition("Track SW Corner", "Move Up"),
+                    new GroundTransition("Track NW Corner", "Move Down"),
                     new MoveLine(0.5f, 0)
                     ),
                 new State("Move Right",
@@ -89,6 +95,8 @@ namespace RotMG.Game.Logic.Database
                     new GroundTransition("Track S End", "Move Up"),
                     new GroundTransition("Track W End", "Move Left"),
                     new GroundTransition("Track E End", "Move Right"),
+                    new GroundTransition("Track SE Corner", "Move Up"),
+                    new GroundTransition("Track NE Corner", "Move Down"),
                     new MoveLine(0.5f, 180)
                     )
                 )
@@ -98,9 +106,25 @@ namespace RotMG.Game.Logic.Database
                 new SetAltTexture(0, 3, 100, true),
                 new ConditionalEffect(ConditionEffectIndex.Invincible, true),
                 new Shoot(20, 1, index: 0, cooldown: 200),
-                new State("Move",
+                    new GroundTransition("Tunnel Ground Up", "MoveUp"),
+                    new GroundTransition("Tunnel Ground Down", "MoveDown"),
+                    new GroundTransition("Tunnel Ground Left", "MoveLeft"),
+                    new GroundTransition("Tunnel Ground Right", "MoveRight"),
+                new State("MoveUp",
+                    new MoveLine(0.8f, -90),
+                    new GroundTransition("Tunnel Hole Up", "Suicide"),
+                    ),
+                new State("MoveDown",
                     new MoveLine(0.8f, 90),
-                    new GroundTransition("Tunnel Ground M", "Suicide")
+                    new GroundTransition("Tunnel Hole Down", "Suicide"),
+                    ),
+                new State("MoveLeft",
+                    new MoveLine(0.8f, 0),
+                    new GroundTransition("Tunnel Hole Left", "Suicide"),
+                    ),
+                new State("MoveRight",
+                    new MoveLine(0.8f, 180),
+                    new GroundTransition("Tunnel Hole Right", "Suicide"),
                     ),
                 new State("Suicide",
                     new Suicide()
