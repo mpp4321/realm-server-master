@@ -1712,4 +1712,18 @@
       <ShadowSize>40</ShadowSize>
       <ShadowColor>0xFFFF00</ShadowColor>
     </Object>
+    <Object type="0x2155" id="Malphas Axe Projectile">
+        <Class>Projectile</Class>
+        <Animation period="1">
+          <Frame>
+          <Texture><File>lofiObj2</File><Index>0xbd</Index></Texture>
+          </Frame>
+          <Frame>
+          <Texture><File>lofiObj2</File><Index>0xbe</Index></Texture>
+          </Frame>
+          <Frame>
+          <Texture><File>lofiObj2</File><Index>0xbf</Index></Texture>
+          </Frame>
+        </Animation>
+    </Object>
 </Objects>

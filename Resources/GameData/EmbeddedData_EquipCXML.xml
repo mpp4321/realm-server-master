@@ -9361,6 +9361,77 @@
     <Usable/>
     <BagType>0</BagType>
     <MpCost>120</MpCost>
-    <Activate targetCursor="true" effect="Cursed" duration="5" range="2">ConditionEffectBlast</Activate>
+    <Activate color="0xff333333" targetCursor="true" effect="Cursed" duration="5" range="2">ConditionEffectBlast</Activate>
+  </Object>
+  <Object type="0xc9b" id="Throwing Dart">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0xae</Index>
+    </Texture>
+    <SlotType>3</SlotType>
+    <Description>A throwing dart.</Description>
+    <RateOfFire>1</RateOfFire>
+    <Sound>weapon/golden_bow</Sound>
+    <Projectile>
+      <ObjectId>Red Arrow</ObjectId>
+      <Speed>160</Speed>
+      <MinDamage>135</MinDamage>
+      <MaxDamage>210</MaxDamage>
+      <LifetimeMS>440</LifetimeMS>
+      <MultiHit/>
+    </Projectile>
+    <BagType>4</BagType>
+    <FameBonus>3</FameBonus>
+    <NumProjectiles>1</NumProjectiles>
+    <OldSound>arrowShoot</OldSound>
+  </Object>
+  <Object type="0xc9c" id="Abyss Warrior Axe">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObjBig</File>
+      <Index>0x1A0</Index>
+    </Texture>
+    <Animation period="1.0">
+      <Frame>
+        <Texture>
+          <File>lofiObjBig</File>
+          <Index>0x1A0</Index>
+        </Texture>
+      </Frame>
+      <Frame>
+        <Texture>
+          <File>lofiObjBig</File>
+          <Index>0x1A1</Index>
+        </Texture>
+      </Frame>
+      <Frame>
+        <Texture>
+          <File>lofiObjBig</File>
+          <Index>0x1A2</Index>
+        </Texture>
+      </Frame>
+      <Frame>
+        <Texture>
+          <File>lofiObjBig</File>
+          <Index>0x1A1</Index>
+        </Texture>
+      </Frame>
+    </Animation>
+    <SlotType>1</SlotType>
+    <Description>An axe given from Malphas to his warriors.</Description>
+    <RateOfFire>1</RateOfFire>
+    <Sound>weapon/long_sword</Sound>
+    <Projectile>
+      <ObjectId>Malphas Axe Projectile</ObjectId>
+      <Speed>100</Speed>
+      <MinDamage>60</MinDamage>
+      <MaxDamage>105</MaxDamage>
+      <LifetimeMS>1000</LifetimeMS>
+    </Projectile>
+    <BagType>4</BagType>
+    <OldSound>bladeSwing</OldSound>
   </Object>
 </Objects>
