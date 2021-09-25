@@ -106,7 +106,7 @@ namespace RotMG.Game
 
     public class Entity : IDisposable
     {
-        private const int MaxEfffects = 29;
+        private const int MaxEfffects = 30;
         private const float MoveThreshold = 0.4f;
 
         public int Id;

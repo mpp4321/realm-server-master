@@ -104,6 +104,7 @@ namespace RotMG.Common
         Armored = 23,
         ArmorBroken = 24,
         Hexed = 25,
+        Cursed = 26,
     }
 
     public enum ActivateEffectIndex
@@ -139,7 +140,8 @@ namespace RotMG.Common
         DazeBlast,
         Backpack,
         PermaPet,
-        ItemDataModifier
+        ItemDataModifier,
+        ConditionEffectBlast
     }
 
     public enum ShowEffectIndex
@@ -447,6 +449,8 @@ namespace RotMG.Common
         //Position to teleport to for cracked prisms
         public readonly Vector2 Position;
 
+        public readonly bool TargetCursor;
+
         public readonly int StatMin;
         
         public ActivateEffectDesc(XElement e)
@@ -467,6 +471,7 @@ namespace RotMG.Common
             StatDurationScale = e.ParseFloat("@statDurationScale", 0.0f);
             StatRangeScale = e.ParseFloat("@statRangeScale", 0.0f);
             UseWisMod = e.ParseBool("useWisMod", false);
+            TargetCursor = e.ParseBool("@targetCursor", false);
             StatForScale = e.ParseString("@statForScale", "Wisdom");
 
             Position = new Vector2(e.ParseInt("@posx", 0), e.ParseInt("@posy", 0));

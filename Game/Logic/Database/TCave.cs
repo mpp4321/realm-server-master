@@ -112,19 +112,19 @@ namespace RotMG.Game.Logic.Database
                     new GroundTransition("Tunnel Ground Right", "MoveRight"),
                 new State("MoveUp",
                     new MoveLine(0.8f, -90),
-                    new GroundTransition("Tunnel Hole Up", "Suicide"),
+                    new GroundTransition("Tunnel Hole Up", "Suicide")
                     ),
                 new State("MoveDown",
                     new MoveLine(0.8f, 90),
-                    new GroundTransition("Tunnel Hole Down", "Suicide"),
+                    new GroundTransition("Tunnel Hole Down", "Suicide")
                     ),
                 new State("MoveLeft",
                     new MoveLine(0.8f, 0),
-                    new GroundTransition("Tunnel Hole Left", "Suicide"),
+                    new GroundTransition("Tunnel Hole Left", "Suicide")
                     ),
                 new State("MoveRight",
                     new MoveLine(0.8f, 180),
-                    new GroundTransition("Tunnel Hole Right", "Suicide"),
+                    new GroundTransition("Tunnel Hole Right", "Suicide")
                     ),
                 new State("Suicide",
                     new Suicide()

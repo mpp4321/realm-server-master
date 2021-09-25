@@ -4,6 +4,7 @@ using RotMG.Networking;
 using RotMG.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace RotMG.Game.Entities
 {
@@ -299,7 +300,7 @@ namespace RotMG.Game.Entities
                                 {
                                     var dmg = StatScaling(statForScale, eff.TotalDamage, eff.StatMin, eff.StatScale);
                                     k.Damage(this, dmg, eff.Effects, true, true);
-                                    lifeSucked += dmg;
+                                    lifeSucked += eff.TotalDamage;
                                     enemies.Add(k);
                                 }
                             }
@@ -527,18 +528,60 @@ namespace RotMG.Game.Entities
                         break;
                     case ActivateEffectIndex.ConditionEffectAura:
                         {
+                            var center = eff.TargetCursor ? target : Position;
                             var range = StatScalingF(statForScale, eff.Range, eff.StatMin, eff.StatRangeScale);
                             var color = eff.Effect == ConditionEffectIndex.Damaging ? 0xffff0000 : 0xffffffff;
-                            var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, Id, color, new Vector2(range, 0));
-                            foreach (var j in Parent.PlayerChunks.HitTest(Position, Math.Max(range, SightRadius)))
+                            if (eff.Color.HasValue) color = eff.Color.Value;
+                            byte[] nova;
+                            if(eff.TargetCursor)
+                            {
+                                nova = GameServer.ShowEffect(ShowEffectIndex.Collapse, Id, color, 
+                                    center, 
+                                    new Vector2(center.X + range, target.Y));
+                            } else
+                            {
+                                nova = GameServer.ShowEffect(ShowEffectIndex.Nova, Id, color, new Vector2(range, 0));
+                            }
+                            foreach (var j in Parent.PlayerChunks.HitTest(center, Math.Max(range, SightRadius)))
                             {
                                 if (j is Player k)
                                 {
-                                    if (Position.Distance(j) <= eff.Range)
+                                    if (center.Distance(j) <= eff.Range)
                                         k.ApplyConditionEffect(eff.Effect, StatScaling(statForScale, eff.DurationMS, eff.StatMin, eff.StatDurationScale));
                                     if (k.Client.Account.Effects || k.Equals(this))
                                         k.Client.Send(nova);
                                 }
+                            }
+                        }
+                        break;
+                 case ActivateEffectIndex.ConditionEffectBlast:
+                        {
+                            var center = eff.TargetCursor ? target : Position;
+                            var range = StatScalingF(statForScale, eff.Range, eff.StatMin, eff.StatRangeScale);
+                            var color = eff.Effect == ConditionEffectIndex.Damaging ? 0xffff0000 : 0xffffffff;
+                            if (eff.Color.HasValue) color = eff.Color.Value;
+                            byte[] nova;
+                            if(eff.TargetCursor)
+                            {
+                                nova = GameServer.ShowEffect(ShowEffectIndex.Collapse, Id, color, 
+                                    center, 
+                                    new Vector2(center.X + range, target.Y));
+                            } else
+                            {
+                                nova = GameServer.ShowEffect(ShowEffectIndex.Nova, Id, color, new Vector2(range, 0));
+                            }
+
+                            foreach (var j in Parent.PlayerChunks.HitTest(center, Math.Max(range, SightRadius)))
+                            {
+                                if (!(j is Player h)) continue;
+                                if (h.Client.Account.Effects || h.Equals(this))
+                                    h.Client.Send(nova);
+                            }
+
+                            foreach (var j in Parent.EntityChunks.HitTest(center, Math.Max(range, SightRadius)).OfType<Enemy>())
+                            {
+                                if (center.Distance(j) <= eff.Range)
+                                    j.ApplyConditionEffect(eff.Effect, StatScaling(statForScale, eff.DurationMS, eff.StatMin, eff.StatDurationScale));
                             }
                         }
                         break;
