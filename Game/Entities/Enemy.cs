@@ -68,8 +68,12 @@ namespace RotMG.Game.Entities
                         exp = Player.GetNextLevelEXP(player.Level) / 10;
                     if (player.GainEXP(exp))
                         foreach (var p in l)
-                            if (!p?.Equals(player) ?? false) 
-                                (p as Player).FameStats.LevelUpAssists++;
+                            if (!p?.Equals(player) ?? false)
+                            {
+                                if((p as Player)?.FameStats != null)
+                                    (p as Player).FameStats.LevelUpAssists++;
+                            } 
+                                
                 }
             }
             

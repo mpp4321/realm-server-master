@@ -471,7 +471,7 @@
 			<LifetimeMS>1200</LifetimeMS>
 		</Projectile>
 
-		<Projectile id="10">
+		<Projectile id="4">
 			<ObjectId>Blade</ObjectId>
 			<Damage>70</Damage>
 			<Speed>65</Speed>

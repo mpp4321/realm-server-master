@@ -6,6 +6,7 @@ using RoTMG.Game.Logic.Transitions;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static RotMG.Game.Logic.Loots.TierLoot;
 
 namespace RotMG.Game.Logic.Database
 {
@@ -519,6 +520,76 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new ItemLoot("Health Potion", 0.1f),
                 new ItemLoot("Magic Potion", 0.1f)
+            );
+
+
+            db.Init("Pentaract Eye",
+                new State("base",
+                    new Prioritize(
+                        new Swirl(2, 8, 20, true),
+                        new Protect(2, "Pentaract Tower", 20, 6, 4)
+                        ),
+                    new Shoot(9, 1, cooldown: 1000)
+                    )
+            );
+            db.Init("Pentaract Tower",
+                new State("base",
+                    new Spawn("Pentaract Eye", 5, cooldown: 5000, givesNoXp: false),
+                    new Grenade(4, 100, 8, cooldown: 5000),
+                    new TransformOnDeath("Pentaract Tower Corpse"),
+                    new TransferDamageOnDeath("Pentaract"),
+                    new TransferDamageOnDeath("Pentaract Tower Corpse")
+                    )
+            );
+            db.Init("Pentaract",
+                new State("base",
+                    new ConditionalEffect(ConditionEffectIndex.Invincible),
+                    new State("Waiting",
+                        new EntitiesNotExistsTransition(50, "Die", "Pentaract Tower")
+                        ),
+                    new State("Die",
+                        new Suicide()
+                        )
+                    )
+            );
+            db.Init("Pentaract Tower Corpse",
+                new State("base",
+                    new ConditionalEffect(ConditionEffectIndex.Invincible),
+                    new State("Waiting",
+                        new TimedTransition("Spawn", 15000),
+                        new EntitiesNotExistsTransition(50, "Die", "Pentaract Tower")
+                        ),
+                    new State("Spawn",
+                        new Transform("Pentaract Tower")
+                        ),
+                    new State("Die",
+                        new Suicide()
+                        )
+                    ),
+                new Threshold(0.03f,
+                    new ItemLoot("Seal of Blasphemous Prayer", 0.00047f)
+                    ),
+                new Threshold(0.01f,
+                   new TierLoot(8, LootType.Weapon, .3f),
+                    new TierLoot(9, LootType.Weapon, .3f),
+                    new TierLoot(10, LootType.Weapon, .2f),
+                    new TierLoot(11, LootType.Weapon, .2f),
+                    new TierLoot(4, LootType.Ability, .2f),
+                    new TierLoot(5, LootType.Ability, .2f),
+                    new TierLoot(8, LootType.Armor, .2f),
+                    new TierLoot(9, LootType.Armor, .15f),
+                    new TierLoot(10, LootType.Armor, .10f),
+                    new TierLoot(11, LootType.Armor, .2f),
+                    new TierLoot(12, LootType.Armor, .24f),
+                    new TierLoot(3, LootType.Ring, .25f),
+                    new TierLoot(4, LootType.Ring, .27f),
+                    new TierLoot(5, LootType.Ring, .23f),
+                    new ItemLoot("Potion of Defense", .4f),
+                    new ItemLoot("Potion of Attack", .4f),
+                    new ItemLoot("Potion of Vitality", .4f),
+                    new ItemLoot("Potion of Wisdom", .4f),
+                    new ItemLoot("Potion of Speed", .4f)
+                    )
             );
 
         }

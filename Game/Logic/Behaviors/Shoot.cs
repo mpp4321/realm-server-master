@@ -110,7 +110,9 @@ namespace RotMG.Game.Logic.Behaviors
                     {
                         if (Predictive != 0 && Predictive > MathUtils.NextFloat())
                         {
-                            Vector2 history = target.TryGetHistory(1);
+                            Vector2 history;
+                            if (target is Decoy) history = target.Position;
+                            else history = target.TryGetHistory(1);
                             Vector2 targetPos = target.Position;
                             targetPos -= history;
                             targetPos *= PredictNumTicks;

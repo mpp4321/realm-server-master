@@ -610,8 +610,12 @@ namespace RotMG.Game.Entities
                         {
                             Teleport(time, eff.Position, false);
                         }
-                        else if (inRange) //Less than 0 means its a manual teleport thingy like a scroll
+                        else if (inRange)
+                        { //Less than 0 means its a manual teleport thingy like a scroll
                             Teleport(time, target, true);
+                            ApplyConditionEffect(ConditionEffectIndex.Invincible, 5);
+                            ApplyConditionEffect(ConditionEffectIndex.Invisible, 5);
+                        }
                         break;
                     case ActivateEffectIndex.Decoy:
                         Parent.AddEntity(new Decoy(this, Position.Angle(target), StatScaling(statForScale, eff.DurationMS, eff.StatMin, eff.StatScale)), Position);
@@ -719,7 +723,7 @@ namespace RotMG.Game.Entities
                                     k.EffectBoosts.Add(new BoostTimer()
                                     {
                                         amount = eff.Amount,
-                                        timer = eff.DurationMS / 1000,
+                                        timer = eff.DurationMS / 1000.0f,
                                         index = eff.Stat
                                     });
                                     k.UpdateStats();

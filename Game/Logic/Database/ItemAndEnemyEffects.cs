@@ -54,9 +54,10 @@ namespace RotMG.Game.Logic.Database
                             e?.Damage(h.PlayerOwner, Player.StatScaling(h.PlayerOwner.GetStatTotal(7), 500, 0, 5), new ConditionEffectDesc[] { }, false, true);
                     }
                     var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, h.Id, 0xffff0000, new Vector2(4, 0));
-                    foreach (Player j in h.Parent.PlayerChunks.HitTest(h.Position, Math.Max(4, Player.SightRadius)))
+                    foreach (var j in h.Parent.PlayerChunks.HitTest(h.Position, Math.Max(4, Player.SightRadius)))
                     {
-                        j.Client.Send(nova);
+                        if(j is Player p)
+                            p.Client.Send(nova);
                     }
                     return true;
                 }, 1000),

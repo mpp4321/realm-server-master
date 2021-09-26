@@ -34,8 +34,11 @@ namespace RotMG.Game.Logic.Database
                         LootTemplates.BasicPots(0.3f).Concat(
                             new MobDrop[] {
                                 new TierLoot(8, TierLoot.LootType.Weapon, 1f, r: new RarityModifiedData(1f, 2)),
-                                new ItemLoot("Pumpkin Staff", 0.02f, r: new RarityModifiedData(1.2f)),
-                                new ItemLoot("Pumpkin Bow", 0.02f, r: new RarityModifiedData(1.2f))
+                                new Threshold(0.01f, 
+                                    new ItemLoot("Pumpkin Staff", 0.02f, r: new RarityModifiedData(1.2f)),
+                                    new ItemLoot("Pumpkin Bow", 0.02f, r: new RarityModifiedData(1.2f)),
+                                    new ItemLoot("Amulet of Ancient Power", 0.005f)
+                                )
                             }
                         ).ToArray()
                     )

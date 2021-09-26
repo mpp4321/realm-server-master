@@ -185,7 +185,8 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(2, LootType.Ability, 0.15f),
                 new TierLoot(3, LootType.Ability, 0.02f),
                 new ItemLoot("Health Potion", 0.4f),
-                new ItemLoot("Magic Potion", 0.4f)
+                new ItemLoot("Magic Potion", 0.4f),
+                new ItemLoot("Ancient Skull", 0.005f, 0.01f)
             );
             db.Init("Phylactery Bearer",
                 new State("base",
@@ -286,7 +287,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Mummy",
                 new State("base",
                     new Prioritize(
-                        new Protect(1, "Lich", protectionRange: 10),
+                        new Protect(1, "Actual Lich", protectionRange: 10),
                         new Follow(1.2f, range: 7),
                         new Wander(0.4f)
                         ),
@@ -297,10 +298,10 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Mummy King",
                 new State("base",
+                    new Wander(0.4f),
                     new Prioritize(
                         new Protect(1, "Lich", protectionRange: 10),
-                        new Follow(1.2f, range: 7),
-                        new Wander(0.4f)
+                        new Follow(1.2f, range: 7)
                         ),
                     new Shoot(10)
                     ),
@@ -309,10 +310,10 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Mummy Pharaoh",
                 new State("base",
+                    new Wander(0.4f),
                     new Prioritize(
-                        new Protect(1, "Lich", protectionRange: 10),
-                        new Follow(1.2f, range: 7),
-                        new Wander(0.4f)
+                        new Protect(1, "Actual Lich", protectionRange: 10),
+                        new Follow(1.2f, range: 7)
                         ),
                     new Shoot(10)
                     ),
@@ -327,16 +328,13 @@ namespace RotMG.Game.Logic.Database
                     new DropPortalOnDeath("Crypt Portal", 1f),
                     new State("init",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        new Spawn("Skeleton", cooldown: 100),
                         new TimedTransition("base", 3000)
                     ),
                     new State("base",
-
                         new Prioritize(false, 
                             new Follow(1f, 10, 6),
                             new Wander(0.6f)
                         ),
-
                         new Shoot(12, 3, shootAngle: 10, 0, cooldown: 1000),
                         new Shoot(12, 1, index: 1, cooldown: 2000),
                         new Shoot(12, 4, shootAngle: 90, fixedAngle: 0, rotateAngle: 10, index: 2, cooldown: 2000),

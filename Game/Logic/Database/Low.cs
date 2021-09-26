@@ -16,17 +16,17 @@ namespace RotMG.Game.Logic.Database
         {
             db.EveryInit = new IBehavior[]
             {
-                new TierLoot(1, LootType.Weapon, 0.2f),
-                new TierLoot(2, LootType.Weapon, 0.1f),
-                new TierLoot(3, LootType.Weapon, 0.05f),
-                new TierLoot(1, LootType.Armor, 0.2f),
-                new TierLoot(2, LootType.Armor, 0.1f),
-                new TierLoot(3, LootType.Armor, 0.05f),
-                new TierLoot(1, LootType.Ring, 0.2f),
-                new TierLoot(2, LootType.Ring, 0.1f),
-                new TierLoot(3, LootType.Ring, 0.05f),
+                new TierLoot(1, LootType.Weapon, 0.1f),
+                new TierLoot(2, LootType.Weapon, 0.05f),
+                new TierLoot(3, LootType.Weapon, 0.02f),
+                new TierLoot(1, LootType.Armor, 0.1f),
+                new TierLoot(2, LootType.Armor, 0.05f),
+                new TierLoot(3, LootType.Armor, 0.01f),
+                new TierLoot(1, LootType.Ring, 0.1f),
+                new TierLoot(2, LootType.Ring, 0.05f),
+                new TierLoot(3, LootType.Ring, 0.03f),
                 new TierLoot(1, LootType.Ability, 0.1f),
-                new TierLoot(2, LootType.Ability, 0.05f),
+                new TierLoot(2, LootType.Ability, 0.03f),
                 new DropPortalOnDeath("Pirate Cave Portal", 0.01f)
             };
 

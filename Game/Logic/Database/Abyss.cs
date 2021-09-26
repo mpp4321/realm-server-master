@@ -1,4 +1,5 @@
 ﻿using RotMG.Game.Logic.Behaviors;
+using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
 using System;
 using System.Collections.Generic;
@@ -84,7 +85,12 @@ namespace RotMG.Game.Logic.Database
                     new ConditionalEffect(Common.ConditionEffectIndex.Armored),
                     new Charge(1.8f, 15, coolDown: 100),
                     new Flash(0xffff0505, 0.5, 2)
-                )
+                ),
+                    new ItemLoot("Demon Frog Generator", 0.01f, 0.01f),
+                    new ItemLoot("Potion of Life", 0.01f, 0.01f),
+                    new Threshold(0.01f,
+                        LootTemplates.BasicPots(0.01f)
+                    )
                 );
 
         }

@@ -3028,8 +3028,8 @@
 
     <Potion/>
     <BagType>3</BagType>
-    <Activate stat="22" amount="15" duration="45">StatBoostSelf</Activate>
-    <Activate stat="20" amount="-15" duration="60">StatBoostSelf</Activate>
+    <Activate stat="4" amount="15" duration="45">StatBoostSelf</Activate>
+    <Activate stat="2" amount="-15" duration="60">StatBoostSelf</Activate>
   </Object>
 
   <Object type="0x77c" id="Tincture of Courage">
@@ -3095,7 +3095,7 @@
 
     <Potion/>
     <BagType>3</BagType>
-    <Activate stat="3" amount="75" duration="30">StatBoostSelf</Activate>
+    <Activate stat="1" amount="75" duration="30">StatBoostSelf</Activate>
   </Object>
   <Object type="0xb0f" id="Tincture of Defense">
     <Class>Equipment</Class>
@@ -3111,7 +3111,7 @@
 
     <Potion/>
     <BagType>3</BagType>
-    <Activate stat="21" amount="15" duration="30">StatBoostSelf</Activate>
+    <Activate stat="3" amount="15" duration="30">StatBoostSelf</Activate>
   </Object>
   <Object type="0xb10" id="Effusion of Dexterity">
     <Class>Equipment</Class>
@@ -3127,7 +3127,7 @@
 
     <Potion/>
     <BagType>3</BagType>
-    <Activate stat="28" amount="30" duration="30" range="6">StatBoostAura</Activate>
+    <Activate stat="4" amount="30" duration="30" range="6">StatBoostAura</Activate>
   </Object>
   <Object type="0xb11" id="Effusion of Life">
     <Class>Equipment</Class>
@@ -3159,7 +3159,7 @@
 
     <Potion/>
     <BagType>3</BagType>
-    <Activate stat="3" amount="150" duration="30" range="6">StatBoostAura</Activate>
+    <Activate stat="1" amount="150" duration="30" range="6">StatBoostAura</Activate>
   </Object>
   <Object type="0xb13" id="Effusion of Defense">
     <Class>Equipment</Class>
@@ -3175,7 +3175,7 @@
 
     <Potion/>
     <BagType>3</BagType>
-    <Activate stat="21" amount="30" duration="30" range="6">StatBoostAura</Activate>
+    <Activate stat="3" amount="30" duration="30" range="6">StatBoostAura</Activate>
   </Object>
   <Object type="0xa41" id="Snake Eye Ring">
     <Class>Equipment</Class>
@@ -9032,8 +9032,8 @@
     <SlotType>6</SlotType>
     <Description>A sleak snake armor which is fit for a god.</Description>
     <ActivateOnEquip stat="3" amount="11">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="4" amount="3">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="5" amount="3">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="4" amount="6">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="5" amount="6">IncrementStat</ActivateOnEquip>
     <UniqueEffect>MedusaGarment</UniqueEffect>
     <BagType>4</BagType>
     <FameBonus>1</FameBonus>
@@ -9432,6 +9432,91 @@
       <LifetimeMS>1000</LifetimeMS>
     </Projectile>
     <BagType>4</BagType>
+    <OldSound>bladeSwing</OldSound>
+  </Object>
+  <Object type="0xc9d" id="Head of the Cyclops King">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0xd0</Index>
+    </Texture>
+    <SlotType>9</SlotType>
+    <Description>The head of the cyclops king, good for fame.</Description>
+    <ActivateOnEquip stat="3" amount="6">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="6" amount="6">IncrementStat</ActivateOnEquip>
+    <BagType>4</BagType>
+    <FameBonus>10</FameBonus>
+  </Object>
+  <Object type="0xca0" id="Ancient Crown">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0xd3</Index>
+    </Texture>
+    <SlotType>9</SlotType>
+    <Description>The wisdom of a king lies in the crown.</Description>
+    <ActivateOnEquip stat="0" amount="150">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="0" amount="50">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="2" amount="5">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="7" amount="10">IncrementStat</ActivateOnEquip>
+    <BagType>5</BagType>
+    <FameBonus>5</FameBonus>
+  </Object>
+  <Object type="0xc9e" id="Seal of Cyclops Command">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0xd2</Index>
+    </Texture>
+    <SlotType>12</SlotType>
+    <Description>A seal which allows the command of cyclops officers.</Description>
+    <Sound>spell/light_heal</Sound>
+    <Usable/>
+    <BagType>0</BagType>
+    <MpCost>75</MpCost>
+    <Activate stat="2" amount="25" duration="1.5" range="2">StatBoostAura</Activate>
+    <ActivateOnEquip stat="0" amount="-200">IncrementStat</ActivateOnEquip>
+    <Cooldown>5</Cooldown>
+    <FameBonus>4</FameBonus>
+  </Object>
+  <Object type="0xc9f" id="Loins of the Cyclops God">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0xd4</Index>
+    </Texture>
+    <SlotType>7</SlotType>
+    <Description>Holy god.</Description>
+    <ActivateOnEquip stat="2" amount="30">IncrementStat</ActivateOnEquip>
+    <BagType>5</BagType>
+    <FameBonus>5</FameBonus>
+  </Object>
+  <Object type="0xca1" id="Cyclops Mace">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0xd1</Index>
+    </Texture>
+    <SlotType>1</SlotType>
+    <Description>The heavy and powerful cyclops mace.</Description>
+    <RateOfFire>0.33</RateOfFire>
+    <Sound>weapon/glass_sword</Sound>
+    <Projectile>
+      <ObjectId>Blade</ObjectId>
+      <Speed>75</Speed>
+      <MinDamage>300</MinDamage>
+      <MaxDamage>400</MaxDamage>
+      <Size>200</Size>
+      <LifetimeMS>400</LifetimeMS>
+    </Projectile>
+    <BagType>4</BagType>
+    <FameBonus>6</FameBonus>
+    <NumProjectiles>1</NumProjectiles>
     <OldSound>bladeSwing</OldSound>
   </Object>
 </Objects>

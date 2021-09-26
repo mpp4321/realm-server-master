@@ -221,7 +221,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Night Elf Archer",
                 new State("base",
-                    new Shoot(10),
+                    new Shoot(10, cooldown: 300),
                     new Prioritize(
                         new StayAbove(0.4f, 160),
                         new Follow(1.5f, range: 7),
@@ -232,7 +232,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Night Elf Warrior",
                 new State("base",
-                    new Shoot(3),
+                    new Shoot(3, cooldown: 300),
                     new Prioritize(
                         new StayAbove(0.4f, 160),
                         new Follow(1.5f, range: 1),
@@ -243,7 +243,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Night Elf Mage",
                 new State("base",
-                    new Shoot(10),
+                    new Shoot(10, cooldown: 300),
                     new Prioritize(
                         new StayAbove(0.4f, 160),
                         new Follow(1.5f, range: 7),
@@ -254,7 +254,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Night Elf Veteran",
                 new State("base",
-                    new Shoot(10),
+                    new Shoot(10, cooldown: 300),
                     new Prioritize(
                         new StayAbove(0.4f, 160),
                         new Follow(1.5f, range: 7),
@@ -265,14 +265,15 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Night Elf King",
                 new State("base",
-                    new Shoot(10),
+                    new Shoot(10, cooldown: 1000),
                     new Prioritize(
                         new StayAbove(0.4f, 160),
                         new Follow(1.5f, range: 7),
                         new Wander(0.4f)
                         )
                     ),
-                new ItemLoot("Health Potion", 0.03f)
+                new ItemLoot("Health Potion", 0.03f),
+                new ItemLoot("Fire Dagger", 0.5f, 0.01f, r: new LootDef.RarityModifiedData(1.0f, 2, true))
             );
             db.Init("Undead Dwarf God",
                 new State("base",
@@ -301,7 +302,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Undead Dwarf Warrior",
                 new State("base",
                     new DropPortalOnDeath("Spider Den Portal", 20, timeout: 100),
-                    new Shoot(3),
+                    new Shoot(3, cooldown: 200),
                     new Prioritize(
                         new StayAbove(1, 160),
                         new Follow(1, range: 1),
@@ -311,7 +312,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Undead Dwarf Axebearer",
                 new State("base",
-                    new Shoot(3),
+                    new Shoot(3, cooldown: 200),
                     new Prioritize(
                         new StayAbove(1, 160),
                         new Follow(1, range: 1),
@@ -322,7 +323,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Undead Dwarf Mage",
                 new State("base",
                     new State("circle_player",
-                        new Shoot(8, predictive: 0.3f, cooldown: 1000, cooldownOffset: 500),
+                        new Shoot(8, predictive: 0.3f, cooldown: 500, cooldownOffset: 200),
                         new Prioritize(
                             new StayAbove(0.7f, 160),
                             new Protect(0.7f, "Undead Dwarf King", 11, 10, 3),
@@ -332,8 +333,8 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("circle_king", 3500)
                         ),
                     new State("circle_king",
-                        new Shoot(8, 5, 72, defaultAngle: 20, predictive: 0.3f, cooldown: 1600, cooldownOffset: 500),
-                        new Shoot(8, 5, 72, defaultAngle: 33, predictive: 0.3f, cooldown: 1600, cooldownOffset: 1300),
+                        new Shoot(8, 5, 72, defaultAngle: 20, predictive: 0.3f, cooldown: 800, cooldownOffset: 400),
+                        new Shoot(8, 5, 72, defaultAngle: 33, predictive: 0.3f, cooldown: 800, cooldownOffset: 800),
                         new Prioritize(
                             new StayAbove(0.7f, 160),
                             new Orbit(1.2f, 2.5f, target: "Undead Dwarf King", acquireRange: 12, radiusVariance: 0.1f,
@@ -347,7 +348,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Undead Dwarf King",
                 new State("base",
-                    new Shoot(3),
+                    new Shoot(3, cooldown: 300),
                     new Prioritize(
                         new StayAbove(1, 160),
                         new Follow(0.8f, range: 1.4f),
@@ -358,7 +359,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Soulless Dwarf",
                 new State("base",
-                    new Shoot(10),
+                    new Shoot(10, cooldown: 300),
                     new State("idle",
                         new PlayerWithinTransition(10.5f, "run1")
                         ),

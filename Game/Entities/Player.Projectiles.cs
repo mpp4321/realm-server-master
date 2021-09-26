@@ -79,7 +79,7 @@ namespace RotMG.Game.Entities
 #if DEBUG
                     Program.Print(PrintType.Error, "Aoe ack timed out");
 #endif
-                    Client.Disconnect();
+                    //Client.Disconnect();
                     return;
                 }
             }
@@ -93,7 +93,7 @@ namespace RotMG.Game.Entities
 #if DEBUG
                         Program.Print(PrintType.Error, "Proj ack timed out");
 #endif
-                        Client.Disconnect();
+                        //Client.Disconnect();
                         return;
                     }
                 }

@@ -35,7 +35,7 @@ namespace RotMG.Game.Logic.Database
                         new BuzzBehavior(speed: 1f),
                         new Wander(0.4f)
                         ),
-                    new Shoot(3, cooldown: 2500)
+                    new Shoot(3, cooldown: 500)
                     ),
                 new ItemLoot("Health Potion", 0.03f)
             );
@@ -46,24 +46,13 @@ namespace RotMG.Game.Logic.Database
                         new Follow(1.1f, range: 1, duration: 3000, cooldown: 1500),
                         new Wander(0.6f)
                         ),
-                    new Shoot(3, cooldown: 2500),
+                    new Shoot(3, cooldown: 500),
                     new Reproduce("Pirate", densityMax: 5),
                     new Reproduce("Piratess", densityMax: 5)
                     ),
                 new ItemLoot("Health Potion", 0.03f)
             );
 
-            db.Init("Snake",
-                new State(
-                    "base",
-                    new Wander(0.8f),
-                    new Shoot(10, cooldown: 500, effect: new ConditionEffectIndex[] { ConditionEffectIndex.Slowed }, effect_duration: 3000),
-                    new Reproduce(densityMax: 5)
-                    ),
-                new ItemLoot("Health Potion", 0.03f),
-                new ItemLoot("Magic Potion", 0.02f),
-                new ItemLoot("Kendo 'Stick'", 0.02f)
-            );
             db.Init("Poison Scorpion",
                 new State(
                     "base",
@@ -71,8 +60,9 @@ namespace RotMG.Game.Logic.Database
                         new Protect(0.4f, "Scorpion Queen"),
                         new Wander(0.4f)
                         ),
-                    new Shoot(8, cooldown: 2000)
-                    )
+                    new Shoot(8, cooldown: 2000),
+                    new Grenade(3, 10, cooldown: 2500)
+                )
             );
             db.Init("Scorpion Queen",
                 new State(
@@ -83,7 +73,8 @@ namespace RotMG.Game.Logic.Database
                     new Reproduce(densityMax: 2, densityRadius: 40)
                     ),
                 new ItemLoot("Health Potion", 0.03f),
-                new ItemLoot("Magic Potion", 0.02f)
+                new ItemLoot("Magic Potion", 0.02f),
+                new ItemLoot("Crossbow", 0.5f)
             );
             db.Init("Bandit Enemy",
                 new State(
@@ -171,12 +162,9 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("bold", 12000)
                         )
                     ),
-                new TierLoot(1, ItemType.Weapon, 0.2f),
-                new TierLoot(1, ItemType.Armor, 0.2f),
-                new TierLoot(2, ItemType.Weapon, 0.12f),
-                new TierLoot(2, ItemType.Armor, 0.12f),
                 new ItemLoot("Health Potion", 0.12f),
-                new ItemLoot("Magic Potion", 0.14f)
+                new ItemLoot("Magic Potion", 0.14f),
+                new ItemLoot("Blue Steel Dagger", 0.5f)
             );
             db.Init("Red Gelatinous Cube",
                 new State(
@@ -186,7 +174,8 @@ namespace RotMG.Game.Logic.Database
                     new Reproduce(densityMax: 3)
                     ),
                 new ItemLoot("Health Potion", 0.04f),
-                new ItemLoot("Magic Potion", 0.04f)
+                new ItemLoot("Magic Potion", 0.04f),
+                new ItemLoot("Thunder Katana", 0.05f)
             );
             db.Init("Purple Gelatinous Cube",
                 new State(
@@ -196,7 +185,8 @@ namespace RotMG.Game.Logic.Database
                     new Reproduce(densityMax: 3)
                     ),
                 new ItemLoot("Health Potion", 0.04f),
-                new ItemLoot("Magic Potion", 0.04f)
+                new ItemLoot("Magic Potion", 0.04f),
+                new ItemLoot("Thunder Katana", 0.05f)
             );
             db.Init("Green Gelatinous Cube",
                 new State(
@@ -206,10 +196,24 @@ namespace RotMG.Game.Logic.Database
                     new Reproduce(densityMax: 3)
                     ),
                 new ItemLoot("Health Potion", 0.04f),
-                new ItemLoot("Magic Potion", 0.04f)
+                new ItemLoot("Magic Potion", 0.04f),
+                new ItemLoot("Serpentine Staff", 0.05f)
             );
 
             db.EveryInit = new IBehavior[] { };
+
+            db.Init("Snake",
+                new State(
+                    "base",
+                    new Wander(0.8f),
+                    new Shoot(10, cooldown: 500, effect: new ConditionEffectIndex[] { ConditionEffectIndex.Slowed }, effect_duration: 3000),
+                    new Reproduce(densityMax: 5)
+                    ),
+                new ItemLoot("Health Potion", 0.03f),
+                new ItemLoot("Magic Potion", 0.02f),
+                new ItemLoot("Kendo 'Stick'", 0.02f)
+            );
+
         }
     }
 }

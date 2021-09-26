@@ -29,6 +29,10 @@ namespace RotMG.Game.Logic.Database
                     1f, range: 2
                 ));
 
+            db.Init("Demon Frog", new PetFollow(
+                    1f, range: 2
+                ));
+
         }
     }
 }

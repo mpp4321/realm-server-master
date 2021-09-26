@@ -236,7 +236,8 @@ namespace RotMG.Game.Logic.Database
                     LootTemplates.MountainDrops()
                     ),
                 new Threshold(0.01f,
-                    new ItemLoot("Potion of Attack", 0.05f)
+                    new ItemLoot("Potion of Attack", 0.05f),
+                    new ItemLoot("Potion of Dexterity", 0.15f)
                     )
             );
             db.Init("Ent God",
@@ -519,7 +520,7 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                         ),
                         new Shoot(10, count: 3, shootAngle: 20, predictive: 1, cooldown: 100),
-                        new Shoot(10, count: 3, shootAngle: 20, predictive: 1, index: 1, cooldown: 1000)
+                        new Shoot(10, count: 3, shootAngle: 20, predictive: 1, index: 1, cooldown: 5000)
                     ),
                 new Threshold(0.01f,
                     new ItemLoot("Potion of Vitality", 1.0f),
@@ -527,7 +528,7 @@ namespace RotMG.Game.Logic.Database
                 ),
             new Threshold(.01f,
                     LootTemplates.MountainDrops().Concat(
-                        LootTemplates.BasicPots(0.25f)
+                        LootTemplates.BasicPots(0.01f)
                     ).ToArray()
                 )
                 );

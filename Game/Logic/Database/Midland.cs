@@ -15,17 +15,17 @@ namespace RotMG.Game.Logic.Database
         {
             db.EveryInit = new IBehavior[]
             {
-                new TierLoot(4, LootType.Weapon, 0.2f),
-                new TierLoot(5, LootType.Weapon, 0.1f),
-                new TierLoot(6, LootType.Weapon, 0.05f),
-                new TierLoot(4, LootType.Armor, 0.2f),
-                new TierLoot(5, LootType.Armor, 0.1f),
-                new TierLoot(6, LootType.Armor, 0.05f),
-                new TierLoot(2, LootType.Ring, 0.2f),
-                new TierLoot(3, LootType.Ring, 0.1f),
-                new TierLoot(4, LootType.Ring, 0.05f),
-                new TierLoot(2, LootType.Ability, 0.1f),
-                new TierLoot(3, LootType.Ability, 0.05f),
+                new TierLoot(4, LootType.Weapon, 0.1f),
+                new TierLoot(5, LootType.Weapon, 0.05f),
+                new TierLoot(6, LootType.Weapon, 0.03f),
+                new TierLoot(4, LootType.Armor, 0.1f),
+                new TierLoot(5, LootType.Armor, 0.05f),
+                new TierLoot(6, LootType.Armor, 0.03f),
+                new TierLoot(2, LootType.Ring, 0.1f),
+                new TierLoot(3, LootType.Ring, 0.05f),
+                new TierLoot(4, LootType.Ring, 0.03f),
+                new TierLoot(2, LootType.Ability, 0.05f),
+                new TierLoot(3, LootType.Ability, 0.025f),
             };
 
 
@@ -1052,7 +1052,8 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new ItemLoot("Health Potion", 0.7f),
                 new ItemLoot("Magic Potion", 0.7f),
-                new ItemLoot("Tincture of Defense", 1f)
+                new ItemLoot("Tincture of Defense", 1f),
+                new ItemLoot("Wooden Prism", 0.005f, 0.001f)
             );
             db.Init("Ent",
                 new State("base",
