@@ -17,8 +17,8 @@
       <ObjectId>Red Fire</ObjectId>
       <Damage>50</Damage>
       <Speed>80</Speed>
-      <LifetimeMS>600</LifetimeMS>
-    </Projectile>
+      <LifetimeMS>200</LifetimeMS>
+	</Projectile>
   </Object>
 
   <Object type="0x0909" id="Malphas Missile">
@@ -56,7 +56,7 @@
     </AnimatedTexture>
     <HitSound>monster/demons_hit</HitSound>
     <DeathSound>monster/demons_death</DeathSound>
-    <MaxHitPoints>10000</MaxHitPoints>
+    <MaxHitPoints>30000</MaxHitPoints>
     <Size>100</Size>
     <Defense>20</Defense>
     <XpMult>0.7</XpMult>
@@ -73,7 +73,7 @@
       <Speed>42</Speed>
       <Damage>65</Damage>
       <Size>85</Size>
-      <LifetimeMS>3000</LifetimeMS>
+      <LifetimeMS>600</LifetimeMS>
       <ConditionEffect duration="1">Weak</ConditionEffect>
     </Projectile>
     <Projectile id="3">
@@ -81,7 +81,7 @@
       <Speed>40</Speed>
       <Damage>150</Damage>
       <Size>150</Size>
-      <LifetimeMS>4000</LifetimeMS>
+      <LifetimeMS>60</LifetimeMS>
     </Projectile>
     <Projectile id="4">
       <ObjectId>Silver Shield</ObjectId>
@@ -160,7 +160,7 @@
     <Flying/>
     <Projectile id="0">
       <ObjectId>Fire Bolt</ObjectId>
-      <Damage>60</Damage>
+      <Damage>35</Damage>
       <Speed>70</Speed>
       <LifetimeMS>3000</LifetimeMS>
     </Projectile>
@@ -183,7 +183,7 @@
       <Damage>120</Damage>
       <Speed>50</Speed>
       <LifetimeMS>3000</LifetimeMS>
-      <Size>140</Size>
+      <Size>100</Size>
     </Projectile>
   </Object>
   <Object type="0x66f" id="Demon Warrior of the Abyss">
@@ -222,7 +222,7 @@
     <Projectile id="0">
       <ObjectId>Red Fire</ObjectId>
       <Damage>120</Damage>
-      <Size>200</Size>
+      <Size>100</Size>
       <Speed>40</Speed>
       <LifetimeMS>3000</LifetimeMS>
       <ConditionEffect duration=".8">Bleeding</ConditionEffect>
@@ -264,9 +264,9 @@
     <Defense>30</Defense>
     <Projectile id="0">
       <ObjectId>Blade</ObjectId>
-      <Damage>80</Damage>
+      <Damage>40</Damage>
       <Speed>120</Speed>
-      <Size>200</Size>
+      <Size>150</Size>
       <LifetimeMS>400</LifetimeMS>
       <ConditionEffect duration=".8">Paralyzed</ConditionEffect>
     </Projectile>

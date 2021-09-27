@@ -30,20 +30,20 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Dreadstump the Pirate King",
                 new State("base",
-                    new PlayerWithinTransition(8f, "Attack"),
                     new State("Attack",
-                        new Wander(0.6f),
-                        new StayBack(speed: 1f, distance: 3f),
-                        new Shoot(index: 1, predictive: 0.3f, cooldown: 750),
-                        new Shoot(count: 4, shootAngle: 45, cooldown: 500),
-                        new Shoot(index: 2, predictive: 0.6f, cooldown: 1500, cooldownVariance: 500, effect: new ConditionEffectIndex[] { ConditionEffectIndex.Dazed }, effect_duration: 1200),
+                    new Shoot(index: 1, predictive: 0.3f, cooldown: 750),
+                    new Shoot(count: 4, shootAngle: 45, cooldown: 500),
+                    new Shoot(index: 2, predictive: 0.6f, cooldown: 1500, cooldownVariance: 500, effect: new ConditionEffectIndex[] { ConditionEffectIndex.Dazed }, effect_duration: 1200),
+                        new Prioritize(
+                            new StayBack(0.5f, 6)
+                        ),
                         new PlayerWithinTransition(2f, "Charge")
                     ),
-                    new State("Charge",
-                        new Follow(1f, acquireRange: 10, range: 0),
-                        new Shoot(count: 6, shootAngle: 13, predictive: 1, effect: new ConditionEffectIndex[] { ConditionEffectIndex.Stunned }, effect_duration: 2500),
-                        new Shoot(count: 4, shootAngle: 65, cooldown: 350),
-                        new TimedTransition("Attack", 5000)
+                new State("Charge",
+                    new Follow(1f, acquireRange: 10, range: 0),
+                    new Shoot(count: 6, shootAngle: 13, predictive: 1, effect: new ConditionEffectIndex[] { ConditionEffectIndex.Stunned }, effect_duration: 2500),
+                    new Shoot(count: 4, shootAngle: 65, cooldown: 350),
+                    new TimedTransition("Attack", 5000)
                     )
                 ),
                 new DropPortalOnDeath("Realm Portal", 1f),
@@ -60,8 +60,10 @@ namespace RotMG.Game.Logic.Database
                     new PlayerWithinTransition(8, "Attack")
                     ),
                 new State("Attack",
-                    new Follow(0.4f, acquireRange: 8, range: 4),
-                    new StayBack(speed: 1, distance: 2.5f),
+                    new Prioritize(
+                            new StayBack(1, 3),
+                            new Wander(0.2f)
+                        ),
                     new Shoot(cooldown: 750, angleOffset: 6, cooldownVariance: 100)
                     )
             );
@@ -111,8 +113,10 @@ namespace RotMG.Game.Logic.Database
                     new PlayerWithinTransition(10.0f, "Attack")
                     ),
                 new State("Attack",
-                    new Follow(speed: 0.4f, duration: 2750, cooldown: 1200),
-                    new Shoot(cooldown: 800, cooldownVariance: 300, angleOffset: 12, predictive: 0.3f)
+                new Shoot(cooldown: 800, cooldownVariance: 300, angleOffset: 12, predictive: 0.3f),
+                new Prioritize(
+                    new Follow(speed: 0.4f, duration: 2750, cooldown: 1200)
+                    )
                 )
             );
             db.Init("Cave Pirate Macaw",
@@ -121,8 +125,10 @@ namespace RotMG.Game.Logic.Database
                         new PlayerWithinTransition(10.0f, "Attack")
                     ),
                     new State("Attack",
-                        new Orbit(0.4f, radius: 1.5f),
-                        new Shoot(cooldown: 750, angleOffset: 5, predictive: 0.3f)
+                    new Shoot(cooldown: 750, angleOffset: 5, predictive: 0.3f),
+                    new Prioritize(
+                        new Orbit(0.4f, radius: 1.5f)
+                        )
                     )
             );
             db.Init("Cave Pirate Parrot",
@@ -131,13 +137,15 @@ namespace RotMG.Game.Logic.Database
                         new PlayerWithinTransition(10.0f, "Attack")
                     ),
                 new State("Attack",
-                    new Orbit(0.4f, radius: 1.5f),
-                    new Shoot(cooldown: 750, angleOffset: 5, predictive: 0.3f)
+                    new Shoot(cooldown: 750, angleOffset: 5, predictive: 0.3f),
+                    new Prioritize(
+                        new Orbit(0.4f, radius: 1.5f)
+                        )
                     )
             );
             db.Init("Cave Pirate Monkey",
                 new State("everything",
-                    new Wander(1.5f),
+                    new Wander(1.2f),
                     new Shoot(cooldown: 1000, cooldownVariance: 500, angleOffset: 45, predictive: 1, effect: new ConditionEffectIndex[] { ConditionEffectIndex.Confused }, effect_duration: 1500)
                 )
             );

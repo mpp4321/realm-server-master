@@ -13,56 +13,82 @@ namespace RotMG.Game.Logic.Database
         {
 
             db.Init("Brute of the Abyss", new State("base",
-                    new Shoot(5, 2, shootAngle: 30, cooldown: 500),
+                    new Shoot(5, 2, shootAngle: 30, cooldown: 300),
                     new Prioritize(
-                            new Follow(1.5f, 5, 2),
+                            new Follow(1.5f, 7, 2),
                             new Wander(0.2f)
                         )
                 ));
 
             db.Init("Brute Warrior of the Abyss", new State("base",
-                    new Shoot(5, 4, cooldown: 500, fixedAngle: 0f, rotateAngle: 45f/2),
+                    new Shoot(5, 4, cooldown: 200, fixedAngle: 0f, rotateAngle: 45f/2),
                     new Prioritize(
-                            new Follow(1.5f, 5, 2),
-                            new Wander(0.2f)
+                            new Charge(0.7, 8, 500),
+                            new Wander(0.3f)
                         )
                 ));
 
             db.Init("Demon Mage of the Abyss", new State("base",
-                    new Shoot(5, 4, cooldown: 1000, fixedAngle: 0f, rotateAngle: 45f/2),
+                    new Shoot(5, 1, cooldown: 150, fixedAngle: 0f, rotateAngle: 45f/2),
                     new Prioritize(
                             new Wander(0.2f)
                         )
                 ));
 
             db.Init("Demon Warrior of the Abyss", new State("base",
-                    new Shoot(5, 2, shootAngle: 30, cooldown: 1000),
-                    new Grenade(10, 20, 3, cooldown: 500),
+                    new Shoot(5, 2, shootAngle: 30, cooldown: 800),
+                    new Grenade(10, 50, 3, cooldown: 250),
                     new Prioritize(
-                            new Follow(1.5f, 5, 4),
+                            new Orbit(1.2f, 4, radiusVariance: 3),
                             new Wander(0.2f)
                         )
                 ));
 
             db.Init("Demon of the Abyss", new State("base",
                     new Shoot(5, 2, shootAngle: 30, cooldown: 1000),
-                    new Grenade(10, 5, 5, cooldown: 250),
+                    new Grenade(10, 75, 5, cooldown: 1200),
                     new Prioritize(
                             new Follow(1.5f, 5, 4),
                             new Wander(0.2f)
                         )
                 ));
 
+            db.Init("Imp of the Abyss", new State("base",
+                    new Shoot(6, 5, shootAngle: 22, cooldown: 750),
+                    new Prioritize(
+                            new Follow(1.5f, 5, 4),
+                            new Wander(0.2f)
+                        )
+                ));
+
+            db.Init("Malphas Protector",
+                new State("base",
+                    new Grenade(8, 65, 3, cooldown: 750),
+                    new Prioritize(
+                            new StayBack(1, 7)
+                        ),
+                    new TimedTransition("Slam", 3500)
+                ),
+                new State("Slam",
+                    new Shoot(8, 4, 245, cooldown: 100),
+                    new Charge(1.5f, 15, coolDown: 100),
+                    new TimedTransition("base", 700)
+                    )
+                );
+
             db.Init("Archdemon Malphas", 
                 new State("base",
-                    new Shoot(5, 4, index: 1, shootAngle: 15, angleOffset: 15f, cooldown: 2500),
-                    new Shoot(5, 4, index: 1, shootAngle: 15, angleOffset: 0f, cooldown: 3000),
+                    new Shoot(10, 1, 5, 3, fixedAngle: 0f, rotateAngle: 12f / 2, cooldown: 150),
+                    new Shoot(10, 1, 5, 3, fixedAngle: 0f, rotateAngle: -26f / 2, cooldown: 150),
+                    new Shoot(10, 1, 5, 3, fixedAngle: 0f, rotateAngle: -12f / 2, cooldown: 150),
+                    new Shoot(10, 1, 5, 3, fixedAngle: 0f, rotateAngle: 26f / 2, cooldown: 150),
                     new Grenade(10, 100, 2, cooldown: 400),
                     new Prioritize(
                             new Follow(1.5f, 5, 4),
                             new Wander(0.2f)
                         ),
                     new HealthTransition(0.25f, "rage"),
+                    new HealthTransition(0.80f, "burst"),
                     new TimedTransition("prepburst", 8000)
                 ),
                 new State("prepburst", 
@@ -71,25 +97,43 @@ namespace RotMG.Game.Logic.Database
                     new TimedTransition("burst", 1000)
                 ),
                 new State("burst", 
-                        new Shoot(10, 8, shootAngle: 30, index: 0, cooldown: 200),
-                        new TossObject("Brute Warrior of the Abyss", range: 5, cooldown: 1000),
-                        new TossObject("Demon Mage of the Abyss", range: 10, cooldown: 2000),
+                        new Shoot(10, 5, 5, fixedAngle: 0f, rotateAngle: 20f / 2, index: 0),
+                        new TossObject("Brute Warrior of the Abyss", range: 5, cooldown: 5000),
+                        new Spawn("Malphas Protector", 2, cooldown: 2000),
                         new HealthTransition(0.25f, "rage"),
-                        new TimedTransition("base", 3000)
+                        new TimedTransition("burst1", 4000)
                 ),
+
+                new State("burst1",
+                        new Shoot(10, 5, 5, fixedAngle: 0f, rotateAngle: 20f / 2, index: 0),
+                        new Spawn("Malphas Protector", 2, cooldown: 1000),
+                        new HealthTransition(0.25f, "rage"),
+                        new TimedTransition("burst2", 7000)
+
+                ),
+
+                new State("burst2",
+                        new Shoot(10, 5, 5, fixedAngle: 0f, rotateAngle: -20f / 2, index: 0),
+                        new Spawn("Malphas Protector", 2, cooldown: 1000),
+                        new HealthTransition(0.25f, "rage"),
+                        new TimedTransition("burst1", 7000)
+
+                ),
+
                 new State("rage",
                     new ChangeSize(50, 150),
                     new Shoot(10, 4, index: 1, shootAngle: 90f, fixedAngle: 0, rotateAngle: 195f, cooldown: 200),
                     new Shoot(10, 2, shootAngle: 30, index: 0, predictive: 1f, cooldown: 500),
                     new ConditionalEffect(Common.ConditionEffectIndex.Damaging),
                     new ConditionalEffect(Common.ConditionEffectIndex.Armored),
-                    new Charge(1.8f, 15, coolDown: 100),
+                    new Charge(1.8f, 15, coolDown: 1500),
                     new Flash(0xffff0505, 0.5, 2)
                 ),
-                    new ItemLoot("Demon Frog Generator", 0.01f, 0.01f),
-                    new ItemLoot("Potion of Life", 0.01f, 0.01f),
+                    new ItemLoot("Demon Frog Generator", 0.02f, 0.01f),
+                    new ItemLoot("Demon Blade", 0.01f, 0.01f),
+                    new ItemLoot("Potion of Life", 0.05f, 0.01f),
                     new Threshold(0.01f,
-                        LootTemplates.BasicPots(0.01f)
+                        LootTemplates.BasicPots(0.2f)
                     )
                 );
 
