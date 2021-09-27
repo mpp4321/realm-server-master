@@ -81,7 +81,10 @@ namespace RotMG.Game.Logic.Database
             ));
             
             db.Init("Totem Spirit", new State("base",
-                new Shoot(5, 3, shootAngle: 10, effect: new Common.ConditionEffectIndex[] { Common.ConditionEffectIndex.Invisible }, effect_duration: 1000, cooldown: 1000),
+                new TimedTransition("shoot", 750)
+                ),
+                new State("shoot",
+                new Shoot(5, 3, shootAngle: 25, effect: new Common.ConditionEffectIndex[] { Common.ConditionEffectIndex.Invisible }, effect_duration: 1000, cooldown: 1000),
                 new Prioritize(
                     new Follow(2.0f, 5, 5),
                     new Wander(0.4f)

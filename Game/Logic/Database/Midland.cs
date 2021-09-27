@@ -366,7 +366,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Red Spider",
                 new State("base",
                     new Wander(0.8f),
-                    new Shoot(9),
+                    new Shoot(9, cooldown: 250),
                     new Reproduce(densityMax: 3, densityRadius: 15, cooldown: 45000)
                     ),
                 new ItemLoot("Health Potion", 0.2f),
