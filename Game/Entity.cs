@@ -112,7 +112,12 @@ namespace RotMG.Game
         public int Id;
         public ushort Type;
         public ObjectDesc Desc;
-        public Vector2 Position;
+
+        public Vector2 _position;
+
+        public Vector2 Position { get { return _position; } set {
+                _position = value;
+            } }
         public Vector2 SpawnPoint;
         public Chunk CurrentChunk;
 

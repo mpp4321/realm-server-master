@@ -24,12 +24,18 @@ namespace RotMG.Game.Logic.Database
                     new OnDeath( (h) =>
                     {
                         var foundPlayer = h.GetNearbyPlayers(3).Where(a => a == h.PlayerOwner).FirstOrDefault();
+                        var foundEnemies = h.GetNearbyEntities(3).Where(a => a is Enemy);
                         var aoe = GameServer.ShowEffect(ShowEffectIndex.Nova, h.Id, 0xffffff00, new Vector2(3f, 0));
                         if(foundPlayer != null)
                         {
                             (foundPlayer as Player).Damage(h.Desc.DisplayId, 300, new ConditionEffectDesc[] { }, true);
                         }
                         h.PlayerOwner.Client.Send(aoe);
+
+                        foreach(var en in foundEnemies)
+                        {
+                            (en as Enemy).Damage(h.PlayerOwner as Player, 300, new ConditionEffectDesc[] { }, false, true);
+                        }
                     }),
                     new Suicide()
                 )
@@ -56,6 +62,7 @@ namespace RotMG.Game.Logic.Database
                     var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, h.Id, 0xffff0000, new Vector2(4, 0));
                     foreach (var j in h.Parent.PlayerChunks.HitTest(h.Position, Math.Max(4, Player.SightRadius)))
                     {
+                        //
                         if(j is Player p)
                             p.Client.Send(nova);
                     }

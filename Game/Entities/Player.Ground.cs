@@ -8,7 +8,7 @@ namespace RotMG.Game.Entities
 {
     public partial class Player
     {
-        private const float MoveSpeedThreshold = 1.1f;
+        private const float MoveSpeedThreshold = 1.5f;
         private const int TeleportCooldown = 10000;
         private const int SpeedHistoryCount = 10; //in world ticks (10 = 1 sec history), the lower the count, the stricter the detection
 
@@ -48,7 +48,7 @@ namespace RotMG.Game.Entities
             if (pos.Distance(pushedServer) > distanceTraveled && pos.Distance(Position) > distanceTraveled)
             {
 #if DEBUG
-                Program.Print(PrintType.Error, "Move stuffs... DIST/SPD = " + pos.Distance(pushedServer) + " : " + distanceTraveled);
+                Program.Print(PrintType.Error, "Invalid move debug DIST/SPD = " + pos.Distance(pushedServer) + " : " + distanceTraveled);
 #endif
                 return false;
             }

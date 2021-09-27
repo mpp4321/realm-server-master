@@ -51,13 +51,36 @@ namespace RotMG.Game
             var p = new Vector2(StartPosition.X, StartPosition.Y);
             var speed = Desc.Speed;
 
-            if (Desc.DoAccelerate && elapsed > 0)
+            if (Desc.DoAccelerate && elapsed > Desc.AccelerateDelay)
             {
-                var elapsedWithDelay = MathF.Max(0, elapsed - Desc.AccelerateDelay);
-                var speedIncreaseByLifeTime = elapsedWithDelay * (Desc.Accelerate / 1000);
+                //var elapsedWithDelay = MathF.Max(0, elapsed - Desc.AccelerateDelay);
+                var speedIncreaseByLifeTime = elapsed * (Desc.Accelerate / 1000);
                 //speed *= elapsed / Desc.LifetimeMS;
                 speed += speedIncreaseByLifeTime;
             }
+
+            var hasSpeedClamp = Desc.SpeedClamp > 0;
+
+            if(hasSpeedClamp)
+            {
+                if(Desc.Speed > Desc.SpeedClamp)
+                {
+                    
+                    if(speed < Desc.SpeedClamp)
+                    {
+                        speed = Desc.SpeedClamp;
+                    }
+
+                } else
+                {
+                    //Desc.Speed < Desc.SpeedClamp
+                    if(speed > Desc.SpeedClamp)
+                    {
+                        speed = Desc.SpeedClamp;
+                    }
+                }
+            }
+
             //if (Desc.Decelerate != 0.0f) speed *= 2 - elapsed / Desc.LifetimeMS;
 
             var dist = elapsed * (speed / 10000f);

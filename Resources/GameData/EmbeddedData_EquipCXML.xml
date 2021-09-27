@@ -9254,7 +9254,7 @@
       <MinDamage>200</MinDamage>
       <MaxDamage>300</MaxDamage>
       <Accelerate>80</Accelerate>
-      <Burst>3</Burst>
+      <Burst>9</Burst>
       <BurstCooldown>500</BurstCooldown>
       <LifetimeMS>3000</LifetimeMS>
       <ArmorPiercing>true</ArmorPiercing>

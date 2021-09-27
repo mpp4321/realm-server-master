@@ -1,8 +1,10 @@
 ﻿using RotMG.Common;
+using RotMG.Game.Entities;
 using RotMG.Game.Logic.Behaviors;
 using RotMG.Game.Logic.Conditionals;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
+using RotMG.Networking;
 using RotMG.Utils;
 using System.Linq;
 using static RotMG.Game.Logic.LootDef;
@@ -227,7 +229,7 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                         ),
                     new Shoot(12, index: 0, count: 4, shootAngle: 10, cooldown: 200, callback: (e) => {
-                        e.Parent?.MoveEntity(e, e.Position + new Vector2(MathUtils.NextFloat(), MathUtils.NextFloat()));
+                        e.ApplyConditionEffect((ConditionEffectIndex)MathUtils.Next(26), Settings.MillisecondsPerTick * 5);
                     }),
                     new Shoot(10, index: 1, predictive: 1, cooldown: 1000),
                     new Reproduce("Sprite Child", 5, 5, 5000)
