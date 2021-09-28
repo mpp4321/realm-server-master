@@ -1271,8 +1271,7 @@
 		<Defense>25</Defense>
 		<God/>
 		<StasisImmune/>
-		<XpMult>0.5</XpMult>
-
+		<XpMult>20.5</XpMult>
 		
 		<Projectile id="0">
 			<ObjectId>White Bullet</ObjectId>
@@ -1281,7 +1280,14 @@
 			<Size>65</Size>
 			<LifetimeMS>1500</LifetimeMS>
 			<ConditionEffect duration="6">Weak</ConditionEffect>
-			
+		</Projectile>						
+		<Projectile id="1">
+			<ObjectId>White Bullet</ObjectId>
+			<Speed>80</Speed>
+			<Damage>95</Damage>
+			<Size>65</Size>
+			<LifetimeMS>1500</LifetimeMS>
+			<ConditionEffect duration="6">Weak</ConditionEffect>
 		</Projectile>						
 		<Projectile id="2">
 			<ObjectId>Purple Star</ObjectId>
@@ -1289,7 +1295,6 @@
 			<Damage>110</Damage>
 			<Size>90</Size>
 			<LifetimeMS>1700</LifetimeMS>
-			
 			<ConditionEffect duration="1.0">Confused</ConditionEffect>
 		</Projectile>
 		<Projectile id="3">
@@ -1298,7 +1303,14 @@
 			<Damage>120</Damage>
 			<Size>100</Size>
 			<LifetimeMS>1700</LifetimeMS>
-			
+			<ConditionEffect duration="8">Slowed</ConditionEffect>
+		</Projectile>		
+		<Projectile id="4">
+			<ObjectId>Blue Star</ObjectId>
+			<Speed>60</Speed>
+			<Damage>120</Damage>
+			<Size>100</Size>
+			<LifetimeMS>1700</LifetimeMS>
 			<ConditionEffect duration="8">Slowed</ConditionEffect>
 		</Projectile>		
 		<Projectile id="5">
@@ -1307,19 +1319,7 @@
 			<Damage>140</Damage>
 			<Size>130</Size>
 			<LifetimeMS>2400</LifetimeMS>
-					
 		</Projectile>		
-		
-		
-
-					
-
-		
-
-		
-
-
-	
 	</Object>	
 
 
