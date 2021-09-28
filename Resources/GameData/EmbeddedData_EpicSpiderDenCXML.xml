@@ -178,10 +178,10 @@
    </Object>
    <Object type="0x702a" id="Son of Arachna">
       <Class>Character</Class>
-	  <AnimatedTexture>
-		  <File>Custom32x32Encounters</File>
-		  <Index>25</Index>
-	  </AnimatedTexture>
+      <AnimatedTexture>
+         <File>chars8x8dEncounters</File>
+         <Index>33</Index>
+      </AnimatedTexture>
       <HitSound>monster/spider_queen_hit</HitSound>
       <DeathSound>monster/spider_queen_death</DeathSound>
       <Size>100</Size>

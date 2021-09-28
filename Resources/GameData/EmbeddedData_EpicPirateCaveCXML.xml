@@ -55,10 +55,10 @@
       <Group>JonBilgewater</Group>
       <Enemy/>
       <Class>Character</Class>
-      <AnimatedTexture>
-		  <File>Custom32x32Encounters</File>
-		  <Index>24</Index>
-	  </AnimatedTexture>
+      <Texture>
+         <File>lofiObjBig</File>
+         <Index>0xed</Index>
+      </Texture>
       <HitSound>monster/pirate_king_hit</HitSound>
       <DeathSound>monster/pirate_king_death</DeathSound>
       <Size>100</Size>
