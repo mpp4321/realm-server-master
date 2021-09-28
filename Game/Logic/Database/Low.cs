@@ -547,14 +547,32 @@ namespace RotMG.Game.Logic.Database
 
             //Sumo dungeon boss
             db.Init("Karate King",
+                new State ("base",
+                    new Prioritize(
+                        new StayBack(0.5f, 4)
+                        ),
+                    new Shoot(10, 4, shootAngle: 90, index: 2, fixedAngle: 0f, rotateAngle: 45f),
+                    new Shoot(10, 8, 45, 1, 0f, 45f, cooldown: 2000),
+                    new TimedTransition("fire", 3500)
+                    ),
                 new State("fire",
                     new Shoot(10, 4, shootAngle: 90, index: 2, fixedAngle: 0f, rotateAngle: 45f),
                     new Shoot(10, 8, 45, 1, 0f, 45f, cooldown: 2000),
-                    new Prioritize(false,
-                        new Follow(1.6f, range: 1),
+                    new Prioritize(
+                        new Charge(0.8, coolDown: 1250),
                         new Wander(0.4f)
-                    )
-                ),
+                        ),
+                    new TimedTransition("fire1", 3750)
+                    ),
+                new State("fire1",
+                    new Shoot(10, 4, shootAngle: 90, index: 2, fixedAngle: 0f, rotateAngle: 45f),
+                    new Shoot(10, 8, 45, 1, 0f, 45f, cooldown: 2000),
+                    new Prioritize(
+                        new Follow(1.2f, range: 5.5f),
+                        new StayBack(0.5f, 4)
+                        ),
+                    new TimedTransition("fire", 2500)
+                    ),
                 new Threshold(0.01f,
                     // there are 6 pots in this so its really 0.006 for pot
                     LootTemplates.BasicPots(0.001f).Concat(

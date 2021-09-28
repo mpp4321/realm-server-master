@@ -21,19 +21,19 @@ namespace RotMG.Game.SetPieces
         static readonly string Tree = "Palm Tree";
 
         static readonly Loot chest = new Loot(
-                new TierLoot(5, TierLoot.LootType.Weapon, 0.3f),
-                new TierLoot(6, TierLoot.LootType.Weapon, 0.2f),
-                new TierLoot(7, TierLoot.LootType.Weapon, 0.1f),
+                new TierLoot(6, TierLoot.LootType.Weapon, 0.3f),
+                new TierLoot(7, TierLoot.LootType.Weapon, 0.2f),
+                new TierLoot(8, TierLoot.LootType.Weapon, 0.1f),
 
-                new TierLoot(4, TierLoot.LootType.Armor, 0.3f),
-                new TierLoot(5, TierLoot.LootType.Armor, 0.2f),
-                new TierLoot(6, TierLoot.LootType.Armor, 0.1f),
+                new TierLoot(5, TierLoot.LootType.Armor, 0.3f),
+                new TierLoot(6, TierLoot.LootType.Armor, 0.2f),
+                new TierLoot(7, TierLoot.LootType.Armor, 0.1f),
 
-                new TierLoot(2, TierLoot.LootType.Ability, 0.3f),
-                new TierLoot(3, TierLoot.LootType.Ability, 0.2f),
+                new TierLoot(3, TierLoot.LootType.Ability, 0.3f),
+                new TierLoot(4, TierLoot.LootType.Ability, 0.2f),
 
-                new TierLoot(1, TierLoot.LootType.Ring, 0.25f),
-                new TierLoot(2, TierLoot.LootType.Ring, 0.15f)
+                new TierLoot(2, TierLoot.LootType.Ring, 0.25f),
+                new TierLoot(3, TierLoot.LootType.Ring, 0.15f)
             );
 
         public void RenderSetPiece(World world, IntPoint pos)
