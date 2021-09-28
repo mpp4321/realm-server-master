@@ -52,7 +52,7 @@
     <StasisImmune/>
     <AnimatedTexture>
       <File>chars16x16dEncounters</File>
-      <Index>0</Index>
+      <Index>6</Index>
     </AnimatedTexture>
     <HitSound>monster/demons_hit</HitSound>
     <DeathSound>monster/demons_death</DeathSound>
