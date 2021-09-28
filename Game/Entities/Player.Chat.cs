@@ -25,6 +25,11 @@ namespace RotMG.Game.Entities
             "trade", "currentsong", "song", "mix", "quest"
         };
 
+        //List of command, rank required
+        private readonly Tuple<string, int>[] _donatorCommands =
+        {
+        };
+
         private readonly string[] _rankedCommands =
         {
             "announce", "announcement", "legendary", "roll", "disconnect", "dcAll", "dc", "songs", "changesong",
@@ -32,11 +37,7 @@ namespace RotMG.Game.Entities
             "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute", "setcomp"
         };
 
-        internal int GetStatTotal(int v)
-        {
-            return Stats[v] + Boosts[v] + GetTemporaryStatBoost(v);
-        }
-
+        
         public void SendInfo(string text) => Client.Send(GameServer.Text("", 0, -1, 0, "", text));
         public void SendError(string text) => Client.Send(GameServer.Text("*Error*", 0, -1, 0, "", text));
         public void SendHelp(string text) => Client.Send(GameServer.Text("*Help*", 0, -1, 0, "", text));
@@ -296,9 +297,15 @@ namespace RotMG.Game.Entities
                                 SendError("Usage: /mix <slot1> <slot2>");
                                 return;
                             }
-                            var slot1 = int.Parse(j[0]);
-                            var slot2 = int.Parse(j[1]);
-                            Mix.DoMix(this, slot1, slot2);
+                            var slot1 = int.Parse(j[0]) + 3;
+                            var slot2 = int.Parse(j[1]) + 3;
+                            if (slot1 > 0 && slot2 > 0)
+                            {
+                                try
+                                {
+                                    Mix.DoMix(this, slot1, slot2);
+                                } catch { SendInfo("Invalid slots"); }
+                            }
                         }
                         break;
                     case "/quest":

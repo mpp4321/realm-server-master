@@ -223,5 +223,9 @@ namespace RotMG.Game.Entities
             }
         }
 
+        internal int GetStatTotal(int v)
+        {
+            return Stats[v] + Boosts[v] + GetTemporaryStatBoost(v);
+        }
     }
 }

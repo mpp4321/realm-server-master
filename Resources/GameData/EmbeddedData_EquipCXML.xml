@@ -9519,4 +9519,15 @@
     <NumProjectiles>1</NumProjectiles>
     <OldSound>bladeSwing</OldSound>
   </Object>
+  <Object type="0xcb0" id="Quantum Goo">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x175</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>/mix to reroll an item's modifiers.</Description>
+    <BagType>3</BagType>
+  </Object>
 </Objects>

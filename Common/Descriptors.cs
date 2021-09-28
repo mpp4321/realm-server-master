@@ -531,6 +531,7 @@ namespace RotMG.Common
             return new Dictionary<ItemData, int>()
             {
                 [ItemData.Attack] = MathUtils.NextInt(rank, 3 * rank),
+                [ItemData.MaxHP] = MathUtils.NextInt(2),
                 [ItemData.Dexterity] = -1 * MathUtils.NextInt(rank, 3*rank)
             };
         }
@@ -544,8 +545,7 @@ namespace RotMG.Common
             return new Dictionary<ItemData, int>()
             {
                 [ItemData.Wisdom] = MathUtils.NextInt(rank, 3 + (int)(1.25f * rank)),
-                [ItemData.Dexterity] = MathUtils.NextInt(-3 * rank, -1 * rank),
-                [ItemData.Attack] = MathUtils.NextInt(-3 * rank, -1 * rank)
+                [ItemData.MaxHP] = -1 * MathUtils.NextInt(rank * 3)
             };
         }
     }
@@ -731,7 +731,7 @@ namespace RotMG.Common
             {
                 value += rank;
             }
-            return value * multiplier + data.GetStatBonus(i);
+            return (value * multiplier) + (multiplier * data.GetStatBonus(i));
         }
 
         public static int GetRank(int data)

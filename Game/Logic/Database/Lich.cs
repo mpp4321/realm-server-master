@@ -173,20 +173,22 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("typeA", 6000)
                         )
                     ),
-                new TierLoot(2, LootType.Ring, 0.11f),
-                new TierLoot(3, LootType.Ring, 0.01f),
-                new TierLoot(5, LootType.Weapon, 0.3f),
-                new TierLoot(6, LootType.Weapon, 0.2f),
-                new TierLoot(7, LootType.Weapon, 0.05f),
-                new TierLoot(5, LootType.Armor, 0.3f),
-                new TierLoot(6, LootType.Armor, 0.2f),
-                new TierLoot(7, LootType.Armor, 0.05f),
-                new TierLoot(1, LootType.Ability, 0.9f),
-                new TierLoot(2, LootType.Ability, 0.15f),
-                new TierLoot(3, LootType.Ability, 0.02f),
-                new ItemLoot("Health Potion", 0.4f),
-                new ItemLoot("Magic Potion", 0.4f),
-                new ItemLoot("Ancient Skull", 0.005f, 0.01f)
+                new Threshold(0.01f,
+                    new TierLoot(2, LootType.Ring, 0.11f),
+                    new TierLoot(3, LootType.Ring, 0.01f),
+                    new TierLoot(5, LootType.Weapon, 0.3f),
+                    new TierLoot(6, LootType.Weapon, 0.2f),
+                    new TierLoot(7, LootType.Weapon, 0.05f),
+                    new TierLoot(5, LootType.Armor, 0.3f),
+                    new TierLoot(6, LootType.Armor, 0.2f),
+                    new TierLoot(7, LootType.Armor, 0.05f),
+                    new TierLoot(1, LootType.Ability, 0.9f),
+                    new TierLoot(2, LootType.Ability, 0.15f),
+                    new TierLoot(3, LootType.Ability, 0.02f),
+                    new ItemLoot("Health Potion", 0.4f),
+                    new ItemLoot("Magic Potion", 0.4f),
+                    new ItemLoot("Ancient Skull", 0.005f, 0.01f)
+                )
             );
             db.Init("Phylactery Bearer",
                 new State("base",
@@ -276,13 +278,15 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new Decay(90000)
                     ),
-                new TierLoot(8, LootType.Weapon, 0.02f),
-                new ItemLoot("Magic Potion", 0.02f),
-                new ItemLoot("Ring of Magic", 0.02f),
-                new ItemLoot("Ring of Attack", 0.02f),
-                new ItemLoot("Tincture of Dexterity", 0.06f),
-                new ItemLoot("Tincture of Mana", 0.09f),
-                new ItemLoot("Tincture of Life", 0.04f)
+                new Threshold(0.01f, 
+                    new TierLoot(8, LootType.Weapon, 0.02f),
+                    new ItemLoot("Magic Potion", 0.02f),
+                    new ItemLoot("Ring of Magic", 0.02f, r: new RarityModifiedData(1.9f, 5)),
+                    new ItemLoot("Ring of Attack", 0.02f, r: new RarityModifiedData(1.9f, 5)),
+                    new ItemLoot("Tincture of Dexterity", 0.06f),
+                    new ItemLoot("Tincture of Mana", 0.09f),
+                    new ItemLoot("Tincture of Life", 0.04f)
+                )
             );
             db.Init("Mummy",
                 new State("base",
@@ -340,13 +344,13 @@ namespace RotMG.Game.Logic.Database
                         new Shoot(12, 4, shootAngle: 90, fixedAngle: 0, rotateAngle: 10, index: 2, cooldown: 2000),
                         new HealSelf(cooldown: 500, 50)
                     ),
-
-                    new ItemLoot("Potion of Mana", 0.15f),
-                    new ItemLoot("Lifedrinker Skull", 0.08f, r: new RarityModifiedData(1.5f, 2)),
-                    new ItemLoot("Eldritch Battle Staff", 0.08f, r: new RarityModifiedData(1.5f, 4, true)),
-                    new ItemLoot("Staff of Necrotic Arcana", 0.08f, r: new RarityModifiedData(1.5f, 2)),
-                    new ItemLoot("Theurgy Wand", 0.03f, r: new RarityModifiedData(1.5f, 2))
-
+                    new Threshold(0.01f,
+                        new ItemLoot("Potion of Mana", 0.15f),
+                        new ItemLoot("Lifedrinker Skull", 0.08f, r: new RarityModifiedData(1.5f, 2)),
+                        new ItemLoot("Eldritch Battle Staff", 0.08f, r: new RarityModifiedData(1.5f, 4, true)),
+                        new ItemLoot("Staff of Necrotic Arcana", 0.08f, r: new RarityModifiedData(1.5f, 2)),
+                        new ItemLoot("Theurgy Wand", 0.01f, r: new RarityModifiedData(1.5f, 2))
+                    )
                 );
 
         }

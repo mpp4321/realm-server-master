@@ -125,7 +125,7 @@
 		<DeathSound>monster/flying_brain_death</DeathSound>
 		<Size>140</Size>
 		<ShadowSize>100</ShadowSize>
-		<MaxHitPoints>8200</MaxHitPoints>
+		<MaxHitPoints>11000</MaxHitPoints>
 		<Defense>15</Defense>
 		<XpMult>10.85</XpMult>
 		
@@ -148,7 +148,7 @@
 			<Damage>60</Damage>
 			<Speed>60</Speed>
 			<Size>80</Size>
-			<LifetimeMS>1200</LifetimeMS>
+			<LifetimeMS>2400</LifetimeMS>
 		</Projectile>
 			
 		<Projectile id="2">
@@ -301,7 +301,7 @@
 		
 		<Projectile id="0">
 			<ObjectId>Ghost Shot</ObjectId>
-			<Damage>100</Damage>
+			<Damage>80</Damage>
 			<Speed>45</Speed>
 			<Size>90</Size>
 			<LifetimeMS>1000</LifetimeMS>

@@ -442,6 +442,9 @@ namespace RotMG.Common
         public List<int> DeadChars;
         public List<int> OwnedSkins;
         public bool Ranked;
+
+        public int Donator;
+
         public bool Muted;
         public bool Banned;
         public string GuildName;
@@ -503,7 +506,8 @@ namespace RotMG.Common
             Sounds = Data.ParseBool("Sounds", true);
             Notifications = Data.ParseBool("Notifications", true);
             Gifts = Data.ParseIntList("Gifts", ",", new List<int>());
-            
+
+            Donator = Data.ParseInt("Donator", 0);
 
             Stats = new StatsInfo
             {
@@ -564,6 +568,7 @@ namespace RotMG.Common
                 data.Add(new XElement("Sounds", Sounds));
                 data.Add(new XElement("Notifications", Notifications));
                 data.Add(new XElement("Gifts", string.Join(",", Gifts)));
+                data.Add(new XElement("Donator", Donator));
             }
 
             data.Add(Stats.Export(appExport));

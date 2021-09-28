@@ -1483,9 +1483,8 @@
         <DeathSound>monster/skeletons_death</DeathSound>
         <Size>150</Size>
         <ShadowSize>100</ShadowSize>
-        <MaxHitPoints>6500</MaxHitPoints>
-        <Defense>20</Defense>
-
+        <MaxHitPoints>28000</MaxHitPoints>
+        <Defense>30</Defense>
         <Projectile id="0">
             <ObjectId>Orange Pumpkin Wave</ObjectId>
             <Damage>80</Damage>

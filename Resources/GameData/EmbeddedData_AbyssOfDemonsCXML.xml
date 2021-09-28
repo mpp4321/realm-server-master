@@ -56,10 +56,10 @@
     </AnimatedTexture>
     <HitSound>monster/demons_hit</HitSound>
     <DeathSound>monster/demons_death</DeathSound>
-    <MaxHitPoints>30000</MaxHitPoints>
+    <MaxHitPoints>60000</MaxHitPoints>
     <Size>100</Size>
-    <Defense>20</Defense>
-    <XpMult>0.7</XpMult>
+    <Defense>30</Defense>
+    <XpMult>9.7</XpMult>
     <Projectile id="1">
       <ObjectId>White Bullet</ObjectId>
       <Speed>75</Speed>
