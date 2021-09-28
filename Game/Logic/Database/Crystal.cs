@@ -231,7 +231,9 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.01f,
                     new ItemLoot("Crystal Wand", 0.007f),
-                    new ItemLoot("Crystal Sword", 0.007f)
+                    new ItemLoot("Crystal Sword", 0.007f),
+                    new ItemLoot("Potion of Mana", 0.5f),
+                    new ItemLoot("Potion of Mana", 0.5f)
                )
                             );
             db.Init("Crystal Prisoner Clone",
