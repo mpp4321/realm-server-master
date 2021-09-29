@@ -112,7 +112,7 @@
 		<HitSound>monster/snake_queen_hit</HitSound>
 		<DeathSound>monster/snake_queen_death</DeathSound>
 		<Size>100</Size>
-		<MaxHitPoints>7500</MaxHitPoints>
+		<MaxHitPoints>45000</MaxHitPoints>
 		<Defense>19</Defense>
 		<Enemy/>
 		<God/>
@@ -135,6 +135,14 @@
 			<Damage>60</Damage>
 			<Size>60</Size>
 			<LifetimeMS>2000</LifetimeMS>
+			<ConditionEffect duration="1.4">Blind</ConditionEffect>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Blade</ObjectId>
+			<Speed>62</Speed>
+			<Damage>60</Damage>
+			<Size>60</Size>
+			<LifetimeMS>500</LifetimeMS>
 			<ConditionEffect duration="1.4">Blind</ConditionEffect>
 		</Projectile>
 		

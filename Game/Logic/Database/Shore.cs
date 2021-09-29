@@ -46,9 +46,7 @@ namespace RotMG.Game.Logic.Database
                         new Follow(1.1f, range: 1, duration: 3000, cooldown: 1500),
                         new Wander(0.6f)
                         ),
-                    new Shoot(3, cooldown: 500),
-                    new Reproduce("Pirate", densityMax: 5),
-                    new Reproduce("Piratess", densityMax: 5)
+                    new Shoot(3, cooldown: 500)
                     ),
                 new ItemLoot("Health Potion", 0.03f)
             );
@@ -170,8 +168,7 @@ namespace RotMG.Game.Logic.Database
                 new State(
                     "base_state",
                     new Shoot(8, count: 3, index: 0, shootAngle: 7, predictive: 0.2f, cooldown: 2000),
-                    new Wander(0.4f),
-                    new Reproduce(densityMax: 3)
+                    new Wander(0.4f)
                     ),
                 new ItemLoot("Health Potion", 0.04f),
                 new ItemLoot("Magic Potion", 0.04f),
@@ -181,8 +178,7 @@ namespace RotMG.Game.Logic.Database
                 new State(
                     "base",
                     new Shoot(8, count: 8, index: 0, shootAngle: 14, predictive: 0.2f, cooldown: 2000),
-                    new Wander(0.4f),
-                    new Reproduce(densityMax: 3)
+                    new Wander(0.4f)
                     ),
                 new ItemLoot("Health Potion", 0.04f),
                 new ItemLoot("Magic Potion", 0.04f),
@@ -192,8 +188,7 @@ namespace RotMG.Game.Logic.Database
                 new State(
                     "base_state",
                     new Grenade(12, 20, color: 0x00ff28, cooldown: 3000),
-                    new Wander(0.4f),
-                    new Reproduce(densityMax: 3)
+                    new Wander(0.4f)
                     ),
                 new ItemLoot("Health Potion", 0.04f),
                 new ItemLoot("Magic Potion", 0.04f),
@@ -206,8 +201,7 @@ namespace RotMG.Game.Logic.Database
                 new State(
                     "base",
                     new Wander(0.8f),
-                    new Shoot(10, cooldown: 500, effect: new ConditionEffectIndex[] { ConditionEffectIndex.Slowed }, effect_duration: 3000),
-                    new Reproduce(densityMax: 5)
+                    new Shoot(10, cooldown: 500, effect: new ConditionEffectIndex[] { ConditionEffectIndex.Slowed }, effect_duration: 3000)
                     ),
                 new ItemLoot("Health Potion", 0.03f),
                 new ItemLoot("Magic Potion", 0.02f),

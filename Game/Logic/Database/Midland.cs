@@ -31,7 +31,6 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Fire Sprite",
                 new State("base",
-                    new Reproduce(densityMax: 2),
                     new Shoot(10, count: 2, shootAngle: 7, cooldown: 300),
                     new Prioritize(
                         new StayAbove(1.4f, 55),
@@ -43,7 +42,6 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Ice Sprite",
                 new State("base",
-                    new Reproduce(densityMax: 2),
                     new Shoot(10, count: 3, shootAngle: 7),
                     new Prioritize(
                         new StayAbove(1.4f, 60),
@@ -55,7 +53,6 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Magic Sprite",
                 new State("base",
-                    new Reproduce(densityMax: 2),
                     new Shoot(10, count: 4, shootAngle: 7),
                     new Prioritize(
                         new StayAbove(1.4f, 60),
@@ -139,10 +136,9 @@ namespace RotMG.Game.Logic.Database
                         new Follow(0.8f, acquireRange: 15, range: 5),
                         new Wander(0.4f)
                         ),
-                    new Reproduce(densityMax: 5, densityRadius: 10)
-                    ),
                 new ItemLoot("Health Potion", 0.3f),
                 new ItemLoot("Magic Potion", 0.3f)
+                )
             );
             db.Init("Gray Blob",
                 new State("base",
@@ -152,7 +148,6 @@ namespace RotMG.Game.Logic.Database
                             new Charge(2),
                             new Wander(0.4f)
                             ),
-                        new Reproduce(densityMax: 5, densityRadius: 10),
                         new PlayerWithinTransition(2, "creeping")
                         ),
                     new State("creeping",
@@ -169,7 +164,6 @@ namespace RotMG.Game.Logic.Database
                     new StayAbove(0.4f, 50),
                     new Shoot(9),
                     new Wander(0.4f),
-                    new Reproduce(densityMax: 5, densityRadius: 10),
                     new TransformOnDeath("Little Green Slime"),
                     new TransformOnDeath("Little Green Slime"),
                     new TransformOnDeath("Little Green Slime"),
@@ -338,8 +332,6 @@ namespace RotMG.Game.Logic.Database
                         new Shoot(8, count: 5, shootAngle: 72, fixedAngle: 56, cooldown: 100000, cooldownOffset: 1400),
                         new TimedTransition("circle", 1600)
                         ),
-                    new Reproduce(densityMax: 1, densityRadius: 100)
-                    ),
                 new TierLoot(3, LootType.Weapon, 0.6f),
                 new TierLoot(4, LootType.Weapon, 0.1f),
                 new TierLoot(3, LootType.Armor, 0.5f),
@@ -349,6 +341,7 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(1, LootType.Ability, 0.6f),
                 new ItemLoot("Health Potion", 0.3f),
                 new ItemLoot("Magic Potion", 0.1f)
+                )
             );
             db.Init("Black Bat",
                 new State("base",
@@ -356,8 +349,7 @@ namespace RotMG.Game.Logic.Database
                         new Charge(),
                         new Wander(0.4f)
                         ),
-                    new Shoot(1),
-                    new Reproduce(densityMax: 5, densityRadius: 20, cooldown: 20000)
+                    new Shoot(1)
                     ),
                 new ItemLoot("Health Potion", 0.2f),
                 new ItemLoot("Magic Potion", 0.2f),
@@ -366,8 +358,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Red Spider",
                 new State("base",
                     new Wander(0.8f),
-                    new Shoot(9, cooldown: 250),
-                    new Reproduce(densityMax: 3, densityRadius: 15, cooldown: 45000)
+                    new Shoot(9, cooldown: 250)
                     ),
                 new ItemLoot("Health Potion", 0.2f),
                 new ItemLoot("Magic Potion", 0.1f)
