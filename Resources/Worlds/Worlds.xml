@@ -97,4 +97,9 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 	</World>
+	<World name="TestWorld" display="Test World">
+		<Maps>TestWorld/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+	</World>
 </Worlds>

@@ -35,13 +35,13 @@ namespace RotMG.Game.Logic.Behaviors
             this.speed = speed;
             this.radius = radius;
             this.acquireRange = acquireRange;
-            this.target = target == null ? null : (ushort?) Resources.Id2Object[target].Type;
+            this.target = target == null ? null : (ushort?)Resources.Id2Object[target].Type;
             this.speedVariance = (float)(speedVariance ?? speed * 0.1);
             this.radiusVariance = (float)(radiusVariance ?? speed * 0.1);
             this.orbitClockwise = orbitClockwise;
         }
 
-        public override void Enter(Entity host)
+        private OrbitState BuildDefaultOrbit()
         {
             int orbitDir;
             if (orbitClockwise == null)
@@ -49,7 +49,7 @@ namespace RotMG.Game.Logic.Behaviors
             else
                 orbitDir = ((bool)orbitClockwise) ? 1 : -1;
 
-            host.StateObject[Id] = new OrbitState()
+            return new OrbitState()
             {
                 Speed = speed + speedVariance * (float)(Random.NextDouble() * 2 - 1),
                 Radius = radius + radiusVariance * (float)(Random.NextDouble() * 2 - 1),
@@ -57,9 +57,16 @@ namespace RotMG.Game.Logic.Behaviors
             };
         }
 
+        public override void Enter(Entity host)
+        {
+            host.StateObject[Id] = BuildDefaultOrbit();
+        }
+
         public override bool Tick(Entity host)
         {
             OrbitState s = (OrbitState)host.StateObject[Id];
+
+            if (s == null) s = BuildDefaultOrbit();
 
             if (host.HasConditionEffect(ConditionEffectIndex.Paralyzed))
                 return false;

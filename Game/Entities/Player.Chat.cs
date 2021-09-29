@@ -34,7 +34,7 @@ namespace RotMG.Game.Entities
         {
             "announce", "announcement", "legendary", "roll", "disconnect", "dcAll", "dc", "songs", "changesong",
             "terminate", "stop", "gimme", "give", "gift", "closerealm", "rank", "create", "spawn", "killall",
-            "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute", "setcomp"
+            "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute", "setcomp", "quake"
         };
 
         
@@ -703,6 +703,31 @@ namespace RotMG.Game.Entities
                             SendHelp($"{bonus.Name}: +{bonus.Fame}");
                         SendInfo($"Base Fame: {fameStats.BaseFame}");
                         SendInfo($"Total Fame: {fameStats.TotalFame}");
+                        break;
+                    case "/quake":
+                        if (Client.Account.Ranked)
+                        {
+                            if(j.Length > 0)
+                            {
+                                var quakeLoc = string.Join(' ', j, 0, j.Length);
+                                if (!(Resources.Worlds.ContainsKey(quakeLoc)))
+                                {
+                                    SendInfo("Unknown world " + quakeLoc + ".");
+                                    break;
+                                }
+                                Parent.QuakeToWorld(Manager.AddWorld(Resources.Worlds[quakeLoc]));
+                            } else
+                            {
+                                SendInfo("/quake {World Id}");
+                                SendInfo("Available:");
+                                var str = "";
+                                foreach(var v in Resources.Worlds)
+                                {
+                                    str += v.Key + ", ";
+                                }
+                                SendInfo(str);
+                            }
+                        }
                         break;
                     default:
                         SendError("Unknown command");

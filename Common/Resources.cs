@@ -55,6 +55,8 @@ namespace RotMG.Common
 
         public static ObjectDesc ClosestObjectToString(string givenId)
         {
+            givenId = givenId.ToLower();
+            if (IdLower2Object.ContainsKey(givenId)) return IdLower2Object[givenId];
             return IdLower2Object.Where(
                     a => a.Key.Contains(givenId)
                 ).FirstOrDefault().Value;
@@ -62,6 +64,8 @@ namespace RotMG.Common
 
         public static ItemDesc ClosestItemToString(string givenId)
         {
+            givenId = givenId.ToLower();
+            if (IdLower2Item.ContainsKey(givenId)) return IdLower2Item[givenId];
             return IdLower2Item.Where(
                     a => a.Key.Contains(givenId)
                 ).FirstOrDefault().Value;

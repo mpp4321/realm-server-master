@@ -131,9 +131,10 @@ namespace RotMG.Game.Logic.Database
                     new State("protect",
                         new Shoot(8, predictive: 0.4f, cooldown: 300),
                         new Prioritize(
-                            new Protect(0.6f, "Stheno the Snake Queen", 15, 1)
-
-                    ))
+                            new Protect(0.6f, "Stheno the Snake Queen", 15, 1),
+                            new Orbit(0.8f, 2, 20, target: "Stheno the Snake Queen")
+                        )
+                    )
                 );
 
         }
