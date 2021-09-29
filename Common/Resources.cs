@@ -86,10 +86,10 @@ namespace RotMG.Common
                     if (string.IsNullOrWhiteSpace(id))
                         throw new Exception("Invalid ID.");
                     if (Type2Object.ContainsKey(type) || Type2Item.ContainsKey(type))
-                        throw new Exception($"Duplicate type <{id}:{type}>");
+                        Program.Print(PrintType.Error, $"Duplicate type <{id}:{type}>");
                     if (Id2Object.ContainsKey(id) || Id2Item.ContainsKey(id))
                     {
-                        throw new Exception($"Duplicate ID <{id}:{type}> from <{Id2Object[id]} : {Id2Item[id]}>");
+                        Program.Print(PrintType.Error, $"Duplicate ID <{id}:{type}> from <{Id2Object[id]} : {Id2Item[id]}>");
                     }
 #endif
 

@@ -175,41 +175,45 @@ namespace RotMG.Networking
 
         private void StartReceive()
         {
-            switch (_receive.State)
+            while(true)
             {
-                case SocketEventState.Awaiting:
-                    if (_socket.Available >= GameServer.PrefixLength)
-                    {
-                        _socket.Receive(_receive.PacketBytes, GameServer.PrefixLength, SocketFlags.None);
-                        _receive.PacketLength = IPAddress.NetworkToHostOrder(BitConverter.ToInt32(_receive.PacketBytes, 0));
-                        _receive.State = SocketEventState.InProgress;
-                        StartReceive();
-                    }
-                    break;
-                case SocketEventState.InProgress:
-                    if (_receive.PacketLength == 1014001516) //Hacky policy file..
-                    {
-                        _socket.Send(GameServer.PolicyFile, 0, GameServer.PolicyFile.Length, SocketFlags.None);
+                switch (_receive.State)
+                {
+                    case SocketEventState.Awaiting:
+                        if (_socket.Available >= GameServer.PrefixLength)
+                        {
+                            _socket.Receive(_receive.PacketBytes, GameServer.PrefixLength, SocketFlags.None);
+                            _receive.PacketLength = IPAddress.NetworkToHostOrder(BitConverter.ToInt32(_receive.PacketBytes, 0));
+                            _receive.State = SocketEventState.InProgress;
+                            // removing recursion because of overflow StartReceive();
+                            continue;
+                        }
                         return;
-                    }
+                    case SocketEventState.InProgress:
+                        if (_receive.PacketLength == 1014001516) //Hacky policy file..
+                        {
+                            _socket.Send(GameServer.PolicyFile, 0, GameServer.PolicyFile.Length, SocketFlags.None);
+                            return;
+                        }
 
-                    if (_receive.PacketLength < GameServer.PrefixLength ||
-                        _receive.PacketLength > GameServer.BufferSize)
-                    {
-                        Disconnect();
-                        return;
-                    }
+                        if (_receive.PacketLength < GameServer.PrefixLength ||
+                            _receive.PacketLength > GameServer.BufferSize)
+                        {
+                            Disconnect();
+                            return;
+                        }
 
-                    if (_socket.Available + GameServer.PrefixLength >= _receive.PacketLength) //Full packet now arrived. Time to process it.
-                    {
-                        if (_socket.Available != 0)
-                            _socket.Receive(_receive.PacketBytes, GameServer.PrefixLength, _receive.PacketLength - GameServer.PrefixLength, SocketFlags.None);
-                        GameServer.Read(this, _receive.GetPacketId(), _receive.GetPacketBody());
-                        _receive.Reset();
-                    }
+                        if (_socket.Available + GameServer.PrefixLength >= _receive.PacketLength) //Full packet now arrived. Time to process it.
+                        {
+                            if (_socket.Available != 0)
+                                _socket.Receive(_receive.PacketBytes, GameServer.PrefixLength, _receive.PacketLength - GameServer.PrefixLength, SocketFlags.None);
+                            GameServer.Read(this, _receive.GetPacketId(), _receive.GetPacketBody());
+                            _receive.Reset();
+                        }
 
-                    StartReceive();
-                    break;
+                        //remove recursion because of overflow StartReceive();
+                        continue;
+                }
             }
         }
 
