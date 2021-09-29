@@ -2751,7 +2751,7 @@
 			<Index>0xdd</Index>
 		</Texture>
 	</Object>
-	 <Object type="0x2152" id="Fang Projectile">
+	 <Object type="0x2156" id="Fang Projectile">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj2</File>

@@ -76,9 +76,10 @@ namespace RotMG.Game.Logic.Database
                     )
                 );
 
-            db.Init("Archdemon Malphas", 
+            db.Init("Archdemon Malphas",
                 new State("Waiting",
-                    new PlayerWithinTransition(10, "base", seeInvis: true),
+                    new PlayerWithinTransition(10, "base", seeInvis: true)
+                ),
                 new State("base",
                     new Shoot(10, 1, 5, 3, fixedAngle: 0f, rotateAngle: 12f / 2, cooldown: 150),
                     new Shoot(10, 1, 5, 3, fixedAngle: 0f, rotateAngle: -26f / 2, cooldown: 150),
@@ -149,7 +150,7 @@ namespace RotMG.Game.Logic.Database
                         new ItemLoot("Potion of Vitality", 0.75f),
                         new ItemLoot("Potion of Defense", 0.1f),
                         new ItemLoot("Potion of Vitality", 0.1f)
-                    ))
+                    )
                 );
 
         }
