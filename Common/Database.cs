@@ -144,8 +144,8 @@ namespace RotMG.Common
 
         public static bool CanAttemptLogin(string ip)
         {
-            if (InvalidLoginAttempts.TryGetValue(ip, out var attempts) && attempts >= MaxInvalidLoginAttempts)
-                return false;
+            //if (InvalidLoginAttempts.TryGetValue(ip, out var attempts) && attempts >= MaxInvalidLoginAttempts)
+            //    return false;
             return true;
         }
 
