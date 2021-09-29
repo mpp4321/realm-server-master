@@ -77,6 +77,8 @@ namespace RotMG.Game.Logic.Database
                 );
 
             db.Init("Archdemon Malphas", 
+                new State("Waiting",
+                    new PlayerWithinTransition(10, "base", seeInvis: true),
                 new State("base",
                     new Shoot(10, 1, 5, 3, fixedAngle: 0f, rotateAngle: 12f / 2, cooldown: 150),
                     new Shoot(10, 1, 5, 3, fixedAngle: 0f, rotateAngle: -26f / 2, cooldown: 150),
@@ -131,6 +133,10 @@ namespace RotMG.Game.Logic.Database
                 ),
                     new ItemLoot("Demon Frog Generator", 0.02f, 0.01f),
                     new ItemLoot("Demon Blade", 0.05f, 0.01f),
+                    new ItemLoot("The War Path", 0.01f, 0.01f),
+                    new ItemLoot("Abyssal Emblem", 0.02f, 0.01f),
+                    new ItemLoot("Exuberant Heavy Plate", 0.03f, 0.01f),
+                    new ItemLoot("The Horned Circlet", 0.035f, 0.01f),
                     new ItemLoot("Potion of Life", 0.05f, 0.01f),
                     new Threshold(0.01f, 
                         new ItemLoot("The War Path", 0.01f),
@@ -139,8 +145,11 @@ namespace RotMG.Game.Logic.Database
                         new ItemLoot("Abyssal Emblem", 0.01f)
                     ),
                     new Threshold(0.01f,
-                        LootTemplates.BasicPots(0.2f)
-                    )
+                        new ItemLoot("Potion of Defense", 0.75f),
+                        new ItemLoot("Potion of Vitality", 0.75f),
+                        new ItemLoot("Potion of Defense", 0.1f),
+                        new ItemLoot("Potion of Vitality", 0.1f)
+                    ))
                 );
 
         }
