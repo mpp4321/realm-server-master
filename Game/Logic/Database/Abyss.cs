@@ -149,7 +149,8 @@ namespace RotMG.Game.Logic.Database
                         new ItemLoot("Potion of Defense", 0.75f),
                         new ItemLoot("Potion of Vitality", 0.75f),
                         new ItemLoot("Potion of Defense", 0.1f),
-                        new ItemLoot("Potion of Vitality", 0.1f)
+                        new ItemLoot("Potion of Vitality", 0.1f),
+                        new TopDamagersOnly(1, new ItemLoot("Potion of Life", 1f))
                     )
                 );
 
