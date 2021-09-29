@@ -60,9 +60,9 @@
 		<Terrain>HighSand</Terrain>
 		<Projectile id="0">
 			<ObjectId>Blue Magic</ObjectId>
-			<Damage>40</Damage>
-			<Speed>50</Speed>
-			<LifetimeMS>2700</LifetimeMS>
+			<Damage>30</Damage>
+			<Speed>40</Speed>
+			<LifetimeMS>1000</LifetimeMS>
 		</Projectile>
 	</Object>
 	
@@ -108,7 +108,7 @@
 			<ObjectId>Grey Star</ObjectId>
 			<Damage>0</Damage>
 			<Speed>70</Speed>
-			<LifetimeMS>2200</LifetimeMS>
+			<LifetimeMS>1650</LifetimeMS>
 			<ConditionEffect duration="10">Quiet</ConditionEffect>
 		</Projectile>
 

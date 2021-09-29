@@ -145,6 +145,14 @@ namespace RotMG.Game.Logic.Database
                         )
                     ),
                 new Threshold(0.03f,
+                    new TierLoot(11, LootType.Weapon, 0.2f),
+                    new TierLoot(11, LootType.Armor, 0.2f),
+                    new TierLoot(10, LootType.Weapon, 0.35f),
+                    new TierLoot(10, LootType.Armor, 0.35f),
+                    new ItemLoot("Potion of Wisdom", 0.65f),
+                    new ItemLoot("Potion of Dexterity", 0.35f),
+                    new ItemLoot("Potion of Defense", 0.5f),
+                    new ItemLoot("Potion of Wisdom", 0.65f),
                     new ItemLoot("Helm of the Juggernaut", 0.002f)
                 )
             );
@@ -159,7 +167,12 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Orb of Conflict", 0.005f)
                     ),
             new Threshold(0.005f,
-                    LootTemplates.BasicPots(0.5f)
+                    new TierLoot(5, LootType.Ability, 0.2f),
+                    new TierLoot(4, LootType.Ring, 0.2f),
+                    new TierLoot(4, LootType.Ability, 0.5f),
+                    new TierLoot(3, LootType.Ring, 0.5f),
+                    new ItemLoot("Potion of Dexterity", 0.3f),
+                    new ItemLoot("Potion of Attack", 0.3f)
                 )
             );
             db.Init("Red Flaming Skull",
@@ -274,6 +287,10 @@ namespace RotMG.Game.Logic.Database
                 //    new ItemLoot("Ancient Pendant", 0.007f)
                 //    ),
                 new Threshold(0.03f,
+                    new TierLoot(5, LootType.Ability, 0.2f),
+                    new TierLoot(4, LootType.Ring, 0.2f),
+                    new TierLoot(4, LootType.Ability, 0.35f),
+                    new TierLoot(3, LootType.Ring, 0.35f),
                     new ItemLoot("Helm of the Juggernaut", 0.005f),
                     new ItemLoot("Spear of the Storm", 0.005f)
                     )
@@ -320,6 +337,10 @@ namespace RotMG.Game.Logic.Database
                      LootTemplates.BasicPots()
                      ),
                   new Threshold(0.01f,
+                    new TierLoot(4, LootType.Ability, 0.2f),
+                    new TierLoot(3, LootType.Ring, 0.2f),
+                    new TierLoot(10, LootType.Armor, 0.2f),
+                    new TierLoot(10, LootType.Weapon, 0.2f),
                     new ItemLoot("Dirk of Cronus", 0.005f)
                   )
                 );
@@ -468,10 +489,10 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.03f,
                         new ItemLoot("Shield of Ogmur", 0.002f),
-                        new ItemLoot("Mithril Shield", 0.1f),
-                        new ItemLoot("Magic Nova Spell", 0.1f),
-                        new ItemLoot("Cloak of Endless Twilight", 0.1f),
-                        new ItemLoot("Golden Quiver", 0.1f)
+                        new TierLoot(11, LootType.Armor, 0.35f),
+                        new TierLoot(4, LootType.Ring, 0.2f),
+                        new TierLoot(10, LootType.Armor, 0.35f),
+                        new TierLoot(3, LootType.Ring, 0.2f)
                     ),
                 new Threshold(0.005f,
                     LootTemplates.BasicPots()
@@ -482,7 +503,8 @@ namespace RotMG.Game.Logic.Database
                     new Prioritize(
                         new Orbit(0.3f, 4, 10, "Lord of the Lost Lands")
                         ),
-                    new Shoot(8, count: 4, shootAngle: 7, cooldown: 500)
+                    new Shoot(8, count: 4, shootAngle: 7, cooldown: 500),
+                    new Decay(13000)
                     )
             );
             db.Init("Guardian of the Lost Lands",

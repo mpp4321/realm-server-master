@@ -163,7 +163,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Ogre Mage",
                 new State("base",
-                    new Shoot(10),
+                    new Shoot(10, cooldown: 250),
                     new Prioritize(
                         new StayAbove(1.2f, 160),
                         new Protect(1.2f, "Ogre King", 30, 10, reprotectRange: 1),
@@ -397,14 +397,13 @@ namespace RotMG.Game.Logic.Database
                     new DropPortalOnDeath("Snake Pit Portal", 20, timeout: 100),
                     new Spawn("Flayer", 2),
                     new Spawn("Flayer Veteran", 3),
-                    new Reproduce("Flayer God", densityMax: 2),
                     new Prioritize(
                         new StayAbove(0.4f, 155),
                         new Follow(1, range: 7),
                         new Wander(0.4f)
                         ),
                     new Shoot(10, index: 0, predictive: 0.5f, cooldown: 400),
-                    new Shoot(10, index: 1, predictive: 1)
+                    new Shoot(10, 4, 90, index: 1, fixedAngle: 0f, rotateAngle: -26f / 2, cooldown: 150)
                     ),
                 new TierLoot(5, LootType.Weapon, 0.16f),
                 new TierLoot(6, LootType.Weapon, 0.08f),
@@ -417,7 +416,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Flayer",
                 new State("base",
-                    new Shoot(10, predictive: 0.5f),
+                    new Shoot(10, 8, 45, fixedAngle: 0f, rotateAngle: -12f / 2),
                     new Prioritize(
                         new StayAbove(1, 155),
                         new Follow(1.2f, range: 7),
@@ -545,6 +544,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new ItemLoot("Health Potion", 0.03f),
                 new ItemLoot("Magic Potion", 0.03f),
+                new TierLoot(7, LootType.Weapon, 0.04f),
                 new TierLoot(7, LootType.Armor, 0.05f)
             );
             db.Init("Shield Orc Shield",

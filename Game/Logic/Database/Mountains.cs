@@ -267,8 +267,7 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                         ),
                     new Shoot(12, index: 0, count: 5, shootAngle: 72, predictive: 0.5f, cooldown: 750),
-                    new Shoot(10, index: 1, cooldown: 300),
-                    new Reproduce(densityMax: 3)
+                    new Shoot(10, index: 1, cooldown: 300)
                     ),
                 new Threshold(0.01f,
                     LootTemplates.MountainDrops()
@@ -403,7 +402,6 @@ namespace RotMG.Game.Logic.Database
                             new Wander(0.8f)
                             ),
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        new Reproduce(densityMax: 3, densityRadius: 20),
                         new PlayerWithinTransition(8, "Attacking")
                         ),
                     new State("Attacking",
