@@ -130,8 +130,9 @@ namespace RotMG.Game.Logic.Database
                     new Flash(0xffff0505, 0.5, 2)
                 ),
                     new ItemLoot("Demon Frog Generator", 0.02f, 0.01f),
-                    new ItemLoot("Demon Blade", 0.01f, 0.01f),
+                    new ItemLoot("Demon Blade", 0.05f, 0.01f),
                     new ItemLoot("Potion of Life", 0.05f, 0.01f),
+                    new ItemLoot("The War Path", 0.01f, 0.01f),
                     new Threshold(0.01f,
                         LootTemplates.BasicPots(0.2f)
                     )

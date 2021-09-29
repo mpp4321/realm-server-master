@@ -608,13 +608,13 @@ namespace RotMG.Game.Entities
                     case ActivateEffectIndex.Teleport:
                         if (eff.Position.X != 0 && eff.Position.Y != 0 && (eff.Map?.Equals(Parent.Name) ?? false))
                         {
+                            ApplyConditionEffect(ConditionEffectIndex.Invincible, 5000);
+                            ApplyConditionEffect(ConditionEffectIndex.Invisible, 5000);
                             Teleport(time, eff.Position, false);
                         }
                         else if (inRange)
                         { //Less than 0 means its a manual teleport thingy like a scroll
                             Teleport(time, target, true);
-                            ApplyConditionEffect(ConditionEffectIndex.Invincible, 5);
-                            ApplyConditionEffect(ConditionEffectIndex.Invisible, 5);
                         }
                         break;
                     case ActivateEffectIndex.Decoy:

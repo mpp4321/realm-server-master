@@ -91,4 +91,10 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 	</World>
+	<World name="SnakePit" display="Snake Pit">
+		<Maps>SnakePit/0.jm</Maps>
+		<Portals>0x0718</Portals>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+	</World>
 </Worlds>

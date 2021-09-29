@@ -9390,7 +9390,7 @@
     <NumProjectiles>1</NumProjectiles>
     <OldSound>arrowShoot</OldSound>
   </Object>
-  <Object type="0xc9c" id="Abyss Warrior Axe">
+  <Object type="0xc9c" id="The War Path">
     <Class>Equipment</Class>
     <Item/>
     <Texture>

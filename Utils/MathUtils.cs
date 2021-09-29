@@ -19,6 +19,11 @@ namespace RotMG.Utils
             return Convert.ToBase64String(x);
         }
 
+        public static Random GetStaticRandom()
+        {
+            return _rnd;
+        }
+
         public static float BoundToPI(float x)
         {
             int v;

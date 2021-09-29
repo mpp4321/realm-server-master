@@ -192,22 +192,22 @@ namespace RotMG.Game.Entities
 
         public void UpdateStats()
         {
-            TrySetSV(StatType.MaxHp, Stats[0] + Boosts[0] + GetTemporaryStatBoost(0));
-            TrySetSV(StatType.MaxHpBoost, Boosts[0] + GetTemporaryStatBoost(0));
-            TrySetSV(StatType.MaxMp, Stats[1] + Boosts[1] + GetTemporaryStatBoost(1));
-            TrySetSV(StatType.MaxMpBoost, Boosts[1] + GetTemporaryStatBoost(1));
-            SetPrivateSV(StatType.Attack, Stats[2] + Boosts[2] + GetTemporaryStatBoost(2));
-            SetPrivateSV(StatType.AttackBoost, Boosts[2] + GetTemporaryStatBoost(2));
-            SetPrivateSV(StatType.Defense, Stats[3] + Boosts[3] + GetTemporaryStatBoost(3));
-            SetPrivateSV(StatType.DefenseBoost, Boosts[3] + GetTemporaryStatBoost(3));
-            TrySetSV(StatType.Speed, Stats[4] + Boosts[4] + GetTemporaryStatBoost(4));
-            TrySetSV(StatType.SpeedBoost, Boosts[4] + GetTemporaryStatBoost(4));
-            TrySetSV(StatType.Dexterity, Stats[5] + Boosts[5] + GetTemporaryStatBoost(5));
-            TrySetSV(StatType.DexterityBoost, Boosts[5] + GetTemporaryStatBoost(5));
-            SetPrivateSV(StatType.Vitality, Stats[6] + Boosts[6] + GetTemporaryStatBoost(6));
-            SetPrivateSV(StatType.VitalityBoost, Boosts[6] + GetTemporaryStatBoost(6));
-            SetPrivateSV(StatType.Wisdom, Stats[7] + Boosts[7] + GetTemporaryStatBoost(7));
-            SetPrivateSV(StatType.WisdomBoost, Boosts[7] + GetTemporaryStatBoost(7));
+            TrySetSV(StatType.MaxHp, GetStatTotal(0));
+            TrySetSV(StatType.MaxHpBoost, GetBoosts(0));
+            TrySetSV(StatType.MaxMp, GetStatTotal(1));
+            TrySetSV(StatType.MaxMpBoost, GetBoosts(1));
+            SetPrivateSV(StatType.Attack, GetStatTotal(2));
+            SetPrivateSV(StatType.AttackBoost, GetBoosts(2));
+            SetPrivateSV(StatType.Defense, GetStatTotal(3));
+            SetPrivateSV(StatType.DefenseBoost, GetBoosts(3));
+            TrySetSV(StatType.Speed, GetStatTotal(4));
+            TrySetSV(StatType.SpeedBoost, GetBoosts(4));
+            TrySetSV(StatType.Dexterity, GetStatTotal(5));
+            TrySetSV(StatType.DexterityBoost, GetBoosts(5));
+            SetPrivateSV(StatType.Vitality, GetStatTotal(6));
+            SetPrivateSV(StatType.VitalityBoost, GetBoosts(6));
+            SetPrivateSV(StatType.Wisdom, GetStatTotal(7));
+            SetPrivateSV(StatType.WisdomBoost, GetBoosts(7));
         }
 
         public void TickBoosts()
@@ -225,7 +225,12 @@ namespace RotMG.Game.Entities
 
         internal int GetStatTotal(int v)
         {
-            return Stats[v] + Boosts[v] + GetTemporaryStatBoost(v);
+            return Math.Max(0, Stats[v] + GetBoosts(v));
+        }
+
+        internal int GetBoosts(int v)
+        {
+            return Boosts[v] + GetTemporaryStatBoost(v);
         }
     }
 }
