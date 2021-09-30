@@ -133,6 +133,7 @@ namespace RotMG.Game.Logic.Behaviors
 
                     if (RotateAngle != null)
                     {
+                        if (host.StateObject[Id] == null) host.StateObject[Id] = 0;
                         var rotateCount = (int)host.StateObject[Id];
                         angle += (float)RotateAngle * rotateCount;
                         rotateCount++;

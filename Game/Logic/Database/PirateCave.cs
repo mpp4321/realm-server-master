@@ -149,6 +149,8 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(cooldown: 1000, cooldownVariance: 500, angleOffset: 45, predictive: 1, effect: new ConditionEffectIndex[] { ConditionEffectIndex.Confused }, effect_duration: 1500)
                 )
             );
+
+            db.EveryInit = new MobDrop[] { };
         }
     }
 }

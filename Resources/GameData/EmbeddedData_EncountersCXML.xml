@@ -829,7 +829,6 @@
     <Size>0</Size>
     <Enemy/>
     <NoMiniMap/>
-
     <Texture>
       <File>invisible</File>
       <Index>0</Index>
@@ -837,23 +836,10 @@
 
     <HitSound>monster/skeletons_hit</HitSound>
     <DeathSound>monster/dwarves_death</DeathSound>
-
     <MaxHitPoints>10000</MaxHitPoints>
     <XpMult>0.0</XpMult>
     <Size>110</Size>
     <Defense>50</Defense>
-
-
-
-
-
-
-
-
-
-
-
-
   </Object>
 
   <Object type="0x0d66" id="Hermit God Drop">
@@ -875,5 +861,51 @@
     <Defense>0</Defense>
     <XpMult>0.0</XpMult>
 
+  </Object>
+
+  <Object type="0x0d67" id="Realm Reaper">
+    <Group>Reapers</Group>
+    <Enemy/>
+    <Class>Character</Class>
+    <Hero/>
+    <Quest/>
+    <God/>
+    <Encounter/>
+    <StasisImmune/>
+    <Level>20</Level>
+    <PerRealmMax>1</PerRealmMax>
+
+    <AnimatedTexture>
+      <File>d3Chars16x16rEmbed</File>
+      <Index>33</Index>
+    </AnimatedTexture>
+
+    <HitSound>monster/golems_hit</HitSound>
+    <DeathSound>monster/beholder_death</DeathSound>
+
+    <MaxHitPoints>70000</MaxHitPoints>
+
+    <Projectile id="0">
+      <ObjectId>Armor Pierce Bullet</ObjectId>
+      <Speed>55</Speed>
+      <ArmorPiercing/>
+      <Damage>150</Damage>
+      <LifetimeMS>6000</LifetimeMS>
+      <Size>125</Size>
+    </Projectile>
+    <Projectile id="1">
+      <ObjectId>Vortex</ObjectId>
+      <Speed>70</Speed>
+      <Damage>125</Damage>
+      <Size>150</Size>
+      <LifetimeMS>5000</LifetimeMS>
+      <PassesCover/>
+      <Amplitude>0.1</Amplitude>
+      <Frequency>50</Frequency>
+      <ConditionEffect duration="5">Bleeding</ConditionEffect>
+    </Projectile>
+    <Size>140</Size>
+    <Defense>30</Defense>
+    <XpMult>0.3</XpMult>
   </Object>
 </Objects>

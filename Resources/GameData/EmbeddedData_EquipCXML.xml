@@ -9634,14 +9634,15 @@
     <RateOfFire>0.8</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
-      <ObjectId>Armor Piercing Bullet</ObjectId>
+      <ObjectId>Armor Pierce Bullet</ObjectId>
       <Speed>55</Speed>
       <Size>125</Size>
-      <MinDamage>55</MinDamage>
-      <MaxDamage>100</MaxDamage>
+      <MinDamage>66</MinDamage>
+      <MaxDamage>120</MaxDamage>
       <LifetimeMS>1400</LifetimeMS>
       <Amplitude>0.5</Amplitude>
       <Frequency>2</Frequency>
+      <ArmorPiercing>true</ArmorPiercing>
     </Projectile>
     <BagType>5</BagType>
     <FameBonus>6</FameBonus>

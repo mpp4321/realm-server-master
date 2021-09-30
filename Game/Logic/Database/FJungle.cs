@@ -176,6 +176,8 @@ namespace RotMG.Game.Logic.Database
                                          new ItemLoot("Staff of the Crystal Serpent", 0.05f), new ItemLoot("Crystal Bone Ring", 0.05f),
                                          new ItemLoot("Captured Ritual Flame", 0.05f))
                 );
+
+            db.EveryInit = new IBehavior[0];
         }
     }
 }
