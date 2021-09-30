@@ -25,7 +25,12 @@ namespace RotMG.Game.Logic.Behaviors
         public SetAltTexture(int minValue, int maxValue = -1, Cooldown cooldown = new Cooldown(), bool loop = false)
         {
             _indexMin = minValue;
-            _indexMax = maxValue;
+            if(maxValue == -1)
+            {
+                _indexMax = minValue;
+                _indexMin = minValue - 1;
+            } else
+                _indexMax = maxValue;
             _cooldown = cooldown.Normalize(0);
             _loop = loop;
         }

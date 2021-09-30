@@ -102,4 +102,9 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 	</World>
+	<World name="LOShaitans" display="Lair of Shaitans">
+		<Maps>Shaitans/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+	</World>
 </Worlds>

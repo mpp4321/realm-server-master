@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RotMG.Game.Logic.Transitions;
+using System;
 using System.Collections.Generic;
 
 namespace RotMG.Game.Logic
@@ -38,15 +39,26 @@ namespace RotMG.Game.Logic
             }
         }
 
-        public void FindStateTransitions()
+        State FindNthParentState(State s, int n)
+        {
+            if (n == 0) return s;
+            return FindNthParentState(s.Parent, n - 1);
+        }
+
+        public void FindStateTransitions(IEnumerable<State> firstLayer)
         {
             foreach (var transition in Transitions)
-                foreach (var state in Parent.States.Values)
+            {
+                var iterState = FindNthParentState(this, transition.SubIndex);;
+                foreach (var state in iterState?.States.Values ?? firstLayer)
+                {
                     if (state.StringId == transition.StringTargetState)
                         transition.TargetState = state.Id;
+                }
+            }
 
             foreach (var state in States.Values)
-                state.FindStateTransitions();
+                state.FindStateTransitions(firstLayer);
         }
     }
 }

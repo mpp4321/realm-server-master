@@ -88,7 +88,11 @@ namespace RotMG.Game.Logic.Behaviors
 
             c -= Settings.MillisecondsPerTick;
             state = c;
-            if (c > 0) return false;
+            if (c > 0)
+            {
+                host.StateObject[Id] = state;
+                return false;
+            }
 
             c = cooldown.Next(_Random);
             state = c;
@@ -128,11 +132,13 @@ namespace RotMG.Game.Logic.Behaviors
                     player.Client.Send(packet);
             }
             else
-                foreach (var i in host.Parent.PlayerChunks.HitTest(host.Position, 15).Where(e => e is Player))
+                foreach (var i in host.Parent.PlayerChunks.HitTest(host.Position, 15f).Where(e => e is Player))
                 {
-                    if (i is Player && MathUtils.Distance(host.Position, i.Position) < 15)
+                    if (i is Player)
                         (i as Player).Client.Send(packet);
                 }
+
+            host.StateObject[Id] = state;
 
             return true;
         }

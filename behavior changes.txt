@@ -3,22 +3,36 @@ current next id: 5008
 
 # Copy paste info for formatting behaviors
 
-\.Init -> db.Init
+\.Init
+db.Init
 
-State\([^\"] -> State("base",
+State\([^\"]
+State("base",
 
-(\s+\))[^\,] -> $1;
+(\s+\))[^\,]
+$1;
 
-TimedTransition\((\d+), (.+)\) -> TimedTransition($2, $1)
+TimedTransition\((\d+), (.+)\)
+TimedTransition($2, $1)
 
-projectileIndex -> index
-coolDown -> cooldown
+projectileIndex
+index
 
-(\d*\.\d+)(?=[^f\d]) -> $1f
+coolDown
+cooldown
 
-ItemType -> LootType
-HpLessTransition -> HealthTransition
+(\d*\.\d+)(?=[^f\d])
+$1f
 
-EntitiesNotExistsTransition\((.+), (\d+), (.+)\) -> EntitiesNotExistsTransition($2, $3, $1)
+ItemType
+LootType
 
-EntitiesWithinTransition\((.+), (.+), -> EntitiesWithinTransition($2, $1,
+HpLessTransition
+HealthTransition
+
+EntitiesNotExistsTransition\((.+), (\d+), (.+)\)
+EntitiesNotExistsTransition($2, $3, $1)
+
+EntityExistsTransition\((.+), (.+),
+EntitiesWithinTransition\((.+), (.+),
+EntitiesWithinTransition($2, $1,

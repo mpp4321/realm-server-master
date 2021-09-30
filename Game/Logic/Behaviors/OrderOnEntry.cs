@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace RotMG.Game.Logic.Behaviors
 {
-    class Order : Behavior
+    class OrderOnEntry : Behavior
     {
         //State storage: none
 
@@ -13,20 +13,19 @@ namespace RotMG.Game.Logic.Behaviors
         private readonly ushort _children;
         private readonly string _targetStateName;
 
-        public Order(float range, string children, string targetState)
+        public OrderOnEntry(float range, string children, string targetState)
         {
             _range = range;
             _children = Resources.Id2Object[children].Type;
             _targetStateName = targetState;
         }
 
-        public override bool Tick(Entity host)
+        public override void Enter(Entity host)
         {
-            foreach(var i in host.Parent.EntityChunks.HitTest(host.Position, _range).Where(z => z.GetObjectDefinition().ObjectType == _children))
+            foreach (var i in host.Parent.EntityChunks.HitTest(host.Position, _range).Where(z => z.GetObjectDefinition().ObjectType == _children))
             {
                 OrderOnDeath.ChangeStateTree(i, _targetStateName);
             }
-            return false;
         }
     }
 }

@@ -39,7 +39,7 @@ namespace RotMG.Game.Logic.Transitions
 
             if(allEntities)
             {
-                return host.Parent.Entities.Select(a => a.Value).OfType<Enemy>().All(a => _targets.Contains((ushort) a.Id));
+                return host.Parent.Entities.Select(a => a.Value).OfType<Enemy>().All(a => !_targets.Contains(a.Type));
             }
             return _targets.All(t => GameUtils.GetNearestEntity(host, _dist, t) == null);
         }

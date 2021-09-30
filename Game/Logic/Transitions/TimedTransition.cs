@@ -17,7 +17,7 @@ namespace RotMG.Game.Logic.Transitions
 
         public override void Enter(Entity host)
         {
-            host.StateCooldown[Id]  = Time;
+            host.StateCooldown[Id] = Time;
         }
 
         public override bool Tick(Entity host)

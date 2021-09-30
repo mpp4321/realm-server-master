@@ -2785,4 +2785,50 @@
 			<Index>0xbd</Index>
 		</Texture>
 	</Object>
+
+  <!-- Cosmic stuff  -->
+
+  <Object type="0x221a" id="Ice Bullet">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x45b</Index>
+    </Texture>
+    <Rotation>185</Rotation>
+  </Object>
+  <Object type="0x221b" id="Fire Bullet">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x45c</Index>
+    </Texture>
+    <Rotation>185</Rotation>
+  </Object>
+  <Object type="0x221d" id="Armor Pierce Bullet">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x486</Index>
+    </Texture>
+    <Rotation>185</Rotation>
+  </Object>
+  <Object type="0x2170" id="Paralyze Bullet">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x487</Index>
+    </Texture>
+    <Rotation>185</Rotation>
+  </Object>
+  <Object type="0x2590" id="Weakness Bullet">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x4BD</Index>
+    </Texture>
+    <Rotation>185</Rotation>
+  </Object>
+
+  <!-- Cosmic stuff  -->
+
 </Objects>

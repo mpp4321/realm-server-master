@@ -9600,4 +9600,54 @@
     <Description>/mix to reroll an item's modifiers.</Description>
     <BagType>3</BagType>
   </Object>
+  <Object type="0xcb1" id="Book of Shaitan">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0x59</Index>
+    </Texture>
+    <SlotType>4</SlotType>
+    <!--<ExtraTooltipData>
+      <EffectInfo name="Hell Fire" description=""/>
+      <EffectInfo name="" description="Within 5 squares on cursor bleed enemies for 5 seconds."/>
+    </ExtraTooltipData>-->
+    <Description>TODO</Description>
+    <Sound>spell/major_heal</Sound>
+    <ActivateOnEquip stat="3" amount="4">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="4" amount="4">IncrementStat</ActivateOnEquip>
+    <Usable/>
+    <BagType>5</BagType>
+    <FameBonus>6</FameBonus>
+    <MpCost>85</MpCost>
+    <Activate color="0xffCD4D3B" targetCursor="true" effect="Bleeding" duration="5" range="5">ConditionEffectBlast</Activate>
+  </Object>
+  <Object type="0xcb2" id="Piercing Fire">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0x5a</Index>
+    </Texture>
+    <SlotType>8</SlotType>
+    <Description>TODO</Description>
+    <RateOfFire>0.8</RateOfFire>
+    <Sound>weapon/wand_of_death</Sound>
+    <Projectile>
+      <ObjectId>Armor Piercing Bullet</ObjectId>
+      <Speed>55</Speed>
+      <Size>125</Size>
+      <MinDamage>55</MinDamage>
+      <MaxDamage>100</MaxDamage>
+      <LifetimeMS>1400</LifetimeMS>
+      <Amplitude>0.5</Amplitude>
+      <Frequency>2</Frequency>
+    </Projectile>
+    <BagType>5</BagType>
+    <FameBonus>6</FameBonus>
+    <NumProjectiles>2</NumProjectiles>
+    <ArcGap>0</ArcGap>
+    <OldSound>magicShoot</OldSound>
+  </Object>
+  <!-- ca5 -> caf available -->
 </Objects>

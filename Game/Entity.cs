@@ -1,6 +1,7 @@
 ﻿using RotMG.Common;
 using RotMG.Game.Entities;
 using RotMG.Game.Logic;
+using RotMG.Game.Logic.Behaviors;
 using RotMG.Utils;
 using System;
 using System.Collections.Generic;
@@ -238,6 +239,18 @@ namespace RotMG.Game
         public virtual void Tick()
         {
             TickEffects();
+
+            //Tick bleeding eff
+            if (HasConditionEffect(ConditionEffectIndex.Bleeding) &&
+                !HasConditionEffect(ConditionEffectIndex.Invulnerable) &&
+                !HasConditionEffect(ConditionEffectIndex.Invincible))
+            {
+                var amount = Math.Min(500 / Settings.TicksPerSecond,
+                    Math.Max(20.0f / Settings.TicksPerSecond, MaxHp * 0.005f)
+                ); 
+                Hp = Math.Max(1, Hp - (int) amount);
+            }
+
             TickStates();
 
             if (History != null)
@@ -548,6 +561,27 @@ namespace RotMG.Game
             return false;
         }
 
+        //ExitStates from external source, such as "Order" commands: *NOTE* clear states
+        public void ExitStates()
+        {
+            foreach (var s in CurrentStates)
+            {
+                foreach (var b in s.Behaviors) b.Exit(this);
+                foreach (var t in s.Transitions) t.Exit(this);
+            }
+            CurrentStates.Clear();
+        }
+
+        //EnterStates from external source, such as "Order" commands
+        public void EnterStates()
+        {
+            foreach (var s in CurrentStates)
+            {
+                foreach (var b in s.Behaviors) b.Enter(this);
+                foreach (var t in s.Transitions) t.Enter(this);
+            }
+        }
+
         public void InitStates()
         {
             Behavior = Manager.Behaviors.Resolve(Type);
@@ -570,15 +604,18 @@ namespace RotMG.Game
                     else states = null;
                 }
 
-                foreach (var s in CurrentStates)
-                {
-                    foreach (var b in s.Behaviors) b.Enter(this);
-                    foreach (var t in s.Transitions) t.Enter(this);
-                }
+                EnterStates();
 
                 foreach (var b in Behavior.Behaviors)
                     b.Enter(this);
             }
+        }
+
+        public (State, int) FindNthParentState(State s, int n, int c)
+        {
+            if (n == 0) return (s, c);
+            var nth = FindNthParentState(s.Parent, n - 1, c + s.Parent.States.Count);
+            return nth;
         }
 
         public void TickStates()
@@ -606,11 +643,13 @@ namespace RotMG.Game
                 {
                     var state = CurrentStates[i];
                     var targetState = -1;
+                    var subIndexState = 1;
                     foreach (var transition in state.Transitions)
                     {
                         if (transition.Tick(this))
                         {
                             targetState = transition.TargetState;
+                            subIndexState = transition.SubIndex;
                             break;
                         }
                     }
@@ -619,34 +658,57 @@ namespace RotMG.Game
                     if (targetState != -1)
                     {
 
+                        //This is where the loop should stop looking
+                        int subIndexStart = i - subIndexState + 1;
+
                         //Exit old behaviors/transitions
-                        for (var k = i; k < CurrentStates.Count; k++) 
+                        for (var k = subIndexStart; k < CurrentStates.Count; k++) 
                         {
                             foreach (var behavior in CurrentStates[k].Behaviors) behavior.Exit(this);
                             foreach (var transition in CurrentStates[k].Transitions) transition.Exit(this);
                         }
 
                         //Clear old substates
-                        while (CurrentStates.Count > i)
-                            CurrentStates.RemoveAt(i);
+                        while (CurrentStates.Count > subIndexStart)
+                            CurrentStates.RemoveAt(subIndexStart);
 
                         //Get new substates
-                        var subIndex = i - 1;
-                        var states = i == 0 ? Behavior.States : CurrentStates[i - 1].States;
-                        while (states != null)
+                        int subIndex = subIndexStart - 1;
+
+                        if(subIndex < 0)
                         {
-                            subIndex++;
-                            if (states.Count > 0)
+                            foreach(var outerState in Behavior.States)
                             {
-                                if (subIndex == i && states.ContainsKey(targetState)) CurrentStates.Add(states[targetState]);
-                                else CurrentStates.Add(states.Values.First());
-                                states = CurrentStates.Last().States;
+                                if(outerState.Value.Id == targetState)
+                                {
+                                    CurrentStates.Add(outerState.Value);
+                                    break;
+                                }
                             }
-                            else states = null;
+                        } else
+                        {
+                            var stateToAdd = OrderOnDeath.FindTransverseState(CurrentStates[subIndex], targetState) ?? new List<State>();
+                            for(int l = stateToAdd.Count - 1; l > 0; l--)
+                            {
+                                CurrentStates.Add(stateToAdd[l]);
+                            }
                         }
 
+                        
+                        //while (states != null)
+                        //{
+                        //    subIndex++;
+                        //    if (states.Count > 0)
+                        //    {
+                        //        if (subIndex == subIndexState && states.ContainsKey(targetState)) CurrentStates.Add(states[targetState]);
+                        //        else CurrentStates.Add(states.Values.First());
+                        //        states = CurrentStates.Last().States;
+                        //    }
+                        //    else states = null;
+                        //}
+
                         //Enter new behaviors/transitions
-                        for (var k = i; k < CurrentStates.Count; k++)
+                        for (var k = subIndexStart; k < CurrentStates.Count; k++)
                         {
                             foreach (var behavior in CurrentStates[k].Behaviors) behavior.Enter(this);
                             foreach (var transition in CurrentStates[k].Transitions) transition.Enter(this);

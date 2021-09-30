@@ -37,15 +37,27 @@ namespace RotMG.Game.Logic
             }
             Loot = new Loot(loots.ToArray());
 
+            //2d loop through states to match states with other states in the base level
             foreach (var s1 in States.Values)
                 foreach (var t in s1.Transitions)
                     foreach (var s2 in States.Values)
+                    {
+                        if(t.SubIndex == 0) //Look for this transition w/ithin self state
+                        {
+                            foreach (var s3 in s2.States.Values)
+                            {
+                                if(s3.StringId == t.StringTargetState)
+                                    t.TargetState = s3.Id;
+                            }
+                        } else
                         if (s2.StringId == t.StringTargetState)
                             t.TargetState = s2.Id;
+                    }
 
+            //Do the same for each inner state looks like
             foreach (var s1 in States.Values)
                 foreach (var s2 in s1.States.Values)
-                    s2.FindStateTransitions();
+                    s2.FindStateTransitions(States.Values);
         }
     }
 
