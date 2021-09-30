@@ -628,7 +628,8 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("1", 2100)
                     )
                 ),
-                new Threshold(0.001f, 
+                new ClearRectangleOnDeath(new IntPoint(0, 0), new IntPoint(30, 30)),
+                new Threshold(0.001f,
                     new TierLoot(10, LootType.Weapon, 0.1f),
                     new TierLoot(11, LootType.Weapon, 0.05f),
                     new TierLoot(10, LootType.Armor, 0.1f),
