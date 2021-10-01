@@ -9650,5 +9650,22 @@
     <ArcGap>0</ArcGap>
     <OldSound>magicShoot</OldSound>
   </Object>
+  <Object type="0xcb3" id="Placeholder Cloak">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0x20</Index>
+    </Texture>
+    <SlotType>13</SlotType>
+    <Description>A magical cloak, made for slipping into shadows undetected.</Description>
+    <Sound>spell/fire_nova</Sound>
+    <Usable/>
+    <BagType>0</BagType>
+    <MpCost>60</MpCost>
+    <Activate effect="Invisible" duration="3">ConditionEffectSelf</Activate>
+    <UniqueEffect>ElectricSnake</UniqueEffect>
+    <Cooldown>4</Cooldown>
+  </Object>
   <!-- ca5 -> caf available -->
 </Objects>

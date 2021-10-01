@@ -23,6 +23,7 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("PoisonFire", new PoisonFire());
             Registry.Add("Electricity", new Electricity());
             Registry.Add("BloodSuck", new BloodSuckingAmulet());
+            Registry.Add("ElectricSnake", new ElectricSnake());
 
             //components
             Registry.Add("FireRune", new FireRune());

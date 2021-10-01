@@ -48,7 +48,16 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("Die", 5000)
                     ),
                     new State("Die", new Suicide())
+
                 );
+
+            db.Init("Electric Snake Ally",
+                new State("Base", 
+                    new Shoot(12, count: 3, shootAngle: 10, cooldown: 500, playerOwner: e => e.PlayerOwner),
+                    new TimedTransition("Die", 5000)
+                ),
+                new State("Die", new Suicide())
+            );
 
             db.Init("Poison Fire", new State("Base", 
                 new PulseFire((h) =>
