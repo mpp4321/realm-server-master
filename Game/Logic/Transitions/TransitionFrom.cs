@@ -11,7 +11,7 @@ namespace RotMG.Game.Logic.Transitions
 
         public TransitionFrom(string idFrom, string idTo) : base(idTo)
         {
-            IdFrom = idFrom;
+            IdFrom = idFrom.ToLower();
             SubIndex = 0;
         }
 

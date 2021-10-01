@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static RotMG.Game.Logic.LootDef;
 
 namespace RotMG.Game.Logic.Mechanics
 {
@@ -58,7 +59,7 @@ namespace RotMG.Game.Logic.Mechanics
                     var item = Resources.Type2Item[(ushort) p.Inventory[goo.Item2]];
                     ItemDataModType vtype = ItemDataModType.Classical;
                     Enum.TryParse(p.Client.Character.ItemDataModifier, out vtype);
-                    var r = item.Roll(null, vtype);
+                    var r = item.Roll(new RarityModifiedData(1.0f, 3, true), vtype);
 
                     p.Inventory[goo.Item1] = -1;
                     p.ItemDatas[goo.Item1] = new ItemDataJson();

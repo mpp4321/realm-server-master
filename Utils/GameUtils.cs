@@ -23,7 +23,7 @@ namespace RotMG.Utils
             if (entity.HasConditionEffect(ConditionEffectIndex.Cursed))
                 damage *= 2;
 
-            var min = damage * 3 / 20;
+            var min = damage / 20;
             var d = Math.Max(min, damage - defense);
             return d;
         }

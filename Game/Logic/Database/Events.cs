@@ -18,14 +18,15 @@ namespace RotMG.Game.Logic.Database
             db.Init("Hermit God",
                 new State("base",
                     new TransferDamageOnDeath("Hermit God Drop"),
-                    new OrderOnDeath(20, "Hermit God Tentacle Spawner", "Die", 1),
-                    new OrderOnDeath(20, "Hermit God Drop", "Die", 1),
+                    new OrderOnDeath(20, "Hermit God Tentacle Spawner", "Die"),
+                    new OrderOnDeath(20, "Hermit God Drop", "Die"),
+                    new TransitionFrom("base", "spawn tentacle"),
                     new State("Spawn Tentacle",
                         new ConditionalEffect(ConditionEffectIndex.Invincible),
                         new SetAltTexture(2),
                         new Order(20, "Hermit God Tentacle Spawner", "Tentacle"),
                         new EntitiesWithinTransition( 20, "Hermit God Tentacle", "Sleep")
-                        ),
+                    ),
                     new State("Sleep",
                         new ConditionalEffect(ConditionEffectIndex.Invincible),
                         new Order(20, "Hermit God Tentacle Spawner", "Minions"),
@@ -138,12 +139,13 @@ namespace RotMG.Game.Logic.Database
             db.Init("Hermit God Drop",
                 new State("base",
                     new ConditionalEffect(ConditionEffectIndex.Invincible, true),
-                    new State("Waiting"),
                     new DropPortalOnDeath("Ocean Trench Portal", 1),
+
+                    new State("Waiting"),
                     new State("Die",
                         new Suicide()
-                        )
-                    ),
+                    )
+                ),
                 new Threshold(0.03f,
                     new TierLoot(11, LootType.Weapon, 0.2f),
                     new TierLoot(11, LootType.Armor, 0.2f),
@@ -586,10 +588,10 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new State("Die",
                         new Suicide()
-                        )
-                    ),
+                    )
+                ),
                 new Threshold(0.03f,
-                    new ItemLoot("Seal of Blasphemous Prayer", 0.00047f)
+                    new ItemLoot("Seal of Blasphemous Prayer", 0.005f)
                     ),
                 new Threshold(0.01f,
                    new TierLoot(8, LootType.Weapon, .3f),

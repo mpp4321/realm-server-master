@@ -1362,7 +1362,6 @@
     <BlendPriority>1</BlendPriority>
   </Ground>
 
-
   <Ground type="0xf5" id="Gold Sand">
     <Texture>
       <File>lofiEnvironment3</File>
@@ -3470,8 +3469,7 @@
       <File>lofiObj3</File>
       <Index>0x483</Index>
     </Texture>
-    <MinDamage>70</MinDamage>
-    <MaxDamage>80</MaxDamage>
+    <Damage>30</Damage>
     <Animate dx=".33" dy=".33">Flow</Animate>
     <Sink/>
     <Speed>.777</Speed>
@@ -4185,6 +4183,30 @@
         <Index>14</Index>
       </Texture>
     </RandomTexture>
+  </Ground>
+  <Ground type="0xb032" id="Magma Lava">
+    <RandomTexture>
+	<Texture>
+      <File>lofiObj3</File>
+      <Index>0x5c8</Index>
+	</Texture>
+	<Texture>
+      <File>lofiObj3</File>
+      <Index>0x5c9</Index>
+	</Texture>
+	<Texture>
+      <File>lofiObj3</File>
+      <Index>0x5ca</Index>
+	</Texture>
+	<Texture>
+      <File>lofiObj3</File>
+      <Index>0x5cb</Index>
+	</Texture>
+    </RandomTexture>
+    <Damage>50</Damage>
+    <Animate dx=".33" dy=".33">Flow</Animate>
+    <Sink/>
+    <Speed>.777</Speed>
   </Ground>
 </GroundTypes>
 <!-- Next is : 0xb032 !-->

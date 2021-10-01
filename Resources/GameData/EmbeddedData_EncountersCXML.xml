@@ -845,6 +845,8 @@
   <Object type="0x0d66" id="Hermit God Drop">
     <Group>Hermit God Encounter</Group>
     <Class>Character</Class>
+    <!-- drops loot needs enemy -->
+    <Enemy/>
     <StasisImmune/>
     <NoMiniMap/>
 

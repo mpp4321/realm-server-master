@@ -791,14 +791,14 @@ namespace RotMG.Common
             var chance = .5f * r.RarityMod;
             for (var i = 0; i < 8 - r.RarityShift; i++)
             {
-                if (MathUtils.Chance(chance) && rank < 9)
+                if (MathUtils.Chance(chance) && rank < 8)
                     rank++;
                 else break;
             }
             if (rank == -1 && !r.AlwaysRare) 
                 return Tuple.Create(false, FinalizeItemData(smod, data));
             //Considering the -1 rank
-            rank += r.RarityShift + (r.AlwaysRare ? 1 : 0);
+            rank = Math.Min(7, rank + r.RarityShift + (r.AlwaysRare ? 1 : 0));
 
             data |= (ItemData)((ulong)1 << rank);
 

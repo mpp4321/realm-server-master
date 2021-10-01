@@ -25,7 +25,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
 
             float chance = 0.105f;
 
-            if (hitBy.Stats[3] + hitBy.Boosts[3] + hitBy.GetTemporaryStatBoost(3) > by.Damage) chance = 0.03f;
+            if (hitBy.GetStatTotal(3) > by.Damage) chance = 0.03f;
 
             if(MathUtils.NextFloat() < chance)
             {

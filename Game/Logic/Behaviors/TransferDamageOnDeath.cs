@@ -1,6 +1,8 @@
 ﻿using RotMG.Common;
 using RotMG.Game.Entities;
 using RotMG.Utils;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace RotMG.Game.Logic.Behaviors
 {
@@ -23,12 +25,14 @@ namespace RotMG.Game.Logic.Behaviors
             if (enemy == null)
                 return;
 
-            var targetObj = GameUtils.GetNearestEntity(host, _radius, _target) as Enemy;
+            foreach(var targetObj in GameUtils.GetNearbyEntities(host, _radius).OfType<Enemy>().Where(a => a.Type == _target))
+            {
+                if (targetObj == null)
+                    return;
 
-            if (targetObj == null)
-                return;
+                targetObj.DamageStorage = new Dictionary<Player, int>(enemy.DamageStorage);
+            } 
 
-            targetObj.DamageStorage = enemy.DamageStorage;
         }
     }
 }

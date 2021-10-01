@@ -10,16 +10,14 @@ namespace RotMG.Game.Logic.Behaviors
         private readonly float _range;
         private readonly ushort _target;
         private readonly string _stateName;
-        private readonly float _probability;
 
-        public OrderOnDeath(float range, string target, string state, double probability = 1)
+        public OrderOnDeath(float range, string target, string state)
         {
             _range = range;
             _target = Resources.Id2Object[target].Type;
-            _stateName = state;
-            _probability = (float) probability;
+            _stateName = state.ToLower();
         }
-
+ 
         public static void ChangeStateTree(Entity i, string target)
         {
             if (!i.CurrentStates.Any(a => a.StringId.Equals(target)))
@@ -29,7 +27,7 @@ namespace RotMG.Game.Logic.Behaviors
                     if (tree.Count == 0) return tree;
                     tree.Insert(0, a);
                     return tree;
-                }).FirstOrDefault(a => (a?.Count != 0));
+                }).FirstOrDefault(a => a.Count != 0) ?? new List<State>();
 
                 if (s.Count > 0)
                 {

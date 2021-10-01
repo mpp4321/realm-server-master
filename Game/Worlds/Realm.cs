@@ -39,6 +39,10 @@ namespace RotMG.Game.Worlds
 
             if (AliveTime % 20000 == 0)
                 OryxTaunt();
+
+            //Close every hour, using 1 - 360xxx because itll close right when it opens lol
+            if (AliveTime % 3600000 == 3599999)
+                Close();
             
             base.Tick();
         }
