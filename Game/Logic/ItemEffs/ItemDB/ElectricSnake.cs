@@ -10,7 +10,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
     {
         public void OnAbilityUse(Vector2 position, ItemDesc desc, ItemDataJson itemdata, Player player)
         {
-            Enemy e = new Enemy(0x5007);
+            Enemy e = new Enemy(0x5008);
             player.Parent.AddEntity(e, player.Position);
             e.PlayerOwner = player;
         }

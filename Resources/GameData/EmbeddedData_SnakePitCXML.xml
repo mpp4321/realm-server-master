@@ -123,27 +123,27 @@
 		<NoArticle/>
 		
 		<Projectile id="0">
-			<ObjectId>Blade</ObjectId>
-			<Speed>70</Speed>
-			<Damage>100</Damage>
-			<Size>100</Size>
+			<ObjectId>Purple Spit</ObjectId>
+			<Speed>85</Speed>
+			<Damage>85</Damage>
+			<Size>130</Size>
 			<LifetimeMS>1500</LifetimeMS>
 		</Projectile>
 		<Projectile id="1">					
 			<ObjectId>White Bullet</ObjectId>
 			<Speed>62</Speed>
 			<Damage>60</Damage>
-			<Size>60</Size>
-			<LifetimeMS>2000</LifetimeMS>
-			<ConditionEffect duration="1.4">Blind</ConditionEffect>
+			<Size>80</Size>
+			<LifetimeMS>1600</LifetimeMS>
+			<ConditionEffect duration="2.5">Blind</ConditionEffect>
 		</Projectile>
 		<Projectile id="2">
-			<ObjectId>Blade</ObjectId>
-			<Speed>62</Speed>
+			<ObjectId>Purple Energy Shot</ObjectId>
+			<Speed>120</Speed>
 			<Damage>60</Damage>
 			<Size>60</Size>
-			<LifetimeMS>500</LifetimeMS>
-			<ConditionEffect duration="1.4">Blind</ConditionEffect>
+			<LifetimeMS>250</LifetimeMS>
+			<ConditionEffect duration="1.0">Blind</ConditionEffect>
 		</Projectile>
 		
 

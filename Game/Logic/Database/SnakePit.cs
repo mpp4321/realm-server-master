@@ -83,7 +83,7 @@ namespace RotMG.Game.Logic.Database
                     new Prioritize(
                         new Wander(0.15f)
                         ),
-                    new Shoot(15, 6, 60, fixedAngle: 0f, rotateAngle: 8f, cooldown: 100),
+                    new Shoot(15, 6, 60, fixedAngle: 0f, rotateAngle: 6f, cooldown: 100),
                     new TimedTransition("rotateCCW", 5000),
                     new HealthTransition(0.3f, "blind")
                     ),
@@ -91,11 +91,13 @@ namespace RotMG.Game.Logic.Database
                     new Prioritize(
                         new Wander(0.15f)
                         ),
-                    new Shoot(15, 6, 60, fixedAngle: 0f, rotateAngle: -8f, cooldown: 100),
+                    new Shoot(15, 6, 60, fixedAngle: 0f, rotateAngle: -6f, cooldown: 100),
                     new TimedTransition("rotateCW", 5000),
                     new HealthTransition(0.3f, "blind")
                     ),
                 new State("blind",
+                    new Order(15, "Stheno Pet", "protect"),
+                    new Wander(0.3f),
                     new Shoot(15, 3, 16, 1, predictive: 0.6f, cooldown: 200),
                     new Grenade(8, 60, 4, cooldown: 500),
                     new Order(20, "Stheno Pet", "protect"),
@@ -105,9 +107,11 @@ namespace RotMG.Game.Logic.Database
                     new TimedTransition("blindCharge", 4000)
                     ),
                     new State("blindCharge",
+                        new Order(15, "Stheno Pet", "based"),
                         new Shoot(6, 3, 120, fixedAngle: 0f, rotateAngle: 16f),
                         new Prioritize(
-                            new Charge(1.3f, pred: e => e.HasConditionEffect(Common.ConditionEffectIndex.Blind))
+                            new Charge(1.6f, 15),
+                            new Follow(1.2f, range: 2.5f)
                             ),
                         new TimedTransition("blind", 1500)
                     
@@ -118,8 +122,7 @@ namespace RotMG.Game.Logic.Database
 
                         new Shoot(8, 2, shootAngle: 12, cooldown: 300),
                             new Prioritize(
-                                new Charge(1.3f, 3, pred: e => e.HasConditionEffect(Common.ConditionEffectIndex.Blind)),
-                                new Orbit(1.5f, 14, 20, target: "Stheno the Snake Queen")
+                                new Orbit(1.5f, 10, 20, target: "Stheno the Snake Queen")
                                 ),
                         new TimedTransition("based1", 10000)
                     ),
@@ -131,8 +134,7 @@ namespace RotMG.Game.Logic.Database
                     new State("protect",
                         new Shoot(8, predictive: 0.4f, cooldown: 300),
                         new Prioritize(
-                            new Protect(0.6f, "Stheno the Snake Queen", 15, 1),
-                            new Orbit(0.8f, 2, 20, target: "Stheno the Snake Queen")
+                            new Orbit(1f, 1, 20, target: "Stheno the Snake Queen")
                         )
                     )
                 );
