@@ -6,7 +6,7 @@ namespace RotMG.Game.Logic.Transitions
 {
     public class TimedRandomTransition : Transition
     {
-        public static Random Random = new Random();
+        public Random Random = new Random();
         public readonly int Time;
         public readonly string[] targets;
 
@@ -27,7 +27,7 @@ namespace RotMG.Game.Logic.Transitions
             if (host.StateCooldown[Id] <= 0)
             {
                 host.StateCooldown[Id] = Time;
-                StringTargetState = targets[ MathUtils.NextInt(0, targets.Length) ].ToLower();
+                StringTargetState = targets[ Random.Next(targets.Length) ].ToLower();
                 return true;
             }
             return false;
