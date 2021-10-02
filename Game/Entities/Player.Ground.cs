@@ -202,8 +202,8 @@ namespace RotMG.Game.Entities
             if (en.HasConditionEffect(ConditionEffectIndex.Invisible))
                 return false;
 
-            en.ApplyConditionEffect(ConditionEffectIndex.Invincible, 5000);
-            en.ApplyConditionEffect(ConditionEffectIndex.Invisible, 5000);
+            ApplyConditionEffect(ConditionEffectIndex.Invincible, 5000);
+            ApplyConditionEffect(ConditionEffectIndex.Invisible, 5000);
 
             Teleport(time, en.Position);
             NextTeleportTime = Manager.TotalTime + TeleportCooldown;
