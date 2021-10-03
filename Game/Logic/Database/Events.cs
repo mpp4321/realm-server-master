@@ -394,6 +394,7 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Lord of the Lost Lands",
                 new State("base",
+                    new TransitionFrom("base", "Waiting"),
                     new State("Waiting",
                         new HealthTransition(0.99f, "Start1.0f")
                         ),
@@ -487,8 +488,7 @@ namespace RotMG.Game.Logic.Database
                         new ConditionalEffect(ConditionEffectIndex.StunImmune, true),
                         new Shoot(0, 8, fixedAngle: 360 / 8, index: 1),
                         new Suicide()
-                        )
-                    ),
+                        ),
                 new Threshold(0.03f,
                         new ItemLoot("Shield of Ogmur", 0.002f),
                         new TierLoot(11, LootType.Armor, 0.35f),
@@ -498,8 +498,8 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.005f,
                     LootTemplates.BasicPots()
-                    )
-            );
+                )
+            ));
             db.Init("Protection Crystal",
                 new State("base",
                     new Prioritize(

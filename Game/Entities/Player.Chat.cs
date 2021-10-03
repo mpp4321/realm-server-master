@@ -22,7 +22,7 @@ namespace RotMG.Game.Entities
         {
             "commands", "g", "guild", "tell", "allyshots", "allydamage", "effects", "sounds", "vault", "realm",
             "notifications", "online", "who", "server", "pos", "loc", "where", "find", "fame", "famestats", "stats",
-            "trade", "currentsong", "song", "mix", "quest"
+            "trade", "currentsong", "song", "mix", "quest", "lefttomax"
         };
 
         //List of command, rank required
@@ -198,6 +198,12 @@ namespace RotMG.Game.Entities
                         }
                         break;
                     case "/commands":
+                        if(Client.Account.Donator > 0)
+                        {
+                            SendInfo("Donator Commands: ");
+                            SendInfo(string.Join(", ", _donatorCommands.Where(a => a.Item2 <= Client.Account.Donator)));
+                        }
+                        SendInfo("Player Commands:");
                         if (!Client.Account.Ranked)
                         {
                             SendInfo(string.Join(", ", _unrankedCommands));
@@ -730,7 +736,7 @@ namespace RotMG.Game.Entities
                             }
                         }
                         break;
-                    case "size":
+                    case "/size":
                         {
                             if (Client.Account.Donator < 1 && !Client.Account.Ranked)
                                 break;
@@ -742,14 +748,23 @@ namespace RotMG.Game.Entities
                             } catch { SendInfo("Bad input."); }
                         }
                         break;
-                    case "glow":
+                    case "/glow":
                         {
                             if (Client.Account.Donator < 1 && !Client.Account.Ranked)
                                 break;
                             try
                             {
+                                //TODO
                                 SendInfo("Not implemented!");
                             } catch { SendInfo("Bad input."); }
+                        }
+                        break;
+                    case "/lefttomax":
+                    case "/ltm":
+                    case "/l2m":
+                        {
+                            for (int i = 0; i < StatNames.Length; i++)
+                                SendInfo($"{StatNames[i]}: {Stats[i]}/{(Desc as PlayerDesc).Stats[i].MaxValue}");
                         }
                         break;
                     default:

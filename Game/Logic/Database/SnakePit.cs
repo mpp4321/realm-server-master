@@ -60,6 +60,34 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.3f)
                     )
                 );
+
+            db.Init("Snakepit Guard Spawner",
+                    new State("based",
+                            new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
+                            new State("waiting"),
+                            new State("spawn",
+                                new Spawn("Snakepit Guard", 1, cooldown: 0),
+                                new TimedTransition("waiting", 0)
+                            )
+                    )
+                );
+
+            db.Init("Snakepit Guard",
+                    new State("based",
+                        new Shoot(6, 5, 360 / 5)
+                    )
+                );
+
+            db.Init("Snakepit Button",
+                    new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
+                    new State("based",
+                        new PlayerWithinTransition(1, "spawn", seeInvis: true)
+                    ),
+                    new State("spawn",
+                        new OrderOnEntry(12, "Snakepit Guard Spawner", "spawn")
+                    )
+                );
+
             db.Init("Stheno the Snake Queen",
                 new State("wait",
                     new TossObject("Stheno Pet", 7, 0, 100000, throwEffect: true),
