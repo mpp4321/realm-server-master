@@ -393,11 +393,8 @@ namespace RotMG.Game.Logic.Database
             );
 
             db.Init("Lord of the Lost Lands",
-<<<<<<< HEAD
                 new State("base",
                     new TransitionFrom("base", "Waiting"),
-=======
->>>>>>> 83f2d7bafff12d10875679fc947440223b27b3cb
                     new State("Waiting",
                         new HealthTransition(0.99f, "Start1.0f")
                         ),
@@ -501,8 +498,8 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.005f,
                     LootTemplates.BasicPots()
-                    )
-            );
+                )
+            ));
             db.Init("Protection Crystal",
                 new State("base",
                     new Prioritize(
