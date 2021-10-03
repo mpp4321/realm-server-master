@@ -282,6 +282,9 @@ namespace RotMG.Game.Logic.Database
                     new Spawn("Undead Dwarf Mage", 3),
                     new Spawn("Undead Dwarf King", 2),
                     new Spawn("Soulless Dwarf", 1),
+                    new PlayerWithinTransition(14, "fight")
+                ),
+                new State("fight",
                     new Prioritize(
                         new StayAbove(0.3f, 160),
                         new Follow(1, range: 7),
@@ -289,7 +292,7 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new Shoot(10, index: 0, count: 3, shootAngle: 15),
                     new Shoot(10, index: 1, predictive: 0.5f, cooldown: 1200)
-                    ),
+                ),
                 new TierLoot(5, LootType.Weapon, 0.16f),
                 new TierLoot(6, LootType.Weapon, 0.08f),
                 new TierLoot(7, LootType.Weapon, 0.04f),
