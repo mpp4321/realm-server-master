@@ -148,14 +148,7 @@
 			<LifetimeMS>250</LifetimeMS>
 			<ConditionEffect duration="1.0">Blind</ConditionEffect>
 		</Projectile>
-		
-
-
-	</Object>
-	
-
-
-
+		</Object>
 	<Object type="0x0918" id="Stheno Pet">
 		<Class>Character</Class>
 		<AnimatedTexture>

@@ -429,8 +429,9 @@ namespace RotMG.Game.Logic.Database
                         new Swirl(),
                         new Shoot(10, 2, 10, 1, cooldown: 500),
                         new TimedTransition("Triangle", 5000)
-                        ),
+                    ),
                     new State("Triangle",
+                        new TransitionFrom("Triangle", "1"),
                         new State("1",
                             new MoveLine(.7f, 40),
                             new Shoot(1, 3, 120, fixedAngle: 34, cooldown: 300),
@@ -453,7 +454,7 @@ namespace RotMG.Game.Logic.Database
                             new Shoot(1, 3, 120, fixedAngle: 278, cooldown: 300),
                             new Shoot(1, 3, 120, fixedAngle: 282, cooldown: 300),
                             new Shoot(1, 3, 120, fixedAngle: 286, cooldown: 300),
-                            new TimedTransition("Wander", 1500)
+                            new TimedTransition("Wander", 1500) { SubIndex = 2 }
                         )
                     ),
                 new Threshold(0.01f,

@@ -867,6 +867,11 @@ namespace RotMG.Common
         public bool HasProjectile { get { return Projectile.Length > 0; } }
         public ProjectileDesc FirstProjectile { get { return HasProjectile ? Projectile[0] : null; } }
 
+        public readonly bool DoBurst;
+
+        public readonly int BurstCount;
+        public readonly int BurstDelay;
+
         public ProjectileDesc NextProjectile(int id)
         {
             if (!HasProjectile) return null;
@@ -924,6 +929,10 @@ namespace RotMG.Common
             {
                 Projectile = new ProjectileDesc[] { };
             }
+
+            BurstCount = e.ParseInt("Burst");
+            DoBurst = BurstCount > 0;
+            BurstDelay = e.ParseInt("BurstCooldown");
         }
     }
 
@@ -980,13 +989,9 @@ namespace RotMG.Common
         public readonly float Magnitude;
 
         public readonly bool DoAccelerate;
-        public readonly bool DoBurst;
         public readonly float Accelerate;
         public readonly float AccelerateDelay;
         public readonly float SpeedClamp;
-
-        public readonly int BurstCount;
-        public readonly int BurstDelay;
 
         public readonly ushort ContainerType;
 
@@ -1021,10 +1026,6 @@ namespace RotMG.Common
             DoAccelerate = Accelerate > 0.0f;
             AccelerateDelay = e.ParseFloat("AccelerateDelay");
             SpeedClamp = e.ParseFloat("SpeedClamp");
-
-            BurstCount = e.ParseInt("Burst");
-            DoBurst = BurstCount > 0;
-            BurstDelay = e.ParseInt("BurstCooldown");
 
         }
     }

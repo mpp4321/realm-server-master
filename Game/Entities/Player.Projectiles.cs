@@ -231,7 +231,7 @@ namespace RotMG.Game.Entities
             var startId = NextProjectileId;
             NextProjectileId -= numShots;
 
-            var desc = ability ? GetItem(1) : GetItem(0);
+            ItemDesc desc = ability ? GetItem(1) : GetItem(0);
             if (desc == null)
             {
 #if DEBUG
@@ -306,7 +306,6 @@ namespace RotMG.Game.Entities
                     var arcGap = desc.ArcGap * MathUtils.ToRadians;
                     var totalArc = arcGap * (numShots - 1);
                     var angle = attackAngle - totalArc / 2f;
-                    var noMoreBursts = false;
                     for (var i = 0; i < numShots; i++)
                     {
                         var damage = (int)(GetNextDamageSeeded(desc.NextProjectile(startId - i).MinDamage, desc.NextProjectile(startId - i).MaxDamage, ItemDatas[0]) * GetAttackMultiplier());
@@ -314,23 +313,11 @@ namespace RotMG.Game.Entities
                         var compeffs = this.ItemDatas.Take(4).Select(a => a.ItemComponent != null ? a.ItemComponent : null).Where(a => a != null);
                         uneffs = uneffs.Concat(compeffs);
                         var projectile = new Projectile(this, desc.NextProjectile(startId - i), startId - i, time, angle + arcGap * i, pos, damage, uniqueEff: uneffs.ToArray());
-                        if(projectile.Desc.DoBurst)
-                        {
-                            if (noMoreBursts) continue;
-                            var bc = projectile.Desc.BurstCount;
-                            if(BurstShotCount > bc)
-                            {
-                                BurstShotDelay = projectile.Desc.BurstDelay;
-                                BurstShotCount = 0;
-                                noMoreBursts = true;
-                                continue;
-                            }
-                            BurstShotCount += 1;
-                        }
                         ShotProjectiles.Add(projectile.Id, projectile);
                     }
 
                     var packet = GameServer.AllyShoot(Id, desc.Type, attackAngle);
+
                     foreach (var en in Parent.PlayerChunks.HitTest(Position, SightRadius))
                         if (en is Player player && player.Client.Account.AllyShots && !player.Equals(this))
                             player.Client.Send(packet);
@@ -341,6 +328,13 @@ namespace RotMG.Game.Entities
                     rateOfFire *= 1 + rateOfFireMod;
                     ShotDuration = (int)(1f / GetAttackFrequency() * (1f / rateOfFire) * (1f / RateOfFireThreshold));
                     ShotTime = time;
+
+                    BurstShotCount += numShots;
+                    if(desc.DoBurst && desc.BurstCount <= BurstShotCount + 1)
+                    {
+                        BurstShotDelay = desc.BurstDelay;
+                        BurstShotCount = 0;
+                    }
                 }
                 else
                 {

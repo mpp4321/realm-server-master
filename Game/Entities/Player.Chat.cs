@@ -271,6 +271,12 @@ namespace RotMG.Game.Entities
                             return;
                         }
 
+                        if(recipient.Client.Account.IgnoredIds.Contains(AccountId))
+                        {
+                            SendError("Player has you ignored.");
+                            return;
+                        }
+
                         var message = string.Join(' ', j, 1, j.Length - 1);
                         var tell = GameServer.Text(Name, Id, NumStars, 5, recipient.Name, message);
                         recipient.Client.Send(tell);
