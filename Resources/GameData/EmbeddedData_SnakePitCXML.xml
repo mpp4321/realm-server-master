@@ -158,7 +158,10 @@
 
 	<Object type="0x0918" id="Stheno Pet">
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars16x16dEncounters</File><Index>2</Index></AnimatedTexture>
+		<AnimatedTexture>
+      <File>chars16x16dEncounters2</File>
+      <Index>118</Index>
+    </AnimatedTexture>
 		<HitSound>monster/snakes_hit</HitSound>
 		<DeathSound>monster/snakes_death</DeathSound>
 		<Size>70</Size>
@@ -169,20 +172,14 @@
 		<XpMult>0.1</XpMult>
 		
 		<Projectile id="0">
-			<ObjectId>Aqua Missile</ObjectId>
+			<ObjectId>Extreme Green Magic</ObjectId>
 			<Speed>60</Speed>
 			<Damage>75</Damage>
 			<Size>100</Size>
 			<LifetimeMS>900</LifetimeMS>
 			<ConditionEffect duration="2">Slowed</ConditionEffect>
 		</Projectile>
-		
-	
-		
 	</Object>
-	
-
-
 	<Object type="0x0919" id="Stheno Swarm">
 		<Class>Character</Class>
 		<AnimatedTexture><File>chars8x8dEncounters</File><Index>3</Index></AnimatedTexture>

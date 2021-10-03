@@ -460,7 +460,8 @@ namespace RotMG.Common
             Id = e.ParseString("@id");
             Effect = e.ParseConditionEffect("@effect");
             DurationMS = (int)(e.ParseFloat("@duration") * 1000);
-            DurationMS = (int)(e.ParseFloat("@throwTime", .75f) * 1000);
+            //Needs multiple of 100
+            ThrowtimeMS = (int)(e.ParseFloat("@throwTime", .8f) * 1000);
             Range = e.ParseFloat("@range");
             Amount = e.ParseInt("@amount");
             TotalDamage = e.ParseInt("@totalDamage");

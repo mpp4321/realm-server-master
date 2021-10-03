@@ -20,27 +20,33 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
         {
         }
 
+        static int t = 0;
         public void OnTick(Player p)
         {
+            t++;
+            if (t % 4 != 0) return;
             if(p.HasConditionEffect(ConditionEffectIndex.Invisible))
             {
+
                 var defenseDecrease = p.GetStatTotal(3) / 2;
 
-                p.EffectBoosts.Add(new Player.BoostTimer
+                p.AddIdentifiedEffectBoost(new Player.BoostTimer
                 {
                     amount = defenseDecrease,
                     id = 1,
                     index = 6,
-                    timer = 1000
+                    timer = 1.0f
                 });
 
-                p.EffectBoosts.Add(new Player.BoostTimer
+                p.AddIdentifiedEffectBoost(new Player.BoostTimer
                 {
                     amount = -defenseDecrease,
                     id = 2,
                     index = 3,
-                    timer = 1000
+                    timer = 1.0f
                 });
+
+                p.UpdateStats();
             }
         }
     }

@@ -22,9 +22,9 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
         {
             if(MathUtils.Next(10) == 0)
             {
-                hitBy.Parent.BroadcastPacketNearby(GameServer.Notification
+                hit.Parent?.BroadcastPacketNearby(GameServer.Notification
                 (
-                    hit.Id,
+                    hitBy.Id,
                     "Retaliaton!",
                     0xff22ff22
                 ), hitBy.Position);

@@ -196,6 +196,22 @@ namespace RotMG.Game.Entities
             PrivateSVs[type] = value;
         }
 
+        public void AddIdentifiedEffectBoost(BoostTimer t)
+        {
+            //Find matching boost
+            for(int i = 0; i < EffectBoosts.Count; i++)
+            {
+                var boost = EffectBoosts[i];
+                if(boost.id == t.id)
+                {
+                    EffectBoosts[i].timer = t.timer;
+                    return;
+                }
+            }
+            //Not found add 
+            EffectBoosts.Add(t);
+        }
+
         public int GetTemporaryStatBoost(int index)
         {
             return EffectBoosts.Where(a => a.index == index).Select(a => a.amount).Sum();

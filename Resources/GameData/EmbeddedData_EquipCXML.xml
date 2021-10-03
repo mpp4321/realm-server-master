@@ -9786,6 +9786,7 @@
     <ActivateOnEquip stat="7" amount="-9">IncrementStat</ActivateOnEquip>
     <BagType>5</BagType>
     <FameBonus>5</FameBonus>
+    <UniqueEffect>SnakePitArmor</UniqueEffect>
   </Object>
   <Object type="0xca7" id="Ophidian Gem">
     <Class>Equipment</Class>
@@ -9804,6 +9805,7 @@
     <ExtraTooltipData>
       <EffectInfo name="Retaliation" description="Upon being hit, you have a 10% chance to quickly strike the target with increased damage"/>
     </ExtraTooltipData>
+    <UniqueEffect>OphGem</UniqueEffect>
   </Object>
   <Object type="0xca8" id="Serpentine Guise">
     <Class>Equipment</Class>
