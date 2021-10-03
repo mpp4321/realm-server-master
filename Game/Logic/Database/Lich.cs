@@ -321,7 +321,6 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new Shoot(10)
                     ),
-                new ItemLoot("Potion of Mana", 0.15f),
                 new ItemLoot("Hell's Fire Wand", 0.20f, r: new RarityModifiedData(1.5f, 2)),
                 new ItemLoot("Slayer Staff", 0.20f, r: new RarityModifiedData(1.5f, 2)),
                 new ItemLoot("Golden Sword", 0.20f, r: new RarityModifiedData(1.5f, 2)),
