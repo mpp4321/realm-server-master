@@ -26,8 +26,9 @@ namespace RotMG.Game.Entities
         };
 
         //List of command, rank required
-        private readonly Tuple<string, int>[] _donatorCommands =
+        private readonly (string, int)[] _donatorCommands =
         {
+           ("size", 1), ("glow", 1)
         };
 
         private readonly string[] _rankedCommands =

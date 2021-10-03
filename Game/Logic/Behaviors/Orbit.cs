@@ -27,10 +27,11 @@ namespace RotMG.Game.Logic.Behaviors
         float speedVariance;
         float radiusVariance;
         bool? orbitClockwise;
+        bool targetPlayers;
 
         public Orbit(float speed, float radius, float acquireRange = 10,
             string target = null, float? speedVariance = null, float? radiusVariance = null,
-            bool? orbitClockwise = false)
+            bool? orbitClockwise = false, bool targetPlayers = false)
         {
             this.speed = speed;
             this.radius = radius;
@@ -39,6 +40,7 @@ namespace RotMG.Game.Logic.Behaviors
             this.speedVariance = (float)(speedVariance ?? speed * 0.1);
             this.radiusVariance = (float)(radiusVariance ?? speed * 0.1);
             this.orbitClockwise = orbitClockwise;
+            this.targetPlayers = targetPlayers;
         }
 
         private OrbitState BuildDefaultOrbit()
@@ -73,10 +75,16 @@ namespace RotMG.Game.Logic.Behaviors
 
             if(s.entity == null)
             {
-                if (target.HasValue)
-                    s.entity = GameUtils.GetNearestEntity(host, acquireRange, target.Value);
-                else
-                    s.entity = GameUtils.GetNearestEntity(host, acquireRange);
+                if(targetPlayers)
+                {
+                    s.entity = GameUtils.GetNearestPlayer(host, acquireRange);
+                } else
+                {
+                    if (target.HasValue)
+                        s.entity = GameUtils.GetNearestEntity(host, acquireRange, target.Value);
+                    else
+                        s.entity = GameUtils.GetNearestEntity(host, acquireRange);
+                }
             }
 
             Entity entity = s.entity;
