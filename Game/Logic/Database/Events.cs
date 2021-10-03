@@ -394,6 +394,7 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Lord of the Lost Lands",
                 new State("base",
+                    new TransitionFrom("base", "Waiting"),
                     new State("Waiting",
                         new HealthTransition(0.99f, "Start1.0f")
                         ),

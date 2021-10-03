@@ -15,6 +15,17 @@ namespace RotMG.Game.Entities
         private const float MaxAttackMult = 2f;
         private const float MaxSinkLevel = 18f;
 
+        public static readonly string[] StatNames = new string[] {
+            "HP",
+            "MP",
+            "Attack",
+            "Defense",
+            "Speed",
+            "Dexterity",
+            "Vitality",
+            "Wisdom" 
+        };
+
         public int[] Stats;
         public int[] Boosts;
         //Temporary effect boosts, like tinctures and elixrs

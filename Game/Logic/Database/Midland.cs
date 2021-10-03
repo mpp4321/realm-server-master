@@ -605,6 +605,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Horned Drake",
                 new State("base",
                     new Spawn("Drake Baby", maxChildren: 1, initialSpawn: 1, cooldown: 50000, givesNoXp: false),
+                    new TransitionFrom("base", "Idle"),
                     new State("idle",
                         new StayAbove(0.8f, 60),
                         new PlayerWithinTransition(10, "get_player")

@@ -9667,5 +9667,140 @@
     <UniqueEffect>ElectricSnake</UniqueEffect>
     <Cooldown>4</Cooldown>
   </Object>
-  <!-- ca5 -> caf available -->
+  <Object type="0xca5" id="Stheno's Scourge">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObjBig</File>
+      <Index>0x1b0</Index>
+    </Texture>
+    <SlotType>2</SlotType>
+    <Description>A dagger made of the teeth of the great coil snake.</Description>
+    <RateOfFire>1.4</RateOfFire>
+    <Sound>weapon/blunt_dagger</Sound>
+    <Projectile>
+      <ObjectId>Whip Shot</ObjectId>
+      <Speed>300</Speed>
+      <MinDamage>55</MinDamage>
+      <MaxDamage>70</MaxDamage>
+      <LifetimeMS>300</LifetimeMS>
+      <Amplitude>-0.4</Amplitude>
+      <Frequency>2</Frequency>
+      <Burst>5</Burst>
+      <BurstCooldown>500</BurstCooldown>
+      <ArmorPiercing>true</ArmorPiercing>
+      <Boomerang />
+    </Projectile>
+    <Projectile>
+      <ObjectId>Whip Shot 2</ObjectId>
+      <Speed>300</Speed>
+      <MinDamage>55</MinDamage>
+      <MaxDamage>70</MaxDamage>
+      <LifetimeMS>300</LifetimeMS>
+      <Amplitude>-0.4</Amplitude>
+      <Frequency>2</Frequency>
+      <Burst>5</Burst>
+      <BurstCooldown>500</BurstCooldown>
+      <Boomerang />
+    </Projectile>
+    <Projectile>
+      <ObjectId>Whip Shot 2</ObjectId>
+      <Speed>300</Speed>
+      <MinDamage>55</MinDamage>
+      <MaxDamage>70</MaxDamage>
+      <LifetimeMS>300</LifetimeMS>
+      <Amplitude>-0.4</Amplitude>
+      <Frequency>2</Frequency>
+      <Burst>5</Burst>
+      <BurstCooldown>500</BurstCooldown>
+      <Boomerang />
+    </Projectile>
+    <Projectile>
+      <ObjectId>Whip Shot 2</ObjectId>
+      <Speed>300</Speed>
+      <MinDamage>55</MinDamage>
+      <MaxDamage>70</MaxDamage>
+      <LifetimeMS>300</LifetimeMS>
+      <Amplitude>-0.4</Amplitude>
+      <Frequency>2</Frequency>
+      <Burst>5</Burst>
+      <BurstCooldown>500</BurstCooldown>
+      <Boomerang />
+    </Projectile>
+    <Projectile>
+      <ObjectId>Whip Shot</ObjectId>
+      <Speed>300</Speed>
+      <MinDamage>55</MinDamage>
+      <MaxDamage>70</MaxDamage>
+      <LifetimeMS>300</LifetimeMS>
+      <Amplitude>-0.4</Amplitude>
+      <Frequency>2</Frequency>
+      <Burst>5</Burst>
+      <BurstCooldown>500</BurstCooldown>
+      <ArmorPiercing>true</ArmorPiercing>
+      <Boomerang />
+    </Projectile>
+    <BagType>4</BagType>
+    <OldSound>daggerSwing</OldSound>
+    <ExtraTooltipData>
+      <EffectInfo name="Whiplash" description="Burst fires a series of quick, boomeranging shots. The first and last pierce armor."/>
+    </ExtraTooltipData>
+  </Object>
+  <Object type="0xca6" id="Snakeskin Guard">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj5</File>
+      <Index>0x169</Index>
+    </Texture>
+    <SlotType>6</SlotType>
+    <Description>Tough, durable snake scales fashioned into a lightweight but protective cuirass</Description>
+    <ActivateOnEquip stat="3" amount="15">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="5" amount="5">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="0" amount="40">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="1" amount="-60">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="7" amount="-9">IncrementStat</ActivateOnEquip>
+    <BagType>5</BagType>
+    <FameBonus>5</FameBonus>
+  </Object>
+  <Object type="0xca7" id="Ophidian Gem">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj5</File>
+      <Index>0x16a</Index>
+    </Texture>
+    <SlotType>9</SlotType>
+    <Description>A mezmerizing deep green gem. While holding it, you feel the urge to lash out at your attackers</Description>
+    <ActivateOnEquip stat="0" amount="80">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="3" amount="7">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="2" amount="4">IncrementStat</ActivateOnEquip>
+    <BagType>5</BagType>
+    <FameBonus>5</FameBonus>
+    <ExtraTooltipData>
+      <EffectInfo name="Retaliation" description="Upon being hit, you have a 10% chance to quickly strike the target with increased damage"/>
+    </ExtraTooltipData>
+  </Object>
+  <Object type="0xca8" id="Serpentine Guise">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj5</File>
+      <Index>0x168</Index>
+    </Texture>
+    <SlotType>13</SlotType>
+    <Description>A closely fitting snakeskin - allowing for shedding and regrowth during a period of vulnerability</Description>
+    <Sound>spell/fire_nova</Sound>
+    <ActivateOnEquip stat="7" amount="-10">IncrementStat</ActivateOnEquip>
+    <Usable/>
+    <BagType>5</BagType>
+    <FameBonus>5</FameBonus>
+    <MpCost>85</MpCost>
+    <Activate effect="Invisible" duration="4.5">ConditionEffectSelf</Activate>
+    <Cooldown>5</Cooldown>
+    <ExtraTooltipData>
+      <EffectInfo name="Shed Skin" description="Upon use, the wearer gains a significant burst of speed, loses much defensive power, but gains immense regenerative abilities after shedding their skin. Also, calls to aid a magical sperpent to aid you in combat."/>
+    </ExtraTooltipData>
+  </Object>
+  <!-- ca9 -> ca13 available -->
 </Objects>
