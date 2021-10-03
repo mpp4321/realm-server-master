@@ -14,30 +14,63 @@ namespace RotMG.Game.Logic.Database
         public void Init(BehaviorDb db)
         {
             db.Init("Arena Spider",
+                new State("base",
                     new Shoot(10, 8, 45, 0, 0f, cooldown: 300),
                     new Prioritize(
-                        new StayCloseToSpawn(3f, 3),
+                        new StayCloseToSpawn(3f, 2),
                         new Wander(0.2f)
-                    )
-                );
+                    ),
+                    new PlayerWithinTransition(6, "chase")
+                ),
+                new State("chase",
+                    new Shoot(10, 8, 45, 0, 0f, cooldown: 300),
+                    new Charge(1.5f, 20, 500),
+                    new TimedTransition("chase0", 1500)
+                ),
+                new State("chase0",
+                    new Shoot(10, 8, 45, 0, 0f, cooldown: 300),
+                    new Charge(2f, 20, 250),
+                    new TimedTransition("chase1", 1000)
+                ),
+                new State("chase1",
+                    new Shoot(10, 8, 45, 0, 0f, cooldown: 300),
+                    new Charge(2.5f, 20, 100),
+                    new TimedTransition("return", 400)
+                ),
+                new State("return",
+                    new Wander(4),
+                    new TimedTransition("base", 1500)
+                ));
 
             db.Init("Arena Pumpkin King",
                     new State("base",
-                        new Shoot(10, 8, 45, 1, 0f, cooldown: 1000),
+                        new Shoot(10, 8, 45, 1, 0f, 10f, cooldown: 200),
                         new Prioritize(
                             new Follow(0.8f, range: 1),
                             new Wander(0.4f)
                             ),
                         new Prioritize(
                             new Charge(2, pred: e => e.HasConditionEffect(Common.ConditionEffectIndex.Paralyzed)),
+                            new Charge(2, pred: e => e.HasConditionEffect(Common.ConditionEffectIndex.Slowed)),
                             new Shoot(5, count: 3, shootAngle: 10)
-                        )
+                        ),
+                        new TimedTransition("somewhere", 7000
+                    )),
+                    new State("somewhere",
+                        new Wander(6),
+                        new TossObject("Arena Spider", 6, 360 / 6, 100000),
+                        new TossObject("Arena Spider", 6, 360 / 6 * 2, 100000),
+                        new TossObject("Arena Spider", 6, 360 / 6 * 3, 100000),
+                        new TossObject("Arena Spider", 6, 360 / 6 * 4, 100000),
+                        new TossObject("Arena Spider", 6, 360 / 6 * 5, 100000),
+                        new TossObject("Arena Spider", 6, 360 / 6 * 6, 100000),
+                        new TimedTransition("base", 1500)
                     ),
                     new Threshold(0.01f,
                         LootTemplates.BasicPots(0.01f).Concat(
                             new MobDrop[] {
                                 new TierLoot(8, TierLoot.LootType.Weapon, 1f, r: new RarityModifiedData(1f, 2)),
-                                new Threshold(0.01f, 
+                                new Threshold(0.01f,
                                     new ItemLoot("Pumpkin Staff", 0.01f, r: new RarityModifiedData(1.2f)),
                                     new ItemLoot("Pumpkin Bow", 0.01f, r: new RarityModifiedData(1.2f)),
                                     new ItemLoot("Amulet of Ancient Power", 0.005f),
@@ -46,7 +79,7 @@ namespace RotMG.Game.Logic.Database
                             }
                         ).ToArray()
                     )
-                ) ;
+                );
 
             db.Init("Septavius the Ghost God",
                     new State("warning",
