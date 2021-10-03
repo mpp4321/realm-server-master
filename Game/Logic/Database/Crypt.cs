@@ -71,8 +71,8 @@ namespace RotMG.Game.Logic.Database
                             new MobDrop[] {
                                 new TierLoot(8, TierLoot.LootType.Weapon, 1f, r: new RarityModifiedData(1f, 2)),
                                 new Threshold(0.01f,
-                                    new ItemLoot("Pumpkin Staff", 0.01f, r: new RarityModifiedData(1.2f)),
-                                    new ItemLoot("Pumpkin Bow", 0.01f, r: new RarityModifiedData(1.2f)),
+                                    new ItemLoot("Reaper's Wit", 0.01f, r: new RarityModifiedData(1.2f)),
+                                    new ItemLoot("Crypt Keeper's Crossbow", 0.01f, r: new RarityModifiedData(1.2f)),
                                     new ItemLoot("Amulet of Ancient Power", 0.005f),
                                     new ItemLoot("Potion of Dexterity", 0.9f)
                                 )
@@ -102,9 +102,8 @@ namespace RotMG.Game.Logic.Database
                     new Threshold(0.01f,
                         LootTemplates.BasicPots(0.3f).Concat(
                             new MobDrop[] {
-                                new TierLoot(8, TierLoot.LootType.Weapon, 1f, r: new RarityModifiedData(1f, 2)),
-                                new ItemLoot("Pumpkin Staff", 0.02f, r: new RarityModifiedData(1.2f)),
-                                new ItemLoot("Pumpkin Bow", 0.02f, r: new RarityModifiedData(1.2f))
+                                new TierLoot(8, TierLoot.LootType.Weapon, 1f, r: new RarityModifiedData(1f, 2))
+                         
                             }
                         ).ToArray()
                     )
