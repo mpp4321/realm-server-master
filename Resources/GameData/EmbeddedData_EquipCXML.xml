@@ -9703,7 +9703,7 @@
     <RateOfFire>1.4</RateOfFire>
     <Sound>weapon/blunt_dagger</Sound>
     <Projectile>
-      <ObjectId>Whip Shot</ObjectId>
+      <ObjectId>Whip Shot 1</ObjectId>
       <Speed>300</Speed>
       <MinDamage>55</MinDamage>
       <MaxDamage>70</MaxDamage>
@@ -9752,7 +9752,7 @@
       <Boomerang />
     </Projectile>
     <Projectile>
-      <ObjectId>Whip Shot</ObjectId>
+      <ObjectId>Whip Shot 1</ObjectId>
       <Speed>300</Speed>
       <MinDamage>55</MinDamage>
       <MaxDamage>70</MaxDamage>
