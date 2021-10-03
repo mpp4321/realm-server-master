@@ -63,10 +63,13 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Snakepit Guard Spawner",
                     new State("based",
-                    new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
-                        new State("spawn",
-                            new Spawn("Snakepit Guard", 1, cooldown: 1000000)
-                        ))
+                            new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
+                            new State("waiting"),
+                            new State("spawn",
+                                new Spawn("Snakepit Guard", 1, cooldown: 0),
+                                new TimedTransition("waiting", 0)
+                            )
+                    )
                 );
 
             db.Init("Snakepit Guard",
@@ -76,12 +79,12 @@ namespace RotMG.Game.Logic.Database
                 );
 
             db.Init("Snakepit Button",
+                    new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                     new State("based",
-                        new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                         new PlayerWithinTransition(1, "spawn", seeInvis: true)
                     ),
                     new State("spawn",
-                        new Order(12, "Snakepit Guard Spawner", "spawn")
+                        new OrderOnEntry(12, "Snakepit Guard Spawner", "spawn")
                     )
                 );
 
