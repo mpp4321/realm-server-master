@@ -9750,7 +9750,7 @@
     <Class>Equipment</Class>
     <Item/>
     <Texture>
-      <File>lofiObj5</File>
+      <File>lofiObj2</File>
       <Index>0x169</Index>
     </Texture>
     <SlotType>6</SlotType>
@@ -9767,7 +9767,7 @@
     <Class>Equipment</Class>
     <Item/>
     <Texture>
-      <File>lofiObj5</File>
+      <File>lofiObj2</File>
       <Index>0x16a</Index>
     </Texture>
     <SlotType>9</SlotType>
@@ -9785,7 +9785,7 @@
     <Class>Equipment</Class>
     <Item/>
     <Texture>
-      <File>lofiObj5</File>
+      <File>lofiObj2</File>
       <Index>0x168</Index>
     </Texture>
     <SlotType>13</SlotType>

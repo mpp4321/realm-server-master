@@ -24,6 +24,8 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("Electricity", new Electricity());
             Registry.Add("BloodSuck", new BloodSuckingAmulet());
             Registry.Add("ElectricSnake", new ElectricSnake());
+            Registry.Add("SnakePitArmor", new SnakePitArmor());
+            Registry.Add("OphGem", new OphGem());
 
             //components
             Registry.Add("FireRune", new FireRune());

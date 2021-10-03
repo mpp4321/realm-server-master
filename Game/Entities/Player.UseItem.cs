@@ -480,14 +480,14 @@ namespace RotMG.Game.Entities
                             var placeholder = new Placeholder();
                             Parent.AddEntity(placeholder, target);
 
-                            var @throw = GameServer.ShowEffect(ShowEffectIndex.Throw, Id, 0xffddff00, target);
+                            var @throw = GameServer.ShowEffect(ShowEffectIndex.Throw, Id, 0xffddff00, pos1: target, speed: eff.ThrowtimeMS);
                             var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, placeholder.Id, 0xffddff00, new Vector2(eff.Radius, 0));
 
                             foreach (var j in Parent.PlayerChunks.HitTest(Position, SightRadius))
                                 if (j is Player k && (k.Client.Account.Effects || k.Equals(this)))
                                     k.Client.Send(@throw);
 
-                            Manager.AddTimedAction(1500, () =>
+                            Manager.AddTimedAction(eff.ThrowtimeMS, () =>
                             {
                                 if (placeholder.Parent != null)
                                 {

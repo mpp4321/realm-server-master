@@ -430,6 +430,7 @@ namespace RotMG.Common
         //Map name valid for use here
         public readonly string Map;
         public readonly int DurationMS;
+        public readonly int ThrowtimeMS;
         public readonly float Range;
         public readonly int Amount;
         public readonly int TotalDamage;
@@ -459,6 +460,7 @@ namespace RotMG.Common
             Id = e.ParseString("@id");
             Effect = e.ParseConditionEffect("@effect");
             DurationMS = (int)(e.ParseFloat("@duration") * 1000);
+            DurationMS = (int)(e.ParseFloat("@throwTime", .75f) * 1000);
             Range = e.ParseFloat("@range");
             Amount = e.ParseInt("@amount");
             TotalDamage = e.ParseInt("@totalDamage");

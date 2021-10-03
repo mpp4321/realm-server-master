@@ -108,7 +108,10 @@
 
 	<Object type="0x0917" id="Stheno the Snake Queen">
 		<Class>Character</Class>
-		<Texture><File>lofiChar216x16</File><Index>0x33</Index></Texture>
+		<AnimatedTexture>
+      <File>chars16x16dEncounters2</File>
+      <Index>105</Index>
+    </AnimatedTexture>
 		<HitSound>monster/snake_queen_hit</HitSound>
 		<DeathSound>monster/snake_queen_death</DeathSound>
 		<Size>100</Size>
@@ -130,7 +133,7 @@
 			<LifetimeMS>1500</LifetimeMS>
 		</Projectile>
 		<Projectile id="1">					
-			<ObjectId>White Bullet</ObjectId>
+			<ObjectId>Extreme Air Magic</ObjectId>
 			<Speed>62</Speed>
 			<Damage>60</Damage>
 			<Size>80</Size>
@@ -138,7 +141,7 @@
 			<ConditionEffect duration="2.5">Blind</ConditionEffect>
 		</Projectile>
 		<Projectile id="2">
-			<ObjectId>Purple Energy Shot</ObjectId>
+			<ObjectId>Extreme Green Magic</ObjectId>
 			<Speed>120</Speed>
 			<Damage>60</Damage>
 			<Size>60</Size>
@@ -210,7 +213,9 @@
 		<Group>Pit Snakes</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xc5</Index></Texture>
+    <AnimatedTexture>
+      <File>chars8x8dEncounters</File><Index>63</Index> 
+    </AnimatedTexture>
 		<HitSound>monster/pit_snakes_hit</HitSound>
 		<DeathSound>monster/pit_snakes_death</DeathSound>
 		<Size>80</Size>
@@ -229,7 +234,9 @@
 		<Group>Pit Snakes</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xc4</Index></Texture>
+    <AnimatedTexture>
+      <File>chars8x8dEncounters</File><Index>64</Index> 
+    </AnimatedTexture>
 		<HitSound>monster/pit_snakes_hit</HitSound>
 		<DeathSound>monster/pit_snakes_death</DeathSound>
 		<Size>80</Size>
@@ -248,14 +255,16 @@
 		<Group>Pythons</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xed</Index></Texture>
+    <AnimatedTexture>
+      <File>chars8x8dEncounters</File><Index>66</Index> 
+    </AnimatedTexture>
 		<HitSound>monster/pythons_hit</HitSound>
 		<DeathSound>monster/pythons_death</DeathSound>
 		<Size>100</Size>
 		<MaxHitPoints>200</MaxHitPoints>
 		<Defense>5</Defense>
 		<Projectile>
-			<ObjectId>Red Fire</ObjectId>
+			<ObjectId>Advanced Fire Bolt</ObjectId>
 			<Speed>80</Speed>
 			<Damage>25</Damage>
 			<LifetimeMS>2000</LifetimeMS>
@@ -266,14 +275,16 @@
 		<Group>Pythons</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xee</Index></Texture>
+    <AnimatedTexture>
+      <File>chars8x8dEncounters</File><Index>65</Index> 
+    </AnimatedTexture>
 		<HitSound>monster/pythons_hit</HitSound>
 		<DeathSound>monster/pythons_death</DeathSound>
 		<Size>100</Size>
 		<MaxHitPoints>200</MaxHitPoints>
 		<Defense>20</Defense>
 		<Projectile>
-			<ObjectId>Blue Magic</ObjectId>
+			<ObjectId>Advanced Brown Bolt</ObjectId>
 			<Speed>80</Speed>
 			<Damage>25</Damage>
 			<LifetimeMS>3000</LifetimeMS>
@@ -284,14 +295,16 @@
 		<Group>Pythons</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xef</Index></Texture>
+    <AnimatedTexture>
+      <File>chars8x8dEncounters</File><Index>67</Index> 
+    </AnimatedTexture>
 		<HitSound>monster/pythons_hit</HitSound>
 		<DeathSound>monster/pythons_death</DeathSound>
 		<Size>100</Size>
 		<MaxHitPoints>200</MaxHitPoints>
 		<Defense>5</Defense>
 		<Projectile>
-			<ObjectId>Green Bolt</ObjectId>
+			<ObjectId>Advanced Yellow Bolt</ObjectId>
 			<Speed>80</Speed>
 			<Damage>25</Damage>
 			<LifetimeMS>3000</LifetimeMS>
@@ -302,14 +315,17 @@
 		<Group>Greater Pit Snakes</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar16x8</File><Index>0x7f</Index></Texture>
+		<AnimatedTexture>
+      <File>chars16x16dEncounters2</File>
+      <Index>116</Index>
+    </AnimatedTexture>
 		<HitSound>monster/greater_pit_snakes_hit</HitSound>
 		<DeathSound>monster/greater_pit_snakes_death</DeathSound>
 		<Size>100</Size>
 		<MaxHitPoints>500</MaxHitPoints>
 		<Defense>10</Defense>
 		<Projectile>
-			<ObjectId>Green Magic</ObjectId>
+			<ObjectId>Greater Green Magic</ObjectId>
 			<Speed>80</Speed>
 			<Damage>50</Damage>
 			<LifetimeMS>3000</LifetimeMS>
@@ -320,14 +336,17 @@
 		<Group>Greater Pit Snakes</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar216x8</File><Index>0x58</Index></Texture>
+		<AnimatedTexture>
+      <File>chars16x16dEncounters2</File>
+      <Index>117</Index>
+    </AnimatedTexture>
 		<HitSound>monster/greater_pit_snakes_hit</HitSound>
 		<DeathSound>monster/greater_pit_snakes_death</DeathSound>
 		<Size>100</Size>
 		<MaxHitPoints>500</MaxHitPoints>
 		<Defense>10</Defense>
 		<Projectile>
-			<ObjectId>Purple Magic</ObjectId>
+			<ObjectId>Greater Purple Magic</ObjectId>
 			<Speed>60</Speed>
 			<Damage>50</Damage>
 			<LifetimeMS>3000</LifetimeMS>

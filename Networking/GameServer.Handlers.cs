@@ -900,7 +900,7 @@ namespace RotMG.Networking
             }
         }
 
-        public static byte[] ShowEffect(ShowEffectIndex effect, int targetObjectId, uint color, Vector2 pos1 = new Vector2(), Vector2 pos2 = new Vector2())
+        public static byte[] ShowEffect(ShowEffectIndex effect, int targetObjectId, uint color, Vector2 pos1 = new Vector2(), Vector2 pos2 = new Vector2(), int speed = 0)
         {
             using (var wtr = new PacketWriter(new MemoryStream()))
             {
@@ -908,6 +908,7 @@ namespace RotMG.Networking
                 wtr.Write((byte)effect);
                 wtr.Write(targetObjectId);
                 wtr.Write((int)color);
+                wtr.Write(speed);
                 pos1.Write(wtr);
                 if (pos2.X != 0 || pos2.Y != 0)
                     pos2.Write(wtr);
