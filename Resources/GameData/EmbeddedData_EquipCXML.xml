@@ -9076,50 +9076,74 @@
     <ArcGap>6</ArcGap>
     <BagType>5</BagType>
   </Object>
-  <Object type="0xc8e" id="Pumpkin Staff">
+  <Object type="0xc8e" id="Reaper's Wit">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
-      <File>lofiObj5</File>
-      <Index>0xdb</Index>
+      <File>lofiObj2</File>
+      <Index>0x165</Index>
     </Texture>
     <SlotType>17</SlotType>
-    <Description>A halloween magic staff.</Description>
+    <Description>The crystallized form of the Reaper's boon to his Keeper held in gnarled wood.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_wand</Sound>
-    <Projectile>
-      <ObjectId>Pumpkin Projectile</ObjectId>
+    <Projectile id ="0">
+      <ObjectId>Crypt Staff Shot 2</ObjectId>
       <Speed>160</Speed>
-      <MinDamage>60</MinDamage>
-      <MaxDamage>80</MaxDamage>
-      <LifetimeMS>440</LifetimeMS>
-      <MultiHit/>
+      <MinDamage>80</MinDamage>
+      <MaxDamage>95</MaxDamage>
+      <LifetimeMS>425</LifetimeMS>
+		<Frequency>2</Frequency>
+		<Amplitude>0.5</Amplitude>
     </Projectile>
+	<Projectile id ="1">
+		<ObjectId>Crypt Staff Shot 1</ObjectId>
+	    <Speed>160</Speed>
+		<MinDamage>80</MinDamage>
+		<MaxDamage>95</MaxDamage>
+	    <LifetimeMS>425</LifetimeMS>
+		<Frequency>2</Frequency>
+		<Amplitude>0.5</Amplitude>
+	</Projectile>
+	<Projectile id ="2">
+	  <ObjectId>Crypt Staff Shot 2</ObjectId>
+	  <Speed>160</Speed>
+	  <MinDamage>80</MinDamage>
+	  <MaxDamage>95</MaxDamage>
+	  <LifetimeMS>425</LifetimeMS>
+    </Projectile>
+	  <ArcGap>0</ArcGap>
     <BagType>5</BagType>
     <NumProjectiles>3</NumProjectiles>
     <FameBonus>5</FameBonus>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xc8f" id="Pumpkin Bow">
+  <Object type="0xc8f" id="Crypt Keeper's Crossbow">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
-      <File>lofiObj5</File>
-      <Index>0xdc</Index>
+      <File>lofiObj2</File>
+      <Index>0x175</Index>
     </Texture>
     <SlotType>3</SlotType>
-    <Description>A bow that shoots magical pumpkins!</Description>
+    <Description>The ancient crossbow used by the Keeper. Though it is made of ancient wood, the malevolent energy emanating from the Crypt has kept it from rotting to dust.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/golden_bow</Sound>
-    <Projectile>
-      <ObjectId>Pumpkin Projectile</ObjectId>
-      <Speed>180</Speed>
-      <MinDamage>60</MinDamage>
-      <MaxDamage>100</MaxDamage>
-      <LifetimeMS>475</LifetimeMS>
-      <Amplitude>0.5</Amplitude>
-      <Frequency>2</Frequency>
-    </Projectile>
+	  <Projectile>
+		  <ObjectId>Crypt Bow Shot 1</ObjectId>
+		  <Speed>180</Speed>
+		  <MinDamage>100</MinDamage>
+		  <MaxDamage>130</MaxDamage>
+		  <LifetimeMS>475</LifetimeMS>
+	  </Projectile>
+	  <Projectile>
+		  <ObjectId>Crypt Bow Shot 2</ObjectId>
+		  <Speed>180</Speed>
+		  <MinDamage>100</MinDamage>
+		  <MaxDamage>130</MaxDamage>
+		  <LifetimeMS>475</LifetimeMS>
+		  <ArcGap>1</ArcGap>
+	  </Projectile>
     <BagType>5</BagType>
     <FameBonus>5</FameBonus>
     <NumProjectiles>2</NumProjectiles>
@@ -9679,7 +9703,7 @@
     <RateOfFire>1.4</RateOfFire>
     <Sound>weapon/blunt_dagger</Sound>
     <Projectile>
-      <ObjectId>Whip Shot</ObjectId>
+      <ObjectId>Whip Shot 1</ObjectId>
       <Speed>300</Speed>
       <MinDamage>55</MinDamage>
       <MaxDamage>70</MaxDamage>
@@ -9728,7 +9752,7 @@
       <Boomerang />
     </Projectile>
     <Projectile>
-      <ObjectId>Whip Shot</ObjectId>
+      <ObjectId>Whip Shot 1</ObjectId>
       <Speed>300</Speed>
       <MinDamage>55</MinDamage>
       <MaxDamage>70</MaxDamage>
