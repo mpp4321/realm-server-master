@@ -730,6 +730,28 @@ namespace RotMG.Game.Entities
                             }
                         }
                         break;
+                    case "size":
+                        {
+                            if (Client.Account.Donator < 1 && !Client.Account.Ranked)
+                                break;
+                            try
+                            {
+                                var output = int.Parse(input);
+                                SetSV(StatType.Size, int.Parse(input));
+                                SendInfo("Size changed!");
+                            } catch { SendInfo("Bad input."); }
+                        }
+                        break;
+                    case "glow":
+                        {
+                            if (Client.Account.Donator < 1 && !Client.Account.Ranked)
+                                break;
+                            try
+                            {
+                                SendInfo("Not implemented!");
+                            } catch { SendInfo("Bad input."); }
+                        }
+                        break;
                     default:
                         SendError("Unknown command");
                         break;
