@@ -28,13 +28,13 @@ namespace RotMG.Game.Logic.Database
                         var aoe = GameServer.ShowEffect(ShowEffectIndex.Nova, h.Id, 0xffffff00, new Vector2(3f, 0));
                         if(foundPlayer != null)
                         {
-                            (foundPlayer as Player).Damage(h.Desc.DisplayId, 300, new ConditionEffectDesc[] { }, true);
+                            (foundPlayer as Player).Damage(h.Desc.DisplayId, 100, new ConditionEffectDesc[] { }, true);
                         }
                         h.PlayerOwner.Client.Send(aoe);
 
                         foreach(var en in foundEnemies)
                         {
-                            (en as Enemy).Damage(h.PlayerOwner as Player, 300, new ConditionEffectDesc[] { }, false, true);
+                            (en as Enemy).Damage(h.PlayerOwner, 100, new ConditionEffectDesc[] { }, false, true);
                         }
                     }),
                     new Suicide()

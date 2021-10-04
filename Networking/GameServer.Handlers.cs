@@ -910,7 +910,7 @@ namespace RotMG.Networking
             }
         }
 
-        public static byte[] ShowEffect(ShowEffectIndex effect, int targetObjectId, uint color, Vector2 pos1 = new Vector2(), Vector2 pos2 = new Vector2(), int speed = 0)
+        public static byte[] ShowEffect(ShowEffectIndex effect, int targetObjectId, uint color, Vector2 pos1 = new Vector2(), Vector2 pos2 = new Vector2(), int speed = 1500)
         {
             using (var wtr = new PacketWriter(new MemoryStream()))
             {

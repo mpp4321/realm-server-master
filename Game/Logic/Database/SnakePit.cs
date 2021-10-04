@@ -91,17 +91,17 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Stheno the Snake Queen",
                 new State("wait",
+                    new PlayerWithinTransition(8, "wait1", seeInvis: true),
+                    new HealthTransition(0.99f, "wait1")
+                ),
+                new State("wait1",
+                    new TimedTransition("start", 1000),
                     new TossObject("Stheno Pet", 7, 0, 100000, throwEffect: true),
                     new TossObject("Stheno Pet", 7, 60, 100000, throwEffect: true),
                     new TossObject("Stheno Pet", 7, 120, 100000, throwEffect: true),
                     new TossObject("Stheno Pet", 7, 180, 100000, throwEffect: true),
                     new TossObject("Stheno Pet", 7, 240, 100000, throwEffect: true),
-                    new TossObject("Stheno Pet", 7, 300, 100000, throwEffect: true),
-                    new PlayerWithinTransition(8, "wait1", seeInvis: true)
-                    ),
-                new State("wait1",
-                    new TimedTransition("start", 1000)
-
+                    new TossObject("Stheno Pet", 7, 300, 100000, throwEffect: true)
                 ),
                 new State("start",
                     new Shoot(12, 5, 70, 1, fixedAngle: 0f, rotateAngle: 6f, cooldown: 100, cooldownVariance: 50),
@@ -150,10 +150,10 @@ namespace RotMG.Game.Logic.Database
                             new ItemLoot("Ophidian Gem", 0.008f),
                             new ItemLoot("Snakeskin Guard", 0.015f),
                             new TierLoot(11, LootType.Armor, 0.35f),
-                            new TierLoot(4, LootType.Ring, 0.2f),
                             new TierLoot(10, LootType.Armor, 0.35f),
+                            new TierLoot(4, LootType.Ring, 0.2f),
                             new TierLoot(3, LootType.Ring, 0.2f)
-                    )
+                        )
 
 
                     )

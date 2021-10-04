@@ -9823,4 +9823,40 @@
     <UniqueEffect>ElectricSnake</UniqueEffect>
   </Object>
   <!-- ca9 -> ca13 available -->
+  <Object type="0xca9" id="Artifact of Earth">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj5</File>
+      <Index>0xbd</Index>
+    </Texture>
+    <SlotType>17</SlotType>
+    <Description>A slice of tangible magic from the creation of the realm.</Description>
+    <RateOfFire>1.5</RateOfFire>
+    <Sound>weapon/fire_wand</Sound>
+    <Projectile>
+      <ObjectId>Fire Missile</ObjectId>
+      <Speed>140</Speed>
+      <MinDamage>60</MinDamage>
+      <MaxDamage>100</MaxDamage>
+      <LifetimeMS>375</LifetimeMS>
+      <Amplitude>0.25</Amplitude>
+      <Frequency>2</Frequency>
+      <Size>150</Size>
+    </Projectile>
+    <Projectile>
+      <ObjectId>Blue Missile</ObjectId>
+      <Speed>140</Speed>
+      <MinDamage>60</MinDamage>
+      <MaxDamage>100</MaxDamage>
+      <LifetimeMS>375</LifetimeMS>
+      <Amplitude>0.25</Amplitude>
+      <Frequency>2</Frequency>
+      <Size>150</Size>
+    </Projectile>
+    <BagType>5</BagType>
+    <NumProjectiles>2</NumProjectiles>
+    <ArcGap>0</ArcGap>
+    <OldSound>magicShoot</OldSound>
+  </Object>
 </Objects>

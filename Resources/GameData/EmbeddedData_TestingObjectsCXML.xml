@@ -1381,7 +1381,38 @@
 
 	</Object>
 
-    
+  <Object type="0x5009" id="Undead Giant Hand">
+		<Enemy/>
+		<Class>Character</Class>
+    <Texture>
+      <File>lofiObj64x64</File>
+      <Index>0x00</Index>
+    </Texture>
+		<HitSound>monster/cyclops_hit</HitSound>
+		<DeathSound>monster/cyclops_death</DeathSound>
+		<Size>50</Size>
+		<MaxHitPoints>360000</MaxHitPoints>
+		<Defense>0</Defense>
+        
+		<Level>20</Level>
+		<XpMult>100.25</XpMult>
+		
+		<Projectile id="0">
+			<ObjectId>Advanced Fire Bolt</ObjectId>
+      <Size>150</Size>
+			<Speed>67</Speed>
+			<Damage>270</Damage>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Advanced Brown Bolt</ObjectId>
+      <Size>150</Size>
+			<Speed>67</Speed>
+			<Damage>270</Damage>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+
+	</Object>
    
     
     

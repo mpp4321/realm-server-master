@@ -79,7 +79,7 @@
 		<Music>jungletemple</Music>
 	</World>
 	<World name="Crypt" display="Crypt">
-		<Maps>Crypt/0.jm</Maps>
+		<Maps>Crypt/0.jm;Crypt/1.jm;Crypt/2.jm;Crypt/3.jm;Crypt/4.jm</Maps>
 		<Portals>0x074b</Portals>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>

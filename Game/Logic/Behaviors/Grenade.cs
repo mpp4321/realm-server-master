@@ -18,6 +18,7 @@ namespace RotMG.Game.Logic.Behaviors
         public readonly int CooldownVariance;
         public readonly ConditionEffectDesc[] Effects;
         public readonly uint Color;
+        public readonly int speed;
 
         public Grenade(
             float range = 8, 
@@ -29,8 +30,11 @@ namespace RotMG.Game.Logic.Behaviors
             int cooldownVariance = 0,
             ConditionEffectIndex effect = ConditionEffectIndex.Nothing, 
             int effectDuration = 0, 
-            uint color = 0xFFFF0000)
+            uint color = 0xFFFF0000,
+            int speed = 1500)
         {
+            this.speed = speed;
+
             Range = range;
             Damage = damage;
             Radius = radius;
@@ -80,10 +84,10 @@ namespace RotMG.Game.Logic.Behaviors
                         Effects = Effects,
                         Position = p,
                         Hitter = host.Desc.DisplayId,
-                        Time = Manager.TotalTime + 1500
+                        Time = Manager.TotalTime + speed
                     };
 
-                    var eff = GameServer.ShowEffect(ShowEffectIndex.Throw, host.Id, Color, p);
+                    var eff = GameServer.ShowEffect(ShowEffectIndex.Throw, host.Id, Color, p, speed: speed);
                     var aoe = GameServer.Aoe(p, Radius, Damage, Effects[0].Effect, Color);
                     var players = host.Parent.PlayerChunks.HitTest(host.Position, Player.SightRadius)
                         .Where(e => e is Player j && j.Entities.Contains(host)).ToArray();
@@ -91,7 +95,7 @@ namespace RotMG.Game.Logic.Behaviors
                     foreach (var en in players)
                         (en as Player).Client.Send(eff);
 
-                    Manager.AddTimedAction(1500, () => 
+                    Manager.AddTimedAction(speed, () => 
                     {
                         foreach (var en in players)
                             if (en.Parent != null)
