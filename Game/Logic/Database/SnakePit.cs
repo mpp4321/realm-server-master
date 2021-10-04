@@ -80,6 +80,8 @@ namespace RotMG.Game.Logic.Database
                 );
 
             db.Init("Snakepit Button",
+                //turning off for now
+                    new State("disabled"),
                     new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                     new State("based",
                         new PlayerWithinTransition(1, "spawn", seeInvis: true)
