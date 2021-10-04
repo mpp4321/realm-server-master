@@ -19,7 +19,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
                 var placeholder = new Placeholder();
                 p.Parent.AddEntity(placeholder, position);
 
-                var @throw = GameServer.ShowEffect(ShowEffectIndex.Throw, p.Id, 0xffddff00, position);
+                var @throw = GameServer.ShowEffect(ShowEffectIndex.Throw, p.Id, 0xffddff00, position, speed: 1500);
 
                 foreach (var j in p.Parent.PlayerChunks.HitTest(p.Position, Player.SightRadius))
                     if (j is Player k && (k.Client.Account.Effects || k.Equals(this)))
