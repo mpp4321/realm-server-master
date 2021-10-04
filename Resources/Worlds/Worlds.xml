@@ -57,6 +57,7 @@
 		<Background>0</Background>
 		<AllowTeleport>true</AllowTeleport>
 		<BlockSight>1</BlockSight>
+		<Music>ABYSSOFDEMONS</Music>
 	</World>
 	<World name="Treasure Cave" display="Treasure Cave">
 		<Maps>TCave/0.jm</Maps>
@@ -96,6 +97,7 @@
 		<Portals>0x0718</Portals>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
+		<Music>SNAKEPIT</Music>
 	</World>
 	<World name="TestWorld" display="Test World">
 		<Maps>TestWorld/0.jm</Maps>
