@@ -18,7 +18,6 @@ namespace RotMG.Game.Logic.Behaviors
         {
             public Vector2 Direction;
             public int RemainingTime;
-            public Player from;
         }
 
         private readonly float _speed;
@@ -48,9 +47,10 @@ namespace RotMG.Game.Logic.Behaviors
         public override bool Tick(Entity host)
         {
             bool returnState = false;
+
             var s = (host.StateObject[Id] == null) ?
                 new ChargeState() :
-                (ChargeState)host.StateObject[Id];
+                (ChargeState) host.StateObject[Id];
 
             if (host.HasConditionEffect(ConditionEffectIndex.Paralyzed))
                 return false;

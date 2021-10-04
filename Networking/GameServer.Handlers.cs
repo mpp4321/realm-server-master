@@ -627,7 +627,12 @@ namespace RotMG.Networking
                 client.Character = character;
                 client.Player = new Player(client);
                 client.State = ProtocolState.Connected;
-                client.Send(CreateSuccess(world.AddEntity(client.Player, world.GetSpawnRegion().ToVector2()), client.Character.Id));
+
+                var point = world.GetSpawnRegion().ToVector2();
+                point.X += .5f;
+                point.Y += .5f;
+
+                client.Send(CreateSuccess(world.AddEntity(client.Player, point), client.Character.Id));
             }
         }
 
@@ -646,10 +651,15 @@ namespace RotMG.Networking
                 }
 
                 var world = Manager.GetWorld(client.TargetWorldId, client);
+
+                var point = world.GetSpawnRegion().ToVector2();
+                point.X += .5f;
+                point.Y += .5f;
+
                 client.Character = character;
                 client.Player = new Player(client);
                 client.State = ProtocolState.Connected;
-                client.Send(CreateSuccess(world.AddEntity(client.Player, world.GetSpawnRegion().ToVector2()), client.Character.Id));
+                client.Send(CreateSuccess(world.AddEntity(client.Player, point), client.Character.Id));
                 client.Player.CreateAndAddPet(client.Character.PetId);
             }
         }
