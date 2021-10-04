@@ -1459,7 +1459,7 @@
         <DeathSound>monster/spiders_death</DeathSound>
         <Size>90</Size>
         <ShadowSize>100</ShadowSize>
-        <MaxHitPoints>2500</MaxHitPoints>
+        <MaxHitPoints>250</MaxHitPoints>
         <Defense>20</Defense>
 
         <Projectile id="0">

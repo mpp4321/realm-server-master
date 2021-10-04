@@ -33,13 +33,25 @@ namespace RotMG.Game.Logic.Database
                         new Follow(3f, 10, 6),
                         new Shoot(8, 4, shootAngle: 16, cooldown: 300),
                         new Wander(0.5f)
-                    )
+                    ),
+                    new State("protect",
+                    new Shoot(8, 4, shootAngle: 16, cooldown: 300),
+                        new Prioritize(
+                            new Orbit(0.6f, 1.5f, 6, "Snakepit Guard")
+                            )
+                        )
                 );
             db.Init("Brown Python",
                     new State("based",
                         new Follow(3f, 10, 6),
                         new Shoot(8, 2, shootAngle: 12, cooldown: 200),
                         new Wander(0.5f)
+                    ),
+                    new State("protect",
+                    new Shoot(8, 2, shootAngle: 12, cooldown: 200),
+                        new Prioritize(
+                            new Orbit(0.6f, 1.5f, 6, "Snakepit Guard")
+                            )
                     )
                 );
             db.Init("Yellow Python",
@@ -47,41 +59,85 @@ namespace RotMG.Game.Logic.Database
                         new Follow(3f, 10, 6),
                         new Shoot(8, 1, cooldown: 100, predictive: 0.6f),
                         new Wander(0.5f)
-                    )
+                    ),
+                    new State("protect",
+                    new Shoot(8, 1, cooldown: 100, predictive: 0.6f),
+                        new Prioritize(
+                            new Orbit(0.6f, 1.5f, 6, "Snakepit Guard")
+                            )
+                        )
                 );
             db.Init("Pit Viper",
                     new State("based",
                         new Shoot(8, 1, cooldown: 250, predictive: 0.6f),
                         new Wander(0.3f)
-                    )
+                    ),
+                    new State("protect",
+                    new Shoot(8, 1, cooldown: 250, predictive: 0.6f),
+                        new Prioritize(
+                            new Orbit(0.4f, 2.5f, 6, "Snakepit Guard")
+                            )
+                        )
                 );
             db.Init("Pit Snake",
                     new State("based",
                         new Shoot(8, 1, cooldown: 250, predictive: 0.6f),
                         new Wander(0.3f)
-                    )
+                    ),
+                    new State("protect",
+                    new Shoot(8, 1, cooldown: 250, predictive: 0.6f),
+                        new Prioritize(
+                            new Orbit(0.4f, 2.5f, 6, "Snakepit Guard")
+                            )
+                        )
                 );
 
             db.Init("Snakepit Guard Spawner",
                     new State("based",
-                            new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
-                            new State("waiting"),
-                            new State("spawn",
-                                new Spawn("Snakepit Guard", 1, cooldown: 0),
-                                new TimedTransition("waiting", 0)
-                            )
+                        new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
+                        new State("waiting"),
+                        new State("spawn",
+                            new Spawn("Snakepit Guard", 1, cooldown: 0),
+                            new TimedTransition("waiting", 0)
+                        )
+
                     )
                 );
 
             db.Init("Snakepit Guard",
+                new Wander(0.3f),
                     new State("based",
-                        new Shoot(6, 5, 360 / 5)
+                        new StayBack(0.7f, 2.5f),
+                        new Shoot(6, 5, 360 / 5, fixedAngle: 0f, rotateAngle: 12, angleOffset: 4, cooldown: 400, cooldownVariance: 150),
+                        new TimedTransition("order", 3000)
+                    ),
+                    new State("order",
+                        new Order(6, "Pit Snake", "protect"),
+                        new Order(6, "Pit Viper", "protect"),
+                        new Order(3, "Yellow Python", "protect"),
+                        new Order(3, "Brown Python", "protect"),
+                        new Order(3, "Fire Python", "protect"),
+                        new TimedTransition("Avoid", 100)
+                    ),
+                    new State("Avoid",
+                        new StayBack(0.7f, 2.5f),
+                        new Shoot(7, 2, 32, 1, cooldown: 650),
+                        new Shoot(6, 1, cooldown: 650),
+                        new TimedTransition("push", 4000)
+                    ),
+                    new State("push",
+                        new Follow(1.2f, range: 2f, duration: 1500),
+                        new Shoot(6, 3, 360 / 3, 2, fixedAngle: 0f, rotateAngle: 24f, cooldown: 150),
+                        new TimedTransition("Avoid", 2500)
+                    ),
+                    new Threshold(0.01f,
+                        new ItemLoot("Potion of Vitality", 0.5f),
+                        new ItemLoot("Potion of Dexterity", 0.25f),
+                        new ItemLoot("Potion of Attack", 0.1f)
                     )
                 );
 
             db.Init("Snakepit Button",
-                //turning off for now
-                    new State("disabled"),
                     new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                     new State("based",
                         new PlayerWithinTransition(1, "spawn", seeInvis: true)
@@ -144,28 +200,29 @@ namespace RotMG.Game.Logic.Database
                             new Charge(1.6f, 15),
                             new Follow(1.2f, range: 2.5f)
                             ),
-                        new TimedTransition("blind", 1500),
-
-                        new Threshold(0.03f,
+                        new TimedTransition("blind", 1500)
+                    ),
+                    new Threshold(0.03f,
                             new ItemLoot("Serpentine Guise", 0.008f),
                             new ItemLoot("Stheno's Scourge", 0.01f),
                             new ItemLoot("Ophidian Gem", 0.008f),
                             new ItemLoot("Snakeskin Guard", 0.015f),
-                            new TierLoot(11, LootType.Armor, 0.35f),
-                            new TierLoot(10, LootType.Armor, 0.35f),
-                            new TierLoot(4, LootType.Ring, 0.2f),
-                            new TierLoot(3, LootType.Ring, 0.2f)
+                            new TierLoot(11, LootType.Armor, 0.3f),
+                            new TierLoot(10, LootType.Armor, 0.4f),
+                            new TierLoot(11, LootType.Weapon, 0.25f),
+                            new TierLoot(10, LootType.Weapon, 0.4f),
+                            new TierLoot(4, LootType.Ring, 0.25f),
+                            new TierLoot(3, LootType.Ring, 0.4f),
+                            new TierLoot(5, LootType.Ability, 0.2f),
+                            new TierLoot(4, LootType.Ability, 0.3f)
                         )
-
-
-                    )
                 );
             db.Init("Stheno Pet",
                     new State("based",
 
                         new Shoot(8, 2, shootAngle: 12, cooldown: 300),
                             new Prioritize(
-                                new Orbit(1.5f, 10, 20, target: "Stheno the Snake Queen")
+                                new Orbit(1.5f, 8, 20, target: "Stheno the Snake Queen")
                                 ),
                         new TimedTransition("based1", 10000)
                     ),
