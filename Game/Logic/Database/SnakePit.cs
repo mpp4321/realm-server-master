@@ -145,7 +145,7 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("blind", 1500),
 
                         new Threshold(0.03f,
-                            new ItemLoot("Serpentine Guise", 0..008f),
+                            new ItemLoot("Serpentine Guise", 0.008f),
                             new ItemLoot("Stheno's Scourge", 0.01f),
                             new ItemLoot("Ophidian Gem", 0.008f),
                             new ItemLoot("Snakeskin Guard", 0.015f),
