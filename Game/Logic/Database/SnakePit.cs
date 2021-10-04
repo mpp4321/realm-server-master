@@ -4,6 +4,7 @@ using RotMG.Game.Logic.Transitions;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static RotMG.Game.Logic.Loots.TierLoot;
 
 namespace RotMG.Game.Logic.Database
 {
@@ -141,8 +142,20 @@ namespace RotMG.Game.Logic.Database
                             new Charge(1.6f, 15),
                             new Follow(1.2f, range: 2.5f)
                             ),
-                        new TimedTransition("blind", 1500)
-                    
+                        new TimedTransition("blind", 1500),
+
+                        new Threshold(0.03f,
+                            new ItemLoot("Serpentine Guise", 0..008f),
+                            new ItemLoot("Stheno's Scourge", 0.01f),
+                            new ItemLoot("Ophidian Gem", 0.008f),
+                            new ItemLoot("Snakeskin Guard", 0.015f),
+                            new TierLoot(11, LootType.Armor, 0.35f),
+                            new TierLoot(4, LootType.Ring, 0.2f),
+                            new TierLoot(10, LootType.Armor, 0.35f),
+                            new TierLoot(3, LootType.Ring, 0.2f)
+                    )
+
+
                     )
                 );
             db.Init("Stheno Pet",
