@@ -42,7 +42,7 @@
 		<DeathSound>monster/scorpions_death</DeathSound>
 
 		<XpMult>1.0</XpMult>
-   		<Size>0</Size>
+   		<Size>100</Size>
 		<MaxHitPoints>5500</MaxHitPoints>
 		<Defense>50</Defense>
 		
