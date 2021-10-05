@@ -9140,8 +9140,8 @@
 		  <MinDamage>100</MinDamage>
 		  <MaxDamage>130</MaxDamage>
 		  <LifetimeMS>475</LifetimeMS>
-		  <ArcGap>1</ArcGap>
 	  </Projectile>
+		<ArcGap>3</ArcGap>
     <BagType>5</BagType>
     <FameBonus>5</FameBonus>
     <NumProjectiles>2</NumProjectiles>
