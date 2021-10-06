@@ -309,9 +309,8 @@ namespace RotMG.Game.Entities
                     for (var i = 0; i < numShots; i++)
                     {
                         var damage = (int)(GetNextDamageSeeded(desc.NextProjectile(startId - i).MinDamage, desc.NextProjectile(startId - i).MaxDamage, ItemDatas[0]) * GetAttackMultiplier());
-                        var uneffs = this.Inventory.Take(4).Select(a => a > 0 ? Resources.Type2Item[(ushort)a].UniqueEffect : null).Where(a => a != null);
-                        var compeffs = this.ItemDatas.Take(4).Select(a => a.ItemComponent != null ? a.ItemComponent : null).Where(a => a != null);
-                        uneffs = uneffs.Concat(compeffs);
+                        //var compeffs = this.ItemDatas.Take(4).Select(a => a.ItemComponent != null ? a.ItemComponent : null).Where(a => a != null);
+                        var uneffs = BuildAllItemHandlers();
                         var projectile = new Projectile(this, desc.NextProjectile(startId - i), startId - i, time, angle + arcGap * i, pos, damage, uniqueEff: uneffs.ToArray());
                         ShotProjectiles.Add(projectile.Id, projectile);
                     }
@@ -425,20 +424,29 @@ namespace RotMG.Game.Entities
 #endif
         }
 
+        public IEnumerable<IItemHandler> BuildAllItemHandlers()
+        {
+            var equips = Inventory.Take(4).Select(a => Resources.Type2Item.GetValueOrDefault((ushort) a))
+                .Where(a => a != null && a.UniqueEffect != null)
+                .Select( a => 
+                    ItemHandlerRegistry.Registry[a.UniqueEffect]
+                );
+            var runes = Client.Character.SelectedRunes.Select(a => ItemHandlerRegistry.Registry[a]);
+            return equips.Concat(runes);
+        }
+
         public override bool HitByProjectile(Projectile projectile)
         {
             if (projectile.Owner is Player)
                 return false;
             if(projectile.OnHitDelegate != null)
                 projectile.OnHitDelegate(this);
-            for(int i = 0; i < 4; i++)
+
+            foreach(var v in BuildAllItemHandlers())
             {
-                var itemdesc = Resources.Type2Item.GetValueOrDefault((ushort)Inventory[i]);
-                if(itemdesc?.UniqueEffect != null)
-                {
-                    ItemHandlerRegistry.Registry[itemdesc.UniqueEffect].OnHitByEnemy(this, projectile.Owner, projectile);
-                }
+                v.OnHitByEnemy(this, projectile.Owner, projectile);
             }
+
             return Damage(Resources.Type2Object[projectile.Desc.ContainerType].DisplayId,
                    projectile.Damage, 
                    projectile.Desc.Effects, 

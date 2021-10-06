@@ -13,7 +13,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
         {
         }
 
-        public void OnEnemyHit(Entity hit, Projectile by)
+        public void OnEnemyHit(Entity hit, Projectile by, ref int damageDone)
         {
             if (MathUtils.NextInt(0, 10) != 9)
                 return;

@@ -1,4 +1,5 @@
 ﻿using RotMG.Game.Logic.ItemEffs.ItemDB;
+using RotMG.Game.Logic.ItemEffs.RuneEffects;
 using RotMG.Game.Logic.Mechanics.Database;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,9 @@ namespace RotMG.Game.Logic.ItemEffs
 
             //components
             Registry.Add("FireRune", new FireRune());
+
+            //Runes
+            Registry.Add("Percise", new Percise());
         }
 
     }

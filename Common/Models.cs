@@ -91,6 +91,8 @@ namespace RotMG.Common
 
         public string[] ItemDatas;
 
+        public string[] SelectedRunes;
+
         public ItemDataJson[] ItemDataJsons = Enumerable.Repeat(new ItemDataJson() { Meta = -1 }, 20).ToArray();
 
         public int Fame;
@@ -139,6 +141,7 @@ namespace RotMG.Common
             FameStats = new FameStatsInfo(Data.Element("FameStats"));
             PetId = Data.ParseInt("PetId");
             ItemDataModifier = Data.ParseString("ItemDataModifier", "Classical");
+            SelectedRunes = Data.ParseStringArray("Runes", ",", new string[] { });
         }
 
         public XElement ExportFame()
@@ -215,6 +218,7 @@ namespace RotMG.Common
                 data.Add(new XElement("DeathTime", DeathTime));
                 data.Add(new XElement("PetId", PetId));
                 data.Add(new XElement("ItemDataModifier", ItemDataModifier));
+                data.Add(new XElement("Runes", string.Join(",", SelectedRunes)));
                 data.Add(FameStats.Export(appExport));
             }
             return data;

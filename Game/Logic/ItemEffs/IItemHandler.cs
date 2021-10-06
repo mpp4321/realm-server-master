@@ -6,10 +6,10 @@ using System.Text;
 
 namespace RotMG.Game.Logic.ItemEffs
 {
-    interface IItemHandler
+    public interface IItemHandler
     {
 
-        abstract void OnEnemyHit(Entity hit, Projectile by);
+        abstract void OnEnemyHit(Entity hit, Projectile by, ref int damageDone);
 
         abstract void OnHitByEnemy(Player hit, Entity hitBy, Projectile by);
 

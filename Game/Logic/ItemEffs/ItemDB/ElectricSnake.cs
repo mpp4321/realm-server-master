@@ -15,7 +15,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
             e.PlayerOwner = player;
         }
 
-        public void OnEnemyHit(Entity hit, Projectile by)
+        public void OnEnemyHit(Entity hit, Projectile by, ref int damageDone)
         {
         }
 

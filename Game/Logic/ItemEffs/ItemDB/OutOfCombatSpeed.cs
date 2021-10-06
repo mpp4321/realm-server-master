@@ -18,7 +18,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
         {
         }
 
-        public void OnEnemyHit(Entity hit, Projectile by)
+        public void OnEnemyHit(Entity hit, Projectile by, ref int damageDone)
         {
             if (!(by.Owner is Player)) return;
             if(!InCombat.Contains(by.Owner.Id))

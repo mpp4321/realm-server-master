@@ -1,12 +1,13 @@
 ﻿using RotMG.Common;
 using RotMG.Game.Entities;
+using RotMG.Utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RotMG.Game.Logic.ItemEffs.ItemDB
+namespace RotMG.Game.Logic.ItemEffs.RuneEffects
 {
-    class BloodSuckingAmulet : IItemHandler
+    class Percise : IItemHandler
     {
         public void OnAbilityUse(Vector2 position, ItemDesc desc, ItemDataJson itemdata, Player player)
         {
@@ -14,6 +15,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
 
         public void OnEnemyHit(Entity hit, Projectile by, ref int damageDone)
         {
+            damageDone = (int)(damageDone * (1f + ((Manager.LastTickTime - by.Time) / (float)by.Desc.LifetimeMS)));
         }
 
         public void OnHitByEnemy(Player hit, Entity hitBy, Projectile by)
@@ -22,11 +24,6 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
 
         public void OnTick(Player p)
         {
-            float hpRegenPerTick = p.GetHPRegen() * Settings.SecondsPerTick;
-            if(p.Hp > ((int)(p.SVs[StatType.MaxHp]) / 2))
-            {
-                p.Hp -= (int)(hpRegenPerTick + 2);
-            }
         }
     }
 }

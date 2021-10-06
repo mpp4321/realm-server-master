@@ -13,7 +13,7 @@ namespace RotMG.Game.Logic.Mechanics.Database
         {
         }
 
-        public void OnEnemyHit(Entity hit, Projectile by)
+        public void OnEnemyHit(Entity hit, Projectile by, ref int damageDone)
         {
             if(hit is Enemy en)
             {

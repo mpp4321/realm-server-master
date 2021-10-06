@@ -1,4 +1,5 @@
 ﻿using RotMG.Common;
+using RotMG.Game.Logic.ItemEffs;
 using RotMG.Utils;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,11 @@ namespace RotMG.Game
         public readonly Vector2 StartPosition;
         public readonly int Damage;
         public readonly HashSet<int> Hit;
-        public readonly string[] UniqueEffects = new string[] { };
+        public readonly IItemHandler[] UniqueEffects = new IItemHandler[] { };
 
         public int Time;
 
-        public Projectile(Entity owner, ProjectileDesc desc, int id, int time, float angle, Vector2 startPos, int damage, Action<Entity> hitDelegate=null, string[] uniqueEff = null)
+        public Projectile(Entity owner, ProjectileDesc desc, int id, int time, float angle, Vector2 startPos, int damage, Action<Entity> hitDelegate=null, IItemHandler[] uniqueEff = null)
         {
             Owner = owner;
             Desc = desc;
@@ -30,7 +31,7 @@ namespace RotMG.Game
             Damage = damage;
             Hit = new HashSet<int>();
             OnHitDelegate = hitDelegate;
-            UniqueEffects = uniqueEff ?? new string[] { };
+            UniqueEffects = uniqueEff ?? new IItemHandler[] { };
         }
 
         public bool CanHit(Entity en)

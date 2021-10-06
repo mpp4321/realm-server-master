@@ -159,13 +159,14 @@ namespace RotMG.Game.Entities
             if(projectile.OnHitDelegate != null)
                 projectile.OnHitDelegate(this);
 
+            var beforeModifiedDamage = projectile.Damage;
             if(projectile.UniqueEffects != null)
             {
                 foreach(var eff in projectile.UniqueEffects)
-                    ItemHandlerRegistry.Registry[eff].OnEnemyHit(this, projectile);
+                    eff.OnEnemyHit(this, projectile, ref beforeModifiedDamage);
             }
 
-            return Damage(projectile.Owner as Player, projectile.Damage, projectile.Desc.Effects, projectile.Desc.ArmorPiercing);
+            return Damage(projectile.Owner as Player, beforeModifiedDamage, projectile.Desc.Effects, projectile.Desc.ArmorPiercing);
         }
 
         public override void Dispose()
