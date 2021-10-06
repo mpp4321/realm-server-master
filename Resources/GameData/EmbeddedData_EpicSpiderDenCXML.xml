@@ -61,6 +61,7 @@
       <Size>75</Size>
       <MaxHitPoints>400</MaxHitPoints>
       <XpMult>0.0</XpMult>
+	  <Defense>25</Defense>
    </Object>
    <Object type="0x701b" id="Crawling Spider Hatchling">
       <Class>Character</Class>
@@ -72,19 +73,20 @@
       <HitSound>monster/spiders_hit</HitSound>
       <DeathSound>monster/spiders_death</DeathSound>
       <Size>75</Size>
-      <MaxHitPoints>500</MaxHitPoints>
+      <MaxHitPoints>400</MaxHitPoints>
       <Enemy/>
       <XpMult>0.2</XpMult>
+	  <Defense>15</Defense>
       <Projectile id="0">
          <ObjectId>Blue Magic</ObjectId>
          <Speed>50</Speed>
          <Damage>60</Damage>
          <LifetimeMS>3000</LifetimeMS>
-         <ConditionEffect duration="1">Weak</ConditionEffect>
+         <ConditionEffect duration="2">Weak</ConditionEffect>
       </Projectile>
       <Projectile id="1">
          <ObjectId>Blue Magic</ObjectId>
-         <Speed>50</Speed>
+         <Speed>35</Speed>
          <Damage>60</Damage>
          <LifetimeMS>3000</LifetimeMS>
          <ConditionEffect duration="3">Quiet</ConditionEffect>
@@ -104,13 +106,20 @@
       <XpMult>0.3</XpMult>
       <Defense>15</Defense>
       <Enemy/>
-      <Projectile>
+	   <Projectile id="0">
          <ObjectId>Armor Sword Attack</ObjectId>
          <Speed>70</Speed>
-         <Damage>110</Damage>
+         <Damage>85</Damage>
          <LifetimeMS>2000</LifetimeMS>
-         <ConditionEffect duration="1">Armor Broken</ConditionEffect>
+         <ConditionEffect duration="3.5">Armor Broken</ConditionEffect>
       </Projectile>
+	   <Projectile id="1">
+		 <ObjectId>Black Missile</ObjectId>
+		 <Speed>130</Speed>
+		 <Damage>35</Damage>
+		 <LifetimeMS>200</LifetimeMS>
+		 <ConditionEffect duration="2">Armor Broken</ConditionEffect>
+	  </Projectile>
    </Object>
    <Object type="0x701d" id="Crawling Red Spotted Spider">
       <Class>Character</Class>
@@ -246,6 +255,15 @@
          <MultiHit/>
          <ConditionEffect duration="3">Paralyzed</ConditionEffect>
       </Projectile>
+	  <Projectile id="6">
+		 <ObjectId>Web Thread</ObjectId>
+		 <Damage>0</Damage>
+		 <Size>170</Size>
+		 <Speed>120</Speed>
+		 <LifetimeMS>1450</LifetimeMS>
+		 <ConditionEffect duration="5">Slowed</ConditionEffect>
+		 <MultiHit/>
+	  </Projectile>
    </Object>
    <Object type="0x707d" id="Silver Son of Arachna Giant Egg Sac">
       <Enemy/>
