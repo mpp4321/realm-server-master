@@ -6,6 +6,7 @@ using RoTMG.Game.Logic.Transitions;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static RotMG.Game.Logic.LootDef;
 using static RotMG.Game.Logic.Loots.TierLoot;
 
 namespace RotMG.Game.Logic.Database
@@ -394,88 +395,88 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Lord of the Lost Lands",
                 new State("base",
-                    new TransitionFrom("base", "Waiting"),
-                    new State("Waiting",
-                        new HealthTransition(0.99f, "Start1.0f")
+                    new PlayerWithinTransition(6, "start", true)
+                ),
+                    new State("Start",
+                        new SetAltTexture(0),
+                        new Prioritize(
+                            new Wander(0.3f)
+                            ),
+                        new Shoot(0, count: 7, shootAngle: 10, fixedAngle: 180, cooldown: 2000),
+                        new Shoot(0, count: 7, shootAngle: 10, fixedAngle: 0, cooldown: 2000),
+                        new TimedTransition("Spawning Guardian", 6000),
+                        new HealthTransition(0.025f, "dead"),
+                        new NoPlayerWithinTransition(16, "waiting")
                         ),
-                    new State("Start1.0f",
-                        new HealthTransition(0.1f, "Dead"),
-                        new State("Start",
-                            new SetAltTexture(0),
-                            new Prioritize(
-                                new Wander(0.8f)
-                                ),
-                            new Shoot(0, count: 7, shootAngle: 10, fixedAngle: 180, cooldown: 2000),
-                            new Shoot(0, count: 7, shootAngle: 10, fixedAngle: 0, cooldown: 2000),
-                            new TossObject("Guardian of the Lost Lands", 5, cooldown: 1000, throwEffect: true),
-                            new TimedTransition("Spawning Guardian", 100)
-                            ),
-                        new State("Spawning Guardian",
-                            new TossObject("Guardian of the Lost Lands", 5, cooldown: 1000, throwEffect: true),
-                            new TimedTransition("Attack", 3100)
-                            ),
-                        new State("Attack",
-                            new SetAltTexture(0),
-                            new Wander(0.8f),
-                            new PlayerWithinTransition(1, "Follow"),
-                            new TimedTransition("Gathering", 10000),
-                            new State("Attack1.0f",
-                                new TimedRandomTransition(3000,
-                                    "Attack1.1f",
-                                    "Attack1.2f"),
-                                new State("Attack1.1f",
-                                    new Shoot(12, count: 7, shootAngle: 10, cooldown: 2000),
-                                    new Shoot(12, count: 7, shootAngle: 190, cooldown: 2000),
-                                    new TimedTransition("Attack1.0f", 2000)
-                                    ),
-                                new State("Attack1.2f",
-                                    new Shoot(0, count: 7, shootAngle: 10, fixedAngle: 180, cooldown: 3000),
-                                    new Shoot(0, count: 7, shootAngle: 10, fixedAngle: 0, cooldown: 3000),
-                                    new TimedTransition("Attack1.0f", 2000)
-                                    )
-                                )
-                            ),
-                        new State("Follow",
-                            new Prioritize(
-                                new Follow(1, 20, 3),
-                                new Wander(0.4f)
-                                ),
-                            new Shoot(20, count: 7, shootAngle: 10, cooldown: 1300),
-                            new TimedTransition("Gathering", 5000)
-                            ),
-                        new State("Gathering",
-                            new Taunt(0.99f, "Gathering power!"),
-                            new SetAltTexture(3),
-                            new TimedTransition("Gathering1.0f", 2000)
-                            ),
-                        new State("Gathering1.0f",
-                            new TimedTransition("Protection", 5000),
-                            new State("Gathering1.1f",
-                                new Shoot(30, 4, fixedAngle: 90, index: 1, cooldown: 2000),
-                                new TimedTransition("Gathering1.2f", 1500)
-                                ),
+                    new State("Spawning Guardian",
+                        new TossObject("Guardian of the Lost Lands", 7, 45, cooldown: 9999),
+                        new TossObject("Guardian of the Lost Lands", 7, 45 + 90, cooldown: 9999),
+                        new TossObject("Guardian of the Lost Lands", 7, 45 + (90 * 2), cooldown: 9999),
+                        new TossObject("Guardian of the Lost Lands", 7, 45 + (90 * 3), cooldown: 9999),
+                        new TimedTransition("Attack", 3100),
+                        new HealthTransition(0.025f, "dead"),
+                        new NoPlayerWithinTransition(16, "waiting")
+                        ),
+                    new State("Attack",
+                        new SetAltTexture(0),
+                        new Wander(0.8f),
+                        new TimedRandomTransition(10, "Attack1.1f", "Attack1.2f")
+                    ),
+                    new State("Attack1.1f",
+                        new TimedTransition("Gathering", 10000),
+                        new Wander(0.6f),
+                        new HealthTransition(0.025f, "dead"),
+                        new Shoot(12, count: 7, shootAngle: 10, cooldown: 2000),
+                        new Shoot(12, count: 7, shootAngle: 190, cooldown: 2000),
+                        new TimedTransition("Attack1.2f", 2000),
+                            new State("Attack1.2f",
+                                new Shoot(0, count: 7, shootAngle: 10, fixedAngle: 180, cooldown: 3000),
+                                new Shoot(0, count: 7, shootAngle: 10, fixedAngle: 0, cooldown: 3000),
+                                new TimedTransition("Attack1.0f", 2000),
+                        new NoPlayerWithinTransition(16, "waiting")
+                    )),
+                    new State("Gathering",
+                        new Taunt(0.99f, "Gathering power!"),
+                        new SetAltTexture(3),
+                        new TimedTransition("Gathering1.0f", 2000),
+                        new HealthTransition(0.025f, "dead"),
+                        new NoPlayerWithinTransition(16, "waiting")
+                    ),
+                    new State("Gathering1.0f",
+                        new TimedTransition("Protection", 5000),
+                        new TimedRandomTransition(10, "Gathering1.1f", "Gathering1.2f"),
+                        new HealthTransition(0.025f, "dead"),
+                        new NoPlayerWithinTransition(16, "waiting")
+                    ),
+                    new State("Gathering1.1f",
+                        new Shoot(30, 4, 360 / 4, 1, 0, 16, cooldown: 350),
+                        new TimedTransition("Gathering1.2f", 2000),
+                        new TimedTransition("Protection", 8000),
                             new State("Gathering1.2f",
-                                new Shoot(30, 4, fixedAngle: 45, index: 1, cooldown: 2000),
-                                new TimedTransition("Gathering1.1f", 1500)
-                                )
-                            ),
-                        new State("Protection",
-                            new SetAltTexture(0),
-                            new TossObject("Protection Crystal", 4, angle: 0, cooldown: 5000, throwEffect: true),
-                            new TossObject("Protection Crystal", 4, angle: 45, cooldown: 5000, throwEffect: true),
-                            new TossObject("Protection Crystal", 4, angle: 90, cooldown: 5000, throwEffect: true),
-                            new TossObject("Protection Crystal", 4, angle: 135, cooldown: 5000, throwEffect: true),
-                            new TossObject("Protection Crystal", 4, angle: 180, cooldown: 5000, throwEffect: true),
-                            new TossObject("Protection Crystal", 4, angle: 225, cooldown: 5000, throwEffect: true),
-                            new TossObject("Protection Crystal", 4, angle: 270, cooldown: 5000, throwEffect: true),
-                            new TossObject("Protection Crystal", 4, angle: 315, cooldown: 5000, throwEffect: true),
-                            new EntitiesWithinTransition(10, "Protection Crystal", "Waiting")
-                            )
-                        ),
+                                new Shoot(30, 4, 360 / 4, 1, 0, -16, cooldown: 350),
+                                new TimedTransition("Gathering1.1f", 2000),
+                        new HealthTransition(0.025f, "dead"),
+                        new NoPlayerWithinTransition(16, "waiting")
+                    )),
+                    new State("Protection",
+                        new SetAltTexture(0),
+                        new TossObject("Protection Crystal", 4, angle: 0, cooldown: 4000, throwEffect: true),
+                        new TossObject("Protection Crystal", 4, angle: 45, cooldown: 5000, throwEffect: true),
+                        new TossObject("Protection Crystal", 4, angle: 90, cooldown: 4000, throwEffect: true),
+                        new TossObject("Protection Crystal", 4, angle: 135, cooldown: 5000, throwEffect: true),
+                        new TossObject("Protection Crystal", 4, angle: 180, cooldown: 4000, throwEffect: true),
+                        new TossObject("Protection Crystal", 4, angle: 225, cooldown: 5000, throwEffect: true),
+                        new TossObject("Protection Crystal", 4, angle: 270, cooldown: 4000, throwEffect: true),
+                        new TossObject("Protection Crystal", 4, angle: 315, cooldown: 5000, throwEffect: true),
+                        new TimedTransition("Start", 8001),
+                        new HealthTransition(0.025f, "dead"),
+                        new NoPlayerWithinTransition(16, "waiting")
+                    ),
                     new State("Waiting",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                         new SetAltTexture(1),
-                        new EntitiesNotExistsTransition(10, "Start1.0f","Protection Crystal")
+                        new Taunt("I knew you'd come back!"),
+                        new PlayerWithinTransition(6, "start", true)
                         ),
                     new State("Dead",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
@@ -490,32 +491,34 @@ namespace RotMG.Game.Logic.Database
                         new Suicide()
                         ),
                 new Threshold(0.03f,
-                        new ItemLoot("Shield of Ogmur", 0.002f),
+                        new ItemLoot("Shield of Ogmur", 0.0075f),
                         new TierLoot(11, LootType.Armor, 0.35f),
                         new TierLoot(4, LootType.Ring, 0.2f),
                         new TierLoot(10, LootType.Armor, 0.35f),
-                        new TierLoot(3, LootType.Ring, 0.2f)
+                        new TierLoot(3, LootType.Ring, 0.2f),
+                        new ItemLoot("Skysplitter Sword", 0.01f, r: new RarityModifiedData(1f, 1)),
+                        new ItemLoot("Mithril Shield", 0.015f, r: new RarityModifiedData(1f, 2))
                     ),
                 new Threshold(0.005f,
                     LootTemplates.BasicPots()
                 )
-            ));
+            );
             db.Init("Protection Crystal",
                 new State("base",
                     new Prioritize(
-                        new Orbit(0.3f, 4, 10, "Lord of the Lost Lands")
+                        new Orbit(0.5f, 3, 10, "Lord of the Lost Lands", radiusVariance: 1.5f)
                         ),
-                    new Shoot(8, count: 4, shootAngle: 7, cooldown: 500),
-                    new Decay(13000)
+                    new Shoot(8, count: 3, shootAngle: 7, cooldown: 500),
+                    new Decay(10000)
                     )
             );
             db.Init("Guardian of the Lost Lands",
+                new Decay(12000),
                 new State("base",
                     new State("Full",
                         new Spawn("Knight of the Lost Lands", 2, 1, cooldown: 4000),
                         new Prioritize(
-                            new Follow(0.6f, 20, 6),
-                            new Wander(0.2f)
+                            new Orbit(0.6f, 3, 10, "Lord of the Lost Lands", 0.2f, 2f)
                             ),
                         new Shoot(10, count: 8, fixedAngle: 360 / 8, cooldown: 3000, index: 1),
                         new Shoot(10, count: 5, shootAngle: 10, cooldown: 1500),
@@ -536,9 +539,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Knight of the Lost Lands",
                 new State("base",
                     new Prioritize(
-                        new Follow(1, 20, 4),
-                        new StayBack(0.5f, 2),
-                        new Wander(0.3f)
+                        new Orbit(0.8f, 5, 14, "Lord of the Lost Lands", 0.4f, 3, true)
                         ),
                     new Shoot(13, 1, cooldown: 700)
                     ),
@@ -666,6 +667,130 @@ namespace RotMG.Game.Logic.Database
                 )
             );
 
+            db.Init("Ghost Ship",
+                new State("waiting",
+                    new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                    new PlayerWithinTransition(8, "rotate", true)
+                ),
+                new State("rotate",
+                    new Prioritize(
+                        new StayCloseToSpawn(0.3f),
+                        new Wander(0.4f)
+                        ),
+                    new Shoot(8, 4, 18, 0, 0, 22, cooldown: 350),
+                    new Shoot(8, 3, 18, 0, 180, 22, cooldown: 350),
+                    new TimedTransition("rotateWait", 2500, true),
+                    new HealthTransition(0.8f, "angy")
+                ),
+                new State("rotateBack",
+                    new Prioritize(
+                        new StayCloseToSpawn(0.3f),
+                        new Wander(0.4f)
+                    ),
+                    new Shoot(8, 4, 18, 0, 0, -22, cooldown: 350),
+                    new Shoot(8, 3, 18, 0, 180, -22, cooldown: 350),
+                    new TimedTransition("rotateWait1", 2500, true),
+                    new HealthTransition(0.8f, "angy")
+                ),
+                new State("rotateWait",
+                    new Prioritize(
+                        new StayCloseToSpawn(0.3f),
+                        new Wander(0.4f)
+                    ),
+                    new TimedTransition("rotateBack", 1500),
+                    new HealthTransition(0.8f, "angy")
+                ),
+                new State("rotateWait1",
+                    new Prioritize(
+                        new StayCloseToSpawn(0.3f),
+                        new Wander(0.4f)
+                    ),
+                    new TimedTransition("rotate", 1500),
+                    new HealthTransition(0.8f, "angy")
+                ),
+                new State("angy",
+                    new Prioritize(
+                        new StayCloseToSpawn(0.4f),
+                        new Wander(0.6f)
+                    ),
+                    new Shoot(8, 1, index: 1, predictive: 0.5f, cooldownVariance: 500, cooldown: 1200),
+                    new Shoot(8, 2, 28, 0, predictive: 0.3f, cooldownVariance: 200, cooldown: 800),
+                    // I cannot for my life make this transition to anything but its 1st string what da dogi doin
+                    new TimedRandomTransition(4000,
+                        "slam",
+                        "run",
+                        "roto",
+                        "roto1"
+                        )
+                ),
+                new State("slam",
+                    new Prioritize(
+                        new Charge(0.8f, 8, 1750),
+                        new StayCloseToSpawn(0.5f, 5)
+                    ),
+                    new Shoot(4, 5, 360 / 6, 0, cooldown: 200),
+                    new TimedTransition("run", 2500)
+                ),
+                new State("run",
+                    new Prioritize(
+                        new Wander(0.3f),
+                        new StayBack(0.6f, 4),
+                        new StayCloseToSpawn(0.7f)
+                        ),
+                    new Shoot(12, 1, index: 1, predictive: 0.7f, cooldownVariance: 600, cooldown: 1400),
+                    new Shoot(8, 4, 28, 0, predictive: 0.3f, cooldownVariance: 350, cooldown: 900),
+                    new TimedTransition("angy", 6000)
+                ),
+                new State("roto",
+                    new Prioritize(
+                        new Wander(0.2f),
+                        new Orbit(1, 4.5f, target: "Ghost Ship Anchor", speedVariance: 0.3f)
+                        ),
+                    new ShootAt("Ghost Ship Anchor", 12, 6, 0, cooldownVariance: 150, cooldown: 900),
+                    new Shoot(12, 1, index: 1, predictive: 0.7f, cooldownVariance: 600, cooldown: 1800),
+                    new TimedTransition("angy", 8000)
+                ),
+                new State("roto1",
+                    new Prioritize(
+                        new Wander(0.2f),
+                        new Orbit(0.8f, 4.5f, target: "Ghost Ship Anchor", speedVariance: 0.3f, orbitClockwise: true)
+                        ),
+                    new ShootAt("Ghost Ship Anchor", 12, 6, 0, cooldownVariance: 150, cooldown: 900),
+                    new Shoot(12, 1, index: 1, predictive: 0.7f, cooldownVariance: 600, cooldown: 1800),
+                    new TimedTransition("angy", 8000)
+                )
+            );
+            //below needs their sprites indexed
+            db.Init("Vengeful Spirit",
+                new State("base",
+                    new Prioritize(
+                        new StayCloseToSpawn(0.8f, 2),
+                        new Wander(0.25f)
+                        ),
+                    new Shoot(4, 3, 14, cooldown: 800)
+                )
+            );
+            db.Init("Tempest Cloud",
+                new ConditionalEffect(ConditionEffectIndex.Invincible, true),
+                new State("wait",
+                    new PlayerWithinTransition(6, "texture")
+                ),
+                new State("Texture",
+                    new ChangeSize(10, 140),
+                    new State("Texture1",
+                        new SetAltTexture(1, 9, cooldown: 100),
+                        new TimedTransition("attack", 1100)
+                        )
+                    ),
+                new State("attack",
+                    new Shoot(5, 5, 360 / 5, cooldownVariance: 250, cooldown: 1000),
+                    new NoPlayerWithinTransition(6, "untexture")
+                ),
+                new State("untexture",
+                    new ChangeSize(10, 0),
+                    new TimedTransition("wait", 500)
+                )
+            );
         }
     }
 }
