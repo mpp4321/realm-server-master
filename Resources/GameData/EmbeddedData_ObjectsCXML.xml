@@ -300,7 +300,19 @@
       <File>lofiObj4</File>
       <Index>0x94</Index>
     </Texture>
-    <Size>80</Size>
+    <Size>100</Size>
+    <SlotTypes>0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
+  </Object>
+  <Object type="0x5009" id="Loot Bag 7">
+    <DisplayId>Loot Bag</DisplayId>
+    <Class>Container</Class>
+    <Container/>
+    <Loot/>
+    <Texture>
+      <File>lofiObj4</File>
+      <Index>0x98</Index>
+    </Texture>
+    <Size>120</Size>
     <SlotTypes>0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
   </Object>
   <Object type="0x0510" id="Loot Bag Boost">

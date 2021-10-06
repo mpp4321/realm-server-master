@@ -91,7 +91,7 @@ namespace RotMG.Common
 
         public string[] ItemDatas;
 
-        public string[] SelectedRunes;
+        public string[] SelectedRunes = new string[] { };
 
         public ItemDataJson[] ItemDataJsons = Enumerable.Repeat(new ItemDataJson() { Meta = -1 }, 20).ToArray();
 
