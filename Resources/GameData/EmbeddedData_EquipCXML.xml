@@ -9754,7 +9754,7 @@
       <ArmorPiercing>true</ArmorPiercing>
       <Boomerang />
     </Projectile>
-    <BagType>4</BagType>
+    <BagType>5</BagType>
     <OldSound>daggerSwing</OldSound>
     <ExtraTooltipData>
       <EffectInfo name="Whiplash" description="Burst fires a series of quick, boomeranging shots. The first and last pierce armor."/>
