@@ -9705,9 +9705,9 @@
     <Projectile>
       <ObjectId>Whip Shot 1</ObjectId>
       <Speed>300</Speed>
-      <MinDamage>55</MinDamage>
-      <MaxDamage>70</MaxDamage>
-      <LifetimeMS>300</LifetimeMS>
+      <MinDamage>160</MinDamage>
+      <MaxDamage>190</MaxDamage>
+      <LifetimeMS>375</LifetimeMS>
       <Amplitude>-0.4</Amplitude>
       <Frequency>2</Frequency>
       <ArmorPiercing>true</ArmorPiercing>
@@ -9716,9 +9716,9 @@
     <Projectile>
       <ObjectId>Whip Shot 2</ObjectId>
       <Speed>300</Speed>
-      <MinDamage>55</MinDamage>
-      <MaxDamage>70</MaxDamage>
-      <LifetimeMS>300</LifetimeMS>
+      <MinDamage>160</MinDamage>
+      <MaxDamage>190</MaxDamage>
+      <LifetimeMS>375</LifetimeMS>
       <Amplitude>-0.4</Amplitude>
       <Frequency>2</Frequency>
       <Boomerang />
@@ -9726,9 +9726,9 @@
     <Projectile>
       <ObjectId>Whip Shot 2</ObjectId>
       <Speed>300</Speed>
-      <MinDamage>55</MinDamage>
-      <MaxDamage>70</MaxDamage>
-      <LifetimeMS>300</LifetimeMS>
+      <MinDamage>160</MinDamage>
+      <MaxDamage>190</MaxDamage>
+      <LifetimeMS>375</LifetimeMS>
       <Amplitude>-0.4</Amplitude>
       <Frequency>2</Frequency>
       <Boomerang />
@@ -9736,9 +9736,9 @@
     <Projectile>
       <ObjectId>Whip Shot 2</ObjectId>
       <Speed>300</Speed>
-      <MinDamage>55</MinDamage>
-      <MaxDamage>70</MaxDamage>
-      <LifetimeMS>300</LifetimeMS>
+      <MinDamage>160</MinDamage>
+      <MaxDamage>190</MaxDamage>
+      <LifetimeMS>375</LifetimeMS>
       <Amplitude>-0.4</Amplitude>
       <Frequency>2</Frequency>
       <Boomerang />
@@ -9746,9 +9746,9 @@
     <Projectile>
       <ObjectId>Whip Shot 1</ObjectId>
       <Speed>300</Speed>
-      <MinDamage>55</MinDamage>
-      <MaxDamage>70</MaxDamage>
-      <LifetimeMS>300</LifetimeMS>
+      <MinDamage>160</MinDamage>
+      <MaxDamage>190</MaxDamage>
+      <LifetimeMS>375</LifetimeMS>
       <Amplitude>-0.4</Amplitude>
       <Frequency>2</Frequency>
       <ArmorPiercing>true</ArmorPiercing>
