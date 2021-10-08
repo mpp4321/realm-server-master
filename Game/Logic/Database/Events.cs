@@ -617,33 +617,6 @@ namespace RotMG.Game.Logic.Database
                     )
             );
 
-            //Placeholder
-            db.Init("Realm Reaper", new State("base",
-                    new TransitionFrom("base", "1"),
-                    new State("1",
-                        new Charge(1.5f, 10, 2000),
-                        new Shoot(10, 8, 180 / 8.0f, 1, cooldown: 2000),
-                        new PlayerWithinTransition(2, "2")
-                    ),
-                    new State("2",
-                        new ConditionalEffect(ConditionEffectIndex.Armored),
-                        new Shoot(99, 8, 360 / 8, 0, 0f, 15f, cooldown: 300),
-                        new TimedTransition("1", 2100)
-                    )
-                ),
-                new ClearRectangleOnDeath(new IntPoint(0, 0), new IntPoint(30, 30)),
-                new Threshold(0.001f,
-                    new TierLoot(10, LootType.Weapon, 0.1f),
-                    new TierLoot(11, LootType.Weapon, 0.05f),
-                    new TierLoot(10, LootType.Armor, 0.1f),
-                    new TierLoot(11, LootType.Armor, 0.05f),
-                    new TierLoot(5, LootType.Ability, 0.2f),
-                    new ItemLoot("Potion of Attack", 1f),
-                    new ItemLoot("Potion of Defense", 1f),
-                    new ItemLoot("Potion of Mana", 1f)
-                )
-            );
-
             db.Init("Undead Giant Hand", 
                 new State("base", 
                     new State("playerwait", new PlayerWithinTransition(10f, "jumping", false)),
@@ -716,12 +689,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(8, 1, index: 1, predictive: 0.5f, cooldownVariance: 500, cooldown: 1200),
                     new Shoot(8, 2, 28, 0, predictive: 0.3f, cooldownVariance: 200, cooldown: 800),
                     // I cannot for my life make this transition to anything but its 1st string what da dogi doin
-                    new TimedRandomTransition(4000,
-                        "slam",
-                        "run",
-                        "roto",
-                        "roto1"
-                        )
+                    new TimedRandomTransition(4000, "slam", "run", "roto", "roto1")
                 ),
                 new State("slam",
                     new Prioritize(

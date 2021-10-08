@@ -276,15 +276,29 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Fire Dagger", 0.5f, 0.01f, r: new LootDef.RarityModifiedData(1.0f, 2, true))
             );
             db.Init("Undead Dwarf God",
+                new State("inactive",
+                    new PlayerWithinTransition(10, "base", true)
+                ),
+                new State("dying",
+                    new Decay(14000),
+                    new OrderOnDeath(16, "Undead Dwarf Axebearer", "dying"),
+                    new OrderOnDeath(16, "Undead Dwarf Warrior", "dying"),
+                    new OrderOnDeath(16, "Undead Dwarf Mage", "dying"),
+                    new OrderOnDeath(16, "Undead Dwarf King", "dying"),
+                    new OrderOnDeath(16, "Soulless Dwarf", "dying"), 
+                    new TimedTransition("base", 3500)
+                ),
                 new State("base",
                     new Spawn("Undead Dwarf Warrior", 3),
                     new Spawn("Undead Dwarf Axebearer", 3),
                     new Spawn("Undead Dwarf Mage", 3),
                     new Spawn("Undead Dwarf King", 2),
                     new Spawn("Soulless Dwarf", 1),
-                    new PlayerWithinTransition(14, "fight")
+                    new TimedTransition("fight", 2000),
+                    new NoPlayerWithinTransition(12, "dying")
                 ),
                 new State("fight",
+                    new NoPlayerWithinTransition(12, "dying"),
                     new Prioritize(
                         new StayAbove(0.3f, 160),
                         new Follow(1, range: 7),
@@ -311,7 +325,11 @@ namespace RotMG.Game.Logic.Database
                         new Follow(1, range: 1),
                         new Wander(0.4f)
                         )
-                    )
+                    ),
+                new State("dying",
+                    new Decay(16000),
+                    new PlayerWithinTransition(10, "base", true)
+                )
             );
             db.Init("Undead Dwarf Axebearer",
                 new State("base",
@@ -321,7 +339,11 @@ namespace RotMG.Game.Logic.Database
                         new Follow(1, range: 1),
                         new Wander(0.4f)
                         )
-                    )
+                    ),
+                new State("dying",
+                    new Decay(16000),
+                    new PlayerWithinTransition(10, "base", true)
+                )
             );
             db.Init("Undead Dwarf Mage",
                 new State("base",
@@ -347,6 +369,10 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("circle_player", 3500)
                         )
                     ),
+                new State("dying",
+                    new Decay(16000),
+                    new PlayerWithinTransition(10, "base", true)
+                ),
                 new ItemLoot("Magic Potion", 0.03f)
             );
             db.Init("Undead Dwarf King",
@@ -358,6 +384,10 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                         )
                     ),
+                new State("dying",
+                    new Decay(16000),
+                    new PlayerWithinTransition(10, "base", true)
+                ),
                 new ItemLoot("Health Potion", 0.03f)
             );
             db.Init("Soulless Dwarf",
@@ -393,6 +423,10 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("idle", 2000)
                         )
                     ),
+                new State("dying",
+                    new Decay(16000),
+                    new PlayerWithinTransition(10, "base", true)
+                ),
                 new ItemLoot("Magic Potion", 0.03f)
             );
             db.Init("Flayer God",

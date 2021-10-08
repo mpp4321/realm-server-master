@@ -1,4 +1,5 @@
-﻿using RotMG.Game.Logic.Behaviors;
+﻿using RotMG.Common;
+using RotMG.Game.Logic.Behaviors;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using static RotMG.Game.Logic.LootDef;
+using static RotMG.Game.Logic.Loots.TierLoot;
 
 namespace RotMG.Game.Logic.Database
 {
@@ -38,6 +40,7 @@ namespace RotMG.Game.Logic.Database
                     new TimedTransition("return", 400)
                 ),
                 new State("return",
+                    new StayBack(1.5f, 8),
                     new Wander(4),
                     new TimedTransition("base", 1500)
                 ));
@@ -50,21 +53,22 @@ namespace RotMG.Game.Logic.Database
                             new Wander(0.4f)
                             ),
                         new Prioritize(
-                            new Charge(2, pred: e => e.HasConditionEffect(Common.ConditionEffectIndex.Paralyzed)),
-                            new Charge(2, pred: e => e.HasConditionEffect(Common.ConditionEffectIndex.Slowed)),
+                            new Charge(1.4f, coolDown: 800, pred: e => e.HasConditionEffect(Common.ConditionEffectIndex.Paralyzed)),
+                            new Charge(1.4f, coolDown: 800, pred: e => e.HasConditionEffect(Common.ConditionEffectIndex.Slowed)),
                             new Shoot(5, count: 3, shootAngle: 10)
                         ),
                         new TimedTransition("somewhere", 7000
                     )),
                     new State("somewhere",
-                        new Wander(6),
+                        new StayBack(2f),
+                        new Wander(4),
                         new TossObject("Arena Spider", 6, 360 / 6, 100000),
                         new TossObject("Arena Spider", 6, 360 / 6 * 2, 100000),
                         new TossObject("Arena Spider", 6, 360 / 6 * 3, 100000),
                         new TossObject("Arena Spider", 6, 360 / 6 * 4, 100000),
                         new TossObject("Arena Spider", 6, 360 / 6 * 5, 100000),
                         new TossObject("Arena Spider", 6, 360 / 6 * 6, 100000),
-                        new TimedTransition("base", 1500)
+                        new TimedTransition("base", 2500)
                     ),
                     new Threshold(0.01f,
                         LootTemplates.BasicPots(0.01f).Concat(
@@ -78,6 +82,20 @@ namespace RotMG.Game.Logic.Database
                                 )
                             }
                         ).ToArray()
+                    )
+                );
+
+            db.Init("Phantom Mage",
+                new State("base",
+                    new Wander(0.4f),
+                    new Shoot(5, 3, 24, cooldown: 500)
+                    )
+                );
+            db.Init("Scythe Phantom",
+                new State("base",
+                    new Wander(0.4f),
+                    new Shoot(5, 3, 24, cooldown: 500),
+                    new Shoot(8, 2, 16, 1, cooldown: 300)
                     )
                 );
 
@@ -108,6 +126,33 @@ namespace RotMG.Game.Logic.Database
                         ).ToArray()
                     )
                 );
+
+            db.Init("Realm Reaper", 
+                new State("base",
+                    new TransitionFrom("base", "taunt")
+                ),
+                new State("taunt",
+                    new Taunt("You shouldn't have gone looking for something you didn't want to find!"),
+                    new PlayerWithinTransition(16, "base")
+                ),
+                new State("base",
+                    new ConditionalEffect(ConditionEffectIndex.Armored),
+                    new Shoot(99, 8, 360 / 8, 0, 0f, 15f, cooldown: 300),
+                    new TimedTransition("1", 2100)
+                ),
+                new ClearRectangleOnDeath(new IntPoint(0, 0), new IntPoint(30, 30)),
+                new Threshold(0.001f,
+                    new TierLoot(10, LootType.Weapon, 0.1f),
+                    new TierLoot(11, LootType.Weapon, 0.05f),
+                    new TierLoot(10, LootType.Armor, 0.1f),
+                    new TierLoot(11, LootType.Armor, 0.05f),
+                    new TierLoot(5, LootType.Ability, 0.2f),
+                    new ItemLoot("Potion of Attack", 1f),
+                    new ItemLoot("Potion of Defense", 1f),
+                    new ItemLoot("Potion of Mana", 1f)
+                )
+            );
+
 
         }
     }
