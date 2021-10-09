@@ -425,9 +425,88 @@ namespace RotMG.Game.Logic.Database
                        new TierLoot(9, LootType.Weapon, 0.2f),
                        new TierLoot(9, LootType.Armor, 0.2f),
                        new TierLoot(5, LootType.Ability, 0.05f),
-                       new TierLoot(6, LootType.Ring, 0.01f)
+                       new TierLoot(6, LootType.Ring, 0.01f),
                    }).ToArray()
-                )
+                ),
+                new Threshold(0.001f,
+                new MobDrop(new LootDef.Builder()
+                            .Item("Skin Unlocker")
+                            .OverrideJson( new ItemDataJson() { SkinId = "Golden Wizard" })
+                            .Chance(0.001f)
+                            .Build()
+                ),
+                new MobDrop(new LootDef.Builder()
+                            .Item("Skin Unlocker")
+                            .OverrideJson( new ItemDataJson() { SkinId = "Golden Rogue" })
+                            .Chance(0.001f)
+                            .Build()
+                ),
+                new MobDrop(new LootDef.Builder()
+                            .Item("Skin Unlocker")
+                            .OverrideJson( new ItemDataJson() { SkinId = "Golden Mystic" })
+                            .Chance(0.001f)
+                            .Build()
+                ),
+                new MobDrop(new LootDef.Builder()
+                            .Item("Skin Unlocker")
+                            .OverrideJson( new ItemDataJson() { SkinId = "Golden Knight" })
+                            .Chance(0.001f)
+                            .Build()
+                ),
+                new MobDrop(new LootDef.Builder()
+                            .Item("Skin Unlocker")
+                            .OverrideJson( new ItemDataJson() { SkinId = "Golden Assassin" })
+                            .Chance(0.001f)
+                            .Build()
+                ),
+                new MobDrop(new LootDef.Builder()
+                            .Item("Skin Unlocker")
+                            .OverrideJson( new ItemDataJson() { SkinId = "Golden Archer" })
+                            .Chance(0.001f)
+                            .Build()
+                ),
+                new MobDrop(new LootDef.Builder()
+                            .Item("Skin Unlocker")
+                            .OverrideJson( new ItemDataJson() { SkinId = "Golden Priest" })
+                            .Chance(0.001f)
+                            .Build()
+                ),
+                new MobDrop(new LootDef.Builder()
+                            .Item("Skin Unlocker")
+                            .OverrideJson( new ItemDataJson() { SkinId = "Golden Paladin" })
+                            .Chance(0.001f)
+                            .Build()
+                ),
+                new MobDrop(new LootDef.Builder()
+                            .Item("Skin Unlocker")
+                            .OverrideJson( new ItemDataJson() { SkinId = "Golden Huntress" })
+                            .Chance(0.001f)
+                            .Build()
+                ),
+                new MobDrop(new LootDef.Builder()
+                            .Item("Skin Unlocker")
+                            .OverrideJson( new ItemDataJson() { SkinId = "Golden Sorcerer" })
+                            .Chance(0.001f)
+                            .Build()
+                ),
+                new MobDrop(new LootDef.Builder()
+                            .Item("Skin Unlocker")
+                            .OverrideJson( new ItemDataJson() { SkinId = "Golden Ninja" })
+                            .Chance(0.001f)
+                            .Build()
+                ),
+                new MobDrop(new LootDef.Builder()
+                            .Item("Skin Unlocker")
+                            .OverrideJson( new ItemDataJson() { SkinId = "Golden Necromancer" })
+                            .Chance(0.001f)
+                            .Build()
+                ),
+                new MobDrop(new LootDef.Builder()
+                            .Item("Skin Unlocker")
+                            .OverrideJson( new ItemDataJson() { SkinId = "Golden Warrior" })
+                            .Chance(0.001f)
+                            .Build()
+                ))
             );
             db.Init("Treasure Oryx Defender",
                 new State("base",

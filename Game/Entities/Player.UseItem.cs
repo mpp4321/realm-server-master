@@ -192,9 +192,9 @@ namespace RotMG.Game.Entities
                 var itemDesc = Resources.Type2Item[(ushort)(itemId)];
                 var uef = itemDesc.UniqueEffect;
 
-                if(uef != null && ItemHandlerRegistry.Registry.ContainsKey(uef))
+                foreach(var it in BuildAllItemHandlers())
                 {
-                    ItemHandlerRegistry.Registry[uef].OnAbilityUse(target, itemDesc, itemData, this);
+                    it.OnAbilityUse(target, itemDesc, itemData, this);
                 }
             }
 
@@ -741,6 +741,43 @@ namespace RotMG.Game.Entities
                         int petId = Resources.Id2Object[objId].Type;
                         CreateAndAddPet(petId);
                         SendInfo("Enjoy your new pet!");
+                        break;
+                    case ActivateEffectIndex.RuneConsume:
+                        if(Client.Character != null)
+                        {
+                            string runeId = eff.Id;
+                            if(Client.Character.SelectedRunes.Any(a => a.Equals(runeId)))
+                            {
+                                SendInfo("You have that rune already!");
+                                return;
+                            }
+                            Client.Character.SelectedRunes = Client.Character.SelectedRunes.Concat(new string[] { runeId }).ToArray();
+                            SendInfo("Added rune");
+                        } else
+                        {
+                            SendInfo("Reconnect and try again.");
+                            return;
+                        }
+                        break;
+                    case ActivateEffectIndex.UnlockSkin:
+                        ItemDataJson dt = ItemDatas[slot.SlotId];
+                        if(dt != null && dt.SkinId != null)
+                        {
+                            var directid = Resources.Id2Skin[dt.SkinId].Type;
+                            if (Client.Account.OwnedSkins.Contains(directid))
+                            {
+                                SendInfo("Already unlocked!");
+                                return;
+                            } else
+                            {
+                                Client.Account.OwnedSkins.Add(directid);
+                            }
+                            SendInfo("Unlocked!");
+                        } else
+                        {
+                            SendInfo("This unlocker is invalid. Contact an admin.");
+                            return;
+                        }
                         break;
 #if DEBUG
                     default:

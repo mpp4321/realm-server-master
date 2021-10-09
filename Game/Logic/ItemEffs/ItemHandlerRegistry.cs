@@ -35,6 +35,9 @@ namespace RotMG.Game.Logic.ItemEffs
 
             //Runes
             Registry.Add("Percise", new Percise());
+            Registry.Add("Vampirism", new Vampirism());
+            Registry.Add("Brute", new Brute());
+            Registry.Add("Mage", new Mage());
         }
 
     }

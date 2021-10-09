@@ -22,11 +22,13 @@ namespace RotMG.Game.Logic
             //How many players can receive this drop; sorted from top damagers
             public int _maxTop = 999;
 
+            public ItemDataJson _override;
+
             public RarityModifiedData _rareData;
 
             public LootDef Build()
             {
-                return new LootDef(_item, _chance, _thresh, _min, _rareData, _maxTop);
+                return new LootDef(_item, _chance, _thresh, _min, _rareData, _maxTop, _override);
             }
 
             public Builder Item(string name) { _item = name; return this; }
@@ -35,6 +37,7 @@ namespace RotMG.Game.Logic
             public Builder Min(int min) { _min = min; return this; }
             public Builder MaxTop(int max) { _maxTop = max; return this; }
             public Builder RareMod(RarityModifiedData RareData) { _rareData = RareData; return this; }
+            public Builder OverrideJson(ItemDataJson json) { _override = json; return this; }
 
         }
 
@@ -60,7 +63,17 @@ namespace RotMG.Game.Logic
         public readonly int MaxTop = 999;
 
         public readonly RarityModifiedData RareData;
-        public LootDef(string item, float chance = 1, float threshold = 0, int min = 0, RarityModifiedData r = null, int maxTop = 999)
+
+        public readonly ItemDataJson overrideData = null;
+
+        public LootDef(string item,
+            float chance = 1,
+            float threshold = 0,
+            int min = 0,
+            RarityModifiedData r = null,
+            int maxTop = 999,
+            ItemDataJson overrideData = null
+            )
         {
             if(item != null)
                 Item = Resources.IdLower2Item[item.ToLower()].Type;
@@ -69,6 +82,7 @@ namespace RotMG.Game.Logic
             Min = min;
             RareData = r ?? new RarityModifiedData();
             MaxTop = maxTop;
+            this.overrideData = overrideData;
         }
     }
     
@@ -248,7 +262,11 @@ namespace RotMG.Game.Logic
                     var roll = Resources.Type2Item[loot[k].Item].Roll(r: loot[k].RareData, smod: vtype);
 
                     c.Inventory[k] = loot[k].Item;
-                    c.ItemDatas[k] = roll.Item1 ? roll.Item2 : new ItemDataJson() { Meta=-1 };
+                    if(loot[k].overrideData != null)
+                    {
+                        c.ItemDatas[k] = loot[k].overrideData;
+                    } else
+                        c.ItemDatas[k] = roll.Item1 ? roll.Item2 : new ItemDataJson() { Meta=-1 };
 
                     if(player != null)
                     {

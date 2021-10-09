@@ -1,12 +1,18 @@
 using System.Collections.Generic;
+using System.Linq;
 using RotMG.Common;
 
 namespace RotMG.Game.Logic.Loots
 {
-    public abstract class MobDrop : IBehavior
+    public class MobDrop : IBehavior
     {
         protected readonly List<LootDef> LootDefs = new List<LootDef>();
-        
+
+        public MobDrop(params LootDef[] defs)
+        {
+            LootDefs = defs.ToList();
+        }
+
         public virtual void Populate(IList<LootDef> lootDefs, LootDef overrides = null)
         {
             if (overrides == null)

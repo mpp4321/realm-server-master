@@ -431,8 +431,12 @@ namespace RotMG.Game.Entities
                 .Select( a => 
                     ItemHandlerRegistry.Registry[a.UniqueEffect]
                 );
-            var runes = Client.Character.SelectedRunes.Select(a => ItemHandlerRegistry.Registry[a]);
-            return equips.Concat(runes);
+            if (Client.Character != null)
+            {
+                var runes = Client.Character.SelectedRunes.Select(a => ItemHandlerRegistry.Registry[a]);
+                return equips.Concat(runes);
+            }
+            return equips;
         }
 
         public override bool HitByProjectile(Projectile projectile)

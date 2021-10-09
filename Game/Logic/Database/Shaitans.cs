@@ -218,14 +218,14 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new State("32",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        new Shoot(9 + 1 / 2, 1, index: 0, cooldown: 1000),
+                        new Shoot(9, 1, index: 0, cooldown: 1000),
                         new EntitiesNotExistsTransition(999, "33", "md1 Right Hand of Shaitan", "md1 Left Hand of Shaitan")
                         ),
                     new State("33",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                         new SetAltTexture(0),
                         new ReturnToSpawn(0.8f),
-                        new Shoot(9 + 1 / 2, 1, index: 0, cooldown: 1000),
+                        new Shoot(9, 1, index: 0, cooldown: 1000),
                         new State("34",
                             new OrderOnEntry(999, "md1 Governor", "1"),
                             new OrderOnEntry(999, "md1 Right Hand spawner", "2"),
@@ -285,7 +285,7 @@ namespace RotMG.Game.Logic.Database
                         new SetAltTexture(0),
                         new ReturnToSpawn(0.8f),
                         new Taunt(true, 0, "YOUR ARE BEGINNING TO UPSET ME. ENJOY A FAST DEATH!"),
-                        new Shoot(9 + 1 / 2, 1, index: 0, cooldown: 1000),
+                        new Shoot(9, 1, index: 0, cooldown: 1000),
                         new TransitionFrom("43", "44"),
                         new State("44",
                             new OrderOnEntry(999, "md1 Governor", "1"),
@@ -403,16 +403,16 @@ namespace RotMG.Game.Logic.Database
                     new State("63",
                         new HealthTransition(0.4f, "68"),
                         new SetAltTexture(0),
-                         new ConditionalEffect(ConditionEffectIndex.ArmorBroken),
+                        new ConditionalEffect(ConditionEffectIndex.ArmorBroken),
                         new Shoot(8, 7, 15, 0, predictive: 1, cooldown: 1000),
                         new TimedTransition("64", 5000)
-                        ),
+                    ),
                     new State("64",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                         new SetAltTexture(1),
                         new MoveTo(0.8f, 8.5f, 5),
                         new TimedTransition("65", 5000)
-                        ),
+                    ),
                     new State("65",
                         new HealthTransition(0.4f, "68"),
                         new SetAltTexture(0),
@@ -495,15 +495,15 @@ namespace RotMG.Game.Logic.Database
                     new State("77",
                         new HealthTransition(0.2f, "94"),
                         new SetAltTexture(0),
-                         new ConditionalEffect(ConditionEffectIndex.ArmorBroken),
+                        new ConditionalEffect(ConditionEffectIndex.ArmorBroken),
                         new Shoot(8, 7, 15, 0, predictive: 1, cooldown: 1000),
                         new TimedTransition("78", 5000)
-                        ),
+                    ),
                     new State("78",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                         new ReturnToSpawn(0.8f),
                         new TimedTransition("79", 2000)
-                        ),
+                    ),
                     new State("79",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                         new OrderOnEntry(999, "md1 Right Hand spawner", "1"),
@@ -522,14 +522,14 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new State("82",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        new Shoot(9 + 1 / 2, 1, index: 0, cooldown: 1000),
+                        new Shoot(9, 1, index: 0, cooldown: 1000),
                         new EntitiesNotExistsTransition(999, "83", "md1 Right Hand of Shaitan", "md1 Left Hand of Shaitan")
                         ),
                     new State("83",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                         new SetAltTexture(0),
                         new ReturnToSpawn(0.8f),
-                        new Shoot(9 + 1 / 2, 1, index: 0, cooldown: 1000),
+                        new Shoot(9, 1, index: 0, cooldown: 1000),
                         new TransitionFrom("83", "84"),
                         new State("84",
                             new OrderOnEntry(999, "md1 Governor", "1"),
@@ -598,7 +598,6 @@ namespace RotMG.Game.Logic.Database
                         new Shoot(999, 5, 72, 0, 0, 0),
                         new Suicide()
                         )
-
                     )
             );
             db.Init("md1 LeftHandSmash",
@@ -912,7 +911,8 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Large Crossbox Cloth", 0.1f),
                     new ItemLoot("Small Crossbox Cloth", 0.1f),
                     new ItemLoot("Large Heavy Chainmail Cloth", 0.1f),
-                    new ItemLoot("Book of Shaitan", 0.001f)
+                    new ItemLoot("Book of Shaitan", 0.001f),
+                    new ItemLoot("Piercing Fire", 0.001f)
                     //new ItemLoot("50 Credits", 0.01f),
                     //new ItemLoot("Potion of Critical Chance", 0.02f),
                     //new ItemLoot("Potion of Critical Damage", 0.02f)

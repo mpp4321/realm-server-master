@@ -141,7 +141,9 @@ namespace RotMG.Common
         Backpack,
         PermaPet,
         ItemDataModifier,
-        ConditionEffectBlast
+        ConditionEffectBlast,
+        RuneConsume,
+        UnlockSkin
     }
 
     public enum ShowEffectIndex
@@ -496,6 +498,7 @@ namespace RotMG.Common
         public int Meta { get; set; } = -1;
         public Dictionary<ulong, int> ExtraStatBonuses = new Dictionary<ulong, int>();
         public string ItemComponent = null;
+        public string SkinId = null;
         
         public int GetStatBonus(ItemData k)
         {

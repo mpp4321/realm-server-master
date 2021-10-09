@@ -263,7 +263,7 @@ namespace RotMG.Game.Entities
             GetNextQuest(true);
         }
 
-        public void Heal(int amount, bool magic)
+        public void Heal(int amount, bool magic, bool notify=true)
         {
             var heal = 0;
             if (magic)
@@ -287,6 +287,8 @@ namespace RotMG.Game.Entities
 
             if (heal <= 0) 
                 return;
+
+            if (!notify) return;
 
             var notification = GameServer.Notification(Id, $"+{heal}", magic ? 0xff6084e0 : 0xff00ff00);
             foreach (var en in Parent.PlayerChunks.HitTest(Position, SightRadius))

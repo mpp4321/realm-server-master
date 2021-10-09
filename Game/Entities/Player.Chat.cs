@@ -35,7 +35,8 @@ namespace RotMG.Game.Entities
         {
             "announce", "announcement", "legendary", "roll", "disconnect", "dcAll", "dc", "songs", "changesong",
             "terminate", "stop", "gimme", "give", "gift", "closerealm", "rank", "create", "spawn", "killall",
-            "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute", "setcomp", "quake"
+            "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute", "setcomp", "quake",
+            "unlockskin"
         };
 
         
@@ -773,6 +774,34 @@ namespace RotMG.Game.Entities
                                 SendInfo($"{StatNames[i]}: {Stats[i]}/{(Desc as PlayerDesc).Stats[i].MaxValue}");
                         }
                         break;
+                    case "/unlockskin":
+                        if (Client.Account.Ranked)
+                        {
+                            if(j.Length > 0)
+                            {
+                                var skinid = string.Join(' ', j, 0, j.Length);
+                                var directid = Resources.Id2Skin[skinid].Type;
+                                if (Client.Account.OwnedSkins.Contains(directid))
+                                {
+                                    SendInfo("Already unlocked!");
+                                    break;
+                                } else
+                                {
+                                    Client.Account.OwnedSkins.Add(directid);
+                                }
+                            } else
+                            {
+                                SendInfo("/unlockskin {Skin Id}");
+                                SendInfo("Available:");
+                                var str = "";
+                                foreach(var v in Resources.Id2Skin.Keys)
+                                {
+                                    str += v + ", ";
+                                }
+                                SendInfo(str);
+                            }
+                        }
+                        break;
                     default:
                         SendError("Unknown command");
                         break;
@@ -793,5 +822,6 @@ namespace RotMG.Game.Entities
                 if (!player.Client.Account.IgnoredIds.Contains(AccountId))
                     player.Client.Send(packet);
         }
+
     }
 }

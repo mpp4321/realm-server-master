@@ -1857,7 +1857,6 @@
         <AnimatedTexture><File>chars8x8rPets1</File><Index>66</Index></AnimatedTexture>
         <NoMiniMap/>
         <Size>40</Size>
-        
     </Object>
     
     <Object type="0x1552" id="Dreidel Generator">
@@ -1888,5 +1887,30 @@
         <NoMiniMap/>
         <Size>60</Size>
         <ShadowSize>60</ShadowSize>
+    </Object>
+    <Object type="0x1653" id="Witch">
+        <DisplayId>Witch</DisplayId>
+        <Class>Character</Class>
+        <AnimatedTexture>
+          <File>d3Chars16x16rEmbed</File>
+          <Index>35</Index>
+        </AnimatedTexture>
+        <NoMiniMap/>
+        <Size>80</Size>
+    </Object>
+    <Object type="0x1654" id="Witch Generator">
+        <DisplayId>Witch</DisplayId>
+        <Class>Equipment</Class>
+        <Item/>
+        <AnimatedTexture>
+          <File>d3Chars16x16rEmbed</File>
+          <Index>35</Index>
+        </AnimatedTexture>
+        <SlotType>10</SlotType>
+        <Description>A beeutiful witch.</Description>
+        <Sound>spell/light_heal</Sound>
+        <InvUse/>
+        <Activate id="Witch" cooldown="10">PermaPet</Activate>
+        <OldSound>use_potion</OldSound>
     </Object>
 </Objects>

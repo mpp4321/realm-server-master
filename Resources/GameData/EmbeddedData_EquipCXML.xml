@@ -9986,4 +9986,57 @@
     <BagType>6</BagType>
     <UniqueEffect>AOBL</UniqueEffect>
   </Object>
+  <Object type="0xcaf" id="Rune of Vampirism">
+    <Class>Equipment</Class>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0xd5</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>A rune which distributes the power of the vampires.</Description>
+    <Sound>use_potion</Sound>
+    <Activate id="Vampirism">RuneConsume</Activate>
+    <Consumable/>
+  </Object>
+  <Object type="0xcb4" id="Rune of the Brute">
+    <Class>Equipment</Class>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0xd7</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>A rune which amplifies brutish characteristics.</Description>
+    <Sound>use_potion</Sound>
+    <Activate id="Brute">RuneConsume</Activate>
+    <Consumable/>
+  </Object>
+  <Object type="0xcb5" id="Rune of the Mage">
+    <Class>Equipment</Class>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0xd6</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <Description>A rune which gives supreme control of mana.</Description>
+    <Sound>use_potion</Sound>
+    <Activate id="Mage">RuneConsume</Activate>
+    <Consumable/>
+  </Object>
+
+  <Object type="0x35e" id="Skin Unlocker">
+    <Class>Equipment</Class>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0xd6</Index>
+    </Texture>
+    <SlotType>10</SlotType>
+    <ExtraTooltipData>
+      <EffectInfo name="Skin unlock" description="{SkinId}"/>
+    </ExtraTooltipData>
+    <Description>Unlocks a player skin.</Description>
+    <Sound>use_potion</Sound>
+    <Activate>UnlockSkin</Activate>
+    <Consumable/>
+  </Object>
+
 </Objects>
