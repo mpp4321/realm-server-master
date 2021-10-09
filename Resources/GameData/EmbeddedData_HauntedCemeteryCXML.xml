@@ -1672,11 +1672,72 @@
             <LifetimeMS>900</LifetimeMS>
             <Size>145</Size>
         </Projectile>
-
-
-
-
-
     </Object>
+	<Object type="0x5f34" id="Phantom Mage">
+		<DisplayId>Phantom Mage</DisplayId>
+		<Class>Character</Class>
+		<Group>Hallowrena</Group>
+		<Enemy/>
 
+		<AnimatedTexture>
+			<File>chars8x8rEncounters</File>
+			<Index>143</Index>
+		</AnimatedTexture>
+
+		<HitSound>monster/spiders_hit</HitSound>
+		<DeathSound>monster/spiders_death</DeathSound>
+		<Size>130</Size>
+		<ShadowSize>100</ShadowSize>
+		<MaxHitPoints>4000</MaxHitPoints>
+		<Defense>20</Defense>
+
+		<Projectile id="0">
+			<ObjectId>Greater Purple Magic</ObjectId>
+			<Damage>5</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+			<Size>100</Size>
+		</Projectile>
+
+	</Object>
+	<Object type="0x5f35" id="Scythe Phantom">
+		<DisplayId>Scythe Phantom</DisplayId>
+		<Class>Character</Class>
+		<Group>Hallowrena</Group>
+		<Enemy/>
+
+		<AnimatedTexture>
+			<File>chars8x8rEncounters</File>
+			<Index>144</Index>
+		</AnimatedTexture>
+
+		<HitSound>monster/spiders_hit</HitSound>
+		<DeathSound>monster/spiders_death</DeathSound>
+		<Size>130</Size>
+		<ShadowSize>100</ShadowSize>
+		<MaxHitPoints>7000</MaxHitPoints>
+		<Defense>20</Defense>
+
+		<Projectile id="0">
+			<ObjectId>Bone Dagger Shot</ObjectId>
+			<Damage>5</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+			<Size>100</Size>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>White Ghost Shot</ObjectId>
+			<Damage>5</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+			<Size>100</Size>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Darkness Bolt</ObjectId>
+			<Damage>5</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+			<Size>100</Size>
+		</Projectile>
+	</Object>
 </Objects>

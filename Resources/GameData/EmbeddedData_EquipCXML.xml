@@ -6924,10 +6924,14 @@
     </Texture>
     <SlotType>9</SlotType>
     <Description>Super regal!</Description>
-    <ActivateOnEquip stat="6" amount="60">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="7" amount="700">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="2" amount="20">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="4" amount="20">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="6" amount="6666">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="7" amount="6666">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="2" amount="100">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="4" amount="35">IncrementStat</ActivateOnEquip>
+	<ActivateOnEquip stat="3" amount="100">IncrementStat</ActivateOnEquip>
+	<ActivateOnEquip stat="5" amount="50">IncrementStat</ActivateOnEquip>
+	<ActivateOnEquip stat="0" amount="6666">IncrementStat</ActivateOnEquip>
+	<ActivateOnEquip stat="1" amount="6666">IncrementStat</ActivateOnEquip>
     <BagType>1</BagType>
 
   </Object>
@@ -9701,56 +9705,56 @@
     <RateOfFire>6.9</RateOfFire>
     <Sound>weapon/blunt_dagger</Sound>
     <Burst>5</Burst>
-    <BurstCooldown>500</BurstCooldown>
+    <BurstCooldown>300</BurstCooldown>
     <Projectile>
       <ObjectId>Whip Shot 1</ObjectId>
-      <Speed>300</Speed>
+      <Speed>240</Speed>
       <MinDamage>160</MinDamage>
       <MaxDamage>190</MaxDamage>
-      <LifetimeMS>375</LifetimeMS>
+      <LifetimeMS>450</LifetimeMS>
       <Amplitude>-0.4</Amplitude>
-      <Frequency>2</Frequency>
+      <Frequency>1.3</Frequency>
       <ArmorPiercing>true</ArmorPiercing>
       <Boomerang />
     </Projectile>
     <Projectile>
       <ObjectId>Whip Shot 2</ObjectId>
-      <Speed>300</Speed>
+      <Speed>240</Speed>
       <MinDamage>160</MinDamage>
       <MaxDamage>190</MaxDamage>
-      <LifetimeMS>375</LifetimeMS>
+      <LifetimeMS>450</LifetimeMS>
       <Amplitude>-0.4</Amplitude>
-      <Frequency>2</Frequency>
+      <Frequency>1.3</Frequency>
       <Boomerang />
     </Projectile>
     <Projectile>
       <ObjectId>Whip Shot 2</ObjectId>
-      <Speed>300</Speed>
+      <Speed>240</Speed>
       <MinDamage>160</MinDamage>
       <MaxDamage>190</MaxDamage>
-      <LifetimeMS>375</LifetimeMS>
+      <LifetimeMS>450</LifetimeMS>
       <Amplitude>-0.4</Amplitude>
-      <Frequency>2</Frequency>
+      <Frequency>1.3</Frequency>
       <Boomerang />
     </Projectile>
     <Projectile>
       <ObjectId>Whip Shot 2</ObjectId>
-      <Speed>300</Speed>
+      <Speed>240</Speed>
       <MinDamage>160</MinDamage>
       <MaxDamage>190</MaxDamage>
-      <LifetimeMS>375</LifetimeMS>
+      <LifetimeMS>450</LifetimeMS>
       <Amplitude>-0.4</Amplitude>
-      <Frequency>2</Frequency>
+      <Frequency>1.3</Frequency>
       <Boomerang />
     </Projectile>
     <Projectile>
       <ObjectId>Whip Shot 1</ObjectId>
-      <Speed>300</Speed>
+      <Speed>240</Speed>
       <MinDamage>160</MinDamage>
       <MaxDamage>190</MaxDamage>
-      <LifetimeMS>375</LifetimeMS>
+      <LifetimeMS>450</LifetimeMS>
       <Amplitude>-0.4</Amplitude>
-      <Frequency>2</Frequency>
+      <Frequency>1.3</Frequency>
       <ArmorPiercing>true</ArmorPiercing>
       <Boomerang />
     </Projectile>
