@@ -19,7 +19,7 @@ namespace RotMG.Game.Logic.Behaviors
             _range = range;
             _children = Resources.Id2Object[children].Type;
             _targetStateName = targetState.ToLower();
-            _initialState = initialState;
+            _initialState = initialState.ToLower();
         }
 
         public override bool Tick(Entity host)
