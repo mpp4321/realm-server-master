@@ -305,7 +305,8 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                         ),
                     new Shoot(10, index: 0, count: 3, shootAngle: 15),
-                    new Shoot(10, index: 1, predictive: 0.5f, cooldown: 1200)
+                    new Shoot(10, index: 1, predictive: 0.5f, cooldown: 1200),
+                    new NoPlayerWithinTransition(12, "dying")
                 ),
                 new TierLoot(5, LootType.Weapon, 0.16f),
                 new TierLoot(6, LootType.Weapon, 0.08f),

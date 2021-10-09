@@ -689,7 +689,12 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(8, 1, index: 1, predictive: 0.5f, cooldownVariance: 500, cooldown: 1200),
                     new Shoot(8, 2, 28, 0, predictive: 0.3f, cooldownVariance: 200, cooldown: 800),
                     // I cannot for my life make this transition to anything but its 1st string what da dogi doin
-                    new TimedRandomTransition(4000, "slam", "run", "roto", "roto1")
+                    new RandomTransition(
+                        new TimedTransition("slam", 3000),
+                        new TimedTransition("run", 3000),
+                        new TimedTransition("roto", 3000),
+                        new TimedTransition("roto1", 3000)
+                        )
                 ),
                 new State("slam",
                     new Prioritize(
@@ -731,11 +736,21 @@ namespace RotMG.Game.Logic.Database
             //below needs their sprites indexed
             db.Init("Vengeful Spirit",
                 new State("base",
+                    new ChangeSize(10, 100),
                     new Prioritize(
                         new StayCloseToSpawn(0.8f, 2),
                         new Wander(0.25f)
                         ),
-                    new Shoot(4, 3, 14, cooldown: 800)
+                    new Shoot(4, 3, 14, cooldown: 800),
+                    new NoPlayerWithinTransition(6, "hide")
+                ),
+                new State("hide",
+                    new Prioritize(
+                        new StayCloseToSpawn(0.8f, 2),
+                        new Wander(0.25f)
+                        ),
+                    new ChangeSize(10, 0),
+                    new PlayerWithinTransition(6, "base")
                 )
             );
             db.Init("Tempest Cloud",

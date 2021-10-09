@@ -86,17 +86,39 @@ namespace RotMG.Game.Logic.Database
                 );
 
             db.Init("Phantom Mage",
-                new State("base",
-                    new Wander(0.4f),
-                    new Shoot(5, 3, 24, cooldown: 500)
-                    )
+                new ConditionalEffect(ConditionEffectIndex.Invincible),
+                new StayBack(3, 12, "Phantom Mage"),
+                new State("hidden",
+                    new ChangeSize(5, 0)
+                ),
+                new State("reveal",
+                    new Shoot(16, 8, 360 / 8, 1, 0, 8, cooldown: 400),
+                    new Shoot(6, 2, 24, cooldownVariance: 500, cooldown: 1500),
+                    new ChangeSize(5, 120),
+                    new EntitiesNotExistsTransition(12, "hidden", "Realm Reaper")
+                )
                 );
             db.Init("Scythe Phantom",
-                new State("base",
+                new State("hidden",
+                    new ConditionalEffect(ConditionEffectIndex.Invincible),
+                    new ChangeSize(5, 0)
+                ),
+                new State("reveal",
                     new Wander(0.4f),
-                    new Shoot(5, 3, 24, cooldown: 500),
-                    new Shoot(8, 2, 16, 1, cooldown: 300)
-                    )
+                    new Prioritize(
+                        new Follow(0.8f, 5, 2, 700, 300)
+                    ),
+                    new ChangeSize(5, 120),
+                    new TimedTransition("revealed", 1500)
+                ),
+                new State("revealed",
+                    new Wander(0.4f),
+                    new Shoot(6, 1, predictive: 1f, cooldown: 800),
+                    new Shoot(6, 2, 16, index: 1, predictive: 1f, cooldown: 800),
+                    new Prioritize(
+                        new Follow(0.8f, 5, 2, 700, 300)
+                    ))
+
                 );
 
             db.Init("Septavius the Ghost God",
@@ -127,20 +149,34 @@ namespace RotMG.Game.Logic.Database
                     )
                 );
 
-            db.Init("Realm Reaper", 
-                new State("base",
-                    new TransitionFrom("base", "taunt")
-                ),
+            db.Init("Realm Reaper",
                 new State("taunt",
                     new Taunt("You shouldn't have gone looking for something you didn't want to find!"),
                     new PlayerWithinTransition(16, "base")
                 ),
                 new State("base",
+                    new Follow(0.9f, 16, 4, 1500, 750),
+                    new Order(8, "Phantom Mage", "Reveal"),
                     new ConditionalEffect(ConditionEffectIndex.Armored),
-                    new Shoot(99, 8, 360 / 8, 0, 0f, 15f, cooldown: 300),
-                    new TimedTransition("1", 2100)
+                    new Shoot(99, 6, 360 / 6, 0, 0f, 15f, cooldown: 2250),
+                    new TimedTransition("charging", 2100)
+             
                 ),
-                new ClearRectangleOnDeath(new IntPoint(0, 0), new IntPoint(30, 30)),
+                new State("charging",
+                    new OrderFrom(16, "Phantom Mage", "reveal", "hidden"),
+                    new Shoot(16, 8, 360 / 8, index: 2, fixedAngle: 0, rotateAngle: 5),
+                    new Flash(500573, 1000, 4),
+                    new TimedTransition("charge", 4500)
+                ),
+                new State("charge",
+                    new Order(8, "Scythe Phantom", "reveal"),
+                    new Charge(1.2f, 16, 2000),
+                    new TimedTransition("stand", 5990)
+                ),
+                new State("stand",
+                    new Shoot(16, 8, 360 / 8, index: 2, fixedAngle: 0, rotateAngle: 5),
+                    new TimedTransition("charging", 5000)
+                ),
                 new Threshold(0.001f,
                     new TierLoot(10, LootType.Weapon, 0.1f),
                     new TierLoot(11, LootType.Weapon, 0.05f),
