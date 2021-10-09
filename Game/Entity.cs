@@ -827,5 +827,10 @@ namespace RotMG.Game
         {
             return $"<{Desc.DisplayId}> <{Parent.Name}:{Parent.Id}> <{Position.ToIntPoint()}>";
         }
+
+        internal Entity Where()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

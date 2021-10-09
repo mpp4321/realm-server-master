@@ -1207,5 +1207,39 @@
     <Size>110</Size>
     <XpMult>0.0</XpMult>
   </Object>
+  <Object type="0x074d" id="Greater Fire Skeleton">
+    <Class>Character</Class>
+    <Enemy/>
+    <MaxHitPoints>100000</MaxHitPoints>
+    <AnimatedTexture>
+      <File>d3Chars16x16rEmbed</File>
+      <Index>34</Index>
+    </AnimatedTexture>
+    <Projectile id="0">
+      <ObjectId>Armor Pierce Bullet</ObjectId>
+      <Speed>55</Speed>
+      <ArmorPiercing/>
+      <Damage>100</Damage>
+      <LifetimeMS>6000</LifetimeMS>
+      <Size>125</Size>
+    </Projectile>
+    <Projectile id="1">
+      <ObjectId>White Bullet</ObjectId>
+      <Speed>110</Speed>
+      <Damage>200</Damage>
+      <LifetimeMS>1000</LifetimeMS>
+      <Size>75</Size>
+    </Projectile>
+    <Size>120</Size>
+    <XpMult>10.0</XpMult>
+  </Object>
+  <Object type="0x074e" id="Shaitans Lair Portal">
+    <Class>Portal</Class>
+    <IntergamePortal/>
+    <Texture>
+      <File>lofiEnvironment</File>
+      <Index>0xec</Index>
+    </Texture>
+  </Object>
 </Objects>
 <!-- next 5008 -->

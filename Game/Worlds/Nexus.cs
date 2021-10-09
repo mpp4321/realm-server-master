@@ -81,7 +81,6 @@ namespace RotMG.Game.Worlds
 
         private void SpawnRealms()
         {
-            return;
             while (CurrentRealms < Settings.MaxRealms && RealmSpawns.Count > 0)
             {
                 var type = Resources.Id2Object["Nexus Portal"].Type;

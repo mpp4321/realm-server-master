@@ -9,13 +9,19 @@ namespace RotMG.Game.Logic.ItemEffs
     public interface IItemHandler
     {
 
-        abstract void OnEnemyHit(Entity hit, Projectile by, ref int damageDone);
+        public virtual void OnEnemyHit(Entity hit, Projectile by, ref int damageDone) { }
 
-        abstract void OnHitByEnemy(Player hit, Entity hitBy, Projectile by);
+        public virtual void OnHitByEnemy(Player hit, Entity hitBy, Projectile by) { }
 
-        abstract void OnAbilityUse(Vector2 position, ItemDesc desc, ItemDataJson itemdata, Player player);
+        public virtual void OnAbilityUse(Vector2 position, ItemDesc desc, ItemDataJson itemdata, Player player) { }
 
-        abstract void OnTick(Player p);
+        public virtual void OnTick(Player p) { }
+
+        public virtual void ModifyDrop(Player p, LootDef def, ref Dictionary<Player, int> thresholds, ref float dropMod)
+        {
+        }
+
+        public virtual void ModifyDroppedItemData(Player p, ref ItemDataJson json) { }
 
     }
 }

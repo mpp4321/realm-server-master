@@ -159,7 +159,13 @@ namespace RotMG.Game.Logic
                     if (drop.MaxTop < c)
                         continue;
                     //up to 50% lootboost if you did all the damage
-                    if (drop.Threshold > 0 && t >= drop.Threshold && MathUtils.Chance(drop.Chance * (1f + 0.5f*t)))
+                    var baseMod = (1f + 0.5f * t);
+
+                    foreach (var ih in player.BuildAllItemHandlers())
+                        ih.ModifyDrop(player, drop, ref enemy.DamageStorage, ref baseMod);
+
+                    var chance = drop.Chance * baseMod;
+                    if (drop.Threshold > 0 && t >= drop.Threshold && MathUtils.Chance(chance))
                     {
                         if(drop.MaxTop == 1 && !sentTopDamage)
                         {
@@ -238,12 +244,18 @@ namespace RotMG.Game.Logic
                 var c = new Container(Container.FromBagType(bagType), ownerId, 40000 * bagType);
                 for (var k = 0; k < bagCount; k++)
                 {
-                    ItemDataModType vtype = ItemDataModType.Classical;
-                    Enum.TryParse<ItemDataModType>(player?.Client?.Character?.ItemDataModifier, out vtype);
-
+                    Enum.TryParse<ItemDataModType>(player?.Client?.Character?.ItemDataModifier, out var vtype);
                     var roll = Resources.Type2Item[loot[k].Item].Roll(r: loot[k].RareData, smod: vtype);
+
                     c.Inventory[k] = loot[k].Item;
                     c.ItemDatas[k] = roll.Item1 ? roll.Item2 : new ItemDataJson() { Meta=-1 };
+
+                    if(player != null)
+                    {
+                        foreach (var ih in player.BuildAllItemHandlers())
+                            ih.ModifyDroppedItemData(player, ref c.ItemDatas[k]);
+                    }
+
                     c.UpdateInventorySlot(k);
                 }
                 loot.RemoveRange(0, bagCount);

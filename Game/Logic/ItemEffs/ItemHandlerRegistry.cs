@@ -28,6 +28,7 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("SnakePitArmor", new SnakePitArmor());
             Registry.Add("OphGem", new OphGem());
             Registry.Add("UniversalPower", new UniversalPower());
+            Registry.Add("AOBL", new AmuletOfBackwardsLuck());
 
             //components
             Registry.Add("FireRune", new FireRune());

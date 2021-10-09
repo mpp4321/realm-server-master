@@ -10,7 +10,7 @@ namespace RotMG.Game.Logic
         public int Id;
 
         public State Parent;
-        public List<Behavior> Behaviors;
+        public virtual List<Behavior> Behaviors { get; set; }
         public List<Transition> Transitions;
         public Dictionary<int, State> States;
 

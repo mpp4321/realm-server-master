@@ -59,14 +59,14 @@ namespace RotMG.Game.Entities
         {
             switch(val)
             {
-                case "Attack": return GetStat(2);
-                case "Defense": return GetStat(3);
-                case "Speed": return GetStat(4);
-                case "Dexterity": return GetStat(5);
-                case "Vitality": return GetStat(6);
-                case "Wisdom": return GetStat(7);
+                case "Attack": return GetStatTotal(2);
+                case "Defense": return GetStatTotal(3);
+                case "Speed": return GetStatTotal(4);
+                case "Dexterity": return GetStatTotal(5);
+                case "Vitality": return GetStatTotal(6);
+                case "Wisdom": return GetStatTotal(7);
             }
-            return GetStat(7);
+            return GetStatTotal(7);
         }
 
         public static float StatScalingF(int stat, float amount, int min, float scale)

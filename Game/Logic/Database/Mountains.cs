@@ -502,6 +502,35 @@ namespace RotMG.Game.Logic.Database
                     new DropPortalOnDeath("Glowing Portal", .4f)
                     )
             );
+
+            db.Init("Greater Fire Skeleton", 
+                new DropPortalOnDeath("Shaitans Lair Portal", 1f),
+                new Prioritize(
+                    new Follow(2f, 20f, 10f),
+                    new StayBack(2f, 10f),
+                    new Wander(0.8f)
+                ),
+                new State("starting",
+                    new PlayerWithinTransition(10f, "throwreddemon", true)
+                ),
+                new State("throwreddemon", 
+                    new TossObject("Red Demon", 10f),
+                    new Taunt("Eat red demon!"),
+                    new TimedTransition("throwwhitedemons", 0)
+                ),
+                new State("throwwhitedemons", 
+                    new TossObject("White Demon", 10f, cooldown: 15000),
+                    new Shoot(20f, 3, index: 1, cooldown: 1000, rotateAngle: 90),
+                    new Shoot(20f, 1, index: 0, cooldown: 1000)
+                ),
+                new ItemLoot("Potion of Life", 1f, 0.01f),
+                new TierLoot(11, LootType.Weapon, 0.01f, 0.01f),
+                new TierLoot(11, LootType.Armor, 0.01f, 0.01f),
+                new TierLoot(6, LootType.Ring, 0.01f, 0.01f),
+                new ItemLoot("Piece of Havoc", 0.0001f, 0.01f),
+                new ItemLoot("Unholy Robe", 0.0001f, 0.01f)
+            );
+
         }
     }
 }
