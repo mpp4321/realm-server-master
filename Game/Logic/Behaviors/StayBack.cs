@@ -41,6 +41,8 @@ namespace RotMG.Game.Logic.Behaviors
                 GameUtils.GetNearestEntity(host, distance, Resources.Id2Object[entity].Type) : 
                 GameUtils.GetNearestPlayer(host, distance);
 
+            var returnRes = false;
+
             if (e != null)
             {
                 Vector2 vect = Vector2.Zero;
@@ -48,7 +50,10 @@ namespace RotMG.Game.Logic.Behaviors
                 vect.Normalize();
                 float dist = host.GetSpeed(speed) * (Settings.MillisecondsPerTick / 1000f);
                 if(dist > 0)
+                {
                     host.ValidateAndMove(-dist * vect + host.Position);
+                    returnRes = true; 
+                }
 
                 if (cooldown <= 0)
                 {
@@ -61,7 +66,7 @@ namespace RotMG.Game.Logic.Behaviors
             }
 
             host.StateObject[Id] = cooldown;
-            return true;
+            return returnRes;
         }
     }
 }
