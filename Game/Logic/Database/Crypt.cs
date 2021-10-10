@@ -86,12 +86,13 @@ namespace RotMG.Game.Logic.Database
                 );
 
             db.Init("Phantom Mage",
-                new ConditionalEffect(ConditionEffectIndex.Invincible),
-                new StayBack(3, 12, "Phantom Mage"),
                 new State("hidden",
+                   // new Wander(1f),
+                    new ConditionalEffect(ConditionEffectIndex.Invincible),
                     new ChangeSize(5, 0)
                 ),
                 new State("reveal",
+                    new ConditionalEffect(ConditionEffectIndex.Armored),
                     new Shoot(16, 8, 360 / 8, 1, 0, 8, cooldown: 400),
                     new Shoot(6, 2, 24, cooldownVariance: 500, cooldown: 1500),
                     new ChangeSize(5, 120),
@@ -150,19 +151,36 @@ namespace RotMG.Game.Logic.Database
                 );
 
             db.Init("Realm Reaper",
+              //  new State("invis",
+               //     new ChangeSize(100, 0),
+               //     new ConditionalEffect(ConditionEffectIndex.Invincible)
+             //   ),
                 new State("taunt",
                     new Taunt("You shouldn't have gone looking for something you didn't want to find!"),
                     new PlayerWithinTransition(16, "base")
                 ),
                 new State("base",
-                    new Follow(0.9f, 16, 4, 1500, 750),
-                    new Order(8, "Phantom Mage", "Reveal"),
+                   // new OrderFrom(99, "Phantom Mage", "reveal", "hidden"),
+                    new Order(99, "Phantom Mage", "hidden"),
                     new ConditionalEffect(ConditionEffectIndex.Armored),
-                    new Shoot(99, 6, 360 / 6, 0, 0f, 15f, cooldown: 2250),
-                    new TimedTransition("charging", 2100)
-             
+                    new Shoot(99, 5, 360 / 5, 0, 0f, 15f, cooldown: 100),
+                    new TimedTransition("f", 4000),
+                    new HealthTransition(0.85f, "charging1")
                 ),
-                new State("charging",
+                new State("f",
+                    // new OrderFrom(8, "Phantom Mage", "hidden", "Reveal"),
+                    new Order(8, "Phantom Mage","Reveal"),
+                    new Wander(0.4f),
+                    new TimedTransition("dothang", 5000),
+                    new State("dothang",
+                        new Charge(2, 99, 2000),
+                        new Shoot(99, 4, 360 / 4, 2, cooldown: 300),
+                        new TimedTransition("f", 1900)
+                        ),
+                    new TimedTransition("base", 5500),
+                    new HealthTransition(0.85f, "charging1")
+                ),
+                new State("charging1",
                     new OrderFrom(16, "Phantom Mage", "reveal", "hidden"),
                     new Shoot(16, 8, 360 / 8, index: 2, fixedAngle: 0, rotateAngle: 5),
                     new Flash(500573, 1000, 4),
