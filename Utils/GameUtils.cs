@@ -87,6 +87,7 @@ namespace RotMG.Utils
             foreach (var en in entity.Parent.EntityChunks.HitTest(entity.Position, radius))
             {
                 if (en.GetObjectDefinition().ObjectType != objId) continue;
+                if (entity == en) continue;
                 float d;
                 if ((d = entity.Position.Distance(en.Position)) < dist)
                 {
