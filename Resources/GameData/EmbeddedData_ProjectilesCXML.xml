@@ -2935,6 +2935,7 @@
       <File>lofiObj2</File>
       <Index>0x176</Index>
     </Texture>
+	<AngleCorrection>1</AngleCorrection>
   </Object>
   <Object type="0x2164" id="Crypt Bow Shot 2">
     <Class>Projectile</Class>
@@ -2942,6 +2943,6 @@
       <File>lofiObj2</File>
       <Index>0x177</Index>
     </Texture>
-    <AngleCorrection>1</AngleCorrection>
+	<AngleCorrection>1</AngleCorrection>
   </Object>
 </Objects>
