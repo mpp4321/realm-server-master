@@ -280,13 +280,13 @@ namespace RotMG.Game.Logic.Database
                     new PlayerWithinTransition(10, "base", true)
                 ),
                 new State("dying",
-                    new Decay(14000),
+                    new Suicide(14000),
                     new OrderOnDeath(16, "Undead Dwarf Axebearer", "dying"),
                     new OrderOnDeath(16, "Undead Dwarf Warrior", "dying"),
                     new OrderOnDeath(16, "Undead Dwarf Mage", "dying"),
                     new OrderOnDeath(16, "Undead Dwarf King", "dying"),
                     new OrderOnDeath(16, "Soulless Dwarf", "dying"), 
-                    new TimedTransition("base", 3500)
+                    new PlayerWithinTransition(10, "base", true)
                 ),
                 new State("base",
                     new Spawn("Undead Dwarf Warrior", 3),
@@ -298,7 +298,6 @@ namespace RotMG.Game.Logic.Database
                     new NoPlayerWithinTransition(12, "dying")
                 ),
                 new State("fight",
-                    new NoPlayerWithinTransition(12, "dying"),
                     new Prioritize(
                         new StayAbove(0.3f, 160),
                         new Follow(1, range: 7),

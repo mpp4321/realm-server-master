@@ -15,7 +15,7 @@ namespace RotMG.Game.Logic.Behaviors
         public readonly float Range = 8.0f;
         public readonly byte Count;
         public readonly float ShootAngle;
-        public readonly float? FixedAngle;
+        public float? FixedAngle;
         public readonly float? RotateAngle;
         public readonly float AngleOffset;
         public readonly float? DefaultAngle;
@@ -169,7 +169,8 @@ namespace RotMG.Game.Logic.Behaviors
                     }
 
                     var packet = GameServer.EnemyShoot(startId, host.Id, desc.BulletType, host.Position, startAngle, (short)damage, count, ShootAngle);
-                    
+                    var isOwnerPlayer = owner is Player;
+
                     foreach (var en in host.Parent.PlayerChunks.HitTest(host.Position, Player.SightRadius))
                     {
                         if (en is Player player)
@@ -177,7 +178,8 @@ namespace RotMG.Game.Logic.Behaviors
                             if (player.Entities.Contains(host))
                             {
                                 player.AwaitProjectiles(projectiles);
-                                player.Client.Send(packet);
+                                if(!isOwnerPlayer || player.Client.Account.AllyShots)
+                                    player.Client.Send(packet);
                             }
                         }
                     }

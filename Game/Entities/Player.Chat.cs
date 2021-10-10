@@ -36,7 +36,7 @@ namespace RotMG.Game.Entities
             "announce", "announcement", "legendary", "roll", "disconnect", "dcAll", "dc", "songs", "changesong",
             "terminate", "stop", "gimme", "give", "gift", "closerealm", "rank", "create", "spawn", "killall",
             "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute", "setcomp", "quake",
-            "unlockskin"
+            "unlockskin", "summonhere"
         };
 
         
@@ -800,6 +800,31 @@ namespace RotMG.Game.Entities
                                 }
                                 SendInfo(str);
                             }
+                        }
+                        break;
+                    case "/summonhere":
+                        if (Client.Account.Ranked)
+                        {
+                            if(j.Length == 0)
+                            {
+                                SendInfo("/summonhere <player name>");
+                                break;
+                            }
+                            var playername = string.Join(' ', j, 0, j.Length);
+                            foreach(Client c in Manager.Clients.Values)
+                            {
+                                if(c != null)
+                                {
+                                    var v = c.Player?.Name.Equals(playername);
+                                    if(v ?? false)
+                                    {
+                                       c.Send(GameServer.Reconnect(Parent.Id));
+                                       SendInfo("Found and summoned");
+                                       break;
+                                    }
+                                }
+                            }
+                            SendInfo("Player not found");
                         }
                         break;
                     default:

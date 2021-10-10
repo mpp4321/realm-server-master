@@ -46,12 +46,14 @@ namespace RotMG.Game.Logic
                         {
                             foreach (var s3 in s2.States.Values)
                             {
-                                if(s3.StringId == t.StringTargetState)
-                                    t.TargetState = s3.Id;
+                                if(t.TargetStates.ContainsKey(s3.StringId))
+                                {
+                                    t.TargetStates[s3.StringId] = s3.Id;
+                                }
                             }
                         } else
-                        if (s2.StringId == t.StringTargetState)
-                            t.TargetState = s2.Id;
+                        if (t.TargetStates.ContainsKey(s2.StringId))
+                            t.TargetStates[s2.StringId] = s2.Id;
                     }
 
             //Do the same for each inner state looks like

@@ -107,7 +107,13 @@
 	<World name="LOShaitans" display="Lair of Shaitans">
 		<Maps>Shaitans/0.jm</Maps>
 		<Background>0</Background>
-    <Portals>0x074e</Portals>
+		<Portals>0x074e</Portals>
 		<BlockSight>1</BlockSight>
+	</World>
+	<World name="Arena" display="Arena">
+		<Maps>Arena/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+		<Music>CRYPT</Music>
 	</World>
 </Worlds>

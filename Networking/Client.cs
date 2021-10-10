@@ -123,7 +123,7 @@ namespace RotMG.Networking
         {
             if (Player?.Pet != null)
             {
-                Player.Pet.Parent.RemoveEntity(Player.Pet);
+                Player.Pet.Parent?.RemoveEntity(Player.Pet);
             }
         }
 

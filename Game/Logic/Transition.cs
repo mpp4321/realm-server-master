@@ -1,18 +1,22 @@
-﻿namespace RotMG.Game.Logic
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace RotMG.Game.Logic
 {
     public abstract class Transition : IBehavior
     {
         public readonly int Id;
         public virtual int SubIndex { get; set; } = 1;
 
-        public Transition(string targetState)
+        public Transition(params string[] targetStates)
         {
-            StringTargetState = targetState.ToLower();
+            CurrentState = targetStates[0].ToLower();
+            TargetStates = targetStates.Select(a => a.ToLower()).ToDictionary(a => a, a => -1);
             Id = ++BehaviorDb.NextId;
         }
 
-        public string StringTargetState; //Only used for parsing.
-        public virtual int TargetState { get; set; } = -1;
+        public string CurrentState = "";
+        public Dictionary<string, int> TargetStates = new Dictionary<string, int>();
 
         public virtual void Enter(Entity host) { }
         public virtual bool Tick(Entity host) => false;

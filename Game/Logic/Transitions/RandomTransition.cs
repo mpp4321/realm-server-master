@@ -1,4 +1,6 @@
 ﻿using RotMG.Utils;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace RotMG.Game.Logic.Behaviors
 {
@@ -7,7 +9,8 @@ namespace RotMG.Game.Logic.Behaviors
 
         public readonly Transition[] transitions;
 
-        public RandomTransition(params Transition[] transitions) : base("")
+        public RandomTransition(params Transition[] transitions) :
+            base(transitions.Select(a => a.TargetStates.Keys).SelectMany(a => a).ToArray())
         {
             this.transitions = transitions;
         }
@@ -22,14 +25,16 @@ namespace RotMG.Game.Logic.Behaviors
 
         public override bool Tick(Entity host)
         {
-            var trans = transitions[MathUtils.Next(transitions.Length)];
-            var rt = trans.Tick(host);
-            if(rt)
+            var choices = new List<Transition>();
+            foreach(var t in transitions)
             {
-                SubIndex = trans.SubIndex;
-                TargetState = trans.TargetState;
+                var rt = t.Tick(host);
+                if (rt) choices.Add(t);
             }
-            return rt;
+            if (choices.Count == 0) return false;
+            var trans = choices[MathUtils.Next(transitions.Length)];
+            CurrentState = trans.TargetStates.Keys.First().ToLower();
+            return true;
         }
 
         public override void Exit(Entity host) 

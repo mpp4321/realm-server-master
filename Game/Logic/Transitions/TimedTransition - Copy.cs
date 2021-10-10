@@ -10,7 +10,7 @@ namespace RotMG.Game.Logic.Transitions
         public readonly int Time;
         public readonly string[] targets;
 
-        public TimedRandomTransition(int time = 1000, params string[] targets) : base(targets[0])
+        public TimedRandomTransition(int time = 1000, params string[] targets) : base(targets)
         {
             Time = time;
             this.targets = targets;
@@ -27,7 +27,7 @@ namespace RotMG.Game.Logic.Transitions
             if (host.StateCooldown[Id] <= 0)
             {
                 host.StateCooldown[Id] = Time;
-                StringTargetState = targets[ Random.Next(targets.Length) ].ToLower();
+                CurrentState = targets[ Random.Next(targets.Length) ].ToLower();
                 return true;
             }
             return false;

@@ -52,8 +52,10 @@ namespace RotMG.Game.Logic
                 var iterState = FindNthParentState(this, transition.SubIndex);;
                 foreach (var state in iterState?.States.Values ?? firstLayer)
                 {
-                    if (state.StringId == transition.StringTargetState)
-                        transition.TargetState = state.Id;
+                    if(transition.TargetStates.ContainsKey(state.StringId))
+                    {
+                        transition.TargetStates[state.StringId] = state.Id;
+                    }
                 }
             }
 

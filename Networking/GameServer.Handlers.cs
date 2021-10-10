@@ -574,6 +574,7 @@ namespace RotMG.Networking
                 {
                     client.Send(Failure(0, "Account in use!"));
                     Manager.AddTimedAction(1000, client.Disconnect);
+                    Manager.GetClient(acc.Id)?.Disconnect();
                     return;
                 }
 

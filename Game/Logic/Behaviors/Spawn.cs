@@ -33,6 +33,7 @@ namespace RotMG.Game.Logic.Behaviors
 
         public override void Enter(Entity host)
         {
+            if (host.StateObject[Id] != null) return;
             host.StateObject[Id] = new SpawnState()
             {
                 CurrentNumber = _initialSpawn,
@@ -89,6 +90,7 @@ namespace RotMG.Game.Logic.Behaviors
             else
                 spawn.RemainingTime -= Settings.MillisecondsPerTick;
 
+            host.StateObject[Id] = spawn;
             return true;
         }
     }

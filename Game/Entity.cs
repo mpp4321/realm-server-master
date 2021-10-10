@@ -648,7 +648,7 @@ namespace RotMG.Game
                     {
                         if (transition.Tick(this))
                         {
-                            targetState = transition.TargetState;
+                            targetState = transition.TargetStates[transition.CurrentState];
                             subIndexState = transition.SubIndex;
                             break;
                         }

@@ -27,10 +27,7 @@ namespace RotMG.Game.Logic.Behaviors
             int cool = (int) host.StateObject[Id];
 
             if (cool <= 0)
-                if (!(host is Enemy))
-                    host.Parent.RemoveEntity(host);
-                else
-                    (host as Enemy).Death( host.Parent.Players.First().Value );
+                host.Parent.RemoveEntity(host);
             else
                 cool -= Settings.MillisecondsPerTick;
 

@@ -694,30 +694,30 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("run", 3000),
                         new TimedTransition("roto", 3000),
                         new TimedTransition("roto1", 3000)
-                        )
+                    )
                 ),
                 new State("slam",
                     new Prioritize(
-                        new Charge(0.8f, 8, 1750),
+                        new Charge(2.8f, 8, 1750),
                         new StayCloseToSpawn(0.5f, 5)
                     ),
                     new Shoot(4, 5, 360 / 6, 0, cooldown: 200),
                     new TimedTransition("run", 2500)
                 ),
                 new State("run",
-                    new Prioritize(
-                        new Wander(0.3f),
-                        new StayBack(0.6f, 4),
-                        new StayCloseToSpawn(0.7f)
-                        ),
+                    new Prioritize( 
+                        new StayBack(0.9f, 4),
+                        new StayCloseToSpawn(0.7f),
+                        new Wander(0.3f)
+                    ),
                     new Shoot(12, 1, index: 1, predictive: 0.7f, cooldownVariance: 600, cooldown: 1400),
                     new Shoot(8, 4, 28, 0, predictive: 0.3f, cooldownVariance: 350, cooldown: 900),
                     new TimedTransition("angy", 6000)
                 ),
                 new State("roto",
                     new Prioritize(
-                        new Wander(0.2f),
-                        new Orbit(1, 4.5f, target: "Ghost Ship Anchor", speedVariance: 0.3f)
+                        new Orbit(1, 4.5f, target: "Ghost Ship Anchor", speedVariance: 0.3f),
+                        new Wander(0.2f)
                         ),
                     new ShootAt("Ghost Ship Anchor", 12, 6, 0, cooldownVariance: 150, cooldown: 900),
                     new Shoot(12, 1, index: 1, predictive: 0.7f, cooldownVariance: 600, cooldown: 1800),
@@ -725,8 +725,8 @@ namespace RotMG.Game.Logic.Database
                 ),
                 new State("roto1",
                     new Prioritize(
-                        new Wander(0.2f),
-                        new Orbit(0.8f, 4.5f, target: "Ghost Ship Anchor", speedVariance: 0.3f, orbitClockwise: true)
+                        new Orbit(0.8f, 4.5f, target: "Ghost Ship Anchor", speedVariance: 0.3f, orbitClockwise: true),
+                        new Wander(0.2f)
                         ),
                     new ShootAt("Ghost Ship Anchor", 12, 6, 0, cooldownVariance: 150, cooldown: 900),
                     new Shoot(12, 1, index: 1, predictive: 0.7f, cooldownVariance: 600, cooldown: 1800),
@@ -754,17 +754,14 @@ namespace RotMG.Game.Logic.Database
                 )
             );
             db.Init("Tempest Cloud",
-                new ConditionalEffect(ConditionEffectIndex.Invincible, true),
                 new State("wait",
                     new PlayerWithinTransition(6, "texture")
                 ),
                 new State("Texture",
-                    new ChangeSize(10, 140),
-                    new State("Texture1",
-                        new SetAltTexture(1, 9, cooldown: 100),
-                        new TimedTransition("attack", 1100)
-                        )
-                    ),
+                    new ChangeSize(20, 140),
+                    new SetAltTexture(1, 9, cooldown: 100),
+                    new TimedTransition("attack", 1100)
+                ),
                 new State("attack",
                     new Shoot(5, 5, 360 / 5, cooldownVariance: 250, cooldown: 1000),
                     new NoPlayerWithinTransition(6, "untexture")
@@ -772,7 +769,8 @@ namespace RotMG.Game.Logic.Database
                 new State("untexture",
                     new ChangeSize(10, 0),
                     new TimedTransition("wait", 500)
-                )
+                ),
+                new ConditionalEffect(ConditionEffectIndex.Invincible, true)
             );
         }
     }
