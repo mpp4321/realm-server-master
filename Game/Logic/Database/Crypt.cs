@@ -87,7 +87,7 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Phantom Mage",
                 new State("hidden",
-                   // new Wander(1f),
+                    // new Wander(1f),
                     new ConditionalEffect(ConditionEffectIndex.Invincible),
                     new ChangeSize(5, 0)
                 ),
@@ -98,7 +98,7 @@ namespace RotMG.Game.Logic.Database
                     new ChangeSize(5, 120),
                     new EntitiesNotExistsTransition(12, "hidden", "Realm Reaper")
                 )
-                );
+            );
             db.Init("Scythe Phantom",
                 new State("hidden",
                     new ConditionalEffect(ConditionEffectIndex.Invincible),
@@ -160,7 +160,7 @@ namespace RotMG.Game.Logic.Database
                     new PlayerWithinTransition(16, "base")
                 ),
                 new State("base",
-                   // new OrderFrom(99, "Phantom Mage", "reveal", "hidden"),
+                    new OrderFrom(99, "Phantom Mage", "reveal", "hidden"),
                     new Order(99, "Phantom Mage", "hidden"),
                     new ConditionalEffect(ConditionEffectIndex.Armored),
                     new Shoot(99, 5, 360 / 5, 0, 0f, 15f, cooldown: 100),
@@ -168,17 +168,17 @@ namespace RotMG.Game.Logic.Database
                     new HealthTransition(0.85f, "charging1")
                 ),
                 new State("f",
-                    // new OrderFrom(8, "Phantom Mage", "hidden", "Reveal"),
-                    new Order(8, "Phantom Mage","Reveal"),
-                    new Wander(0.4f),
-                    new TimedTransition("dothang", 5000),
-                    new State("dothang",
-                        new Charge(2, 99, 2000),
-                        new Shoot(99, 4, 360 / 4, 2, cooldown: 300),
-                        new TimedTransition("f", 1900)
+                    new Prioritize(
+                        new ChargeShoot(
+                                new Shoot(99, 4, 360 / 4, 2, cooldown: 300),
+                                new Charge(1.5f, 99, 100)
                         ),
-                    new TimedTransition("base", 5500),
-                    new HealthTransition(0.85f, "charging1")
+                        new Wander(0.4f)
+                    ),
+                    new OrderFrom(8, "Phantom Mage", "hidden", "Reveal"),
+                    new Order(8, "Phantom Mage","Reveal"),
+                    new TimedTransition("base", 5500)
+                    //new HealthTransition(0.85f, "charging1")
                 ),
                 new State("charging1",
                     new OrderFrom(16, "Phantom Mage", "reveal", "hidden"),
