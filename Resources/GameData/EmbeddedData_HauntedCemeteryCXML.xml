@@ -1812,6 +1812,13 @@
 			<LifetimeMS>1800</LifetimeMS>
 			<Size>100</Size>
 		</Projectile>
+		<Projectile id="4">
+			<ObjectId>Black Eye</ObjectId>
+			<Damage>120</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>1800</LifetimeMS>
+			<Size>100</Size>
+		</Projectile>
 		<Size>140</Size>
 		<Defense>30</Defense>
 		<XpMult>0.3</XpMult>
