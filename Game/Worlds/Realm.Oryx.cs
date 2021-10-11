@@ -541,7 +541,7 @@ namespace RotMG.Game.Worlds
                     Tuple.Create("Rock Bot", 0.05),
                     Tuple.Create("Djinn", 0.09),
                     Tuple.Create("Leviathan", 0.09),
-                    Tuple.Create("Greater Fire Skeleton", 0.001)
+                    Tuple.Create("Greater Fire Skeleton", 0.015)
                 })
             },
         };
@@ -554,7 +554,7 @@ namespace RotMG.Game.Worlds
             Tuple.Create("Grand Sphinx", (ISetPiece) new Sphinx()),
             Tuple.Create("Lord of the Lost Lands", (ISetPiece) new LordoftheLostLands()),
             Tuple.Create("Hermit God", (ISetPiece) new Hermit()),
-           // Tuple.Create("Ghost Ship", (ISetPiece) new GhostShip()),
+            Tuple.Create("Ghost Ship", (ISetPiece) new GhostShip()),
         };
 
         //none of these count minions spawned
@@ -718,8 +718,7 @@ namespace RotMG.Game.Worlds
             if (enemy.Desc == null || !enemy.Desc.Quest)
                 return;
 
-            if (!CriticalEnemies.TryGetValue(enemy.Desc.Id, out var tauntData))
-                return;
+            var hasTauntData = CriticalEnemies.TryGetValue(enemy.Desc.Id, out var tauntData);
             
             //In case of admin spawn
             if(_criticalEnemyCounts.ContainsKey(enemy.Desc.Id)) {
@@ -731,7 +730,7 @@ namespace RotMG.Game.Worlds
             if (_criticalEnemyCounts.Count == 0)
                 Close();
 
-            if (tauntData.Killed != null)
+            if (hasTauntData && tauntData.Killed != null)
             {
                 var killedMessages = tauntData.Killed;
                 if (killer == null)

@@ -120,6 +120,6 @@
 		<Maps>LostCatacombs/0.jm</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
-		<Music>CRYPT</Music>
+		<Portals>0x074f</Portals>
 	</World>
 </Worlds>

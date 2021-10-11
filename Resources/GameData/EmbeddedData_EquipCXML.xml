@@ -10127,4 +10127,22 @@
     <UniqueEffect>Lifeless</UniqueEffect>
     <BagType>6</BagType>
   </Object>
+  <Object type="0xcba" id="Trap of the Vile Spirit">
+    <Class>Equipment</Class>
+    <Item />
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0xe2</Index>
+    </Texture>
+    <SlotType>20</SlotType>
+    <Description>A long lost artifact recovered by Davy Jones, believed to have been cursed by the gods of the seven seas themselves.</Description>
+    <ActivateOnEquip stat="3" amount="20">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="20" amount="3">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="22" amount="3">IncrementStat</ActivateOnEquip>
+    <Usable />
+    <BagType>5</BagType>
+    <FameBonus>6</FameBonus>
+    <MpCost>90</MpCost>
+    <Activate radius="3" totalDamage="650" effect="Bleeding" duration="6.0" useWisMod="true" statMin="30" statScale="10.0">Trap</Activate>
+  </Object>
 </Objects>

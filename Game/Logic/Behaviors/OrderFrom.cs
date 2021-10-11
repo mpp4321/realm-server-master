@@ -26,7 +26,7 @@ namespace RotMG.Game.Logic.Behaviors
         {
             foreach(var i in host.Parent.EntityChunks.HitTest(host.Position, _range).Where(z => z.GetObjectDefinition().ObjectType == _children))
             {
-                var lastState = host.CurrentStates.Last();
+                var lastState = i.CurrentStates.Last();
                 if (lastState == null) return false;
                 if(lastState.StringId.Equals(_initialState))
                 {

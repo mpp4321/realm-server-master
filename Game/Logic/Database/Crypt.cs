@@ -161,7 +161,7 @@ namespace RotMG.Game.Logic.Database
                 ),
                 new State("base",
                     new OrderFrom(99, "Phantom Mage", "reveal", "hidden"),
-                    new Order(99, "Phantom Mage", "hidden"),
+                    //new Order(99, "Phantom Mage", "hidden"),
                     new ConditionalEffect(ConditionEffectIndex.Armored),
                     new Shoot(99, 5, 360 / 5, 0, 0f, 15f, cooldown: 100),
                     new TimedTransition("f", 4000),
@@ -176,7 +176,7 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                     ),
                     new OrderFrom(8, "Phantom Mage", "hidden", "Reveal"),
-                    new Order(8, "Phantom Mage","Reveal"),
+                    //new Order(8, "Phantom Mage","Reveal"),
                     new TimedTransition("base", 5500)
                     //new HealthTransition(0.85f, "charging1")
                 ),

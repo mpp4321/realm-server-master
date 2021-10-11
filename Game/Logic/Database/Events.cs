@@ -491,13 +491,14 @@ namespace RotMG.Game.Logic.Database
                         new Suicide()
                         ),
                 new Threshold(0.03f,
-                        new ItemLoot("Shield of Ogmur", 0.0075f),
+                        new ItemLoot("Shield of Ogmur", 0.015f),
+                        new ItemLoot("Soul of the Lost Land", 0.0075f),
                         new TierLoot(11, LootType.Armor, 0.35f),
                         new TierLoot(4, LootType.Ring, 0.2f),
                         new TierLoot(10, LootType.Armor, 0.35f),
                         new TierLoot(3, LootType.Ring, 0.2f),
-                        new ItemLoot("Skysplitter Sword", 0.01f, r: new RarityModifiedData(1f, 1)),
-                        new ItemLoot("Mithril Shield", 0.015f, r: new RarityModifiedData(1f, 2))
+                        new ItemLoot("Skysplitter Sword", 0.01f, r: new RarityModifiedData(1f, 2, true)),
+                        new ItemLoot("Mithril Shield", 0.015f, r: new RarityModifiedData(1f, 2, true))
                     ),
                 new Threshold(0.005f,
                     LootTemplates.BasicPots()
@@ -708,6 +709,28 @@ namespace RotMG.Game.Logic.Database
                     new ShootAt("Ghost Ship Anchor", 12, 6, 0, cooldownVariance: 150, cooldown: 900),
                     new Shoot(12, 1, index: 1, predictive: 0.7f, cooldownVariance: 600, cooldown: 1800),
                     new TimedTransition("angy", 8000)
+                ),
+                new Threshold(0.001f,
+                    new TierLoot(8, LootType.Weapon, .3f),
+                    new TierLoot(9, LootType.Weapon, .3f),
+                    new TierLoot(10, LootType.Weapon, .2f),
+                    new TierLoot(11, LootType.Weapon, .2f),
+                    new TierLoot(4, LootType.Ability, .2f),
+                    new TierLoot(5, LootType.Ability, .2f),
+                    new TierLoot(8, LootType.Armor, .2f),
+                    new TierLoot(9, LootType.Armor, .15f),
+                    new TierLoot(10, LootType.Armor, .10f),
+                    new TierLoot(11, LootType.Armor, .2f),
+                    new TierLoot(12, LootType.Armor, .24f),
+                    new TierLoot(3, LootType.Ring, .25f),
+                    new TierLoot(4, LootType.Ring, .27f),
+                    new TierLoot(5, LootType.Ring, .23f),
+                    new ItemLoot("Potion of Defense", .4f),
+                    new ItemLoot("Potion of Attack", .4f),
+                    new ItemLoot("Potion of Vitality", .4f),
+                    new ItemLoot("Potion of Wisdom", .4f),
+                    new ItemLoot("Potion of Speed", .4f),
+                    new ItemLoot("Trap of the Vile Spirit", 0.01f)
                 )
             );
             //below needs their sprites indexed
