@@ -854,7 +854,7 @@
 
         <Projectile id="0">
             <ObjectId>Fire Missile</ObjectId>
-            <Damage>55</Damage>
+            <Damage>120</Damage>
             <Speed>60</Speed>
             <LifetimeMS>1000</LifetimeMS>
             <Size>100</Size>
@@ -926,15 +926,23 @@
         <DeathSound>monster/flying_brain_death</DeathSound>
         <Size>100</Size>
         <ShadowSize>0</ShadowSize>
-        <MaxHitPoints>2500</MaxHitPoints>
+        <MaxHitPoints>7500</MaxHitPoints>
         <Defense>20</Defense>
 
         <Projectile id="0">
             <ObjectId>Stone Slash</ObjectId>
-            <Damage>55</Damage>
+            <Damage>125</Damage>
             <Speed>60</Speed>
             <LifetimeMS>1000</LifetimeMS>
             <Size>100</Size>
+        </Projectile>
+        <Projectile id="1">
+            <ObjectId>Silver Shield</ObjectId>
+            <Damage>15</Damage>
+            <Speed>120</Speed>
+            <LifetimeMS>300</LifetimeMS>
+            <Size>100</Size>
+						<ConditionEffect duration="1.0">Stunned</ConditionEffect>
         </Projectile>
 
 
@@ -951,7 +959,7 @@
         <DeathSound>monster/flying_brain_death</DeathSound>
         <Size>100</Size>
         <ShadowSize>0</ShadowSize>
-        <MaxHitPoints>2500</MaxHitPoints>
+        <MaxHitPoints>5000</MaxHitPoints>
         <Defense>20</Defense>
 
         <Projectile id="0">
@@ -1008,12 +1016,11 @@
 
         <Projectile id="0">
             <ObjectId>Black Arrow</ObjectId>
-            <Damage>55</Damage>
+            <Damage>125</Damage>
             <Speed>60</Speed>
             <LifetimeMS>1000</LifetimeMS>
             <Size>100</Size>
         </Projectile>
-
 
     </Object>
 
@@ -1033,12 +1040,19 @@
 
         <Projectile id="0">
             <ObjectId>Crystal Serpent Missile</ObjectId>
-            <Damage>55</Damage>
-            <Speed>60</Speed>
-            <LifetimeMS>1000</LifetimeMS>
-            <Size>100</Size>
+            <Damage>200</Damage>
+            <Speed>30</Speed>
+            <LifetimeMS>2000</LifetimeMS>
+            <Size>200</Size>
             <Amplitude>0.5</Amplitude>
             <Frequency>2</Frequency>
+        </Projectile>
+        <Projectile id="1">
+            <ObjectId>Black Missile</ObjectId>
+            <Damage>30</Damage>
+            <Speed>80</Speed>
+            <LifetimeMS>500</LifetimeMS>
+            <Size>50</Size>
         </Projectile>
 
 

@@ -617,29 +617,6 @@ namespace RotMG.Game.Logic.Database
                     )
             );
 
-            db.Init("Undead Giant Hand", 
-                new State("base", 
-                    new State("playerwait", new PlayerWithinTransition(10f, "jumping", false)),
-                    new State("jumping",
-                        new ChangeSize(-10, 0),
-                        new TimedTransition("jumped", 1000)
-                    ),
-                    new State("jumped", 
-                        new Charge(8f, 10, coolDown: 6000),
-                        new ChangeSize(10, 50),
-                        new Shoot(5, 8, 360 / 8, fixedAngle: 0, cooldownOffset: 500,  cooldown: 5000, index: 1),
-                        new TimedTransition("post jump", 1000)
-                    ),
-                    new State("post jump",
-                        new Shoot(5, 3, 30, 0, cooldown: 1000),
-                        new Shoot(5, 2, 15, 0, cooldown: 2000),
-                        new Grenade(0, 0, 5, 0f, 1000, effect: ConditionEffectIndex.Cursed, effectDuration: 1000, color: 0xff11ff11),
-                        new ConditionalEffect(ConditionEffectIndex.Armored),
-                        new TimedTransition("jumping", 5000)
-                    )
-                )
-            );
-
             db.Init("Ghost Ship",
                 new State("waiting",
                     new ConditionalEffect(ConditionEffectIndex.Invulnerable),

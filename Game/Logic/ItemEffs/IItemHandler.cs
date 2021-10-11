@@ -11,6 +11,8 @@ namespace RotMG.Game.Logic.ItemEffs
 
         public virtual void OnEnemyHit(Entity hit, Projectile by, ref int damageDone) { }
 
+        public virtual void OnProjectileShoot(Player shotFrom, ref Projectile projectile) { }
+
         public virtual void OnHitByEnemy(Player hit, Entity hitBy, Projectile by) { }
 
         public virtual void OnAbilityUse(Vector2 position, ItemDesc desc, ItemDataJson itemdata, Player player) { }

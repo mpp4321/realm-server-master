@@ -29,6 +29,8 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("OphGem", new OphGem());
             Registry.Add("UniversalPower", new UniversalPower());
             Registry.Add("AOBL", new AmuletOfBackwardsLuck());
+            Registry.Add("SappingShot", new SappingShot());
+            Registry.Add("Lifeless", new Lifeless());
 
             //components
             Registry.Add("FireRune", new FireRune());

@@ -116,4 +116,10 @@
 		<BlockSight>1</BlockSight>
 		<Music>CRYPT</Music>
 	</World>
+	<World name="LCatacomb" display="Lost Catacombs">
+		<Maps>LostCatacombs/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+		<Music>CRYPT</Music>
+	</World>
 </Worlds>

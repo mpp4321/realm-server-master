@@ -382,22 +382,18 @@
     <Object type="0x6005" id="Zombie Hulk">
 		<Enemy/>
 		<Class>Character</Class>
-        <Group>Hallowrena</Group>
-
+        <Group>Zombies</Group>
         <AnimatedTexture><File>chars16x16rEncounters</File><Index>77</Index></AnimatedTexture>
-
         <AltTexture id="1"><AnimatedTexture><File>chars16x16rEncounters</File><Index>78</Index></AnimatedTexture></AltTexture>
-
 		<Size>110</Size>
 		<ShadowSize>80</ShadowSize>
 
 		<HitSound>monster/archdemon_hit</HitSound>
 		<DeathSound>monster/abyss_demons_death</DeathSound>
 
-		<MaxHitPoints>3000</MaxHitPoints>
-		<XpMult>0.35</XpMult>
-		<Defense>13</Defense>
-
+		<MaxHitPoints>9000</MaxHitPoints>
+		<XpMult>5.35</XpMult>
+		<Defense>26</Defense>
         <Projectile id="0">
             <ObjectId>Big Zombie Wave</ObjectId>
             <Speed>55</Speed>
@@ -405,7 +401,7 @@
             <Size>110</Size>
             <LifetimeMS>400</LifetimeMS>
             <PassesCover/>
-			<ConditionEffect duration="2.4">Armor Broken</ConditionEffect>
+            <ConditionEffect duration="2.4">Armor Broken</ConditionEffect>
         </Projectile>
         <Projectile id="1">
             <ObjectId>Big Zombie Blast</ObjectId>
@@ -415,13 +411,6 @@
             <LifetimeMS>1200</LifetimeMS>
             <PassesCover/>
         </Projectile>
-		
-		
-        
-        
-        
-		
-		
     </Object>
     
     <Object type="0x6004" id="Classic Ghost">
@@ -1816,4 +1805,14 @@
 		<Defense>30</Defense>
 		<XpMult>0.3</XpMult>
 	</Object>
+  <Object type="0x0d68" id="LCatacomb Hand Spawner">
+		<DisplayId>LCatacomb Hand Spawner</DisplayId>
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+      <Index>0</Index>
+		</Texture>
+	</Object>
+
 </Objects>

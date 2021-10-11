@@ -257,7 +257,12 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(4, LootType.Ability, 0.02f),
                 new TierLoot(6, LootType.Ring, 0.01f, 0.01f),
                 new ItemLoot("Health Potion", 0.7f),
-                new ItemLoot("Magic Potion", 0.7f)
+                new ItemLoot("Magic Potion", 0.7f),
+                new Threshold(0.001f,
+                    new ItemLoot("Mithril Sword", 0.01f),
+                    new ItemLoot("Potion of Mana", 0.6f),
+                    new ItemLoot("Potion of Dexterity", 0.6f, min: 2)
+                )
             );
             db.Init("Small Ghost",
                 new State("base",

@@ -170,6 +170,7 @@ namespace RotMG.Game.Logic.Behaviors
 
                     var packet = GameServer.EnemyShoot(startId, host.Id, desc.BulletType, host.Position, startAngle, (short)damage, count, ShootAngle);
                     var isOwnerPlayer = owner is Player;
+                    var ownerAccId = isOwnerPlayer ? (owner as Player).AccountId : -1;
 
                     foreach (var en in host.Parent.PlayerChunks.HitTest(host.Position, Player.SightRadius))
                     {
@@ -178,7 +179,7 @@ namespace RotMG.Game.Logic.Behaviors
                             if (player.Entities.Contains(host))
                             {
                                 player.AwaitProjectiles(projectiles);
-                                if(!isOwnerPlayer || player.Client.Account.AllyShots)
+                                if(!isOwnerPlayer || player.AccountId == ownerAccId || player.Client.Account.AllyShots)
                                     player.Client.Send(packet);
                             }
                         }

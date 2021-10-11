@@ -1241,5 +1241,13 @@
       <Index>0xec</Index>
     </Texture>
   </Object>
+  <Object type="0x074f" id="Lost Catacombs Portal">
+    <Class>Portal</Class>
+    <IntergamePortal/>
+    <Texture>
+      <File>lofiObjBig</File>
+      <Index>0x1b0</Index>
+    </Texture>
+  </Object>
 </Objects>
 <!-- next 5008 -->

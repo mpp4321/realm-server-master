@@ -14,7 +14,7 @@ namespace RotMG.Game
         public readonly int Id;
         public readonly float Angle;
         public readonly Vector2 StartPosition;
-        public readonly int Damage;
+        public int Damage;
         public readonly HashSet<int> Hit;
         public readonly IItemHandler[] UniqueEffects = new IItemHandler[] { };
 

@@ -306,12 +306,14 @@ namespace RotMG.Game.Entities
                     var arcGap = desc.ArcGap * MathUtils.ToRadians;
                     var totalArc = arcGap * (numShots - 1);
                     var angle = attackAngle - totalArc / 2f;
+                    var abilityEffects = BuildAllItemHandlers();
                     for (var i = 0; i < numShots; i++)
                     {
                         var damage = (int)(GetNextDamageSeeded(desc.NextProjectile(startId - i).MinDamage, desc.NextProjectile(startId - i).MaxDamage, ItemDatas[0]) * GetAttackMultiplier());
                         //var compeffs = this.ItemDatas.Take(4).Select(a => a.ItemComponent != null ? a.ItemComponent : null).Where(a => a != null);
                         var uneffs = BuildAllItemHandlers();
                         var projectile = new Projectile(this, desc.NextProjectile(startId - i), startId - i, time, angle + arcGap * i, pos, damage, uniqueEff: uneffs.ToArray());
+                        foreach (var ae in abilityEffects) ae.OnProjectileShoot(this, ref projectile);
                         ShotProjectiles.Add(projectile.Id, projectile);
                     }
 

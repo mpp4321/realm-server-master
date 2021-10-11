@@ -573,8 +573,8 @@ namespace RotMG.Networking
                 if (Database.IsAccountInUse(acc))
                 {
                     client.Send(Failure(0, "Account in use!"));
-                    Manager.AddTimedAction(1000, client.Disconnect);
                     Manager.GetClient(acc.Id)?.Disconnect();
+                    Manager.AddTimedAction(1000, client.Disconnect);
                     return;
                 }
 

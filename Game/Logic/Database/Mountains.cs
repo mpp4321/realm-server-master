@@ -165,7 +165,8 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Ghost God",
                 new State("base",
-                    new DropPortalOnDeath("Undead Lair", .3f),
+                    //new DropPortalOnDeath("Undead Lair", .3f),
+                    new DropPortalOnDeath("Lost Catacombs Portal", .08f),
                     new Prioritize(
                         new StayAbove(1, 200),
                         new Follow(1, range: 2),

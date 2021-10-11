@@ -9638,7 +9638,7 @@
       <EffectInfo name="Hell Fire" description=""/>
       <EffectInfo name="" description="Within 5 squares on cursor bleed enemies for 5 seconds."/>
     </ExtraTooltipData>-->
-    <Description>TODO</Description>
+    <Description>The cursed texts developed by Shaitan himself.</Description>
     <Sound>spell/major_heal</Sound>
     <ActivateOnEquip stat="3" amount="4">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="4" amount="4">IncrementStat</ActivateOnEquip>
@@ -9656,11 +9656,11 @@
       <Index>0x5a</Index>
     </Texture>
     <SlotType>8</SlotType>
-    <Description>TODO</Description>
+    <Description>A wand enchanted with the fire magic only found in the shaitans.</Description>
     <RateOfFire>0.8</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
-      <ObjectId>Armor Pierce Bullet</ObjectId>
+      <ObjectId>Magma Bolt</ObjectId>
       <Speed>55</Speed>
       <Size>125</Size>
       <MinDamage>66</MinDamage>
@@ -10023,7 +10023,7 @@
     <Consumable/>
   </Object>
 
-  <Object type="0x35e" id="Skin Unlocker">
+  <Object type="0x35f" id="Skin Unlocker">
     <Class>Equipment</Class>
     <Texture>
       <File>lofiObj6</File>
@@ -10038,5 +10038,93 @@
     <Activate>UnlockSkin</Activate>
     <Consumable/>
   </Object>
-
+  <Object type="0xcb6" id="Mithril Sword">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj</File>
+      <Index>0x38</Index>
+    </Texture>
+    <SlotType>1</SlotType>
+    <Description>An extremely sharp sword made from the strongest and most desirable of all metals.</Description>
+    <RateOfFire>1.66</RateOfFire>
+    <Sound>weapon/glass_sword</Sound>
+    <Projectile>
+      <ObjectId>Blue Bolt</ObjectId>
+      <Speed>80</Speed>
+      <MinDamage>120</MinDamage>
+      <MaxDamage>160</MaxDamage>
+      <LifetimeMS>800</LifetimeMS>
+    </Projectile>
+    <BagType>5</BagType>
+    <FameBonus>4</FameBonus>
+    <OldSound>bladeSwing</OldSound>
+  </Object>
+  <Object type="0xcb7" id="Gilded Sword">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj</File>
+      <Index>0x37</Index>
+    </Texture>
+    <SlotType>1</SlotType>
+    <Description>Really just a pretty sword.</Description>
+    <RateOfFire>1</RateOfFire>
+    <Sound>weapon/glass_sword</Sound>
+    <Projectile>
+      <ObjectId>Gold Bullet</ObjectId>
+      <Speed>80</Speed>
+      <MinDamage>20</MinDamage>
+      <MaxDamage>40</MaxDamage>
+      <LifetimeMS>800</LifetimeMS>
+    </Projectile>
+    <BagType>4</BagType>
+    <FameBonus>8</FameBonus>
+    <OldSound>bladeSwing</OldSound>
+  </Object>
+  <Object type="0xcb8" id="Bow of Life Energy">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0xf0</Index>
+    </Texture>
+    <SlotType>3</SlotType>
+    <Description>A bow which saps the users life to empower it's shots.</Description>
+    <RateOfFire>0.66</RateOfFire>
+    <Sound>weapon/golden_bow</Sound>
+    <Projectile>
+      <ObjectId>Life Bolt</ObjectId>
+      <Speed>160</Speed>
+      <Size>200</Size>
+      <MinDamage>350</MinDamage>
+      <MaxDamage>450</MaxDamage>
+      <LifetimeMS>440</LifetimeMS>
+    </Projectile>
+    <BagType>6</BagType>
+    <FameBonus>6</FameBonus>
+    <NumProjectiles>1</NumProjectiles>
+    <OldSound>arrowShoot</OldSound>
+    <UniqueEffect>SappingShot</UniqueEffect>
+  </Object>
+  <Object type="0xcb9" id="Reinforced Ribcage">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0xe1</Index>
+    </Texture>
+    <SlotType>7</SlotType>
+    <Description>A ribcage from a powerful corpse.</Description>
+    <ExtraTooltipData>
+      <EffectInfo name="Lifeless" description=""/>
+      <EffectInfo name="" description="Having less than 20 vit provides 300 bonus health."/>
+    </ExtraTooltipData>
+    <ActivateOnEquip stat="3" amount="20">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="4" amount="6">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="5" amount="6">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="6" amount="-6">IncrementStat</ActivateOnEquip>
+    <UniqueEffect>Lifeless</UniqueEffect>
+    <BagType>6</BagType>
+  </Object>
 </Objects>

@@ -29,7 +29,8 @@ namespace RotMG.Game.Logic.Loots
                     overrides.Chance >= 0 ? overrides.Chance : lootDef.Chance,
                     overrides.Threshold >= 0 ? overrides.Threshold : lootDef.Threshold,
                     overrides.Min >= 0 ? overrides.Min : lootDef.Min, overrides.RareData.RarityMod >= 0 ? overrides.RareData : lootDef.RareData,
-                    overrides.MaxTop != 999 ? overrides.MaxTop : lootDef.MaxTop));
+                    overrides.MaxTop != 999 ? overrides.MaxTop : lootDef.MaxTop,
+                    overrides.overrideData != null ? overrides.overrideData : lootDef.overrideData));
             }
         }
     }

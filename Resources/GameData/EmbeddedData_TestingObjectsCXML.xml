@@ -1333,27 +1333,16 @@
 		<Size>100</Size>
 		<MaxHitPoints>15000</MaxHitPoints>
 		<Defense>12</Defense>
-        
 		<Level>1</Level>
 		<XpMult>0.1</XpMult>
-
-		
 		<Projectile id="0">
 			<ObjectId>White Bullet</ObjectId>
 			<Speed>70</Speed>
 			<Damage>85</Damage>
 			<Size>65</Size>
 			<LifetimeMS>1500</LifetimeMS>
-			
 		</Projectile>							
-
-					
-       		
-       		
-		
 	</Object>	
-
-
 	
 	<Object type="0x0943" id="Crystal Prisoner Steed">
 		<Enemy/>
@@ -1391,7 +1380,7 @@
 		<HitSound>monster/cyclops_hit</HitSound>
 		<DeathSound>monster/cyclops_death</DeathSound>
 		<Size>50</Size>
-		<MaxHitPoints>360000</MaxHitPoints>
+		<MaxHitPoints>90000</MaxHitPoints>
 		<Defense>0</Defense>
         
 		<Level>20</Level>

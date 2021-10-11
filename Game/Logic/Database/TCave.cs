@@ -429,6 +429,7 @@ namespace RotMG.Game.Logic.Database
                    }).ToArray()
                 ),
                 new Threshold(0.001f,
+                new ItemLoot("Gilded Sword", 0.02f, r: new LootDef.RarityModifiedData(1.2f, 2, true)),
                 new MobDrop(new LootDef.Builder()
                             .Item("Skin Unlocker")
                             .OverrideJson( new ItemDataJson() { SkinId = "Golden Wizard" })

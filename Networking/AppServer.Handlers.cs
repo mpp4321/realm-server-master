@@ -1,4 +1,5 @@
 ﻿using RotMG.Common;
+using RotMG.Game;
 using System.Collections.Specialized;
 using System.Net;
 using System.Xml.Linq;
@@ -55,7 +56,10 @@ namespace RotMG.Networking
                 if (acc == null)
                     data = WriteError("Invalid account.");
                 else if (Database.IsAccountInUse(acc))
+                {
                     data = WriteError("Account in use!");
+                    Manager.GetClient(acc.Id)?.Disconnect();
+                }
                 else
                     data = WriteSuccess();
             }, () => _listenEvent.Set());
