@@ -605,7 +605,8 @@ namespace RotMG.Game.Logic.Database
             db.Init("Horned Drake",
                 new State("base",
                     new Spawn("Drake Baby", maxChildren: 1, initialSpawn: 1, cooldown: 50000, givesNoXp: false),
-                    new TransitionFrom("base", "Idle"),
+                        new TransitionFrom("base", "Idle")
+                    ),
                     new State("idle",
                         new StayAbove(0.8f, 60),
                         new PlayerWithinTransition(10, "get_player")
@@ -615,7 +616,7 @@ namespace RotMG.Game.Logic.Database
                             new StayAbove(0.8f, 60),
                             new Follow(0.8f, range: 2.7f, acquireRange: 10, duration: 5000, cooldown: 1800),
                             new Wander(0.8f)
-                            ),
+                            )),
                         new State("one_shot",
                             new Shoot(15, 5, 5, index: 1, cooldown: 800),
                             new Shoot(15, 5, 5, index: 1, cooldown: 800, cooldownOffset: 200),
@@ -628,8 +629,7 @@ namespace RotMG.Game.Logic.Database
                             new Shoot(8, count: 3, shootAngle: 40, predictive: 0.1f, cooldown: 100000,
                                 cooldownOffset: 800),
                             new TimedTransition("one_shot", 800)
-                            )
-                        ),
+                            ),
                     new State("protect_me",
                         new Protect(0.8f, "Drake Baby", acquireRange: 12, protectionRange: 2.5f, reprotectRange: 1.5f),
                         new State("one_shot",
@@ -642,8 +642,7 @@ namespace RotMG.Game.Logic.Database
                             new TimedTransition("one_shot", 1800)
                             ),
                         new EntitiesNotExistsTransition(8, "idle", "Drake Baby")
-                        )
-                    ),
+                        ),
                 new TierLoot(5, LootType.Weapon, 0.6f),
                 new TierLoot(6, LootType.Weapon, 0.1f),
                 new TierLoot(5, LootType.Armor, 0.6f),
