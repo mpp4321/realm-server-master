@@ -38,8 +38,11 @@ namespace RotMG.Game.Logic.Behaviors
         {
             var rt = c.Tick(host);
             var dir = (host.StateObject[c.Id] as Charge.ChargeState).Direction;
-            s.FixedAngle = MathF.Atan2(dir.Y, dir.X);
-            s.Tick(host);
+            if(rt)
+            {
+                s.FixedAngle = MathF.Atan2(dir.Y, dir.X);
+                s.Tick(host);
+            }
             return rt;
         }
 
