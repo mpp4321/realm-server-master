@@ -9,9 +9,12 @@ namespace RotMG.Game.Entities
     internal class NexusShop : SellableEntity
     {
 
+        public ItemDataJson itemJson = null;
+
         public NexusShop(ushort type) : base(type)
         {
         }
+
 
         public override void Buy(Player player)
         {
@@ -29,7 +32,10 @@ namespace RotMG.Game.Entities
             {
 
                 player.Inventory[slot] = (int) SVs[StatType.MerchandiseType];
-
+                if(itemJson != null)
+                {
+                    player.ItemDatas[slot] = itemJson;
+                }
             } else
             {
 

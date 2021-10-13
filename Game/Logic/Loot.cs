@@ -196,15 +196,16 @@ namespace RotMG.Game.Logic
             
             foreach (var (drop, count) in requiredDrops.ToArray())
             {
-                if (dropDictionary[drop].Threshold <= 0)
-                {
-                    while (requiredDrops[drop] > 0)
-                    {
-                        publicLoot.Add(dropDictionary[drop]);
-                        --requiredDrops[drop];
-                    }
-                    continue;
-                }
+                //All loot SB
+                //if (dropDictionary[drop].Threshold <= 0)
+                //{
+                //    while (requiredDrops[drop] > 0)
+                //    {
+                //        publicLoot.Add(dropDictionary[drop]);
+                //        --requiredDrops[drop];
+                //    }
+                //    continue;
+                //}
 
                 foreach (var (player, damage) in enemy.DamageStorage.OrderByDescending(k => k.Value))
                 {
@@ -258,8 +259,18 @@ namespace RotMG.Game.Logic
                 var c = new Container(Container.FromBagType(bagType), ownerId, 40000 * bagType);
                 for (var k = 0; k < bagCount; k++)
                 {
+
                     Enum.TryParse<ItemDataModType>(player?.Client?.Character?.ItemDataModifier, out var vtype);
                     var roll = Resources.Type2Item[loot[k].Item].Roll(r: loot[k].RareData, smod: vtype);
+
+                    //Roll an item twice on elite enemies, take better roll
+                    if(enemy.IsElite)
+                    {
+                        var roll2 = Resources.Type2Item[loot[k].Item].Roll(r: loot[k].RareData, smod: vtype);
+                        if(ItemDesc.GetRank(roll2.Item2.Meta) > ItemDesc.GetRank(roll.Item2.Meta)) {
+                            roll = roll2;
+                        }
+                    }
 
                     c.Inventory[k] = loot[k].Item;
                     if(loot[k].overrideData != null)
@@ -278,7 +289,8 @@ namespace RotMG.Game.Logic
                 }
                 loot.RemoveRange(0, bagCount);
 
-                enemy.Parent.AddEntity(c, enemy.Position + MathUtils.Position(0.2f, 0.2f));
+                var position = MathUtils.PlusMinus() * MathUtils.NextFloat() * MathUtils.Position(1.0f, 1.0f);
+                enemy.Parent.AddEntity(c, enemy.Position + position);
             }
         }
     }

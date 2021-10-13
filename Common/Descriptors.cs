@@ -143,7 +143,8 @@ namespace RotMG.Common
         ItemDataModifier,
         ConditionEffectBlast,
         RuneConsume,
-        UnlockSkin
+        UnlockSkin,
+        RemoveFromBag
     }
 
     public enum ShowEffectIndex
@@ -499,6 +500,9 @@ namespace RotMG.Common
         public Dictionary<ulong, int> ExtraStatBonuses = new Dictionary<ulong, int>();
         public string ItemComponent = null;
         public string SkinId = null;
+
+        public List<int> StoredItems = null;
+        public List<int> AllowedItems = null;
         
         public int GetStatBonus(ItemData k)
         {
@@ -862,6 +866,9 @@ namespace RotMG.Common
         public readonly string UniqueEffect;
         //The component identifier for mixing items, look at ComponentFactory, this is for recipes
         public readonly string Component;
+        //This XML tag indicates that this item is used in the item storage itemdata mechanic
+        // And specifies how many items it can store
+        public readonly int StorageMax;
 
         public readonly KeyValuePair<int, int>[] StatBoosts;
         public readonly ActivateEffectDesc[] ActivateEffects;
@@ -894,6 +901,7 @@ namespace RotMG.Common
             Description = e.ParseString("Description");
             RateOfFire = e.ParseFloat("RateOfFire", 1);
             Usable = e.ParseBool("Usable");
+            StorageMax = e.ParseInt("StorageMax", -1);
             BagType = e.ParseInt("BagType");
             MpCost = e.ParseInt("MpCost");
             FameBonus = e.ParseInt("FameBonus");

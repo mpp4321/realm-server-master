@@ -14,6 +14,8 @@ namespace RotMG.Game.Entities
         public Dictionary<Player, int> DamageStorage;
         public Terrain Terrain;
 
+        public bool IsElite = false;
+
         public Enemy(ushort type) : base(type)
         {
             DamageStorage = new Dictionary<Player, int>();

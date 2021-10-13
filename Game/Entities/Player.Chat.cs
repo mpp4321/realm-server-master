@@ -835,7 +835,17 @@ namespace RotMG.Game.Entities
                     case "/desyncme":
                         if (Client.Account.Ranked)
                         {
-                            this.Position += new Vector2(20, 20);
+                            ItemDatas[4].StoredItems = new List<int>();
+                            ItemDatas[4].AllowedItems = new List<int> {
+                                Resources.Id2Item["Potion of Attack"].Type,
+                                Resources.Id2Item["Potion of Dexterity"].Type,
+                                Resources.Id2Item["Potion of Speed"].Type,
+                                Resources.Id2Item["Potion of Life"].Type,
+                                Resources.Id2Item["Potion of Mana"].Type,
+                                Resources.Id2Item["Potion of Vitality"].Type,
+                                Resources.Id2Item["Potion of Wisdom"].Type,
+                                Resources.Id2Item["Potion of Defense"].Type
+                            };
                         }
                         break;
                     default:

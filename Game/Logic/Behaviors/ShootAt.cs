@@ -72,6 +72,7 @@ namespace RotMG.Game.Logic.Behaviors
                     }
 
                     var damage = DamageOverride ?? desc.Damage;
+
                     var startId = host.Parent.NextProjectileId;
 
                     host.Parent.NextProjectileId += count;
@@ -79,7 +80,8 @@ namespace RotMG.Game.Logic.Behaviors
                     var projectiles = new List<Projectile>();
                     for (byte k = 0; k < count; k++)
                     {
-                        var p = new Projectile(host, desc, startId + k, Manager.TotalTime, angle, host.Position, damage);
+                        //var p = new Projectile(host, desc, startId + k, Manager.TotalTime, angle, host.Position, damage);
+                        var p = host.BuildProjectile(Index, angle, k, damage);
                         projectiles.Add(p);
                     }
 

@@ -141,6 +141,12 @@ namespace RotMG.Game.Logic.Behaviors
                     }
 
                     var damage = DamageOverride ?? desc.Damage;
+
+                    if(host is Enemy enCast)
+                    {
+                        if (enCast.IsElite) damage = (int)(damage * 1.15f);
+                    }
+
                     var startAngle = angle - ShootAngle * (count - 1) / 2;
                     var startId = host.Parent.NextProjectileId;
                     var owner = playerOwner != null ? playerOwner(host) : host;

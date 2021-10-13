@@ -65,6 +65,20 @@ namespace RotMG.Game.Worlds
 
                 AddEntity(shopEntity, shop1Point.ToVector2());
             }
+
+            foreach (var shop1Point in GetAllRegion(Region.Store3))
+            {
+                var shopEntity = new NexusShop(0x01ca);
+
+                //So client gets these values
+                shopEntity.TrySetSV(StatType.MerchandiseType, 0xcbb);
+                shopEntity.TrySetSV(StatType.MerchandiseCount, 999);
+
+                shopEntity.Price = 3;
+                shopEntity.Currency = Currency.Fame;
+
+                AddEntity(shopEntity, shop1Point.ToVector2());
+            }
         }
 
         public override void RemoveEntity(Entity en)

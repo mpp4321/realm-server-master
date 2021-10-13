@@ -298,6 +298,37 @@ namespace RotMG.Game.Entities
             if (en1 is GiftChest)
                 Database.RemoveGift(Client.Account, item1);
 
+            //This is basically where we will combine items if theyre swapped onto each other
+            if((d2?.StorageMax ?? 0) > 0 && data2.StoredItems != null && slot1.SlotId != slot2.SlotId)
+            {
+                if(data2.StoredItems.Count >= d2.StorageMax)
+                {
+                    Client.Send(InvalidInvSwap);
+                    return;
+                }
+
+                if(data2.AllowedItems != null)
+                {
+                    if(!data2.AllowedItems.Contains(item1))
+                    {
+                        Client.Send(InvalidInvSwap);
+                        return;
+                    }
+                }
+
+                data2.StoredItems.Add(item1);
+
+                con1.Inventory[slot1.SlotId] = -1;
+                con1.ItemDatas[slot1.SlotId] = new ItemDataJson();
+
+                con1.UpdateInventorySlot(slot1.SlotId);
+                con2.UpdateInventorySlot(slot2.SlotId);
+
+                RecalculateEquipBonuses();
+                Client.Send(ValidInvSwap);
+                return;
+            } 
+
             con1.Inventory[slot1.SlotId] = item2;
             con1.ItemDatas[slot1.SlotId] = data2;
             con2.Inventory[slot2.SlotId] = item1;

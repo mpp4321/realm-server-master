@@ -841,5 +841,16 @@ namespace RotMG.Game
         {
             throw new NotImplementedException();
         }
+
+        public Projectile BuildProjectile(int index, float angle, int projectileIdOffset=0, int? damageOver = null)
+        {
+            var desc = Desc.Projectiles[index + Desc.Projectiles.First().Key];
+
+            var damage = damageOver ?? desc.Damage;
+            var startId = Parent.NextProjectileId;
+
+            return new Projectile(this, desc, startId + projectileIdOffset, Manager.TotalTime, angle, Position, damage);
+        }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using RotMG.Common;
 using RotMG.Game;
+using RotMG.Game.Entities;
 using System;
 using System.Security.Cryptography;
 
@@ -94,6 +95,19 @@ namespace RotMG.Utils
                 throw new Exception("Undefined entity");
 #endif
             return entity.HasConditionEffect(ConditionEffectIndex.Slowed) ? (5.55f * spd + 0.74f) / 2 : 5.55f * spd + 0.74f;
+        }
+
+        public static float GetSpeed(this Enemy entity, float spd)
+        {
+#if DEBUG
+            if (entity == null || entity.Parent == null)
+                throw new Exception("Undefined entity");
+#endif
+            if(entity.IsElite)
+            {
+                return GetSpeed(entity as Entity, spd + 0.05f);
+            }
+            return GetSpeed(entity as Entity, spd);
         }
 
         public static float Angle(this Vector2 from, Vector2 to)

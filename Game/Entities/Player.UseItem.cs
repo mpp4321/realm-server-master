@@ -130,6 +130,15 @@ namespace RotMG.Game.Entities
 
             if (en is Container c)
             {
+
+                if(en is GiftChest)
+                {
+#if DEBUG
+                    Program.Print(PrintType.Error, "Player attempted to use item from gift chest.");
+#endif
+                    return;
+                }
+
                 if ((en as Container).OwnerId != -1 && (en as Container).OwnerId != AccountId)
                 {
 #if DEBUG
@@ -761,24 +770,50 @@ namespace RotMG.Game.Entities
                         }
                         break;
                     case ActivateEffectIndex.UnlockSkin:
-                        ItemDataJson dt = ItemDatas[slot.SlotId];
-                        if(dt != null && dt.SkinId != null)
                         {
-                            var directid = Resources.Id2Skin[dt.SkinId].Type;
-                            if (Client.Account.OwnedSkins.Contains(directid))
+                            ItemDataJson dt = ItemDatas[slot.SlotId];
+                            if(dt != null && dt.SkinId != null)
                             {
-                                SendInfo("Already unlocked!");
-                                return;
+                                var directid = Resources.Id2Skin[dt.SkinId].Type;
+                                if (Client.Account.OwnedSkins.Contains(directid))
+                                {
+                                    SendInfo("Already unlocked!");
+                                    return;
+                                } else
+                                {
+                                    Client.Account.OwnedSkins.Add(directid);
+                                }
+                                SendInfo("Unlocked!");
                             } else
                             {
-                                Client.Account.OwnedSkins.Add(directid);
+                                SendInfo("This unlocker is invalid. Contact an admin.");
+                                return;
                             }
-                            SendInfo("Unlocked!");
-                        } else
-                        {
-                            SendInfo("This unlocker is invalid. Contact an admin.");
-                            return;
                         }
+                        break;
+                    case ActivateEffectIndex.RemoveFromBag:
+                        {
+                            ItemDataJson dt = ItemDatas[slot.SlotId];
+                            if(dt != null && dt.StoredItems != null)
+                            {
+                                if(dt.StoredItems.Count > 0)
+                                {
+                                    var topItem = dt.StoredItems[0];
+                                    var freeSlot = GetFreeInventorySlot();
+                                    if(freeSlot != -1)
+                                    {
+                                        Inventory[freeSlot] = topItem;
+                                        ItemDatas[freeSlot] = new ItemDataJson();
+                                        dt.StoredItems.RemoveAt(0);
+                                        UpdateInventorySlot(freeSlot);
+                                    }
+                                }
+                            } else
+                            {
+                                SendInfo("This item bag is invalid, contact admin.");
+                                return;
+                            }
+                        } 
                         break;
 #if DEBUG
                     default:
