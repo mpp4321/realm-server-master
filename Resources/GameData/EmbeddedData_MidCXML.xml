@@ -354,8 +354,8 @@
 		<HitSound>monster/lizard_god_hit</HitSound>
 		<DeathSound>monster/lizard_god_death</DeathSound>
 		<Size>120</Size>
-		<MaxHitPoints>500</MaxHitPoints>
-		<Defense>4</Defense>
+		<MaxHitPoints>400</MaxHitPoints>
+		<Defense>90</Defense>
 		<Terrain>MidSand</Terrain>
 		<Quest/>
 		<Level>6</Level>
@@ -363,21 +363,21 @@
 		<SpawnProb>0.75</SpawnProb>
 		
 		<Projectile id="0">
-			<ObjectId>Fire Missile</ObjectId>
-			<Damage>28</Damage>
+			<ObjectId>Desert Spit</ObjectId>
+			<Damage>60</Damage>
 			<Speed>65</Speed>
-			<Size>80</Size>
+			<Size>100</Size>
 			<LifetimeMS>1700</LifetimeMS>
 		</Projectile>
 		<Projectile id="1">
 			<ObjectId>Fire Missile</ObjectId>
 			<Damage>15</Damage>
 			<Speed>55</Speed>
-			<Size>100</Size>
-			<LifetimeMS>530</LifetimeMS>
+			<Size>120</Size>
+			<LifetimeMS>1060</LifetimeMS>
+			<Boomerang/>
+      <SmartAngle></SmartAngle>
 		</Projectile>
-
-		
 	</Object>
 
 	

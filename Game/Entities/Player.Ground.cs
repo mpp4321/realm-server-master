@@ -85,8 +85,16 @@ namespace RotMG.Game.Entities
 #if DEBUG
                 Program.Print(PrintType.Error, "Invalid move");
 #endif
+
+                AwaitingGoto.Enqueue(time);
+                var go = GameServer.Goto(Id, Position);
+                foreach (var player in Parent.Players.Values)
+                {
+                    player.Client.Send(go);
+                }
+
                 //Client.Disconnect();
-                //return;
+                return;
             }
 
             if (TileFullOccupied(pos.X, pos.Y))

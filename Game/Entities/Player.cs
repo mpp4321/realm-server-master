@@ -215,6 +215,8 @@ namespace RotMG.Game.Entities
             InitLevel(client.Character);
 
             RecalculateEquipBonuses();
+
+            UpdateRunes();
         }
 
         public void SaveToCharacter()
@@ -368,6 +370,9 @@ namespace RotMG.Game.Entities
                 throw new Exception("Null effects");
             if (string.IsNullOrWhiteSpace(hitter))
                 throw new Exception("Undefined hitter");
+#else
+            if (HasConditionEffect(ConditionEffectIndex.Invincible))
+                return true;
 #endif
 
             //Projectiles never have null effects. But other sources of damage might.

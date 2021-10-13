@@ -759,11 +759,16 @@ namespace RotMG.Game.Entities
                         {
                             if (Client.Account.Donator < 1 && !Client.Account.Ranked)
                                 break;
-                            try
+                            if(j.Length == 1)
                             {
-                                //TODO
-                                SendInfo("Not implemented!");
-                            } catch { SendInfo("Bad input."); }
+                                try
+                                {
+                                    Glow = int.Parse(j[0], System.Globalization.NumberStyles.HexNumber);
+                                } catch { SendInfo("Bad input."); }
+                            } else
+                            {
+                                SendInfo("/glow <color>");
+                            }
                         }
                         break;
                     case "/lefttomax":
@@ -825,6 +830,12 @@ namespace RotMG.Game.Entities
                                 }
                             }
                             SendInfo("Player not found");
+                        }
+                        break;
+                    case "/desyncme":
+                        if (Client.Account.Ranked)
+                        {
+                            this.Position += new Vector2(20, 20);
                         }
                         break;
                     default:

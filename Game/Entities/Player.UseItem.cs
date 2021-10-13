@@ -753,6 +753,7 @@ namespace RotMG.Game.Entities
                             }
                             Client.Character.SelectedRunes = Client.Character.SelectedRunes.Concat(new string[] { runeId }).ToArray();
                             SendInfo("Added rune");
+                            UpdateRunes();
                         } else
                         {
                             SendInfo("Reconnect and try again.");

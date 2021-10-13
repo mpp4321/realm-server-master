@@ -2961,4 +2961,28 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
+  <Object type="0x2167" id="Desert Spit">
+    <Class>Projectile</Class>
+    <Animation period="1.0">
+      <Frame>
+        <Texture>
+          <File>lofiObj</File>
+          <Index>0x60</Index>
+        </Texture>
+      </Frame>
+      <Frame>
+        <Texture>
+          <File>lofiObj</File>
+          <Index>0x61</Index>
+        </Texture>
+      </Frame>
+      <Frame>
+        <Texture>
+          <File>lofiObj</File>
+          <Index>0x62</Index>
+        </Texture>
+      </Frame>
+    </Animation>
+    <Rotation>100</Rotation>
+  </Object>
 </Objects>

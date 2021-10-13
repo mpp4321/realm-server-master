@@ -22,7 +22,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
                 var @throw = GameServer.ShowEffect(ShowEffectIndex.Throw, p.Id, 0xffddff00, position, speed: 1500);
 
                 foreach (var j in p.Parent.PlayerChunks.HitTest(p.Position, Player.SightRadius))
-                    if (j is Player k && (k.Client.Account.Effects || k.Equals(this)))
+                    if (j is Player k && (k.Client.Account.Effects || k.Equals(p)))
                         k.Client.Send(@throw);
 
                 Manager.AddTimedAction(1500, () =>

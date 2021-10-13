@@ -90,6 +90,7 @@ namespace RotMG.Common
             switch (stat)
             {
                 case StatType.Name:
+                case StatType.RuneEffects:
                 case StatType.GuildName:
                     return true;
             }

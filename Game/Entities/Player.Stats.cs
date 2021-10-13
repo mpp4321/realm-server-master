@@ -217,6 +217,12 @@ namespace RotMG.Game.Entities
             return EffectBoosts.Where(a => a.index == index).Select(a => a.amount).Sum();
         }
 
+        public void UpdateRunes()
+        {
+            if (Client != null)
+                TrySetSV(StatType.RuneEffects, string.Join(",", Client.Character.SelectedRunes));
+        }
+
         public void UpdateStats()
         {
             TrySetSV(StatType.MaxHp, GetStatTotal(0));

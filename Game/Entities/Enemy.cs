@@ -107,6 +107,9 @@ namespace RotMG.Game.Entities
                 throw new Exception("Null effects");
             if (hitter == null)
                 throw new Exception("Undefined hitter");
+#else
+            if (HasConditionEffect(ConditionEffectIndex.Invincible))
+                return true;
 #endif
 
             if (Dead || Desc.Friendly)

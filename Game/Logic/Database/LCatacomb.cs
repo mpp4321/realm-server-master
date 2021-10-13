@@ -46,12 +46,13 @@ namespace RotMG.Game.Logic.Database
             );
 
             db.Init("LCatacomb Hand Spawner",
-                    new State("waiting ",
+                    new State("waiting",
                         new ConditionalEffect(Common.ConditionEffectIndex.Invulnerable),
+                        new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                         new EntitiesNotExistsTransition(99, "spawnndie", "Zombie Hulk")
                     ),
                     new State("spawnndie",
-                        new Spawn("Undead Giant Hand"),
+                        new Spawn("Undead Giant Hand", maxChildren: 1),
                         new Suicide()
                     )
                 );

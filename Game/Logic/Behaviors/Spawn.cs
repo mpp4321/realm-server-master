@@ -31,9 +31,29 @@ namespace RotMG.Game.Logic.Behaviors
             this.dispersion = dispersion;
         }
 
-        public override void Enter(Entity host)
+        public void SpawnChildAt(Entity host)
         {
-            if (host.StateObject[Id] != null) return;
+            Entity entity = Entity.Resolve(_children);
+            entity.Parent = host.Parent;
+            //entity.Parent.MoveEntity(entity, host.Position);
+
+            var enemyHost = host as Enemy;
+            var enemyEntity = entity as Enemy;
+
+            if (enemyHost != null && enemyEntity != null)
+            {
+                //enemyEntity.ParentEntity = host as Enemy;
+                enemyEntity.Terrain = enemyHost.Terrain;
+            }
+
+            Func<int> gen = () => (_Random.Next(1) == 1 ? -1 : 1);
+            var vectDispersion = new Vector2(gen() * dispersion, gen() * dispersion);
+            host.Parent.AddEntity(entity, host.Position + vectDispersion);
+            (host.StateObject[Id] as SpawnState).CurrentNumber++;
+        }
+
+        public void InitializeState(Entity host)
+        {
             host.StateObject[Id] = new SpawnState()
             {
                 CurrentNumber = _initialSpawn,
@@ -41,24 +61,14 @@ namespace RotMG.Game.Logic.Behaviors
             };
             for (int i = 0; i < _initialSpawn; i++)
             {
-                Entity entity = Entity.Resolve(_children);
-                entity.Parent = host.Parent;
-                //entity.Parent.MoveEntity(entity, host.Position);
-
-                var enemyHost = host as Enemy;
-                var enemyEntity = entity as Enemy;
-
-                if (enemyHost != null && enemyEntity != null)
-                {
-                    //enemyEntity.ParentEntity = host as Enemy;
-                    enemyEntity.Terrain = enemyHost.Terrain;
-                }
-
-                Func<int> gen = () => (_Random.Next(1) == 1 ? -1 : 1);
-                var vectDispersion = new Vector2(gen() * dispersion, gen() * dispersion);
-                host.Parent.AddEntity(entity, host.Position + vectDispersion);
-                (host.StateObject[Id] as SpawnState).CurrentNumber++;
+                SpawnChildAt(host);
             }
+        }
+
+        public override void Enter(Entity host)
+        {
+            if (host.StateObject[Id] != null) return;
+            InitializeState(host);
         }
 
         public override bool Tick(Entity host)
@@ -66,23 +76,14 @@ namespace RotMG.Game.Logic.Behaviors
             var spawn = host.StateObject[Id] as SpawnState;
 
             if (spawn == null)
+            {
+                InitializeState(host);
                 return false;
+            }
 
             if (spawn.RemainingTime <= 0 && spawn.CurrentNumber < _maxChildren)
             {
-                Entity entity = Entity.Resolve(_children);
-                entity.Parent = host.Parent;
-
-                Func<int> gen = () => (_Random.Next(1) == 1 ? -1 : 1);
-                var vectDispersion = new Vector2(gen() * dispersion, gen() * dispersion);
-                host.Parent.AddEntity(entity, host.Position + vectDispersion);
-
-                var enemyHost = host as Enemy;
-                var enemyEntity = entity as Enemy;
-                if (enemyHost != null && enemyEntity != null)
-                {
-                    enemyEntity.Terrain = enemyHost.Terrain;
-                }
+                SpawnChildAt(host);
 
                 spawn.RemainingTime = _coolDown.Next(_Random);
                 spawn.CurrentNumber++;

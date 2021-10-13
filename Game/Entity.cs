@@ -102,7 +102,9 @@ namespace RotMG.Game
         ItemData17,
         ItemData18,
         ItemData19,
-        OwnerAccountId
+        OwnerAccountId,
+        RuneEffects,
+        GlowStat
     }
 
     public class Entity : IDisposable
@@ -157,6 +159,13 @@ namespace RotMG.Game
         {
             get => _owner;
             set => _owner = value;
+        }
+
+        private int _glowColor;
+        public int Glow
+        {
+            get => _glowColor;
+            set => TrySetSV(StatType.GlowStat, _glowColor = value);
         }
 
         private int _hp;

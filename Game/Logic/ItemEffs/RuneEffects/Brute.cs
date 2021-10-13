@@ -8,13 +8,8 @@ namespace RotMG.Game.Logic.ItemEffs.RuneEffects
     class Brute : IItemHandler
     {
 
-        public void OnEnemyHit(Entity hit, Projectile by, ref int damageDone)
-        {
-            if(by.Owner is Player pl)
-            {
-                //1% damage increase per vit
-                damageDone += (int)(damageDone * 0.01f * pl.GetStatTotal(6));
-            }
+        public virtual void OnProjectileShoot(Player shotFrom, ref Projectile projectile) {
+            projectile.Damage += (int)(projectile.Damage * 0.01f * shotFrom.GetStatTotal(6));
         }
 
     }

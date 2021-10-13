@@ -111,8 +111,8 @@ namespace RotMG.Networking
 
                     //Send data and move onto next request in the next iteration of the loop
                     context.Response.ContentType = "text/*";
-                    context.Response.AppendHeader("Access-Control-Allow-Origin", "*");
-                    context.Response.AppendHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+                    //context.Response.AppendHeader("Access-Control-Allow-Origin", "*");
+                    //context.Response.AppendHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
                     context.Response.OutputStream.Write(buffer, 0, buffer.Length);
                     context.Response.Close();
 
