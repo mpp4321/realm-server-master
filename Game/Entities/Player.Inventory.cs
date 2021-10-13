@@ -60,6 +60,16 @@ namespace RotMG.Game.Entities
                 Boosts[7] += (int)ItemDesc.GetStat(data, ItemData.Wisdom, 1);
             }
 
+            var hashForSets = Inventory.Take(4).ToHashSet();
+            if(Resources.Items2EqSet.ContainsKey(hashForSets))
+            {
+                var set = Resources.Items2EqSet[hashForSets];
+                foreach(var ace in set.ActivationEffects)
+                {
+                    Boosts[ace.stat] += ace.amount;
+                }
+            }
+
             UpdateStats();
         }
 

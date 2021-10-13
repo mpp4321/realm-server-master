@@ -7,6 +7,7 @@ using System.Linq;
 using System.Xml.Linq;
 using Newtonsoft.Json;
 using static RotMG.Game.Logic.LootDef;
+using System.Globalization;
 
 namespace RotMG.Common
 {
@@ -619,6 +620,42 @@ namespace RotMG.Common
         }
     }
 
+    public class SetpieceActivator
+    {
+        public int stat;
+        public int amount;
+        ActivateEffectIndex index;
+
+        public SetpieceActivator(XElement xml)
+        {
+            stat = xml.ParseInt("@stat");
+            amount = xml.ParseInt("@amount");
+            index = (ActivateEffectIndex)Enum.Parse(typeof(ActivateEffectIndex), xml.Value.Replace(" ", ""));
+        }
+
+    }
+
+    public class EquipmentSet
+    {
+        public HashSet<int> Setpieces = new HashSet<int>();
+        public List<SetpieceActivator> ActivationEffects;
+
+        public EquipmentSet(XElement xml)
+        {
+            ActivationEffects = new List<SetpieceActivator>();
+            foreach(var spiece in xml.Elements("ActivateOnEquipAll"))
+            {
+                ActivationEffects.Add(new SetpieceActivator(spiece));
+            }
+
+            Setpieces = new HashSet<int>();
+            foreach(var spiece in xml.Elements("Setpiece"))
+            {
+                Setpieces.Add(Int32.Parse(spiece.ParseString("@itemtype").Split("x")[1], NumberStyles.HexNumber));
+            }
+        }
+
+    }
 
     public class ItemDesc
     {

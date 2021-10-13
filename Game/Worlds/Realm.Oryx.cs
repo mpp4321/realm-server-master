@@ -637,11 +637,7 @@ namespace RotMG.Game.Worlds
 
                 if(MathUtils.Chance(0.15f))
                 {
-                    (entity as Enemy).IsElite = true;
-                    entity.MaxHp += entity.MaxHp + (int)(entity.MaxHp * 1.75f);
-                    entity.Hp = entity.MaxHp;
-                    entity.Glow = 0xff0000;
-                    entity.Size = (int) (entity.Size * 1.25f);
+                    (entity as Enemy).MakeElite();
                 }
 
                 _enemies[terrain].Add(entity as Enemy);

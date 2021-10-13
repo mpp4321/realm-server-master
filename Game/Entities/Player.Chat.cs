@@ -36,7 +36,7 @@ namespace RotMG.Game.Entities
             "announce", "announcement", "legendary", "roll", "disconnect", "dcAll", "dc", "songs", "changesong",
             "terminate", "stop", "gimme", "give", "gift", "closerealm", "rank", "create", "spawn", "killall",
             "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute", "setcomp", "quake",
-            "unlockskin", "summonhere"
+            "unlockskin", "summonhere", "makedonator"
         };
 
         
@@ -464,6 +464,7 @@ namespace RotMG.Game.Entities
                         }
                         break;
                     case "/create":
+                    case "spawnelite":
                     case "/spawn":
                         if (Client.Account.Ranked)
                         {
@@ -489,12 +490,15 @@ namespace RotMG.Game.Entities
                                 }
 
                                 SendInfo($"Spawning <{spawnCount}> <{desc.DisplayId}> in 2 seconds");
+
                                 var pos = Position;
                                 Manager.AddTimedAction(2000, () =>
                                 {
                                     for (var i = 0; i < spawnCount; i++)
                                     {
                                         var entity = Resolve(desc.Type);
+                                        if (command.Equals("/spawnelite"))
+                                            (entity as Enemy).MakeElite();
                                         Parent?.AddEntity(entity, pos);
                                     }
                                 });
@@ -750,7 +754,18 @@ namespace RotMG.Game.Entities
                             try
                             {
                                 var output = int.Parse(input);
-                                SetSV(StatType.Size, int.Parse(input));
+                                if(Client.Account.Ranked)
+                                    SetSV(StatType.Size, output);
+                                else
+                                {
+                                    if(output > 125 || output < 75)
+                                    {
+                                        SendInfo("Size out of allowed bounds, 125 > size > 75");
+                                    } else
+                                    {
+                                        SetSV(StatType.Size, output);
+                                    }
+                                }
                                 SendInfo("Size changed!");
                             } catch { SendInfo("Bad input."); }
                         }
@@ -846,6 +861,29 @@ namespace RotMG.Game.Entities
                                 Resources.Id2Item["Potion of Wisdom"].Type,
                                 Resources.Id2Item["Potion of Defense"].Type
                             };
+                        }
+                        break;
+                    case "/makedonator":
+                        if (Client.Account.Ranked)
+                        {
+                            if(j.Length == 0)
+                            {
+                                SendInfo("/makedonator <rank> <player name>");
+                                break;
+                            }
+                            var rank = int.Parse(j[0]);
+                            var playername = string.Join(' ', j, 1, j.Length);
+                            foreach(Client c in Manager.Clients.Values)
+                            {
+                                if(c != null)
+                                {
+                                    var v = c.Player;
+                                    v.Client.Account.Donator = rank;
+                                    v.Client.Account.Save();
+                                    break;
+                                }
+                            }
+                            SendInfo("Player not found");
                         }
                         break;
                     default:

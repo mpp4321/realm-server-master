@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<EquipmentSets>
+   <EquipmentSet id="Phylactery Mystic Set">
+      <Setpiece slot="0" itemtype="0xcbc">Equipment</Setpiece>
+      <Setpiece slot="1" itemtype="0xcbd">Equipment</Setpiece>
+      <Setpiece slot="2" itemtype="0xcbe">Equipment</Setpiece>
+      <Setpiece slot="3" itemtype="0xcbf">Equipment</Setpiece>
+      <!-- <ActivateOnEquipAll skinType="0x745B" size="70" color="0x92A9BA" bulletType="Soul Vortex">ChangeSkin</ActivateOnEquipAll> -->
+      <ActivateOnEquipAll stat="0" amount="35">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="1" amount="40">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="2" amount="5">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="3" amount="10">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="4" amount="1">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="5" amount="2">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll stat="6" amount="5">IncrementStat</ActivateOnEquipAll>
+   </EquipmentSet>
+</EquipmentSets>

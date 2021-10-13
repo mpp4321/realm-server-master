@@ -14,6 +14,11 @@ namespace RotMG.Common
         public static Dictionary<string, ObjectDesc> Id2Object = new Dictionary<string, ObjectDesc>();
         public static Dictionary<string, ObjectDesc> IdLower2Object = new Dictionary<string, ObjectDesc>();
 
+        public static Dictionary<string, EquipmentSet> Id2EqSet = new Dictionary<string, EquipmentSet>();
+        public static Dictionary<HashSet<int>, EquipmentSet> Items2EqSet = new Dictionary<HashSet<int>, EquipmentSet>(
+            HashSet<int>.CreateSetComparer()
+        );
+
         public static Dictionary<ushort, PlayerDesc> Type2Player = new Dictionary<ushort, PlayerDesc>();
         public static Dictionary<string, PlayerDesc> Id2Player = new Dictionary<string, PlayerDesc>();
 
@@ -129,6 +134,14 @@ namespace RotMG.Common
 #endif
 
                     Id2Tile[id] = Type2Tile[type] = new TileDesc(e, id, type);
+                }
+
+                foreach (var e in data.Elements("EquipmentSet"))
+                {
+                    var id = e.ParseString("@id");
+
+                    Id2EqSet[id] = new EquipmentSet(e);
+                    Items2EqSet[Id2EqSet[id].Setpieces] = Id2EqSet[id];
                 }
             }
 

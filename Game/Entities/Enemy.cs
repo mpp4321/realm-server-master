@@ -179,5 +179,15 @@ namespace RotMG.Game.Entities
             DamageStorage.Clear();
             base.Dispose();
         }
+
+        public void MakeElite()
+        {
+            IsElite = true;
+            MaxHp += MaxHp + (int)(MaxHp * 1.75f);
+            Hp = MaxHp;
+            Glow = 0xff0000;
+            Size = (int) (Size * 1.25f);
+        }
+
     }
 }
