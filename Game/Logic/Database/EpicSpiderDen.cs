@@ -64,6 +64,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(6, 3, 24, predictive: 0.3f, cooldown: 800)
             ));
             db.Init("Silver Son of Arachna Giant Egg Sac",
+                new TransferDamageOnDeath("Son of Arachna"),
                 new State("base",
                     new PlayerWithinTransition(8, "spawn", true)
                 ),
@@ -78,6 +79,7 @@ namespace RotMG.Game.Logic.Database
                     new Spawn("Crawling Grey Spotted Spider", 3, 1, 5000)
             ));
             db.Init("Blue Son of Arachna Giant Egg Sac",
+                new TransferDamageOnDeath("Son of Arachna"),
                 new State("base",
                     new PlayerWithinTransition(8, "spawn", true)
                 ),
@@ -85,6 +87,7 @@ namespace RotMG.Game.Logic.Database
                     new Spawn("Crawling Spider Hatchling", 8, 1, 1500)
             ));
             db.Init("Red Son of Arachna Giant Egg Sac",
+                new TransferDamageOnDeath("Son of Arachna"),
                 new State("base",
                     new PlayerWithinTransition(8, "spawn", true)
                 ),
@@ -94,45 +97,152 @@ namespace RotMG.Game.Logic.Database
             db.Init("Son of Arachna",
                 new State("sleep",
                     new ConditionalEffect(Common.ConditionEffectIndex.Armored),
-                    new PlayerWithinTransition(8, "awake", true)
+                    new PlayerWithinTransition(16, "halfwoke", true)
+                ),
+                new State("halfwoke",
+                    new HealthTransition(0.7f, "awake"),
+                    new EntitiesNotExistsTransition(99, "awake", "Red Son of Arachna Giant Egg Sac", "Blue Son of Arachna Giant Egg Sac", "Silver Son of Arachna Giant Egg Sac"),
+                    new Orbit(0.5f, 2.5f, 99, "Epic Arachna Web Spoke Anchor", 0.75f, 1),
+                    new Wander(0.3f),
+                    new Shoot(99, 8, 170, 7),//flips angle, needs fix
+                    new TimedRandomTransition(3000, "blackS", "redS", "blueS")
+                ),
+                new State("blueS",
+                    new Shoot(99, 2, -26, 4, cooldown: 20),
+                    new Charge(1.4f, 99),
+                    new TimedTransition("halfwoke", 1200),
+                    new PlayerWithinTransition(2, "halfwoke")
+                ),
+                new State("redS",
+                    new Orbit(2f, 7, 99, "Epic Arachna Web Spoke Anchor"),
+                    new Shoot(99, 1, index: 3, fixedAngle: 0f, rotateAngle: 12f, cooldown: 350),
+                    new Shoot(99, 1, index: 3, fixedAngle: 45f, rotateAngle: 12f, cooldown: 350),
+                    new Shoot(99, 1, index: 3, fixedAngle: 90f, rotateAngle: 12f, cooldown: 350),
+                    new Shoot(99, 1, index: 3, fixedAngle: 135f, rotateAngle: 12f, cooldown: 350),
+                    new Shoot(99, 1, index: 3, fixedAngle: 180f, rotateAngle: 12f, cooldown: 350),
+                    new Shoot(99, 1, index: 3, fixedAngle: 225f, rotateAngle: 12f, cooldown: 350),
+                    new Shoot(99, 1, index: 3, fixedAngle: 270f, rotateAngle: 12f, cooldown: 350),
+                    new Shoot(99, 1, index: 3, fixedAngle: 315f, rotateAngle: 12f, cooldown: 350),
+                    new TimedTransition("halfwoke", 3500),
+                    new PlayerWithinTransition(4, "halfwoke")
+                ),
+                new State("blackS",
+                    new Shoot(99, 5, 18, 2, cooldown: 200),
+                    new Charge(1.4f, 99),
+                    new TimedTransition("halfwoke", 1200),
+                    new PlayerWithinTransition(3, "halfwoke")
+                ),
+                new State("yellowS",
+                    new Shoot(99, 1, index: 5, fixedAngle: 0f, rotateAngle: 6f),
+                    new Orbit(2f, 8, target: "Epic Arachna Web Spoke Anchor", speedVariance: 0.4f, radiusVariance: 1.5f, orbitClockwise: true),
+                    new TimedTransition("halfwoke", 3600),
+                    new PlayerWithinTransition(3, "halfwoke")
                 ),
                 new State("awake",
-                    new Shoot(16, 6, 360 / 6, 6, 0f, 6f),
+                    new Shoot(16, 6, 360 / 6, 6, 0f, 6f, cooldown: 250),
                     new TimedRandomTransition(3000, "chase", "wander", "stayback")
                 ),
                 new State("stayback",
-                    new Wander(0.5f),
+                    new Wander(0.2f),
                     new StayBack(1.3f, 5),
                     new Shoot(16, 8, 360 / 8, 0, 0f, 30f, cooldown: 800),
-                    new Shoot(16, 1, index: 1, predictive: 1, cooldownVariance: 250, cooldown: 1000),
-                    new TimedRandomTransition(6000, "chase", "wander", "awake")
+                    new Shoot(16, 1, index: 1, predictive: 0.7f, cooldownVariance: 250, cooldown: 1000),
+                    new TimedRandomTransition(6000, "redBack", "blueOrbit", "wander")
                 ),
                 new State("wander",
-                    new Wander(1.2f),
+                    new Wander(0.7f),
                     new StayBack(0.6f, 2),
-                    new Shoot(16, 6, 360 / 6, 6, 0f, 6f),
+                    new Shoot(16, 6, 360 / 6, 6, 0f, 6f, cooldown: 150),
                     new Shoot(16, 1, index: 1, predictive: 1, cooldownVariance: 350, cooldown: 1200),
-                    new TimedRandomTransition(4000, "chase", "awake", "stayback")
+                    new TimedRandomTransition(4000, "blackChase", "roto", "stayback")
                 ),
                 new State("chase",
                     new Wander(0.3f),
                     new Follow(0.8f, 16, 4, 2000, 700),
                     new Charge(1.2f, 16, 4000),
-                    new Shoot(16, 1, index: 1, predictive: 1, cooldownVariance: 350, cooldown: 1200),
-                    new TimedRandomTransition(8000, "awake", "wander", "stayback")
+                    new Shoot(16, 1, index: 1, predictive: 0.5f, cooldownVariance: 350, cooldown: 1200),
+                    new Shoot(99, 8, 170, 7),
+                    new TimedRandomTransition(8000, "blackChase", "roto", "stayback")
+                ),
+                new State("roto",
+                    new Orbit(1, 5, 99, "Epic Arachna Web Spoke Anchor"),
+                    new Shoot(99, 8, 170, 7, cooldownOffset: 1000),
+                    new Shoot(16, 1, index: 1, predictive: 0.5f, cooldownVariance: 350, cooldown: 1200),
+                    new TimedRandomTransition(6000, "redBack", "blueOrbit", "wander")
+                ),
+                new State("blackChase",
+                    new Follow(0.7f, 14, 3.5f, 1400, 600),
+                    new Charge(1.5f, 10, 2400),
+                    new Shoot(99, 8, 170, 7),
+                    new Shoot(9, 5, 26, 2, cooldown: 1400, cooldownVariance: 800),
+                    new TimedRandomTransition(2500, "stayback", "wander")
+                ),
+                new State("redBack",
+                    new StayBack(1.6f, 4.5f),
+                    new Wander(0.3f),
+                    new Shoot(99, 6, 360 / 8, 3, fixedAngle: 0f, rotateAngle: 23f, cooldownVariance: 400, cooldown: 1600),
+                    new Shoot(99, 8, 170, 7),
+                    new TimedRandomTransition(5000, "chase", "stayback", "wander")
+                ),
+                new State("blueOrbit",
+                    new Orbit(0.8f, 5, 16, speedVariance: 0.2f, radiusVariance: 1.5f, targetPlayers: true),
+                    new Shoot(99, 2, -26, 4, cooldown: 20),
+                    new Shoot(99, 8, 170, 7),
+                    new TimedRandomTransition(3500, "roto", "stayback", "wander")
                 ),
                 new Threshold(0.01f,
                     new ItemLoot("Muramasa", 0.01f)
                     ));
             db.Init("Epic Arachna Web Spoke 1",
                 new State("base",
-                    new PlayerWithinTransition(16, "web", true)
-                ),
-                new State("web",
-                    new Shoot(16, 1)
+                    new ShootAt("Epic Arachna Web Spoke 2", 8, 1),
+                    new ShootAt("Epic Arachna Web Spoke 8", 8, 1)
                 )
             );
-
+            db.Init("Epic Arachna Web Spoke 3",
+                new State("base",
+                    new ShootAt("Epic Arachna Web Spoke 2", 8, 1),
+                    new ShootAt("Epic Arachna Web Spoke 4", 8, 1)
+                )
+            );
+            db.Init("Epic Arachna Web Spoke 5",
+                new State("base",
+                    new ShootAt("Epic Arachna Web Spoke 4", 8, 1),
+                    new ShootAt("Epic Arachna Web Spoke 6", 8, 1)
+                )
+            );
+            db.Init("Epic Arachna Web Spoke 7",
+                new State("base",
+                    new ShootAt("Epic Arachna Web Spoke 8", 8, 1),
+                    new ShootAt("Epic Arachna Web Spoke 6", 8, 1)
+                )
+            ); 
+            db.Init("Epic Arachna Web Spoke 2",
+                 new State("base",
+                     new ShootAt("Epic Arachna Web Spoke Anchor", 12, 1)
+                 )
+             );
+            db.Init("Epic Arachna Web Spoke 4",
+                 new State("base",
+                     new ShootAt("Epic Arachna Web Spoke Anchor", 12, 1)
+                 )
+             );
+            db.Init("Epic Arachna Web Spoke 6",
+                 new State("base",
+                     new ShootAt("Epic Arachna Web Spoke Anchor", 12, 1)
+                 )
+             );
+            db.Init("Epic Arachna Web Spoke 8",
+                 new State("base",
+                     new ShootAt("Epic Arachna Web Spoke Anchor", 12, 1)
+                 )
+             );
+            db.Init("Epic Arachna Web Spoke Anchor",
+                new MoveLine(1f, 90, 1),
+                new State("base",
+                    new TimedTransition("nothing")
+                    )
+            );
         }
     }
 }

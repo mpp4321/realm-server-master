@@ -186,6 +186,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Lizard God",
                 new State("base",
+                    new NoPlayerWithinTransition(14, "idle"),
                     new DropPortalOnDeath("Snake Pit Portal", 20, timeout: 100),
                     new Spawn("Night Elf Archer", 4),
                     new Spawn("Night Elf Warrior", 3),
@@ -196,20 +197,26 @@ namespace RotMG.Game.Logic.Database
                         new StayAbove(0.3f, 160),
                         new Follow(1, range: 7),
                         new Wander(0.4f)
-                        ),
-                    new State("idle",
-                        new PlayerWithinTransition(10.2f, "normal_attack")
-                        ),
-                    new State("normal_attack",
-                        new Shoot(10, 3, 3, predictive: 0.5f),
-                        new TimedTransition("if_cloaked", 4000)
-                        ),
-                    new State("if_cloaked",
-                        new Shoot(10, 8, 45, fixedAngle: 20, cooldown: 1600, cooldownOffset: 400),
-                        new Shoot(10, 8, 45, fixedAngle: 42, cooldown: 1600, cooldownOffset: 1200),
-                        new PlayerWithinTransition(10, "normal_attack")
                         )
                     ),
+                new State("idle",
+                    new PlayerWithinTransition(14, "normal_attack"),
+                    new Suicide(0),
+                    new Order(16, "Night Elf Archer", "decay"),
+                    new Order(16, "Night Elf Warrior", "decay"),
+                    new Order(16, "Night Elf Mage", "decay"),
+                    new Order(16, "Night Elf Veteran", "decay"),
+                    new Order(16, "Night Elf King", "decay")
+                    ),
+                new State("normal_attack",
+                    new Shoot(10, 3, 3, predictive: 0.5f),
+                    new TimedTransition("if_cloaked", 4000)
+                    ),
+                new State("if_cloaked",
+                    new Shoot(10, 8, 45, fixedAngle: 20, cooldown: 1600, cooldownOffset: 400),
+                    new Shoot(10, 8, 45, fixedAngle: 42, cooldown: 1600, cooldownOffset: 1200),
+                    new PlayerWithinTransition(10, "normal_attack")
+                ),
                 new TierLoot(5, LootType.Weapon, 0.16f),
                 new TierLoot(6, LootType.Weapon, 0.08f),
                 new TierLoot(7, LootType.Weapon, 0.04f),
@@ -221,6 +228,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Night Elf Archer",
                 new State("base",
+                    new NoPlayerWithinTransition(14, "decay"),
                     new Shoot(10, cooldown: 300),
                     new Prioritize(
                         new StayAbove(0.4f, 160),
@@ -228,10 +236,15 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                         )
                     ),
-                new ItemLoot("Health Potion", 0.03f)
+                new ItemLoot("Health Potion", 0.03f),
+                new State("decay",
+                    new Decay(8000),
+                    new PlayerWithinTransition(14, "base")
+                )
             );
             db.Init("Night Elf Warrior",
                 new State("base",
+                    new NoPlayerWithinTransition(14, "decay"),
                     new Shoot(3, cooldown: 300),
                     new Prioritize(
                         new StayAbove(0.4f, 160),
@@ -239,10 +252,15 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                         )
                     ),
-                new ItemLoot("Health Potion", 0.03f)
+                new ItemLoot("Health Potion", 0.03f),
+                new State("decay",
+                    new Decay(8000),
+                    new PlayerWithinTransition(14, "base")
+                )
             );
             db.Init("Night Elf Mage",
                 new State("base",
+                    new NoPlayerWithinTransition(14, "decay"),
                     new Shoot(10, cooldown: 300),
                     new Prioritize(
                         new StayAbove(0.4f, 160),
@@ -250,10 +268,15 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                         )
                     ),
-                new ItemLoot("Health Potion", 0.03f)
+                new ItemLoot("Health Potion", 0.03f),
+                new State("decay",
+                    new Decay(8000),
+                    new PlayerWithinTransition(14, "base")
+                )
             );
             db.Init("Night Elf Veteran",
                 new State("base",
+                    new NoPlayerWithinTransition(14, "decay"),
                     new Shoot(10, cooldown: 300),
                     new Prioritize(
                         new StayAbove(0.4f, 160),
@@ -261,10 +284,15 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                         )
                     ),
-                new ItemLoot("Health Potion", 0.03f)
+                new ItemLoot("Health Potion", 0.03f),
+                new State("decay",
+                    new Decay(8000),
+                    new PlayerWithinTransition(14, "base")
+                )
             );
             db.Init("Night Elf King",
                 new State("base",
+                new NoPlayerWithinTransition(14, "decay"),
                     new Shoot(10, cooldown: 1000),
                     new Prioritize(
                         new StayAbove(0.4f, 160),
@@ -272,6 +300,10 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                         )
                     ),
+                new State("decay",
+                    new Decay(8000),
+                    new PlayerWithinTransition(14, "base")
+                ),
                 new ItemLoot("Health Potion", 0.03f),
                 new ItemLoot("Fire Dagger", 0.5f, 0.01f, r: new LootDef.RarityModifiedData(1.0f, 2, true))
             );
