@@ -293,6 +293,7 @@ namespace RotMG.Game.Entities
                         if (inRange)
                         {
                             var radius = StatScalingF(statForScale, eff.Radius, eff.StatMin, eff.StatRangeScale);
+                            radius = MathF.Max(radius, 1f);
                             var line = GameServer.ShowEffect(ShowEffectIndex.Line, Id, 0xFFFF0000 , target);
                             var burst = GameServer.ShowEffect(ShowEffectIndex.Burst, Id, 0xFFFF0000, target, new Vector2(target.X + radius, target.Y));
                             var lifeSucked = 0;
