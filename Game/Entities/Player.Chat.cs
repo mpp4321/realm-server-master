@@ -464,7 +464,7 @@ namespace RotMG.Game.Entities
                         }
                         break;
                     case "/create":
-                    case "spawnelite":
+                    case "/spawnelite":
                     case "/spawn":
                         if (Client.Account.Ranked)
                         {

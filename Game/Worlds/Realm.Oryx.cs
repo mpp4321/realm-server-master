@@ -11,6 +11,9 @@ namespace RotMG.Game.Worlds
 {
     public partial class Realm
     {
+
+        private int EventsLeft = 30;
+
         private struct TauntData
         {
             public string[] Spawn;
@@ -24,7 +27,7 @@ namespace RotMG.Game.Worlds
             new Dictionary<string, TauntData>
         {
             {
-                "Lich", new TauntData()
+                "Actual Lich", new TauntData()
                 {
                     NumberOfEnemies = new[]
                     {
@@ -39,7 +42,7 @@ namespace RotMG.Game.Worlds
                 }
             },
             {
-                "Ent Ancient", new TauntData()
+                "Actual Ent Ancient", new TauntData()
                 {
                     NumberOfEnemies = new[]
                     {
@@ -84,7 +87,7 @@ namespace RotMG.Game.Worlds
                 }
             },
             {
-                "Ghost King", new TauntData()
+                "Actual Ghost King", new TauntData()
                 {
                     NumberOfEnemies = new[]
                     {
@@ -728,12 +731,35 @@ namespace RotMG.Game.Worlds
             
             //In case of admin spawn
             if(_criticalEnemyCounts.ContainsKey(enemy.Desc.Id)) {
+                EventsLeft--;
+                foreach (var player in Players.Values)
+                    player.SendInfo("An important enemy was killed, " + EventsLeft + " left to slay.");
                 _criticalEnemyCounts[enemy.Desc.Id]--;
                 if (_criticalEnemyCounts[enemy.Desc.Id] == 0)
                     _criticalEnemyCounts.Remove(enemy.Desc.Id);
+
+                if (MathUtils.Chance(.5f))
+                {
+                    var evt = _events[MathUtils.Next(_events.Count)];
+                    if (Resources.Id2Object[evt.Item1].PerRealmMax == 1)
+                        _events.Remove(evt);
+                    SpawnEvent(evt.Item1, evt.Item2);
+
+                    if (!CriticalEnemies.TryGetValue(evt.Item1, out tauntData))
+                        return;
+
+                    if (tauntData.Spawn != null)
+                    {
+                        var spawnMessages = tauntData.Spawn;
+                        var message = spawnMessages[MathUtils.Next(spawnMessages.Length)];
+                        foreach (var player in Players.Values)
+                            player.SendInfo(message);
+                    }
+                }
+
             }
             
-            if (_criticalEnemyCounts.Count == 0)
+            if (_criticalEnemyCounts.Count == 0 || EventsLeft <= 0)
                 Close();
 
             if (hasTauntData && tauntData.Killed != null)
@@ -751,24 +777,6 @@ namespace RotMG.Game.Worlds
                 }
             }
 
-            if (!MathUtils.Chance(.25f))
-                return;
-
-            var evt = _events[MathUtils.Next(_events.Count)];
-            if (Resources.Id2Object[evt.Item1].PerRealmMax == 1)
-                _events.Remove(evt);
-            SpawnEvent(evt.Item1, evt.Item2);
-
-            if (!CriticalEnemies.TryGetValue(evt.Item1, out tauntData))
-                return;
-
-            if (tauntData.Spawn != null)
-            {
-                var spawnMessages = tauntData.Spawn;
-                var message = spawnMessages[MathUtils.Next(spawnMessages.Length)];
-                foreach (var player in Players.Values)
-                    player.SendInfo(message);
-            }
         }
         
         private static double GetUniform()
