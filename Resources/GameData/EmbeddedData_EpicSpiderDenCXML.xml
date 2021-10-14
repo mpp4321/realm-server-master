@@ -206,14 +206,14 @@
       <Projectile id="0">
          <ObjectId>Green Magic</ObjectId>
          <Speed>56</Speed>
-         <Damage>200</Damage>
+         <Damage>140</Damage>
          <LifetimeMS>2600</LifetimeMS>
          <MultiHit/>
       </Projectile>
       <Projectile id="1">
          <ObjectId>Green Blob</ObjectId>
          <Speed>100</Speed>
-         <Damage>230</Damage>
+         <Damage>200</Damage>
          <Size>185</Size>
          <LifetimeMS>3000</LifetimeMS>
          <MultiHit/>
@@ -221,28 +221,34 @@
       </Projectile>
       <Projectile id="2">
          <ObjectId>Armor Sword Attack</ObjectId>
-         <Speed>40</Speed>
-         <Damage>330</Damage>
+         <Speed>110</Speed>
+         <Damage>60</Damage>
          <Size>130</Size>
-         <LifetimeMS>3000</LifetimeMS>
+         <LifetimeMS>500</LifetimeMS>
+		  <Amplitude>1.7</Amplitude>
+		  <Frequency>0.7</Frequency>
          <MultiHit/>
          <ConditionEffect duration="5">Armor Broken</ConditionEffect>
       </Projectile>
       <Projectile id="3">
          <ObjectId>Red Star</ObjectId>
-         <Speed>100</Speed>
+         <Speed>120</Speed>
          <Damage>100</Damage>
          <Size>140</Size>
-         <LifetimeMS>3000</LifetimeMS>
+         <LifetimeMS>450</LifetimeMS>
+		 <Amplitude>1.3</Amplitude>
+		 <Frequency>0.5</Frequency>
          <MultiHit/>
          <ConditionEffect duration="5">Bleeding</ConditionEffect>
       </Projectile>
       <Projectile id="4">
          <ObjectId>Dark Blue Magic</ObjectId>
-         <Speed>100</Speed>
+         <Speed>130</Speed>
          <Damage>100</Damage>
          <Size>140</Size>
-         <LifetimeMS>3000</LifetimeMS>
+         <LifetimeMS>500</LifetimeMS>
+		 <Amplitude>1.3</Amplitude>
+		 <Frequency>0.6</Frequency>
          <MultiHit/>
          <ConditionEffect duration="5">Quiet</ConditionEffect>
       </Projectile>
@@ -263,6 +269,17 @@
 		 <LifetimeMS>1450</LifetimeMS>
 		 <ConditionEffect duration="5">Slowed</ConditionEffect>
 		 <MultiHit/>
+	  </Projectile>
+	  <Projectile id="7">
+		<ObjectId>Green Magic</ObjectId>
+		<Speed>300</Speed>
+		<Damage>90</Damage>
+		<LifetimeMS>200</LifetimeMS>
+		<Amplitude>1.4</Amplitude>
+		<Frequency>0.6</Frequency>
+		<Size>160</Size>
+		<MultiHit/>
+		<SmartAngle></SmartAngle>
 	  </Projectile>
    </Object>
    <Object type="0x707d" id="Silver Son of Arachna Giant Egg Sac">
@@ -348,7 +365,7 @@
          <Damage>0</Damage>
          <Size>170</Size>
          <Speed>70</Speed>
-         <LifetimeMS>1450</LifetimeMS>
+         <LifetimeMS>880</LifetimeMS>
          <ConditionEffect duration="3">Slowed</ConditionEffect>
          <MultiHit/>
       </Projectile>
@@ -372,7 +389,7 @@
          <Damage>0</Damage>
          <Size>170</Size>
          <Speed>70</Speed>
-         <LifetimeMS>1450</LifetimeMS>
+         <LifetimeMS>1400</LifetimeMS>
          <ConditionEffect duration="3">Slowed</ConditionEffect>
          <MultiHit/>
       </Projectile>
@@ -396,7 +413,7 @@
          <Damage>0</Damage>
          <Size>170</Size>
          <Speed>70</Speed>
-         <LifetimeMS>1450</LifetimeMS>
+         <LifetimeMS>880</LifetimeMS>
          <ConditionEffect duration="3">Slowed</ConditionEffect>
          <MultiHit/>
       </Projectile>
@@ -420,7 +437,7 @@
          <Damage>0</Damage>
          <Size>170</Size>
          <Speed>70</Speed>
-         <LifetimeMS>1450</LifetimeMS>
+         <LifetimeMS>1400</LifetimeMS>
          <ConditionEffect duration="3">Slowed</ConditionEffect>
          <MultiHit/>
       </Projectile>
@@ -444,7 +461,7 @@
          <Damage>0</Damage>
          <Size>170</Size>
          <Speed>70</Speed>
-         <LifetimeMS>1450</LifetimeMS>
+         <LifetimeMS>880</LifetimeMS>
          <ConditionEffect duration="3">Slowed</ConditionEffect>
          <MultiHit/>
       </Projectile>
@@ -468,7 +485,7 @@
          <Damage>0</Damage>
          <Size>170</Size>
          <Speed>70</Speed>
-         <LifetimeMS>1450</LifetimeMS>
+         <LifetimeMS>1400</LifetimeMS>
          <ConditionEffect duration="3">Slowed</ConditionEffect>
          <MultiHit/>
       </Projectile>
@@ -516,12 +533,12 @@
          <Damage>0</Damage>
          <Size>170</Size>
          <Speed>70</Speed>
-         <LifetimeMS>880</LifetimeMS>
+         <LifetimeMS>1400</LifetimeMS>
          <ConditionEffect duration="3">Slowed</ConditionEffect>
          <MultiHit/>
       </Projectile>
    </Object>
-   <Object type="0x703d" id="Epic Arachna Web Spoke 9">
+   <Object type="0x703d" id="Epic Arachna Web Spoke Anchor">
       <DisplayId>Arachna Element</DisplayId>
       <Group>AttackType</Group>
       <Class>Character</Class>
@@ -532,7 +549,7 @@
          <File>lofiObj2</File>
          <Index>0x49</Index>
       </Texture>
-      <Size>250</Size>
+      <Size>0</Size>
       <StasisImmune/>
       <Enemy/>
       <Projectile id="0">

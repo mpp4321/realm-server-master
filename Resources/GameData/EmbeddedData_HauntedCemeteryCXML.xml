@@ -1821,5 +1821,74 @@
       <Index>0</Index>
 		</Texture>
 	</Object>
+	<Object type="0x0d69" id="Realm Reaper Anchor">
+		<Group>Reapers</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Hero/>
+		<Quest/>
+		<God/>
+		<Encounter/>
+		<StasisImmune/>
+		<Level>20</Level>
+		<PerRealmMax>1</PerRealmMax>
 
+		<AnimatedTexture>
+			<File>d3Chars16x16rEmbed</File>
+			<Index>33</Index>
+		</AnimatedTexture>
+
+		<HitSound>monster/golems_hit</HitSound>
+		<DeathSound>monster/beholder_death</DeathSound>
+
+		<MaxHitPoints>700000</MaxHitPoints>
+
+		<Projectile id="0">
+			<ObjectId>Armor Pierce Bullet</ObjectId>
+			<Speed>55</Speed>
+			<ArmorPiercing/>
+			<Damage>150</Damage>
+			<LifetimeMS>6000</LifetimeMS>
+			<Size>125</Size>
+		</Projectile>
+		<Size>0</Size>
+		<Defense>30</Defense>
+		<XpMult>0.3</XpMult>
+	</Object>
+	<Object type="0x0d6a" id="Scythe Switch">
+		<DisplayId>Scythe Switch</DisplayId>
+		<Class>Character</Class>
+		<Group>Hallowrena</Group>
+		<Enemy/>
+
+		<AnimatedTexture>
+			<File>chars8x8rEncounters</File>
+			<Index>144</Index>
+		</AnimatedTexture>
+
+		<HitSound>monster/spiders_hit</HitSound>
+		<DeathSound>monster/spiders_death</DeathSound>
+		<Size>60</Size>
+		<ShadowSize>100</ShadowSize>
+		<MaxHitPoints>10000</MaxHitPoints>
+		<Defense>20</Defense>
+	</Object>
+	<Object type="0x0d6b" id="Mage Switch">
+		<DisplayId>Mage Switch</DisplayId>
+		<Class>Character</Class>
+		<Group>Hallowrena</Group>
+		<Enemy/>
+
+		<AnimatedTexture>
+			<File>chars8x8rEncounters</File>
+			<Index>143</Index>
+		</AnimatedTexture>
+
+		<HitSound>monster/spiders_hit</HitSound>
+		<DeathSound>monster/spiders_death</DeathSound>
+		<Size>60</Size>
+		<ShadowSize>100</ShadowSize>
+		<MaxHitPoints>10000</MaxHitPoints>
+		<Defense>20</Defense>
+	</Object>
 </Objects>

@@ -207,6 +207,7 @@ namespace RotMG.Game.Logic.Database
                             new ItemLoot("Stheno's Scourge", 0.01f),
                             new ItemLoot("Ophidian Gem", 0.008f),
                             new ItemLoot("Snakeskin Guard", 0.015f),
+                            new ItemLoot("Wand of the Bulwark", 0.01f),
                             new TierLoot(11, LootType.Armor, 0.3f),
                             new TierLoot(10, LootType.Armor, 0.4f),
                             new TierLoot(11, LootType.Weapon, 0.25f),

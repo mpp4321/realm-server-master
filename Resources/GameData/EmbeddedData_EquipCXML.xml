@@ -818,16 +818,21 @@
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
       <ObjectId>Rimmed Mystic Shot</ObjectId>
-      <Speed>6</Speed>
-      <MinDamage>300</MinDamage>
-      <MaxDamage>400</MaxDamage>
-      <LifetimeMS>11000</LifetimeMS>
-      <Parametric/>
+      <Speed>60</Speed>
+      <MinDamage>200</MinDamage>
+      <MaxDamage>250</MaxDamage>
+      <LifetimeMS>15000</LifetimeMS>
+	  <Frequency>3</Frequency>
+	  <Amplitude>2.55</Amplitude>
+	  <Accelerate>-85</Accelerate>
+	  <SpeedClamp>1</SpeedClamp>
       <PassesCover/>
     </Projectile>
     <BagType>4</BagType>
     <FameBonus>6</FameBonus>
     <OldSound>magicShoot</OldSound>
+    <NumProjectiles>3</NumProjectiles>
+    <ArcGap>120</ArcGap>
   </Object>
   <Object type="0xa08" id="Wooden Shield">
     <Class>Equipment</Class>
@@ -10082,6 +10087,7 @@
     <FameBonus>8</FameBonus>
     <OldSound>bladeSwing</OldSound>
   </Object>
+<<<<<<< Updated upstream
   <Object type="0xcb8" id="Bow of Life Energy">
     <Class>Equipment</Class>
     <Item/>
@@ -10107,6 +10113,33 @@
     <OldSound>arrowShoot</OldSound>
     <UniqueEffect>SappingShot</UniqueEffect>
   </Object>
+=======
+	<Object type="0xcb8" id="Bow of Life Energy">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj6</File>
+			<Index>0xf0</Index>
+		</Texture>
+		<SlotType>3</SlotType>
+		<Description>A bow which saps the users life to empower it's shots.</Description>
+		<RateOfFire>0.66</RateOfFire>
+		<Sound>weapon/golden_bow</Sound>
+		<Projectile>
+			<ObjectId>Life Bolt</ObjectId>
+			<Speed>160</Speed>
+			<Size>200</Size>
+			<MinDamage>350</MinDamage>
+			<MaxDamage>450</MaxDamage>
+			<LifetimeMS>440</LifetimeMS>
+		</Projectile>
+		<BagType>6</BagType>
+		<FameBonus>6</FameBonus>
+		<NumProjectiles>1</NumProjectiles>
+		<OldSound>arrowShoot</OldSound>
+		<UniqueEffect>SappingShot</UniqueEffect>
+	</Object>
+>>>>>>> Stashed changes
   <Object type="0xcb9" id="Reinforced Ribcage">
     <Class>Equipment</Class>
     <Item/>
