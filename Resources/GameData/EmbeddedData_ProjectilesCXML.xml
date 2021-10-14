@@ -2985,4 +2985,13 @@
     </Animation>
     <Rotation>100</Rotation>
   </Object>
+ <Object type="0x2168" id="Soul Orb">
+    <Class>Projectile</Class>
+    <Texture>
+       <File>lofiObj3</File>
+       <Index>0x517</Index>
+    </Texture>
+    <AngleCorrection>2</AngleCorrection>
+    <Rotation>180</Rotation>
+ </Object>
 </Objects>

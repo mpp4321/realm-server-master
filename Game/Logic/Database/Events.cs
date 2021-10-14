@@ -16,6 +16,25 @@ namespace RotMG.Game.Logic.Database
         public void Init(BehaviorDb db)
         {
 
+            db.EveryInit = new MobDrop[]
+            {
+                new MobDrop(new LootDef.Builder().Item("Bag of Potion Holding").Chance(0.05f).Threshold(0.001f).OverrideJson(
+                        new ItemDataJson()
+                        {
+                            StoredItems = new List<int>(),
+                            AllowedItems = new List<int> {
+                                Resources.Id2Item["Potion of Attack"].Type,
+                                Resources.Id2Item["Potion of Dexterity"].Type,
+                                Resources.Id2Item["Potion of Speed"].Type,
+                                Resources.Id2Item["Potion of Life"].Type,
+                                Resources.Id2Item["Potion of Mana"].Type,
+                                Resources.Id2Item["Potion of Vitality"].Type,
+                                Resources.Id2Item["Potion of Wisdom"].Type,
+                                Resources.Id2Item["Potion of Defense"].Type
+                            }
+                        }).Build())
+            };
+
             db.Init("Hermit God",
                 new State("base",
                     new TransferDamageOnDeath("Hermit God Drop"),
@@ -79,64 +98,6 @@ namespace RotMG.Game.Logic.Database
                         )
                     )
             );
-            db.Init("Hermit Minion",
-                new State("base",
-                    new Prioritize(
-                        new Follow(0.6f, 4, 1),
-                        new Orbit(0.6f, 10, 15, "Hermit God", speedVariance: .2f, radiusVariance: 1.5f),
-                        new Wander(0.6f)
-                        ),
-                    new Shoot(6, count: 3, shootAngle: 10, cooldown: 1000),
-                    new Shoot(6, count: 2, shootAngle: 20, index: 1, cooldown: 2600, predictive: 0.8f)
-                    ),
-                new ItemLoot("Health Potion", 0.1f),
-                new ItemLoot("Magic Potion", 0.1f)
-            );
-            db.Init("Whirlpool",
-                new State("base",
-                    new State("Attack",
-                        new EntitiesNotExistsTransition( 100, "Die", "Hermit God"),
-                        new Prioritize(
-                            new Orbit(0.3f, 6, 10, "Hermit God")
-                            ),
-                        new Shoot(0, 1, fixedAngle: 0, rotateAngle: 30, cooldown: 400)
-                        ),
-                    new State("Die",
-                        new Shoot(0, 8, fixedAngle: 360 / 8),
-                        new Suicide()
-                        )
-                    )
-            );
-            db.Init("Hermit God Tentacle",
-                new State("base",
-                    new Prioritize(
-                        new Follow(0.6f, 4, 1),
-                        new Orbit(0.6f, 6, 15, "Hermit God", speedVariance: .2f, radiusVariance: .5f)
-                        ),
-                    new Shoot(3, count: 8, shootAngle: 360 / 8, cooldown: 500)
-                    )
-            );
-            db.Init("Hermit God Tentacle Spawner",
-                new State("base",
-                    new ConditionalEffect(ConditionEffectIndex.Invincible, true),
-                    new State("Waiting Order"),
-                    new State("Tentacle",
-                        new Reproduce("Hermit God Tentacle", 3, 1, cooldown: 2000),
-                        new EntitiesWithinTransition(1, "Hermit God Tentacle", "Waiting Order")
-                        ),
-                    new State("Whirlpool",
-                        new Reproduce("Whirlpool", 3, 1, cooldown: 2000),
-                        new EntitiesWithinTransition(1, "Whirlpool", "Waiting Order")
-                        ),
-                    new State("Minions",
-                        new Reproduce("Hermit Minion", 40, 20, cooldown: 1000),
-                        new TimedTransition("Waiting Order", 2000)
-                        ),
-                    new State("Die",
-                        new Suicide()
-                        )
-                    )
-            );
             db.Init("Hermit God Drop",
                 new State("base",
                     new ConditionalEffect(ConditionEffectIndex.Invincible, true),
@@ -177,33 +138,6 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Dexterity", 0.3f),
                     new ItemLoot("Potion of Attack", 0.3f)
                 )
-            );
-            db.Init("Red Flaming Skull",
-                new State("base",
-                    new State("Orbit Skull Shrine",
-                        new Prioritize(
-                            new Protect(.2f, "Skull Shrine", 30, 15, 15),
-                            new Wander(.2f)
-                            ),
-                            new EntitiesNotExistsTransition( 40, "Wander", "Skull Shrine")
-                        ),
-                    new State("Wander",
-                        new Wander(.2f)
-                        ),
-                    new Shoot(12, 2, 10, cooldown: 750)
-                    )
-            );
-            db.Init("Blue Flaming Skull",
-                new State("base",
-                    new State("Orbit Skull Shrine",
-                        new Orbit(1.0f, 15, 40, "Skull Shrine", .6f, 10),
-                        new EntitiesNotExistsTransition(40, "Wander", "Skull Shrine")
-                        ),
-                    new State("Wander",
-                        new Wander(1.0f)
-                        ),
-                    new Shoot(12, 2, 10, cooldown: 750)
-                    )
             );
 
             db.Init("Grand Sphinx",
@@ -298,35 +232,6 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Spear of the Storm", 0.005f)
                     )
             );
-            db.Init("Horrid Reaper",
-                new State("base",
-                        new ConditionalEffect(ConditionEffectIndex.Invincible),
-                    new State("Move",
-                        new Prioritize(
-                            new StayCloseToSpawn(3, 10),
-                            new Wander(3)
-                            ),
-                        new EntitiesNotExistsTransition( 50, "Die", "Grand Sphinx"), //Just to be sure
-                        new TimedRandomTransition(2000, "Attack")
-                        ),
-                    new State("Attack",
-                        new Shoot(0, count: 6, fixedAngle: 360 / 6, cooldown: 700),
-                        new PlayerWithinTransition(2, "Follow"),
-                        new TimedRandomTransition(5000, "Move")
-                        ),
-                    new State("Follow",
-                        new Prioritize(
-                            new Follow(0.7f, 10, 3)
-                            ),
-                        new Shoot(7, count: 1, cooldown: 700),
-                        new TimedRandomTransition(5000, "Move")
-                        ),
-                    new State("Die",
-                        new Taunt(0.99f, "OOaoaoAaAoaAAOOAoaaoooaa!!!"),
-                        new Decay(1000)
-                        )
-                    )
-            );
 
 
             db.Init("Cube God",
@@ -347,51 +252,6 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Dirk of Cronus", 0.005f)
                   )
                 );
-            db.Init("Cube Overseer",
-                new State("base",
-                    new Prioritize(
-                        new Orbit(.375f, 10, 30, "Cube God", .075f, 5),
-                        new Wander(.375f)
-                        ),
-                    new Reproduce("Cube Defender", 12, 10, cooldown: 1000),
-                    new Reproduce("Cube Blaster", 30, 10, cooldown: 1000),
-                    new Shoot(10, 4, 10, 0, cooldown: 750),
-                    new Shoot(10, index: 1, cooldown: 1500)
-                    ),
-                new Threshold(.01f,
-                    new ItemLoot("Fire Sword", .05f)
-                    )
-            );
-            db.Init("Cube Defender",
-                new State("base",
-                    new Prioritize(
-                        new Orbit(1.05f, 5, 15, "Cube Overseer", .15f, 3),
-                        new Wander(1.05f)
-                        ),
-                    new Shoot(10, cooldown: 500)
-                    )
-            );
-            db.Init("Cube Blaster",
-                new State("base",
-                    new State("Orbit",
-                        new Prioritize(
-                            new Orbit(1.05f, 7.5f, 40, "Cube Overseer", .15f, 3),
-                            new Wander(1.05f)
-                            ),
-                        new EntitiesNotExistsTransition(10, "Follow", "Cube Overseer")
-                        ),
-                    new State("Follow",
-                        new Prioritize(
-                            new Follow(.75f, 10, 1, 5000),
-                            new Wander(1.05f)
-                            ),
-                        new EntitiesNotExistsTransition(10, "Orbit","Cube Defender"),
-                        new TimedTransition("Orbit", 5000)
-                        ),
-                    new Shoot(10, 2, 10, 1, predictive: 1, cooldown: 500),
-                    new Shoot(10, predictive: 1, cooldown: 1500)
-                    )
-            );
 
             db.Init("Lord of the Lost Lands",
                 new State("base",
@@ -504,80 +364,7 @@ namespace RotMG.Game.Logic.Database
                     LootTemplates.BasicPots()
                 )
             );
-            db.Init("Protection Crystal",
-                new State("base",
-                    new Prioritize(
-                        new Orbit(0.5f, 3, 10, "Lord of the Lost Lands", radiusVariance: 1.5f)
-                        ),
-                    new Shoot(8, count: 3, shootAngle: 7, cooldown: 500),
-                    new Decay(10000)
-                    )
-            );
-            db.Init("Guardian of the Lost Lands",
-                new Decay(12000),
-                new State("base",
-                    new State("Full",
-                        new Spawn("Knight of the Lost Lands", 2, 1, cooldown: 4000),
-                        new Prioritize(
-                            new Orbit(0.6f, 3, 10, "Lord of the Lost Lands", 0.2f, 2f)
-                            ),
-                        new Shoot(10, count: 8, fixedAngle: 360 / 8, cooldown: 3000, index: 1),
-                        new Shoot(10, count: 5, shootAngle: 10, cooldown: 1500),
-                        new HealthTransition(0.25f, "Low")
-                        ),
-                    new State("Low",
-                        new Prioritize(
-                            new StayBack(0.6f, 5),
-                            new Wander(0.2f)
-                            ),
-                        new Shoot(10, count: 8, fixedAngle: 360 / 8, cooldown: 3000, index: 1),
-                        new Shoot(10, count: 5, shootAngle: 10, cooldown: 1500)
-                        )
-                    ),
-                new ItemLoot("Health Potion", 0.1f),
-                new ItemLoot("Magic Potion", 0.1f)
-            );
-            db.Init("Knight of the Lost Lands",
-                new State("base",
-                    new Prioritize(
-                        new Orbit(0.8f, 5, 14, "Lord of the Lost Lands", 0.4f, 3, true)
-                        ),
-                    new Shoot(13, 1, cooldown: 700)
-                    ),
-                new ItemLoot("Health Potion", 0.1f),
-                new ItemLoot("Magic Potion", 0.1f)
-            );
 
-
-            db.Init("Pentaract Eye",
-                new State("base",
-                    new Prioritize(
-                        new Swirl(2, 8, 20, true),
-                        new Protect(2, "Pentaract Tower", 20, 6, 4)
-                        ),
-                    new Shoot(9, 1, cooldown: 1000)
-                    )
-            );
-            db.Init("Pentaract Tower",
-                new State("base",
-                    new Spawn("Pentaract Eye", 5, cooldown: 5000, givesNoXp: false),
-                    new Grenade(4, 100, 8, cooldown: 5000),
-                    new TransformOnDeath("Pentaract Tower Corpse"),
-                    new TransferDamageOnDeath("Pentaract"),
-                    new TransferDamageOnDeath("Pentaract Tower Corpse")
-                    )
-            );
-            db.Init("Pentaract",
-                new State("base",
-                    new ConditionalEffect(ConditionEffectIndex.Invincible),
-                    new State("Waiting",
-                        new EntitiesNotExistsTransition(50, "Die", "Pentaract Tower")
-                        ),
-                    new State("Die",
-                        new Suicide()
-                        )
-                    )
-            );
             db.Init("Pentaract Tower Corpse",
                 new State("base",
                     new ConditionalEffect(ConditionEffectIndex.Invincible),
@@ -733,6 +520,9 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Trap of the Vile Spirit", 0.01f)
                 )
             );
+
+            db.EveryInit = new ItemLoot[0];
+
             //below needs their sprites indexed
             db.Init("Vengeful Spirit",
                 new State("base",
@@ -753,6 +543,7 @@ namespace RotMG.Game.Logic.Database
                     new PlayerWithinTransition(6, "base")
                 )
             );
+
             db.Init("Tempest Cloud",
                 new State("wait",
                     new PlayerWithinTransition(6, "texture")
@@ -771,6 +562,243 @@ namespace RotMG.Game.Logic.Database
                     new TimedTransition("wait", 500)
                 ),
                 new ConditionalEffect(ConditionEffectIndex.Invincible, true)
+            );
+
+            db.Init("Hermit Minion",
+                new State("base",
+                    new Prioritize(
+                        new Follow(0.6f, 4, 1),
+                        new Orbit(0.6f, 10, 15, "Hermit God", speedVariance: .2f, radiusVariance: 1.5f),
+                        new Wander(0.6f)
+                        ),
+                    new Shoot(6, count: 3, shootAngle: 10, cooldown: 1000),
+                    new Shoot(6, count: 2, shootAngle: 20, index: 1, cooldown: 2600, predictive: 0.8f)
+                    ),
+                new ItemLoot("Health Potion", 0.1f),
+                new ItemLoot("Magic Potion", 0.1f)
+            );
+
+            db.Init("Whirlpool",
+                new State("base",
+                    new State("Attack",
+                        new EntitiesNotExistsTransition( 100, "Die", "Hermit God"),
+                        new Prioritize(
+                            new Orbit(0.3f, 6, 10, "Hermit God")
+                            ),
+                        new Shoot(0, 1, fixedAngle: 0, rotateAngle: 30, cooldown: 400)
+                        ),
+                    new State("Die",
+                        new Shoot(0, 8, fixedAngle: 360 / 8),
+                        new Suicide()
+                        )
+                    )
+            );
+
+            db.Init("Hermit God Tentacle",
+                new State("base",
+                    new Prioritize(
+                        new Follow(0.6f, 4, 1),
+                        new Orbit(0.6f, 6, 15, "Hermit God", speedVariance: .2f, radiusVariance: .5f)
+                        ),
+                    new Shoot(3, count: 8, shootAngle: 360 / 8, cooldown: 500)
+                    )
+            );
+
+            db.Init("Hermit God Tentacle Spawner",
+                new State("base",
+                    new ConditionalEffect(ConditionEffectIndex.Invincible, true),
+                    new State("Waiting Order"),
+                    new State("Tentacle",
+                        new Reproduce("Hermit God Tentacle", 3, 1, cooldown: 2000),
+                        new EntitiesWithinTransition(1, "Hermit God Tentacle", "Waiting Order")
+                        ),
+                    new State("Whirlpool",
+                        new Reproduce("Whirlpool", 3, 1, cooldown: 2000),
+                        new EntitiesWithinTransition(1, "Whirlpool", "Waiting Order")
+                        ),
+                    new State("Minions",
+                        new Reproduce("Hermit Minion", 40, 20, cooldown: 1000),
+                        new TimedTransition("Waiting Order", 2000)
+                        ),
+                    new State("Die",
+                        new Suicide()
+                        )
+                    )
+            );
+
+            db.Init("Pentaract Eye",
+                new State("base",
+                    new Prioritize(
+                        new Swirl(2, 8, 20, true),
+                        new Protect(2, "Pentaract Tower", 20, 6, 4)
+                        ),
+                    new Shoot(9, 1, cooldown: 1000)
+                    )
+            );
+            db.Init("Pentaract Tower",
+                new State("base",
+                    new Spawn("Pentaract Eye", 5, cooldown: 5000, givesNoXp: false),
+                    new Grenade(4, 100, 8, cooldown: 5000),
+                    new TransformOnDeath("Pentaract Tower Corpse"),
+                    new TransferDamageOnDeath("Pentaract"),
+                    new TransferDamageOnDeath("Pentaract Tower Corpse")
+                    )
+            );
+            db.Init("Pentaract",
+                new State("base",
+                    new ConditionalEffect(ConditionEffectIndex.Invincible),
+                    new State("Waiting",
+                        new EntitiesNotExistsTransition(50, "Die", "Pentaract Tower")
+                        ),
+                    new State("Die",
+                        new Suicide()
+                        )
+                    )
+            );
+            db.Init("Knight of the Lost Lands",
+                new State("base",
+                    new Prioritize(
+                        new Orbit(0.8f, 5, 14, "Lord of the Lost Lands", 0.4f, 3, true)
+                        ),
+                    new Shoot(13, 1, cooldown: 700)
+                    ),
+                new ItemLoot("Health Potion", 0.1f),
+                new ItemLoot("Magic Potion", 0.1f)
+            );
+            db.Init("Protection Crystal",
+                new State("base",
+                    new Prioritize(
+                        new Orbit(0.5f, 3, 10, "Lord of the Lost Lands", radiusVariance: 1.5f)
+                        ),
+                    new Shoot(8, count: 3, shootAngle: 7, cooldown: 500),
+                    new Decay(10000)
+                    )
+            );
+            db.Init("Guardian of the Lost Lands",
+                new Decay(12000),
+                new State("base",
+                    new State("Full",
+                        new Spawn("Knight of the Lost Lands", 2, 1, cooldown: 4000),
+                        new Prioritize(
+                            new Orbit(0.6f, 3, 10, "Lord of the Lost Lands", 0.2f, 2f)
+                            ),
+                        new Shoot(10, count: 8, fixedAngle: 360 / 8, cooldown: 3000, index: 1),
+                        new Shoot(10, count: 5, shootAngle: 10, cooldown: 1500),
+                        new HealthTransition(0.25f, "Low")
+                        ),
+                    new State("Low",
+                        new Prioritize(
+                            new StayBack(0.6f, 5),
+                            new Wander(0.2f)
+                            ),
+                        new Shoot(10, count: 8, fixedAngle: 360 / 8, cooldown: 3000, index: 1),
+                        new Shoot(10, count: 5, shootAngle: 10, cooldown: 1500)
+                        )
+                    ),
+                new ItemLoot("Health Potion", 0.1f),
+                new ItemLoot("Magic Potion", 0.1f)
+            );
+            db.Init("Cube Overseer",
+                new State("base",
+                    new Prioritize(
+                        new Orbit(.375f, 10, 30, "Cube God", .075f, 5),
+                        new Wander(.375f)
+                        ),
+                    new Reproduce("Cube Defender", 12, 10, cooldown: 1000),
+                    new Reproduce("Cube Blaster", 30, 10, cooldown: 1000),
+                    new Shoot(10, 4, 10, 0, cooldown: 750),
+                    new Shoot(10, index: 1, cooldown: 1500)
+                    ),
+                new Threshold(.01f,
+                    new ItemLoot("Fire Sword", .05f)
+                    )
+            );
+            db.Init("Cube Defender",
+                new State("base",
+                    new Prioritize(
+                        new Orbit(1.05f, 5, 15, "Cube Overseer", .15f, 3),
+                        new Wander(1.05f)
+                        ),
+                    new Shoot(10, cooldown: 500)
+                    )
+            );
+            db.Init("Cube Blaster",
+                new State("base",
+                    new State("Orbit",
+                        new Prioritize(
+                            new Orbit(1.05f, 7.5f, 40, "Cube Overseer", .15f, 3),
+                            new Wander(1.05f)
+                            ),
+                        new EntitiesNotExistsTransition(10, "Follow", "Cube Overseer")
+                        ),
+                    new State("Follow",
+                        new Prioritize(
+                            new Follow(.75f, 10, 1, 5000),
+                            new Wander(1.05f)
+                            ),
+                        new EntitiesNotExistsTransition(10, "Orbit","Cube Defender"),
+                        new TimedTransition("Orbit", 5000)
+                        ),
+                    new Shoot(10, 2, 10, 1, predictive: 1, cooldown: 500),
+                    new Shoot(10, predictive: 1, cooldown: 1500)
+                    )
+            );
+            db.Init("Horrid Reaper",
+                new State("base",
+                        new ConditionalEffect(ConditionEffectIndex.Invincible),
+                    new State("Move",
+                        new Prioritize(
+                            new StayCloseToSpawn(3, 10),
+                            new Wander(3)
+                            ),
+                        new EntitiesNotExistsTransition( 50, "Die", "Grand Sphinx"), //Just to be sure
+                        new TimedRandomTransition(2000, "Attack")
+                        ),
+                    new State("Attack",
+                        new Shoot(0, count: 6, fixedAngle: 360 / 6, cooldown: 700),
+                        new PlayerWithinTransition(2, "Follow"),
+                        new TimedRandomTransition(5000, "Move")
+                        ),
+                    new State("Follow",
+                        new Prioritize(
+                            new Follow(0.7f, 10, 3)
+                            ),
+                        new Shoot(7, count: 1, cooldown: 700),
+                        new TimedRandomTransition(5000, "Move")
+                        ),
+                    new State("Die",
+                        new Taunt(0.99f, "OOaoaoAaAoaAAOOAoaaoooaa!!!"),
+                        new Decay(1000)
+                        )
+                    )
+            );
+
+            db.Init("Red Flaming Skull",
+                new State("base",
+                    new State("Orbit Skull Shrine",
+                        new Prioritize(
+                            new Protect(.2f, "Skull Shrine", 30, 15, 15),
+                            new Wander(.2f)
+                            ),
+                            new EntitiesNotExistsTransition( 40, "Wander", "Skull Shrine")
+                        ),
+                    new State("Wander",
+                        new Wander(.2f)
+                        ),
+                    new Shoot(12, 2, 10, cooldown: 750)
+                    )
+            );
+            db.Init("Blue Flaming Skull",
+                new State("base",
+                    new State("Orbit Skull Shrine",
+                        new Orbit(1.0f, 15, 40, "Skull Shrine", .6f, 10),
+                        new EntitiesNotExistsTransition(40, "Wander", "Skull Shrine")
+                        ),
+                    new State("Wander",
+                        new Wander(1.0f)
+                        ),
+                    new Shoot(12, 2, 10, cooldown: 750)
+                    )
             );
         }
     }
