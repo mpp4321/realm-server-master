@@ -116,12 +116,12 @@ namespace RotMG.Game.Logic.Behaviors
             }
 
             taunt = taunt.Replace("{HP}", (host as Enemy).Hp.ToString());
-            taunt = $"<{host.Desc.DisplayId}>" + " " + taunt;
-
             
+            var display = String.IsNullOrEmpty(host.Name) ? host.Desc.DisplayId : host.Name;
+
             var packet = GameServer.Text
             (
-                "#" + host.Name,
+                "#" + display,
                 host.GetObjectDefinition().ObjectType,
                 -1,
                  3,

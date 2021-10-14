@@ -638,14 +638,16 @@
 		<AnimatedTexture><File>chars8x8rBeach</File><Index>7</Index></AnimatedTexture>
 		<HitSound>monster/pirates_hit</HitSound>
 		<DeathSound>monster/pirates_death</DeathSound>
-		<Size>100</Size>
-		<MaxHitPoints>10</MaxHitPoints>
-		<Defense>0</Defense>
+		<Size>150</Size>
+		<MaxHitPoints>20000</MaxHitPoints>
+		<Defense>35</Defense>
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
-			<Damage>5</Damage>
+			<Damage>55</Damage>
 			<Speed>120</Speed>
 			<LifetimeMS>400</LifetimeMS>
+      <ConditionEffect duration="5.0">Quiet</ConditionEffect>
+      <ConditionEffect duration="5.0">Bleeding</ConditionEffect>
 		</Projectile>
 	</Object>
 	<Object type="0x675" id="Phoenix Lord">
@@ -1211,15 +1213,6 @@
 			<LifetimeMS>2600</LifetimeMS>
 			<ConditionEffect duration="0.4">Paralyzed</ConditionEffect>
 		</Projectile>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 	</Object>
 </Objects>

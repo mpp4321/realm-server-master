@@ -805,32 +805,36 @@
 		</Projectile>
 	</Object>
 
-
-
 	<Object type="0x0926" id="Bonegrind the Butcher">
 		<Enemy/>
 		<Class>Character</Class>
 		<AnimatedTexture><File>chars16x16rEncounters</File><Index>14</Index></AnimatedTexture>
 		<HitSound>monster/pirates_hit</HitSound>
 		<DeathSound>monster/pirates_death</DeathSound>
-		<Size>80</Size>
-		<MaxHitPoints>300</MaxHitPoints>
-		<Defense>0</Defense>
+		<Size>120</Size>
+		<MaxHitPoints>100000</MaxHitPoints>
+		<Defense>50</Defense>
 		<Quest/>
-		<Level>1</Level>
-		<XpMult>0.7</XpMult>
+		<Level>20</Level>
+		<XpMult>20.0</XpMult>
 		<NoArticle/>
-
-
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
-			<Damage>6</Damage>
+			<Damage>120</Damage>
 			<Size>100</Size>
 			<Speed>75</Speed>
 			<LifetimeMS>800</LifetimeMS>
 		</Projectile>
-
-		
+		<Projectile id="1">
+			<ObjectId>White Flame</ObjectId>
+			<Damage>60</Damage>
+			<Size>100</Size>
+			<Speed>45</Speed>
+      <Amplitude>0.8</Amplitude>
+      <Frequency>2</Frequency>
+			<LifetimeMS>1600</LifetimeMS>
+      <ArmorPiercing>true</ArmorPiercing>
+		</Projectile>
 	</Object>
 
 
