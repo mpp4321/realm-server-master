@@ -256,7 +256,10 @@ namespace RotMG.Game.Logic.Database
                     new Decay(130000)
                     ),
                 new ItemLoot("Tincture of Defense", 0.02f),
-                new ItemLoot("Magic Potion", 0.03f)
+                new ItemLoot("Magic Potion", 0.03f),
+                new ItemLoot("The Phylactery", 0.05f, 0.001f),
+                new ItemLoot("Soul of the Bearer", 0.05f, 0.001f)
+
             );
             db.Init("Haunted Spirit",
                 new State("base",
@@ -285,7 +288,9 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Ring of Attack", 0.02f, r: new RarityModifiedData(1.9f, 5)),
                     new ItemLoot("Tincture of Dexterity", 0.06f),
                     new ItemLoot("Tincture of Mana", 0.09f),
-                    new ItemLoot("Tincture of Life", 0.04f)
+                    new ItemLoot("Tincture of Life", 0.04f),
+                    new ItemLoot("Ring of the Covetous Heart", 0.05f, 0.001f),
+                    new ItemLoot("Soulless Robe", 0.05f, 0.001f)
                 )
             );
             db.Init("Mummy",

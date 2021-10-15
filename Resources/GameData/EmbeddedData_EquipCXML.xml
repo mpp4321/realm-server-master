@@ -406,7 +406,7 @@
     <FameBonus>4</FameBonus>
     <OldSound>bladeSwing</OldSound>
   </Object>
-  <Object type="0xa04" id="Fire Wand">
+  <Object type="0xa04" id="Uncharged Energy Wand">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -415,7 +415,7 @@
     </Texture>
     <SlotType>8</SlotType>
     <Tier>0</Tier>
-    <Description>A wand that casts a simple fire spell.</Description>
+    <Description>A wand that casts a very simple fire spell.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_wand</Sound>
     <Projectile>
@@ -429,7 +429,7 @@
     <BagType>0</BagType>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xa6f" id="Force Wand">
+  <Object type="0xa6f" id="Petty Energy Wand">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -452,7 +452,7 @@
     <BagType>0</BagType>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xa70" id="Power Wand">
+  <Object type="0xa70" id="Decent Energy Wand">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -475,7 +475,7 @@
     <BagType>0</BagType>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xa05" id="Missile Wand">
+  <Object type="0xa05" id="Energy Wand">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -498,7 +498,7 @@
     <BagType>0</BagType>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xa71" id="Eldritch Wand">
+  <Object type="0xa71" id="Charged Energy Wand">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -521,7 +521,7 @@
     <BagType>0</BagType>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xa06" id="Hell's Fire Wand">
+  <Object type="0xa06" id="Wand of Overflowing Energy">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -567,7 +567,7 @@
     <BagType>1</BagType>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xae0" id="Wand of Arcane Flame">
+  <Object type="0xae0" id="Wand of Ancient Ice">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -576,7 +576,7 @@
     </Texture>
     <SlotType>8</SlotType>
     <Tier>7</Tier>
-    <Description>A deadly wand that channels magefire from the nether planes.</Description>
+    <Description>A deadly wand made of mithril that channels ice from the aether.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_dark_magic</Sound>
     <Projectile>
@@ -621,7 +621,7 @@
     </Texture>
     <SlotType>8</SlotType>
     <Tier>8</Tier>
-    <Description>A fearsome wand that fires bolts of penetrating death magic.</Description>
+    <Description>A fearsome aurichalcum wand that fires bolts of penetrating death magic.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
@@ -636,7 +636,7 @@
     <FameBonus>1</FameBonus>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xa85" id="Wand of Deep Sorcery">
+  <Object type="0xa85" id="Wand of Necrotic Sorcery">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -669,7 +669,7 @@
     </Texture>
     <SlotType>8</SlotType>
     <Tier>10</Tier>
-    <Description>A wand of demonic enigmas, cloaked in darkness and crackling with dark enchantments.</Description>
+    <Description>A wand of demonic enigmas, adorned with beautiful mithril.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
@@ -708,7 +708,7 @@
     <FameBonus>3</FameBonus>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xaf6" id="Wand of Recompense">
+  <Object type="0xaf6" id="Sunsteel Wand">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -733,7 +733,7 @@
     <OldSound>magicShoot</OldSound>
   </Object>
 
-  <Object type="0x9ca" id="Wand of Evocation">
+  <Object type="0x9ca" id="Moonsteel Wand">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -742,7 +742,7 @@
     </Texture>
     <SlotType>8</SlotType>
 
-    <Description>A shining gold wand of force, built by a diabolic archmagus to channel vast corrupting energies into the material plane.</Description>
+    <Description>A shining wand of force, built by a diabolic archmagus to channel vast corrupting energies into the material plane.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
@@ -1547,7 +1547,7 @@
     <BagType>2</BagType>
     <FameBonus>6</FameBonus>
   </Object>
-  <Object type="0xa14" id="Steel Dagger">
+  <Object type="0xa14" id="Dirty Shiv">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1556,7 +1556,7 @@
     </Texture>
     <SlotType>2</SlotType>
     <Tier>0</Tier>
-    <Description>A sharp dagger made of steel.</Description>
+    <Description>A dirty prison shank.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/blunt_dagger</Sound>
     <Projectile>
@@ -1591,7 +1591,7 @@
     <BagType>0</BagType>
     <OldSound>daggerSwing</OldSound>
   </Object>
-  <Object type="0xa72" id="Blue Steel Dagger">
+  <Object type="0xa72" id="Dagger">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1613,7 +1613,7 @@
     <BagType>0</BagType>
     <OldSound>daggerSwing</OldSound>
   </Object>
-  <Object type="0xa73" id="Dusky Rose Dagger">
+  <Object type="0xa73" id="Case-hardened Dagger">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1622,7 +1622,7 @@
     </Texture>
     <SlotType>2</SlotType>
     <Tier>3</Tier>
-    <Description>A dagger made of rose tinted steel.</Description>
+    <Description>A dagger which is decorated by a strange design.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/dirk</Sound>
     <Projectile>
@@ -1635,7 +1635,7 @@
     <BagType>0</BagType>
     <OldSound>daggerSwing</OldSound>
   </Object>
-  <Object type="0xa74" id="Silver Dagger">
+  <Object type="0xa74" id="Gilded Dagger">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1644,7 +1644,7 @@
     </Texture>
     <SlotType>2</SlotType>
     <Tier>4</Tier>
-    <Description>A silver-plated steel dagger.</Description>
+    <Description>A gold-plated steel dagger.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/dirk</Sound>
     <Projectile>
@@ -1657,7 +1657,7 @@
     <BagType>0</BagType>
     <OldSound>daggerSwing</OldSound>
   </Object>
-  <Object type="0xa16" id="Golden Dagger">
+  <Object type="0xa16" id="Fire Dagger">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1666,8 +1666,8 @@
     </Texture>
     <SlotType>2</SlotType>
     <Tier>5</Tier>
-    <Description>A well-made dagger plated with gold and inscribed with evil runes.</Description>
     <RateOfFire>1</RateOfFire>
+    <Description>A dagger with a blade that burns with an unholy magic.</Description>
     <Sound>weapon/golden_dagger</Sound>
     <Projectile>
       <ObjectId>Blade</ObjectId>
@@ -1722,7 +1722,7 @@
     <BagType>1</BagType>
     <OldSound>daggerSwing</OldSound>
   </Object>
-  <Object type="0xa18" id="Mithril Dagger">
+  <Object type="0xa18" id="Quartz Dagger">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1731,9 +1731,9 @@
     </Texture>
     <SlotType>2</SlotType>
     <Tier>7</Tier>
-    <Description>An extremely sharp dagger made from the strongest and most desirable of all metals.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/mithril_dagger</Sound>
+    <Description>A deadly dagger of glittering quartz.</Description>
     <Projectile>
       <ObjectId>Blade</ObjectId>
       <Speed>140</Speed>
@@ -1744,7 +1744,7 @@
     <BagType>1</BagType>
     <OldSound>daggerSwing</OldSound>
   </Object>
-  <Object type="0xa19" id="Fire Dagger">
+  <Object type="0xa19" id="Aurichalcum Dagger">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1753,7 +1753,6 @@
     </Texture>
     <SlotType>2</SlotType>
     <Tier>8</Tier>
-    <Description>A dagger with a blade that burns with an unholy magic.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_dagger</Sound>
     <Projectile>
@@ -1767,7 +1766,7 @@
     <FameBonus>1</FameBonus>
     <OldSound>daggerSwing</OldSound>
   </Object>
-  <Object type="0xa88" id="Ragetalon Dagger">
+  <Object type="0xa88" id="Dagger of Necrotic Energy">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1776,7 +1775,7 @@
     </Texture>
     <SlotType>2</SlotType>
     <Tier>9</Tier>
-    <Description>A sharp druidic dagger vibrating with primal energies.</Description>
+    <Description>A dagger enchanted with necrotic energy.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_dagger</Sound>
     <Projectile>
@@ -1790,7 +1789,7 @@
     <FameBonus>1</FameBonus>
     <OldSound>daggerSwing</OldSound>
   </Object>
-  <Object type="0xa89" id="Emeraldshard Dagger">
+  <Object type="0xa89" id="Mithril Dagger">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1799,7 +1798,7 @@
     </Texture>
     <SlotType>2</SlotType>
     <Tier>10</Tier>
-    <Description>A deadly dagger of glittering magical emerald.</Description>
+    <Description>A dagger made with sharp and runic mithril.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_dagger</Sound>
     <Projectile>
@@ -1813,7 +1812,7 @@
     <FameBonus>2</FameBonus>
     <OldSound>daggerSwing</OldSound>
   </Object>
-  <Object type="0xa8a" id="Agateclaw Dagger">
+  <Object type="0xa8a" id="Adamantite Dagger">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1822,7 +1821,7 @@
     </Texture>
     <SlotType>2</SlotType>
     <Tier>11</Tier>
-    <Description>A dagger of rare purple agate, infused with powerful dark magics.</Description>
+    <Description>An indestructible dagger used to slay many legendary beasts.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_dagger</Sound>
     <Projectile>
@@ -1836,7 +1835,7 @@
     <FameBonus>3</FameBonus>
     <OldSound>daggerSwing</OldSound>
   </Object>
-  <Object type="0xaff" id="Dagger of Foul Malevolence">
+  <Object type="0xaff" id="Sunsteel Dagger">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1845,7 +1844,7 @@
     </Texture>
     <SlotType>2</SlotType>
     <Tier>12</Tier>
-    <Description>A crimson felsteel dagger saturated with evil magic and primordial hatreds.</Description>
+    <Description>A dagger made of blindingly beautiful sunsteel.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_dagger</Sound>
     <Projectile>
@@ -1860,7 +1859,7 @@
     <OldSound>daggerSwing</OldSound>
   </Object>
 
-  <Object type="0x9c6" id="Dagger of Sinister Deeds">
+  <Object type="0x9c6" id="Moonsteel Dagger">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1981,7 +1980,7 @@
     <BagType>0</BagType>
     <OldSound>arrowShoot</OldSound>
   </Object>
-  <Object type="0xa1b" id="Crossbow">
+  <Object type="0xa1b" id="Composite Bow">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -2073,7 +2072,7 @@
     <BagType>0</BagType>
     <OldSound>arrowShoot</OldSound>
   </Object>
-  <Object type="0xa1d" id="Double Bow">
+  <Object type="0xa1d" id="Obsidian-wood Bow">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -2082,7 +2081,7 @@
     </Texture>
     <SlotType>3</SlotType>
     <Tier>6</Tier>
-    <Description>A bow that somehow manages to shoot two arrows in different directions.</Description>
+    <Description>A bow made from a special type of wood, giving it the ability to shoot two arrows.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/double_bow</Sound>
     <Projectile>
@@ -2097,7 +2096,7 @@
     <NumProjectiles>2</NumProjectiles>
     <OldSound>arrowShoot</OldSound>
   </Object>
-  <Object type="0xa3a" id="Heavy Crossbow">
+  <Object type="0xa3a" id="Bow of Elvish Quartz">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -2106,7 +2105,7 @@
     </Texture>
     <SlotType>3</SlotType>
     <Tier>7</Tier>
-    <Description>A slow but powerful crossbow with a good grip.</Description>
+    <Description>A powerful bow strung with rare elvish string.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/heavy_crossbow</Sound>
     <Projectile>
@@ -2120,7 +2119,7 @@
     <BagType>1</BagType>
     <OldSound>arrowShoot</OldSound>
   </Object>
-  <Object type="0xa1e" id="Golden Bow">
+  <Object type="0xa1e" id="Aurichalcum Bow">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -2129,7 +2128,7 @@
     </Texture>
     <SlotType>3</SlotType>
     <Tier>8</Tier>
-    <Description>A bow gifted to mortals from the gods themselves. It shoots powerful arrows in three directions at once.</Description>
+    <Description>A bow made from the strong aurichalcum metal.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/golden_bow</Sound>
     <Projectile>
@@ -2145,7 +2144,7 @@
     <NumProjectiles>3</NumProjectiles>
     <OldSound>arrowShoot</OldSound>
   </Object>
-  <Object type="0xa8b" id="Verdant Bow">
+  <Object type="0xa8b" id="Necrotic Bow">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -2154,7 +2153,7 @@
     </Texture>
     <SlotType>3</SlotType>
     <Tier>9</Tier>
-    <Description>A highly effective bow fashioned of still-living magical springwood.</Description>
+    <Description>A bow which fires pulses necrotic energy.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/golden_bow</Sound>
     <Projectile>
@@ -2170,7 +2169,7 @@
     <NumProjectiles>3</NumProjectiles>
     <OldSound>arrowShoot</OldSound>
   </Object>
-  <Object type="0xa8c" id="Bow of Fey Magic">
+  <Object type="0xa8c" id="Mithril Studded Bow">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -2179,7 +2178,7 @@
     </Texture>
     <SlotType>3</SlotType>
     <Tier>10</Tier>
-    <Description>A powerful bow crafted by dryads and blessed by the spirits of the woodlands.</Description>
+    <Description>A powerful bow decorated with blessed mithril.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/golden_bow</Sound>
     <Projectile>
@@ -2195,7 +2194,7 @@
     <NumProjectiles>3</NumProjectiles>
     <OldSound>arrowShoot</OldSound>
   </Object>
-  <Object type="0xa8d" id="Bow of Innocent Blood">
+  <Object type="0xa8d" id="Adamantite Bow">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -2220,7 +2219,7 @@
     <NumProjectiles>3</NumProjectiles>
     <OldSound>arrowShoot</OldSound>
   </Object>
-  <Object type="0xb02" id="Bow of Covert Havens">
+  <Object type="0xb02" id="Sunsteel Bow">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -2229,9 +2228,9 @@
     </Texture>
     <SlotType>3</SlotType>
     <Tier>12</Tier>
-    <Description>A diamondwire bow used by guardians of the unseen ethereal shrines.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/golden_bow</Sound>
+    <Description>A superlative bow of sunsteel and diamondwire, created by a secretive race of star-dwelling entities.</Description>
     <Projectile>
       <ObjectId>Blue Arrow</ObjectId>
       <Speed>160</Speed>
@@ -2246,7 +2245,7 @@
     <OldSound>arrowShoot</OldSound>
   </Object>
 
-  <Object type="0x9cc" id="Bow of Mystical Energy">
+  <Object type="0x9cc" id="Moonsteel Bow">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -2255,7 +2254,7 @@
     </Texture>
     <SlotType>3</SlotType>
 
-    <Description>A superlative bow of sunsteel and diamondwire, created by a secretive race of star-dwelling entities.</Description>
+    <Description>A diamondwire bow used by guardians of the unseen ethereal shrines.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/golden_bow</Sound>
     <Projectile>
@@ -5090,7 +5089,7 @@
     <Activate effect="Armored" duration="4.5">ConditionEffectSelf</Activate>
     <Cooldown>6</Cooldown>
   </Object>
-  <Object type="0xa97" id="Energy Staff">
+  <Object type="0xa97" id="Uncharged Energy Staff">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -5099,7 +5098,7 @@
     </Texture>
     <SlotType>17</SlotType>
     <Tier>0</Tier>
-    <Description>A magical wooden staff topped with a white crystal.</Description>
+    <Description>A magical wooden staff topped with a purple crystal.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_wand</Sound>
     <Projectile>
@@ -5116,7 +5115,7 @@
     <ArcGap>0</ArcGap>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xa98" id="Firebrand Staff">
+  <Object type="0xa98" id="Petty Energy Staff">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -5125,7 +5124,7 @@
     </Texture>
     <SlotType>17</SlotType>
     <Tier>1</Tier>
-    <Description>A staff imbued with potent magical fire.</Description>
+    <Description>A staff imbued with impotent purple fire.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/missile_wand</Sound>
     <Projectile>
@@ -5142,7 +5141,7 @@
     <ArcGap>0</ArcGap>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xa99" id="Comet Staff">
+  <Object type="0xa99" id="Lesser Energy Staff">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -5151,7 +5150,7 @@
     </Texture>
     <SlotType>17</SlotType>
     <Tier>2</Tier>
-    <Description>A staff charged with the icy powers of the heavens.</Description>
+    <Description>A staff charged with lesser magical energy.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/missile_wand</Sound>
     <Projectile>
@@ -5168,7 +5167,7 @@
     <ArcGap>0</ArcGap>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xa9a" id="Serpentine Staff">
+  <Object type="0xa9a" id="Energy Staff">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -5177,7 +5176,7 @@
     </Texture>
     <SlotType>17</SlotType>
     <Tier>3</Tier>
-    <Description>A staff powered by the magic of Stheno's minions.</Description>
+    <Description>The standard wizard's staff, imbued with a purple glowing energy.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/missile_wand</Sound>
     <Projectile>
@@ -5194,7 +5193,7 @@
     <ArcGap>0</ArcGap>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xa9b" id="Meteor Staff">
+  <Object type="0xa9b" id="Good Energy Staff">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -5203,7 +5202,7 @@
     </Texture>
     <SlotType>17</SlotType>
     <Tier>4</Tier>
-    <Description>A staff that harnesses the energy of shooting stars.</Description>
+    <Description>An energy staff of quality used by wizards.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/missile_wand</Sound>
     <Projectile>
@@ -5220,7 +5219,7 @@
     <ArcGap>0</ArcGap>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xa9c" id="Slayer Staff">
+  <Object type="0xa9c" id="Greater Energy Staff">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -5229,7 +5228,7 @@
     </Texture>
     <SlotType>17</SlotType>
     <Tier>5</Tier>
-    <Description>A powerful staff crafted by demons for waging war on mortals.</Description>
+    <Description>A powerful staff crafted by the highest wizards of the realm for waging war on the Havoc.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/hells_fire_wand</Sound>
     <Projectile>
@@ -5246,7 +5245,7 @@
     <ArcGap>0</ArcGap>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xa9d" id="Avenger Staff">
+  <Object type="0xa9d" id="Obsidian Gilded Staff">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -5255,7 +5254,7 @@
     </Texture>
     <SlotType>17</SlotType>
     <Tier>6</Tier>
-    <Description>A slender felwood staff pulsing with auras of vengeance and justice.</Description>
+    <Description>A beautiful and lightweight staff adorned with an obsidian gem.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_dark_magic</Sound>
     <Projectile>
@@ -5272,7 +5271,7 @@
     <ArcGap>0</ArcGap>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xa9e" id="Staff of Destruction">
+  <Object type="0xa9e" id="Enchanted Quartz Staff">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -5281,7 +5280,7 @@
     </Texture>
     <SlotType>17</SlotType>
     <Tier>7</Tier>
-    <Description>An ancient knurlwood staff crackling with power and exuding thin grey vapors.</Description>
+    <Description>An quartz tipped staff crackling with power and exuding thin grey vapors.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/sprite_wand</Sound>
     <Projectile>
@@ -5298,7 +5297,7 @@
     <ArcGap>0</ArcGap>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xa9f" id="Staff of Horror">
+  <Object type="0xa9f" id="Aurichalcum Staff">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -5307,7 +5306,7 @@
     </Texture>
     <SlotType>17</SlotType>
     <Tier>8</Tier>
-    <Description>A mysterious runewood staff decorated with horrific figures.</Description>
+    <Description>A staff with a rare auric enchantment.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
@@ -5325,7 +5324,7 @@
     <ArcGap>0</ArcGap>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xaa0" id="Staff of Necrotic Arcana">
+  <Object type="0xaa0" id="Staff of Necrotic Energy">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -5352,7 +5351,7 @@
     <ArcGap>0</ArcGap>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xaa1" id="Staff of Diabolic Secrets">
+  <Object type="0xaa1" id="Mithril Staff">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -5361,7 +5360,7 @@
     </Texture>
     <SlotType>17</SlotType>
     <Tier>10</Tier>
-    <Description>An imposing golden staff of tremendous otherworldly power.</Description>
+    <Description>A sleek black staff with a mithril trim and cap.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
@@ -5379,7 +5378,7 @@
     <ArcGap>0</ArcGap>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xaa2" id="Staff of Astral Knowledge">
+  <Object type="0xaa2" id="Adamantium Staff">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -5388,7 +5387,7 @@
     </Texture>
     <SlotType>17</SlotType>
     <Tier>11</Tier>
-    <Description>A splendid golden staff of astonishing power, bathed in light and brimming with magical energy.</Description>
+    <Description>An indestructible staff crafted for Oryx's army.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
@@ -5406,7 +5405,7 @@
     <ArcGap>0</ArcGap>
     <OldSound>magicShoot</OldSound>
   </Object>
-  <Object type="0xb08" id="Staff of the Cosmic Whole">
+  <Object type="0xb08" id="Sunsteel Staff">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -5415,7 +5414,7 @@
     </Texture>
     <SlotType>17</SlotType>
     <Tier>12</Tier>
-    <Description>A golden staff of transcendent understanding, made from crystals present at the formation of universe.</Description>
+    <Description>A golden staff which shines so brightly only those worthy can even look upon it.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
@@ -5434,7 +5433,7 @@
     <OldSound>magicShoot</OldSound>
   </Object>
 
-  <Object type="0x9d1" id="Staff of the Vital Unity">
+  <Object type="0x9d1" id="Moonsteel staff">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -5442,8 +5441,7 @@
       <Index>0x7d</Index>
     </Texture>
     <SlotType>17</SlotType>
-
-    <Description>A golden staff of elysian consciousness, shining with the base power of empyrean truths.</Description>
+    <Description>A gloomy staff made from moon rocks.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
