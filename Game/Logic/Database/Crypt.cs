@@ -183,6 +183,7 @@ namespace RotMG.Game.Logic.Database
                     new EntitiesNotExistsTransition(99, "tauntWait", "Mage Switch", "Scythe Switch")
                 ),
                 new State("tauntWait",
+                   // new ClearRegionOnDeath(Region.),
                     new PlayerWithinTransition(10, "taunt", true),
                     new ChangeSize(100, 100)
                 ),
@@ -259,7 +260,7 @@ namespace RotMG.Game.Logic.Database
                     new OrderFrom(99, "Phantom Mage", "hidden", "reveal"),
                     new Order(12, "Phantom Mage", "hidden"),
                     new OrderFrom(99, "Scythe Phantom", "hidden", "reveal"),
-                    new TimedTransition("roto", 50) { SubIndex = 1 },
+                    new TimedTransition("roto", 50) { SubIndex = 0 },
                     new State("roto",
                         new Shoot(99, 5, 360 / 5, 0, 0f, -5f, cooldown: 70),
                         new Shoot(99, 5, 360 / 5, 0, 0f, 5f, cooldownOffset: 2700, cooldown: 70),
