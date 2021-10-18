@@ -85,7 +85,13 @@ namespace RotMG.Game
             //if (Desc.Decelerate != 0.0f) speed *= 2 - elapsed / Desc.LifetimeMS;
 
             var dist = elapsed * (speed / 10000f);
-            var phase = Id % 2 == 0 ? 0 : MathF.PI;
+
+            //Phase != 1 -> MathF.PI locked else 0 lock
+            float phase = Desc.PhaseLock == 1 ? 0 : MathF.PI;
+
+            if(Desc.PhaseLock == -1)
+                phase = Id % 2 == 0 ? 0 : MathF.PI;
+
             if (Desc.Wavy)
             {
                 var periodFactor = 6 * MathF.PI;

@@ -14,8 +14,8 @@ namespace RotMG.Game.Logic.Behaviors
 
         public SetPieceOnEnter(IntPoint p, string setpieceid)
         {
-            this.Piece = setpieceid;
             this.Point = p;
+            this.Piece = setpieceid;
         }
 
         public override void Enter(Entity host)

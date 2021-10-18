@@ -98,7 +98,10 @@ namespace RotMG.Common
                         Program.Print(PrintType.Error, $"Duplicate type <{id}:{type}>");
                     if (Id2Object.ContainsKey(id) || Id2Item.ContainsKey(id))
                     {
-                        Program.Print(PrintType.Error, $"Duplicate ID <{id}:{type}> from <{Id2Object[id]} : {Id2Item[id]}>");
+                        if(Id2Object.ContainsKey(id))
+                            Program.Print(PrintType.Error, $"Duplicate ID <{id}:{type}> from <{Id2Object[id]}>");
+                        if(Id2Item.ContainsKey(id))
+                            Program.Print(PrintType.Error, $"Duplicate ID <{id}:{type}> from <{Id2Item[id]}>");
                     }
 #endif
 

@@ -325,11 +325,7 @@ namespace RotMG.Game.Logic.Database
                         new Follow(1.2f, range: 7)
                         ),
                     new Shoot(10)
-                    ),
-                new ItemLoot("Hell's Fire Wand", 0.20f, r: new RarityModifiedData(1.5f, 2)),
-                new ItemLoot("Slayer Staff", 0.20f, r: new RarityModifiedData(1.5f, 2)),
-                new ItemLoot("Golden Sword", 0.20f, r: new RarityModifiedData(1.5f, 2)),
-                new ItemLoot("Golden Dagger", 0.20f, r: new RarityModifiedData(1.5f, 2))
+                    )
             );
 
             db.Init("Deathmage",
@@ -352,7 +348,7 @@ namespace RotMG.Game.Logic.Database
                         new ItemLoot("Potion of Mana", 0.15f),
                         new ItemLoot("Lifedrinker Skull", 0.08f, r: new RarityModifiedData(1.5f, 2)),
                         new ItemLoot("Eldritch Battle Staff", 0.08f, r: new RarityModifiedData(1.5f, 4, true)),
-                        new ItemLoot("Staff of Necrotic Arcana", 0.08f, r: new RarityModifiedData(1.5f, 2)),
+                        new ItemLoot("Staff of Necrotic Energy", 0.08f, r: new RarityModifiedData(1.5f, 2)),
                         new ItemLoot("Theurgy Wand", 0.01f, r: new RarityModifiedData(1.5f, 2))
                     )
                 );

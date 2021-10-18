@@ -71,8 +71,7 @@ namespace RotMG.Game.Logic.Database
                     new Reproduce(densityMax: 2, densityRadius: 40)
                     ),
                 new ItemLoot("Health Potion", 0.03f),
-                new ItemLoot("Magic Potion", 0.02f),
-                new ItemLoot("Crossbow", 0.5f)
+                new ItemLoot("Magic Potion", 0.02f)
             );
             db.Init("Bandit Enemy",
                 new State(
@@ -161,8 +160,7 @@ namespace RotMG.Game.Logic.Database
                         )
                     ),
                 new ItemLoot("Health Potion", 0.12f),
-                new ItemLoot("Magic Potion", 0.14f),
-                new ItemLoot("Blue Steel Dagger", 0.5f)
+                new ItemLoot("Magic Potion", 0.14f)
             );
             db.Init("Red Gelatinous Cube",
                 new State(
@@ -171,8 +169,7 @@ namespace RotMG.Game.Logic.Database
                     new Wander(0.4f)
                     ),
                 new ItemLoot("Health Potion", 0.04f),
-                new ItemLoot("Magic Potion", 0.04f),
-                new ItemLoot("Thunder Katana", 0.05f)
+                new ItemLoot("Magic Potion", 0.04f)
             );
             db.Init("Purple Gelatinous Cube",
                 new State(
@@ -181,8 +178,7 @@ namespace RotMG.Game.Logic.Database
                     new Wander(0.4f)
                     ),
                 new ItemLoot("Health Potion", 0.04f),
-                new ItemLoot("Magic Potion", 0.04f),
-                new ItemLoot("Thunder Katana", 0.05f)
+                new ItemLoot("Magic Potion", 0.04f)
             );
             db.Init("Green Gelatinous Cube",
                 new State(
@@ -191,8 +187,7 @@ namespace RotMG.Game.Logic.Database
                     new Wander(0.4f)
                     ),
                 new ItemLoot("Health Potion", 0.04f),
-                new ItemLoot("Magic Potion", 0.04f),
-                new ItemLoot("Serpentine Staff", 0.05f)
+                new ItemLoot("Magic Potion", 0.04f)
             );
 
             db.EveryInit = new IBehavior[] { };

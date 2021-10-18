@@ -1,0 +1,7 @@
+<Object type="{TYPE}" id="{ID}">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>{FILENAME}</File>
+      <Index>{INDEX}</Index>
+    </Texture>
+</Object>

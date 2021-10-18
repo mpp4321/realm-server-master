@@ -98,8 +98,10 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Golden Shield", 0.02f),
                 new ItemLoot("Health Potion", 0.05f)
             );
+
             db.Init("Cyclops Noble",
                 new State("base",
+                    
                     new Prioritize(
                         new StayCloseToSpawn(1.2f, 5),
                         new Follow(1.2f, range: 1),
@@ -107,8 +109,6 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new Shoot(3)
                     ),
-                new ItemLoot("Golden Dagger", 0.02f),
-                new ItemLoot("Studded Leather Armor", 0.02f),
                 new ItemLoot("Health Potion", 0.05f)
             );
             db.Init("Cyclops Prince",

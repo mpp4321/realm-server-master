@@ -1041,6 +1041,8 @@ namespace RotMG.Common
         public readonly float AccelerateDelay;
         public readonly float SpeedClamp;
 
+        public readonly short PhaseLock = -1;
+
         public readonly ushort ContainerType;
 
         public ProjectileDesc(XElement e, ushort containerType)
@@ -1074,6 +1076,8 @@ namespace RotMG.Common
             DoAccelerate = Accelerate > 0.0f;
             AccelerateDelay = e.ParseFloat("AccelerateDelay");
             SpeedClamp = e.ParseFloat("SpeedClamp");
+
+            PhaseLock = (short) e.ParseInt("PhaseLock", -1);
 
         }
     }
