@@ -1560,7 +1560,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/blunt_dagger</Sound>
     <Projectile>
-      <ObjectId>Blade</ObjectId>
+      <ObjectId>T0 Dagger</ObjectId>
       <Speed>140</Speed>
       <MinDamage>20</MinDamage>
       <MaxDamage>60</MaxDamage>
@@ -1582,7 +1582,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/dirk</Sound>
     <Projectile>
-      <ObjectId>Blade</ObjectId>
+      <ObjectId>T1 Dagger</ObjectId>
       <Speed>140</Speed>
       <MinDamage>20</MinDamage>
       <MaxDamage>70</MaxDamage>
@@ -1604,7 +1604,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/dirk</Sound>
     <Projectile>
-      <ObjectId>Blade</ObjectId>
+      <ObjectId>T2 Dagger</ObjectId>
       <Speed>140</Speed>
       <MinDamage>20</MinDamage>
       <MaxDamage>75</MaxDamage>
@@ -1626,7 +1626,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/dirk</Sound>
     <Projectile>
-      <ObjectId>Blade</ObjectId>
+      <ObjectId>T3 Dagger</ObjectId>
       <Speed>140</Speed>
       <MinDamage>25</MinDamage>
       <MaxDamage>80</MaxDamage>
@@ -1648,7 +1648,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/dirk</Sound>
     <Projectile>
-      <ObjectId>Blade</ObjectId>
+      <ObjectId>T4 Dagger</ObjectId>
       <Speed>140</Speed>
       <MinDamage>30</MinDamage>
       <MaxDamage>80</MaxDamage>
@@ -1670,7 +1670,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/golden_dagger</Sound>
     <Projectile>
-      <ObjectId>Blade</ObjectId>
+      <ObjectId>T5 Dagger</ObjectId>
       <Speed>140</Speed>
       <MinDamage>30</MinDamage>
       <MaxDamage>90</MaxDamage>
@@ -1692,7 +1692,7 @@
     <RateOfFire>1.5</RateOfFire>
     <Sound>weapon/obsidian_dagger</Sound>
     <Projectile>
-      <ObjectId>Blade</ObjectId>
+      <ObjectId>T6 Dagger</ObjectId>
       <Speed>140</Speed>
       <MinDamage>35</MinDamage>
       <MaxDamage>65</MaxDamage>
@@ -1735,7 +1735,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/mithril_dagger</Sound>
     <Projectile>
-      <ObjectId>Blade</ObjectId>
+      <ObjectId>T7 Dagger</ObjectId>
       <Speed>140</Speed>
       <MinDamage>60</MinDamage>
       <MaxDamage>140</MaxDamage>
@@ -1757,7 +1757,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_dagger</Sound>
     <Projectile>
-      <ObjectId>Red Fire</ObjectId>
+      <ObjectId>T8 Dagger</ObjectId>
       <Speed>140</Speed>
       <MinDamage>80</MinDamage>
       <MaxDamage>160</MaxDamage>
@@ -1780,7 +1780,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_dagger</Sound>
     <Projectile>
-      <ObjectId>White Bolt</ObjectId>
+      <ObjectId>T9 Dagger</ObjectId>
       <Speed>140</Speed>
       <MinDamage>85</MinDamage>
       <MaxDamage>165</MaxDamage>
@@ -1803,7 +1803,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_dagger</Sound>
     <Projectile>
-      <ObjectId>Green Bolt</ObjectId>
+      <ObjectId>T10 Dagger</ObjectId>
       <Speed>140</Speed>
       <MinDamage>90</MinDamage>
       <MaxDamage>170</MaxDamage>
@@ -1826,7 +1826,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_dagger</Sound>
     <Projectile>
-      <ObjectId>Blue Magic</ObjectId>
+      <ObjectId>T11 Dagger</ObjectId>
       <Speed>140</Speed>
       <MinDamage>90</MinDamage>
       <MaxDamage>175</MaxDamage>
@@ -1849,7 +1849,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_dagger</Sound>
     <Projectile>
-      <ObjectId>Purple Magic</ObjectId>
+      <ObjectId>T12 Dagger</ObjectId>
       <Speed>140</Speed>
       <MinDamage>95</MinDamage>
       <MaxDamage>175</MaxDamage>
@@ -1873,7 +1873,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_dagger</Sound>
     <Projectile>
-      <ObjectId>Green Magic</ObjectId>
+      <ObjectId>T13 Dagger</ObjectId>
       <Speed>140</Speed>
       <MinDamage>95</MinDamage>
       <MaxDamage>180</MaxDamage>
@@ -9555,7 +9555,7 @@
     <RateOfFire>0.33</RateOfFire>
     <Sound>weapon/glass_sword</Sound>
     <Projectile>
-      <ObjectId>Blade</ObjectId>
+      <ObjectId>Cyclops Hammershot</ObjectId>
       <Speed>75</Speed>
       <MinDamage>300</MinDamage>
       <MaxDamage>400</MaxDamage>

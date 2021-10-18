@@ -2994,4 +2994,124 @@
     <AngleCorrection>2</AngleCorrection>
     <Rotation>180</Rotation>
  </Object>
+ <Object type="0x2169" id="T0 Dagger">
+	<Class>Projectile</Class>
+	<Texture>
+		<File>lofiProjs</File>
+		<Index>0x80</Index>
+	</Texture>
+	<AngleCorrection>1</AngleCorrection>
+ </Object>
+	<Object type="0x2170" id="T1 Dagger">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiProjs</File>
+			<Index>0x81</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x2171" id="T2 Dagger">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiProjs</File>
+			<Index>0x82</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x2172" id="T3 Dagger">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiProjs</File>
+			<Index>0x83</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x2173" id="T4 Dagger">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiProjs</File>
+			<Index>0x84</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x2174" id="T5 Dagger">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiProjs</File>
+			<Index>0x85</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x2175" id="T6 Dagger">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiProjs</File>
+			<Index>0x86</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x2176" id="T7 Dagger">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiProjs</File>
+			<Index>0x87</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x2177" id="T8 Dagger">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiProjs</File>
+			<Index>0x88</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x2178" id="T9 Dagger">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiProjs</File>
+			<Index>0x89</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x2179" id="T10 Dagger">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiProjs</File>
+			<Index>0x8a</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x2180" id="T11 Dagger">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiProjs</File>
+			<Index>0x8b</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x2181" id="T12 Dagger">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiProjs</File>
+			<Index>0x8c</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x2182" id="T13 Dagger">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiProjs</File>
+			<Index>0x8d</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x2182" id="Cyclops Hammershot">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiProjs</File>
+			<Index>0x7d</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
 </Objects>
