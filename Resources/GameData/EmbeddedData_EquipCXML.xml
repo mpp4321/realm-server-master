@@ -8485,7 +8485,7 @@
       <Index>0x163</Index>
     </Texture>
     <SlotType>2</SlotType>
-    <Description>A dagger made of the teeth of the great coil snake.</Description>
+    <Description>A dagger made of the fang of the Great Coil Snake.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/blunt_dagger</Sound>
     <Projectile>
@@ -8495,6 +8495,9 @@
       <MaxDamage>100</MaxDamage>
       <LifetimeMS>300</LifetimeMS>
     </Projectile>
+	<ExtraTooltipData>
+      <EffectInfo name="Poison Coating:" description="On hit, 10% chance to poison the struck enemy for 500 damage over 5 seconds."/>
+    </ExtraTooltipData>
     <BagType>4</BagType>
     <UniqueEffect>PoisonDagger</UniqueEffect>
     <OldSound>daggerSwing</OldSound>
@@ -8955,6 +8958,9 @@
     <NumProjectiles>4</NumProjectiles>
     <ArcGap>0</ArcGap>
     <OldSound>bladeSwing</OldSound>
+   <ExtraTooltipData>
+      <EffectInfo name="Crustacean Strike:" description="Fires a barage of 4 projectiles. Each projectile has a longer lifespand a lower damage than the one before it."/>
+    </ExtraTooltipData>
   </Object>
   <Object type="0xc87" id="Curious Eyeball">
     <Class>Equipment</Class>
@@ -8971,6 +8977,9 @@
     <UniqueEffect>CuriousEyeball</UniqueEffect>
     <BagType>4</BagType>
     <FameBonus>4</FameBonus>
+   <ExtraTooltipData>
+      <EffectInfo name="Myelin Sheathing:" description="While equipped, your shots have a 10% chance to fire an arc of electricity based on the projectile's damage. Damage from the electric bolt will spread itself evenly among the targets near to the enemy struck."/>
+    </ExtraTooltipData>
   </Object>
   <Object type="0xc88" id="Spectral Gown">
     <Class>Equipment</Class>
@@ -8987,6 +8996,9 @@
     <UniqueEffect>SpectralCloth</UniqueEffect>
     <BagType>4</BagType>
     <FameBonus>4</FameBonus>
+    <ExtraTooltipData>
+      <EffectInfo name="Spectral Visage:" description="When you are struck by an enemy, 10% chance to gain +12 WIS for a short time."/>
+    </ExtraTooltipData>
   </Object>
   <Object type="0xc89" id="Cracked Old Prism">
     <Class>Equipment</Class>
@@ -9026,6 +9038,9 @@
     <ActivateOnEquip stat="3" amount="50">IncrementStat</ActivateOnEquip>
     <UniqueEffect>Crumbling</UniqueEffect>
     <BagType>4</BagType>
+    <ExtraTooltipData>
+      <EffectInfo name="Fragile Foundation:" description="When struck, there is a chance to lose 10 DEF for 5 seconds. Each time you 'crumble,' the timer will refresh. Chance to 'crumble' is based on the damage taken by the projectile; low damage has a low chance to cause 'crumbling,' but high damage has a high chance to cause 'crumbling.'"/>
+    </ExtraTooltipData>
   </Object>
   <Object type="0xc8c" id="Garment of Medusa">
     <Class>Equipment</Class>
@@ -9168,6 +9183,9 @@
     <MpCost>120</MpCost>
     <UniqueEffect>BrainOrb</UniqueEffect>
     <Activate duration="1">StasisBlast</Activate>
+    <ExtraTooltipData>
+      <EffectInfo name="Cerebral Creation:" description="When used, create an allied 'Mini Brain' pet that fights by your side for 5 seconds for each enemy struck by the blast."/>
+    </ExtraTooltipData>
   </Object>
   <Object type="0xc91" id="Captured Ritual Flame">
     <Class>Equipment</Class>
@@ -9185,6 +9203,9 @@
     <BagType>5</BagType>
     <FameBonus>4</FameBonus>
     <MpCost>130</MpCost>
+    <ExtraTooltipData>
+      <EffectInfo name="Soul-Infused Inferno:" description="Upon use, throw a deadly magical flame that pulses around it for high damage over 5 seconds."/>
+    </ExtraTooltipData>
   </Object>
   <Object type="0xc92" id="Captured Ritual Flame of Doom">
     <Class>Equipment</Class>
@@ -9228,9 +9249,6 @@
 	<NumProjectiles>3</NumProjectiles>
 	<ArcGap>8</ArcGap>
 	<OldSound>magicShoot</OldSound>
-	   <ExtraTooltipData>
-		   <EffectInfo name="Dark" description="+30 to being a bro"/>
-	   </ExtraTooltipData>
 </Object>
   <Object type="0xc94" id="Fire Rune">
     <Class>Equipment</Class>
@@ -9242,32 +9260,6 @@
     <Description>The flame of a ritual fueled by human sacrifice captured before the ritual could be completed.</Description>
     <Component>FireRune</Component>
     <BagType>5</BagType>
-  </Object>
-  <Object type="0xc95" id="Dragonfire">
-    <Class>Equipment</Class>
-    <Item/>
-    <Texture>
-      <File>lofiObj5</File>
-      <Index>0x70</Index>
-    </Texture>
-    <SlotType>17</SlotType>
-    <Description>A staff of tungsten built around the ever-living bile gland of a horned drake. Upon contact with the air, the bile ingnites violently, causing perpetual flame.</Description>
-    <RateOfFire>1.25</RateOfFire>
-    <Sound>weapon/wand_of_death</Sound>
-    <Projectile>
-      <ObjectId>Directed Explosion</ObjectId>
-      <Speed>70</Speed>
-      <MinDamage>30</MinDamage>
-      <MaxDamage>60</MaxDamage>
-      <LifetimeMS>1200</LifetimeMS>
-      <Amplitude>0.8</Amplitude>
-      <Frequency>2</Frequency>
-      <ArmorPiercing>true</ArmorPiercing>
-    </Projectile>
-    <BagType>4</BagType>
-    <NumProjectiles>3</NumProjectiles>
-    <ArcGap>8</ArcGap>
-    <OldSound>magicShoot</OldSound>
   </Object>
   <Object type="0xc96" id="Spear of the Storm">
     <Class>Equipment</Class>
@@ -9298,6 +9290,9 @@
     <ArcGap>10</ArcGap>
     <UniqueEffect>Electricity</UniqueEffect>
     <OldSound>magicShoot</OldSound>
+   <ExtraTooltipData>
+      <EffectInfo name="Heavenly Blow:" description="On hit, small chance to create thunderclouds around the struck enemy. These thunderclouds soon strike their surroundings for 300 damage, including the wielder."/>
+    </ExtraTooltipData>
   </Object>
   <Object type="0xc97" id="Soul of the Lost Land">
     <Class>Equipment</Class>
@@ -9363,6 +9358,9 @@
     <ActivateOnEquip stat="6" amount="5">IncrementStat</ActivateOnEquip>
     <BagType>5</BagType>
     <UniqueEffect>BloodSuck</UniqueEffect>
+   <ExtraTooltipData>
+      <EffectInfo name="Essence Drain" description="While equipped, slowly drains the wearer's health down to 50% of maximum HP."/>
+    </ExtraTooltipData>
   </Object>
   <Object type="0xc99" id="Wooden Prism">
     <Class>Equipment</Class>
@@ -9764,7 +9762,7 @@
     <BagType>5</BagType>
     <OldSound>daggerSwing</OldSound>
     <ExtraTooltipData>
-      <EffectInfo name="Whiplash" description="Burst fires a series of quick, boomeranging shots. The first and last pierce armor."/>
+      <EffectInfo name="Whiplash:" description="Burst fires a series of quick, boomeranging shots. The first and last pierce armor."/>
     </ExtraTooltipData>
   </Object>
   <Object type="0xca6" id="Snakeskin Guard">
@@ -9784,7 +9782,7 @@
     <BagType>5</BagType>
     <FameBonus>5</FameBonus>
     <ExtraTooltipData>
-      <EffectInfo name="Shed Skin" description="While invisible, lose half your defense and gain that in vitality."/>
+      <EffectInfo name="Shed Skin:" description="While invisible, lose half your defense and gain that in vitality."/>
     </ExtraTooltipData>
     <UniqueEffect>SnakePitArmor</UniqueEffect>
   </Object>
@@ -9803,7 +9801,7 @@
     <BagType>5</BagType>
     <FameBonus>5</FameBonus>
     <ExtraTooltipData>
-      <EffectInfo name="Retaliation" description="Upon being hit, you have a 10% chance to quickly strike the target with increased damage"/>
+      <EffectInfo name="Retaliation:" description="Upon being hit, you have a 10% chance to quickly strike the enemy with the same force."/>
     </ExtraTooltipData>
     <UniqueEffect>OphGem</UniqueEffect>
   </Object>
@@ -9825,7 +9823,7 @@
     <Activate effect="Invisible" duration="4.5">ConditionEffectSelf</Activate>
     <Cooldown>5</Cooldown>
     <ExtraTooltipData>
-      <EffectInfo name="Shocking Escape" description="Upon use, spawn a helpful electrically powered snake."/>
+      <EffectInfo name="Shocking Escape:" description="Upon use, spawn a helpful electrically powered snake."/>
     </ExtraTooltipData>
     <UniqueEffect>ElectricSnake</UniqueEffect>
   </Object>
