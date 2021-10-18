@@ -1868,7 +1868,6 @@
       <Index>0x6d</Index>
     </Texture>
     <SlotType>2</SlotType>
-
     <Description>A moonsteel dagger of the underworld, corrupted by loathsome enchantments and profane spells.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_dagger</Sound>
@@ -1948,7 +1947,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/poor_quality_bow</Sound>
     <Projectile>
-      <ObjectId>Green Arrow</ObjectId>
+      <ObjectId>T0 Bow</ObjectId>
       <Speed>160</Speed>
       <MinDamage>10</MinDamage>
       <MaxDamage>40</MaxDamage>
@@ -1971,7 +1970,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/poor_quality_bow</Sound>
     <Projectile>
-      <ObjectId>Green Arrow</ObjectId>
+      <ObjectId>T1 Bow</ObjectId>
       <Speed>160</Speed>
       <MinDamage>15</MinDamage>
       <MaxDamage>45</MaxDamage>
@@ -1994,7 +1993,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/crossbow</Sound>
     <Projectile>
-      <ObjectId>Crossbow Bolt</ObjectId>
+      <ObjectId>T2 Bow</ObjectId>
       <Speed>200</Speed>
       <MinDamage>20</MinDamage>
       <MaxDamage>50</MaxDamage>
@@ -2017,7 +2016,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/poor_quality_bow</Sound>
     <Projectile>
-      <ObjectId>Green Arrow</ObjectId>
+      <ObjectId>T3 Bow</ObjectId>
       <Speed>160</Speed>
       <MinDamage>25</MinDamage>
       <MaxDamage>55</MaxDamage>
@@ -2040,7 +2039,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/poor_quality_bow</Sound>
     <Projectile>
-      <ObjectId>Green Arrow</ObjectId>
+      <ObjectId>T4 Bow</ObjectId>
       <Speed>160</Speed>
       <MinDamage>35</MinDamage>
       <MaxDamage>65</MaxDamage>
@@ -2063,7 +2062,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_bow</Sound>
     <Projectile>
-      <ObjectId>Red Fire</ObjectId>
+      <ObjectId>T5 Bow</ObjectId>
       <Speed>160</Speed>
       <MinDamage>45</MinDamage>
       <MaxDamage>65</MaxDamage>
@@ -2086,7 +2085,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/double_bow</Sound>
     <Projectile>
-      <ObjectId>Blue Arrow</ObjectId>
+      <ObjectId>T6 Bow</ObjectId>
       <Speed>160</Speed>
       <MinDamage>30</MinDamage>
       <MaxDamage>50</MaxDamage>
@@ -2110,7 +2109,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/heavy_crossbow</Sound>
     <Projectile>
-      <ObjectId>Heavy Crossbow Bolt</ObjectId>
+      <ObjectId>T7 Bow</ObjectId>
       <Speed>150</Speed>
       <MinDamage>50</MinDamage>
       <MaxDamage>70</MaxDamage>
@@ -2133,7 +2132,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/golden_bow</Sound>
     <Projectile>
-      <ObjectId>Gold Arrow</ObjectId>
+      <ObjectId>T8 Bow</ObjectId>
       <Speed>160</Speed>
       <MinDamage>40</MinDamage>
       <MaxDamage>60</MaxDamage>
@@ -2158,7 +2157,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/golden_bow</Sound>
     <Projectile>
-      <ObjectId>Green Arrow</ObjectId>
+      <ObjectId>T9 Bow</ObjectId>
       <Speed>160</Speed>
       <MinDamage>40</MinDamage>
       <MaxDamage>65</MaxDamage>
@@ -2183,7 +2182,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/golden_bow</Sound>
     <Projectile>
-      <ObjectId>Blue Arrow</ObjectId>
+      <ObjectId>T10 Bow</ObjectId>
       <Speed>160</Speed>
       <MinDamage>45</MinDamage>
       <MaxDamage>65</MaxDamage>
@@ -2208,7 +2207,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/golden_bow</Sound>
     <Projectile>
-      <ObjectId>Red Arrow</ObjectId>
+      <ObjectId>T11 Bow</ObjectId>
       <Speed>160</Speed>
       <MinDamage>45</MinDamage>
       <MaxDamage>70</MaxDamage>
@@ -2233,7 +2232,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/golden_bow</Sound>
     <Projectile>
-      <ObjectId>Blue Arrow</ObjectId>
+      <ObjectId>T12 Bow</ObjectId>
       <Speed>160</Speed>
       <MinDamage>50</MinDamage>
       <MaxDamage>70</MaxDamage>
@@ -2254,12 +2253,11 @@
       <Index>0x5d</Index>
     </Texture>
     <SlotType>3</SlotType>
-
     <Description>A superlative bow of sunsteel and diamondwire, created by a secretive race of star-dwelling entities.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/golden_bow</Sound>
     <Projectile>
-      <ObjectId>Gold Arrow</ObjectId>
+      <ObjectId>T13 Bow</ObjectId>
       <Speed>160</Speed>
       <MinDamage>50</MinDamage>
       <MaxDamage>75</MaxDamage>
