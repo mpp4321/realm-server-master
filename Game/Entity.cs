@@ -813,8 +813,8 @@ namespace RotMG.Game
                 case "ClosedVaultChest":
                     return new ClosedVaultChest();
             }
-            if (desc.Static) return new StaticObject(type);
             if (desc.Enemy) return new Enemy(type);
+            if (desc.Static) return new StaticObject(type);
             return new Entity(type);
         }
 

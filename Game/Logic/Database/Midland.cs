@@ -605,18 +605,18 @@ namespace RotMG.Game.Logic.Database
             db.Init("Horned Drake",
                 new State("base",
                     new Spawn("Drake Baby", maxChildren: 1, initialSpawn: 1, cooldown: 50000, givesNoXp: false),
-                        new TransitionFrom("base", "Idle")
-                    ),
+                    new TransitionFrom("base", "idle"),
                     new State("idle",
                         new StayAbove(0.8f, 60),
                         new PlayerWithinTransition(10, "get_player")
                         ),
                     new State("get_player",
+                        new StayAbove(0.8f, 60),
                         new Prioritize(
-                            new StayAbove(0.8f, 60),
                             new Follow(0.8f, range: 2.7f, acquireRange: 10, duration: 5000, cooldown: 1800),
                             new Wander(0.8f)
-                            )),
+                        ),
+                        new TransitionFrom("get_player", "one_shot"),
                         new State("one_shot",
                             new Shoot(15, 5, 5, index: 1, cooldown: 800),
                             new Shoot(15, 5, 5, index: 1, cooldown: 800, cooldownOffset: 200),
@@ -629,20 +629,22 @@ namespace RotMG.Game.Logic.Database
                             new Shoot(8, count: 3, shootAngle: 40, predictive: 0.1f, cooldown: 100000,
                                 cooldownOffset: 800),
                             new TimedTransition("one_shot", 800)
-                            ),
-                    new State("protect_me",
-                        new Protect(0.8f, "Drake Baby", acquireRange: 12, protectionRange: 2.5f, reprotectRange: 1.5f),
-                        new State("one_shot",
-                            new Shoot(8, predictive: 0.1f, cooldown: 700),
-                            new TimedTransition("three_shot", 800)
-                            ),
-                        new State("three_shot",
-                            new Shoot(8, count: 3, shootAngle: 40, predictive: 0.1f, cooldown: 100000,
-                                cooldownOffset: 700),
-                            new TimedTransition("one_shot", 1800)
-                            ),
-                        new EntitiesNotExistsTransition(8, "idle", "Drake Baby")
                         ),
+                        new State("protect_me",
+                            new Protect(0.8f, "Drake Baby", acquireRange: 12, protectionRange: 2.5f, reprotectRange: 1.5f),
+                            new State("one_shot",
+                                new Shoot(8, predictive: 0.1f, cooldown: 700),
+                                new TimedTransition("three_shot", 800)
+                                ),
+                            new State("three_shot",
+                                new Shoot(8, count: 3, shootAngle: 40, predictive: 0.1f, cooldown: 100000,
+                                    cooldownOffset: 700),
+                                new TimedTransition("one_shot", 1800)
+                                ),
+                            new EntitiesNotExistsTransition(8, "idle", "Drake Baby")
+                        )
+                    )
+                ),
                 new TierLoot(5, LootType.Weapon, 0.6f),
                 new TierLoot(6, LootType.Weapon, 0.1f),
                 new TierLoot(5, LootType.Armor, 0.6f),
@@ -932,7 +934,7 @@ namespace RotMG.Game.Logic.Database
                         new Transform("Actual Ent Ancient")
                         )
                     )
-            );;
+            ); ;
             db.Init("Actual Ent Ancient",
                 new State("base",
                     new Prioritize(
@@ -940,6 +942,7 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.2f)
                         ),
                     new Spawn("Ent Sapling", maxChildren: 3, initialSpawn: 0, cooldown: 3000, givesNoXp: false),
+                    new TransitionFrom("base", "Start"),
                     new State("Start",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                         new ChangeSize(11, 160),
@@ -1011,6 +1014,7 @@ namespace RotMG.Game.Logic.Database
                         new ChangeSize(11, 340),
                         new Taunt(1.0f, "YOU WILL DIE!!!"),
                         new Shoot(10, index: 9, count: 1),
+                        new TransitionFrom("Growing9", "convert_sprites"),
                         new State("convert_sprites",
                             new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                             new Order(50, "Greater Nature Sprite", "Transform"),

@@ -1111,7 +1111,7 @@
     <Activate>Shoot</Activate>
     <NumProjectiles>5</NumProjectiles>
   </Object>
-  <Object type="0xa78" id="Wolfskin Armor">
+  <Object type="0xa78" id="Padded Armor">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1120,7 +1120,7 @@
     </Texture>
     <SlotType>6</SlotType>
     <Tier>1</Tier>
-    <Description>Leather armor fashioned from wolf pelts.</Description>
+    <Description>Armor layered with quilts and battings.</Description>
     <ActivateOnEquip stat="3" amount="5">IncrementStat</ActivateOnEquip>
     <BagType>0</BagType>
   </Object>
@@ -1133,11 +1133,11 @@
     </Texture>
     <SlotType>6</SlotType>
     <Tier>2</Tier>
-    <Description>Armor made of hardened leather.</Description>
+    <Description>Armor made of leather.</Description>
     <ActivateOnEquip stat="3" amount="6">IncrementStat</ActivateOnEquip>
     <BagType>0</BagType>
   </Object>
-  <Object type="0xa79" id="Basilisk Hide Armor">
+  <Object type="0xa79" id="Hardened Hide Armor">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1146,11 +1146,11 @@
     </Texture>
     <SlotType>6</SlotType>
     <Tier>3</Tier>
-    <Description>Leather armor made from the skin of a magical lizard.</Description>
+    <Description>Leather treated until hardened and fashioned into armor.</Description>
     <ActivateOnEquip stat="3" amount="7">IncrementStat</ActivateOnEquip>
     <BagType>0</BagType>
   </Object>
-  <Object type="0xa7a" id="Minotaur Hide Armor">
+  <Object type="0xa7a" id="Studded Armor">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1159,12 +1159,12 @@
     </Texture>
     <SlotType>6</SlotType>
     <Tier>4</Tier>
-    <Description>Leather armor made from the tough hide of a minotaur.</Description>
+    <Description>Leather armor fashioned with metal studdings.</Description>
     <ActivateOnEquip stat="3" amount="8">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="5" amount="2">IncrementStat</ActivateOnEquip>
     <BagType>0</BagType>
   </Object>
-  <Object type="0xad0" id="Bearskin Armor">
+  <Object type="0xad0" id="Superiour Studded Armor">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1173,12 +1173,12 @@
     </Texture>
     <SlotType>6</SlotType>
     <Tier>5</Tier>
-    <Description>Armor made from the thick leather of a dire bear.</Description>
+    <Description>Leather armor expensively covered in protective metal.</Description>
     <ActivateOnEquip stat="3" amount="9">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="5" amount="2">IncrementStat</ActivateOnEquip>
     <BagType>0</BagType>
   </Object>
-  <Object type="0xad1" id="Chimera Hide Armor">
+  <Object type="0xad1" id="Gilded Hide Armor">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1187,12 +1187,12 @@
     </Texture>
     <SlotType>6</SlotType>
     <Tier>6</Tier>
-    <Description>Magically protective leather armor made from chimera hides.</Description>
+    <Description>Glistening gold covers this royal looking piece of hide.</Description>
     <ActivateOnEquip stat="3" amount="10">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="5" amount="2">IncrementStat</ActivateOnEquip>
     <BagType>1</BagType>
   </Object>
-  <Object type="0xad2" id="Wyvern Skin Armor">
+  <Object type="0xad2" id="Glistening Wyvern Armor">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1201,12 +1201,12 @@
     </Texture>
     <SlotType>6</SlotType>
     <Tier>7</Tier>
-    <Description>Tough, durable armor made from wyvern leather.</Description>
+    <Description>Rare wyvern skin fashioned into a bright and fierce looking armor.</Description>
     <ActivateOnEquip stat="3" amount="12">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="5" amount="2">IncrementStat</ActivateOnEquip>
     <BagType>1</BagType>
   </Object>
-  <Object type="0xa0e" id="Studded Leather Armor">
+  <Object type="0xa0e" id="Quartz Lined Hide">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1215,12 +1215,12 @@
     </Texture>
     <SlotType>6</SlotType>
     <Tier>8</Tier>
-    <Description>Leather armor studded with metal rivets that provide extra protection.</Description>
+    <Description>Magical runes and charged stones are placed carefully into this well crafted armor.</Description>
     <ActivateOnEquip stat="3" amount="13">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="5" amount="3">IncrementStat</ActivateOnEquip>
     <BagType>1</BagType>
   </Object>
-  <Object type="0xa3e" id="Snake Skin Armor">
+  <Object type="0xa3e" id="Snakeskin Armor">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1228,90 +1228,89 @@
       <Index>0x00</Index>
     </Texture>
     <SlotType>6</SlotType>
-    <Description>A tight fitting garment of snake skin that is both functional and stylish.</Description>
     <ActivateOnEquip stat="3" amount="11">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="4" amount="3">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="5" amount="3">IncrementStat</ActivateOnEquip>
     <BagType>1</BagType>
     <FameBonus>1</FameBonus>
   </Object>
-  <Object type="0xad3" id="Drake Hide Armor">
+  <Object type="0xad3" id="Superiour Quartz Lined Hide">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
       <File>lofiObj5</File>
       <Index>0x08</Index>
     </Texture>
+    <Description>Magical quartz lines this well made suit of armor.</Description>
     <SlotType>6</SlotType>
     <Tier>9</Tier>
-    <Description>Leather armor fashioned from the scaly skin of firebreathing drake.</Description>
     <ActivateOnEquip stat="3" amount="14">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="5" amount="3">IncrementStat</ActivateOnEquip>
     <BagType>1</BagType>
     <FameBonus>1</FameBonus>
   </Object>
-  <Object type="0xa8e" id="Roc Leather Armor">
+  <Object type="0xa8e" id="Hide of Infused Quartz">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
       <File>lofiObj5</File>
       <Index>0x09</Index>
     </Texture>
+    <Description>A faint but unfathomable energy radiates from this armor.</Description>
     <SlotType>6</SlotType>
     <Tier>10</Tier>
-    <Description>Leather armor made from the durable hide of a roc.</Description>
     <ActivateOnEquip stat="3" amount="15">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="5" amount="4">IncrementStat</ActivateOnEquip>
     <BagType>2</BagType>
     <FameBonus>2</FameBonus>
   </Object>
-  <Object type="0xa8f" id="Hippogriff Hide Armor">
+  <Object type="0xa8f" id="Hide of Necrotic Energy">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
       <File>lofiObj5</File>
       <Index>0x0a</Index>
     </Texture>
+    <Description>A powerful and deadly spirit reinforces the wearer.</Description>
     <SlotType>6</SlotType>
     <Tier>11</Tier>
-    <Description>Leather armor made from the protective skin of hippogriffs.</Description>
     <ActivateOnEquip stat="3" amount="16">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="5" amount="4">IncrementStat</ActivateOnEquip>
     <BagType>2</BagType>
     <FameBonus>3</FameBonus>
   </Object>
-  <Object type="0xa90" id="Griffon Hide Armor">
+  <Object type="0xa90" id="Adamantite Reinforced Hide">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
       <File>lofiObj5</File>
       <Index>0x0b</Index>
     </Texture>
+    <Description>The rarest earthbound metal of the realm empowers this armor.</Description>
     <SlotType>6</SlotType>
     <Tier>12</Tier>
-    <Description>Superior leather armor made from the magical hide of a griffon.</Description>
     <ActivateOnEquip stat="3" amount="17">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="5" amount="4">IncrementStat</ActivateOnEquip>
     <BagType>2</BagType>
     <FameBonus>4</FameBonus>
   </Object>
-  <Object type="0xaf9" id="Hydra Skin Armor">
+  <Object type="0xaf9" id="Sunsteel Corset">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
       <File>lofiObj5</File>
       <Index>0x0c</Index>
     </Texture>
+    <Description>Superior griffen hide leather mixed with unheard of sunsteel create this mind bending piece of equipment.</Description>
     <SlotType>6</SlotType>
     <Tier>13</Tier>
-    <Description>Superlative leather armor fashioned from the skin of a twelve-headed swamp hydra.</Description>
     <ActivateOnEquip stat="3" amount="17">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="5" amount="5">IncrementStat</ActivateOnEquip>
     <BagType>2</BagType>
     <FameBonus>4</FameBonus>
   </Object>
 
-  <Object type="0x9c1" id="Wyrmhide Armor">
+  <Object type="0x9c1" id="Moonsteel Corset">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1319,8 +1318,7 @@
       <Index>0x0d</Index>
     </Texture>
     <SlotType>6</SlotType>
-
-    <Description>Outstanding leather armor made from the virtually impregnable hide of a great desert wyrm.</Description>
+    <Description>Like the sunsteel corset yet umbral and and secretive.</Description>
     <ActivateOnEquip stat="3" amount="18">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="5" amount="5">IncrementStat</ActivateOnEquip>
     <BagType>2</BagType>
@@ -1342,7 +1340,7 @@
     <BagType>2</BagType>
     <FameBonus>6</FameBonus>
   </Object>
-  <Object type="0xa7b" id="Iron Mail">
+  <Object type="0xa7b" id="Padded Training Vest">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1351,11 +1349,11 @@
     </Texture>
     <SlotType>7</SlotType>
     <Tier>1</Tier>
-    <Description>Armor made from interlocking iron links.</Description>
+    <Description>A barely reinforced vest used for training of the blade.</Description>
     <ActivateOnEquip stat="3" amount="5">IncrementStat</ActivateOnEquip>
     <BagType>0</BagType>
   </Object>
-  <Object type="0xa0f" id="Chainmail">
+  <Object type="0xa0f" id="Hardened Leather Vest">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1364,11 +1362,11 @@
     </Texture>
     <SlotType>7</SlotType>
     <Tier>2</Tier>
-    <Description>Armor made from interlocking links of metal.</Description>
+    <Description>Much like the padded training vest, but heavier and better quality.</Description>
     <ActivateOnEquip stat="3" amount="6">IncrementStat</ActivateOnEquip>
     <BagType>0</BagType>
   </Object>
-  <Object type="0xa7c" id="Blue Steel Mail">
+  <Object type="0xa7c" id="Superior Leather Vest">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1377,11 +1375,11 @@
     </Texture>
     <SlotType>7</SlotType>
     <Tier>3</Tier>
-    <Description>Mail made from blued steel.</Description>
+    <Description>One of the best quality battle ready leather vests.</Description>
     <ActivateOnEquip stat="3" amount="7">IncrementStat</ActivateOnEquip>
     <BagType>0</BagType>
   </Object>
-  <Object type="0xa7d" id="Silver Chainmail">
+  <Object type="0xa7d" id="Studded Leather Vest">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1390,11 +1388,11 @@
     </Texture>
     <SlotType>7</SlotType>
     <Tier>4</Tier>
-    <Description>Well-made chainmail plated with silver.</Description>
+    <Description>A heavy duty leather vest, heavy and thick covered sparsly with metal studs.</Description>
     <ActivateOnEquip stat="3" amount="8">IncrementStat</ActivateOnEquip>
     <BagType>0</BagType>
   </Object>
-  <Object type="0xa10" id="Golden Chainmail">
+  <Object type="0xa10" id="Chainmail">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1403,11 +1401,11 @@
     </Texture>
     <SlotType>7</SlotType>
     <Tier>5</Tier>
-    <Description>Well-made chainmail plated with gold, clearly intended for the use of a great lord.</Description>
+    <Description>Armor made by linking small chains together.</Description>
     <ActivateOnEquip stat="3" amount="10">IncrementStat</ActivateOnEquip>
     <BagType>0</BagType>
   </Object>
-  <Object type="0xa11" id="Plate Mail">
+  <Object type="0xa11" id="Golden Chainmail">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1416,11 +1414,11 @@
     </Texture>
     <SlotType>7</SlotType>
     <Tier>6</Tier>
-    <Description>Armor made from overlapping plates of metal.</Description>
+    <Description>Chainmail made with reinforcing golden shoulders.</Description>
     <ActivateOnEquip stat="3" amount="12">IncrementStat</ActivateOnEquip>
     <BagType>1</BagType>
   </Object>
-  <Object type="0xadf" id="Mithril Chainmail">
+  <Object type="0xadf" id="Royal Chainmail">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1429,7 +1427,7 @@
     </Texture>
     <SlotType>7</SlotType>
     <Tier>7</Tier>
-    <Description>Chainmail made with reinforcing mithril ribs.</Description>
+    <Description>Well-made chainmail plated with gold, clearly intended for the use of a great lord.</Description>
     <ActivateOnEquip stat="3" amount="13">IncrementStat</ActivateOnEquip>
     <BagType>1</BagType>
   </Object>
@@ -1442,12 +1440,12 @@
     </Texture>
     <SlotType>7</SlotType>
     <Tier>8</Tier>
-    <Description>Armor made from the strongest and most desirable of all metals.</Description>
+    <Description>Decorative mithril armor made with gold.</Description>
     <ActivateOnEquip stat="3" amount="15">IncrementStat</ActivateOnEquip>
     <BagType>1</BagType>
     <FameBonus>1</FameBonus>
   </Object>
-  <Object type="0xa13" id="Dragonscale Armor">
+  <Object type="0xa13" id="Mithril Battle Armor">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1456,12 +1454,12 @@
     </Texture>
     <SlotType>7</SlotType>
     <Tier>9</Tier>
-    <Description>Armor made from the scales of a full grown dragon.</Description>
+    <Description>Fully covered mithril armor made for battle.</Description>
     <ActivateOnEquip stat="3" amount="20">IncrementStat</ActivateOnEquip>
     <BagType>1</BagType>
     <FameBonus>1</FameBonus>
   </Object>
-  <Object type="0xa91" id="Desolation Armor">
+  <Object type="0xa91" id="Necrotic Mail">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1470,12 +1468,12 @@
     </Texture>
     <SlotType>7</SlotType>
     <Tier>10</Tier>
-    <Description>Magical cold plate armor inscribed with tales of destruction and murder.</Description>
+    <Description>A faint curse makes this armor stronger than other mithril plates.</Description>
     <ActivateOnEquip stat="3" amount="21">IncrementStat</ActivateOnEquip>
     <BagType>2</BagType>
     <FameBonus>2</FameBonus>
   </Object>
-  <Object type="0xa92" id="Vengeance Armor">
+  <Object type="0xa92" id="Armor of Necrotic Revenge">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1484,12 +1482,12 @@
     </Texture>
     <SlotType>7</SlotType>
     <Tier>11</Tier>
-    <Description>Tremendously strong plate armor shrouded by an aura of demonic revenge.</Description>
+    <Description>Magical cold plate armor inscribed with tales of destruction and murder.</Description>
     <ActivateOnEquip stat="3" amount="22">IncrementStat</ActivateOnEquip>
     <BagType>2</BagType>
     <FameBonus>3</FameBonus>
   </Object>
-  <Object type="0xa93" id="Abyssal Armor">
+  <Object type="0xa93" id="Adamantite Armor">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1498,12 +1496,12 @@
     </Texture>
     <SlotType>7</SlotType>
     <Tier>12</Tier>
-    <Description>Mighty felplate armor designed for the most powerful of demon lords.</Description>
+    <Description>Mighty adamantite armor designed for the most powerful of demon lords.</Description>
     <ActivateOnEquip stat="3" amount="23">IncrementStat</ActivateOnEquip>
     <BagType>2</BagType>
     <FameBonus>4</FameBonus>
   </Object>
-  <Object type="0xafc" id="Acropolis Armor">
+  <Object type="0xafc" id="Sunsteel Armor">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1512,13 +1510,13 @@
     </Texture>
     <SlotType>7</SlotType>
     <Tier>13</Tier>
-    <Description>Indestructible magical armor made for the elite stoneborn champions of the eastern citadels.</Description>
+    <Description>Indestructible sunsteel armor made collected and forged from meteor stone.</Description>
     <ActivateOnEquip stat="3" amount="24">IncrementStat</ActivateOnEquip>
     <BagType>2</BagType>
     <FameBonus>4</FameBonus>
   </Object>
 
-  <Object type="0x9c4" id="Dominion Armor">
+  <Object type="0x9c4" id="Moonsteel Armor">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -1527,7 +1525,7 @@
     </Texture>
     <SlotType>7</SlotType>
 
-    <Description>Exquisitely decorated adamantine armor smithed by underdeep dwarves for the wardens of the demonclefts.</Description>
+    <Description>Exquisitely decorated armor made from one of the rarest metals, moonsteel.</Description>
     <ActivateOnEquip stat="3" amount="25">IncrementStat</ActivateOnEquip>
     <BagType>2</BagType>
     <FameBonus>5</FameBonus>
@@ -1746,6 +1744,7 @@
   </Object>
   <Object type="0xa19" id="Aurichalcum Dagger">
     <Class>Equipment</Class>
+    <Description>A dagger made with glistening redish gold metal.</Description>
     <Item/>
     <Texture>
       <File>lofiObj5</File>

@@ -81,8 +81,6 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new Shoot(3)
                     ),
-                new ItemLoot("Golden Sword", 0.02f),
-                new ItemLoot("Studded Leather Armor", 0.02f),
                 new ItemLoot("Health Potion", 0.05f)
             );
             db.Init("Cyclops Warrior",
@@ -94,8 +92,6 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new Shoot(3)
                     ),
-                new ItemLoot("Golden Sword", 0.03f),
-                new ItemLoot("Golden Shield", 0.02f),
                 new ItemLoot("Health Potion", 0.05f)
             );
 
@@ -121,7 +117,6 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(3)
                     ),
                 new ItemLoot("Mithril Dagger", 0.02f),
-                new ItemLoot("Plate Mail", 0.02f),
                 new ItemLoot("Seal of the Divine", 0.01f),
                 new ItemLoot("Health Potion", 0.05f)
             );
@@ -134,7 +129,6 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new Shoot(3)
                     ),
-                new ItemLoot("Golden Sword", 0.2f),
                 new ItemLoot("Mithril Armor", 0.2f),
                 new ItemLoot("Health Potion", 0.5f),
                 new ItemLoot("Potion of Defense", 0.1f),
