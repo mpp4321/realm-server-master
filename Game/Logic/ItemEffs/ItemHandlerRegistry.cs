@@ -31,6 +31,7 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("AOBL", new AmuletOfBackwardsLuck());
             Registry.Add("SappingShot", new SappingShot());
             Registry.Add("Lifeless", new Lifeless());
+            Registry.Add("WillOfDen", new WillOfDen());
 
             //components
             Registry.Add("FireRune", new FireRune());
