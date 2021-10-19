@@ -44,7 +44,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Mini Flying Brain",
                 new State("Base", 
                         new Wander(0.4f),
-                        new Shoot(12, count: 5, shootAngle: 72, cooldown: 500, playerOwner: e => e.PlayerOwner),
+                        new Shoot(12, count: 5, shootAngle: 72, predictive: 1, cooldown: 500, playerOwner: e => e.PlayerOwner),
                         new TimedTransition("Die", 5000)
                     ),
                     new State("Die", new Suicide())
@@ -87,7 +87,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                     new State("Die", 
                         new Spawn("CryptSpiderAlly", 3, 1.0, probability: 0.3f),
-                        new Decay()
+                        new Decay(0)
                     )
                 );
 
@@ -116,7 +116,7 @@ namespace RotMG.Game.Logic.Database
                     new TimedTransition("return", 400)
                 ),
                 new State("return",
-                    new Decay()
+                    new Decay(0)
                 )
                 );
 

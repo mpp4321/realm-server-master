@@ -33,6 +33,7 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("Lifeless", new Lifeless());
             Registry.Add("WillOfDen", new WillOfDen());
             Registry.Add("Conflict", new OrbOfConflict());
+            Registry.Add("ArachnidGarment", new ArachGar());
 
             //components
             Registry.Add("FireRune", new FireRune());

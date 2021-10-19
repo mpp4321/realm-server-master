@@ -10267,13 +10267,31 @@
     <Description>The hive mind isn't just an animal instinct, it is a living breathing state of mind.</Description>
     <ActivateOnEquip stat="0" amount="80">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="2" amount="5">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="5" amount="5">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="4" amount="5">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="5" amount="5">IncrementStat</ActivateOnEquip>
     <BagType>5</BagType>
     <FameBonus>5</FameBonus>
     <ExtraTooltipData>
       <EffectInfo name="Spider's Will" description="While at full health, gain 15 dex."/>
     </ExtraTooltipData>
     <UniqueEffect>WillOfDen</UniqueEffect>
+  </Object>
+  <Object type="0xcc2" id="Arachnid Garment">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj4</File>
+      <Index>0xd2</Index>
+    </Texture>
+    <SlotType>6</SlotType>
+    <Description>Armor made of leather.</Description>
+    <ActivateOnEquip stat="0" amount="70">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="2" amount="11">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="4" amount="8">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="5" amount="8">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="6" amount="-10">IncrementStat</ActivateOnEquip>
+    <UniqueEffect>ArachnidGarment</UniqueEffect>
+    <BagType>5</BagType>
+    <FameBonus>5</FameBonus>
   </Object>
 </Objects>

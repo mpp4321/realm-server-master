@@ -27,7 +27,9 @@ namespace RotMG.Game.Logic.Behaviors
             int cool = (int) host.StateObject[Id];
 
             if (cool <= 0)
+            {
                 host.Parent.RemoveEntity(host);
+            }
             else
                 cool -= Settings.MillisecondsPerTick;
 
