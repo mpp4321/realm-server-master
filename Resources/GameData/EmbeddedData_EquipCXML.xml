@@ -12,7 +12,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/blunt_sword</Sound>
     <Projectile>
-      <ObjectId>Blade</ObjectId>
+      <ObjectId>T0 Sword</ObjectId>
       <Speed>100</Speed>
       <MinDamage>45</MinDamage>
       <MaxDamage>90</MaxDamage>
@@ -34,7 +34,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
-      <ObjectId>Blade</ObjectId>
+      <ObjectId>T1 Sword</ObjectId>
       <Speed>100</Speed>
       <MinDamage>60</MinDamage>
       <MaxDamage>105</MaxDamage>
@@ -56,7 +56,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
-      <ObjectId>Blade</ObjectId>
+      <ObjectId>T2 Sword</ObjectId>
       <Speed>100</Speed>
       <MinDamage>75</MinDamage>
       <MaxDamage>105</MaxDamage>
@@ -78,7 +78,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
-      <ObjectId>Blade</ObjectId>
+      <ObjectId>T3 Sword</ObjectId>
       <Speed>100</Speed>
       <MinDamage>75</MinDamage>
       <MaxDamage>120</MaxDamage>
@@ -100,7 +100,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
-      <ObjectId>Blade</ObjectId>
+      <ObjectId>T4 Sword</ObjectId>
       <Speed>100</Speed>
       <MinDamage>75</MinDamage>
       <MaxDamage>135</MaxDamage>
@@ -122,7 +122,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_sword</Sound>
     <Projectile>
-      <ObjectId>Fire Bolt</ObjectId>
+      <ObjectId>T5 Sword</ObjectId>
       <Speed>100</Speed>
       <MinDamage>90</MinDamage>
       <MaxDamage>135</MaxDamage>
@@ -144,7 +144,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/glass_sword</Sound>
     <Projectile>
-      <ObjectId>White Bolt</ObjectId>
+      <ObjectId>T6 Sword</ObjectId>
       <Speed>100</Speed>
       <MinDamage>30</MinDamage>
       <MaxDamage>210</MaxDamage>
@@ -166,7 +166,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/golden_sword</Sound>
     <Projectile>
-      <ObjectId>Blade</ObjectId>
+      <ObjectId>T7 Sword</ObjectId>
       <Speed>100</Speed>
       <MinDamage>150</MinDamage>
       <MaxDamage>180</MaxDamage>
@@ -188,7 +188,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/mithril_sword</Sound>
     <Projectile>
-      <ObjectId>Darkness Bolt</ObjectId>
+      <ObjectId>T8 Sword</ObjectId>
       <Speed>100</Speed>
       <MinDamage>180</MinDamage>
       <MaxDamage>255</MaxDamage>
@@ -211,7 +211,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/mithril_sword</Sound>
     <Projectile>
-      <ObjectId>White Bolt</ObjectId>
+      <ObjectId>T9 Sword</ObjectId>
       <Speed>100</Speed>
       <MinDamage>195</MinDamage>
       <MaxDamage>255</MaxDamage>
@@ -234,7 +234,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/mithril_sword</Sound>
     <Projectile>
-      <ObjectId>Fire Bolt</ObjectId>
+      <ObjectId>T10 Sword</ObjectId>
       <Speed>100</Speed>
       <MinDamage>210</MinDamage>
       <MaxDamage>255</MaxDamage>
@@ -257,7 +257,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/mithril_sword</Sound>
     <Projectile>
-      <ObjectId>Blue Bolt</ObjectId>
+      <ObjectId>T11 Sword</ObjectId>
       <Speed>100</Speed>
       <MinDamage>210</MinDamage>
       <MaxDamage>270</MaxDamage>
@@ -280,7 +280,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/mithril_sword</Sound>
     <Projectile>
-      <ObjectId>Purple Bolt</ObjectId>
+      <ObjectId>T12 Sword</ObjectId>
       <Speed>100</Speed>
       <MinDamage>220</MinDamage>
       <MaxDamage>275</MaxDamage>
@@ -304,7 +304,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/mithril_sword</Sound>
     <Projectile>
-      <ObjectId>Green Bolt</ObjectId>
+      <ObjectId>T13 Sword</ObjectId>
       <Speed>100</Speed>
       <MinDamage>225</MinDamage>
       <MaxDamage>285</MaxDamage>
@@ -419,7 +419,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_wand</Sound>
     <Projectile>
-      <ObjectId>Red Fire</ObjectId>
+      <ObjectId>T0 Wand</ObjectId>
       <Speed>130</Speed>
       <MinDamage>20</MinDamage>
       <MaxDamage>40</MaxDamage>
@@ -443,7 +443,7 @@
     <Sound>weapon/missile_wand</Sound>
     <Projectile>
       <MultiHit/>
-      <ObjectId>Blue Magic</ObjectId>
+      <ObjectId>T1 Wand</ObjectId>
       <Speed>130</Speed>
       <MinDamage>30</MinDamage>
       <MaxDamage>50</MaxDamage>
@@ -465,7 +465,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/missile_wand</Sound>
     <Projectile>
-      <ObjectId>Blue Magic</ObjectId>
+      <ObjectId>T2 Wand</ObjectId>
       <Speed>130</Speed>
       <MinDamage>35</MinDamage>
       <MaxDamage>55</MaxDamage>
@@ -488,7 +488,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/missile_wand</Sound>
     <Projectile>
-      <ObjectId>Blue Magic</ObjectId>
+      <ObjectId>T3 Wand</ObjectId>
       <Speed>130</Speed>
       <MinDamage>40</MinDamage>
       <MaxDamage>60</MaxDamage>
@@ -511,7 +511,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/missile_wand</Sound>
     <Projectile>
-      <ObjectId>Blue Magic</ObjectId>
+      <ObjectId>T4 Wand</ObjectId>
       <Speed>130</Speed>
       <MinDamage>50</MinDamage>
       <MaxDamage>70</MaxDamage>
@@ -534,7 +534,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/hells_fire_wand</Sound>
     <Projectile>
-      <ObjectId>Purple Magic</ObjectId>
+      <ObjectId>T5 Wand</ObjectId>
       <Speed>130</Speed>
       <MinDamage>60</MinDamage>
       <MaxDamage>80</MaxDamage>
@@ -557,7 +557,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_dark_magic</Sound>
     <Projectile>
-      <ObjectId>Pink Bolt</ObjectId>
+      <ObjectId>T6 Wand</ObjectId>
       <Speed>130</Speed>
       <MinDamage>70</MinDamage>
       <MaxDamage>90</MaxDamage>
@@ -580,7 +580,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_dark_magic</Sound>
     <Projectile>
-      <ObjectId>Red Fire</ObjectId>
+      <ObjectId>T7 Wand</ObjectId>
       <Speed>130</Speed>
       <MinDamage>80</MinDamage>
       <MaxDamage>100</MaxDamage>
@@ -625,7 +625,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
-      <ObjectId>Green Magic</ObjectId>
+      <ObjectId>T8 Wand</ObjectId>
       <Speed>130</Speed>
       <MinDamage>80</MinDamage>
       <MaxDamage>120</MaxDamage>
@@ -649,7 +649,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
-      <ObjectId>Purple Magic</ObjectId>
+      <ObjectId>T9 Wand</ObjectId>
       <Speed>130</Speed>
       <MinDamage>85</MinDamage>
       <MaxDamage>125</MaxDamage>
@@ -673,7 +673,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
-      <ObjectId>Red Fire</ObjectId>
+      <ObjectId>T10 Wand</ObjectId>
       <Speed>130</Speed>
       <MinDamage>85</MinDamage>
       <MaxDamage>130</MaxDamage>
@@ -697,7 +697,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
-      <ObjectId>Green Magic</ObjectId>
+      <ObjectId>T11 Wand</ObjectId>
       <Speed>130</Speed>
       <MinDamage>90</MinDamage>
       <MaxDamage>130</MaxDamage>
@@ -721,7 +721,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
-      <ObjectId>Blue Magic</ObjectId>
+      <ObjectId>T12 Wand</ObjectId>
       <Speed>130</Speed>
       <MinDamage>90</MinDamage>
       <MaxDamage>135</MaxDamage>
@@ -746,7 +746,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
-      <ObjectId>Purple Magic</ObjectId>
+      <ObjectId>T13 Wand</ObjectId>
       <Speed>130</Speed>
       <MinDamage>95</MinDamage>
       <MaxDamage>135</MaxDamage>
@@ -5101,7 +5101,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/fire_wand</Sound>
     <Projectile>
-      <ObjectId>Grey Missile</ObjectId>
+      <ObjectId>T0 Staff</ObjectId>
       <Speed>180</Speed>
       <MinDamage>10</MinDamage>
       <MaxDamage>25</MaxDamage>
@@ -5127,7 +5127,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/missile_wand</Sound>
     <Projectile>
-      <ObjectId>Fire Missile</ObjectId>
+      <ObjectId>T1 Staff</ObjectId>
       <Speed>180</Speed>
       <MinDamage>10</MinDamage>
       <MaxDamage>30</MaxDamage>
@@ -5153,7 +5153,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/missile_wand</Sound>
     <Projectile>
-      <ObjectId>Grey Missile</ObjectId>
+      <ObjectId>T2 Staff</ObjectId>
       <Speed>180</Speed>
       <MinDamage>15</MinDamage>
       <MaxDamage>35</MaxDamage>
@@ -5179,7 +5179,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/missile_wand</Sound>
     <Projectile>
-      <ObjectId>Green Missile</ObjectId>
+      <ObjectId>T3 Staff</ObjectId>
       <Speed>180</Speed>
       <MinDamage>20</MinDamage>
       <MaxDamage>40</MaxDamage>
@@ -5205,7 +5205,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/missile_wand</Sound>
     <Projectile>
-      <ObjectId>Yellow Missile</ObjectId>
+      <ObjectId>T4 Staff</ObjectId>
       <Speed>180</Speed>
       <MinDamage>25</MinDamage>
       <MaxDamage>45</MaxDamage>
@@ -5231,7 +5231,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/hells_fire_wand</Sound>
     <Projectile>
-      <ObjectId>Salmon Missile</ObjectId>
+      <ObjectId>T5 Staff</ObjectId>
       <Speed>180</Speed>
       <MinDamage>35</MinDamage>
       <MaxDamage>55</MaxDamage>
@@ -5257,7 +5257,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_dark_magic</Sound>
     <Projectile>
-      <ObjectId>Violet Missile</ObjectId>
+      <ObjectId>T6 Staff</ObjectId>
       <Speed>180</Speed>
       <MinDamage>40</MinDamage>
       <MaxDamage>70</MaxDamage>
@@ -5283,7 +5283,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/sprite_wand</Sound>
     <Projectile>
-      <ObjectId>Fire Missile</ObjectId>
+      <ObjectId>T7 Staff</ObjectId>
       <Speed>180</Speed>
       <MinDamage>45</MinDamage>
       <MaxDamage>85</MaxDamage>
@@ -5309,7 +5309,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
-      <ObjectId>Blue Missile</ObjectId>
+      <ObjectId>T8 Staff</ObjectId>
       <Speed>180</Speed>
       <MinDamage>50</MinDamage>
       <MaxDamage>90</MaxDamage>
@@ -5336,7 +5336,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
-      <ObjectId>Grey Missile</ObjectId>
+      <ObjectId>T9 Staff</ObjectId>
       <Speed>180</Speed>
       <MinDamage>50</MinDamage>
       <MaxDamage>95</MaxDamage>
@@ -5363,7 +5363,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
-      <ObjectId>Violet Missile</ObjectId>
+      <ObjectId>T10 Staff</ObjectId>
       <Speed>180</Speed>
       <MinDamage>55</MinDamage>
       <MaxDamage>95</MaxDamage>
@@ -5390,7 +5390,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
-      <ObjectId>Aqua Missile</ObjectId>
+      <ObjectId>T11 Staff</ObjectId>
       <Speed>180</Speed>
       <MinDamage>55</MinDamage>
       <MaxDamage>100</MaxDamage>
@@ -5417,7 +5417,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
-      <ObjectId>Fire Missile</ObjectId>
+      <ObjectId>T12 Staff</ObjectId>
       <Speed>180</Speed>
       <MinDamage>60</MinDamage>
       <MaxDamage>100</MaxDamage>
@@ -5445,7 +5445,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/wand_of_death</Sound>
     <Projectile>
-      <ObjectId>Orange Missile</ObjectId>
+      <ObjectId>T13 Staff</ObjectId>
       <Speed>180</Speed>
       <MinDamage>60</MinDamage>
       <MaxDamage>105</MaxDamage>
@@ -7471,7 +7471,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/blunt_sword</Sound>
     <Projectile>
-      <ObjectId>Katana Slash</ObjectId>
+      <ObjectId>T0 Katana</ObjectId>
       <Speed>120</Speed>
       <MinDamage>20</MinDamage>
       <MaxDamage>60</MaxDamage>
@@ -7494,7 +7494,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/blunt_sword</Sound>
     <Projectile>
-      <ObjectId>Kendo Slash</ObjectId>
+      <ObjectId>T1 Katana</ObjectId>
       <Speed>120</Speed>
       <MinDamage>30</MinDamage>
       <MaxDamage>60</MaxDamage>
@@ -7517,7 +7517,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
-      <ObjectId>Katana Slash</ObjectId>
+      <ObjectId>T2 Katana</ObjectId>
       <Speed>120</Speed>
       <MinDamage>30</MinDamage>
       <MaxDamage>70</MaxDamage>
@@ -7540,7 +7540,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
-      <ObjectId>Katana Slash</ObjectId>
+      <ObjectId>T3 Katana</ObjectId>
       <Speed>120</Speed>
       <MinDamage>45</MinDamage>
       <MaxDamage>65</MaxDamage>
@@ -7563,7 +7563,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
-      <ObjectId>Line Slash</ObjectId>
+      <ObjectId>T4 Katana</ObjectId>
       <Speed>120</Speed>
       <MinDamage>53</MinDamage>
       <MaxDamage>73</MaxDamage>
@@ -7586,7 +7586,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
-      <ObjectId>Night Slash</ObjectId>
+      <ObjectId>T5 Katana</ObjectId>
       <Speed>120</Speed>
       <MinDamage>55</MinDamage>
       <MaxDamage>85</MaxDamage>
@@ -7609,7 +7609,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
-      <ObjectId>Sky Slash</ObjectId>
+      <ObjectId>T6 Katana</ObjectId>
       <Speed>120</Speed>
       <MinDamage>70</MinDamage>
       <MaxDamage>100</MaxDamage>
@@ -7632,7 +7632,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
-      <ObjectId>Buster Slash</ObjectId>
+      <ObjectId>T7 Katana</ObjectId>
       <Speed>120</Speed>
       <MinDamage>90</MinDamage>
       <MaxDamage>110</MaxDamage>
@@ -7655,7 +7655,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
-      <ObjectId>Demon Slash</ObjectId>
+      <ObjectId>T8 Katana</ObjectId>
       <Speed>120</Speed>
       <MinDamage>100</MinDamage>
       <MaxDamage>134</MaxDamage>
@@ -7680,7 +7680,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
-      <ObjectId>Jewel Slash</ObjectId>
+      <ObjectId>T9 Katana</ObjectId>
       <Speed>120</Speed>
       <MinDamage>115</MinDamage>
       <MaxDamage>135</MaxDamage>
@@ -7705,7 +7705,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
-      <ObjectId>Ichimonji Slash</ObjectId>
+      <ObjectId>T10 Katana</ObjectId>
       <Speed>120</Speed>
       <MinDamage>112</MinDamage>
       <MaxDamage>152</MaxDamage>
@@ -7729,7 +7729,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
-      <ObjectId>Muramasa Slash</ObjectId>
+      <ObjectId>T11 Katana</ObjectId>
       <Speed>120</Speed>
       <MinDamage>110</MinDamage>
       <MaxDamage>170</MaxDamage>
@@ -7753,7 +7753,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
-      <ObjectId>Masamune Slash</ObjectId>
+      <ObjectId>T12 Katana</ObjectId>
       <Speed>120</Speed>
       <MinDamage>140</MinDamage>
       <MaxDamage>160</MaxDamage>
@@ -7777,7 +7777,7 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
-      <ObjectId>Celestial Slash</ObjectId>
+      <ObjectId>T13 Katana</ObjectId>
       <Speed>130</Speed>
       <MinDamage>200</MinDamage>
       <MaxDamage>220</MaxDamage>
