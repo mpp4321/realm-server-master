@@ -96,8 +96,8 @@ namespace RotMG.Game.Entities
                         Stats[i] = stats[i].MaxValue;
                 }
 
-                Hp = Stats[0];
-                MP = Stats[1];
+                Hp = GetStatTotal(0);
+                MP = GetStatTotal(1);
 
                 if (Level == 20)
                 {
