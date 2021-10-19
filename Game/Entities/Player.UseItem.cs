@@ -628,7 +628,15 @@ namespace RotMG.Game.Entities
                         }
                         break;
                     case ActivateEffectIndex.Decoy:
-                        Parent.AddEntity(new Decoy(this, Position.Angle(target), StatScaling(statForScale, eff.DurationMS, eff.StatMin, eff.StatScale)), Position);
+                        Parent.AddEntity(new Decoy(this,
+                            Position.Angle(target),
+                                StatScaling(
+                                    statForScale,
+                                    eff.DurationMS,
+                                    eff.StatMin,
+                                    eff.StatScale
+                                ),
+                            eff.Id == null ? (ushort) 1813 : Resources.Id2Object[eff.Id].Type), Position);
                         break;
                     case ActivateEffectIndex.BulletNova:
                         if (inRange)
@@ -668,17 +676,6 @@ namespace RotMG.Game.Entities
                             SendError("You already have a backpack");
                             return;
                         }
-                            // callback = () =>
-                            // {
-                            //     // con.Inventory[slot.SlotId].Type = desc.Type;
-                            //     // con.UpdateInventorySlot(slot.SlotId);
-                            //     SendError("You already have a backpack.");
-                            // };
-                        // else
-                        // {
-                        //     HasBackpack = true;
-                        //     SendInfo("8 more spaces. Woohoo!");
-                        // }
                         HasBackpack = true;
                         SendInfo("8 more spaces. Woohoo!");
                         break;
@@ -690,21 +687,8 @@ namespace RotMG.Game.Entities
 #endif
                             return;
                         }
-
                         var entity = Resolve(obj.Type);
                         Parent.AddEntity(entity, Position);
-
-                        // if (!(entity is Portal portal))
-                        //     return;
-                        //
-                        // var notif = GameServer.Notification(Id, $"Opened by {Name}", 0xFF00FF00);
-                        // var nearbyPlayers = Parent.PlayerChunks.HitTest(Position, SightRadius);
-                        // foreach (var player in Parent.Players.Values)
-                        // {
-                        //     player.SendInfo($"{portal.DungeonName} opened by {Name}");
-                        //     if (nearbyPlayers.Contains(player))
-                        //         player.Client.Send(notif);
-                        // }
                         break;
                     case ActivateEffectIndex.ItemDataModifier:
                         SaveToCharacter();

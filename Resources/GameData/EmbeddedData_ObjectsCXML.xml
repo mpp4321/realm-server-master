@@ -1249,5 +1249,34 @@
       <Index>0x1c0</Index>
     </Texture>
   </Object>
+  <Object type="0x0750" id="Spider Decoy">
+    <Class>Character</Class>
+		<AnimatedTexture>
+      <File>chars16x16dEncounters2</File>
+      <Index>119</Index>
+    </AnimatedTexture>
+    <Friendly/>
+    <NoMiniMap/>
+  </Object>
+  <Object type="0x0751" id="CryptSpiderAlly">
+      <Class>Character</Class>
+      <Enemy/>
+      <Friendly/>
+      <AnimatedTexture><File>chars8x8rEncounters</File><Index>76</Index></AnimatedTexture>
+      <HitSound>monster/spiders_hit</HitSound>
+      <DeathSound>monster/spiders_death</DeathSound>
+      <Size>90</Size>
+      <ShadowSize>100</ShadowSize>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Defense>20</Defense>
+      <Projectile id="0">
+          <ObjectId>Spider Bolt</ObjectId>
+          <Damage>5</Damage>
+          <Speed>50</Speed>
+          <LifetimeMS>200</LifetimeMS>
+          <Size>100</Size>
+          <ConditionEffect duration="1">Paralyzed</ConditionEffect>
+      </Projectile>
+  </Object>
 </Objects>
 <!-- next 5008 -->

@@ -79,6 +79,46 @@ namespace RotMG.Game.Logic.Database
                 new TimedTransition("Die", 5000)
                 ), new State("Die", new Suicide()));
 
+            db.Init("Spider Decoy",
+                    new State("Base", 
+                        new Wander(0.4f),
+                        new TimedTransition("Die", 2000)
+                    ),
+                    new State("Die", 
+                        new Spawn("CryptSpiderAlly", 3, 1.0, probability: 0.3f),
+                        new Decay()
+                    )
+                );
+
+            db.Init("CryptSpiderAlly",
+                new State("base",
+                    new Shoot(10, 8, 45, 0, 0f, cooldown: 300, playerOwner: e => e.PlayerOwner),
+                    new Prioritize(
+                        new StayCloseToSpawn(3f, 2),
+                        new Wander(0.2f)
+                    ),
+                    new PlayerWithinTransition(6, "chase")
+                ),
+                new State("chase",
+                    new Shoot(10, 8, 45, 0, 0f, cooldown: 300, playerOwner: e => e.PlayerOwner),
+                    new Charge(1.5f, 20, 500, targetPlayers: false),
+                    new TimedTransition("chase0", 1500)
+                ),
+                new State("chase0",
+                    new Shoot(10, 8, 45, 0, 0f, cooldown: 300, playerOwner: e => e.PlayerOwner),
+                    new Charge(2f, 20, 250, targetPlayers: false),
+                    new TimedTransition("chase1", 1000)
+                ),
+                new State("chase1",
+                    new Shoot(10, 8, 45, 0, 0f, cooldown: 300, playerOwner: e => e.PlayerOwner),
+                    new Charge(2.5f, 20, 100, targetPlayers: false),
+                    new TimedTransition("return", 400)
+                ),
+                new State("return",
+                    new Decay()
+                )
+                );
+
         }
     }
 }

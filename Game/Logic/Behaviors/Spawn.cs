@@ -1,6 +1,7 @@
 ﻿
 using RotMG.Common;
 using RotMG.Game.Entities;
+using RotMG.Utils;
 using System;
 using wServer.logic;
 
@@ -21,18 +22,22 @@ namespace RotMG.Game.Logic.Behaviors
         private Cooldown _coolDown;
         private readonly ushort _children;
         private readonly float dispersion;
+        private readonly float probability;
 
-        public Spawn(string children, int maxChildren = 5, double initialSpawn = 0.5, Cooldown cooldown = new Cooldown(), bool givesNoXp = true, float dispersion=0.0f)
+        public Spawn(string children, int maxChildren = 5, double initialSpawn = 0.5, float probability = 1.0f, Cooldown cooldown = new Cooldown(), bool givesNoXp = true, float dispersion=0.0f)
         {
             _children = Resources.Id2Object[children].Type;
             _maxChildren = maxChildren;
             _initialSpawn = (int)(maxChildren * initialSpawn);
             _coolDown = cooldown.Normalize(0);
+            this.probability = probability;
             this.dispersion = dispersion;
         }
 
         public void SpawnChildAt(Entity host)
         {
+            if (!MathUtils.Chance(probability))
+                return;
             Entity entity = Entity.Resolve(_children);
             entity.Parent = host.Parent;
             //entity.Parent.MoveEntity(entity, host.Position);
@@ -45,6 +50,8 @@ namespace RotMG.Game.Logic.Behaviors
                 //enemyEntity.ParentEntity = host as Enemy;
                 enemyEntity.Terrain = enemyHost.Terrain;
             }
+
+            entity.PlayerOwner = host.PlayerOwner;
 
             Func<int> gen = () => (_Random.Next(1) == 1 ? -1 : 1);
             var vectDispersion = new Vector2(gen() * dispersion, gen() * dispersion);

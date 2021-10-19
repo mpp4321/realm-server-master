@@ -11,7 +11,7 @@ namespace RotMG.Game.Entities
         public int Duration;
         public Vector2 Direction;
 
-        public Decoy(Player player, float angle, int duration) : base(0x0715, duration)
+        public Decoy(Player player, float angle, int duration, ushort entityType=0x0715) : base(entityType, duration)
         {
 #if DEBUG
             if (duration < DecoyMoveTime)
@@ -19,15 +19,19 @@ namespace RotMG.Game.Entities
                 throw new Exception("Nope.");
             }
 #endif
+            PlayerOwner = player;
             Duration = duration;
             Direction = new Vector2(
                 MathF.Cos(angle),
                 MathF.Sin(angle)) / Settings.TicksPerSecond * 5;
 
-            if (player.Tex1 != 0)
-                SetSV(StatType.Tex1, player.Tex1);
-            if (player.Tex2 != 0)
-                SetSV(StatType.Tex2, player.Tex2);
+            if(entityType == 0x0715)
+            {
+                if (player.Tex1 != 0)
+                    SetSV(StatType.Tex1, player.Tex1);
+                if (player.Tex2 != 0)
+                    SetSV(StatType.Tex2, player.Tex2);
+            }
         }
 
         public override void Tick()

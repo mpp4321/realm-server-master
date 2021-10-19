@@ -10240,4 +10240,19 @@
     <NumProjectiles>2</NumProjectiles>
     <ArcGap>0</ArcGap>
   </Object>
+  <Object type="0xcc0" id="Viral Egg">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj4</File>
+      <Index>0xd1</Index>
+    </Texture>
+    <SlotType>22</SlotType>
+    <Description>An oddly polished egg remaining in the Spider Den after it's parent's death. It still moves on it's own when held.</Description>
+    <Usable/>
+    <BagType>5</BagType>
+    <MpCost>90</MpCost>
+    <Activate id="Spider Decoy" duration="3">Decoy</Activate>
+    <Activate stat="5" amount="6" duration="3">StatBoostSelf</Activate>
+  </Object>
 </Objects>

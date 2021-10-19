@@ -123,11 +123,12 @@ namespace RotMG.Game
                     if (js.ObjectType != 0xff)
                     {
                         var entity = Entity.Resolve(js.ObjectType);
-                        if (entity.Desc.Static)
+
+                        if (!(entity is Enemy) && entity.Desc.Static)
                         {
                             if (entity.Desc.BlocksSight)
                                 tile.BlocksSight = true;
-                            tile.StaticObject = (StaticObject)entity;
+                            tile.StaticObject = (StaticObject) entity;
                         }
 
                         AddEntity(entity, new Vector2(x + 0.5f, y + 0.5f));
