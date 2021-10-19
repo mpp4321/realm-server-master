@@ -32,6 +32,7 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("SappingShot", new SappingShot());
             Registry.Add("Lifeless", new Lifeless());
             Registry.Add("WillOfDen", new WillOfDen());
+            Registry.Add("Conflict", new OrbOfConflict());
 
             //components
             Registry.Add("FireRune", new FireRune());

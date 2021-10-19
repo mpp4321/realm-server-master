@@ -5993,6 +5993,7 @@
     <Activate effect="Speedy" duration="2.5">ConditionEffectSelf</Activate>
     <Activate effect="Damaging" duration="2.5">ConditionEffectSelf</Activate>
     <Cooldown>5</Cooldown>
+    <UniqueEffect>Conflict</UniqueEffect>
   </Object>
   <Object type="0xaa9" id="Purple Drake Egg">
     <Class>Equipment</Class>

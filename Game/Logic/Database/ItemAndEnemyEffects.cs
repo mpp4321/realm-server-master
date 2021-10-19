@@ -51,6 +51,7 @@ namespace RotMG.Game.Logic.Database
 
                 );
 
+
             db.Init("Electric Snake Ally",
                 new State("Base", 
                     new Shoot(12, count: 3, shootAngle: 10, cooldown: 500, playerOwner: e => e.PlayerOwner),
@@ -117,6 +118,39 @@ namespace RotMG.Game.Logic.Database
                 new State("return",
                     new Decay()
                 )
+                );
+
+            db.Init("White Orb Ally",
+                new State("Base", 
+                        new PulseFire(h =>
+                        {
+                            var entities = GameUtils.GetNearbyEntities(h, 4).OfType<Enemy>().Where(a => a.Type != h.Type);
+                            foreach(var e in entities)
+                            {
+                                if(e != h)
+                                    e?.Damage(h.PlayerOwner, 175, new ConditionEffectDesc[] { new ConditionEffectDesc(ConditionEffectIndex.Bleeding, 5000) }, false, true);
+                            }
+                            var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, h.Id, 0xffff0000, new Vector2(4, 0));
+                            foreach (var j in h.Parent.PlayerChunks.HitTest(h.Position, Math.Max(4, Player.SightRadius)))
+                            {
+                                if(j is Player p)
+                                    p.Client?.Send(nova);
+                            }
+                            return true;
+                        }, cooldown: 1000),
+                        new OrbitSpawn(1.0f, 3f, 1f),
+                        new TimedTransition("Die", 5000)
+                    ),
+                    new State("Die", new Suicide())
+                );
+
+            db.Init("Black Orb Ally",
+                new State("Base", 
+                        new Shoot(12, count: 3, shootAngle: 20, cooldown: 1000, playerOwner: e => e.PlayerOwner),
+                        new OrbitSpawn(1.0f, 3f, 1f, orbitClockwise: true),
+                        new TimedTransition("Die", 5000)
+                    ),
+                    new State("Die", new Suicide())
                 );
 
         }

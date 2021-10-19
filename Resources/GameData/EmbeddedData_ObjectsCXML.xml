@@ -1278,5 +1278,38 @@
           <ConditionEffect duration="1">Paralyzed</ConditionEffect>
       </Projectile>
   </Object>
+  <Object type="0x0752" id="White Orb Ally">
+      <Class>Character</Class>
+      <Enemy/>
+      <Friendly/>
+      <AnimatedTexture><File>chars8x8rEncounters</File><Index>146</Index></AnimatedTexture>
+      <Size>90</Size>
+      <ShadowSize>100</ShadowSize>
+      <Projectile id="0">
+          <ObjectId>Dark Gray Spinner</ObjectId>
+          <Damage>200</Damage>
+          <Speed>30</Speed>
+          <LifetimeMS>3000</LifetimeMS>
+          <Size>150</Size>
+          <ConditionEffect duration="1.5">Armor Broken</ConditionEffect>
+      </Projectile>
+  </Object>
+  <Object type="0x0753" id="Black Orb Ally">
+      <Class>Character</Class>
+      <Enemy/>
+      <Friendly/>
+      <AnimatedTexture><File>chars8x8rEncounters</File><Index>145</Index></AnimatedTexture>
+      <Size>90</Size>
+      <ShadowSize>100</ShadowSize>
+      <Projectile id="0">
+          <ObjectId>Dark Gray Spinner</ObjectId>
+          <Damage>200</Damage>
+          <Speed>30</Speed>
+          <LifetimeMS>3000</LifetimeMS>
+          <Size>150</Size>
+          <ConditionEffect duration="1.5">Armor Broken</ConditionEffect>
+      </Projectile>
+  </Object>
+
 </Objects>
 <!-- next 5008 -->
