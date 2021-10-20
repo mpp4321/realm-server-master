@@ -412,75 +412,33 @@ namespace RotMG.Game.Entities
                         break;
                     case ActivateEffectIndex.Lightning:
                         {
-                            var angle = Position.Angle(target);
-                            var cone = MathF.PI / 4;
-                            var start = this.GetNearestEnemy(MaxAbilityDist, angle, cone, target);
-
-                            if (start == null)
+                            Lightning(target, StatScaling(statForScale, eff.TotalDamage, eff.StatMin, eff.StatScale), eff.MaxTargets, eff.Color.HasValue ? eff.Color.Value : 0xffff3300, eff.Effects);
+                        }
+                        break;
+                    case ActivateEffectIndex.StrongLightning:
+                        {
+                            var lastIndex = 1;
+                            Entity lastEntity = null;
+                            var dmg = StatScaling(statForScale, eff.TotalDamage, eff.StatMin, eff.StatScale);
+                            Func<int, int> _f = i =>
                             {
-                                var angles = new float[3] { angle, angle - cone, angle + cone };
-                                var lines = new byte[3][];
-                                for (var i = 0; i < 3; i++)
-                                {
-                                    var x = (int)(MaxAbilityDist * MathF.Cos(angles[i])) + Position.X;
-                                    var y = (int)(MaxAbilityDist * MathF.Sin(angles[i])) + Position.Y;
-                                    lines[i] = GameServer.ShowEffect(ShowEffectIndex.Line, Id, 0xffff0088, new Vector2(x, y), new Vector2(350, 0));
-                                }
-
-                                foreach (var j in Parent.PlayerChunks.HitTest(Position, SightRadius))
-                                {
-                                    if (j is Player k && k.Client.Account.Effects)
-                                    {
-                                        k.Client.Send(lines[0]);
-                                        k.Client.Send(lines[1]);
-                                        k.Client.Send(lines[2]);
-                                    }
-                                }
-                            }
-                            else
+                               return 400 * (i-1);
+                            };
+                            Lightning(target, dmg, eff.MaxTargets, eff.Color.HasValue ? eff.Color.Value : 0xffff3300, eff.Effects, (e, i) =>
                             {
-                                Entity prev = this;
-                                var current = start;
-                                var targets = new HashSet<Entity>();
-                                var pkts = new List<byte[]>();
-                                targets.Add(current);
-                                var dmg = StatScaling(statForScale, eff.TotalDamage, eff.StatMin, eff.StatScale); 
-                                (current as Enemy).Damage(this, dmg, eff.Effects, false, true);
-                                for (var i = 1; i < eff.MaxTargets + 1; i++)
+                                lastIndex = i;
+                                lastEntity = e;
+                            }, -400);
+                            var entitiesLeft = eff.MaxTargets - lastIndex;
+                            if(entitiesLeft > 0 && lastEntity != null && lastEntity is Enemy enn)
+                            {
+                                var dmgSum = 0;
+                                for(int z = lastIndex + 1; z < eff.MaxTargets + 1; z++)
                                 {
-                                    pkts.Add(GameServer.ShowEffect(ShowEffectIndex.Lightning, prev.Id, 0xffff0088,
-                                        new Vector2(current.Position.X, current.Position.Y),
-                                        new Vector2(350, 0)));
-
-                                    if (i == eff.MaxTargets) 
-                                        break;
-
-                                    Entity next;
-                                    if(current.Parent == null)
-                                    {
-                                        current.Parent = this.Parent;
-                                        next = current.GetNearestEnemy(10, targets);
-                                        current.Parent = null;
-                                    } else
-                                    {
-                                        next = current.GetNearestEnemy(10, targets);
-                                    }
-
-                                    if (next == null) break;
-
-                                    targets.Add(next);
-                                    (next as Enemy).Damage(this, dmg, eff.Effects, false, true);
-                                    prev = current;
-                                    current = next;
+                                    dmgSum += dmg + _f(z);
                                 }
-
-                                foreach (var j in Parent.PlayerChunks.HitTest(Position, SightRadius))
-                                    if (j is Player k && k.Client.Account.Effects)
-                                        foreach (var p in pkts)
-                                        {
-                                            Console.WriteLine(p.Length);
-                                            k.Client.Send(p);
-                                        }
+                                enn.Damage(this, dmgSum, eff.Effects, false, true);
+                                ApplyConditionEffect(ConditionEffectIndex.Quiet, 1000 * entitiesLeft + 1000);
                             }
                         }
                         break;
@@ -829,6 +787,84 @@ namespace RotMG.Game.Entities
             }
 
             callback?.Invoke();
+        }
+
+        public void Lightning(Vector2 target, int dmg, int targetCount, uint color, ConditionEffectDesc[] effs = null, Action<Entity, int> callback = null, int DamageFallOff = 0)
+        {
+            effs = effs ?? new ConditionEffectDesc[] { };
+            var angle = Position.Angle(target);
+            var cone = MathF.PI / 4;
+            var start = this.GetNearestEnemy(MaxAbilityDist, angle, cone, target);
+
+            if (start == null)
+            {
+                var angles = new float[3] { angle, angle - cone, angle + cone };
+                var lines = new byte[3][];
+                for (var i = 0; i < 3; i++)
+                {
+                    var x = (int)(MaxAbilityDist * MathF.Cos(angles[i])) + Position.X;
+                    var y = (int)(MaxAbilityDist * MathF.Sin(angles[i])) + Position.Y;
+                    lines[i] = GameServer.ShowEffect(ShowEffectIndex.Line, Id, color, new Vector2(x, y), new Vector2(350, 0));
+                }
+
+                foreach (var j in Parent.PlayerChunks.HitTest(Position, SightRadius))
+                {
+                    if (j is Player k && k.Client.Account.Effects)
+                    {
+                        k.Client.Send(lines[0]);
+                        k.Client.Send(lines[1]);
+                        k.Client.Send(lines[2]);
+                    }
+                }
+            }
+            else
+            {
+                Entity prev = this;
+                var current = start;
+                var targets = new HashSet<Entity>();
+                var pkts = new List<byte[]>();
+                targets.Add(current);
+                //var dmg = StatScaling(statForScale, eff.TotalDamage, eff.StatMin, eff.StatScale);
+                (current as Enemy).Damage(this, dmg, effs, false, true);
+                if(callback != null) callback(current, 1);
+                for (var i = 1; i < targetCount + 1; i++)
+                {
+                    pkts.Add(GameServer.ShowEffect(ShowEffectIndex.Lightning, prev.Id, 0xffff0088,
+                        new Vector2(current.Position.X, current.Position.Y),
+                        new Vector2(350, 0)));
+
+                    if (i == targetCount)
+                        break;
+
+                    Entity next;
+                    if (current.Parent == null)
+                    {
+                        current.Parent = this.Parent;
+                        next = current.GetNearestEnemy(10, targets);
+                        current.Parent = null;
+                    }
+                    else
+                    {
+                        next = current.GetNearestEnemy(10, targets);
+                    }
+
+                    if (next == null) break;
+
+                    targets.Add(next);
+                    (next as Enemy).Damage(this, dmg - (i*DamageFallOff), effs, false, true);
+                    if (callback != null) callback(next, i);
+                    prev = current;
+                    current = next;
+                }
+
+                foreach (var j in Parent.PlayerChunks.HitTest(Position, SightRadius))
+                    if (j is Player k && k.Client.Account.Effects)
+                        foreach (var p in pkts)
+                        {
+                            Console.WriteLine(p.Length);
+                            k.Client.Send(p);
+                        }
+            }
         }
 
         public Entity CreateAndAddPet(int id)

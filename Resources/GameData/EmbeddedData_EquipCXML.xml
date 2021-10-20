@@ -10293,7 +10293,7 @@
     <BagType>5</BagType>
     <FameBonus>5</FameBonus>
   </Object>
-<Object type="0xcc3" id="Abrupt End">
+  <Object type="0xcc3" id="Abrupt End">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -10304,94 +10304,132 @@
     <Description>The heavy-hearted but decisive gift of the Blind Lady to the rider of the pale horse.</Description>
     <RateOfFire>0.8</RateOfFire>
     <Sound>weapon/long_sword</Sound>
-	<ArcGap>0</ArcGap>
-	<BagType>5</BagType>
-	<OldSound>bladeSwing</OldSound>
-	<NumProjectiles>3</NumProjectiles>
+    <ArcGap>0</ArcGap>
+    <BagType>5</BagType>
+    <OldSound>bladeSwing</OldSound>
+    <NumProjectiles>3</NumProjectiles>
     <Projectile id="0">
       <ObjectId>Scythe Shot</ObjectId>
       <Speed>180</Speed>
-	  <Size>160</Size>
+      <Size>160</Size>
       <MinDamage>80</MinDamage>
       <MaxDamage>100</MaxDamage>
       <LifetimeMS>800</LifetimeMS>
-	  <Accelerate>-180</Accelerate>
+      <Accelerate>-180</Accelerate>
       <MultiHit/>
       <Amplitude>1</Amplitude>
-	  <Frequency>0.5</Frequency>
-	  <PhaseLock>1</PhaseLock>
-	  <Boomerang/>
+      <Frequency>0.5</Frequency>
+      <PhaseLock>1</PhaseLock>
+      <Boomerang/>
     </Projectile>
-	<Projectile id="1">
-		<ObjectId>Scythe Shot</ObjectId>
-		<Speed>180</Speed>
-		<Size>160</Size>
-		<MinDamage>80</MinDamage>
-		<MaxDamage>100</MaxDamage>
-		<LifetimeMS>800</LifetimeMS>
-		<Accelerate>-180</Accelerate>
-		<MultiHit/>
-		<Amplitude>1.5</Amplitude>
-		<Frequency>0.5</Frequency>
-		<PhaseLock>1</PhaseLock>
-		<Boomerang/>
-	</Projectile>
-	<Projectile id="2">
-		<ObjectId>Scythe Shot</ObjectId>
-		<Speed>180</Speed>
-		<Size>160</Size>
-		<MinDamage>80</MinDamage>
-		<MaxDamage>100</MaxDamage>
-		<LifetimeMS>800</LifetimeMS>
-		<Accelerate>-180</Accelerate>
-		<MultiHit/>
-		<Amplitude>2</Amplitude>
-		<Frequency>0.5</Frequency>
-		<PhaseLock>1</PhaseLock>
-		<Boomerang/>
-	</Projectile>
-	<Projectile id="3">
-		<ObjectId>Scythe Shot</ObjectId>
-		<Speed>180</Speed>
-		<Size>160</Size>
-		<MinDamage>80</MinDamage>
-		<MaxDamage>100</MaxDamage>
-		<LifetimeMS>800</LifetimeMS>
-		<Accelerate>-180</Accelerate>
-		<MultiHit/>
-		<Amplitude>1</Amplitude>
-		<Frequency>0.5</Frequency>
-		<PhaseLock>0</PhaseLock>
-		<Boomerang/>
-	</Projectile>
-	<Projectile id="4">
-		<ObjectId>Scythe Shot</ObjectId>
-		<Speed>180</Speed>
-		<Size>160</Size>
-		<MinDamage>80</MinDamage>
-		<MaxDamage>100</MaxDamage>
-		<LifetimeMS>800</LifetimeMS>
-		<Accelerate>-180</Accelerate>
-		<MultiHit/>
-		<Amplitude>1.5</Amplitude>
-		<Frequency>0.5</Frequency>
-		<PhaseLock>0</PhaseLock>
-		<Boomerang/>
-	</Projectile>
-	<Projectile id="5">
-		<ObjectId>Scythe Shot</ObjectId>
-		<Speed>180</Speed>
-		<Size>160</Size>
-		<MinDamage>80</MinDamage>
-		<MaxDamage>100</MaxDamage>
-		<LifetimeMS>800</LifetimeMS>
-		<Accelerate>-180</Accelerate>
-		<MultiHit/>
-		<Amplitude>2</Amplitude>
-		<Frequency>0.5</Frequency>
-		<PhaseLock>0</PhaseLock>
-		<Boomerang/>
-	</Projectile>
+    <Projectile id="1">
+      <ObjectId>Scythe Shot</ObjectId>
+      <Speed>180</Speed>
+      <Size>160</Size>
+      <MinDamage>80</MinDamage>
+      <MaxDamage>100</MaxDamage>
+      <LifetimeMS>800</LifetimeMS>
+      <Accelerate>-180</Accelerate>
+      <MultiHit/>
+      <Amplitude>1.5</Amplitude>
+      <Frequency>0.5</Frequency>
+      <PhaseLock>1</PhaseLock>
+      <Boomerang/>
+    </Projectile>
+    <Projectile id="2">
+      <ObjectId>Scythe Shot</ObjectId>
+      <Speed>180</Speed>
+      <Size>160</Size>
+      <MinDamage>80</MinDamage>
+      <MaxDamage>100</MaxDamage>
+      <LifetimeMS>800</LifetimeMS>
+      <Accelerate>-180</Accelerate>
+      <MultiHit/>
+      <Amplitude>2</Amplitude>
+      <Frequency>0.5</Frequency>
+      <PhaseLock>1</PhaseLock>
+      <Boomerang/>
+    </Projectile>
+    <Projectile id="3">
+      <ObjectId>Scythe Shot</ObjectId>
+      <Speed>180</Speed>
+      <Size>160</Size>
+      <MinDamage>80</MinDamage>
+      <MaxDamage>100</MaxDamage>
+      <LifetimeMS>800</LifetimeMS>
+      <Accelerate>-180</Accelerate>
+      <MultiHit/>
+      <Amplitude>1</Amplitude>
+      <Frequency>0.5</Frequency>
+      <PhaseLock>0</PhaseLock>
+      <Boomerang/>
+    </Projectile>
+    <Projectile id="4">
+      <ObjectId>Scythe Shot</ObjectId>
+      <Speed>180</Speed>
+      <Size>160</Size>
+      <MinDamage>80</MinDamage>
+      <MaxDamage>100</MaxDamage>
+      <LifetimeMS>800</LifetimeMS>
+      <Accelerate>-180</Accelerate>
+      <MultiHit/>
+      <Amplitude>1.5</Amplitude>
+      <Frequency>0.5</Frequency>
+      <PhaseLock>0</PhaseLock>
+      <Boomerang/>
+    </Projectile>
+    <Projectile id="5">
+      <ObjectId>Scythe Shot</ObjectId>
+      <Speed>180</Speed>
+      <Size>160</Size>
+      <MinDamage>80</MinDamage>
+      <MaxDamage>100</MaxDamage>
+      <LifetimeMS>800</LifetimeMS>
+      <Accelerate>-180</Accelerate>
+      <MultiHit/>
+      <Amplitude>2</Amplitude>
+      <Frequency>0.5</Frequency>
+      <PhaseLock>0</PhaseLock>
+      <Boomerang/>
+    </Projectile>
    </Object>
-
+   <Object type="0xcc4" id="Crippling Scepter">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0x16c</Index>
+    </Texture>
+    <SlotType>23</SlotType>
+    <Description>A scepter so powerful it may backfire.</Description>
+    <Sound>spell/magic_nova</Sound>
+    <ActivateOnEquip stat="0" amount="40">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="7" amount="12">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="6" amount="-12">IncrementStat</ActivateOnEquip>
+    <Usable/>
+    <BagType>2</BagType>
+    <FameBonus>4</FameBonus>
+    <MpCost>225</MpCost>
+    <Activate totalDamage="1000" maxTargets="9" color="0x3399ff">StrongLightning</Activate>
+   </Object>
+  <Object type="0xcc5" id="Crypt Ring">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0x16e</Index>
+    </Texture>
+    <SlotType>9</SlotType>
+    <Description>Coom</Description>
+    <ActivateOnEquip stat="1" amount="90">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="2" amount="10">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="6" amount="-5">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="7" amount="5">IncrementStat</ActivateOnEquip>
+    <BagType>5</BagType>
+    <FameBonus>5</FameBonus>
+    <ExtraTooltipData>
+      <EffectInfo name="Wis Boost:" description="When over 80 wisdom every point of wisdom counts for 1.5"/>
+    </ExtraTooltipData>
+    <UniqueEffect>CryptRing</UniqueEffect>
+  </Object>
 </Objects>

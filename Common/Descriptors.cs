@@ -130,6 +130,7 @@ namespace RotMG.Common
         Pet,
         Decoy,
         Lightning,
+        StrongLightning,
         UnlockPortal,
         MagicNova,
         ClearConditionEffectAura,

@@ -263,12 +263,13 @@ namespace RotMG.Game.Logic.Database
                     new TimedTransition("scythe", 5000),
                     new HealthTransition(0.33f, "rage")
                 ),
-                
                 new State("rage",
                     new OrderFrom(99, "Phantom Mage", "hidden", "reveal"),
                     new Order(12, "Phantom Mage", "hidden"),
                     new OrderFrom(99, "Scythe Phantom", "hidden", "reveal"),
-                    new TimedTransition("roto", 50) { SubIndex = 0 },
+
+                    new TransitionFrom("rage", "roto"),
+
                     new State("roto",
                         new Shoot(99, 5, 360 / 5, 0, 0f, -5f, cooldown: 70),
                         new Shoot(99, 5, 360 / 5, 0, 0f, 5f, cooldownOffset: 2700, cooldown: 70),
