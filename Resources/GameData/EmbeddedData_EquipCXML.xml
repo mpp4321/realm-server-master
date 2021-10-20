@@ -10293,4 +10293,105 @@
     <BagType>5</BagType>
     <FameBonus>5</FameBonus>
   </Object>
+<Object type="0xcc3" id="Abrupt End">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObjBig</File>
+      <Index>0x1d0</Index>
+    </Texture>
+    <SlotType>24</SlotType>
+    <Description>The heavy-hearted but decisive gift of the Blind Lady to the rider of the pale horse.</Description>
+    <RateOfFire>0.8</RateOfFire>
+    <Sound>weapon/long_sword</Sound>
+	<ArcGap>0</ArcGap>
+	<BagType>5</BagType>
+	<OldSound>bladeSwing</OldSound>
+	<NumProjectiles>3</NumProjectiles>
+    <Projectile id="0">
+      <ObjectId>Scythe Shot</ObjectId>
+      <Speed>180</Speed>
+	  <Size>160</Size>
+      <MinDamage>80</MinDamage>
+      <MaxDamage>100</MaxDamage>
+      <LifetimeMS>800</LifetimeMS>
+	  <Accelerate>-180</Accelerate>
+      <MultiHit/>
+      <Amplitude>1</Amplitude>
+	  <Frequency>0.5</Frequency>
+	  <PhaseLock>1</PhaseLock>
+	  <Boomerang/>
+    </Projectile>
+	<Projectile id="1">
+		<ObjectId>Scythe Shot</ObjectId>
+		<Speed>180</Speed>
+		<Size>160</Size>
+		<MinDamage>80</MinDamage>
+		<MaxDamage>100</MaxDamage>
+		<LifetimeMS>800</LifetimeMS>
+		<Accelerate>-180</Accelerate>
+		<MultiHit/>
+		<Amplitude>1.5</Amplitude>
+		<Frequency>0.5</Frequency>
+		<PhaseLock>1</PhaseLock>
+		<Boomerang/>
+	</Projectile>
+	<Projectile id="2">
+		<ObjectId>Scythe Shot</ObjectId>
+		<Speed>180</Speed>
+		<Size>160</Size>
+		<MinDamage>80</MinDamage>
+		<MaxDamage>100</MaxDamage>
+		<LifetimeMS>800</LifetimeMS>
+		<Accelerate>-180</Accelerate>
+		<MultiHit/>
+		<Amplitude>2</Amplitude>
+		<Frequency>0.5</Frequency>
+		<PhaseLock>1</PhaseLock>
+		<Boomerang/>
+	</Projectile>
+	<Projectile id="3">
+		<ObjectId>Scythe Shot</ObjectId>
+		<Speed>180</Speed>
+		<Size>160</Size>
+		<MinDamage>80</MinDamage>
+		<MaxDamage>100</MaxDamage>
+		<LifetimeMS>800</LifetimeMS>
+		<Accelerate>-180</Accelerate>
+		<MultiHit/>
+		<Amplitude>1</Amplitude>
+		<Frequency>0.5</Frequency>
+		<PhaseLock>0</PhaseLock>
+		<Boomerang/>
+	</Projectile>
+	<Projectile id="4">
+		<ObjectId>Scythe Shot</ObjectId>
+		<Speed>180</Speed>
+		<Size>160</Size>
+		<MinDamage>80</MinDamage>
+		<MaxDamage>100</MaxDamage>
+		<LifetimeMS>800</LifetimeMS>
+		<Accelerate>-180</Accelerate>
+		<MultiHit/>
+		<Amplitude>1.5</Amplitude>
+		<Frequency>0.5</Frequency>
+		<PhaseLock>0</PhaseLock>
+		<Boomerang/>
+	</Projectile>
+	<Projectile id="5">
+		<ObjectId>Scythe Shot</ObjectId>
+		<Speed>180</Speed>
+		<Size>160</Size>
+		<MinDamage>80</MinDamage>
+		<MaxDamage>100</MaxDamage>
+		<LifetimeMS>800</LifetimeMS>
+		<Accelerate>-180</Accelerate>
+		<MultiHit/>
+		<Amplitude>2</Amplitude>
+		<Frequency>0.5</Frequency>
+		<PhaseLock>0</PhaseLock>
+		<Boomerang/>
+	</Projectile>
+   </Object>
+
 </Objects>

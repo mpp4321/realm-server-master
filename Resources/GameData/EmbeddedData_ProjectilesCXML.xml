@@ -3660,4 +3660,12 @@
 		</Texture>
 		<AngleCorrection>1</AngleCorrection>
 	</Object>
+	<Object type="0x21ca" id="Scythe Shot">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiProjsBig</File>
+			<Index>0x20</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
 </Objects>
