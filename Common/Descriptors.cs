@@ -957,7 +957,7 @@ namespace RotMG.Common
             while (s.Count < bonuses)
             {
                 var k = ItemDataModifiers.Registry[smod.Value].GenerateBaseStat();
-                if (s.Contains(k))
+                if (s.Contains(k) || !modifiers.Contains(k))
                     continue;
                 if (k == ItemData.Damage 
                     && !HasProjectile)

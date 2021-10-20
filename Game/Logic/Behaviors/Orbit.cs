@@ -28,10 +28,11 @@ namespace RotMG.Game.Logic.Behaviors
         float radiusVariance;
         bool? orbitClockwise;
         bool targetPlayers;
+        bool pass;
 
         public Orbit(float speed, float radius, float acquireRange = 10,
             string target = null, float? speedVariance = null, float? radiusVariance = null,
-            bool? orbitClockwise = false, bool targetPlayers = false)
+            bool? orbitClockwise = false, bool targetPlayers = false, bool pass=false)
         {
             this.speed = speed;
             this.radius = radius;
@@ -41,6 +42,7 @@ namespace RotMG.Game.Logic.Behaviors
             this.radiusVariance = (float)(radiusVariance ?? speed * 0.1);
             this.orbitClockwise = orbitClockwise;
             this.targetPlayers = targetPlayers;
+            this.pass = pass;
         }
 
         private OrbitState BuildDefaultOrbit()
@@ -105,7 +107,11 @@ namespace RotMG.Game.Logic.Behaviors
                 vect.Normalize();
                 vect *= host.GetSpeed(s.Speed) * Settings.SecondsPerTick;
 
-                host.ValidateAndMove(host.Position + vect);
+                if(pass)
+                {
+                    host.Parent.MoveEntity(host, host.Position + vect);
+                } else
+                    host.ValidateAndMove(host.Position + vect);
             }
 
             host.StateObject[Id] = s;

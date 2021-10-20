@@ -23,7 +23,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
                 if (!(hit is Enemy en) || !(by.Owner is Player pl))
                     return;
 
-                var entities = en.GetNearbyEntities(10.0f).OfType<Enemy>();
+                var entities = en.GetNearbyEntities(10.0f).OfType<Enemy>().Where(a => !a.HasConditionEffect(ConditionEffectIndex.Invincible) && !a.HasConditionEffect(ConditionEffectIndex.Invulnerable));
                 int N = entities.Count();
                 int dmgSpread = (int)((by.Damage + 1.0f) / (2.0f * N));
 
@@ -33,10 +33,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
                 foreach(var nen in entities)
                 {
                     lines[c] = GameServer.ShowEffect(ShowEffectIndex.Line, nen.Id, 0xffff0088, pl.Position, nen.Position);
-                    if(nen is Enemy Enen)
-                    {
-                        Enen.Damage(pl, dmgSpread, new ConditionEffectDesc[] { }, false, true);
-                    }
+                    (nen as Enemy).Damage(pl, dmgSpread, new ConditionEffectDesc[] { }, false, true);
                     c++;
                 }
                
