@@ -24,6 +24,9 @@ namespace RotMG.Game.Logic.Database
                     ),
                     new PlayerWithinTransition(6, "chase")
                 ),
+                new State("ded",
+                    new Decay(10)
+                ),
                 new State("chase",
                     new Shoot(10, 8, 45, 0, 0f, cooldown: 300),
                     new Charge(1.5f, 20, 500),
@@ -46,6 +49,8 @@ namespace RotMG.Game.Logic.Database
                 ));
 
             db.Init("Arena Pumpkin King",
+                    new ClearRegionOnDeath(Region.Enemy1),
+                    new OrderOnDeath(99, "Arena Spider", "ded"),
                     new State("base",
                         new Shoot(10, 8, 45, 1, 0f, 10f, cooldown: 200),
                         new Prioritize(
@@ -96,8 +101,8 @@ namespace RotMG.Game.Logic.Database
                 ),
                 new State("reveal",
                     new ConditionalEffect(ConditionEffectIndex.Armored),
-                    new Shoot(16, 8, 360 / 8, 1, 0, 8, cooldownOffset: 1000, cooldown: 400),
-                    new Shoot(6, 2, 24, cooldownVariance: 500, cooldown: 1500),
+                    new Shoot(16, 8, 360 / 8, 1, 0, 8, cooldownOffset: 1500, cooldown: 750),
+                    new Shoot(6, 2, 24,cooldownOffset: 1500, cooldownVariance: 500, cooldown: 1500),
                     new ChangeSize(5, 120),
                     new EntitiesNotExistsTransition(12, "hidden", "Realm Reaper")
                 )
@@ -105,7 +110,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Scythe Phantom",
                 new State("hidden",
                     new Prioritize(
-                        new StayBack(2, entity: "Scythe Phantom"),
+                        new StayBack(2, 14, entity: "Scythe Phantom"),
                         new Wander(0.7f)
                         ),
                     new ConditionalEffect(ConditionEffectIndex.Invincible),
@@ -183,11 +188,14 @@ namespace RotMG.Game.Logic.Database
                     new EntitiesNotExistsTransition(99, "tauntWait", "Mage Switch", "Scythe Switch")
                 ),
                 new State("tauntWait",
-                   // new ClearRegionOnDeath(Region.),
                     new PlayerWithinTransition(10, "taunt", true),
                     new ChangeSize(100, 100)
                 ),
                 new State("taunt",
+                    new SetPieceOnEnter(
+                        new IntPoint(0,0),
+                        setpieceid: "Crypt"
+                        ),
                     new Taunt("You shouldn't have gone looking for something you didn't want to find!"),
                     new PlayerWithinTransition(16, "base")
                 ),
@@ -203,7 +211,7 @@ namespace RotMG.Game.Logic.Database
                     new PlayerWithinTransition(3.5f, "sleep"),
                     new HealthTransition(0.66f, "charging"),
                     new Order(12, "Phantom Mage", "reveal"),
-                    new TimedTransition("f1", 1800),
+                    new TimedTransition("sleep", 1800),
                     new Prioritize(
                         new ChargeShoot(
                                 new Shoot(99, 4, 360 / 4, 2, cooldown: 50),
@@ -298,7 +306,6 @@ namespace RotMG.Game.Logic.Database
             db.Init("Realm Reaper Anchor",
                 new ConditionalEffect(ConditionEffectIndex.Invincible)
             );
-
             //need to add flash, clear blackspace, close bones, how tf does subindex work bruh rage phases need to working
         }
     }

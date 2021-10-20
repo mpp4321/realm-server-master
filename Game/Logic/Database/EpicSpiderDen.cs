@@ -15,7 +15,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Crawling Depths Egg Sac",
                 new State("base",
                     new PlayerWithinTransition(2.5f, "pop"),
-                    new HealthTransition(0.35f, "pop")
+                    new HealthTransition(0.85f, "pop")
                 ),
                 new State("pop",
                     new Spawn("Crawling Spider Hatchling", 12, 0.4f, 1000)
@@ -66,14 +66,15 @@ namespace RotMG.Game.Logic.Database
             db.Init("Silver Son of Arachna Giant Egg Sac",
                 new TransferDamageOnDeath("Son of Arachna"),
                 new State("base",
-                    new PlayerWithinTransition(8, "spawn", true)
+                    new PlayerWithinTransition(6, "spawn", true)
                 ),
                 new State("spawn",
-                    new Spawn("Crawling Grey Spider", 3, 1, 5000)
+                    new Spawn("Crawling Grey Spider", 3, 1, 5000),
+                    new TransformOnDeath("Crawling Grey Spider", 4, 4)
             ));
             db.Init("Yellow Son of Arachna Giant Egg Sac",
                 new State("base",
-                    new PlayerWithinTransition(8, "spawn", true)
+                    new PlayerWithinTransition(6, "spawn", true)
                 ),
                 new State("spawn",
                     new Spawn("Crawling Grey Spotted Spider", 3, 1, 5000)
@@ -81,18 +82,20 @@ namespace RotMG.Game.Logic.Database
             db.Init("Blue Son of Arachna Giant Egg Sac",
                 new TransferDamageOnDeath("Son of Arachna"),
                 new State("base",
-                    new PlayerWithinTransition(8, "spawn", true)
+                    new PlayerWithinTransition(6, "spawn", true)
                 ),
                 new State("spawn",
-                    new Spawn("Crawling Spider Hatchling", 8, 1, 1500)
+                    new Spawn("Crawling Spider Hatchling", 8, 1, 1500),
+                    new TransformOnDeath("Crawling Spider Hatchling", 8, 8)
             ));
             db.Init("Red Son of Arachna Giant Egg Sac",
                 new TransferDamageOnDeath("Son of Arachna"),
                 new State("base",
-                    new PlayerWithinTransition(8, "spawn", true)
+                    new PlayerWithinTransition(6, "spawn", true)
                 ),
                 new State("spawn",
-                    new Spawn("Crawling Red Spotted Spider", 3, 1, 5000)
+                    new Spawn("Crawling Red Spotted Spider", 3, 1, 5000),
+                    new TransformOnDeath("Crawling Red Spotted Spider", 4, 4)
             ));
             db.Init("Son of Arachna",
                 new State("sleep",
@@ -104,10 +107,13 @@ namespace RotMG.Game.Logic.Database
                     new EntitiesNotExistsTransition(99, "awake", "Red Son of Arachna Giant Egg Sac", "Blue Son of Arachna Giant Egg Sac", "Silver Son of Arachna Giant Egg Sac"),
                     new Orbit(0.5f, 2.5f, 99, "Epic Arachna Web Spoke Anchor", 0.75f, 1),
                     new Wander(0.3f),
-                    new Shoot(99, 8, 170, 7),//flips angle, needs fix
+                    new Shoot(99, 4, 25, 8, angleOffset: 90),
+                    new Shoot(99, 4, 25, 7, angleOffset: -90),
                     new TimedRandomTransition(3000, "blackS", "redS", "blueS")
                 ),
                 new State("blueS",
+                    new Shoot(99, 4, 25, 7, angleOffset: 90),
+                    new Shoot(99, 4, 25, 8, angleOffset: -90),
                     new Shoot(99, 2, -26, 4, cooldown: 20),
                     new Charge(1.4f, 99),
                     new TimedTransition("halfwoke", 1200),
@@ -127,7 +133,8 @@ namespace RotMG.Game.Logic.Database
                     new PlayerWithinTransition(4, "halfwoke")
                 ),
                 new State("blackS",
-                    new Shoot(99, 5, 18, 2, cooldown: 200),
+                    new Shoot(99, 4, 25, 7, angleOffset: 90),
+                    new Shoot(99, 4, 25, 8, angleOffset: -90),
                     new Charge(1.4f, 99),
                     new TimedTransition("halfwoke", 1200),
                     new PlayerWithinTransition(3, "halfwoke")
@@ -161,19 +168,22 @@ namespace RotMG.Game.Logic.Database
                     new Follow(0.8f, 16, 4, 2000, 700),
                     new Charge(1.2f, 16, 4000),
                     new Shoot(16, 1, index: 1, predictive: 0.5f, cooldownVariance: 350, cooldown: 1200),
-                    new Shoot(99, 8, 170, 7),
+                    new Shoot(99, 4, 25, 7, angleOffset: 90),
+                    new Shoot(99, 4, 25, 8, angleOffset: -90),
                     new TimedRandomTransition(8000, "blackChase", "roto", "stayback")
                 ),
                 new State("roto",
                     new Orbit(1, 5, 99, "Epic Arachna Web Spoke Anchor"),
-                    new Shoot(99, 8, 170, 7, cooldownOffset: 1000),
+                    new Shoot(99, 4, 25, 7, angleOffset: 90),
+                    new Shoot(99, 4, 25, 8, angleOffset: -90),
                     new Shoot(16, 1, index: 1, predictive: 0.5f, cooldownVariance: 350, cooldown: 1200),
                     new TimedRandomTransition(6000, "redBack", "blueOrbit", "wander")
                 ),
                 new State("blackChase",
                     new Follow(0.7f, 14, 3.5f, 1400, 600),
                     new Charge(1.5f, 10, 2400),
-                    new Shoot(99, 8, 170, 7),
+                    new Shoot(99, 4, 25, 7, angleOffset: 90),
+                    new Shoot(99, 4, 25, 8, angleOffset: -90),
                     new Shoot(9, 5, 26, 2, cooldown: 1400, cooldownVariance: 800),
                     new TimedRandomTransition(2500, "stayback", "wander")
                 ),
@@ -181,13 +191,15 @@ namespace RotMG.Game.Logic.Database
                     new StayBack(1.6f, 4.5f),
                     new Wander(0.3f),
                     new Shoot(99, 6, 360 / 8, 3, fixedAngle: 0f, rotateAngle: 23f, cooldownVariance: 400, cooldown: 1600),
-                    new Shoot(99, 8, 170, 7),
+                    new Shoot(99, 4, 25, 8, angleOffset: 90),
+                    new Shoot(99, 4, 25, 7, angleOffset: -90),
                     new TimedRandomTransition(5000, "chase", "stayback", "wander")
                 ),
                 new State("blueOrbit",
                     new Orbit(0.8f, 5, 16, speedVariance: 0.2f, radiusVariance: 1.5f, targetPlayers: true),
                     new Shoot(99, 2, -26, 4, cooldown: 20),
-                    new Shoot(99, 8, 170, 7),
+                    new Shoot(99, 4, 25, 8, angleOffset: 90),
+                    new Shoot(99, 4, 25, 7, angleOffset: -90),
                     new TimedRandomTransition(3500, "roto", "stayback", "wander")
                 ),
                 new Threshold(0.01f,

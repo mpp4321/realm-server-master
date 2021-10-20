@@ -279,7 +279,18 @@
 		<Frequency>0.6</Frequency>
 		<Size>160</Size>
 		<MultiHit/>
-		<SmartAngle></SmartAngle>
+		<PhaseLock>0</PhaseLock>
+	  </Projectile>
+	  <Projectile id="8">
+		<ObjectId>Green Magic</ObjectId>
+		<Speed>300</Speed>
+		<Damage>90</Damage>
+		<LifetimeMS>200</LifetimeMS>
+		<Amplitude>1.4</Amplitude>
+		<Frequency>0.6</Frequency>
+		<Size>160</Size>
+		<MultiHit/>
+		<PhaseLock>1</PhaseLock>
 	  </Projectile>
    </Object>
    <Object type="0x707d" id="Silver Son of Arachna Giant Egg Sac">

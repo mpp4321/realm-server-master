@@ -8,4 +8,7 @@
     <SetPiece id="Hermit God">
         <Map>Hermit.jm</Map>
     </SetPiece>
+	<SetPiece id="Crypt">
+        <Map>Crypt.jm</Map>
+    </SetPiece>
 </SetPieces>
