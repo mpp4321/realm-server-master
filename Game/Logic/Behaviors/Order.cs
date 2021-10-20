@@ -22,11 +22,14 @@ namespace RotMG.Game.Logic.Behaviors
 
         public override bool Tick(Entity host)
         {
+            if (host.Parent == null) return false;
+            var state = false;
             foreach(var i in host.Parent.EntityChunks.HitTest(host.Position, _range).Where(z => z.GetObjectDefinition().ObjectType == _children))
             {
                 OrderOnDeath.ChangeStateTree(i, _targetStateName);
+                state = true;
             }
-            return false;
+            return state;
         }
     }
 }

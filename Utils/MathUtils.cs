@@ -13,6 +13,7 @@ namespace RotMG.Utils
 
         private static Random _rnd = new Random();
         private static RandomNumberGenerator _gen = RNGCryptoServiceProvider.Create();
+
         public static string GenerateSalt()
         {
             var x = new byte[0x10];

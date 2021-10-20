@@ -523,71 +523,157 @@ namespace RotMG.Common
     public interface IItemDataModifier
     {
         public Dictionary<ItemData, int> GenerateStats(ref ItemDataJson meta);
+        public ItemData GenerateBaseStat();
     }
+
 
     struct ClassicalDataGenerator : IItemDataModifier
     {
+        private static WeightedElements<ItemData> baseStatWeights = new Utils.WeightedElements<ItemData>(new List<(float, ItemData)>()
+        {
+            ( 1.0f, ItemData.Attack ),
+            ( 1.0f, ItemData.Defense ),
+            ( 1.0f, ItemData.Speed ),
+            ( 1.0f, ItemData.Dexterity ),
+            ( 1.0f, ItemData.Wisdom ),
+            ( 1.0f, ItemData.Vitality ),
+            ( 1.0f, ItemData.MaxHP ),
+            ( 1.0f, ItemData.MaxMP ),
+            ( 1.0f, ItemData.Cooldown ),
+            ( 1.0f, ItemData.Damage ),
+            ( 1.0f, ItemData.RateOfFire ),
+        });
+
         public Dictionary<ItemData, int> GenerateStats(ref ItemDataJson meta)
         {
             return new Dictionary<ItemData, int>();
+        }
+
+        public ItemData GenerateBaseStat()
+        {
+            return baseStatWeights.Next();
         }
     }
 
     struct StrengthDataGenerator : IItemDataModifier
     {
+        private static WeightedElements<ItemData> baseStatWeights = new Utils.WeightedElements<ItemData>(new List<(float, ItemData)>()
+        {
+            ( 3.0f, ItemData.Attack ),
+            ( 2.0f, ItemData.Defense ),
+            ( 2.0f, ItemData.Vitality ),
+            ( 2.0f, ItemData.MaxHP ),
+            ( 3.0f, ItemData.Damage ),
+            ( 0.5f, ItemData.RateOfFire ),
+        });
+
         public Dictionary<ItemData, int> GenerateStats(ref ItemDataJson meta)
         {
-            //atleast 1
+            /*//atleast 1
             var rank = ItemDesc.GetRank(meta.Meta);
             return new Dictionary<ItemData, int>()
             {
                 [ItemData.Attack] = MathUtils.NextInt(rank, 3 * rank),
                 [ItemData.MaxHP] = MathUtils.NextInt(2),
                 [ItemData.Dexterity] = -1 * MathUtils.NextInt(rank, 3*rank)
-            };
+            };*/
+            return new Dictionary<ItemData, int>();
         }
+
+        public ItemData GenerateBaseStat()
+        {
+            return baseStatWeights.Next();
+        }
+
     }
 
     struct WisdomDataGenerator : IItemDataModifier
     {
+        private static WeightedElements<ItemData> baseStatWeights = new Utils.WeightedElements<ItemData>(new List<(float, ItemData)>()
+        {
+            ( 1.0f, ItemData.Dexterity ),
+            ( 3.0f, ItemData.Wisdom ),
+            ( 3.0f, ItemData.MaxMP ),
+            ( 2.0f, ItemData.Cooldown ),
+            ( 1.0f, ItemData.RateOfFire ),
+        });
+
         public Dictionary<ItemData, int> GenerateStats(ref ItemDataJson meta)
         {
-            var rank = ItemDesc.GetRank(meta.Meta);
+            /*var rank = ItemDesc.GetRank(meta.Meta);
             return new Dictionary<ItemData, int>()
             {
                 [ItemData.Wisdom] = MathUtils.NextInt(rank, 3 + (int)(1.25f * rank)),
                 [ItemData.MaxHP] = -1 * MathUtils.NextInt(rank * 3)
-            };
+            };*/
+            return new Dictionary<ItemData, int>();
         }
+
+        public ItemData GenerateBaseStat()
+        {
+            return baseStatWeights.Next();
+        }
+
     }
 
     struct AgileDataGenerator : IItemDataModifier
     {
+        private static WeightedElements<ItemData> baseStatWeights = new Utils.WeightedElements<ItemData>(new List<(float, ItemData)>()
+        {
+            ( 2.0f, ItemData.Speed ),
+            ( 3.0f, ItemData.Dexterity ),
+            ( 1.0f, ItemData.MaxHP ),
+            ( 1.0f, ItemData.MaxMP ),
+            ( 2.0f, ItemData.Cooldown ),
+            ( 2.0f, ItemData.RateOfFire ),
+        });
+
         public Dictionary<ItemData, int> GenerateStats(ref ItemDataJson meta)
         {
-            var rank = ItemDesc.GetRank(meta.Meta);
+            /*var rank = ItemDesc.GetRank(meta.Meta);
             return new Dictionary<ItemData, int>()
             {
                 [ItemData.Attack] = -1 * MathUtils.NextInt(rank, 3 + rank),
                 [ItemData.Dexterity] = MathUtils.NextInt(rank, 3 + (int)(1.25f * rank)),
                 [ItemData.Speed] = MathUtils.NextInt(rank, 3 * rank),
                 [ItemData.RateOfFire] = MathUtils.NextInt(rank),
-            };
+            };*/
+            return new Dictionary<ItemData, int>();
+        }
+
+        public ItemData GenerateBaseStat()
+        {
+            return baseStatWeights.Next();
         }
     }
 
     struct InsanityDataGenerator : IItemDataModifier
     {
-        static ItemData[] RandomChoices = new ItemData[]
+        private static WeightedElements<ItemData> baseStatWeights = new Utils.WeightedElements<ItemData>(new List<(float, ItemData)>()
+        {
+            ( 1.0f, ItemData.Attack ),
+            ( 1.0f, ItemData.Defense ),
+            ( 1.0f, ItemData.Speed ),
+            ( 1.0f, ItemData.Dexterity ),
+            ( 1.0f, ItemData.Wisdom ),
+            ( 1.0f, ItemData.Vitality ),
+            ( 1.0f, ItemData.MaxHP ),
+            ( 1.0f, ItemData.MaxMP ),
+            ( 1.0f, ItemData.Cooldown ),
+            ( 1.0f, ItemData.Damage ),
+            ( 1.0f, ItemData.RateOfFire ),
+        });
+
+        /*static ItemData[] RandomChoices = new ItemData[]
         {
 
             ItemData.Attack, ItemData.Defense, ItemData.Speed, ItemData.Dexterity,
             ItemData.Vitality, ItemData.Wisdom
+        };*/
 
-        };
         public Dictionary<ItemData, int> GenerateStats(ref ItemDataJson meta)
         {
-            var rank = ItemDesc.GetRank(meta.Meta);
+            /*var rank = ItemDesc.GetRank(meta.Meta);
             var d = new Dictionary<ItemData, int>();
             var points = 0;
             HashSet<ItemData> chosen = new HashSet<ItemData>();
@@ -603,7 +689,13 @@ namespace RotMG.Common
                 chosen.Add(idc);
             }
             Console.WriteLine(d);
-            return d;
+            return d;*/
+            return new Dictionary<ItemData, int>();
+        }
+
+        public ItemData GenerateBaseStat()
+        {
+            return baseStatWeights.Next();
         }
     }
 
@@ -863,7 +955,7 @@ namespace RotMG.Common
             var s = new List<ItemData>();
             while (s.Count < bonuses)
             {
-                var k = modifiers[MathUtils.Next(modifiers.Length)];
+                var k = ItemDataModifiers.Registry[smod.Value].GenerateBaseStat();
                 if (s.Contains(k))
                     continue;
                 if (k == ItemData.Damage 

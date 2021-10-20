@@ -295,9 +295,10 @@ namespace RotMG.Game.Entities
                             if (Inventory[slot] != -1)
                             {
                                 var i = Inventory[slot];
-                                var roll = Resources.Type2Item[(ushort)i].Roll();
+                                var itemDataMod = Enum.Parse<ItemDataModType>(Client.Character.ItemDataModifier ?? "Classical");
+                                var roll = Resources.Type2Item[(ushort)i].Roll(smod: itemDataMod);
                                 while (((ItemData)roll.Item2.Meta & ItemData.T7) == 0)
-                                    roll = Resources.Type2Item[(ushort)i].Roll();
+                                    roll = Resources.Type2Item[(ushort)i].Roll(smod: itemDataMod);
                                 ItemDatas[slot] = !roll.Item1 ? new ItemDataJson() { Meta = -1 } : roll.Item2;
                                 UpdateInventorySlot(slot);
                                 RecalculateEquipBonuses();
