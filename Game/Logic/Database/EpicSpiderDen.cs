@@ -207,50 +207,59 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Muramasa", 0.01f)
                     ));
             db.Init("Epic Arachna Web Spoke 1",
+                new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                 new State("base",
                     new ShootAt("Epic Arachna Web Spoke 2", 8, 1),
                     new ShootAt("Epic Arachna Web Spoke 8", 8, 1)
                 )
             );
             db.Init("Epic Arachna Web Spoke 3",
+                new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                 new State("base",
                     new ShootAt("Epic Arachna Web Spoke 2", 8, 1),
                     new ShootAt("Epic Arachna Web Spoke 4", 8, 1)
                 )
             );
             db.Init("Epic Arachna Web Spoke 5",
+                new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                 new State("base",
                     new ShootAt("Epic Arachna Web Spoke 4", 8, 1),
                     new ShootAt("Epic Arachna Web Spoke 6", 8, 1)
                 )
             );
             db.Init("Epic Arachna Web Spoke 7",
+                new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                 new State("base",
                     new ShootAt("Epic Arachna Web Spoke 8", 8, 1),
                     new ShootAt("Epic Arachna Web Spoke 6", 8, 1)
                 )
             ); 
             db.Init("Epic Arachna Web Spoke 2",
+                new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                  new State("base",
                      new ShootAt("Epic Arachna Web Spoke Anchor", 12, 1)
                  )
              );
             db.Init("Epic Arachna Web Spoke 4",
+                new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                  new State("base",
                      new ShootAt("Epic Arachna Web Spoke Anchor", 12, 1)
                  )
              );
             db.Init("Epic Arachna Web Spoke 6",
+                new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                  new State("base",
                      new ShootAt("Epic Arachna Web Spoke Anchor", 12, 1)
                  )
              );
             db.Init("Epic Arachna Web Spoke 8",
+                new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                  new State("base",
                      new ShootAt("Epic Arachna Web Spoke Anchor", 12, 1)
                  )
              );
             db.Init("Epic Arachna Web Spoke Anchor",
+                new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                 new MoveLine(1f, 90, 1),
                 new State("base",
                     new TimedTransition("nothing")

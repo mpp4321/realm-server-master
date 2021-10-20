@@ -222,8 +222,9 @@ namespace RotMG.Game.Logic.Database
                 ),
                 new State("hide",
                     new ConditionalEffect(ConditionEffectIndex.Invisible),
+                    new ConditionalEffect(ConditionEffectIndex.Invincible),
                     new ChangeSize(-20, 0),
-                    new Orbit(4, 14, 99, speedVariance: 1.5f, targetPlayers: true),
+                    new Orbit(4, 14, 99, speedVariance: 1.5f, targetPlayers: true, pass: true),
                     new TimedRandomTransition(1000, "hide", "dash")
                 ),
                 new State("sleep",
@@ -272,7 +273,7 @@ namespace RotMG.Game.Logic.Database
 
                     new State("roto",
                         new Shoot(99, 5, 360 / 5, 0, 0f, -5f, cooldown: 70),
-                        new Shoot(99, 5, 360 / 5, 0, 0f, 5f, cooldownOffset: 2700, cooldown: 70),
+                        new Shoot(99, 5, 360 / 5, 0, 0f, 5f, cooldownOffset: 2500, cooldown: 70),
                         new TimedTransition("range", 3200) { SubIndex = 1 }
                     ),
                     new State("range",
@@ -289,7 +290,8 @@ namespace RotMG.Game.Logic.Database
                     new State("crash",
                         new ConditionalEffect(ConditionEffectIndex.Cursed),
                         new Charge(1.4f, 99, 4000),
-                        new Shoot(99, 2, 180, 3, 0f, 12f, cooldownVariance: 100, cooldown: 300),
+                        new Shoot(99, 5, 360 / 5, 0, 0f, -5f, cooldown: 70),
+                        new Shoot(99, 5, 360 / 5, 0, 0f, 5f, cooldownOffset: 2200, cooldown: 70),
                         new TimedRandomTransition(2800, "roto", "range") { SubIndex = 1 }
                 )),
                 new Threshold(0.001f,
