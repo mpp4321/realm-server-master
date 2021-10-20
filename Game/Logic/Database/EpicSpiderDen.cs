@@ -133,6 +133,7 @@ namespace RotMG.Game.Logic.Database
                     new PlayerWithinTransition(4, "halfwoke")
                 ),
                 new State("blackS",
+                    new Shoot(99, 3, 14, 2, predictive: 0.6f, cooldown: 800),
                     new Shoot(99, 4, 25, 7, angleOffset: 90),
                     new Shoot(99, 4, 25, 8, angleOffset: -90),
                     new Charge(1.4f, 99),
