@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace RotMG.Game.Logic.ItemEffs.ItemDB
 {
     class SnakePitArmor : IItemHandler

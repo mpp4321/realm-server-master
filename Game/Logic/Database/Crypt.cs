@@ -263,6 +263,7 @@ namespace RotMG.Game.Logic.Database
                     new TimedTransition("scythe", 5000),
                     new HealthTransition(0.33f, "rage")
                 ),
+
                 new State("rage",
                     new OrderFrom(99, "Phantom Mage", "hidden", "reveal"),
                     new Order(12, "Phantom Mage", "hidden"),
