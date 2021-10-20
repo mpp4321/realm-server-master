@@ -368,7 +368,7 @@
          <File>lofiObj2</File>
          <Index>0x49</Index>
       </Texture>
-      <Size>250</Size>
+      <Size>100</Size>
       <StasisImmune/>
       <Enemy/>
       <Projectile id="0">
@@ -392,7 +392,7 @@
          <File>lofiObj2</File>
          <Index>0x49</Index>
       </Texture>
-      <Size>250</Size>
+      <Size>100</Size>
       <StasisImmune/>
       <Enemy/>
       <Projectile id="0">
@@ -416,7 +416,7 @@
          <File>lofiObj2</File>
          <Index>0x49</Index>
       </Texture>
-      <Size>250</Size>
+      <Size>100</Size>
       <StasisImmune/>
       <Enemy/>
       <Projectile id="0">
@@ -440,7 +440,7 @@
          <File>lofiObj2</File>
          <Index>0x49</Index>
       </Texture>
-      <Size>250</Size>
+      <Size>100</Size>
       <StasisImmune/>
       <Enemy/>
       <Projectile id="0">
@@ -464,7 +464,7 @@
          <File>lofiObj2</File>
          <Index>0x49</Index>
       </Texture>
-      <Size>250</Size>
+      <Size>100</Size>
       <StasisImmune/>
       <Enemy/>
       <Projectile id="0">
@@ -488,7 +488,7 @@
          <File>lofiObj2</File>
          <Index>0x49</Index>
       </Texture>
-      <Size>250</Size>
+      <Size>100</Size>
       <StasisImmune/>
       <Enemy/>
       <Projectile id="0">
@@ -512,7 +512,7 @@
          <File>lofiObj2</File>
          <Index>0x49</Index>
       </Texture>
-      <Size>250</Size>
+      <Size>100</Size>
       <StasisImmune/>
       <Enemy/>
       <Projectile id="0">
@@ -536,7 +536,7 @@
          <File>lofiObj2</File>
          <Index>0x49</Index>
       </Texture>
-      <Size>250</Size>
+      <Size>100</Size>
       <StasisImmune/>
       <Enemy/>
       <Projectile id="0">
