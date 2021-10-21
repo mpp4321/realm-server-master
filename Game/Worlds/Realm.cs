@@ -29,6 +29,15 @@ namespace RotMG.Game.Worlds
             InitMobs();
         }
 
+        public override int AddEntity(Entity e, Vector2 at)
+        {
+            if(e is Enemy en && en.Terrain != Terrain.None)
+            {
+                this._enemyCount[en.Terrain]++;
+            }
+            return base.AddEntity(e, at);
+        }
+
         public override void Tick()
         {
             if (Closed && Players.Count <= 0)
@@ -41,7 +50,8 @@ namespace RotMG.Game.Worlds
                 OryxTaunt();
 
             //Close every hour, using 1 - 360xxx because itll close right when it opens lol
-            if (AliveTime % 3600000 == 3599999)
+            //Ends in 2 0 because tick speed is 100 increm
+            if (AliveTime % 3600000 == 3599900)
                 Close();
             
             base.Tick();

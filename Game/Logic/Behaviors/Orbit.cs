@@ -106,12 +106,7 @@ namespace RotMG.Game.Logic.Behaviors
                 Vector2 vect = new Vector2(x, y) - host.Position;
                 vect.Normalize();
                 vect *= host.GetSpeed(s.Speed) * Settings.SecondsPerTick;
-
-                if(pass)
-                {
-                    host.Parent.MoveEntity(host, host.Position + vect);
-                } else
-                    host.ValidateAndMove(host.Position + vect);
+                host.ValidateAndMove(host.Position + vect);
             }
 
             host.StateObject[Id] = s;

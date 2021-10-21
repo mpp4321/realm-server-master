@@ -204,8 +204,13 @@ namespace RotMG.Game.Logic.Database
                     new TimedRandomTransition(3500, "roto", "stayback", "wander")
                 ),
                 new Threshold(0.01f,
-                    new ItemLoot("Muramasa", 0.01f)
-                    ));
+                    new ItemLoot("Muramasa", 0.02f),
+                    new ItemLoot("Will of the Den", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
+                    new ItemLoot("Arachnid Garment", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
+                    new ItemLoot("Viral Egg", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true))
+                    //new ItemLoot("Arachnid Miasma", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true))
+                )
+            );
             db.Init("Epic Arachna Web Spoke 1",
                 new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                 new State("base",

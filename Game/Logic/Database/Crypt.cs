@@ -302,7 +302,11 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(5, LootType.Ability, 0.2f),
                     new ItemLoot("Potion of Attack", 1f),
                     new ItemLoot("Potion of Defense", 1f),
-                    new ItemLoot("Potion of Mana", 1f)
+                    new ItemLoot("Potion of Mana", 1f),
+                    new ItemLoot("Twilight Truncheon", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
+                    new ItemLoot("Midnight Malice", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
+                    new ItemLoot("Reaper's Regalia", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
+                    new ItemLoot("Decrepit Cranium", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true))
                 )
             );
 

@@ -583,7 +583,8 @@ namespace RotMG.Game.Worlds
                     if (objType == 0)
                         continue;
 
-                    _enemyCount[terrain] += Spawn(Resources.Type2Object[objType], terrain);
+                    //better handled in AddEntity _enemyCount[terrain] += SSpawn(Resources.Type2Object[objType], terrain);
+                    Spawn(Resources.Type2Object[objType], terrain);
                     
                     if (_enemyCount[terrain] >= maxEnemyCount)
                         break;
@@ -679,7 +680,8 @@ namespace RotMG.Game.Worlds
                         if (type == 0)
                             continue;
 
-                        _enemyCount[terrain] += Spawn(Resources.Type2Object[type], terrain);
+                        // better handled in AddEntity _enemyCount[terrain] += Spawn(Resources.Type2Object[type], terrain);
+                        Spawn(Resources.Type2Object[type], terrain);
                     }
                 }
             }

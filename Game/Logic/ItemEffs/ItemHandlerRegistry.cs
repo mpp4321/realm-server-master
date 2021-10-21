@@ -35,6 +35,7 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("Conflict", new OrbOfConflict());
             Registry.Add("ArachnidGarment", new ArachGar());
             Registry.Add("CryptRing", new CryptRing());
+            Registry.Add("MiasmaPoison", new MiasmaPoison());
 
             //components
             Registry.Add("FireRune", new FireRune());
