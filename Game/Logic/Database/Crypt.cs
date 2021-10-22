@@ -188,7 +188,7 @@ namespace RotMG.Game.Logic.Database
                     new EntitiesNotExistsTransition(99, "tauntWait", "Mage Switch", "Scythe Switch")
                 ),
                 new State("tauntWait",
-                    new PlayerWithinTransition(10, "taunt", true),
+                    new PlayerWithinTransition(16, "taunt", true),
                     new ChangeSize(100, 100)
                 ),
                 new State("taunt",
