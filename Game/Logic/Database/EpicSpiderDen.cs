@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using static RotMG.Game.Logic.Loots.TierLoot;
 
 namespace RotMG.Game.Logic.Database
 {
@@ -103,6 +104,7 @@ namespace RotMG.Game.Logic.Database
                     new PlayerWithinTransition(16, "halfwoke", true)
                 ),
                 new State("halfwoke",
+                    new SetAltTexture(0),
                     new HealthTransition(0.7f, "awake"),
                     new EntitiesNotExistsTransition(99, "awake", "Red Son of Arachna Giant Egg Sac", "Blue Son of Arachna Giant Egg Sac", "Silver Son of Arachna Giant Egg Sac"),
                     new Orbit(0.5f, 2.5f, 99, "Epic Arachna Web Spoke Anchor", 0.75f, 1),
@@ -112,6 +114,7 @@ namespace RotMG.Game.Logic.Database
                     new TimedRandomTransition(3000, "blackS", "redS", "blueS")
                 ),
                 new State("blueS",
+                    new SetAltTexture(3),
                     new Shoot(99, 4, 25, 7, angleOffset: 90),
                     new Shoot(99, 4, 25, 8, angleOffset: -90),
                     new Shoot(99, 2, -26, 4, cooldown: 20),
@@ -120,6 +123,7 @@ namespace RotMG.Game.Logic.Database
                     new PlayerWithinTransition(2, "halfwoke")
                 ),
                 new State("redS",
+                    new SetAltTexture(1),
                     new Orbit(2f, 7, 99, "Epic Arachna Web Spoke Anchor"),
                     new Shoot(99, 1, index: 3, fixedAngle: 0f, rotateAngle: 12f, cooldown: 350),
                     new Shoot(99, 1, index: 3, fixedAngle: 45f, rotateAngle: 12f, cooldown: 350),
@@ -133,17 +137,12 @@ namespace RotMG.Game.Logic.Database
                     new PlayerWithinTransition(4, "halfwoke")
                 ),
                 new State("blackS",
+                    new SetAltTexture(2),
                     new Shoot(99, 3, 14, 2, predictive: 0.6f, cooldown: 800),
                     new Shoot(99, 4, 25, 7, angleOffset: 90),
                     new Shoot(99, 4, 25, 8, angleOffset: -90),
                     new Charge(1.4f, 99),
                     new TimedTransition("halfwoke", 1200),
-                    new PlayerWithinTransition(3, "halfwoke")
-                ),
-                new State("yellowS",
-                    new Shoot(99, 1, index: 5, fixedAngle: 0f, rotateAngle: 6f),
-                    new Orbit(2f, 8, target: "Epic Arachna Web Spoke Anchor", speedVariance: 0.4f, radiusVariance: 1.5f, orbitClockwise: true),
-                    new TimedTransition("halfwoke", 3600),
                     new PlayerWithinTransition(3, "halfwoke")
                 ),
                 new State("awake",
@@ -181,6 +180,7 @@ namespace RotMG.Game.Logic.Database
                     new TimedRandomTransition(6000, "redBack", "blueOrbit", "wander")
                 ),
                 new State("blackChase",
+                    new SetAltTexture(2),
                     new Follow(0.7f, 14, 3.5f, 1400, 600),
                     new Charge(1.5f, 10, 2400),
                     new Shoot(99, 4, 25, 7, angleOffset: 90),
@@ -189,6 +189,7 @@ namespace RotMG.Game.Logic.Database
                     new TimedRandomTransition(2500, "stayback", "wander")
                 ),
                 new State("redBack",
+                    new SetAltTexture(1),
                     new StayBack(1.6f, 4.5f),
                     new Wander(0.3f),
                     new Shoot(99, 6, 360 / 8, 3, fixedAngle: 0f, rotateAngle: 23f, cooldownVariance: 400, cooldown: 1600),
@@ -197,6 +198,7 @@ namespace RotMG.Game.Logic.Database
                     new TimedRandomTransition(5000, "chase", "stayback", "wander")
                 ),
                 new State("blueOrbit",
+                    new SetAltTexture(3),
                     new Orbit(0.8f, 5, 16, speedVariance: 0.2f, radiusVariance: 1.5f, targetPlayers: true),
                     new Shoot(99, 2, -26, 4, cooldown: 20),
                     new Shoot(99, 4, 25, 8, angleOffset: 90),
@@ -204,10 +206,17 @@ namespace RotMG.Game.Logic.Database
                     new TimedRandomTransition(3500, "roto", "stayback", "wander")
                 ),
                 new Threshold(0.01f,
-                    new ItemLoot("Muramasa", 0.02f),
+                    new ItemLoot("Muramasa", 0.02f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
+                    new TierLoot(10, LootType.Weapon, 0.55f),
+                    new TierLoot(10, LootType.Armor, 0.55f),
+                    new TierLoot(5, LootType.Ability, 0.55f),
+                    new TierLoot(5, LootType.Ring, 0.55f),
+                    new ItemLoot("Potion of Dexterity", 1.0f),
+                    new ItemLoot("Potion of Dexterity", 1.0f),
                     new ItemLoot("Will of the Den", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
                     new ItemLoot("Arachnid Garment", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
-                    new ItemLoot("Viral Egg", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true))
+                    new ItemLoot("Viral Egg", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
+                    new ItemLoot("Spider Generator", 0.005f)
                     //new ItemLoot("Arachnid Miasma", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true))
                 )
             );

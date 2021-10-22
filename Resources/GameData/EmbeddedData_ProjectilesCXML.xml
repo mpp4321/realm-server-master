@@ -496,11 +496,11 @@
   <Object type="0x0041" id="Web Thread">
     <Class>Projectile</Class>
     <Texture>
-      <File>lofiObj2</File>
-      <Index>0x46</Index>
+      <File>lofiObj4</File>
+      <Index>0xe1</Index>
     </Texture>
-    <Rotation>0</Rotation>
     <ShadowSize>0</ShadowSize>
+    <AngleCorrection>1</AngleCorrection>
   </Object>
   <Object type="0x0042" id="Aqua Slash">
     <Class>Projectile</Class>

@@ -14,7 +14,7 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Cyclops God",
                 new State("base",
-                    new DropPortalOnDeath("Spider Den Portal", 0.1f),
+                    new DropPortalOnDeath("Crawling Depths Portal", 0.1f),
                     new State("idle",
                         new PlayerWithinTransition(11, "blade_attack"),
                         new HealthTransition(0.8f, "blade_attack")

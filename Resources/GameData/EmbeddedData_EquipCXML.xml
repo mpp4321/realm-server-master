@@ -6443,7 +6443,7 @@
     <Description>A key which opens an entrance to a Spider Den.</Description>
     <Sound>use_key</Sound>
     <Consumable/>
-    <Activate id="Spider Den Portal">Create</Activate>
+    <Activate id="Crawling Depths Portal">Create</Activate>
   </Object>
   <Object type="0x70a" id="Abyss of Demons Key">
     <Class>Equipment</Class>

@@ -188,9 +188,27 @@
    <Object type="0x702a" id="Son of Arachna">
       <Class>Character</Class>
       <AnimatedTexture>
-         <File>chars8x8dEncounters</File>
-         <Index>33</Index>
+         <File>chars16x16rEncounters</File>
+         <Index>100</Index>
       </AnimatedTexture>
+      <AltTexture id="1">
+      <AnimatedTexture>
+         <File>chars16x16rEncounters</File>
+         <Index>101</Index>
+      </AnimatedTexture>
+      </AltTexture>
+      <AltTexture id="2">
+      <AnimatedTexture>
+         <File>chars16x16rEncounters</File>
+         <Index>102</Index>
+      </AnimatedTexture>
+      </AltTexture>
+      <AltTexture id="3">
+      <AnimatedTexture>
+         <File>chars16x16rEncounters</File>
+         <Index>103</Index>
+      </AnimatedTexture>
+      </AltTexture>
       <HitSound>monster/spider_queen_hit</HitSound>
       <DeathSound>monster/spider_queen_death</DeathSound>
       <Size>100</Size>
@@ -365,8 +383,8 @@
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>
-         <File>lofiObj2</File>
-         <Index>0x49</Index>
+         <File>lofiObjBig</File>
+         <Index>0x1b2</Index>
       </Texture>
       <Size>100</Size>
       <StasisImmune/>
@@ -389,8 +407,8 @@
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>
-         <File>lofiObj2</File>
-         <Index>0x49</Index>
+         <File>lofiObjBig</File>
+         <Index>0x1b2</Index>
       </Texture>
       <Size>100</Size>
       <StasisImmune/>
@@ -413,8 +431,8 @@
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>
-         <File>lofiObj2</File>
-         <Index>0x49</Index>
+        <File>lofiObjBig</File>
+        <Index>0x1b2</Index>
       </Texture>
       <Size>100</Size>
       <StasisImmune/>
@@ -437,8 +455,8 @@
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>
-         <File>lofiObj2</File>
-         <Index>0x49</Index>
+        <File>lofiObjBig</File>
+        <Index>0x1b2</Index>
       </Texture>
       <Size>100</Size>
       <StasisImmune/>
@@ -461,8 +479,8 @@
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>
-         <File>lofiObj2</File>
-         <Index>0x49</Index>
+        <File>lofiObjBig</File>
+        <Index>0x1b2</Index>
       </Texture>
       <Size>100</Size>
       <StasisImmune/>
@@ -485,8 +503,8 @@
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>
-         <File>lofiObj2</File>
-         <Index>0x49</Index>
+        <File>lofiObjBig</File>
+        <Index>0x1b2</Index>
       </Texture>
       <Size>100</Size>
       <StasisImmune/>
@@ -509,8 +527,8 @@
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>
-         <File>lofiObj2</File>
-         <Index>0x49</Index>
+        <File>lofiObjBig</File>
+        <Index>0x1b2</Index>
       </Texture>
       <Size>100</Size>
       <StasisImmune/>
@@ -533,8 +551,8 @@
       <MaxHitPoints>100000</MaxHitPoints>
       <Defense>1000</Defense>
       <Texture>
-         <File>lofiObj2</File>
-         <Index>0x49</Index>
+        <File>lofiObjBig</File>
+        <Index>0x1b2</Index>
       </Texture>
       <Size>100</Size>
       <StasisImmune/>

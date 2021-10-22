@@ -1913,4 +1913,29 @@
         <Activate id="Witch" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
+    <Object type="0x1655" id="Spider">
+        <DisplayId>Spider</DisplayId>
+        <Class>Character</Class>
+        <AnimatedTexture>
+           <File>chars8x8dEncounters</File>
+           <Index>29</Index>
+        </AnimatedTexture>
+        <NoMiniMap/>
+        <Size>120</Size>
+    </Object>
+    <Object type="0x1656" id="Spider Generator">
+        <DisplayId>Spider</DisplayId>
+        <Class>Equipment</Class>
+        <Item/>
+        <AnimatedTexture>
+           <File>chars8x8dEncounters</File>
+           <Index>29</Index>
+        </AnimatedTexture>
+        <SlotType>10</SlotType>
+        <Description>A scary lil' spider.</Description>
+        <Sound>spell/light_heal</Sound>
+        <InvUse/>
+        <Activate id="Spider" cooldown="10">PermaPet</Activate>
+        <OldSound>use_potion</OldSound>
+    </Object>
 </Objects>

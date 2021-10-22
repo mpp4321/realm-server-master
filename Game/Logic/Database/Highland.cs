@@ -350,7 +350,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Undead Dwarf Warrior",
                 new State("base",
-                    new DropPortalOnDeath("Spider Den Portal", 20, timeout: 100),
+                    new DropPortalOnDeath("Crawling Depths Portal", 20, timeout: 100),
                     new Shoot(3, cooldown: 200),
                     new Prioritize(
                         new StayAbove(1, 160),
@@ -776,7 +776,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Urgle",
                 new State("base",
-                    new DropPortalOnDeath("Spider Den Portal", 20, timeout: 100),
+                    new DropPortalOnDeath("Crawling Depths Portal", 20, timeout: 100),
                     new Prioritize(
                         new StayCloseToSpawn(0.8f, 3),
                         new Wander(0.5f)

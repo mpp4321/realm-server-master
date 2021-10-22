@@ -275,7 +275,7 @@ namespace RotMG.Game.Logic
                     c.Inventory[k] = loot[k].Item;
                     if(loot[k].overrideData != null)
                     {
-                        c.ItemDatas[k] = loot[k].overrideData;
+                        c.ItemDatas[k] = (ItemDataJson) loot[k].overrideData.Clone();
                     } else
                         c.ItemDatas[k] = roll.Item1 ? roll.Item2 : new ItemDataJson() { Meta=-1 };
 

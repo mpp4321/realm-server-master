@@ -495,7 +495,7 @@ namespace RotMG.Common
         }
     }
     
-    public class ItemDataJson
+    public class ItemDataJson : ICloneable
     {
 
         public int Meta { get; set; } = -1;
@@ -514,6 +514,10 @@ namespace RotMG.Common
                 : 0;
         }
 
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
     }
 
     public enum ItemDataModType {

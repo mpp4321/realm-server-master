@@ -64,7 +64,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Orc King",
                 new State("base",
-                    new DropPortalOnDeath("Spider Den Portal", 0.1f),
+                    new DropPortalOnDeath("Crawling Depths Portal", 0.1f),
                     new Shoot(3),
                     new Spawn("Orc Queen", maxChildren: 2, cooldown: 60000, givesNoXp: false),
                     new Prioritize(
@@ -504,7 +504,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Werelion",
                 new State("base",
-                    new DropPortalOnDeath("Spider Den Portal", 0.1f),
+                    new DropPortalOnDeath("Crawling Depths Portal", 0.1f),
                     new Spawn("Weretiger", maxChildren: 1, cooldown: 23000, givesNoXp: false),
                     new Spawn("Wereleopard", maxChildren: 2, cooldown: 9000, givesNoXp: false),
                     new Spawn("Werepanther", maxChildren: 3, cooldown: 15000, givesNoXp: false),
