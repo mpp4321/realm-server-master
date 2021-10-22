@@ -19,11 +19,11 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
                     var placeholder = new Placeholder();
                     pl.Parent.AddEntity(placeholder, en.Position);
 
-                    var @throw = GameServer.ShowEffect(ShowEffectIndex.Throw, pl.Id, 0xffddff00, pos1: en.Position, speed: 700);
+                    var @throw = GameServer.ShowEffect(ShowEffectIndex.Throw, pl.Id, 0xff00ff00, pos1: en.Position, speed: 700);
                     var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, placeholder.Id, 0xffddff00, new Vector2(4, 0));
 
                     foreach (var j in pl.Parent.PlayerChunks.HitTest(pl.Position, Player.SightRadius))
-                        if (j is Player k && (k.Client.Account.Effects || k.Equals(this)))
+                        if (j is Player k && (k.Client.Account.Effects || k.Equals(pl)))
                             k.Client.Send(@throw);
 
                     Manager.AddTimedAction(700, () =>
@@ -33,14 +33,13 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
                             if (pl.Parent != null)
                             {
                                 foreach (var j in pl.Parent.PlayerChunks.HitTest(pl.Position, Player.SightRadius))
-                                    if (j is Player k && (k.Client.Account.Effects || k.Equals(this)))
+                                    if (j is Player k && (k.Client.Account.Effects || k.Equals(pl)))
                                         k.Client.Send(nova);
                                 foreach (var j in pl.Parent.EntityChunks.HitTest(placeholder.Position, 4))
                                     if (j is Enemy e)
                                     {
                                         var dmg = Player.StatScaling(pl.GetStatTotal(7), 400f, 75, 5f);
-                                        e.ApplyPoison(pl, new ConditionEffectDesc[0], (int)(dmg
-                                            / 4), dmg);
+                                        e.ApplyPoison(pl, new ConditionEffectDesc[0], dmg / 4, dmg);
                                     }
                             }
                             placeholder.Parent.RemoveEntity(placeholder);

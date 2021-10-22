@@ -309,34 +309,9 @@ namespace RotMG.Game.Entities
                 Database.RemoveGift(Client.Account, item1);
 
             //This is basically where we will combine items if theyre swapped onto each other
-            if((d2?.StorageMax ?? 0) > 0 && data2.StoredItems != null && slot1.SlotId != slot2.SlotId)
+            if(slot1.SlotId != slot2.SlotId)
             {
-                if(data2.StoredItems.Count >= d2.StorageMax)
-                {
-                    Client.Send(InvalidInvSwap);
-                    return;
-                }
-
-                if(data2.AllowedItems != null)
-                {
-                    if(!data2.AllowedItems.Contains(item1))
-                    {
-                        Client.Send(InvalidInvSwap);
-                        return;
-                    }
-                }
-
-                data2.StoredItems.Add(item1);
-
-                con1.Inventory[slot1.SlotId] = -1;
-                con1.ItemDatas[slot1.SlotId] = new ItemDataJson();
-
-                con1.UpdateInventorySlot(slot1.SlotId);
-                con2.UpdateInventorySlot(slot2.SlotId);
-
-                RecalculateEquipBonuses();
-                Client.Send(ValidInvSwap);
-                return;
+                if (HandleItemBag(slot1, slot2, data1, data2, d1, d2, item1, item2, con1, con2)) return;
             } 
 
             con1.Inventory[slot1.SlotId] = item2;
@@ -349,6 +324,39 @@ namespace RotMG.Game.Entities
 
             RecalculateEquipBonuses();
             Client.Send(ValidInvSwap);
+        }
+
+        public bool HandleItemBag(SlotData slot1, SlotData slot2, ItemDataJson data1, ItemDataJson data2, ItemDesc d1, ItemDesc d2, int item1, int item2, IContainer con1, IContainer con2)
+        {
+            if ((d2?.StorageMax ?? 0) <= 0 || data2.StoredItems == null)
+                return false;
+
+            if(data2.StoredItems.Count >= d2.StorageMax)
+            {
+                Client.Send(InvalidInvSwap);
+                return true;
+            }
+
+            if(data2.AllowedItems != null)
+            {
+                if(!data2.AllowedItems.Contains(item1))
+                {
+                    Client.Send(InvalidInvSwap);
+                    return true;
+                }
+            }
+
+            data2.StoredItems.Add(item1);
+
+            con1.Inventory[slot1.SlotId] = -1;
+            con1.ItemDatas[slot1.SlotId] = new ItemDataJson();
+
+            con1.UpdateInventorySlot(slot1.SlotId);
+            con2.UpdateInventorySlot(slot2.SlotId);
+
+            RecalculateEquipBonuses();
+            Client.Send(ValidInvSwap);
+            return true;
         }
 
         public bool ValidSlot(int slot)

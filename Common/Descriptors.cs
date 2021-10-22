@@ -146,7 +146,8 @@ namespace RotMG.Common
         ConditionEffectBlast,
         RuneConsume,
         UnlockSkin,
-        RemoveFromBag
+        RemoveFromBag,
+        MagicCrystal,
     }
 
     public enum ShowEffectIndex
