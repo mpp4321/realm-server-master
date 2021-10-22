@@ -747,7 +747,7 @@ namespace RotMG.Game.Entities
                         ItemDataJson dt = ItemDatas[slot.SlotId];
                         if (dt != null && dt.SkinId != null)
                         {
-                            var directid = Resources.Id2Skin[dt.SkinId].Type;
+                            var directid = Resources.Id2Skin[dt.SkinId.Replace("_", " ")].Type;
                             if (Client.Account.OwnedSkins.Contains(directid))
                             {
                                 SendInfo("Already unlocked!");
