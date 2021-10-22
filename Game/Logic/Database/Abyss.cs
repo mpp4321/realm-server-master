@@ -78,7 +78,7 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Archdemon Malphas",
                 new State("Waiting",
-                    new PlayerWithinTransition(10, "base", seeInvis: true)
+                    new PlayerWithinTransition(14, "base", seeInvis: true)
                 ),
                 new State("base",
                     new Shoot(10, 1, 5, 3, fixedAngle: 0f, rotateAngle: 12f / 2, cooldown: 150),
