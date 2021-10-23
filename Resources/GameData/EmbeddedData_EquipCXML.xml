@@ -7480,7 +7480,7 @@
     <BagType>0</BagType>
     <OldSound>bladeSwing</OldSound>
   </Object>
-  <Object type="0xc45" id="Kendo Stick">
+  <Object type="0xc45" id="Metal Kendo Stick">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -7572,7 +7572,7 @@
     <BagType>0</BagType>
     <OldSound>bladeSwing</OldSound>
   </Object>
-  <Object type="0xc49" id="Night Edge">
+  <Object type="0xc49" id="Fire Katan">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -7581,9 +7581,9 @@
     </Texture>
     <SlotType>24</SlotType>
     <Tier>5</Tier>
-    <Description>An ancient katana with a blade of jet black steel.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
+    <Description>A beautiful katana, forged by the flames atop a great volcano.</Description>
     <Projectile>
       <ObjectId>T5 Katana</ObjectId>
       <Speed>120</Speed>
@@ -7595,7 +7595,7 @@
     <BagType>0</BagType>
     <OldSound>bladeSwing</OldSound>
   </Object>
-  <Object type="0xc4a" id="Sky Edge">
+  <Object type="0xc4a" id="Obsidian Edge">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -7604,7 +7604,7 @@
     </Texture>
     <SlotType>24</SlotType>
     <Tier>6</Tier>
-    <Description>A beautiful katana, forged and cooled by the mists atop a great mountain.</Description>
+    <Description>An ancient katana with a blade of jet black steel.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
@@ -7618,7 +7618,7 @@
     <BagType>1</BagType>
     <OldSound>bladeSwing</OldSound>
   </Object>
-  <Object type="0xc4b" id="Buster Katana">
+  <Object type="0xc4b" id="Quartz Katana">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -7641,7 +7641,7 @@
     <BagType>1</BagType>
     <OldSound>bladeSwing</OldSound>
   </Object>
-  <Object type="0xc4c" id="Demon Edge">
+  <Object type="0xc4c" id="Aurichalcum Edge">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -7666,7 +7666,7 @@
     <OldSound>bladeSwing</OldSound>
   </Object>
 
-  <Object type="0xc4d" id="Jewel Eye Katana">
+  <Object type="0xc4d" id="Necrotic Katana">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -7675,7 +7675,7 @@
     </Texture>
     <SlotType>24</SlotType>
     <Tier>9</Tier>
-    <Description>A mighty katana with a crystal eye embeded in the hilt.</Description>
+    <Description>A mighty katana with an evil aura.</Description>
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/long_sword</Sound>
     <Projectile>
@@ -7691,7 +7691,7 @@
     <OldSound>bladeSwing</OldSound>
   </Object>
 
-  <Object type="0xc4e" id="Ichimonji">
+  <Object type="0xc4e" id="Mithril Katana">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -7715,7 +7715,7 @@
     <FameBonus>2</FameBonus>
     <OldSound>bladeSwing</OldSound>
   </Object>
-  <Object type="0xc4f" id="Muramasa">
+  <Object type="0xc4f" id="Adamantite Katana">
     <Class>Equipment</Class>
     <Item/>
     <Texture>
@@ -7739,7 +7739,7 @@
     <FameBonus>3</FameBonus>
     <OldSound>bladeSwing</OldSound>
   </Object>
-  <Object type="0xc50" id="Masamune">
+  <Object type="0xc50" id="Sunsteel Katana">
     <Class>Equipment</Class>
     <Item/>
     <Texture>

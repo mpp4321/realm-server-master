@@ -206,7 +206,7 @@ namespace RotMG.Game.Logic.Database
                     new TimedRandomTransition(3500, "roto", "stayback", "wander")
                 ),
                 new Threshold(0.01f,
-                    new ItemLoot("Muramasa", 0.02f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
+                    new ItemLoot("Sunsteel Katana", 0.02f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
                     new TierLoot(10, LootType.Weapon, 0.55f),
                     new TierLoot(10, LootType.Armor, 0.55f),
                     new TierLoot(5, LootType.Ability, 0.55f),

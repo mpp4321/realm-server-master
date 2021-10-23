@@ -127,8 +127,6 @@ namespace RotMG.Game.Entities
                 return;
             }
 
-            Console.WriteLine("Recieved hit with id: " + bulletId);
-
             if (ShotProjectiles.TryGetValue(bulletId, out var p))
             {
                 var target = Parent.GetEntity(targetId);
