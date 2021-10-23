@@ -45,6 +45,12 @@ namespace RotMG.Game.Logic
         public class RarityModifiedData
         {
             public RarityModifiedData() { }
+            public RarityModifiedData(RarityModifiedData r) 
+            {
+                RarityMod = r.RarityMod;
+                RarityShift = r.RarityShift;
+                AlwaysRare = r.AlwaysRare;
+            }
             public RarityModifiedData(float mod) { RarityMod = mod; }
             public RarityModifiedData(float mod, int shift) { RarityMod = mod; RarityShift = shift; }
             public RarityModifiedData(float mod, int shift, bool alwaysRare) { RarityMod = mod; RarityShift = shift; AlwaysRare = alwaysRare; }
@@ -174,6 +180,7 @@ namespace RotMG.Game.Logic
                         continue;
                     //up to 50% lootboost if you did all the damage
                     var baseMod = (1f + 0.5f * t);
+                    baseMod += enemy.IsElite ? 1f : 0f;
 
                     foreach (var ih in player.BuildAllItemHandlers())
                         ih.ModifyDrop(player, drop, ref enemy.DamageStorage, ref baseMod);
@@ -266,7 +273,10 @@ namespace RotMG.Game.Logic
                     //Roll an item twice on elite enemies, take better roll
                     if(enemy.IsElite)
                     {
-                        var roll2 = Resources.Type2Item[loot[k].Item].Roll(r: loot[k].RareData, smod: vtype);
+                        var rd = new LootDef.RarityModifiedData(loot[k].RareData);
+                        rd.AlwaysRare = true;
+
+                        var roll2 = Resources.Type2Item[loot[k].Item].Roll(r: rd, smod: vtype);
                         if(ItemDesc.GetRank(roll2.Item2.Meta) > ItemDesc.GetRank(roll.Item2.Meta)) {
                             roll = roll2;
                         }

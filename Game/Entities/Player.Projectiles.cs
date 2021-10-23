@@ -127,6 +127,8 @@ namespace RotMG.Game.Entities
                 return;
             }
 
+            Console.WriteLine("Recieved hit with id: " + bulletId);
+
             if (ShotProjectiles.TryGetValue(bulletId, out var p))
             {
                 var target = Parent.GetEntity(targetId);
@@ -194,12 +196,15 @@ namespace RotMG.Game.Entities
                     }
                 }
             }
-#if DEBUG
             else
             {
+#if DEBUG
                 Program.Print(PrintType.Error, "Tried to hit enemy with undefined projectile");
-            }
 #endif
+
+                var diff = bulletId - (NextProjectileId + 1);
+                Client.Send(GameServer.ShootDesync(diff));
+            }
         }
 
         public void TryShoot(int time, Vector2 pos, float attackAngle, bool ability, int numShots)
@@ -418,12 +423,14 @@ namespace RotMG.Game.Entities
                     AckedProjectiles.Remove(bulletId);
                 }
             }
-#if DEBUG
             else
             {
+#if DEBUG
                 Program.Print(PrintType.Error, "Tried to hit with undefined projectile");
-            }
 #endif
+                var diff = bulletId - NextProjectileId;
+                Client.Send(GameServer.ShootDesync(diff));
+            }
         }
 
         public IEnumerable<IItemHandler> BuildAllItemHandlers()

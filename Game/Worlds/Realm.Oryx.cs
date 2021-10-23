@@ -639,7 +639,7 @@ namespace RotMG.Game.Worlds
                 ((Enemy) entity).Terrain = terrain;
                 AddEntity(entity, point);
 
-                if(MathUtils.Chance(0.15f))
+                if(MathUtils.Chance(desc.Quest ? 0.30f : 0.05f))
                 {
                     (entity as Enemy).MakeElite();
                 }

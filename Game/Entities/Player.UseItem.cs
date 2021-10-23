@@ -210,7 +210,7 @@ namespace RotMG.Game.Entities
             Action callback = null;
             foreach (var eff in desc.ActivateEffects)
             {
-                HandleAbilitySwitchStatement(eff, target, desc, time, inRange, slot);
+                if (HandleAbilitySwitchStatement(eff, target, desc, time, inRange, slot)) return;
             }
 
             if (isAbility)
@@ -236,7 +236,7 @@ namespace RotMG.Game.Entities
             callback?.Invoke();
         }
 
-        public void HandleAbilitySwitchStatement(ActivateEffectDesc eff, Vector2 target, ItemDesc desc, int time, bool inRange, SlotData slot)
+        public bool HandleAbilitySwitchStatement(ActivateEffectDesc eff, Vector2 target, ItemDesc desc, int time, bool inRange, SlotData slot)
         {
             var statForScale = ParseStatForScale(eff.StatForScale);
             switch (eff.Index)
@@ -261,7 +261,7 @@ namespace RotMG.Game.Entities
                     if (Stats[eff.Stat] == statMax)
                     {
                         SendInfo($"{desc.Id} not consumed. Already at max");
-                        return;
+                        return true;
                     }
                     Stats[eff.Stat] = Math.Min(statMax, Stats[eff.Stat] + eff.Amount);
                     UpdateStats();
@@ -661,7 +661,7 @@ namespace RotMG.Game.Entities
                     if (HasBackpack)
                     {
                         SendError("You already have a backpack");
-                        return;
+                        return true;
                     }
                     HasBackpack = true;
                     SendInfo("8 more spaces. Woohoo!");
@@ -672,7 +672,7 @@ namespace RotMG.Game.Entities
 #if DEBUG
                         Program.Print(PrintType.Error, $"{eff.Id} not found for AE Create");
 #endif
-                        return;
+                        return true;
                     }
                     var entity = Resolve(obj.Type);
                     Parent.AddEntity(entity, Position);
@@ -730,7 +730,7 @@ namespace RotMG.Game.Entities
                         if (Client.Character.SelectedRunes.Any(a => a.Equals(runeId)))
                         {
                             SendInfo("You have that rune already!");
-                            return;
+                            return true;
                         }
                         Client.Character.SelectedRunes = Client.Character.SelectedRunes.Concat(new string[] { runeId }).ToArray();
                         SendInfo("Added rune");
@@ -739,7 +739,7 @@ namespace RotMG.Game.Entities
                     else
                     {
                         SendInfo("Reconnect and try again.");
-                        return;
+                        return true;
                     }
                     break;
                 case ActivateEffectIndex.UnlockSkin:
@@ -751,7 +751,7 @@ namespace RotMG.Game.Entities
                             if (Client.Account.OwnedSkins.Contains(directid))
                             {
                                 SendInfo("Already unlocked!");
-                                return;
+                                return true;
                             }
                             else
                             {
@@ -762,7 +762,7 @@ namespace RotMG.Game.Entities
                         else
                         {
                             SendInfo("This unlocker is invalid. Contact an admin.");
-                            return;
+                            return true;
                         }
                     }
                     break;
@@ -787,7 +787,7 @@ namespace RotMG.Game.Entities
                         else
                         {
                             SendInfo("This item bag is invalid, contact admin.");
-                            return;
+                            return true;
                         }
                     }
                     break;
@@ -797,10 +797,11 @@ namespace RotMG.Game.Entities
                     float scale = eff.StatScale;
                     for(int i = 0; i < Inventory.Length; i++)
                     {
-                        if(Inventory[i] != -1 && ItemDesc.GetRank(ItemDatas[i].Meta) == 0)
+                        if(Inventory[i] != -1 && ItemDesc.GetRank(ItemDatas[i].Meta) == -1)
                         {
                             ItemDatas[i] = Resources.Type2Item[(ushort)Inventory[i]]
                                 .Roll(r: new Logic.LootDef.RarityModifiedData(scale, power, true), typeOfMod).Item2;
+                            UpdateInventorySlot(i);
                         }
                     }
                     break;
@@ -810,6 +811,7 @@ namespace RotMG.Game.Entities
                     break;
 #endif
             }
+            return false;
         }
         public void Lightning(Vector2 target, int dmg, int targetCount, uint color, ConditionEffectDesc[] effs = null, Action<Entity, int> callback = null, int DamageFallOff = 0)
         {

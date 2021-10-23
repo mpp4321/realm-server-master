@@ -10517,8 +10517,10 @@
       <Index>0x175</Index>
     </Texture>
     <SlotType>10</SlotType>
+    <Consumable/>
+    <InvUse/>
     <Description>A mundane equipment crystal, provides weak enchantments to unenchanted items upon use.</Description>
-    <ActivateEffect statScale="1.0" id="Classical" amount="1">MagicCrystal</ActivateEffect>
+    <Activate statScale="1.0" id="Classical" amount="1">MagicCrystal</Activate>
     <BagType>5</BagType>
   </Object>
 </Objects>
