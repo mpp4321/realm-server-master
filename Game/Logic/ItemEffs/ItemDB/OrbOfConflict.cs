@@ -13,6 +13,10 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
         {
             Enemy e = new Enemy(Resources.Id2Object["Black Orb Ally"].Type);
             Enemy e1 = new Enemy(Resources.Id2Object["White Orb Ally"].Type);
+
+            e.ApplyConditionEffect(ConditionEffectIndex.StasisImmune, 5000);
+            e1.ApplyConditionEffect(ConditionEffectIndex.StasisImmune, 5000);
+
             player.Parent.AddEntity(e, position);
             e.PlayerOwner = player;
             player.Parent.AddEntity(e1, position);
