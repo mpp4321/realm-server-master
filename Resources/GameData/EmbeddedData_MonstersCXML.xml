@@ -355,9 +355,41 @@
 		<XpMult>5</XpMult>
 		<Projectile id="0">
 			<ObjectId>Green Bolt</ObjectId>
-			<Damage>140</Damage>
+			<Damage>75</Damage>
 			<Speed>40</Speed>
 			<LifetimeMS>1200</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Blue Blast</ObjectId>
+			<Damage>110</Damage>
+			<Speed>60</Speed>
+			<LifetimeMS>1200</LifetimeMS>
+			<Amplitude>1.5</Amplitude>
+			<Frequency>0.6</Frequency>
+			<PassesCover/>
+			<PhaseLock>0</PhaseLock>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Green Bolt</ObjectId>
+			<Damage>85</Damage>
+			<Speed>50</Speed>
+			<LifetimeMS>600</LifetimeMS>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Blue Blast</ObjectId>
+			<Damage>45</Damage>
+			<Speed>45</Speed>
+			<LifetimeMS>600</LifetimeMS>
+			<Amplitude>0.25</Amplitude>
+			<Frequency>1.2</Frequency>
+			<PassesCover/>
+		</Projectile>
+		<Projectile id="4">
+			<ObjectId>Blue Blast</ObjectId>
+			<Damage>45</Damage>
+			<Speed>55</Speed>
+			<LifetimeMS>700</LifetimeMS>
+			<PassesCover/>
 		</Projectile>
 	</Object>
 	<Object type="0x679" id="Oasis Ruler">
