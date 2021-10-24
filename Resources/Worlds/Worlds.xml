@@ -51,6 +51,12 @@
 		<BlockSight>1</BlockSight>
 		<Music>PIRATECAVE2</Music>
 	</World>
+	<World name="Sprite World" display="Sprite World">
+		<Maps>Sprite/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>0</BlockSight>
+		<Music>PIRATECAVE2</Music>
+	</World>
 	<World name="Abyss of Demons" display="Abyss of Demons">
 		<Maps>Abyss/0.jm</Maps>
 		<Portals>0x071b</Portals>

@@ -11,9 +11,14 @@
     <Content Include="Resources\**">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Compile Remove="PortingDatas\BehaviorDb.UndeadLair.cs" />
     <Content Include="Settings.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="PortingDatas\" />
   </ItemGroup>
 
 </Project>
