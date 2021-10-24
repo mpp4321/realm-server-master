@@ -3,6 +3,7 @@ using RotMG.Common;
 using RotMG.Game.Entities;
 using RotMG.Utils;
 using System;
+using System.Collections.Generic;
 using wServer.logic;
 
 namespace RotMG.Game.Logic.Behaviors
@@ -15,6 +16,7 @@ namespace RotMG.Game.Logic.Behaviors
         {
             public int CurrentNumber;
             public int RemainingTime;
+            public List<int> Entities = new List<int>();
         }
 
         private readonly int _maxChildren;
@@ -34,7 +36,7 @@ namespace RotMG.Game.Logic.Behaviors
             this.dispersion = dispersion;
         }
 
-        public void SpawnChildAt(Entity host)
+        private void SpawnChildAt(Entity host, ref SpawnState state)
         {
             if (!MathUtils.Chance(probability))
                 return;
@@ -56,25 +58,46 @@ namespace RotMG.Game.Logic.Behaviors
             Func<int> gen = () => (_Random.Next(1) == 1 ? -1 : 1);
             var vectDispersion = new Vector2(gen() * dispersion, gen() * dispersion);
             host.Parent.AddEntity(entity, host.Position + vectDispersion);
-            (host.StateObject[Id] as SpawnState).CurrentNumber++;
+            state.Entities.Add(entity.Id);
+            state.CurrentNumber++;
+        }
+
+        private void CheckEntities(Entity host, ref SpawnState state)
+        {
+            var NewEntities = new List<int>();
+            foreach(int entId in state.Entities)
+            {
+                if(host.Parent != null)
+                {
+                    var ent = host.Parent.GetEntity(entId);
+                    if (ent == null || ent.Dead) continue;
+                    NewEntities.Add(ent.Id);
+                }
+            }
+            state.Entities = NewEntities;
+            state.CurrentNumber = NewEntities.Count;
         }
 
         public void InitializeState(Entity host)
         {
-            host.StateObject[Id] = new SpawnState()
+            if(host.StateObject[Id] == null)
+                host.StateObject[Id] = new SpawnState()
+                {
+                    CurrentNumber = 0,
+                    RemainingTime = _coolDown.Next(_Random)
+                };
+
+            var state = host.StateObject[Id] as SpawnState;
+            CheckEntities(host, ref state);
+
+            for (int i = 0; i < Math.Min(_initialSpawn, _maxChildren - state.CurrentNumber); i++)
             {
-                CurrentNumber = _initialSpawn,
-                RemainingTime = _coolDown.Next(_Random)
-            };
-            for (int i = 0; i < _initialSpawn; i++)
-            {
-                SpawnChildAt(host);
+                SpawnChildAt(host, ref state);
             }
         }
 
         public override void Enter(Entity host)
         {
-            if (host.StateObject[Id] != null) return;
             InitializeState(host);
         }
 
@@ -90,13 +113,15 @@ namespace RotMG.Game.Logic.Behaviors
 
             if (spawn.RemainingTime <= 0 && spawn.CurrentNumber < _maxChildren)
             {
-                SpawnChildAt(host);
-
+                CheckEntities(host, ref spawn);
+                SpawnChildAt(host, ref spawn);
                 spawn.RemainingTime = _coolDown.Next(_Random);
-                spawn.CurrentNumber++;
             }
             else
+            {
+                CheckEntities(host, ref spawn);
                 spawn.RemainingTime -= Settings.MillisecondsPerTick;
+            }
 
             host.StateObject[Id] = spawn;
             return true;

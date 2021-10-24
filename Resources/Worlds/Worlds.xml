@@ -55,13 +55,21 @@
 		<Maps>UDL/UDL1.jm;UDL/UDL2.jm;UDL/UDL3.jm</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
-		<Music>PIRATECAVE2</Music>
 	</World>
 	<World name="Sprite World" display="Sprite World">
 		<Maps>Sprite/0.jm</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
-		<Music>PIRATECAVE2</Music>
+	</World>
+	<World name="Toxic Sewer" display="Toxic Sewer">
+		<Maps>ToxicSew/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+	</World>
+	<World name="Mad Lab" display="Mad Lab">
+		<Maps>MadLab/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
 	</World>
 	<World name="Abyss of Demons" display="Abyss of Demons">
 		<Maps>Abyss/0.jm</Maps>

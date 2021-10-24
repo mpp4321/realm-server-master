@@ -18,11 +18,12 @@ namespace RotMG.Game.Entities
 
         public int LastChatTime;
 
+
         private readonly string[] _unrankedCommands =
         {
             "commands", "g", "guild", "tell", "allyshots", "allydamage", "effects", "sounds", "vault", "realm",
             "notifications", "online", "who", "server", "pos", "loc", "where", "find", "fame", "famestats", "stats",
-            "trade", "currentsong", "song", "mix", "quest", "lefttomax"
+            "trade", "currentsong", "song", "mix", "quest", "lefttomax", "pinvite", "pcreate", "psummon"
         };
 
         //List of command, rank required

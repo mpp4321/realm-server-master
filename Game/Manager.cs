@@ -105,6 +105,15 @@ namespace RotMG.Game
             return null;
         }
 
+        public static Player GetPlayer(int id)
+        {
+            if(Clients.ContainsKey(id))
+            {
+                return Clients[id].Player;
+            }
+            return null;
+        }
+
         public static Player GetPlayer(string name)
         {
             foreach (var client in Clients.Values)
