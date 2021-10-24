@@ -11,6 +11,7 @@ namespace RotMG.Game
         Regen,
         BlocksSight,
         Note,
+        Enemy,
         Enemy1,
         Enemy2,
         Enemy3,

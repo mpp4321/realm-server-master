@@ -152,34 +152,34 @@ namespace RotMG.Game.Logic.Database
                 new ConditionalEffect(ConditionEffectIndex.Invisible)
                 );
 
-            db.Init("Septavius the Ghost God",
-                    new State("warning",
-                        new Flash(0xff0033ff, .3f, 3),
-                        new TimedTransition("fire", 1000)
-                    ),
-                    new State("fire",
-                        new Shoot(10, 4, 10, 0, cooldown: 200),
-                        new Shoot(10, 2, 40, 1, cooldown: 400),
-                        new Prioritize(false,
-                            new Prioritize(true,
-                                new Charge(2.0, pred: e => e.HasConditionEffect(Common.ConditionEffectIndex.Hexed)),
-                                new Shoot(10, 8, 45, 2, 0f)
+            //db.Init("Septavius the Ghost God",
+            //        new State("warning",
+            //            new Flash(0xff0033ff, .3f, 3),
+            //            new TimedTransition("fire", 1000)
+            //        ),
+            //        new State("fire",
+            //            new Shoot(10, 4, 10, 0, cooldown: 200),
+            //            new Shoot(10, 2, 40, 1, cooldown: 400),
+            //            new Prioritize(false,
+            //                new Prioritize(true,
+            //                    new Charge(2.0, pred: e => e.HasConditionEffect(Common.ConditionEffectIndex.Hexed)),
+            //                    new Shoot(10, 8, 45, 2, 0f)
 
-                            ),
-                            new Follow(0.8f, range: 1),
-                            new Wander(0.4f)
-                        ),
-                        new TimedTransition("warning", 1200)
-                    ),
-                    new Threshold(0.01f,
-                        LootTemplates.BasicPots(0.3f).Concat(
-                            new MobDrop[] {
-                                new TierLoot(8, TierLoot.LootType.Weapon, 1f, r: new RarityModifiedData(1f, 2))
+            //                ),
+            //                new Follow(0.8f, range: 1),
+            //                new Wander(0.4f)
+            //            ),
+            //            new TimedTransition("warning", 1200)
+            //        ),
+            //        new Threshold(0.01f,
+            //            LootTemplates.BasicPots(0.3f).Concat(
+            //                new MobDrop[] {
+            //                    new TierLoot(8, TierLoot.LootType.Weapon, 1f, r: new RarityModifiedData(1f, 2))
                          
-                            }
-                        ).ToArray()
-                    )
-                );
+            //                }
+            //            ).ToArray()
+            //        )
+            //    );
             
             db.Init("Realm Reaper",
                 new State("invis",

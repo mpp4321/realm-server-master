@@ -51,10 +51,16 @@
 		<BlockSight>1</BlockSight>
 		<Music>PIRATECAVE2</Music>
 	</World>
+	<World name="Undead Lair" display="Undead Lair">
+		<Maps>UDL/UDL1.jm;UDL/UDL2.jm;UDL/UDL3.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+		<Music>PIRATECAVE2</Music>
+	</World>
 	<World name="Sprite World" display="Sprite World">
 		<Maps>Sprite/0.jm</Maps>
 		<Background>0</Background>
-		<BlockSight>0</BlockSight>
+		<BlockSight>1</BlockSight>
 		<Music>PIRATECAVE2</Music>
 	</World>
 	<World name="Abyss of Demons" display="Abyss of Demons">
