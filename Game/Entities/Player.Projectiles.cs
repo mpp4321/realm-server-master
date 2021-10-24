@@ -141,8 +141,8 @@ namespace RotMG.Game.Entities
                     return;
                 }
                 var elapsed = time - p.Time;
-                var steps = (int)Math.Ceiling(p.Desc.Speed / 100f * (elapsed * EnemyHitTrackPrecision / 1000f));
-                var timeStep = (float)elapsed / steps;
+                var steps = (int)Math.Ceiling(p.SpeedAt(elapsed) / 100f * (elapsed * EnemyHitTrackPrecision / 1000f));
+                var timeStep = steps == 0 ? 0 : (float)elapsed / steps;
 
                 for (var k = 0; k <= steps; k++)
                 {
@@ -312,10 +312,11 @@ namespace RotMG.Game.Entities
                     var abilityEffects = BuildAllItemHandlers();
                     for (var i = 0; i < numShots; i++)
                     {
-                        var damage = (int)(GetNextDamageSeeded(desc.NextProjectile(startId - i).MinDamage, desc.NextProjectile(startId - i).MaxDamage, ItemDatas[0]) * GetAttackMultiplier());
+                        var pdesc = desc.NextProjectile(Math.Abs(startId - i));
+                        var damage = (int)(GetNextDamageSeeded(pdesc.MinDamage, pdesc.MaxDamage, ItemDatas[0]) * GetAttackMultiplier());
                         //var compeffs = this.ItemDatas.Take(4).Select(a => a.ItemComponent != null ? a.ItemComponent : null).Where(a => a != null);
                         var uneffs = BuildAllItemHandlers();
-                        var projectile = new Projectile(this, desc.NextProjectile(startId - i), startId - i, time, angle + arcGap * i, pos, damage, uniqueEff: uneffs.ToArray());
+                        var projectile = new Projectile(this, pdesc, startId - i, time, angle + arcGap * i, pos, damage, uniqueEff: uneffs.ToArray());
                         foreach (var ae in abilityEffects) ae.OnProjectileShoot(this, ref projectile);
                         ShotProjectiles.Add(projectile.Id, projectile);
                     }

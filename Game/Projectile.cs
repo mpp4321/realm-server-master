@@ -47,11 +47,9 @@ namespace RotMG.Game
             return false;
         }
 
-        public Vector2 PositionAt(float elapsed)
+        public float SpeedAt(float elapsed)
         {
-            var p = new Vector2(StartPosition.X, StartPosition.Y);
             var speed = Desc.Speed;
-
             if (Desc.DoAccelerate && elapsed > Desc.AccelerateDelay)
             {
                 //var elapsedWithDelay = MathF.Max(0, elapsed - Desc.AccelerateDelay);
@@ -81,10 +79,20 @@ namespace RotMG.Game
                     }
                 }
             }
+            return speed;
+        }
+
+        public Vector2 PositionAt(float elapsed)
+        {
+            elapsed = float.IsNaN(elapsed) ? 0.0f : elapsed;
+            var p = new Vector2(StartPosition.X, StartPosition.Y);
+            var speed = SpeedAt(elapsed);
 
             //if (Desc.Decelerate != 0.0f) speed *= 2 - elapsed / Desc.LifetimeMS;
 
-            var dist = elapsed * (speed / 10000f);
+            var distBeforeAccel = MathF.Min(elapsed, Desc.AccelerateDelay) * (Desc.Speed / 10000f);
+            var distAfterAccel = MathF.Max(0, elapsed - Desc.AccelerateDelay) * (speed / 10000f);
+            var dist = distBeforeAccel + distAfterAccel;
 
             //Phase != 1 -> MathF.PI locked else 0 lock
             float phase = Desc.PhaseLock == 1 ? 0 : MathF.PI;
@@ -92,44 +100,51 @@ namespace RotMG.Game
             if(Desc.PhaseLock == -1)
                 phase = Id % 2 == 0 ? 0 : MathF.PI;
 
-            if (Desc.Wavy)
+            var theta = Angle;
+            if (Desc.Wavy && Desc.Amplitude == 0)
             {
                 var periodFactor = 6 * MathF.PI;
                 var amplitudeFactor = MathF.PI / 64.0f;
-                var theta = Angle + amplitudeFactor * MathF.Sin(phase + periodFactor * elapsed / 1000.0f);
+                theta = theta + amplitudeFactor * MathF.Sin(phase + periodFactor * elapsed / 1000.0f);
                 p.X = p.X + dist * MathF.Cos(theta);
                 p.Y = p.Y + dist * MathF.Sin(theta);
+                return p;
             }
-            else if (Desc.Parametric)
+
+            if (Desc.Parametric)
             {
                 var t = elapsed / Desc.LifetimeMS * 2 * MathF.PI;
                 var x = MathF.Sin(t) * (Id % 2 == 1 ? 1 : -1);
                 var y = MathF.Sin(2 * t) * (Id % 4 < 2 ? 1 : -1);
-                var sin = MathF.Sin(Angle);
-                var cos = MathF.Cos(Angle);
+                var sin = MathF.Sin(theta);
+                var cos = MathF.Cos(theta);
                 p.X = p.X + (x * cos - y * sin) * Desc.Magnitude;
                 p.Y = p.Y + (x * sin + y * cos) * Desc.Magnitude;
+                return p;
             }
-            else
+
+            if (Desc.Boomerang)
             {
-                if (Desc.Boomerang)
+                var halfway = Desc.LifetimeMS * (Desc.Speed / 10000) / 2;
+                if (dist > halfway)
                 {
-                    var halfway = Desc.LifetimeMS * (Desc.Speed / 10000) / 2;
-                    if (dist > halfway)
-                    {
-                        dist = halfway - (dist - halfway);
-                    }
-                }
-                p.X = p.X + dist * MathF.Cos(Angle);
-                p.Y = p.Y + dist * MathF.Sin(Angle);
-                if (Desc.Amplitude != 0)
-                {
-                    var deflection = Desc.Amplitude * MathF.Sin(phase + elapsed / Desc.LifetimeMS * Desc.Frequency * 2 * MathF.PI);
-                    p.X = p.X + deflection * MathF.Cos(Angle + MathF.PI / 2);
-                    p.Y = p.Y + deflection * MathF.Sin(Angle + MathF.PI / 2);
+                    dist = halfway - (dist - halfway);
                 }
             }
 
+            p.X = p.X + dist * MathF.Cos(theta);
+            p.Y = p.Y + dist * MathF.Sin(theta);
+            if (Desc.Amplitude != 0)
+            {
+                var ampFactor = Desc.Amplitude;
+                if(Desc.Wavy)
+                {
+                    ampFactor *= MathF.Pow(elapsed / Desc.LifetimeMS, 1.4f);
+                }
+                var deflection = ampFactor * MathF.Sin(phase + elapsed / Desc.LifetimeMS * Desc.Frequency * 2 * MathF.PI);
+                p.X = p.X + deflection * MathF.Cos(theta + MathF.PI / 2);
+                p.Y = p.Y + deflection * MathF.Sin(theta + MathF.PI / 2);
+            }
             return p;
         }
     }

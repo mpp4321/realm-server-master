@@ -117,26 +117,26 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Dexterity", 0.35f),
                     new ItemLoot("Potion of Defense", 0.5f),
                     new ItemLoot("Potion of Wisdom", 0.65f),
-                    new ItemLoot("Helm of the Juggernaut", 0.002f)
+                    new ItemLoot("Helm of the Juggernaut", 0.0005f)
                 )
             );
 
             db.Init("Skull Shrine",
                 new State("base",
                     new Shoot(30, 4, 9, cooldown: 1500, predictive: 1f), // add prediction after fixing it...
-                    new Reproduce("Blue Flaming Skull", 20, 5, cooldown: 100),
-                    new Reproduce("Red Flaming Skull", 20, 5, cooldown: 3000)
+                    new Reproduce("Blue Flaming Skull", 20, 50, cooldown: 100),
+                    new Reproduce("Red Flaming Skull", 20, 5, cooldown: 1000)
                     ),
                 new Threshold(0.03f,
                     new ItemLoot("Orb of Conflict", 0.005f)
                     ),
-            new Threshold(0.005f,
-                    new TierLoot(5, LootType.Ability, 0.2f),
-                    new TierLoot(4, LootType.Ring, 0.2f),
-                    new TierLoot(4, LootType.Ability, 0.5f),
-                    new TierLoot(3, LootType.Ring, 0.5f),
-                    new ItemLoot("Potion of Dexterity", 0.3f),
-                    new ItemLoot("Potion of Attack", 0.3f)
+                new Threshold(0.005f,
+                    new TierLoot(5, LootType.Ability, 0.2f, r: new RarityModifiedData(1.5f, 2)),
+                    new TierLoot(4, LootType.Ring, 0.2f, r: new RarityModifiedData(1.5f, 2)),
+                    new TierLoot(4, LootType.Ability, 0.5f, r: new RarityModifiedData(1.5f, 2)),
+                    new TierLoot(3, LootType.Ring, 0.5f, r: new RarityModifiedData(1.5f, 2)),
+                    new ItemLoot("Potion of Dexterity", 0.8f),
+                    new ItemLoot("Potion of Attack", 0.8f)
                 )
             );
 
@@ -238,8 +238,8 @@ namespace RotMG.Game.Logic.Database
                 new State("base",
                     new Wander(.3f),
                     new Shoot(30, 9, 10, 0, predictive: .5f, cooldown: 750),
-                    new Shoot(30, 4, 10, 1, predictive: .5f, cooldown: 1500)
-                    //  new Reproduce("Cube Overseer", 30, 10, cooldown: 1500)
+                    new Shoot(30, 4, 10, 1, predictive: .5f, cooldown: 1500),
+                    new Reproduce("Cube Overseer", 30, 10, cooldown: 1500)
                     ),
                   new Threshold(.005f,
                      LootTemplates.BasicPots()
@@ -380,7 +380,7 @@ namespace RotMG.Game.Logic.Database
                     )
                 ),
                 new Threshold(0.03f,
-                    new ItemLoot("Seal of Blasphemous Prayer", 0.005f)
+                    new ItemLoot("Seal of Blasphemous Prayer", 0.001f)
                     ),
                 new Threshold(0.01f,
                    new TierLoot(8, LootType.Weapon, .3f),
@@ -397,11 +397,11 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(3, LootType.Ring, .25f),
                     new TierLoot(4, LootType.Ring, .27f),
                     new TierLoot(5, LootType.Ring, .23f),
-                    new ItemLoot("Potion of Defense", .4f),
-                    new ItemLoot("Potion of Attack", .4f),
-                    new ItemLoot("Potion of Vitality", .4f),
-                    new ItemLoot("Potion of Wisdom", .4f),
-                    new ItemLoot("Potion of Speed", .4f)
+                    new ItemLoot("Potion of Defense", .1f),
+                    new ItemLoot("Potion of Attack", .1f),
+                    new ItemLoot("Potion of Vitality", .1f),
+                    new ItemLoot("Potion of Wisdom", .1f),
+                    new ItemLoot("Potion of Speed", .1f)
                     )
             );
 
@@ -513,11 +513,12 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(4, LootType.Ring, .27f),
                     new TierLoot(5, LootType.Ring, .23f),
                     new ItemLoot("Potion of Defense", .4f),
+                    new ItemLoot("Mithril Studded Bow", 0.5f, r: new RarityModifiedData(1.5f, 2)),
                     new ItemLoot("Potion of Attack", .4f),
                     new ItemLoot("Potion of Vitality", .4f),
                     new ItemLoot("Potion of Wisdom", .4f),
                     new ItemLoot("Potion of Speed", .4f),
-                    new ItemLoot("Trap of the Vile Spirit", 0.01f)
+                    new ItemLoot("Trap of the Vile Spirit", 0.01f, r: new RarityModifiedData(1.1f, 1, true))
                 )
             );
 

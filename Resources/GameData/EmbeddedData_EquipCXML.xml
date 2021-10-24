@@ -8442,13 +8442,36 @@
     <RateOfFire>1</RateOfFire>
     <Sound>weapon/blunt_sword</Sound>
     <Projectile>
-      <ObjectId>Kendo Slash</ObjectId>
-      <Speed>120</Speed>
-      <MinDamage>70</MinDamage>
-      <MaxDamage>100</MaxDamage>
-      <LifetimeMS>350</LifetimeMS>
+      <ObjectId>T5 Katana</ObjectId>
+      <Speed>0</Speed>
+      <Accelerate>900</Accelerate>
+      <AccelerateDelay>300</AccelerateDelay>
+      <SpeedClamp>130</SpeedClamp>
+      <MinDamage>60</MinDamage>
+      <MaxDamage>75</MaxDamage>
+      <LifetimeMS>600</LifetimeMS>
       <MultiHit/>
     </Projectile>
+    <Projectile>
+      <ObjectId>T6 Katana</ObjectId>
+      <Speed>130</Speed>
+      <MinDamage>60</MinDamage>
+      <MaxDamage>75</MaxDamage>
+      <LifetimeMS>300</LifetimeMS>
+      <MultiHit/>
+    </Projectile>
+    <Projectile>
+      <ObjectId>T5 Katana</ObjectId>
+      <Speed>0</Speed>
+      <Accelerate>900</Accelerate>
+      <AccelerateDelay>300</AccelerateDelay>
+      <SpeedClamp>130</SpeedClamp>
+      <MinDamage>60</MinDamage>
+      <MaxDamage>75</MaxDamage>
+      <LifetimeMS>600</LifetimeMS>
+      <MultiHit/>
+    </Projectile>
+    <ArcGap>5</ArcGap>
     <NumProjectiles>3</NumProjectiles>
     <BagType>4</BagType>
     <OldSound>bladeSwing</OldSound>
