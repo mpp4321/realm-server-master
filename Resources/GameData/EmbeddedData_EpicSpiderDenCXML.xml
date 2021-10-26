@@ -138,8 +138,9 @@
       <Projectile>
          <ObjectId>Red Star</ObjectId>
          <Speed>80</Speed>
-         <Damage>150</Damage>
+         <Damage>60</Damage>
          <LifetimeMS>1250</LifetimeMS>
+		 <ArmorPiercing>true</ArmorPiercing>
          <ConditionEffect duration="2">Bleeding</ConditionEffect>
       </Projectile>
    </Object>
