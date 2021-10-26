@@ -4210,6 +4210,145 @@
   </Ground>
 
   <!-- Cosmic stuff -->
+  
+  <!-- VOTR Stuff -->
+  
+      <Ground type="0x267b" id="Hollows Floor">
+        <RandomTexture>
+            <Texture>
+                <File>d3LofiObjEmbed</File>
+                <Index>0x300</Index>
+            </Texture>
+            <Texture>
+                <File>d3LofiObjEmbed</File>
+                <Index>0x301</Index>
+            </Texture>
+            <Texture>
+                <File>d3LofiObjEmbed</File>
+                <Index>0x302</Index>
+            </Texture>
+            <Texture>
+                <File>d3LofiObjEmbed</File>
+                <Index>0x303</Index>
+            </Texture>
+            <Texture>
+                <File>d3LofiObjEmbed</File>
+                <Index>0x304</Index>
+            </Texture>
+        </RandomTexture>
+    </Ground>
+    <Ground type="0x267c" id="CRIM Crimson Floor">
+        <RandomTexture>
+            <Texture>
+                <File>d3LofiObjEmbed</File>
+                <Index>0x314</Index>
+            </Texture>
+            <Texture>
+                <File>d3LofiObjEmbed</File>
+                <Index>0x315</Index>
+            </Texture>
+            <Texture>
+                <File>d3LofiObjEmbed</File>
+                <Index>0x316</Index>
+            </Texture>
+            <Texture>
+                <File>d3LofiObjEmbed</File>
+                <Index>0x318</Index>
+            </Texture>
+        </RandomTexture>
+    </Ground>
+    <Ground type="0x267d" id="CRIM Crimson Floor 2">
+        <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x31a</Index>
+        </Texture>
+    </Ground>
+    <Ground type="0x267f" id="BD Ground 4">
+        <RandomTexture>
+            <Texture>
+                <File>d3LofiObjEmbed</File>
+                <Index>0x34f</Index>
+            </Texture>
+            <Texture>
+                <File>d3LofiObjEmbed</File>
+                <Index>0x359</Index>
+            </Texture>
+        </RandomTexture>
+    </Ground>
+    <Ground type="0x2681" id="BD Ground 5">
+        <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x35d</Index>
+        </Texture>
+    </Ground>
+    <Ground type="0x2682" id="BD Ground 6">
+        <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x358</Index>
+        </Texture>
+    </Ground>
+    <Ground type="0x2683" id="Black Lava">
+        <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x364</Index>
+        </Texture>
+        <Damage>60</Damage>
+        <Animate dx=".33" dy=".33">Flow</Animate>
+        <Sink/>
+        <Speed>.444</Speed>
+    </Ground>
+    <Ground type="0x2684" id="BD Ground 2">
+        <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x365</Index>
+        </Texture>
+    </Ground>
+    <Ground type="0x2685" id="Blood Marble Ground">
+        <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x374</Index>
+        </Texture>
+    </Ground>
+    <Ground type="0x2686" id="Blood Ground">
+        <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x375</Index>
+        </Texture>
+        <Animate dx=".33" dy=".33">Flow</Animate>
+        <Sink/>
+    </Ground>
+    <Ground type="0x2687" id="CR Ground 1">
+        <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x388</Index>
+        </Texture>
+    </Ground>
+    <Ground type="0x2688" id="CR Ground Sinking">
+        <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x388</Index>
+        </Texture>
+        <Sinking/>
+        <Speed>0.6</Speed>
+    </Ground>
+    <Ground type="0x2689" id="CR Ground Special 1">
+        <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x380</Index>
+        </Texture>
+    </Ground>
+    <Ground type="0x268a" id="CR Ground Special 2">
+        <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x381</Index>
+        </Texture>
+    </Ground>
+    <Ground type="0x268b" id="CR Ground Tick">
+        <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x388</Index>
+        </Texture>
+    </Ground>
    
 </GroundTypes>
 <!-- Next is : 0xb032 !-->

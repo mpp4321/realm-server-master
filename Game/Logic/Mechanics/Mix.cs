@@ -54,23 +54,52 @@ namespace RotMG.Game.Logic.Mechanics
             {
                 //Crafting
                 (int, int) goo = FindComponentItem(p, slot1, slot2, 0xcb0);
-                if(goo.Item1 != -1 && goo.Item2 != -1)
-                {
-                    var item = Resources.Type2Item[(ushort) p.Inventory[goo.Item2]];
-                    ItemDataModType vtype = ItemDataModType.Classical;
-                    Enum.TryParse(p.Client.Character.ItemDataModifier, out vtype);
-                    var r = item.Roll(new RarityModifiedData(1.0f, 3, true), vtype);
+                (int, int) havocPiece = FindComponentItem(p, slot1, slot2, 0xcaa);
 
-                    p.Inventory[goo.Item1] = -1;
-                    p.ItemDatas[goo.Item1] = new ItemDataJson();
-
-                    p.ItemDatas[goo.Item2] = r.Item1 ? r.Item2 : new ItemDataJson();
-                }
+                CombineAndReroll(p, goo);
+                CombineAndTransform(p, havocPiece);
 
                 p.UpdateInventory();
                 return;
             }
         }
 
+        private static void CombineAndReroll(Player p, (int, int) itemPair)
+        {
+            if (itemPair.Item1 == -1 || itemPair.Item2 == -1) return;
+
+            var item = Resources.Type2Item[(ushort)p.Inventory[itemPair.Item2]];
+            ItemDataModType vtype = ItemDataModType.Classical;
+            Enum.TryParse(p.Client.Character.ItemDataModifier, out vtype);
+            var r = item.Roll(new RarityModifiedData(1.0f, 3, true), vtype);
+
+            p.Inventory[itemPair.Item1] = -1;
+            p.ItemDatas[itemPair.Item1] = new ItemDataJson();
+
+            p.ItemDatas[itemPair.Item2] = r.Item1 ? r.Item2 : new ItemDataJson();
+        }
+
+        private static Dictionary<ushort, ushort> HavocPieces = new Dictionary<ushort, ushort>
+        {
+            { 0xc24, 0xccd }
+        };
+
+        private static void CombineAndTransform(Player p, (int, int) itemPair)
+        {
+
+            if (itemPair.Item1 == -1 || itemPair.Item2 == -1) return;
+
+            var item = (ushort) p.Inventory[itemPair.Item2];
+
+            if (!HavocPieces.ContainsKey(item)) return;
+
+            var transformTo = HavocPieces[item];
+
+            p.Inventory[itemPair.Item1] = -1;
+            p.ItemDatas[itemPair.Item1] = new ItemDataJson();
+
+            p.ItemDatas[itemPair.Item2] = new ItemDataJson();
+            p.Inventory[itemPair.Item2] = transformTo;
+        }
     }
 }

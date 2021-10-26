@@ -204,7 +204,10 @@ namespace RotMG.Game.Logic.Database
                     ),
 
                 new Threshold(0.001f,
-                    new ItemLoot("Ancient Crown", 0.02f)
+                    new ItemLoot("Amulet of Backwards Luck", 0.02f),
+                    new ItemLoot("Potion of Defense", 1f),
+                    new ItemLoot("Potion of Dexterity", 1f),
+                    new ItemLoot("Potion of Dexterity", 1f)
                 )
             );
         }

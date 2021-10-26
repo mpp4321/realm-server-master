@@ -125,8 +125,8 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.0001f,
                     new ItemLoot("Potion of Life", 1),
-                    new ItemLoot("Ring of the Pyramid", 0.004f, threshold: 0.01f),
-                    new ItemLoot("Tome of Holy Protection", 0.004f)
+                    new ItemLoot("Ring of the Pyramid", 0.01f, threshold: 0.01f),
+                    new ItemLoot("Tome of Holy Protection", 0.01f)
                 //new ItemLoot("Sword of Royal Majesty", 0.006f),
                 //new ItemLoot("Ring of Ancient Slaves", 0.006f),
                 //new ItemLoot("Seal of the Royal Priest", 0.006f),
@@ -253,7 +253,7 @@ namespace RotMG.Game.Logic.Database
                 ),
                 new Threshold(0.00001f,
                     new ItemLoot("Potion of Life", 1),
-                    new ItemLoot("Ring of the Sphinx", 0.004f)
+                    new ItemLoot("Ring of the Sphinx", 0.01f)
                 )
             );
             db.Init("Tomb Attacker",
@@ -382,7 +382,8 @@ namespace RotMG.Game.Logic.Database
                         new Shoot(0, 1, 0, index: 5, 0, 15, cooldown: 400)
                     ),
                 new Threshold(0.00001f,
-                    new ItemLoot("Potion of Life", 1)
+                    new ItemLoot("Potion of Life", 1),
+                    new ItemLoot("Ring of the Nile", 0.01f)
                 )
             );
             //Minions

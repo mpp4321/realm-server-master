@@ -3779,10 +3779,10 @@
     </Texture>
     <SlotType>9</SlotType>
     <Description>The malachite stone makes you feel at peace with the land.</Description>
-    <ActivateOnEquip stat="7" amount="4">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="5" amount="4">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="1" amount="100">IncrementStat</ActivateOnEquip>
-    <BagType>4</BagType>
+    <ActivateOnEquip stat="7" amount="8">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="5" amount="8">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="1" amount="200">IncrementStat</ActivateOnEquip>
+    <BagType>6</BagType>
     <FameBonus>5</FameBonus>
   </Object>
   <Object type="0xba1" id="Ring of the Nile">
@@ -3794,11 +3794,11 @@
     </Texture>
     <SlotType>9</SlotType>
     <Description>The azule stone makes you feel ready for any situation.</Description>
-    <ActivateOnEquip stat="4" amount="4">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="5" amount="4">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="0" amount="60">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="1" amount="60">IncrementStat</ActivateOnEquip>
-    <BagType>4</BagType>
+    <ActivateOnEquip stat="4" amount="8">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="5" amount="8">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="0" amount="120">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="1" amount="120">IncrementStat</ActivateOnEquip>
+    <BagType>6</BagType>
     <FameBonus>5</FameBonus>
   </Object>
   <Object type="0xba2" id="Ring of the Pyramid">
@@ -3810,10 +3810,10 @@
     </Texture>
     <SlotType>9</SlotType>
     <Description>The dolomite stone makes you feel able to stand against anything.</Description>
-    <ActivateOnEquip stat="2" amount="4">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="3" amount="4">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="0" amount="100">IncrementStat</ActivateOnEquip>
-    <BagType>4</BagType>
+    <ActivateOnEquip stat="2" amount="8">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="3" amount="8">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="0" amount="200">IncrementStat</ActivateOnEquip>
+    <BagType>6</BagType>
     <FameBonus>5</FameBonus>
   </Object>
   <Object type="0xa2e" id="Fire Spray Spell">
@@ -6752,13 +6752,15 @@
     <Description>A tome dedicated to the works of a forgotten god is written in a strange script that glows with a pure white light.</Description>
     <Sound>spell/major_heal</Sound>
     <ActivateOnEquip stat="6" amount="4">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="0" amount="40">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="3" amount="12">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="0" amount="80">IncrementStat</ActivateOnEquip>
     <Usable/>
-    <BagType>4</BagType>
+    <BagType>6</BagType>
     <FameBonus>6</FameBonus>
     <MpCost>100</MpCost>
     <Activate amount="250" range="6" useWisMod="true" statMin="30" statScale="3.0">HealNova</Activate>
     <Activate effect="Armored" duration="4">ConditionEffectSelf</Activate>
+    <Activate effect="Armored" duration="1">ConditionEffectAura</Activate>
   </Object>
 
   <Object type="0xc09" id="Tome of Purification">
@@ -9411,7 +9413,8 @@
     <SlotType>19</SlotType>
     <Description>A skull turned almost to stone by the passage of time.</Description>
     <Usable/>
-    <BagType>0</BagType>
+    <BagType>5</BagType>
+    <FameBonus>5</FameBonus>
     <MpCost>120</MpCost>
     <Activate color="0xff333333" targetCursor="true" effect="Cursed" duration="5" range="2">ConditionEffectBlast</Activate>
   </Object>
@@ -10001,11 +10004,11 @@
       <EffectInfo name="" description="Provides 20% loot boost when fighting in a group smaller than three"/>
       <EffectInfo name="" description="Otherwise, provides a -20% loot boost."/>
     </ExtraTooltipData>
-    <ActivateOnEquip stat="1" amount="50">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="2" amount="50">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="3" amount="5">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="4" amount="5">IncrementStat</ActivateOnEquip>
-    <ActivateOnEquip stat="5" amount="5">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="0" amount="50">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="1" amount="150">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="3" amount="6">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="4" amount="6">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="5" amount="6">IncrementStat</ActivateOnEquip>
     <BagType>6</BagType>
     <UniqueEffect>AOBL</UniqueEffect>
   </Object>

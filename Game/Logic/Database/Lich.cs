@@ -187,7 +187,7 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(3, LootType.Ability, 0.02f),
                     new ItemLoot("Health Potion", 0.4f),
                     new ItemLoot("Magic Potion", 0.4f),
-                    new ItemLoot("Ancient Skull", 0.005f, 0.01f)
+                    new ItemLoot("Ancient Skull", 0.01f, 0.01f)
                 )
             );
             db.Init("Phylactery Bearer",
