@@ -13,7 +13,7 @@ namespace RotMG.Game.Logic.Database
         {
             db.Init("Tomb Defender",
                     new State("idle",
-                        new Taunt(true, "THIS WILL NOW BE YOUR TOMB!"),
+                        new Taunt(true, cooldown: 0, "THIS WILL NOW BE YOUR TOMB!"),
                         new ConditionalEffect(ConditionEffectIndex.Armored, true),
                         new Prioritize(
                             new Orbit(.3f, 5, target: "Tomb Boss Anchor", radiusVariance: 0.5f),
@@ -27,7 +27,7 @@ namespace RotMG.Game.Logic.Database
                             new Wander(0.3f)
                         ),
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable, duration: 2000),
-                        new Taunt(true, "Impudence! I am an Immortal, I needn't waste time on you!"),
+                        new Taunt(true, cooldown: 0, "Impudence! I am an Immortal, I needn't waste time on you!"),
                         new Shoot(12, 20, index: 3, cooldown: 10000),
                         new Shoot(12, 20, index: 3, cooldown: 10000, cooldownOffset: 1000),
                         new HealthTransition(.979f, "active")
@@ -90,7 +90,7 @@ namespace RotMG.Game.Logic.Database
                     new State("artifacts 2",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable, duration: 6000),
                         new ConditionalEffect(ConditionEffectIndex.ArmorBroken, duration: 10000),
-                        new Taunt(true, "My artifacts shall prove my wall of defense is impenetrable!"),
+                        new Taunt(true, cooldown: 0, "My artifacts shall prove my wall of defense is impenetrable!"),
                         new Prioritize(
                             new Orbit(.4f, 6, target: "Tomb Boss Anchor"),
                             new Wander(0.4f)
@@ -107,7 +107,7 @@ namespace RotMG.Game.Logic.Database
                     new State("rage",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable, duration: 2000),
                         new ConditionalEffect(ConditionEffectIndex.Armored, duration: 5400),
-                        new Taunt(true, "The end of your path is here!"),
+                        new Taunt(true, cooldown: 0, "The end of your path is here!"),
                         new Prioritize(
                             new StayCloseToSpawn(0.8f, 7),
                             new Follow(0.5f, 10, 2.4f)
@@ -136,7 +136,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Tomb Support",
                 new State("base",
                     new State("idle",
-                        new Taunt(true, "ENOUGH OF YOUR VANDALISM!"),
+                        new Taunt(true, cooldown: 0, "ENOUGH OF YOUR VANDALISM!"),
                         new ConditionalEffect(ConditionEffectIndex.Armored),
                         new Prioritize(
                             new Orbit(.3f, 4.8f, target: "Tomb Boss Anchor"),
@@ -149,7 +149,7 @@ namespace RotMG.Game.Logic.Database
                         new ConditionalEffect(ConditionEffectIndex.Armored, duration: 12000),
                         new Shoot(12, 20, index: 7, cooldown: 10000),
                         new Shoot(12, 20, index: 7, cooldown: 10000, cooldownOffset: 1000),
-                        new Taunt("Impudence! I am an immortal, I needn't take your seriously."),
+                        new Taunt(cooldown: 0, "Impudence! I am an immortal, I needn't take your seriously."),
                         new Prioritize(
                             new Orbit(.3f, 4.8f, target: "Tomb Boss Anchor"),
                             new Wander(0.3f)
@@ -234,7 +234,7 @@ namespace RotMG.Game.Logic.Database
                     new State("rage",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable, duration: 2000),
                         new Flash(0xFF0000, 10, 6000),
-                        new Taunt(true, "This cannot be! You shall not succeed!"),
+                        new Taunt(true, cooldown: 0, "This cannot be! You shall not succeed!"),
                         new Prioritize(
                             new StayCloseToSpawn(0.8f, 10),
                             new Follow(0.65f, 10, 2.4f, duration: 30000, cooldown: 6000)
@@ -258,7 +258,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Tomb Attacker",
                     new State("idle",
-                        new Taunt(true, "YOU HAVE AWAKENED US!"),
+                        new Taunt(true, cooldown: 0, "YOU HAVE AWAKENED US!"),
                         new ConditionalEffect(ConditionEffectIndex.Armored),
                         new Prioritize(
                             new Orbit(.3f, 5.8f, target: "Tomb Boss Anchor"),
@@ -362,7 +362,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                     new State("rage",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable, duration: 2000),
-                        new Taunt(true, "Argh! You shall pay for your crimes!"),
+                        new Taunt(true, cooldown: 0, "Argh! You shall pay for your crimes!"),
                         new Flash(0xFF0000, 10, 6000),
                         new Prioritize(
                             new StayCloseToSpawn(2, 7),
