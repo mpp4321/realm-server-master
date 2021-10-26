@@ -26,23 +26,24 @@ namespace RotMG.Game.Logic.Database
                 new ConditionalEffect(Common.ConditionEffectIndex.Slowed, false, 2500),
                 new State("base",
                 new Wander(0.4f),
+                new StayBack(0.4f, 0.5f, "Crawling Spider Hatchling"),
                     new Prioritize(
                         new Follow(0.8f, 7, 3, 5000, 2000)
                         ),
                     new Shoot(8, 2, 12, 1, predictive: 0.6f, cooldownVariance: 250, cooldown: 750),
-                    new Shoot(10, predictive: 0.85f, cooldownVariance: 350, cooldown: 800)
+                    new Shoot(10, predictive: 0.85f, cooldownOffset: 450, cooldownVariance: 350, cooldown: 800)
             ));
             db.Init("Crawling Green Spider",
                 new Wander(0.6f),
                 new State("base",
                     new Follow(1.2f, 12, 3.5f, 6000, 2500),
                     new Shoot(6, 3, 14, cooldownVariance: 500, cooldown: 1500),
-                    new Shoot(12, predictive: 1, cooldownVariance: 500, cooldown: 800)
+                    new Shoot(12, predictive: 1, cooldownOffset: 450, cooldownVariance: 500, cooldown: 800)
             ));
             db.Init("Crawling Grey Spider",
                 new Wander(0.8f),
                 new State("base",
-                    new Shoot(9, 1, predictive: 0.8f, cooldownVariance: 350, cooldown: 1000),
+                    new Shoot(9, 1, predictive: 0.8f, cooldownOffset: 450, cooldownVariance: 350, cooldown: 1000),
                     new TimedTransition("charge", 3000)
                 ),
                 new State("charge",
@@ -53,16 +54,16 @@ namespace RotMG.Game.Logic.Database
             ));
             db.Init("Crawling Red Spotted Spider",
                 new Wander(0.4f),
-                new StayBack(1.4f, 4),
+                new StayBack(1f, 3, "Crawling Red Spotted Spider"),
                 new Follow(2, range: 6, duration: 500, cooldown: 1500),
                 new State("base",
-                    new Shoot(9, 2, 18, predictive: 0.5f, cooldown: 700)
+                    new Shoot(9, 2, 18, predictive: 0.5f, cooldownOffset: 450, cooldown: 700)
             ));
             db.Init("Crawling Grey Spotted Spider",
                 new Wander(0.4f),
                 new Follow(1.2f, range: 3, duration: 2500, cooldown: 4000),
                 new State("base",
-                    new Shoot(6, 3, 24, predictive: 0.3f, cooldown: 800)
+                    new Shoot(6, 3, 24, predictive: 0.3f, cooldownOffset: 450, cooldown: 800)
             ));
             db.Init("Silver Son of Arachna Giant Egg Sac",
                 new TransferDamageOnDeath("Son of Arachna"),
@@ -164,8 +165,8 @@ namespace RotMG.Game.Logic.Database
                 new State("wander",
                     new Wander(0.7f),
                     new StayBack(0.6f, 2),
-                    new Shoot(16, 6, 360 / 6, 6, 0f, 6f, cooldown: 150),
-                    new Shoot(16, 1, index: 1, predictive: 1, cooldownVariance: 350, cooldown: 1200),
+                    new Shoot(16, 6, 360 / 6, 6, 0f, 6f, cooldownOffset: 600, cooldown: 150),
+                    new Shoot(16, 1, index: 1, predictive: 1, cooldownOffset: 600, cooldownVariance: 350, cooldown: 1200),
                     new TimedRandomTransition(4000, "blackChase", "roto", "stayback")
                 ),
                 new State("chase",
@@ -179,6 +180,7 @@ namespace RotMG.Game.Logic.Database
                 ),
                 new State("roto",
                     new Orbit(1, 5, 99, "Epic Arachna Web Spoke Anchor"),
+                    new StayBack(0.7f, 1.75f),
                     new Shoot(99, 4, 25, 7, angleOffset: 90),
                     new Shoot(99, 4, 25, 8, angleOffset: -90),
                     new Shoot(16, 1, index: 1, predictive: 0.5f, cooldownVariance: 350, cooldown: 1200),
@@ -186,8 +188,9 @@ namespace RotMG.Game.Logic.Database
                 ),
                 new State("blackChase",
                     new SetAltTexture(2),
+                    new StayBack(0.7f, 1.75f),
                     new Follow(0.7f, 14, 3.5f, 1400, 600),
-                    new Charge(1.5f, 10, 2400),
+                    new Charge(1.3f, 10, 2400),
                     new Shoot(99, 4, 25, 7, angleOffset: 90),
                     new Shoot(99, 4, 25, 8, angleOffset: -90),
                     new Shoot(9, 5, 26, 2, cooldown: 1400, cooldownVariance: 800),
@@ -204,6 +207,7 @@ namespace RotMG.Game.Logic.Database
                 ),
                 new State("blueOrbit",
                     new SetAltTexture(3),
+                    new StayBack(0.7f, 1.75f),
                     new Orbit(0.8f, 5, 16, speedVariance: 0.2f, radiusVariance: 1.5f, targetPlayers: true),
                     new Shoot(99, 2, -26, 4, cooldown: 20),
                     new Shoot(99, 4, 25, 8, angleOffset: 90),
