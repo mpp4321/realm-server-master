@@ -142,4 +142,9 @@
 		<BlockSight>1</BlockSight>
 		<Portals>0x074f</Portals>
 	</World>
+	<World name="CyclopsLair" display="Cyclops' Chambers">
+		<Maps>CyclopsChambers/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+	</World>
 </Worlds>

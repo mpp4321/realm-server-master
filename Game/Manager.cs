@@ -105,12 +105,12 @@ namespace RotMG.Game
             return null;
         }
 
-        public static Player GetPlayer(int id)
+        public static Player GetPlayer(int accountid)
         {
-            if(Clients.ContainsKey(id))
-            {
-                return Clients[id].Player;
-            }
+            foreach (var client in Clients.Values)
+                if (client.Player != null)
+                    if (client.Player.AccountId == accountid)
+                        return client.Player;
             return null;
         }
 

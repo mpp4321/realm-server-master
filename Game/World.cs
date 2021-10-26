@@ -137,6 +137,8 @@ namespace RotMG.Game
             UpdateCount = int.MaxValue / 2;
         }
 
+        public virtual void EnemyKilled(Enemy enemy, Player killer) { }
+
         protected void OverwriteMap(Map map)
         {
             foreach (var player in Players.Values)
@@ -382,7 +384,7 @@ namespace RotMG.Game
             return PlayerChunks.HitTest(pos, Player.SightRadius).Count > 0;
         }
 
-        public void MoveEntity(Entity en, Vector2 to)
+        public virtual void MoveEntity(Entity en, Vector2 to)
         {
 #if DEBUG
             if (en == null)

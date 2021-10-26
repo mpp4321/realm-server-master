@@ -280,7 +280,7 @@
       <StasisImmune/>
       <NoArticle/>
       <Level>1</Level>
-      <XpMult>2.5642</XpMult>
+      <XpMult>13.0</XpMult>
       <Projectile id="0">
          <ObjectId>Poison Fireball</ObjectId>
          <Damage>70</Damage>

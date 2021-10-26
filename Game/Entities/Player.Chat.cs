@@ -23,7 +23,8 @@ namespace RotMG.Game.Entities
         {
             "commands", "g", "guild", "tell", "allyshots", "allydamage", "effects", "sounds", "vault", "realm",
             "notifications", "online", "who", "server", "pos", "loc", "where", "find", "fame", "famestats", "stats",
-            "trade", "currentsong", "song", "mix", "quest", "lefttomax", "pinvite", "pcreate", "psummon"
+            "trade", "currentsong", "song", "mix", "quest", "lefttomax", "pinvite", "pcreate", "p", "paccept", "pleave", 
+            "psummon"
         };
 
         //List of command, rank required
@@ -37,7 +38,7 @@ namespace RotMG.Game.Entities
             "announce", "announcement", "legendary", "roll", "disconnect", "dcAll", "dc", "songs", "changesong",
             "terminate", "stop", "gimme", "give", "gift", "closerealm", "rank", "create", "spawn", "killall",
             "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute", "setcomp", "quake",
-            "unlockskin", "summonhere", "makedonator"
+            "unlockskin", "summonhere", "makedonator", "lbadd", "lb"
         };
 
         
@@ -887,6 +888,46 @@ namespace RotMG.Game.Entities
                             }
                             SendInfo("Player not found");
                         }
+                        break;
+                    case "/pcreate":
+                        CreateParty();
+                        break;
+                    case "/paccept":
+                        AcceptInvite();
+                        break;
+                    case "/pinvite":
+                        {
+                            var playername = string.Join(' ', j, 0, j.Length);
+                            var player = Manager.GetPlayer(playername);
+                            if(player != null)
+                                InviteToParty(player);
+                            else
+                            {
+                                SendInfo("Could not find player");
+                            }
+                        }
+                        break;
+                    case "/pleave":
+                        LeaveParty();
+                        break;
+                    case "/p":
+                        {
+                            var pm = string.Join(' ', j, 0, j.Length);
+                            PartyMessage(pm);
+                        }
+                        break;
+                    case "/psummon":
+                        SummonParty();
+                        break;
+                    case "/lbadd":
+                        if(Client.Account.Ranked)
+                        {
+                            LootBoost += float.Parse(j[0]);
+                            SendInfo($"Your lootboost: {LootBoost}");
+                        }
+                        break;
+                    case "/lb":
+                        SendInfo($"Your lootboost: {LootBoost}");
                         break;
                     default:
                         SendError("Unknown command");

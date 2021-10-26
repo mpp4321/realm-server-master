@@ -507,9 +507,8 @@ namespace RotMG.Game.Logic.Database
             db.Init("Greater Fire Skeleton", 
                 new DropPortalOnDeath("Shaitans Lair Portal", 1f),
                 new Prioritize(
-                    new Follow(2f, 20f, 10f),
-                    new StayBack(2f, 10f),
-                    new Wander(0.8f)
+                    new Orbit(2f, 2f, 10f, "Red Demon"),
+                    new Wander(1.8f)
                 ),
                 new State("starting",
                     new PlayerWithinTransition(10f, "throwreddemon", true)
@@ -528,8 +527,8 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(11, LootType.Weapon, 0.01f, 0.01f),
                 new TierLoot(11, LootType.Armor, 0.01f, 0.01f),
                 new TierLoot(6, LootType.Ring, 0.01f, 0.01f),
-                new ItemLoot("Piece of Havoc", 0.0001f, 0.01f),
-                new ItemLoot("Unholy Robe", 0.0001f, 0.01f)
+                new ItemLoot("Piece of Havoc", 0.0003f, 0.01f),
+                new ItemLoot("Unholy Robe", 0.0003f, 0.01f)
             );
 
         }

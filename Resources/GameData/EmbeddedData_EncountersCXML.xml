@@ -864,4 +864,34 @@
     <XpMult>0.0</XpMult>
 
   </Object>
+   <Object type="0x5010" id="Boshy">
+      <Class>Character</Class>
+      <AnimatedTexture>
+         <File>chars16x16rEncounters</File>
+         <Index>106</Index>
+      </AnimatedTexture>
+      <Enemy/>
+      <Quest/>
+      <HitSound>monster/flaming_skulls_hit</HitSound>
+      <DeathSound>monster/flaming_skulls_death</DeathSound>
+      <Size>200</Size>
+      <MaxHitPoints>170000</MaxHitPoints>
+      <Defense>50</Defense>
+      <XpMult>30.0</XpMult>
+      <Projectile id="0">
+         <ObjectId>Boshy Time</ObjectId>
+         <Damage>80</Damage>
+         <Speed>160</Speed>
+         <LifetimeMS>500</LifetimeMS>
+         <Size>80</Size>
+      </Projectile>
+      <Projectile id="1">
+         <ObjectId>Boshy Time</ObjectId>
+         <Damage>45</Damage>
+         <Speed>160</Speed>
+         <LifetimeMS>500</LifetimeMS>
+         <Size>80</Size>
+         <ArmorPierce/>
+      </Projectile>
+   </Object>
 </Objects>

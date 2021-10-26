@@ -181,6 +181,7 @@ namespace RotMG.Game.Logic
                     //up to 50% lootboost if you did all the damage
                     var baseMod = (1f + 0.5f * t);
                     baseMod += enemy.IsElite ? 1f : 0f;
+                    baseMod += player.LootBoost;
 
                     foreach (var ih in player.BuildAllItemHandlers())
                         ih.ModifyDrop(player, drop, ref enemy.DamageStorage, ref baseMod);

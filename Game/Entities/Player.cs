@@ -15,6 +15,8 @@ namespace RotMG.Game.Entities
 
         public String PrioritizeQuest = null;
 
+        public float LootBoost = 0.0f;
+
         public static int[] Stars = 
         {
             20,
@@ -215,6 +217,8 @@ namespace RotMG.Game.Entities
             InitLevel(client.Character);
 
             RecalculateEquipBonuses();
+
+            PartyReconnect();
 
             UpdateRunes();
         }
@@ -495,6 +499,14 @@ namespace RotMG.Game.Entities
             AwaitingGoto.Clear();
             PrivateSVs.Clear();
             base.Dispose();
+        }
+
+        public void ForceMove(Vector2 vec, int time)
+        {
+            Parent.MoveEntity(this, vec);
+            AwaitingGoto.Enqueue(time);
+            var go = GameServer.Goto(Id, vec);
+            Client.Send(go);
         }
     }
 }

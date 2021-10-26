@@ -59,6 +59,7 @@ namespace RotMG.Game.Worlds
 
         public void Close()
         {
+            if (Closed) return;
             Closed = true;
             foreach (var player in Players.Values)
             {

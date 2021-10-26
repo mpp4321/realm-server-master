@@ -66,38 +66,43 @@ namespace RotMG.Game.Logic.Database
             ));
             db.Init("Silver Son of Arachna Giant Egg Sac",
                 new TransferDamageOnDeath("Son of Arachna"),
+                new TransformOnDeath("Crawling Grey Spider", 4, 4),
                 new State("base",
                     new PlayerWithinTransition(6, "spawn", true)
                 ),
                 new State("spawn",
-                    new Spawn("Crawling Grey Spider", 3, 1, 5000),
-                    new TransformOnDeath("Crawling Grey Spider", 4, 4)
-            ));
+                    new Spawn("Crawling Grey Spider", 3, 1, 5000)
+                )
+            );
             db.Init("Yellow Son of Arachna Giant Egg Sac",
+                new TransformOnDeath("Crawling Grey Spotted Spider", 4, 4),
                 new State("base",
                     new PlayerWithinTransition(6, "spawn", true)
                 ),
                 new State("spawn",
-                    new Spawn("Crawling Grey Spotted Spider", 3, 1, 5000)
-            ));
+                    new Spawn("Crawling Grey Spotted Spider", 3, 1, 999999)
+                )
+            );
             db.Init("Blue Son of Arachna Giant Egg Sac",
                 new TransferDamageOnDeath("Son of Arachna"),
+                new TransformOnDeath("Crawling Spider Hatchling", 8, 8),
                 new State("base",
                     new PlayerWithinTransition(6, "spawn", true)
                 ),
                 new State("spawn",
-                    new Spawn("Crawling Spider Hatchling", 8, 1, 1500),
-                    new TransformOnDeath("Crawling Spider Hatchling", 8, 8)
-            ));
+                    new Spawn("Crawling Spider Hatchling", 8, 1, 999999)
+                )
+            );
             db.Init("Red Son of Arachna Giant Egg Sac",
                 new TransferDamageOnDeath("Son of Arachna"),
+                new TransformOnDeath("Crawling Red Spotted Spider", 4, 4),
                 new State("base",
                     new PlayerWithinTransition(6, "spawn", true)
                 ),
                 new State("spawn",
-                    new Spawn("Crawling Red Spotted Spider", 3, 1, 5000),
-                    new TransformOnDeath("Crawling Red Spotted Spider", 4, 4)
-            ));
+                    new Spawn("Crawling Red Spotted Spider", 3, 1, 999999)
+                )
+            );
             db.Init("Son of Arachna",
                 new State("sleep",
                     new ConditionalEffect(Common.ConditionEffectIndex.Armored),

@@ -487,5 +487,62 @@
          <MultiHit/>
       </Projectile>
    </Object>
+	<Object type="0x6f9" id="Undead Cyclops God">
+		<Group>Cyclops</Group>
+		<Enemy/>
+		<Class>Character</Class>
+    <Quest/>
+		<AnimatedTexture><File>chars16x16dMountains2</File><Index>2</Index></AnimatedTexture>
+		<HitSound>monster/ghost_god_hit</HitSound>
+		<DeathSound>monster/ghost_god_death</DeathSound>
+		<Size>100</Size>
+		<MaxHitPoints>25000</MaxHitPoints>
+		<Defense>40</Defense>
+		<Terrain>Mountains</Terrain>
+		<SpawnProb>0.55</SpawnProb>
+		<God/>
 
+		<Projectile id="0">
+			<ObjectId>Beam</ObjectId>
+			<Damage>36</Damage>
+			<Speed>20</Speed>
+			<Size>90</Size>
+			<LifetimeMS>300</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Beam</ObjectId>
+			<Damage>45</Damage>
+			<Speed>40</Speed>
+			<Size>150</Size>
+			<LifetimeMS>600</LifetimeMS>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Beam</ObjectId>
+			<Damage>90</Damage>
+			<Speed>60</Speed>
+			<Size>210</Size>
+			<LifetimeMS>900</LifetimeMS>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Beam</ObjectId>
+			<Damage>120</Damage>
+			<Speed>80</Speed>
+			<Size>270</Size>
+			<LifetimeMS>1200</LifetimeMS>
+		</Projectile>
+		<Projectile id="4">
+			<ObjectId>Greater Purple Magic</ObjectId>
+			<Damage>120</Damage>
+			<Speed>35</Speed>
+			<LifetimeMS>4000</LifetimeMS>
+			<Size>140</Size>
+		</Projectile>
+		<Projectile id="5">
+			<ObjectId>Greater Purple Magic</ObjectId>
+			<Damage>60</Damage>
+			<Speed>100</Speed>
+			<LifetimeMS>4000</LifetimeMS>
+			<Size>140</Size>
+		</Projectile>
+	</Object>
 </Objects>

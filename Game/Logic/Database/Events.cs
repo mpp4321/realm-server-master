@@ -5,6 +5,7 @@ using RotMG.Game.Logic.Transitions;
 using RoTMG.Game.Logic.Transitions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using static RotMG.Game.Logic.LootDef;
 using static RotMG.Game.Logic.Loots.TierLoot;
@@ -801,6 +802,24 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(12, 2, 10, cooldown: 750)
                     )
             );
+
+            db.Init("Boshy",
+                new State("base", 
+                    new Shoot(16, 5, shootAngle: 10, cooldownOffset: 100),
+                    new Shoot(16, 5, shootAngle: 10, index: 1),
+                    new Wander(0.6f)
+                ),
+                new Threshold(0.001f,
+                    LootTemplates.BasicPots(0.5f).Concat(
+                        new MobDrop[] {
+                            new TierLoot(11, LootType.Weapon, 1.0f, r: new RarityModifiedData(1.3f, 2)),
+                            new TierLoot(11, LootType.Armor, 1.0f, r: new RarityModifiedData(1.3f, 2)),
+                            new TierLoot(5, LootType.Ring, 1.0f, r: new RarityModifiedData(1.3f, 2)),
+                        }
+                    ).ToArray()
+                )
+            );
+
         }
     }
 }

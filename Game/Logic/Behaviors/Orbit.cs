@@ -69,13 +69,14 @@ namespace RotMG.Game.Logic.Behaviors
         public override bool Tick(Entity host)
         {
             OrbitState s = (OrbitState)host.StateObject[Id];
+            var returnState = false;
 
             if (s == null) s = BuildDefaultOrbit();
 
             if (host.HasConditionEffect(ConditionEffectIndex.Paralyzed))
                 return false;
 
-            if(s.entity == null)
+            if(s.entity == null || s.entity.Dead)
             {
                 if(targetPlayers)
                 {
@@ -112,10 +113,11 @@ namespace RotMG.Game.Logic.Behaviors
                 {
                     s.Direction *= -1;
                 }
+                returnState = true;
             }
 
             host.StateObject[Id] = s;
-            return true;
+            return returnState;
         }
 
     }

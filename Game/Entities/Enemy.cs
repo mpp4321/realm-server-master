@@ -54,8 +54,7 @@ namespace RotMG.Game.Entities
             //    throw new Exception("Already dead");
 #endif
 
-            if (Parent is Realm realm)
-                realm.EnemyKilled(this, killer);
+            Parent?.EnemyKilled(this, killer);
 
             var baseExp = (int)Math.Ceiling(MaxHp / 10f);
             if (baseExp != 0)

@@ -531,7 +531,7 @@ namespace RotMG.Game.Worlds
                 })
             },
             { Terrain.Mountains, Tuple.Create(
-                600, new []
+                500, new []
                 {
                     Tuple.Create("White Demon", 0.1),
                     Tuple.Create("Sprite God", 0.11),
@@ -542,9 +542,9 @@ namespace RotMG.Game.Worlds
                     Tuple.Create("Slime God", 0.09),
                     Tuple.Create("Ghost God", 0.09),
                     Tuple.Create("Rock Bot", 0.05),
+                    Tuple.Create("Greater Fire Skeleton", 0.05),
                     Tuple.Create("Djinn", 0.09),
-                    Tuple.Create("Leviathan", 0.09),
-                    Tuple.Create("Greater Fire Skeleton", 0.015)
+                    Tuple.Create("Leviathan", 0.09)
                 })
             },
         };
@@ -718,7 +718,7 @@ namespace RotMG.Game.Worlds
             }
         }
 
-        public void EnemyKilled(Enemy enemy, Player killer)
+        public override void EnemyKilled(Enemy enemy, Player killer)
         {
             if (enemy.Terrain != Terrain.None)
             {

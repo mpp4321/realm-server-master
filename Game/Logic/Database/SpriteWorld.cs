@@ -146,6 +146,12 @@ namespace RotMG.Game.Logic.Database
                         new TossObject(child: "Limon Element 3", range: 14, angle: 135, cooldown: 1000000),
                         new TossObject(child: "Limon Element 4", range: 14, angle: 45, cooldown: 1000000),
                         new TransitionFrom("set_up_the_box", "shielded1"),
+
+                        new Grenade(2f, 100, 3, 0, 2000, 0, 0),
+                        new Grenade(2f, 100, 3, 90, 2000, 0, 500),
+                        new Grenade(2f, 100, 3, 180, 2000, 0, 1000),
+                        new Grenade(2f, 100, 3, 270, 2000, 0, 1500),
+
                         new State("shielded1",
                             new Shoot(8, count: 1, predictive: 0.1f, cooldown: 1000),
                             new Shoot(8, count: 3, shootAngle: 120, angleOffset: 0.3f, predictive: 0.1f, cooldown: 500),
