@@ -111,6 +111,8 @@ namespace RotMG.Game.Logic.Behaviors
                 return false;
             }
 
+            if (_coolDown.CoolDown == 0) return false;
+
             if (spawn.RemainingTime <= 0 && spawn.CurrentNumber < _maxChildren)
             {
                 CheckEntities(host, ref spawn);

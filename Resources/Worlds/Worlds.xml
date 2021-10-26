@@ -91,6 +91,7 @@
 		<Portals>0x5000</Portals>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
+		<AllowTeleport>true</AllowTeleport>
 	</World>
 	<World name="Forbidden Jungle" display="Forbidden Jungle">
 		<Maps>ForbiddenJungle/0.jm</Maps>
@@ -146,5 +147,11 @@
 		<Maps>CyclopsChambers/0.jm</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
+	</World>
+	<World name="TombOfTheAncients" display="Tomb of the Ancients">
+		<Maps>TOA/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+		<AllowTeleport>true</AllowTeleport>
 	</World>
 </Worlds>
