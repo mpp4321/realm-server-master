@@ -46,7 +46,7 @@ namespace RotMG.Game.Entities
 
     public partial class Player
     {
-        private const int TimeUntilAckTimeout = 10000;
+        private const int TimeUntilAckTimeout = 2000;
         private const int TickProjectilesDelay = 2000;
         private const float RateOfFireThreshold = 1.1f;
         private const float EnemyHitRangeAllowance = 1.7f;
@@ -79,7 +79,7 @@ namespace RotMG.Game.Entities
 #if DEBUG
                     Program.Print(PrintType.Error, "Aoe ack timed out");
 #endif
-                    //Client.Disconnect();
+                    Client.Disconnect();
                     return;
                 }
             }
@@ -93,7 +93,7 @@ namespace RotMG.Game.Entities
 #if DEBUG
                         Program.Print(PrintType.Error, "Proj ack timed out");
 #endif
-                        //Client.Disconnect();
+                        Client.Disconnect();
                         return;
                     }
                 }
