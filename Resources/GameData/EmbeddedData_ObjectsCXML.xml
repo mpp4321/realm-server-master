@@ -1310,6 +1310,15 @@
           <ConditionEffect duration="1.5">Armor Broken</ConditionEffect>
       </Projectile>
   </Object>
+  <Object type="0x0754" id="Epic Glowing Portal">
+    <Class>Portal</Class>
+    <IntergamePortal/>
+    <DungeonName>Epic Sprite World</DungeonName>
+    <Texture>
+      <File>lofiEnvironment2</File>
+      <Index>0x36</Index>
+    </Texture>
+  </Object>
 
 </Objects>
 <!-- next 5008 -->

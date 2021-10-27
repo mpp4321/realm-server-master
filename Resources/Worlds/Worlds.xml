@@ -60,6 +60,13 @@
 		<Maps>Sprite/0.jm</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
+		<Portals>0x070c</Portals>
+	</World>
+	<World name="Epic Sprite World" display="Epic Sprite World">
+		<Maps>EpicSprite/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+		<Portals>0x0754</Portals>
 	</World>
 	<World name="Toxic Sewer" display="Toxic Sewer">
 		<Maps>ToxicSew/0.jm</Maps>

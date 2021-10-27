@@ -10593,7 +10593,7 @@
     <BagType>4</BagType>
     <FameBonus>4</FameBonus>
   </Object>
-  <Object type="0xccc" id="Corporeal Sprite Shield">
+  <Object type="0xccc" id="Corporeal Shield">
     <Class>Equipment</Class>
     <Item/>
     <Texture>

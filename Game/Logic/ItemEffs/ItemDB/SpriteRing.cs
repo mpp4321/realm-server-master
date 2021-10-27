@@ -23,8 +23,9 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
                 var cd = PlayerCooldowns.GetValueOrDefault(hit.AccountId);
                 if (cd <= 0)
                 {
-                    hit.ApplyConditionEffect(ConditionEffectIndex.Invulnerable, 500);
+                    hit.ApplyConditionEffect(ConditionEffectIndex.Stasis, 500);
                     hit.ApplyConditionEffect(ConditionEffectIndex.Invisible, 500);
+                    hit.ApplyConditionEffect(ConditionEffectIndex.Healing, 1000);
                     hit.Parent?.BroadcastPacketNearby(GameServer.Notification
                     (
                         hit.Id,
