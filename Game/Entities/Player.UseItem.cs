@@ -805,6 +805,35 @@ namespace RotMG.Game.Entities
                         }
                     }
                     break;
+                case ActivateEffectIndex.FishingRod:
+                    var nearestSpot = GameUtils.GetNearestEntity(this, 8f, Resources.Id2Object["Fishing Spot"].Type);
+                    if(nearestSpot != null && !HasConditionEffect(ConditionEffectIndex.Paralyzed)) 
+                    {
+                        Entity bob = new Entity(Resources.Id2Object["Fishing Bob"].Type);
+                        bob.Id = Parent.GenerateNextObjectId();
+                        bob.Position = nearestSpot.Position;
+                        //Add fake pirate as temporary bob
+                        ClientSideAdds.Add(bob);
+                        EntityUpdates.Add(bob.Id, bob.UpdateCount);
+
+                        ApplyConditionEffect(ConditionEffectIndex.Paralyzed, 3000);
+                        var worldBefore = Parent.Id;
+                        Manager.AddTimedAction(3000, () =>
+                        {
+                            if(worldBefore == Parent.Id) { 
+                                var itemId = GetFreeInventorySlot();
+                                if(itemId != -1)
+                                {
+                                    Inventory[itemId] = Resources.Id2Item["Crown"].Type;
+                                    ItemDatas[itemId] = new ItemDataJson();
+                                    ToRemoveFromClient.Add(bob.Id);
+                                    UpdateInventorySlot(itemId);
+                                }
+                            }
+                        });
+
+                    }
+                    break;
 #if DEBUG
                 default:
                     Program.Print(PrintType.Error, $"Unhandled AE <{eff.Index.ToString()}>");

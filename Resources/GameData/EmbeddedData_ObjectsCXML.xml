@@ -1319,6 +1319,25 @@
       <Index>0x36</Index>
     </Texture>
   </Object>
+  <Object type="0x0755" id="Fishing Spot">
+    <Class>Character</Class>
+    <Texture>
+      <File>invisible</File>
+      <Index>0</Index>
+    </Texture>
+    <NoMiniMap/>
+    <Effect color="0x3333FF" rate="5" life=".1" lifeVariance="0" speed="0" speedVariance="0" size="8" rise="0" riseAcc="0" riseVariance="0" rangeX=".5" rangeY=".5">CustomParticles</Effect>
+  </Object>
+  <Object type="0x0756" id="Fishing Bob">
+    <Class>Character</Class>
+    <Texture>
+      <File>d2LofiObjEmbed</File>
+      <Index>0x31</Index>
+    </Texture>
+    <Friendly/>
+    <NoMiniMap/>
+    <Effect color="0x0000FF" rate="5" life=".1" lifeVariance="0" speed="0" speedVariance="0" size="8" rise="0" riseAcc="0" riseVariance="0" rangeX=".5" rangeY=".1">CustomParticles</Effect>
+  </Object>
 
 </Objects>
 <!-- next 5008 -->

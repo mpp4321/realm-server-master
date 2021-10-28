@@ -148,6 +148,7 @@ namespace RotMG.Common
         UnlockSkin,
         RemoveFromBag,
         MagicCrystal,
+        FishingRod
     }
 
     public enum ShowEffectIndex

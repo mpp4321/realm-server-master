@@ -404,6 +404,11 @@ namespace RotMG.Game
             }
         }
 
+        public int GenerateNextObjectId()
+        {
+            return ++NextObjectId;
+        }
+
         public virtual int AddEntity(Entity en, Vector2 at)
         {
 #if DEBUG
@@ -416,7 +421,7 @@ namespace RotMG.Game
             if (GetTileF(at.X, at.Y) == null)
                 return -1;
 
-            en.Id = ++NextObjectId;
+            en.Id = GenerateNextObjectId();
             en.Parent = this;
             en.SpawnPoint = at;
             en.Position = at;

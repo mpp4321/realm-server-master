@@ -10651,4 +10651,18 @@
     <OldSound>magicShoot</OldSound>
     <FameBonus>2</FameBonus>
   </Object>
+  <Object type="0xcce" id="Fishing Rod">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>d2LofiObjEmbed</File>
+      <Index>0x30</Index>
+    </Texture>
+    <Tier>1</Tier>
+    <SlotType>10</SlotType>
+    <Description>A fishing rod!</Description>
+    <Activate>FishingRod</Activate>
+    <InvUse/>
+    <BagType>4</BagType>
+  </Object>
 </Objects>

@@ -67,6 +67,9 @@ namespace RotMG.Game.Entities
         public int[,] TileUpdates;
         public Dictionary<int, int> EntityUpdates;
         public HashSet<Entity> Entities;
+
+        public List<Entity> ClientSideAdds = new List<Entity>();
+
         public HashSet<int> ToRemoveFromClient = new HashSet<int>();
         public HashSet<IntPoint> CalculatedSightCircle;
 
@@ -92,7 +95,8 @@ namespace RotMG.Game.Entities
                     nUpdate ? CalculateSightCircle() : CalculatedSightCircle;
 
             var tiles = new List<TileData>();
-            var adds = new List<ObjectDefinition>();
+            var adds = new List<ObjectDefinition>(ClientSideAdds.Select(a => a.GetObjectDefinition()));
+            ClientSideAdds.Clear();
 
             var drops = ToRemoveFromClient.Select(a => new ObjectDrop() { Id=a, Explode=Dead }).ToList();
             var droppedIds = ToRemoveFromClient.ToHashSet();

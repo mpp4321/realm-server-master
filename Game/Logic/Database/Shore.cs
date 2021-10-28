@@ -180,6 +180,7 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Health Potion", 0.04f),
                 new ItemLoot("Magic Potion", 0.04f)
             );
+
             db.Init("Green Gelatinous Cube",
                 new State(
                     "base_state",
