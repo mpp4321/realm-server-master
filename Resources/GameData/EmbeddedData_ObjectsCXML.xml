@@ -475,7 +475,7 @@
 
   </Object>
 
-  <Object type="0x0719" id="Crawling Depths Portal">
+  <Object type="0x0719" id="Spider Den Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
     <DungeonName>Spider Den</DungeonName>

@@ -41,6 +41,10 @@ namespace RotMG.Game.Logic.Database
                     1f, range: 2
                 ));
 
+            db.Init("Sumo Pet", new PetFollow(
+                    1f, range: 2
+                ));
+
         }
     }
 }

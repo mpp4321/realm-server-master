@@ -2,7 +2,7 @@
 	<MaxClients>256</MaxClients>
 	<Address>127.0.0.1</Address>
 	<Ports>7777:2050</Ports>
-	<MaxRealms>2</MaxRealms>
+	<MaxRealms>0</MaxRealms>
 	<TicksPerSecond>10</TicksPerSecond>
 <!--Client & Server designed to run at 10TPS, changing that might result in laggy animations/movement-->
 </Settings>

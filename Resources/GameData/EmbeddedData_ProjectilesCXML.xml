@@ -3690,4 +3690,14 @@
 			<Index>0x170</Index>
 		</Texture>
 	</Object>
+
+  <Object type="0x500c" id="Black Planet Shot">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiEnvironment2</File>
+      <Index>0x171</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+
 </Objects>

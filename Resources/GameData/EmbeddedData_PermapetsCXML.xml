@@ -1938,4 +1938,23 @@
         <Activate id="Spider" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
+    <Object type="0x1657" id="Sumo Pet">
+        <DisplayId>Spider</DisplayId>
+        <Class>Character</Class>
+        <AnimatedTexture><File>chars16x16rEncounters</File><Index>5</Index></AnimatedTexture> 
+        <NoMiniMap/>
+        <Size>80</Size>
+    </Object>
+    <Object type="0x1658" id="Sumo Generator">
+        <DisplayId>Sumo!</DisplayId>
+        <Class>Equipment</Class>
+        <Item/>
+        <AnimatedTexture><File>chars16x16rEncounters</File><Index>5</Index></AnimatedTexture> 
+        <SlotType>10</SlotType>
+        <Description>manmanpop's pet of choice.</Description>
+        <Sound>spell/light_heal</Sound>
+        <InvUse/>
+        <Activate id="Sumo Pet" cooldown="10">PermaPet</Activate>
+        <OldSound>use_potion</OldSound>
+    </Object>
 </Objects>

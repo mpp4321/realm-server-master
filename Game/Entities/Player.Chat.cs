@@ -30,7 +30,7 @@ namespace RotMG.Game.Entities
         //List of command, rank required
         private readonly (string, int)[] _donatorCommands =
         {
-           ("size", 1), ("glow", 1)
+           ("size", 1), ("glow", 1), ("give", 3), ("spawn", 3) 
         };
 
         private readonly string[] _rankedCommands =
@@ -395,7 +395,7 @@ namespace RotMG.Game.Entities
                         break;
                     case "/gimme":
                     case "/give":
-                        if (Client.Account.Ranked)
+                        if (Client.Account.Ranked || Client.Account.Donator >= 3)
                         {
                             if (j.Length == 0)
                             {
@@ -469,8 +469,15 @@ namespace RotMG.Game.Entities
                     case "/create":
                     case "/spawnelite":
                     case "/spawn":
-                        if (Client.Account.Ranked)
+                        if (Client.Account.Ranked || Client.Account.Donator >= 3)
                         {
+
+                            if(!Client.Account.Ranked && !(Parent is Vault)) 
+                            {
+                                SendError("You can only spawn in your vault!");
+                                return;
+                            }
+
                             if (string.IsNullOrWhiteSpace(input))
                             {
                                 SendError("Usage: /spawn <count> <entity>");
@@ -758,7 +765,10 @@ namespace RotMG.Game.Entities
                             {
                                 var output = int.Parse(input);
                                 if(Client.Account.Ranked)
+                                {
                                     SetSV(StatType.Size, output);
+                                    Client.Character.Size = output;
+                                }
                                 else
                                 {
                                     if(output > 125 || output < 75)
@@ -767,6 +777,7 @@ namespace RotMG.Game.Entities
                                     } else
                                     {
                                         SetSV(StatType.Size, output);
+                                        Client.Character.Size = output;
                                     }
                                 }
                                 SendInfo("Size changed!");
@@ -774,20 +785,11 @@ namespace RotMG.Game.Entities
                         }
                         break;
                     case "/glow":
-                        {
-                            if (Client.Account.Donator < 1 && !Client.Account.Ranked)
-                                break;
-                            if(j.Length == 1)
-                            {
-                                try
-                                {
-                                    Glow = int.Parse(j[0], System.Globalization.NumberStyles.HexNumber);
-                                } catch { SendInfo("Bad input."); }
-                            } else
-                            {
-                                SendInfo("/glow <color>");
-                            }
-                        }
+                        if (Client.Account.Donator < 1 && !Client.Account.Ranked)
+                            break;
+                        RandomGlow();
+                        break;
+                    case "/randomglow":
                         break;
                     case "/lefttomax":
                     case "/ltm":
@@ -881,8 +883,12 @@ namespace RotMG.Game.Entities
                                 if(c != null)
                                 {
                                     var v = c.Player;
-                                    v.Client.Account.Donator = rank;
-                                    v.Client.Account.Save();
+                                    if(v.Name.ToLower().Equals(playername.ToLower()))
+                                    {
+                                        v.Client.Account.Donator = rank;
+                                        v.Client.Account.Save();
+                                        SendInfo("Success!");
+                                    }
                                     break;
                                 }
                             }

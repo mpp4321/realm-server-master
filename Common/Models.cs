@@ -110,6 +110,9 @@ namespace RotMG.Common
         public FameStatsInfo FameStats;
         public int PetId;
 
+        public int GlowColor = 0; 
+        public int Size = 0; 
+
         public CharacterModel(int accountId, int key) : base($"char.{accountId}.{key}") 
         {
             Id = key;
@@ -142,6 +145,9 @@ namespace RotMG.Common
             PetId = Data.ParseInt("PetId");
             ItemDataModifier = Data.ParseString("ItemDataModifier", "Classical");
             SelectedRunes = Data.ParseStringArray("Runes", ",", new string[] { });
+
+            GlowColor = Data.ParseInt("GlowColor");
+            Size = Data.ParseInt("Size");
         }
 
         public XElement ExportFame()
@@ -219,6 +225,8 @@ namespace RotMG.Common
                 data.Add(new XElement("PetId", PetId));
                 data.Add(new XElement("ItemDataModifier", ItemDataModifier));
                 data.Add(new XElement("Runes", string.Join(",", SelectedRunes)));
+                data.Add(new XElement("GlowColor", GlowColor));
+                data.Add(new XElement("Size", Size));
                 data.Add(FameStats.Export(appExport));
             }
             return data;

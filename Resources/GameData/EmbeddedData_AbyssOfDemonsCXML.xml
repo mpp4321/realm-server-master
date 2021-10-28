@@ -348,6 +348,7 @@
     <Size>0</Size>
     <MaxHitPoints>10</MaxHitPoints>
   </Object>
+
   <Object type="0x0e1a" id="AbyssTreasureLavaBomb">
     <Class>Character</Class>
     <Enemy/>

@@ -93,7 +93,8 @@ namespace RotMG.Game.Entities
 #if DEBUG
                         Program.Print(PrintType.Error, "Proj ack timed out");
 #endif
-                        Client.Disconnect();
+                        if(!(ap.Owner is Player))
+                            Client.Disconnect();
                         return;
                     }
                 }

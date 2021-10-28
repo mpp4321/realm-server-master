@@ -188,6 +188,8 @@ namespace RotMG.Game.Entities
             AccountId = client.Account.Id;
             Name = client.Account.Name;
             Level = client.Character.Level;
+            Size = client.Character.Size > 0 ? client.Character.Size : 100;
+            Glow = client.Character.GlowColor;
 
             if (client.Character.HealthPotions != 0) HealthPotions = client.Character.HealthPotions;
             if (client.Character.MagicPotions != 0) MagicPotions = client.Character.MagicPotions;

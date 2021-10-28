@@ -902,5 +902,15 @@ namespace RotMG.Game.Entities
             return pet;
         }
 
+        public void RandomGlow()
+        {
+            int r = MathUtils.NextInt(0, 255);
+            int g = MathUtils.NextInt(0, 255);
+            int b = MathUtils.NextInt(0, 255);
+            var color = (r << 16) | (g << 8) | b;
+            Client.Character.GlowColor = color;
+            Glow = color;
+        }
+
     }
 }

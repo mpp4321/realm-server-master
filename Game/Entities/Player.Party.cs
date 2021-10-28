@@ -13,6 +13,21 @@ namespace RotMG.Game.Entities
          * party stuff here
          */
 
+        public int GetMaxPartySize() {
+            switch (Client.Account.Donator) {
+                case 0:
+                    return 3;
+                case 1:
+                    return 5;
+                case 2:
+                    return 7;
+                case 3:
+                    return 9;
+                default:
+                    return 9;
+            }
+        }
+
         public struct WorldLocation
         {
             public int Type;
@@ -95,6 +110,12 @@ namespace RotMG.Game.Entities
             if(CurrentParty.Leader != this.AccountId)
             {
                 SendInfo("You must be the leader of this party to invite other players!");
+                return;
+            }
+
+            if(CurrentParty.Members.Count >= GetMaxPartySize())
+            {
+                SendError("Your party is full!");
                 return;
             }
 
