@@ -347,7 +347,7 @@ namespace RotMG.Game.Logic.Database
                           new MoveTo(1f, 37, 38),
                           //Will auto make it 360f / 8
                           new Shoot(99f, count: 8, shootAngle: null, index: 0, defaultAngle: 0f, rotateAngle: 15f, cooldown: 600, cooldownVariance: 250, cooldownOffset: 2000),
-                          new Shoot(50f, 2, shootAngle: 30f, 0f, 1, cooldown: 1500, cooldownVariance: 500, predictive: 1),
+                          new Shoot(50f, 2, shootAngle: 30f, 0, 1, cooldown: 1500, cooldownVariance: 500, predictive: 1),
                           new TransitionFrom("black towers shoot", "defendmode"),
                           new State("defendmode",
                             new ConditionalEffect(ConditionEffectIndex.Armored),
