@@ -23,7 +23,8 @@ namespace RotMG.Game.Entities
             "Speed",
             "Dexterity",
             "Vitality",
-            "Wisdom" 
+            "Wisdom",
+            "Protection" 
         };
 
         public int[] Stats;
@@ -241,6 +242,8 @@ namespace RotMG.Game.Entities
             SetPrivateSV(StatType.VitalityBoost, GetBoosts(6));
             SetPrivateSV(StatType.Wisdom, GetStatTotal(7));
             SetPrivateSV(StatType.WisdomBoost, GetBoosts(7));
+            TrySetSV(StatType.Protection, GetStatTotal(8));
+            TrySetSV(StatType.ProtectionBoost, GetBoosts(8));
         }
 
         public void TickBoosts()

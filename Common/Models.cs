@@ -126,6 +126,8 @@ namespace RotMG.Common
             HP = Data.ParseInt("HP");
             MP = Data.ParseInt("MP");
             Stats = Data.ParseIntArray("Stats", ",");
+            //There are 9 stats including new protection, this is to ensure backwards compatibility with old stat blocks
+            Stats = Stats.Concat(Enumerable.Range(Stats.Length, 9 - Stats.Length).Select(a => Resources.Type2Player[(ushort) ClassType].Stats[a].StartingValue)).ToArray();
             Inventory = Data.ParseIntArray("Equipment", ",");
             ItemDatas = Data.ParseStringArray("ItemDatas", null, regex: new System.Text.RegularExpressions.Regex(@"(?<=}),(?={)"));
             ItemDataJsons = ItemDatas?.Select(a => ItemDesc.ParseItemDataJson(a)).ToArray();

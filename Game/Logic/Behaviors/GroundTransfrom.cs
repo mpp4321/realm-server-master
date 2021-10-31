@@ -67,8 +67,7 @@ namespace RotMG.Game.Logic.Behaviors
                     Y = y
                 });
 
-                tile.GroundType = tileType;
-                //tile.UpdateCount++;
+                host.Parent.UpdateTile(x, y, tileType);
                 return;
             }
 

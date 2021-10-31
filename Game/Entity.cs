@@ -104,7 +104,9 @@ namespace RotMG.Game
         ItemData19,
         OwnerAccountId,
         RuneEffects,
-        GlowStat
+        GlowStat,
+        Protection,
+        ProtectionBoost
     }
 
     public class Entity : IDisposable

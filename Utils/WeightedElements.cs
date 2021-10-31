@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RotMG.Utils
 {
-    class WeightedElements<T>
+    public class WeightedElements<T>
     {
 
         private List<(float, T)> weights = new List<(float, T)>();

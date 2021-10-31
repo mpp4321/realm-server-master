@@ -64,12 +64,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                     new State("base",
                         new Charge(2f, 10, coolDown: 2000),
-                        new Shoot(10, 3, 10, 0, cooldown: 300),
-                        new PlayerWithinTransition(1f, "spawnminion")
-                    ),
-                    new State("spawnminion",
-                        new Spawn("Zombie Hulk", 1),
-                        new TimedTransition("base", 0)
+                        new Shoot(10, 3, 10, 0, cooldown: 300)
                     )
                 );
 

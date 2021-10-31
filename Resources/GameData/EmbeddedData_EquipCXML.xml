@@ -2671,7 +2671,7 @@
     <Tier>3</Tier>
     <Description>A potent draught from Oryx's wine cellar.</Description>
     <Sound>use_potion</Sound>
-    <Activate amount="150">Heal</Activate>
+    <Activate amount="150" useWisMod="true" statScale="1.0" statMin="200" statForScale="Mana">Heal</Activate>
     <Consumable/>
     <Potion/>
     <BagType>3</BagType>
@@ -2707,7 +2707,6 @@
     <Activate amount="125">Heal</Activate>
     <Consumable/>
     <SuccessorId>Elixir of Health 6</SuccessorId>
-
     <Potion/>
     <BagType>3</BagType>
   </Object>
@@ -10571,6 +10570,7 @@
       <PassesCover/>
       <ArcGap>5</ArcGap>
     </Projectile>
+    <ActivateOnEquip stat="8" amount="-100">IncrementStat</ActivateOnEquip>
     <NumProjectiles>5</NumProjectiles>
     <BagType>6</BagType>
     <OldSound>arrowShoot</OldSound>

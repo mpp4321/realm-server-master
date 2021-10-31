@@ -148,7 +148,7 @@ namespace RotMG.Common
         UnlockSkin,
         RemoveFromBag,
         MagicCrystal,
-        FishingRod
+        FishingRod,
     }
 
     public enum ShowEffectIndex
@@ -330,6 +330,8 @@ namespace RotMG.Common
         public readonly StatDesc[] Stats;
         public readonly int[] StartingValues;
 
+        public const ushort PLAYER_STAT_NUM = 9;
+
         public PlayerDesc(XElement e, string id, ushort type) : base(e, id, type)
         {
             SlotTypes = e.ParseIntArray("SlotTypes", ",").Select(x => (ItemType)x).ToArray();
@@ -343,7 +345,7 @@ namespace RotMG.Common
             for (var k = 0; k < 20; k++)
                 ItemDatas[k] = "{}";
 
-            Stats = new StatDesc[8];
+            Stats = new StatDesc[PLAYER_STAT_NUM];
             for (var i = 0; i < Stats.Length; i++)
                 Stats[i] = new StatDesc(i, e);
             Stats = Stats.OrderBy(k => k.Index).ToArray();
@@ -392,6 +394,7 @@ namespace RotMG.Common
                 case 5: return "Dexterity";
                 case 6: return "HpRegen";
                 case 7: return "MpRegen";
+                case 8: return "Protection";
             }
             return null;
         }
@@ -408,6 +411,7 @@ namespace RotMG.Common
                 case "Dexterity": return 5;
                 case "HpRegen": return 6;
                 case "MpRegen": return 7;
+                case "Protection": return 8;
             }
             return -1;
         }

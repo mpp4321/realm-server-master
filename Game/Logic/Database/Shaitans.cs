@@ -2,6 +2,7 @@
 using RotMG.Game.Logic.Behaviors;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
+using RotMG.Game.SetPieces;
 using RoTMG.Game.Logic.Transitions;
 using System;
 using System.Collections.Generic;
@@ -394,7 +395,7 @@ namespace RotMG.Game.Logic.Database
                         new SetAltTexture(1),
                         new OrderOnEntry(999, "md1 Governor", "1"),
                         new MoveTo(0.8f, 13.5f, 5),
-                        new TimedTransition("62", 2000)
+                        new TimedTransition("62", 0)
                         ),
                     new State("62",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
@@ -439,7 +440,7 @@ namespace RotMG.Game.Logic.Database
                         new SetAltTexture(0),
                         new ReturnToSpawn(0.8f),
                         new Taunt(true, 0, "BE CONSUMED BY FLAMES!"),
-                        new Shoot(9 + 1 / 2, 1, index: 0, cooldown: 1000),
+                        new Shoot(9, 1, index: 0, cooldown: 1000),
                         new TransitionFrom("68", "69"),
                         new State("69",
                             new OrderOnEntry(999, "md1 Governor", "1"),
@@ -610,8 +611,8 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("3", 2000)
                     ),
                     new State("3",
-                        new Spawn("md1 Loot Balloon Shaitan", 1, 0),
-                        new Suicide()
+                        new Spawn("md1 Loot Balloon Shaitan", 1, 1, cooldown: 0),
+                        new Suicide(100)
                     )
                 )
             );
@@ -620,7 +621,7 @@ namespace RotMG.Game.Logic.Database
                 new ConditionalEffect(ConditionEffectIndex.Invincible),
                 new State("x"),
                 new State("1",
-                    new Spawn("md1 CreepyHands", 2, 0),
+                    new Spawn("md1 CreepyHands", 2, 1, cooldown: 0),
                     new TimedTransition("x", 1000)
                 )
             );
@@ -637,8 +638,8 @@ namespace RotMG.Game.Logic.Database
                     new Follow(2, 15, 0),
                     new PlayerWithinTransition(2f, "2"),
                     new State("2",
-                        new Shoot(999, 10, 36, 0, 0),
-                        new Suicide()
+                        new Shoot(999, 10, 36, 0, 0, cooldown: 1000),
+                        new Suicide(1000)
                     )
                 )
             );
@@ -647,23 +648,21 @@ namespace RotMG.Game.Logic.Database
                     new Follow(2, 15, 0),
                     new PlayerWithinTransition(2f, "2"),
                     new State("2",
-                        new Shoot(999, 10, 36, 0, 0),
-                        new Suicide()
+                        new Shoot(999, 10, 36, 0, 0, cooldown: 1000),
+                        new Suicide(1000)
                     )
                 )
             );
             db.Init("md1 Lava Makers",
-                new State("base",
-                    new ConditionalEffect(ConditionEffectIndex.Invincible),
-                    new State("1",
-                        new GroundTransform("Hot Lava"),
-                        new TimedTransition("2", 5000)
-                        ),
-                    new State("2",
-                        new GroundTransform("Earth Light"),
-                        new Suicide()
-                        )
-                    )
+                new ConditionalEffect(ConditionEffectIndex.Invincible),
+                new State("1",
+                    new GroundTransform("Hot Lava"),
+                    new TimedTransition("2", 5000)
+                    ),
+                new State("2",
+                    new GroundTransform("Earth Light"),
+                    new Suicide()
+                )
             );
             db.Init("md1 CreepyHead",
                 new State("base",
@@ -676,15 +675,15 @@ namespace RotMG.Game.Logic.Database
                     new ConditionalEffect(ConditionEffectIndex.Invincible),
                     new State("x"),
                     new State("1",
-                        new Spawn("md1 Right Hand of Shaitan", 1, 0),
+                        new Spawn("md1 Right Hand of Shaitan", 1, 1, cooldown: 0),
                         new TimedTransition("x", 1000)
                         ),
                     new State("2",
-                        new Spawn("md1 Right Smashing Hand", 1, 0),
+                        new Spawn("md1 Right Smashing Hand", 1, 1, cooldown: 0),
                         new TimedTransition("3", 2000)
                         ),
                     new State("3",
-                        new Spawn("md1 Right Smashing Hand", 1, 0),
+                        new Spawn("md1 Right Smashing Hand", 1, 1, cooldown: 0),
                         new TimedTransition("x", 2000)
                         )
                     )
@@ -694,15 +693,15 @@ namespace RotMG.Game.Logic.Database
                     new ConditionalEffect(ConditionEffectIndex.Invincible),
                     new State("x"),
                     new State("1",
-                        new Spawn("md1 Left Hand of Shaitan", 1, 0),
+                        new Spawn("md1 Left Hand of Shaitan", 1, 1, cooldown: 0),
                         new TimedTransition("x", 1000)
                         ),
                     new State("2",
-                        new Spawn("md1 Left Smashing Hand", 1, 0),
+                        new Spawn("md1 Left Smashing Hand", 1, 1, cooldown: 0),
                         new TimedTransition("3", 2000)
                         ),
                     new State("3",
-                        new Spawn("md1 Left Smashing Hand", 1, 0),
+                        new Spawn("md1 Left Smashing Hand", 1, 1, cooldown: 0),
                         new TimedTransition("x", 2000)
                         )
                  )
@@ -726,7 +725,7 @@ namespace RotMG.Game.Logic.Database
                             new TransitionFrom("3", "4") { SubIndex = 0 },
                             new State("4",
                                 new SetAltTexture(1),
-                                new Spawn("md1 Right Hand spawner", 1, 0),
+                                new Spawn("md1 Right Hand spawner", 1, 1, cooldown: 0),
                                 new TimedTransition("5", 400)
                                 ),
                             new State("5",
@@ -762,7 +761,8 @@ namespace RotMG.Game.Logic.Database
                                 new TimedTransition("13", 0) 
                             ),
                             new State("13",
-                                new SetAltTexture(0)
+                                new SetAltTexture(0),
+                                new EntitiesNotExistsTransition(20f, "14", "md1 Left Hand of Shaitan") { SubIndex = 2 }
                             )
                         ),
                         new State("14",
@@ -781,6 +781,7 @@ namespace RotMG.Game.Logic.Database
                             new Taunt(true, cooldown: 0, "Hah. Weakings. This will be slightly enjoyable.", "You are in the presence of demi-god, motral", "What hath the keepers brought Shaitan?", "You disturb an ancient evil...", "You think it wise to use such cheap tricks?", "You make a foolish mistake, mortal."),
                             new ReturnToSpawn(0.8f),
                             new Flash(0xFF0000, .2f, 12),
+                            new TransitionFrom("17", "18"),
                             new State("18",
                                 new SetAltTexture(1),
                                 new TimedTransition("19", 400)
@@ -799,7 +800,7 @@ namespace RotMG.Game.Logic.Database
                                 ),
                             new State("22",
                                 new SetAltTexture(0),
-                                new TimedTransition("15", 0)
+                                new TimedTransition("15", 0) { SubIndex = 2 }
                                 )
                             )
                     );
@@ -814,14 +815,13 @@ namespace RotMG.Game.Logic.Database
                         new ChangeSize(20, 200)
                     ),
                     new State("3",
-
                             new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                             new ConditionalEffect(ConditionEffectIndex.Invincible),
                             new Taunt(true, cooldown: 0, "Yes, little mortals. Meet your doom at the hands of SHAITAN!", "My firey fingers of frustrating flame force foes to fumble, fall, and fail!", "You think it wise to use such cheap tricks?", "You make a foolish mistake, mortal."),
                             new TransitionFrom("3", "4") { SubIndex = 0 },
                             new State("4",
                                 new SetAltTexture(1),
-                                new Spawn("md1 Left Hand spawner", 1, 0),
+                                new Spawn("md1 Left Hand spawner", 1, 1, cooldown: 0),
                                 new TimedTransition("5", 400)
                             ),
                             new State("5",
@@ -856,7 +856,6 @@ namespace RotMG.Game.Logic.Database
                                 new OrderOnEntry(999, "md1 Right Hand of Shaitan", "14"),
                                 new TimedTransition("13", 0) { SubIndex = 2 }
                             )
-
                         ),
                         new State("13",
                             new SetAltTexture(0),
@@ -872,6 +871,7 @@ namespace RotMG.Game.Logic.Database
                             new Taunt(true, 0, "Yes, little mortals. Meet your doom at the hands of SHAITAN!", "My firey fingers of frustrating flame force foes to fumble, fall, and fail!", "You think it wise to use such cheap tricks?", "You make a foolish mistake, mortal."),
                             new ReturnToSpawn(0.8f),
                             new Flash(0xFF0000, .2f, 12),
+                            new TransitionFrom("15", "16"),
                             new State("16",
                                 new SetAltTexture(1),
                                 new TimedTransition("17", 400)
@@ -886,8 +886,8 @@ namespace RotMG.Game.Logic.Database
                                 ),
                             new State("19",
                                 new SetAltTexture(2),
-                                new TimedTransition("13", 400)
-                                )
+                                new TimedTransition("13", 400) { SubIndex = 2 }
+                            )
                             )
                         )
                     );
@@ -922,6 +922,7 @@ namespace RotMG.Game.Logic.Database
                     //new ItemLoot("Ring of the Inferno", 0.008f)//Trap of Everlasting Fire
                 )
             );
+
         }
     }
 }

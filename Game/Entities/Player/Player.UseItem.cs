@@ -58,6 +58,8 @@ namespace RotMG.Game.Entities
         {
             switch(val)
             {
+                case "Health": return GetStatTotal(0);
+                case "Mana": return GetStatTotal(1);
                 case "Attack": return GetStatTotal(2);
                 case "Defense": return GetStatTotal(3);
                 case "Speed": return GetStatTotal(4);
@@ -824,7 +826,7 @@ namespace RotMG.Game.Entities
                                 var itemId = GetFreeInventorySlot();
                                 if(itemId != -1)
                                 {
-                                    Inventory[itemId] = Resources.Id2Item["Crown"].Type;
+                                    Inventory[itemId] = Resources.Id2Item[ FishingLootGenerator.Next() ].Type;
                                     ItemDatas[itemId] = new ItemDataJson();
                                     ToRemoveFromClient.Add(bob.Id);
                                     UpdateInventorySlot(itemId);

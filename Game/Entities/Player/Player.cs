@@ -390,7 +390,7 @@ namespace RotMG.Game.Entities
                 pierces = true;
 
             //Calculate damage with defense
-            var damageWithDefense = this.GetDefenseDamage(damage, GetStatTotal(3), pierces);
+            var damageWithDefense = this.GetDefenseDamage(damage, GetStatTotal(3), pierces, GetStatTotal(8));
 
             //Nullify damage if invulnerable
             if (HasConditionEffect(ConditionEffectIndex.Invulnerable))

@@ -8,7 +8,7 @@ namespace RotMG.Utils
 {
     public static class GameUtils
     {
-        public static int GetDefenseDamage(this Entity entity, int damage, int defense, bool pierces)
+        public static int GetDefenseDamage(this Entity entity, int damage, int defense, bool pierces, int protection=95)
         {
 #if DEBUG
             if (entity == null)
@@ -23,7 +23,7 @@ namespace RotMG.Utils
             if (entity.HasConditionEffect(ConditionEffectIndex.Cursed))
                 damage *= 2;
 
-            var min = damage / 20;
+            var min = (int)(damage * (1.0f - (protection / 100.0f)));
             var d = Math.Max(min, damage - defense);
             return d;
         }
