@@ -9103,6 +9103,7 @@
       <Size>100</Size>
       <Boomerang />
       <MultiHit />
+	<SmartAngle></SmartAngle>
     </Projectile>
     <Projectile>
       <ObjectId>Fire Mystic Shot</ObjectId>
@@ -9114,6 +9115,7 @@
       <Frequency>2</Frequency>
       <Size>140</Size>
       <MultiHit />
+	  <SmartAngle></SmartAngle>
     </Projectile>
     <NumProjectiles>6</NumProjectiles>
     <ArcGap>6</ArcGap>
