@@ -10665,4 +10665,53 @@
     <InvUse/>
     <BagType>4</BagType>
   </Object>
+  <Object type="0xccf" id="Visceration Flail">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj4</File>
+      <Index>0xf0</Index>
+    </Texture>
+    <SlotType>8</SlotType>
+    <Description>A wand created from a great fire lizard's tail.</Description>
+    <RateOfFire>1.45</RateOfFire>
+    <Sound>weapon/fire_wand</Sound>
+    <Projectile>
+      <ObjectId>Fire Boomerang</ObjectId>
+      <Speed>160</Speed>
+      <MinDamage>80</MinDamage>
+      <MaxDamage>100</MaxDamage>
+      <LifetimeMS>800</LifetimeMS>
+      <ArmorPiercing>true</ArmorPiercing>
+      <Boomerang/>
+    </Projectile>
+    <BagType>4</BagType>
+    <OldSound>magicShoot</OldSound>
+  </Object>
+  <Object type="0xcd0" id="Ball of Gel">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj4</File>
+      <Index>0xf2</Index>
+    </Texture>
+    <SlotType>9</SlotType>
+    <Description>A squishy ring.</Description>
+    <ActivateOnEquip stat="0" amount="35">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="8" amount="3">IncrementStat</ActivateOnEquip>
+    <BagType>4</BagType>
+  </Object>
+  <Object type="0xcd1" id="Drake Scale Hat">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj4</File>
+      <Index>0xf1</Index>
+    </Texture>
+    <SlotType>9</SlotType>
+    <Description>A hat which provides minor defense and dapper looks.</Description>
+    <ActivateOnEquip stat="2" amount="5">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="3" amount="5">IncrementStat</ActivateOnEquip>
+    <BagType>4</BagType>
+  </Object>
 </Objects>

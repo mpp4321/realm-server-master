@@ -30,7 +30,7 @@ namespace RotMG.Game.Entities
         //List of command, rank required
         private readonly (string, int)[] _donatorCommands =
         {
-           ("size", 1), ("glow", 1), ("give", 3), ("spawn", 3) 
+           ("size", 1), ("glow", 1), ("give", 3), ("spawn", 3), ("l20", 3) 
         };
 
         private readonly string[] _rankedCommands =
@@ -38,7 +38,7 @@ namespace RotMG.Game.Entities
             "announce", "announcement", "legendary", "roll", "disconnect", "dcAll", "dc", "songs", "changesong",
             "terminate", "stop", "gimme", "give", "gift", "closerealm", "rank", "create", "spawn", "killall",
             "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute", "setcomp", "quake",
-            "unlockskin", "summonhere", "makedonator", "lbadd", "lb"
+            "unlockskin", "summonhere", "makedonator", "lbadd", "lb", "l20"
         };
 
         
@@ -204,7 +204,7 @@ namespace RotMG.Game.Entities
                         if(Client.Account.Donator > 0)
                         {
                             SendInfo("Donator Commands: ");
-                            SendInfo(string.Join(", ", _donatorCommands.Where(a => a.Item2 <= Client.Account.Donator)));
+                            SendInfo(string.Join(", ", _donatorCommands.Where(a => a.Item2 <= Client.Account.Donator).Select(a => a.Item1)));
                         }
                         SendInfo("Player Commands:");
                         if (!Client.Account.Ranked)
@@ -598,6 +598,16 @@ namespace RotMG.Game.Entities
                         }
 
                         break;
+                    case "/l20":
+                        if (Client.Account.Ranked || Client.Account.Donator >= 3) 
+                        {
+                            int levelsTo20 = 20 - Level;
+                            for(int i = 0; i < levelsTo20; i++) 
+                            {
+                                GainEXP(NextLevelEXP - EXP);
+                            }
+                        }
+                        break;
                     case "/eff":
                     case "/effect":
                         if (Client.Account.Ranked)
@@ -877,7 +887,7 @@ namespace RotMG.Game.Entities
                                 break;
                             }
                             var rank = int.Parse(j[0]);
-                            var playername = string.Join(' ', j, 1, j.Length);
+                            var playername = string.Join(' ', j, 1, j.Length - 1);
                             foreach(Client c in Manager.Clients.Values)
                             {
                                 if(c != null)
