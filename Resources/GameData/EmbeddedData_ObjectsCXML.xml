@@ -1172,30 +1172,55 @@
       <Index>99</Index>
     </AnimatedTexture>
     <Enemy/>
-    <MaxHitPoints>5000</MaxHitPoints>
-    <Size>240</Size>
+    <MaxHitPoints>6000</MaxHitPoints>
+	<Defense>20</Defense>
+    <Size>0</Size>
     <XpMult>5.0</XpMult>
     <Projectile id="0">
-      <ObjectId>Red Fire</ObjectId>
-      <Speed>130</Speed>
-      <Damage>80</Damage>
-      <LifetimeMS>500</LifetimeMS>
-      <Size>80</Size>
-    </Projectile>
-    <Projectile id="1">
       <ObjectId>Lightning Spiral</ObjectId>
       <Speed>50</Speed>
-      <Damage>160</Damage>
+      <Damage>50</Damage>
       <LifetimeMS>800</LifetimeMS>
       <Size>100</Size>
     </Projectile>
-    <Projectile id="2">
-      <ObjectId>Rainbow Magic</ObjectId>
-      <Speed>200</Speed>
-      <Damage>50</Damage>
-      <LifetimeMS>100</LifetimeMS>
-      <Size>100</Size>
-    </Projectile>
+	<Projectile id="1">
+		<ObjectId>Extreme Air Magic</ObjectId>
+		<Speed>10</Speed>
+		<Damage>75</Damage>
+		<Size>100</Size>
+		<PassesCover/>
+		<LifetimeMS>1000</LifetimeMS>
+		<Accelerate>200</Accelerate>
+		<AccelerateDelay>100</AccelerateDelay>
+		<SpeedClamp>180</SpeedClamp>
+		<Boomerang />
+	</Projectile>
+
+	<Projectile id="2">
+		<ObjectId>Extreme Air Magic</ObjectId>
+		<Speed>100</Speed>
+		<Damage>25</Damage>
+		<Size>150</Size>
+		<PassesCover/>
+		<Amplitude>2</Amplitude>
+		<Frequency>0.55</Frequency>
+		<LifetimeMS>300</LifetimeMS>
+		<PhaseLock>0</PhaseLock>
+		<SmartAngle></SmartAngle>
+	</Projectile>
+
+	<Projectile id="3">
+		<ObjectId>Extreme Air Magic</ObjectId>
+		<Speed>100</Speed>
+		<Damage>25</Damage>
+		<Size>150</Size>
+		<PassesCover/>
+		<Amplitude>2</Amplitude>
+		<Frequency>0.55</Frequency>
+		<LifetimeMS>300</LifetimeMS>
+		<PhaseLock>1</PhaseLock>
+		<SmartAngle></SmartAngle>
+	</Projectile>
   </Object>
   <Object type="0x074c" id="Nexus Turkey">
     <DisplayId>Turkey</DisplayId>

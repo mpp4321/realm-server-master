@@ -158,7 +158,7 @@
 			<Size>68</Size>
 			<LifetimeMS>1500</LifetimeMS>
 			<Wavy/>
-			<ConditionEffect duration="1">Confused</ConditionEffect>
+			<ConditionEffect duration="1">Dazed</ConditionEffect>
 		</Projectile>		
 
 
@@ -343,7 +343,7 @@
 
 	</Object>
 
-	<Object type="0x7F00" id="Sumo Master">
+	<Object type="0x61b" id="Sumo Master">
         <Group>Sumo</Group>
         <Enemy/>
         <Class>Character</Class>
@@ -679,4 +679,188 @@
 
 
 	</Object>
+
+
+
+	<Object type="0x7F00" id="Sumo Master Ring">
+		<Group>Sumo</Group>
+		<Enemy/>
+		<Class>Character</Class>
+
+		<AnimatedTexture>
+			<File>chars16x16rEncounters</File>
+			<Index>5</Index>
+		</AnimatedTexture>
+		<AltTexture id="1">
+			<AnimatedTexture>
+				<File>chars16x16rEncounters</File>
+				<Index>6</Index>
+			</AnimatedTexture>
+		</AltTexture>
+		<AltTexture id="2">
+			<AnimatedTexture>
+				<File>chars16x16rEncounters</File>
+				<Index>7</Index>
+			</AnimatedTexture>
+		</AltTexture>
+		<AltTexture id="3">
+			<AnimatedTexture>
+				<File>chars16x16rEncounters</File>
+				<Index>8</Index>
+			</AnimatedTexture>
+		</AltTexture>
+		<AltTexture id="4">
+			<AnimatedTexture>
+				<File>chars16x16rEncounters</File>
+				<Index>9</Index>
+			</AnimatedTexture>
+		</AltTexture>
+
+
+		<Level>4</Level>
+
+		<HitSound>monster/ogres_hit</HitSound>
+		<DeathSound>monster/ogres_death</DeathSound>
+		<MaxHitPoints>340</MaxHitPoints>
+		<Projectile id="0">
+			<ObjectId>Red BigBullet</ObjectId>
+			<Speed>70</Speed>
+			<Damage>15</Damage>
+			<Size>120</Size>
+			<LifetimeMS>500</LifetimeMS>
+		</Projectile>
+
+		<Projectile id="1">
+			<ObjectId>Gold Bullet</ObjectId>
+			<Speed>100</Speed>
+			<Damage>25</Damage>
+			<Size>150</Size>
+			<PassesCover/>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+
+		<Size>100</Size>
+		<Defense>15</Defense>
+		<XpMult>1.65</XpMult>
+
+
+
+
+
+
+
+
+
+	</Object>
+
+	<Object type="0x13ed" id="Lil Sumo Ring">
+		<Enemy/>
+		<Class>Character</Class>
+
+		<AnimatedTexture>
+			<File>chars8x8rLow2</File>
+			<Index>7</Index>
+		</AnimatedTexture>
+
+		<HitSound>monster/ogres_hit</HitSound>
+		<DeathSound>monster/ogres_death</DeathSound>
+		<MaxHitPoints>55</MaxHitPoints>
+		<Projectile id="0">
+			<ObjectId>Red Bullet</ObjectId>
+			<Speed>50</Speed>
+			<Damage>10</Damage>
+			<Size>50</Size>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+
+		<Size>100</Size>
+		<Defense>4</Defense>
+		<XpMult>2.0</XpMult>
+
+
+	</Object>
+
+
+	<Object type="0x13ee" id="NorthKarateSpawner">
+		<Class>Character</Class>
+		<Enemy/>
+		<NoMiniMap/>
+		<StasisImmune/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<XpMult>0.0</XpMult>
+		<HitSound>monster/ogres_hit</HitSound>
+		<DeathSound>monster/ogres_death</DeathSound>
+		<MaxHitPoints>99999</MaxHitPoints>
+		<Size>0</Size>
+		<Defense>4</Defense>
+		<XpMult>2.0</XpMult>
+
+
+	</Object>
+
+	<Object type="0x13ef" id="EastKarateSpawner">
+		<Class>Character</Class>
+		<Enemy/>
+		<NoMiniMap/>
+		<StasisImmune/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<XpMult>0.0</XpMult>
+		<HitSound>monster/ogres_hit</HitSound>
+		<DeathSound>monster/ogres_death</DeathSound>
+		<MaxHitPoints>99999</MaxHitPoints>
+		<Size>0</Size>
+		<Defense>4</Defense>
+		<XpMult>2.0</XpMult>
+
+
+	</Object>
+
+
+	<Object type="0x13f0" id="SouthKarateSpawner">
+		<Class>Character</Class>
+		<Enemy/>
+		<NoMiniMap/>
+		<StasisImmune/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<XpMult>0.0</XpMult>
+		<HitSound>monster/ogres_hit</HitSound>
+		<DeathSound>monster/ogres_death</DeathSound>
+		<MaxHitPoints>99999</MaxHitPoints>
+		<Size>0</Size>
+		<Defense>4</Defense>
+		<XpMult>2.0</XpMult>
+
+
+	</Object>
+
+
+	<Object type="0x13f1" id="WestKarateSpawner">
+		<Class>Character</Class>
+		<Enemy/>
+		<NoMiniMap/>
+		<StasisImmune/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<XpMult>0.0</XpMult>
+		<HitSound>monster/ogres_hit</HitSound>
+		<DeathSound>monster/ogres_death</DeathSound>
+		<MaxHitPoints>99999</MaxHitPoints>
+		<Size>0</Size>
+		<Defense>4</Defense>
+		<XpMult>2.0</XpMult>
+
+
+	</Object>
+	
 </Objects>
