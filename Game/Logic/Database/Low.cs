@@ -64,7 +64,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Hobbit Archer",
                 new State("base",
-                    new Shoot(10),
+                    new Shoot(10, cooldown: 150),
                     new State("run1",
                         new Prioritize(
                             new Protect(1.1f, "Hobbit Mage", acquireRange: 12, protectionRange: 10, reprotectRange: 1),
@@ -91,7 +91,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Hobbit Rogue",
                 new State("base",
-                    new Shoot(3),
+                    new Shoot(3, cooldown: 150),
                     new Prioritize(
                         new Protect(1.2f, "Hobbit Mage", acquireRange: 15, protectionRange: 9, reprotectRange: 2.5f),
                         new Follow(0.85f, range: 1),
@@ -102,7 +102,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Undead Hobbit Mage",
                 new State("base",
-                    new Shoot(10, index: 3),
+                    new Shoot(10, index: 3, cooldown: 150),
                     new State("idle",
                         new PlayerWithinTransition(12, "ring1")
                         ),
@@ -134,7 +134,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Undead Hobbit Archer",
                 new State("base",
-                    new Shoot(10),
+                    new Shoot(10, cooldown: 175),
                     new State("run1",
                         new Prioritize(
                             new Protect(1.1f, "Undead Hobbit Mage", acquireRange: 12, protectionRange: 10,
@@ -162,8 +162,9 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Magic Potion", 0.03f)
             );
             db.Init("Undead Hobbit Rogue",
+                new StayBack(.3f, .5f, "Undead Hobbit Rogue"),
                 new State("base",
-                    new Shoot(3),
+                    new Shoot(3, cooldown: 175),
                     new Prioritize(
                         new Protect(1.2f, "Undead Hobbit Mage", acquireRange: 15, protectionRange: 9, reprotectRange: 2.5f),
                         new Follow(0.85f, range: 1),
@@ -200,6 +201,7 @@ namespace RotMG.Game.Logic.Database
                         new HealthTransition(0.5f, "rage")
                         ),
                     new State("rage",
+                        new TransitionFrom("rage", "shoot"),
                         new SetAltTexture(4),
                         new Taunt("Engaging Super-Mode!!!"),
                         new Prioritize(
@@ -208,7 +210,7 @@ namespace RotMG.Game.Logic.Database
                             ),
                         new State("shoot",
                             new Shoot(8, index: 1, cooldown: 150),
-                            new TimedTransition("rest", 700)
+                            new TimedTransition("rest", 700) { SubIndex = 1 }
                             ),
                         new State("rest",
                             new TimedTransition("shoot", 400)
@@ -220,7 +222,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Lil Sumo",
                 new State("base",
-                    new Shoot(8),
+                    new Shoot(8, cooldownOffset: 100, cooldownVariance: 75, cooldown: 175),
                     new Prioritize(
                         new Orbit(0.4f, 2, target: "Sumo Master"),
                         new Wander(0.4f)
@@ -236,15 +238,15 @@ namespace RotMG.Game.Logic.Database
                         new PlayerWithinTransition(11, "move1")
                         ),
                     new State("move1",
-                        new Shoot(10, count: 3, shootAngle: 14, predictive: 0.3f),
+                        new Shoot(10, count: 3, shootAngle: 14, predictive: 0.3f, cooldownVariance: 100, cooldown: 250),
                         new Prioritize(
                             new StayAbove(0.4f, 14),
-                            new BackAndForth(0.8f)
+                            new BackAndForth(0.6f)
                             ),
                         new TimedTransition("move2", 2000)
                         ),
                     new State("move2",
-                        new Shoot(10, count: 3, shootAngle: 10, predictive: 0.5f),
+                        new Shoot(10, count: 3, shootAngle: 10, predictive: 0.5f, cooldownVariance: 150, cooldown: 300),
                         new Prioritize(
                             new StayAbove(0.4f, 14),
                             new Follow(0.6f, acquireRange: 10.5f, range: 3),
@@ -273,7 +275,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Elf Archer",
                 new State("base",
-                    new Shoot(10, predictive: 1),
+                    new Shoot(10, predictive: .5f, cooldown: 150),
                     new Prioritize(
                         new Orbit(0.5f, 3, speedVariance: 0.1f, radiusVariance: 0.5f),
                         new Protect(1.2f, "Elf Wizard", acquireRange: 30, protectionRange: 10, reprotectRange: 1),
@@ -284,28 +286,27 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Elf Swordsman",
                 new State("base",
-                    new Shoot(10, predictive: 1),
+                    new Shoot(10, predictive: .5f, cooldown: 250),
                     new Prioritize(
                         new Protect(1.2f, "Elf Wizard", acquireRange: 15, protectionRange: 10, reprotectRange: 5),
-                        new Buzz(1, dist: 1, coolDown: 2000),
-                        new Orbit(0.6f, 3, speedVariance: 0.1f, radiusVariance: 0.5f),
-                        new Wander(0.4f)
+                        new Orbit(0.6f, 3, speedVariance: 0.1f, radiusVariance: 0.5f)
                         )
                     ),
                 new ItemLoot("Health Potion", 0.04f)
             );
             db.Init("Elf Mage",
                 new State("base",
-                    new Shoot(8, cooldown: 300),
+                    new Shoot(8, cooldownVariance: 50, cooldown: 250),
                     new Prioritize(
                         new Orbit(0.5f, 3),
-                        new Protect(1.2f, "Elf Wizard", acquireRange: 30, protectionRange: 10, reprotectRange: 1),
-                        new Wander(0.4f)
+                        new Protect(1.2f, "Elf Wizard", acquireRange: 30, protectionRange: 10, reprotectRange: 1)
                         )
                     ),
                 new ItemLoot("Magic Potion", 0.03f)
             );
             db.Init("Goblin Rogue",
+                new StayBack(0.5f, 3, "Goblin Rogue"),
+                new StayBack(0.5f, 3, "Goblin Warrior"),
                 new State("base",
                     new State("protect",
                         new Protect(0.8f, "Goblin Mage", acquireRange: 12, protectionRange: 1.5f, reprotectRange: 1.5f),
@@ -315,16 +316,17 @@ namespace RotMG.Game.Logic.Database
                         new Orbit(0.8f, 7, target: "Goblin Mage", radiusVariance: 1),
                         new TimedTransition("protect", 2400)
                         ),
-                    new Shoot(3),
+                    new Shoot(3, cooldown: 125),
                     new State("help",
                         new Protect(0.8f, "Goblin Mage", acquireRange: 12, protectionRange: 6, reprotectRange: 3),
-                        new Follow(0.8f, acquireRange: 10.5f, range: 1.5f),
-                        new EntitiesNotExistsTransition(15, "protect", "Goblin Mage")
+                        new Follow(0.8f, acquireRange: 10.5f, range: 1.5f)
                         )
                     ),
                 new ItemLoot("Health Potion", 0.04f)
             );
             db.Init("Goblin Warrior",
+                new StayBack(0.5f, 3, "Goblin Warrior"),
+                new StayBack(0.5f, 3, "Goblin Rogue"),
                 new State("base",
                     new State("protect",
                         new Protect(0.8f, "Goblin Mage", acquireRange: 12, protectionRange: 1.5f, reprotectRange: 1.5f),
@@ -334,11 +336,10 @@ namespace RotMG.Game.Logic.Database
                         new Orbit(0.8f, 7, target: "Goblin Mage", radiusVariance: 1),
                         new TimedTransition("protect", 2400)
                         ),
-                    new Shoot(3),
+                    new Shoot(3, cooldown: 75),
                     new State("help",
                         new Protect(0.8f, "Goblin Mage", acquireRange: 12, protectionRange: 6, reprotectRange: 3),
-                        new Follow(0.8f, acquireRange: 10.5f, range: 1.5f),
-                        new EntitiesNotExistsTransition(15, "protect", "Goblin Mage")
+                        new Follow(0.8f, acquireRange: 10.5f, range: 1.5f)
                         ),
                     new DropPortalOnDeath("Pirate Cave Portal", .01f)
                     ),
@@ -413,7 +414,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Forest Nymph",
                 new State("base",
                     new State("circle",
-                        new Shoot(4, index: 0, count: 1, predictive: 0.1f, cooldown: 900),
+                        new Shoot(4, index: 0, count: 1, predictive: 0.1f, cooldown: 700),
                         new Prioritize(
                             new StayAbove(0.4f, 25),
                             new Follow(0.9f, acquireRange: 11, range: 3.5f, duration: 1000, cooldown: 5000),
@@ -423,7 +424,7 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("dart_away", 4000)
                         ),
                     new State("dart_away",
-                        new Shoot(9, index: 1, count: 6, fixedAngle: 20, shootAngle: 60, cooldown: 1400),
+                        new Shoot(9, index: 1, count: 6, fixedAngle: 20, shootAngle: 60, rotateAngle: 16, cooldown: 850),
                         new Wander(0.4f),
                         new TimedTransition("circle", 3600)
                         ),
@@ -434,7 +435,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Sandsman King",
                 new State("base",
-                    new Shoot(10, cooldown: 10000),
+                    new Shoot(10, cooldown: 8000),
                     new Prioritize(
                         new StayAbove(0.4f, 15),
                         new Follow(0.6f, range: 4),
@@ -462,7 +463,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Sandsman Archer",
                 new State("base",
-                    new Shoot(10, predictive: 0.5f),
+                    new Shoot(10, predictive: 0.5f, cooldown: 250),
                     new Prioritize(
                         new Orbit(0.8f, 3.25f, acquireRange: 15, target: "Sandsman King", radiusVariance: 0.5f),
                         new Wander(0.4f)
@@ -547,31 +548,74 @@ namespace RotMG.Game.Logic.Database
 
             //Sumo dungeon boss
             db.Init("Karate King",
+                new NoPlayerWithinTransition(20, "respawn"),
+                new OrderOnDeath(99, "NorthKarateSpawner", "inactive"),
+                new OrderOnDeath(99, "EastKarateSpawner", "inactive"),
+                new OrderOnDeath(99, "SouthKarateSpawner", "inactive"),
+                new OrderOnDeath(99, "WestKarateSpawner", "inactive"),
+                new OrderOnDeath(99, "Sumo Master Ring", "restart"),
+                new OrderOnDeath(99, "Lil Sumo Ring", "restart"),
                 new State ("base",
-                    new Prioritize(
-                        new StayBack(0.5f, 4)
-                        ),
-                    new Shoot(10, 4, shootAngle: 90, index: 2, fixedAngle: 0f, rotateAngle: 45f),
-                    new Shoot(10, 8, 45, 1, 0f, 45f, cooldown: 2000),
-                    new TimedTransition("fire", 3500)
+                    new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
+                    new PlayerWithinTransition(18, "reveal", true)
                     ),
-                new State("fire",
-                    new Shoot(10, 4, shootAngle: 90, index: 2, fixedAngle: 0f, rotateAngle: 45f),
-                    new Shoot(10, 8, 45, 1, 0f, 45f, cooldown: 2000),
-                    new Prioritize(
-                        new Charge(0.8, coolDown: 1250),
-                        new Wander(0.4f)
+                new State("reveal",
+                    new Order(99, "NorthKarateSpawner", "base"),
+                    new Order(99, "EastKarateSpawner", "base"),
+                    new Order(99, "SouthKarateSpawner", "base"),
+                    new Order(99, "WestKarateSpawner", "base"),
+                    new ChangeSize(20, 240),
+                    new Taunt("Welcome to the ring adventurer. Take a moment to prepare yourself, and stay within the ring or you'll be imprisoned and forced to fight again!"),
+                    new TimedTransition("cripwalk", 2000)
+                ),
+                new State("cripwalk",
+                    new HealthTransition(0.5f, "haymaker"),
+                    new TransitionFrom("cripwalk", "cwalk0"),
+                        new State("cwalk0",
+                            new Follow(0.6f, 14, 1, 500, 1000),
+                            new Shoot(6, 1, index: 3, cooldown: 100),
+                            new TimedTransition("cwalk1", 1400) { SubIndex = 1 }
                         ),
-                    new TimedTransition("fire1", 3750)
-                    ),
-                new State("fire1",
-                    new Shoot(10, 4, shootAngle: 90, index: 2, fixedAngle: 0f, rotateAngle: 45f),
-                    new Shoot(10, 8, 45, 1, 0f, 45f, cooldown: 2000),
-                    new Prioritize(
-                        new Follow(1.2f, range: 5.5f),
-                        new StayBack(0.5f, 4)
+                        new State("cwalk1",
+                            new Follow(0.9f, 14, 1, 700, 500),
+                            new Shoot(6, 1, index: 2, cooldown: 100),
+                            new TimedTransition("cwalk2", 800) { SubIndex = 1 }
                         ),
-                    new TimedTransition("fire", 2500)
+                        new State("cwalk2",
+                            new Follow(0.5f),
+                            new Shoot(6, 1, index: 2, cooldown: 100),
+                            new Shoot(6, 1, index: 3, cooldown: 100),
+                            new Charge(1.2, 8, 99999),
+                            new TimedTransition("huff", 600) { SubIndex = 1 }
+                        ),
+                        new State("huff",
+                            new TimedTransition("cwalk0", 800) { SubIndex = 1 },
+                            new Shoot(16, 8, 360 / 8, 0, 0, 8, cooldown: 200)
+                        )
+                ),
+                new State("haymaker",
+                    new TransitionFrom("haymaker", "lefty"),
+                        new State("lefty",
+                            new ChargeShoot(
+                                new Shoot(16, 1, 0, 2),
+                                new Charge(1.2f, 16, 99999)
+                                ),
+                            new TimedTransition("righty", 1300) { SubIndex = 1 }
+                            ),
+                        new State("righty",
+                            new ChargeShoot(
+                                new Shoot(16, 1, 0, 3),
+                                new Charge(1.2f, 16, 99999)
+                                ),
+                            new TimedTransition("breathe", 1300) { SubIndex = 1 }
+                            ),
+                        new State("breathe",
+                            new Shoot(16, 8, 360 / 8, 1, 0, 8, cooldown: 200),
+                            new TimedTransition("lefty", 1500) { SubIndex = 1 }
+                )),
+                new State("respawn",
+                    new TossObject("Karate King", 0, cooldown: 99999),
+                    new Suicide()
                     ),
                 new Threshold(0.01f,
                     // there are 6 pots in this so its really 0.006 for pot
@@ -584,6 +628,105 @@ namespace RotMG.Game.Logic.Database
                     ).ToArray()
                 )
             );
+
+            db.Init("NorthKarateSpawner",
+                new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
+                new NoPlayerWithinTransition(16, "inactive"),
+                new State("inactive"),
+                new State("base",
+                    new TimedRandomTransition(7000, "base", "spawn")
+                ),
+                new State("spawn",
+                    new Spawn("Sumo Master Ring", 1, 1),
+                    new Spawn("Lil Sumo Ring", 4, 0.5f),
+                    new TimedTransition("base", 0)
+                )
+            );
+
+            db.Init("EastKarateSpawner",
+                new NoPlayerWithinTransition(16, "inactive"),
+                new State("inactive"),
+                new State("base",
+                    new TimedRandomTransition(7000, "base", "spawn")
+                ),
+                new State("spawn",
+                    new Spawn("Sumo Master Ring", 1, 1),
+                    new Spawn("Lil Sumo Ring", 4, 0.5f),
+                    new TimedTransition("base", 0)
+                )
+            );
+
+            db.Init("SouthKarateSpawner",
+                new NoPlayerWithinTransition(16, "inactive"),
+                new State("inactive"),
+                new State("base",
+                    new TimedRandomTransition(7000, "base", "spawn")
+                ),
+                new State("spawn",
+                    new Spawn("Sumo Master Ring", 1, 1),
+                    new Spawn("Lil Sumo Ring", 4, 0.5f),
+                    new TimedTransition("base", 0)
+                )
+            );
+
+            db.Init("WestKarateSpawner",
+                new NoPlayerWithinTransition(16, "inactive"),
+                new State("inactive"),
+                new State("base",
+                    new TimedRandomTransition(7000, "base", "spawn")
+                ),
+                new State("spawn",
+                    new Spawn("Sumo Master Ring", 1, 1),
+                    new Spawn("Lil Sumo Ring", 4, 0.5f),
+                    new TimedTransition("base", 0)
+                )
+            );
+
+            db.Init("Sumo Master Ring",
+                   new State("awake",
+                       new SetAltTexture(1),
+                       new Shoot(3, cooldown: 250),
+                       new Prioritize(
+                           new Follow(0.05f, range: 1),
+                           new Wander(0.05f)
+                           ),
+                       new HealthTransition(0.5f, "rage") 
+                       ),
+                   new State("rage",
+                       new TransitionFrom("rage", "shoot"),
+                       new SetAltTexture(4),
+                       new Prioritize(
+                           new Follow(0.6f, range: 1),
+                           new Wander(0.6f)
+                           ),
+                       new State("shoot",
+                           new Shoot(5, index: 1, cooldown: 150),
+                           new TimedTransition("rest", 700) { SubIndex = 1 }
+                           ),
+                       new State("rest",
+                           new TimedTransition("shoot", 400) { SubIndex = 1 }
+                           )
+                   ),
+                   new State("restart", new Suicide()),
+               new ItemLoot("Health Potion", 0.05f),
+               new ItemLoot("Magic Potion", 0.05f)
+           );
+
+            db.Init("Lil Sumo Ring",
+                new State("base",
+                    new Shoot(8, cooldownVariance: 300, cooldown: 600),
+                    new Prioritize(
+                        new Orbit(0.4f, 2, target: "Sumo Master Ring"),
+                        new Wander(0.4f)
+                        )
+                    ),
+                new State("restart", new Suicide()),
+                new ItemLoot("Health Potion", 0.02f),
+                new ItemLoot("Magic Potion", 0.02f)
+            );
         }
     }
 }
+//needs its teleports along with an invis obj to handle reset, probably just by setpiecing/ordering into kms states, teleports go Decoration1>Decoration2, and Decoration3>Decoration4
+//and if possible a damagetransfer/tele to stick you in the prison along with your bossloot
+//map isnt in server

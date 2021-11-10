@@ -58,8 +58,8 @@ namespace RotMG.Game.Logic.Database
                         new Protect(0.4f, "Scorpion Queen"),
                         new Wander(0.4f)
                         ),
-                    new Shoot(8, cooldown: 2000),
-                    new Grenade(3, 10, cooldown: 2500)
+                    new Shoot(8, cooldown: 500),
+                    new Grenade(3, 15, radius: 3.5f, cooldown: 2500, color: 0xffccff00)
                 )
             );
             db.Init("Scorpion Queen",
@@ -68,7 +68,16 @@ namespace RotMG.Game.Logic.Database
                     new Wander(0.2f),
                     new Spawn("Poison Scorpion", givesNoXp: false),
                     new Reproduce("Poison Scorpion", cooldown: 10000, densityMax: 10),
-                    new Reproduce(densityMax: 2, densityRadius: 40)
+                    new Reproduce(densityMax: 2, densityRadius: 40),
+                    new Grenade(0, 35, 3, 0, cooldown: 2500, color: 0xffb3ff00, speed: 1000),
+                    new Grenade(4, 25, 2, 0, cooldown: 2500, color: 0xff88c200, speed: 2000),
+                    new Grenade(4, 25, 2, 90, cooldown: 2500, color: 0xff88c200, speed: 2000),
+                    new Grenade(4, 25, 2, 180, cooldown: 2500, color: 0xff88c200, speed: 2000),
+                    new Grenade(4, 25, 2, 270, cooldown: 2500, color: 0xff88c200, speed: 2000),
+                    new Grenade(6, 15, 1.5f, 45, cooldown: 2500, color: 0xff4d6e00, speed: 3000),
+                    new Grenade(6, 25, 1.5f, 135, cooldown: 2500, color: 0xff4d6e00, speed: 3000),
+                    new Grenade(6, 25, 1.5f, 225, cooldown: 2500, color: 0xff4d6e00, speed: 3000),
+                    new Grenade(6, 25, 1.5f, 315, cooldown: 2500, color: 0xff4d6e00, speed: 3000)
                     ),
                 new ItemLoot("Health Potion", 0.03f),
                 new ItemLoot("Magic Potion", 0.02f)
@@ -77,7 +86,7 @@ namespace RotMG.Game.Logic.Database
                 new State(
                     "base",
                     new State("fast_follow",
-                        new Shoot(3),
+                        new Shoot(3, cooldownVariance: 100, cooldown: 300),
                         new Prioritize(
                             new Protect(0.6f, "Bandit Leader", acquireRange: 9, protectionRange: 7, reprotectRange: 3),
                             new Follow(1, range: 1),
@@ -94,7 +103,7 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("slow_follow", 2000)
                         ),
                     new State("slow_follow",
-                        new Shoot(4.5f),
+                        new Shoot(3, cooldownVariance: 100, cooldown: 300),
                         new Prioritize(
                             new Protect(0.6f, "Bandit Leader", acquireRange: 9, protectionRange: 7, reprotectRange: 3),
                             new Follow(0.5f, acquireRange: 9, range: 3.5f, duration: 4000),
@@ -126,7 +135,7 @@ namespace RotMG.Game.Logic.Database
                             new TimedTransition("wimpy_grenade1", 400)
                             ),
                         new State("wimpy_grenade1",
-                            new Grenade(1.4f, 12, cooldown: 10000),
+                            new Grenade(1.4f, 12, radius: 2, cooldown: 10000, speed: 500),
                             new Prioritize(
                                 new StayAbove(0.3, 7),
                                 new Wander(0.3f)
@@ -134,7 +143,7 @@ namespace RotMG.Game.Logic.Database
                             new TimedTransition("wimpy_grenade2", 2000)
                             ),
                         new State("wimpy_grenade2",
-                            new Grenade(1.4f, 12, cooldown: 10000),
+                            new Grenade(1.4f, 12, radius: 2, cooldown: 10000, speed: 500),
                             new Prioritize(
                                 new StayAbove(0.5, 7),
                                 new Wander(0.5f)
@@ -166,6 +175,8 @@ namespace RotMG.Game.Logic.Database
                 new State(
                     "base_state",
                     new Shoot(8, count: 3, index: 0, shootAngle: 7, predictive: 0.2f, cooldown: 2000),
+                    new Shoot(8, count: 2, index: 0, shootAngle: 7, predictive: 0.2f, cooldownOffset: 200, cooldown: 2000),
+                    new Shoot(8, count: 1, index: 0, predictive: 0.2f, cooldownOffset: 300, cooldown: 2000),
                     new Wander(0.4f)
                     ),
                 new ItemLoot("Health Potion", 0.04f),
@@ -174,7 +185,14 @@ namespace RotMG.Game.Logic.Database
             db.Init("Purple Gelatinous Cube",
                 new State(
                     "base",
-                    new Shoot(8, count: 8, index: 0, shootAngle: 14, predictive: 0.2f, cooldown: 2000),
+                    //new Shoot(8, count: 8, index: 0, shootAngle: 14, predictive: 0.2f, cooldown: 2000),
+                    new Shoot(8, count: 1, index: 0, predictive: 0.2f, cooldown: 2000),
+                    new Shoot(8, count: 2, index: 0, shootAngle: 16, predictive: 0.2f, cooldownOffset: 250, cooldown: 2000),
+                    new Shoot(8, count: 2, index: 0, shootAngle: 32, predictive: 0.2f, cooldownOffset: 500, cooldown: 2000),
+                    new Shoot(8, count: 2, index: 0, shootAngle: 64, predictive: 0.2f, cooldownOffset: 600, cooldown: 2000),
+                    new Shoot(8, count: 2, index: 0, shootAngle: 32, predictive: 0.2f, cooldownOffset: 700, cooldown: 2000),
+                    new Shoot(8, count: 2, index: 0, shootAngle: 16, predictive: 0.2f, cooldownOffset: 800, cooldown: 2000),
+                    new Shoot(8, count: 1, index: 0, predictive: 0.2f, cooldownOffset: 1500, cooldown: 900),
                     new Wander(0.4f)
                     ),
                 new ItemLoot("Health Potion", 0.04f),
@@ -185,6 +203,8 @@ namespace RotMG.Game.Logic.Database
                 new State(
                     "base_state",
                     new Grenade(12, 20, color: 0x00ff28, cooldown: 3000),
+                    new Grenade(12, 15, radius: 3, color: 0x00ff28, cooldown: 3000, speed: 2000),
+                    new Grenade(12, 10, radius: 1.5f, color: 0x00ff28, cooldown: 3000, speed: 2500),
                     new Wander(0.4f)
                     ),
                 new ItemLoot("Health Potion", 0.04f),

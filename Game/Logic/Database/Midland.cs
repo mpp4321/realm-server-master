@@ -42,18 +42,26 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Ice Sprite",
                 new State("base",
-                    new Shoot(10, count: 3, shootAngle: 7),
+                    new HealthTransition(0.35f, "boom"),
+                    new Shoot(10, count: 3, shootAngle: 7, cooldown: 200),
                     new Prioritize(
                         new StayAbove(1.4f, 60),
                         new Wander(1.4f)
                         )
                     ),
+                new State("boom",
+                    new Shoot(16, 4, 360 / 4, fixedAngle: 0f, rotateAngle: 16, cooldown: 50),
+                    new Prioritize(
+                        new StayAbove(1.4f, 60),
+                        new Wander(0.6f)
+                        )
+                ),
                 new TierLoot(2, LootType.Ability, 0.08f),
                 new ItemLoot("Magic Potion", 0.05f)
             );
             db.Init("Magic Sprite",
                 new State("base",
-                    new Shoot(10, count: 4, shootAngle: 7),
+                    new Shoot(10, count: 4, shootAngle: 7, cooldownVariance: 150, cooldown: 250),
                     new Prioritize(
                         new StayAbove(1.4f, 60),
                         new Wander(1.4f)
@@ -65,8 +73,8 @@ namespace RotMG.Game.Logic.Database
             db.Init("Orc King",
                 new State("base",
                     new DropPortalOnDeath("Crawling Depths Portal", 0.1f),
-                    new Shoot(3),
-                    new Spawn("Orc Queen", maxChildren: 2, cooldown: 60000, givesNoXp: false),
+                    new Shoot(3, cooldown: 250),
+                    new Spawn("Orc Queen", maxChildren: 2, cooldown: 10000, givesNoXp: false),
                     new Prioritize(
                         new StayAbove(1.4f, 60),
                         new Follow(0.6f, range: 1, duration: 3000, cooldown: 3000),
@@ -97,7 +105,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Orc Mage",
                 new State("base",
                     new State("circle_player",
-                        new Shoot(8, predictive: 0.3f, cooldown: 1000, cooldownOffset: 500),
+                        new Shoot(8, predictive: 0.3f, cooldown: 700, cooldownOffset: 500),
                         new Prioritize(
                             new StayAbove(1.4f, 60),
                             new Protect(0.7f, "Orc Queen", acquireRange: 11, protectionRange: 10, reprotectRange: 3),
@@ -106,7 +114,7 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("circle_queen", 3500)
                         ),
                     new State("circle_queen",
-                        new Shoot(8, count: 3, predictive: 0.3f, shootAngle: 120, cooldown: 1000, cooldownOffset: 500),
+                        new Shoot(8, count: 3, predictive: 0.3f, shootAngle: 120, cooldown: 700, cooldownOffset: 500),
                         new Prioritize(
                             new StayAbove(1.4f, 60),
                             new Orbit(1.2f, 2.5f, target: "Orc Queen", acquireRange: 12, speedVariance: 0.1f,
@@ -131,7 +139,10 @@ namespace RotMG.Game.Logic.Database
             db.Init("Pink Blob",
                 new State("base",
                     new StayAbove(0.4f, 50),
-                    new Shoot(6, count: 3, shootAngle: 7),
+                    new Shoot(6, count: 1, shootAngle: 7, cooldownOffset: 75, cooldown: 500),
+                    new Shoot(6, count: 2, shootAngle: 7, cooldownOffset: 150, cooldown: 500),
+                    new Shoot(6, count: 2, shootAngle: 7, cooldownOffset: 300, cooldown: 500),
+                    new Shoot(6, count: 1, shootAngle: 7, cooldownOffset: 370, cooldown: 500),
                     new Prioritize(
                         new Follow(0.8f, acquireRange: 15, range: 5),
                         new Wander(0.4f)
@@ -145,7 +156,10 @@ namespace RotMG.Game.Logic.Database
                     new State("searching",
                         new StayAbove(0.2f, 50),
                         new Prioritize(
-                            new Charge(2),
+                            new ChargeShoot(
+                                new Shoot(16, 2, 340),
+                                new Charge(1.2f, 16, coolDown: 2500)
+                                ),
                             new Wander(0.4f)
                             ),
                         new PlayerWithinTransition(2, "creeping")
@@ -162,7 +176,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Big Green Slime",
                 new State("base",
                     new StayAbove(0.4f, 50),
-                    new Shoot(9),
+                    new Shoot(9, cooldown: 150),
                     new Wander(0.4f),
                     new TransformOnDeath("Little Green Slime"),
                     new TransformOnDeath("Little Green Slime"),
@@ -174,7 +188,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Little Green Slime",
                 new State("base",
                     new StayAbove(0.4f, 50),
-                    new Shoot(6),
+                    new Shoot(6, cooldown: 250),
                     new Wander(0.4f),
                     new Protect(0.4f, "Big Green Slime")
                     ),
@@ -213,16 +227,17 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Worker Wasp",
                 new State("base",
+                    new HealEntity(5, "Wasp Queen", 5, cooldown: 500),
                     new Shoot(8, cooldown: 4000),
                     new Prioritize(
-                        new Orbit(1, 2, target: "Wasp Queen", radiusVariance: 0.5f),
+                        new Orbit(1, 2, target: "Wasp Queen", speedVariance: 0.3f, radiusVariance: 0.5f),
                         new Wander(0.75f)
                         )
                     )
             );
             db.Init("Warrior Wasp",
                 new State("base",
-                    new Shoot(8, predictive: 200, cooldown: 1000),
+                    new Shoot(8, predictive: 0.5f, cooldown: 500),
                     new State("protecting",
                         new Prioritize(
                             new Orbit(1, 2, target: "Wasp Queen", radiusVariance: 0),
@@ -322,7 +337,7 @@ namespace RotMG.Game.Logic.Database
                             new Orbit(1.9f, 3.5f, acquireRange: 12),
                             new Wander(0.4f)
                             ),
-                        new Shoot(4, predictive: 0.1f, cooldown: 500),
+                        new Shoot(4, predictive: 0.1f, cooldown: 200),
                         new TimedTransition("dart_away", 3000)
                         ),
                     new State("dart_away",
@@ -352,7 +367,7 @@ namespace RotMG.Game.Logic.Database
                         new Charge(),
                         new Wander(0.4f)
                         ),
-                    new Shoot(1)
+                    new Shoot(1, cooldown: 100)
                     ),
                 new ItemLoot("Health Potion", 0.2f),
                 new ItemLoot("Magic Potion", 0.2f),
@@ -448,7 +463,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Dwarf Veteran",
                 new State("base",
-                    new Shoot(4),
+                    new Shoot(4, cooldown: 200),
                     new State("Default",
                         new Prioritize(
                             new Follow(1.0f, acquireRange: 9, range: 2, duration: 3000, cooldown: 1000),
@@ -480,12 +495,13 @@ namespace RotMG.Game.Logic.Database
                 new State("base",
                     new SpawnGroup("Dwarves", maxChildren: 10, cooldown: 8000),
                     new Shoot(4, cooldown: 2000),
+                    new TransitionFrom("base", "Circling"),
                     new State("Circling",
                         new Prioritize(
                             new Orbit(0.4f, 2.7f, acquireRange: 11),
                             new Wander(0.4f)
                             ),
-                        new TimedTransition("Engaging", 3400)
+                        new TimedTransition("Engaging", 3400) { SubIndex = 1 }
                         ),
                     new State("Engaging",
                         new Taunt(0.2f, "You'll taste my axe!"),
@@ -493,7 +509,7 @@ namespace RotMG.Game.Logic.Database
                             new Follow(1.0f, acquireRange: 15, range: 1),
                             new Wander(0.4f)
                             ),
-                        new TimedTransition("Circling", 2600)
+                        new TimedTransition("Circling", 2600) { SubIndex = 1 }
                         )
                     ),
                 new TierLoot(3, LootType.Weapon, 0.6f),
@@ -512,31 +528,33 @@ namespace RotMG.Game.Logic.Database
                     new Spawn("Wereleopard", maxChildren: 2, cooldown: 9000, givesNoXp: false),
                     new Spawn("Werepanther", maxChildren: 3, cooldown: 15000, givesNoXp: false),
                     new Shoot(4, cooldown: 2000),
+                    new TransitionFrom("base", "idle"),
                     new State("idle",
                         new Prioritize(
                             new StayAbove(0.6f, 60),
                             new Wander(0.6f)
                             ),
-                        new PlayerWithinTransition(11, "player_nearby")
+                        new PlayerWithinTransition(11, "player_nearby") { SubIndex = 1 }
                         ),
                     new State("player_nearby",
+                        new TransitionFrom("player_nearby", "normal_attack"),
                         new State("normal_attack",
                             new Shoot(10, count: 3, shootAngle: 15, predictive: 1, cooldown: 10000),
-                            new TimedTransition("if_cloaked", 900)
+                            new TimedTransition("if_cloaked", 900) { SubIndex = 2 }
                             ),
                         new State("if_cloaked",
                             new Shoot(10, count: 8, shootAngle: 45, defaultAngle: 20, cooldown: 1600,
                                 cooldownOffset: 400),
                             new Shoot(10, count: 8, shootAngle: 45, defaultAngle: 42, cooldown: 1600,
                                 cooldownOffset: 1200),
-                            new PlayerWithinTransition(10, "normal_attack")
+                            new PlayerWithinTransition(10, "normal_attack") { SubIndex = 2 }
                             ),
                         new Prioritize(
                             new StayAbove(0.6f, 60),
                             new Follow(0.4f, acquireRange: 7, range: 3),
                             new Wander(0.6f)
                             ),
-                        new TimedTransition("idle", 30000)
+                        new TimedTransition("idle", 30000) { SubIndex = 1 }
                         )
                     ),
                 new TierLoot(4, LootType.Weapon, 0.6f),
@@ -572,7 +590,6 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Health Potion", 0.1f)
             );
             db.Init("Werepanther",
-                new State("base",
                     new State("idle",
                         new Protect(0.65f, "Werelion", acquireRange: 11, protectionRange: 7.5f, reprotectRange: 7.4f),
                         new PlayerWithinTransition(9.5f, "wander")
@@ -601,53 +618,49 @@ namespace RotMG.Game.Logic.Database
                             ),
                         new Shoot(4, predictive: 0.5f, cooldown: 800, cooldownOffset: 300),
                         new TimedTransition("idle", 4000)
-                        )
-                    ),
+                        ),
                 new ItemLoot("Magic Potion", 0.1f)
             );
             db.Init("Horned Drake",
-                new State("base",
+                new State("idle",
                     new Spawn("Drake Baby", maxChildren: 1, initialSpawn: 1, cooldown: 50000, givesNoXp: false),
-                    new TransitionFrom("base", "idle"),
-                    new State("idle",
-                        new StayAbove(0.8f, 60),
-                        new PlayerWithinTransition(10, "get_player")
-                        ),
-                    new State("get_player",
-                        new StayAbove(0.8f, 60),
-                        new Prioritize(
-                            new Follow(0.8f, range: 2.7f, acquireRange: 10, duration: 5000, cooldown: 1800),
-                            new Wander(0.8f)
-                        ),
-                        new TransitionFrom("get_player", "one_shot"),
-                        new State("one_shot",
-                            new Shoot(15, 5, 5, index: 1, cooldown: 800),
-                            new Shoot(15, 5, 5, index: 1, cooldown: 800, cooldownOffset: 200),
-                            new Shoot(15, 5, 5, index: 1, cooldown: 800, cooldownOffset: 400),
-                            new Shoot(15, 5, 5, index: 1, cooldown: 800, cooldownOffset: 600),
-                            new Shoot(15, 5, 5, index: 1, cooldown: 800, cooldownOffset: 800),
-                            new TimedTransition("three_shot", 800)
-                            ),
-                        new State("three_shot",
-                            new Shoot(8, count: 3, shootAngle: 40, predictive: 0.1f, cooldown: 100000,
-                                cooldownOffset: 800),
-                            new TimedTransition("one_shot", 800)
-                        ),
-                        new State("protect_me",
-                            new Protect(0.8f, "Drake Baby", acquireRange: 12, protectionRange: 2.5f, reprotectRange: 1.5f),
-                            new State("one_shot",
-                                new Shoot(8, predictive: 0.1f, cooldown: 700),
-                                new TimedTransition("three_shot", 800)
-                                ),
-                            new State("three_shot",
-                                new Shoot(8, count: 3, shootAngle: 40, predictive: 0.1f, cooldown: 100000,
-                                    cooldownOffset: 700),
-                                new TimedTransition("one_shot", 1800)
-                                ),
-                            new EntitiesNotExistsTransition(8, "idle", "Drake Baby")
-                        )
-                    )
+                    new StayAbove(0.8f, 60),
+                    new PlayerWithinTransition(16, "get_player", true)
                 ),
+                new State("get_player",
+                    new Prioritize(
+                        new Wander(0.6f),
+                        new Follow(1, 14, 3)
+                        ),
+                    new TransitionFrom("get_player", "one_shot"),
+                new State("one_shot",
+                    new Shoot(15, 5, 5, index: 1, cooldown: 800),
+                    new Shoot(15, 5, 5, index: 1, cooldown: 800, cooldownOffset: 200),
+                    new Shoot(15, 5, 5, index: 1, cooldown: 800, cooldownOffset: 400),
+                    new Shoot(15, 5, 5, index: 1, cooldown: 800, cooldownOffset: 600),
+                    new Shoot(15, 5, 5, index: 1, cooldown: 800, cooldownOffset: 800),
+                    new TimedTransition("three_shot", 800) { SubIndex = 1 }
+                    ),
+                new State("three_shot",
+                    new Shoot(8, count: 3, shootAngle: 40, predictive: 0.1f, cooldown: 300,
+                        cooldownOffset: 800),
+                    new TimedTransition("one_shot", 800) { SubIndex = 1 }
+                )),
+                new State("protect_me",
+                    new Protect(0.8f, "Drake Baby", acquireRange: 12, protectionRange: 2.5f, reprotectRange: 1.5f),
+                    new TransitionFrom("protect_me", "one_shot1"),
+                    new Shoot(15, 5, 5, index: 1, cooldown: 1400),
+                    new State("one_shot1",
+                        new Shoot(8, predictive: 0.1f, cooldown: 700),
+                        new TimedTransition("three_shot1", 800) { SubIndex = 1 }
+                        ),
+                    new State("three_shot1",
+                        new Shoot(8, count: 3, shootAngle: 40, predictive: 0.1f, cooldown: 100000,
+                            cooldownOffset: 700),
+                        new TimedTransition("one_shot1", 1800) { SubIndex = 1 }
+                        ),
+                    new EntitiesNotExistsTransition(8, "idle", "Drake Baby")
+                    ),
                 new TierLoot(5, LootType.Weapon, 0.6f),
                 new TierLoot(6, LootType.Weapon, 0.1f),
                 new TierLoot(5, LootType.Armor, 0.6f),
@@ -661,36 +674,37 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Drake's Dialect", 0.025f)
             );
             db.Init("Drake Baby",
-                new State("base",
-                    new State("unharmed",
-                        new Shoot(8, cooldown: 1500),
-                        new State("wander",
-                            new Prioritize(
-                                new StayAbove(0.8f, 60),
-                                new Wander(0.8f)
-                                ),
-                            new TimedTransition("find_mama", 2000)
+                new State("unharmed",
+                    new Shoot(8, cooldown: 1500),
+                    new TransitionFrom("unharmed", "wander"),
+                    new State("wander",
+                        new Prioritize(
+                            new StayAbove(0.8f, 60),
+                            new Wander(0.8f)
                             ),
-                        new State("find_mama",
-                            new Prioritize(
-                                new StayAbove(0.8f, 60),
-                                new Protect(1.4f, "Horned Drake", acquireRange: 15, protectionRange: 4, reprotectRange: 4)
-                                ),
-                            new TimedTransition("wander", 2000)
-                            ),
-                        new HealthTransition(0.65f, "call_mama")
+                        new TimedTransition("find_mama", 2000) { SubIndex = 2 }
                         ),
-                    new State("call_mama",
-                        new Flash(0xff484848, 0.6f, 5000),
-                        new State("get_close_to_mama",
-                            new Taunt("Awwwk! Awwwk!"),
-                            new Protect(1.4f, "Horned Drake", acquireRange: 15, protectionRange: 1, reprotectRange: 1),
-                            new TimedTransition("cry_for_mama", 1500)
+                    new State("find_mama",
+                        new Prioritize(
+                            new StayAbove(0.8f, 60),
+                            new Protect(1.4f, "Horned Drake", acquireRange: 15, protectionRange: 4, reprotectRange: 4)
                             ),
-                        new State("cry_for_mama",
-                            new StayBack(0.65f, 8),
-                            new Order(8, "Horned Drake", "protect_me")
-                            )
+                        new TimedTransition("wander", 2000) { SubIndex = 2 }
+                        ),
+                    new HealthTransition(0.65f, "call_mama")
+                    ),
+                new State("call_mama",
+                    new Shoot(14, cooldown: 800),
+                    new Flash(0xff484848, 0.6f, 5000),
+                    new TransitionFrom("call_mama", "get_close_to_mama"),
+                    new State("get_close_to_mama",
+                        new Taunt("Awwwk! Awwwk!"),
+                        new Protect(1.4f, "Horned Drake", acquireRange: 15, protectionRange: 1, reprotectRange: 1),
+                        new TimedTransition("cry_for_mama", 1500) { SubIndex = 1 }
+                        ),
+                    new State("cry_for_mama",
+                        new StayBack(0.65f, 8),
+                        new Order(8, "Horned Drake", "protect_me")
                         )
                     )
             );
@@ -705,7 +719,7 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("fire2", 3100)
                         ),
                     new State("fire2",
-                        new Shoot(10, index: 1, cooldown: 700, cooldownOffset: 700),
+                        new Shoot(10, index: 1, predictive: 0.7f, cooldownOffset: 500, cooldown: 300),
                         new TimedTransition("fire1", 2200)
                         )
                     ),

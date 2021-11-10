@@ -298,10 +298,10 @@
 
   <Object type="0x0d59" id="Cube God">
     <Class>Character</Class>
-    <Texture>
-      <File>lofiChar216x16</File>
-      <Index>0x37</Index>
-    </Texture>
+	  <AnimatedTexture>
+		  <File>chars16x16rEncounters</File>
+		  <Index>107</Index>
+	  </AnimatedTexture>
     <HitSound>monster/cubes_hit</HitSound>
     <DeathSound>monster/cubes_death</DeathSound>
     <Size>120</Size>
@@ -314,13 +314,13 @@
     <Level>20</Level>
     <Cube/>
     <Projectile id="0">
-      <ObjectId>Dark Blue Magic</ObjectId>
+      <ObjectId>Cube Magic</ObjectId>
       <Speed>100</Speed>
       <Damage>100</Damage>
       <LifetimeMS>2400</LifetimeMS>
     </Projectile>
     <Projectile id="1">
-      <ObjectId>Blue Bolt</ObjectId>
+      <ObjectId>Cube Dirk</ObjectId>
       <Speed>80</Speed>
       <Damage>150</Damage>
       <LifetimeMS>2500</LifetimeMS>
@@ -332,22 +332,22 @@
   <Object type="0x0d5a" id="Cube Overseer">
     <Class>Character</Class>
     <Enemy/>
-    <Texture>
-      <File>lofiChar28x8</File>
-      <Index>0x40</Index>
-    </Texture>
+	  <AnimatedTexture>
+		  <File>chars8x8rHigh</File>
+		  <Index>0x13</Index>
+	  </AnimatedTexture>
     <HitSound>monster/cubes_hit</HitSound>
     <DeathSound>monster/cubes_death</DeathSound>
     <MaxHitPoints>1500</MaxHitPoints>
     <Cube/>
     <Projectile id="0">
-      <ObjectId>Orange Magic</ObjectId>
+      <ObjectId>Orange Cube Magic</ObjectId>
       <Speed>100</Speed>
       <Damage>60</Damage>
       <LifetimeMS>2400</LifetimeMS>
     </Projectile>
     <Projectile id="1">
-      <ObjectId>Fire Bolt</ObjectId>
+      <ObjectId>Orange Spike</ObjectId>
       <Speed>80</Speed>
       <Damage>100</Damage>
       <LifetimeMS>2500</LifetimeMS>
@@ -360,16 +360,16 @@
     <Group>Cube Minions</Group>
     <Class>Character</Class>
     <Enemy/>
-    <Texture>
-      <File>lofiChar28x8</File>
-      <Index>0x41</Index>
-    </Texture>
+	  <AnimatedTexture>
+		  <File>chars8x8rHigh</File>
+		  <Index>0x14</Index>
+	  </AnimatedTexture>
     <HitSound>monster/cubes_hit</HitSound>
     <DeathSound>monster/cubes_death</DeathSound>
     <MaxHitPoints>1000</MaxHitPoints>
     <Cube/>
     <Projectile id="0">
-      <ObjectId>Yellow Magic</ObjectId>
+      <ObjectId>Green Cube Magic</ObjectId>
       <Speed>100</Speed>
       <Damage>50</Damage>
       <LifetimeMS>2400</LifetimeMS>
@@ -383,23 +383,23 @@
     <Group>Cube Minions</Group>
     <Class>Character</Class>
     <Enemy/>
-    <Texture>
-      <File>lofiChar28x8</File>
-      <Index>0x42</Index>
-    </Texture>
+	  <AnimatedTexture>
+		  <File>chars8x8rHigh</File>
+		  <Index>0x15</Index>
+	  </AnimatedTexture>
     <HitSound>monster/cubes_hit</HitSound>
     <DeathSound>monster/cubes_death</DeathSound>
     <MaxHitPoints>500</MaxHitPoints>
     <Cube/>
     <Projectile id="0">
-      <ObjectId>Green Star</ObjectId>
+      <ObjectId>Cube Star</ObjectId>
       <Speed>60</Speed>
       <Damage>10</Damage>
       <ConditionEffect duration="3">Slowed</ConditionEffect>
       <LifetimeMS>2700</LifetimeMS>
     </Projectile>
     <Projectile id="1">
-      <ObjectId>Cyan Magic</ObjectId>
+      <ObjectId>Blue Cube Magic</ObjectId>
       <Speed>100</Speed>
       <Damage>40</Damage>
       <LifetimeMS>2400</LifetimeMS>
