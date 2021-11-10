@@ -1,0 +1,49 @@
+<Object type="{type}" id="{id}">
+  <Class>Equipment</Class>
+  <Item/>
+  <Texture>
+    <!-- -->
+    <File>{file}</File>
+    <Index>{index}</Index>
+  </Texture>
+  <SlotType>{slot type}</SlotType>
+  <!-- -->
+  <Description>{description}</Description>
+  <!-- <Sound>{sound file}</Sound> -->
+  <Projectile>
+    <ObjectId>{projectile id, string}</ObjectId>
+    <Speed>{speed, 100 -> 10/s}</Speed>
+    <MinDamage>{min-dmg int}</MinDamage>
+    <MaxDamage>{max-dmg int}</MaxDamage>
+    <LifetimeMS>{int in milliseconds}</LifetimeMS>
+    <!-- <Frequency>float</Frequency> -->
+    <!-- <Amplitude>float</Amplitude> -->
+    <!-- <Magnitude>float</Magnitude> -->
+    <!-- <Accelerate>float</Accelerate> -->
+    <!-- <AccelerateDelay>float</AccelerateDelay> -->
+    <!-- <SpeedClamp>float</SpeedClamp> -->
+    <!-- <PhaseLock>-1 or 0</PhaseLock> -->
+    <!-- <Boomerang /> -->
+    <!-- <MultiHit /> -->
+    <!-- <PassesCover /> -->
+    <!-- <ArmorPiercing /> -->
+    <!-- <Wavy /> -->
+    <!-- <Parametric /> -->
+    <!-- <ConditionEffect duration="2">{type}</ConditionEffect> -->
+  </Projectile>
+  <NumProjectiles> {int} </NumProjectiles>
+  <!-- <Burst>int</Burst> count of burst -->
+  <!-- <BurstDelay>int ms</BurstDelay> cooldown of burst -->
+  <!-- <RateOfFire>float (decimal)</RateOfFire> -->
+  <!-- <ArcGap>int</ArcGap> -->
+  <!-- <Usable/> -->
+  <!-- <Potion/> -->
+  <!-- <Resurrects/> -->
+  <!-- <UniqueEffect>{string}</UniqueEffect> -->
+  <!-- <Soulbound>{bool}</Soulbound> -->
+  <!-- <MpCost>95</MpCost> -->
+  <!-- <Doses>int</Doses> -->
+  <!-- <Activate>{Activate Eff Enum string}</Activate> -->
+  <!-- <ActivateOnEquip stat="0=hp 8=protection" amount="int">IncrementStat</ActivateOnEquip> -->
+  <BagType>{4 mini white 5 big white 6 lg bag}</BagType>
+</Object>

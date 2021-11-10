@@ -9252,7 +9252,7 @@
 	<Item/>
 	<Texture>
 		<File>lofiObj5</File>
-		<Index>0x70</Index>
+		<Index>0xf0</Index>
 	</Texture>
 	<SlotType>17</SlotType>
 	<Description>The still living tongue of a horned drake impaled on a stake; it still writhes and articulates from time to time. A steady drip of incredibly hot saliva drips from it.</Description>
@@ -10713,5 +10713,81 @@
     <ActivateOnEquip stat="2" amount="5">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="3" amount="5">IncrementStat</ActivateOnEquip>
     <BagType>4</BagType>
+  </Object>
+  <Object type="0xcd2" id="Wand of Deep Nature">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj4</File>
+      <Index>0xf3</Index>
+    </Texture>
+    <SlotType>8</SlotType>
+    <Description>A wand basked in enchanted water from the oasis.</Description>
+    <RateOfFire>1</RateOfFire>
+    <Sound>weapon/sprite_wand</Sound>
+    <Projectile>
+      <ObjectId>Fish Shot</ObjectId>
+      <Speed>100</Speed>
+      <MinDamage>100</MinDamage>
+      <MaxDamage>125</MaxDamage>
+      <LifetimeMS>850</LifetimeMS>
+      <MultiHit/>
+      <ArcGap>30</ArcGap>
+    </Projectile>
+    <NumProjectiles>2</NumProjectiles>
+    <BagType>4</BagType>
+    <OldSound>magicShoot</OldSound>
+  </Object>
+  <Object type="0xcd3" id="Electric Shock">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0x49</Index>
+    </Texture>
+    <SlotType>11</SlotType>
+    <Description>A spell that shoots fire in all directions.</Description>
+    <Sound>spell/fire_spray</Sound>
+    <Projectile>
+      <ObjectId>Lightning Spiral</ObjectId>
+      <Speed>80</Speed>
+      <MinDamage>25</MinDamage>
+      <MaxDamage>40</MaxDamage>
+      <LifetimeMS>2000</LifetimeMS>
+      <Boomerang />
+      <ConditionEffect duration="2">Paralyzed</ConditionEffect>
+    </Projectile>
+    <NumProjectiles>8</NumProjectiles>
+    <Usable/>
+    <BagType>5</BagType>
+    <MpCost>95</MpCost>
+    <Activate>BulletNova</Activate>
+  </Object>
+  <Object type="0xcd4" id="Purple Pea Shooter">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0x4a</Index>
+    </Texture>
+    <SlotType>0</SlotType>
+    <Description>A test at an all type item.</Description>
+    <Projectile>
+      <ObjectId>Greater Purple Magic</ObjectId>
+      <Speed>80</Speed>
+      <MinDamage>100</MinDamage>
+      <MaxDamage>200</MaxDamage>
+      <LifetimeMS>1000</LifetimeMS>
+      <PassesCover />
+      <Wavy />
+    </Projectile>
+    <NumProjectiles>1</NumProjectiles>
+    <Usable/>
+    <Resurrects/>
+    <Soulbound>true</Soulbound>
+    <MpCost>50</MpCost>
+    <Activate>BulletNova</Activate>
+    <ActivateOnEquip stat="0" amount="80">IncrementStat</ActivateOnEquip>
+    <BagType>5</BagType>
   </Object>
 </Objects>

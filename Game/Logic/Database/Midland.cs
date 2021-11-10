@@ -168,7 +168,8 @@ namespace RotMG.Game.Logic.Database
                     new TransformOnDeath("Little Green Slime"),
                     new TransformOnDeath("Little Green Slime"),
                     new TransformOnDeath("Little Green Slime")
-                    )
+                    ),
+                new ItemLoot("Ball of Gel", 0.01f)
             );
             db.Init("Little Green Slime",
                 new State("base",
@@ -178,7 +179,8 @@ namespace RotMG.Game.Logic.Database
                     new Protect(0.4f, "Big Green Slime")
                     ),
                 new ItemLoot("Health Potion", 0.1f),
-                new ItemLoot("Magic Potion", 0.1f)
+                new ItemLoot("Magic Potion", 0.1f),
+                new ItemLoot("Ball of Gel", 0.001f)
             );
             db.Init("Wasp Queen",
                 new State("base",
@@ -206,7 +208,8 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(2, LootType.Ability, 0.7f),
                 new TierLoot(3, LootType.Ability, 0.1f),
                 new ItemLoot("Health Potion", 0.3f),
-                new ItemLoot("Magic Potion", 0.3f)
+                new ItemLoot("Magic Potion", 0.3f),
+                new ItemLoot("Throwing Dart", 0.05f)
             );
             db.Init("Worker Wasp",
                 new State("base",

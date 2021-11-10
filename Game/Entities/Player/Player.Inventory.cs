@@ -149,6 +149,11 @@ namespace RotMG.Game.Entities
             Parent.AddEntity(container, Position + MathUtils.Position(.2f, .2f));
         }
 
+        public bool ValidSlotTypes(ItemType slot, ItemType item)
+        {
+            return slot == item || item == ItemType.All;
+        }
+
         public void SwapItem(SlotData slot1, SlotData slot2)
         {
             var en1 = Parent.GetEntity(slot1.ObjectId);
@@ -262,8 +267,8 @@ namespace RotMG.Game.Entities
                 {
                     if (slot1.SlotId == i)
                     {
-                        if (d1 != null && d.SlotTypes[i] != d1.SlotType ||
-                            d2 != null && d.SlotTypes[i] != d2.SlotType)
+                        if (d1 != null && !ValidSlotTypes(d.SlotTypes[i], d1.SlotType) ||
+                            d2 != null && !ValidSlotTypes(d.SlotTypes[i], d2.SlotType) )
                         {
 #if DEBUG
                             Program.Print(PrintType.Error, "Invalid slot type");
@@ -281,8 +286,8 @@ namespace RotMG.Game.Entities
                 {
                     if (slot2.SlotId == i)
                     {
-                        if (d1 != null && d.SlotTypes[i] != d1.SlotType ||
-                            d2 != null && d.SlotTypes[i] != d2.SlotType)
+                        if (d1 != null && !ValidSlotTypes(d.SlotTypes[i], d1.SlotType) ||
+                            d2 != null && !ValidSlotTypes(d.SlotTypes[i], d2.SlotType))
                         {
 #if DEBUG
                             Program.Print(PrintType.Error, "Invalid slot type");

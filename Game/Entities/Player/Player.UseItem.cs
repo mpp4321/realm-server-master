@@ -630,8 +630,9 @@ namespace RotMG.Game.Entities
                 case ActivateEffectIndex.BulletNova:
                     if (inRange)
                     {
-                        var projs = new List<Projectile>(20);
-                        var novaCount = 20;
+                        var count = desc.NumProjectiles == 1 ? 20 : desc.NumProjectiles;
+                        var projs = new List<Projectile>(count);
+                        var novaCount = count;
                         var startId = NextAEProjectileId;
                         var angleInc = MathF.PI * 2 / novaCount;
                         NextAEProjectileId += novaCount;
