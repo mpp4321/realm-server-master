@@ -1,20 +1,20 @@
 <Account>
   <AccountId>0</AccountId>
-  <AliveChars>3</AliveChars>
+  <AliveChars>4</AliveChars>
   <DeadChars></DeadChars>
   <OwnedSkins></OwnedSkins>
   <Ranked>true</Ranked>
   <Muted>false</Muted>
   <Banned>false</Banned>
   <Connected>false</Connected>
-  <NextCharId>3</NextCharId>
+  <NextCharId>4</NextCharId>
   <MaxNumChars>1</MaxNumChars>
   <VaultCount>1</VaultCount>
   <GuildName />
   <GuildRank>0</GuildRank>
   <GuildFame>0</GuildFame>
   <RegisterTime>1636069697</RegisterTime>
-  <LastSeen>1636576120</LastSeen>
+  <LastSeen>1636577713</LastSeen>
   <LockedIds></LockedIds>
   <IgnoredIds></IgnoredIds>
   <AllyShots>true</AllyShots>
