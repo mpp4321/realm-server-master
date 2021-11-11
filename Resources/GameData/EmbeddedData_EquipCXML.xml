@@ -8183,7 +8183,7 @@
     <Consumable/>
     <Potion/>
     <BagType>1</BagType>
-    <Activate stat="26" amount="10" duration="20">StatBoostSelf</Activate>
+    <Activate stat="6" amount="10" duration="20">StatBoostSelf</Activate>
   </Object>
   <Object type="0xc64" id="Purple Gumball">
     <Class>Equipment</Class>
@@ -8198,7 +8198,7 @@
     <Consumable/>
     <Potion/>
     <BagType>1</BagType>
-    <Activate stat="20" amount="6" duration="20">StatBoostSelf</Activate>
+    <Activate stat="2" amount="6" duration="20">StatBoostSelf</Activate>
   </Object>
   <Object type="0xc65" id="Blue Gumball">
     <Class>Equipment</Class>
@@ -8213,7 +8213,7 @@
     <Consumable/>
     <Potion/>
     <BagType>1</BagType>
-    <Activate stat="21" amount="6" duration="20">StatBoostSelf</Activate>
+    <Activate stat="3" amount="6" duration="20">StatBoostSelf</Activate>
   </Object>
   <Object type="0xc66" id="Green Gumball">
     <Class>Equipment</Class>
@@ -8228,7 +8228,7 @@
     <Consumable/>
     <Potion/>
     <BagType>1</BagType>
-    <Activate stat="22" amount="8" duration="20">StatBoostSelf</Activate>
+    <Activate stat="4" amount="8" duration="20">StatBoostSelf</Activate>
   </Object>
   <Object type="0xc67" id="Yellow Gumball">
     <Class>Equipment</Class>
@@ -8243,7 +8243,7 @@
     <Consumable/>
     <Potion/>
     <BagType>1</BagType>
-    <Activate stat="28" amount="8" duration="20">StatBoostSelf</Activate>
+    <Activate stat="5" amount="8" duration="20">StatBoostSelf</Activate>
   </Object>
   <Object type="0xc68" id="Loot Tier Potion">
     <Class>Equipment</Class>
@@ -10818,5 +10818,222 @@
     <ActivateOnEquip stat="4" amount="4">IncrementStat</ActivateOnEquip>
     <ActivateOnEquip stat="1" amount="35">IncrementStat</ActivateOnEquip>
     <BagType>4</BagType>
+  </Object>
+  <Object type="0xcd7" id="Pixie-Enchanted Sword"> 
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x519</Index>
+    </Texture>
+    <SlotType>1</SlotType>
+    <Description>Pixies are often a more aggressive fae. It makes great sense that they would provide heroes with swords as fine as this.</Description>
+    <RateOfFire>1.1</RateOfFire>
+    <Sound>weapon/mithril_sword</Sound>
+    <Projectile>
+      <ObjectId>Fairy Bullet</ObjectId>
+      <Speed>140</Speed>
+      <MinDamage>70</MinDamage>
+      <MaxDamage>80</MaxDamage>
+      <LifetimeMS>325</LifetimeMS>
+      <Size>80</Size>
+    </Projectile>
+    <NumProjectiles>4</NumProjectiles>
+    <ArcGap>10</ArcGap>
+    <ActivateOnEquip stat="26" amount="5">IncrementStat</ActivateOnEquip>
+    <BagType>5</BagType>
+    <FameBonus>4</FameBonus>
+    <OldSound>bladeSwing</OldSound>
+  </Object>
+  <Object type="0xcd8" id="Seal of the Enchanted Forest">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x51A</Index>
+    </Texture>
+    <SlotType>12</SlotType>
+    <Description>Protect the helpless, embolden the heroic, slow the progress of evil. - Inscription, in Fae.</Description>
+    <Sound>spell/fire_spray</Sound>
+    <ActivateOnEquip stat="20" amount="2">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="26" amount="5">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="27" amount="5">IncrementStat</ActivateOnEquip>
+    <Activate stat="0" amount="60" duration="4" range="4.5" noStack="true" useWisMod="true">StatBoostAura</Activate>
+    <Activate effect="Stunned" duration="2" range="3" color="0xff0080" useWisMod="true">ConditionEffectAura</Activate>
+    <Activate effect="Slowed" duration="5" range="6" color="0xff0080" useWisMod="true">ConditionEffectAura</Activate>
+    <Usable/>
+    <BagType>5</BagType>
+    <FameBonus>4</FameBonus>
+    <MpCost>125</MpCost>
+  </Object>
+  <Object type="0xcd9" id="Fairy Plate">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x50E</Index>
+    </Texture>
+    <SlotType>7</SlotType>
+    <Description>This colorful platemail is enchanted with special protections, a gift from the kind fairies that dwell in the Realm.</Description>
+    <ActivateOnEquip stat="0" amount="75">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="1" amount="40">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="3" amount="25">IncrementStat</ActivateOnEquip>
+    <BagType>5</BagType>
+    <FameBonus>4</FameBonus>
+  </Object>
+  <Object type="0xcda" id="Etherite Dagger"> 
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x526</Index>
+    </Texture>
+    <SlotType>2</SlotType>
+    <Description>Made of a strange metal not known to the living.</Description>
+    <RateOfFire>1.20</RateOfFire>
+    <Sound>weapon/fire_dagger</Sound>
+    <Projectile>
+      <ObjectId>Spooky Sparkle</ObjectId>
+      <Speed>190</Speed>
+      <MinDamage>180</MinDamage>
+      <MaxDamage>225</MaxDamage>
+      <LifetimeMS>210</LifetimeMS>
+      <Amplitude>0.2</Amplitude>
+      <Frequency>0.2</Frequency>
+    </Projectile>
+    <BagType>5</BagType>
+    <FameBonus>4</FameBonus>
+    <OldSound>daggerSwing</OldSound>
+  </Object>
+  <Object type="0xcdb" id="Mantle of Skuld">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x51E</Index>
+    </Texture>
+    <SlotType>6</SlotType>
+    <Description>He does not kill his victims. He becomes them.</Description>
+    <ActivateOnEquip stat="0" amount="50">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="1" amount="25">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="3" amount="12">IncrementStat</ActivateOnEquip>
+    <BagType>7</BagType>
+    <FameBonus>4</FameBonus>
+    <feedPower>500</feedPower>
+  </Object>
+  <Object type="0xcdc" id="Ghastly Drape">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x52E</Index>
+    </Texture>
+    <SlotType>13</SlotType>
+    <Description>Woven from the skin of a ghast, it cannot be seen...except by the user.</Description>
+    <Sound>spell/fire_nova</Sound>
+    <Usable/>
+    <BagType>7</BagType>
+    <FameBonus>4</FameBonus>
+    <MpCost>110</MpCost>
+    <Activate effect="Invisible" duration="5.5">ConditionEffectSelf</Activate>
+    <Activate effect="Speedy" duration="2">ConditionEffectSelf</Activate>
+    <Cooldown>6.5</Cooldown>
+    <feedPower>500</feedPower>
+  </Object>
+  <Object type="0xcdd" id="Spectral Ring of Horrors">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x536</Index>
+    </Texture>
+    <SlotType>9</SlotType>
+    <Description>Though the whispers can be heard in your head, they're not THAT loud.</Description>
+    <ActivateOnEquip stat="1" amount="50">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="4" amount="4">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="6" amount="4">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="7" amount="4">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="5" amount="4">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="3" amount="3">IncrementStat</ActivateOnEquip>
+    <BagType>7</BagType>
+    <FameBonus>4</FameBonus>
+    <feedPower>500</feedPower>
+  </Object>
+  <Object type="0xcde" id="Sentient Staff">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x528</Index>
+    </Texture>
+    <SlotType>17</SlotType>
+    <Description>While it may be alive, it can't speak. But, it CAN kill.</Description>
+    <RateOfFire>1</RateOfFire>
+    <Sound>weapon/wand_of_death</Sound>
+    <Projectile>
+      <ObjectId>Ancient Magic</ObjectId>
+      <Speed>150</Speed>
+      <MinDamage>55</MinDamage>
+      <MaxDamage>215</MaxDamage>
+      <LifetimeMS>553</LifetimeMS>
+      <Amplitude>1.1</Amplitude>
+      <Frequency>1</Frequency>
+    </Projectile>
+    <ActivateOnEquip stat="0" amount="10">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="1" amount="5">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="7" amount="10">IncrementStat</ActivateOnEquip>
+    <BagType>7</BagType>
+    <FameBonus>4</FameBonus>
+    <feedPower>500</feedPower>
+    <NumProjectiles>2</NumProjectiles>
+    <ArcGap>0</ArcGap>
+    <OldSound>magicShoot</OldSound>
+  </Object>
+  <Object type="0xcdf" id="The Robe of Twilight">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x520</Index>
+    </Texture>
+    <SlotType>14</SlotType>
+    <Description>On simple observation this robe has known many owners. All are dead.</Description>
+    <ActivateOnEquip stat="0" amount="10">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="1" amount="5">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="3" amount="12">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="2" amount="3">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="6" amount="3">IncrementStat</ActivateOnEquip>
+    <BagType>7</BagType>
+    <FameBonus>4</FameBonus>
+    <feedPower>500</feedPower>
+  </Object>
+  <Object type="0xce0" id="Ancient Spell: Pierce">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x530</Index>
+    </Texture>
+    <SlotType>11</SlotType>
+    <Description>Magical blasts can be blocked by armor, but true fear will pierce their hides and strike their heart.</Description>
+    <Sound>spell/magic_nova</Sound>
+    <Projectile>
+      <ObjectId>Skull Wave</ObjectId>
+      <Speed>100</Speed>
+      <MinDamage>53</MinDamage>
+      <MaxDamage>115</MaxDamage>
+      <LifetimeMS>1300</LifetimeMS>
+      <ArmorPiercing/>
+    </Projectile>
+    <ActivateOnEquip stat="0" amount="10">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="1" amount="5">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="2" amount="3">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="3" amount="2">IncrementStat</ActivateOnEquip>
+    <Usable/>
+    <BagType>7</BagType>
+    <FameBonus>4</FameBonus>
+    <feedPower>500</feedPower>
+    <MpCost>80</MpCost>
+    <Activate>BulletNova</Activate>
   </Object>
 </Objects>

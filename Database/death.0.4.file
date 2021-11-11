@@ -1,0 +1,65 @@
+<Fame>
+  <Char id="4">
+    <ObjectType>768</ObjectType>
+    <Level>10</Level>
+    <Exp>4320</Exp>
+    <CurrentFame>2</CurrentFame>
+    <Equipment>3286,2650,2809,3246,3082,3172,3186,2812,2592,3169,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1</Equipment>
+    <ItemDatas>{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1}</ItemDatas>
+    <MaxHitPoints>720</MaxHitPoints>
+    <HitPoints>-49</HitPoints>
+    <MaxMagicPoints>252</MaxMagicPoints>
+    <MagicPoints>437</MagicPoints>
+    <Attack>50</Attack>
+    <Defense>25</Defense>
+    <Speed>75</Speed>
+    <Dexterity>75</Dexterity>
+    <HpRegen>40</HpRegen>
+    <MpRegen>50</MpRegen>
+    <Tex1>0</Tex1>
+    <Tex2>0</Tex2>
+    <Texture>0</Texture>
+    <Account>
+      <Name>mick</Name>
+    </Account>
+  </Char>
+  <Shots>3717</Shots>
+  <ShotsThatDamage>1448</ShotsThatDamage>
+  <TilesUncovered>16066</TilesUncovered>
+  <QuestsCompleted>0</QuestsCompleted>
+  <PirateCavesCompleted>0</PirateCavesCompleted>
+  <UndeadLairsCompleted>0</UndeadLairsCompleted>
+  <AbyssOfDemonsCompleted>0</AbyssOfDemonsCompleted>
+  <SnakePitsCompleted>0</SnakePitsCompleted>
+  <SpiderDensCompleted>0</SpiderDensCompleted>
+  <SpriteWorldsCompleted>0</SpriteWorldsCompleted>
+  <Escapes>0</Escapes>
+  <NearDeathEscapes>0</NearDeathEscapes>
+  <LevelUpAssists>0</LevelUpAssists>
+  <DamageTaken>4786</DamageTaken>
+  <DamageDealt>214204</DamageDealt>
+  <Teleports>0</Teleports>
+  <PotionsDrank>0</PotionsDrank>
+  <MonsterKills>48</MonsterKills>
+  <MonsterAssists>0</MonsterAssists>
+  <GodKills>4</GodKills>
+  <GodAssists>0</GodAssists>
+  <OryxKills>0</OryxKills>
+  <OryxAssists>0</OryxAssists>
+  <CubeKills>0</CubeKills>
+  <CubeAssists>0</CubeAssists>
+  <CyanBags>0</CyanBags>
+  <BlueBags>2</BlueBags>
+  <WhiteBags>1</WhiteBags>
+  <MinutesActive>6</MinutesActive>
+  <AbilitiesUsed>27</AbilitiesUsed>
+  <Bonus id="Ancestor">0</Bonus>
+  <Bonus id="First Born">0</Bonus>
+  <Bonus id="Accurate">0</Bonus>
+  <Bonus id="Well Equipped">0</Bonus>
+  <CreatedOn>1636577191</CreatedOn>
+  <KilledOn>1636590289</KilledOn>
+  <KilledBy>MegaRototo</KilledBy>
+  <BaseFame>2</BaseFame>
+  <TotalFame>2</TotalFame>
+</Fame>

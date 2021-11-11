@@ -161,4 +161,11 @@
 		<BlockSight>1</BlockSight>
 		<AllowTeleport>true</AllowTeleport>
 	</World>
+	<World name="CandyLand" display="Candy Lands">
+		<Maps>CandyLand/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+		<AllowTeleport>true</AllowTeleport>
+		<Portals>0x074a</Portals>
+	</World>
 </Worlds>
