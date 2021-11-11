@@ -11036,4 +11036,64 @@
     <MpCost>80</MpCost>
     <Activate>BulletNova</Activate>
   </Object>
+  <Object type="0xce1" id="Leaf Bow">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x405</Index>
+    </Texture>
+    <SlotType>3</SlotType>
+    <Description>Why don't you try throwing a leaf?</Description>
+    <RateOfFire>1.6</RateOfFire>
+    <Sound>weapon/golden_bow</Sound>
+    <Projectile>
+      <ObjectId>Leaf Arrow</ObjectId>
+      <Speed>70</Speed>
+      <MinDamage>35</MinDamage>
+      <MaxDamage>55</MaxDamage>
+      <LifetimeMS>900</LifetimeMS>
+      <Size>50</Size>
+      <ArmorPiercing/>
+      <Wavy/>
+    </Projectile>
+    <ActivateOnEquip stat="4" amount="2">IncrementStat</ActivateOnEquip>
+    <BagType>5</BagType>
+    <FameBonus>4</FameBonus>
+    <NumProjectiles>3</NumProjectiles>
+    <OldSound>arrowShoot</OldSound>
+    <feedPower>800</feedPower>
+    <ArcGap>30</ArcGap>
+  </Object>
+  <Object type="0xf001" id="Earth's Remembrance">
+        <Class>Equipment</Class>
+        <Item/>
+        <Texture>
+            <File>CustomItems</File>
+            <Index>0x0c</Index>
+        </Texture>
+        <SlotType>3</SlotType>
+        <Description>The mortals will overtake earth to remind oryx that his rule of the galaxy will come to an end.</Description>
+        <RateOfFire>1.4</RateOfFire>
+        <Sound>weapon/golden_bow</Sound>
+        <Projectile>
+            <ObjectId>Earth's Remembrance 2</ObjectId>
+            <Speed>125</Speed>
+            <MinDamage>75</MinDamage>
+            <MaxDamage>130</MaxDamage>
+            <ArmorPiercing/>
+            <LifetimeMS>550</LifetimeMS>
+            <Size>80</Size>
+            <Wavy/>
+        </Projectile>
+        <ST/>
+        <ActivateOnEquip stat ="0" amount="-45">IncrementStat</ActivateOnEquip>
+        <ActivateOnEquip stat="3" amount="-4">IncrementStat</ActivateOnEquip>
+        <ActivateOnEquip stat="5" amount="6">IncrementStat</ActivateOnEquip>
+        <BagType>5</BagType>
+        <FameBonus>8</FameBonus>
+        <NumProjectiles>3</NumProjectiles>
+        <OldSound>arrowShoot</OldSound>
+        <ArcGap>2</ArcGap>
+    </Object>
 </Objects>

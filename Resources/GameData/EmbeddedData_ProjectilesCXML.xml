@@ -3923,4 +3923,92 @@
      </Texture>
      <AngleCorrection>1</AngleCorrection>
   </Object>
+  <Object type="0x214f" id="Moth Dust">
+      <Class>Projectile</Class>
+      <RandomTexture>
+         <Texture>
+            <File>lofiObj3</File>
+            <Index>0x39c</Index>
+         </Texture>
+         <Texture>
+            <File>lofiObj3</File>
+            <Index>0x39d</Index>
+         </Texture>
+         <Texture>
+            <File>lofiObj3</File>
+            <Index>0x39e</Index>
+         </Texture>
+         <Texture>
+            <File>lofiObj3</File>
+            <Index>0x39f</Index>
+         </Texture>
+         <Texture>
+            <File>lofiObj3</File>
+            <Index>0x3a0</Index>
+         </Texture>
+      </RandomTexture>
+      <Rotation>350</Rotation>
+   </Object>
+   <Object type="0x2150" id="Small Moth Bullet">
+      <Class>Projectile</Class>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x3a1</Index>
+      </Texture>
+      <AngleCorrection>1</AngleCorrection>
+   </Object>
+   <Object type="0x2151" id="Leaf Magic">
+      <Class>Projectile</Class>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x3a2</Index>
+      </Texture>
+      <AngleCorrection>1</AngleCorrection>
+   </Object>
+   <Object type="0x2152" id="Acorn">
+      <Class>Projectile</Class>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x3a3</Index>
+      </Texture>
+      <Rotation>120</Rotation>
+   </Object>
+   <Object type="0x2153" id="Fire Bust Shot">
+      <Class>Projectile</Class>
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x3b0</Index>
+      </Texture>
+      <AngleCorrection>1</AngleCorrection>
+   </Object>
+   <Object type="0x2154" id="Fire Storm">
+      <Class>Projectile</Class>
+      <RandomTexture>
+         <Texture>
+            <File>lofiObjBig</File>
+            <Index>0xb3</Index>
+         </Texture>
+         <Texture>
+            <File>lofiObjBig</File>
+            <Index>0xb4</Index>
+         </Texture>
+         <Texture>
+            <File>lofiObjBig</File>
+            <Index>0xb4</Index>
+         </Texture>
+         <Texture>
+            <File>lofiObjBig</File>
+            <Index>0xba</Index>
+         </Texture>
+      </RandomTexture>
+      <Rotation>80</Rotation>
+   </Object>
+   <Object type="0xf000" id="Earth's Remembrance 2">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>CustomItems</File>
+      <Index>0x1c</Index>
+    </Texture>
+    <Rotation>222</Rotation>
+   </Object>
 </Objects>
