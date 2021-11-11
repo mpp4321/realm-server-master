@@ -12,122 +12,113 @@ namespace RotMG.Game.Logic.Database
 	{
         public void Init(BehaviorDb db)
         {
-			db.Init("Septavius the Ghost God",
+            
+
+            db.Init("Septavius the Ghost God",
+                new HealthTransition(0.3f, "warning") { SubIndex=0},
+                new DropPortalOnDeath(target: "Glowing Realm Portal"),
+                new TransformOnDeath("Ghost Mage of Septavius", 1, 3),
+                new TransformOnDeath("Ghost Rogue of Septavius", 1, 3),
+                new TransformOnDeath("Ghost Warrior of Septavius", 1, 3),
                 new State("base",
-                    new DropPortalOnDeath(target: "Glowing Realm Portal"),
-                    new TransitionFrom("base", "Ini"),
-					new State("Ini",
-                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        new PlayerWithinTransition(8, "transition1", seeInvis: true)
-                    ),
-                    new State("transition1",
+                    new Spawn("Lair Ghost Archer", 1, 1, cooldown: 2000),
+                    new Spawn("Lair Ghost Knight", 2, 2, cooldown: 3000),
+                    new Spawn("Lair Ghost Mage", 1, 1, cooldown: 2000),
+                    new Spawn("Lair Ghost Rogue", 2, 2, cooldown: 3000),
+                    new Spawn("Lair Ghost Paladin", 1, 1, cooldown: 2000),
+                    new Spawn("Lair Ghost Warrior", 2, 2, cooldown: 3000),
+                    new PlayerWithinTransition(8, "transition", seeInvis: true) { SubIndex = 1 },
+                    new State("transition",
                         new Wander(speed: 0.1f),
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                         new Flash(0x00FF00, 0.25f, 12),
-                        new TimedTransition("spiral", 3000)
-                        ),
-                    new State("transition2",
-                        new Wander(speed: 0.1f),
-                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        new Flash(0x00FF00, 0.25f, 12),
-                        new TimedTransition("ring", 3000)
-                        ),
-                    new State("transition3",
-                        new Wander(speed: 0.1f),
-                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        new Flash(0x00FF00, 0.25f, 12),
-                        new TimedTransition("quiet", 3000)
-                        ),
-                    new State("transition4",
-                        new Wander(speed: 0.1f),
-                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        new Flash(0x00FF00, 0.25f, 12),
-                        new TimedTransition("spawn", 3000)
+                        new TimedTransition("spiral", 100) { SubIndex = 1 }
                         ),
                     new State("spiral",
-                        new ConditionalEffect(ConditionEffectIndex.Invulnerable,duration:3000),
-                        new Wander(speed: 0.1f),
-                        //new Shoot(24, count: 3, shootAngle: 15, index: 4, cooldown: 500),
-                        new Spawn("Lair Ghost Archer", 1, 1),
-                        new Spawn("Lair Ghost Knight", 2, 2),
-                        new Spawn("Lair Ghost Mage", 1, 1),
-                        new Spawn("Lair Ghost Rogue", 2, 2),
-                        new Spawn("Lair Ghost Paladin", 1, 1),
-                        new Spawn("Lair Ghost Warrior", 2, 2),
-                        new Shoot(10, 3, fixedAngle: 0,rotateAngle:15,index:0, cooldownOffset: 0, cooldown: 200),
-                          new Shoot(10,1,index:4,predictive:0.30f,cooldown:1000),
-                        new TimedTransition("transition2", 5000)
+                        new TimedTransition("transition0", 16500) { SubIndex = 2 },
+                        new TransitionFrom("spiral", "spiral0"),
+                        new State("spiral0",
+                            new Wander(speed: 0.1f),
+                            new Shoot(24, 3, 360 / 3, 1, 0, 16, cooldown: 300),
+                            new Shoot(14, 3, 360 / 3, 0, 0, 16, cooldown: 150), 
+                            new TimedTransition("spiral1", 4000)
                         ),
-                    new State("ring",
-                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        new Wander(0.4f),
-                        new Shoot(10, 12, index: 4, cooldown: 2000),
-                        new TimedTransition("ring2", 8000)
-                        ),
-                      new State("ring2",
-                        new Wander(0.3f),
-                        new Shoot(10, 12, index: 4, cooldown: 2000),
-                        new TimedTransition("ring3", 4000)
-                        ),
-                       new State("ring3",
-                           new ConditionalEffect(ConditionEffectIndex.Invulnerable,duration:2000),
-                        new Wander(0.3f),
-                         new Spawn("Lair Ghost Archer", 1, 1),
-                        new Spawn("Lair Ghost Knight", 2, 2),
-                        new Spawn("Lair Ghost Mage", 1, 1),
-                        new Spawn("Lair Ghost Rogue", 2, 2),
-                        new Spawn("Lair Ghost Paladin", 1, 1),
-                        new Spawn("Lair Ghost Warrior", 2, 2),
-                        new Shoot(24, count: 3, shootAngle: 15,predictive:0.40f, index: 4, cooldown: 600),
-                        new TimedTransition("ring4", 4000)
-                        ),
-                        new State("ring4",
-                           new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                            new Taunt("r4"),
-                        new Wander(0.3f),
-                         new Spawn("Lair Ghost Archer", 1, 1),
-                        new Spawn("Lair Ghost Knight", 2, 2),
-                        new Spawn("Lair Ghost Mage", 1, 1),
-                        new Spawn("Lair Ghost Rogue", 2, 2),
-                        new Spawn("Lair Ghost Paladin", 1, 1),
-                        new Spawn("Lair Ghost Warrior", 2, 2),
-                        new Shoot(24, count: 3, shootAngle: 15, predictive: 0.50f, index: 4, cooldown: 600),
-                        new TimedTransition("transition3", 6000)
-                        ),
-                    new State("quiet",
-                       new ConditionalEffect(ConditionEffectIndex.Armored,duration:5000),
-                       new Taunt("quiet"),
-                       new Flash(0x00FF00, 0.25f, 12),
-                        new Wander(0.1f),
-                        new Shoot(24, count: 3, shootAngle: 15, index: 2, cooldown: 600),
-                        new Shoot(10, 8, index: 1, cooldown: 1000),
-                        new Shoot(10, 8, index: 1, cooldownOffset: 500, angleOffset: 22.5f, cooldown: 1000),
-                        new TimedTransition("transition4", 5000)
-                        ),
-                    new State("spawn",
-						new Wander(0.1f),
-                        new Spawn("Ghost Mage of Septavius", 2, 2),
-                        new Spawn("Ghost Rogue of Septavius", 2, 2),
-                        new Spawn("Ghost Warrior of Septavius", 2, 2),
-                        new Reproduce("Ghost Mage of Septavius", densityMax: 2, cooldown: 1000),
-                        new Reproduce("Ghost Rogue of Septavius", densityMax: 2, cooldown: 1000),
-                        new Reproduce("Ghost Warrior of Septavius", densityMax: 2, cooldown: 1000),
-                        new Shoot(8, 3, shootAngle: 10, index: 4, cooldown: 1000),
-                        new TimedTransition("transition1", 6000)
+                        new State("spiral1",
+                            new Wander(speed: 0.1f),
+                            new Shoot(24, 3, 360 / 3, 1, 0, -16, cooldown: 300),
+                            new Shoot(14, 3, 360 / 3, 0, 0, -16, cooldown: 150),
+                            new TimedTransition("spiral0", 4000)
                         )
+                    )
                 ),
-                new Threshold(0.0001f,
-                    new ItemLoot("Undead Lair Key", 0.03f),
-                    new ItemLoot("Doom Bow", 0.004f),
-                    new ItemLoot("Wine Cellar Incantation", 0.05f),
-                    new ItemLoot("Potion of Wisdom", 0.3f, 3),
-                    new TierLoot(3, LootType.Ring, 0.25f),
-                    new TierLoot(4, LootType.Ring, 0.125f),
-                    new TierLoot(7, LootType.Weapon, 0.25f),
-                    new TierLoot(8, LootType.Weapon, 0.25f),
-                    new TierLoot(3, LootType.Ability, 0.25f),
-                    new TierLoot(4, LootType.Ability, 0.125f),
-                    new TierLoot(5, LootType.Ability, 0.0625f)
+                new State("transition0",
+                    new Wander(speed: 0.1f),
+                    new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                    new Flash(0x00FF00, 0.25f, 12),
+                    new TimedTransition("ring", 1500)
+                    ),
+                new State("ring",
+                    new TimedTransition("transition", 8000),
+                    new Shoot(8, 3, 18, 2, predictive: 0.4f, cooldownVariance: 750, cooldown: 2250),
+                    new TransitionFrom("ring", "ring0"),
+                    new State("ring0",
+                        new Shoot(8, 6, 360 / 6, 3, 0f, 24, cooldown: 1000),
+                        new Wander(0.25f),
+                        new TimedTransition("ring1", 2000)
+                    ),
+                    new State("ring1",
+                        new Shoot(8, 6, 360 / 6, 3, 0f, -24, cooldown: 800),
+                        new Follow(0.6f, 16, 4),
+                        new TimedTransition("ring2", 1500)
+                    ),
+                    new State("ring2",
+                        new Shoot(8, 6, 360 / 6, 3, 0f, 24, cooldown: 700),
+                        new Follow(0.9f, 16, 3),
+                        new TimedTransition("ring3", 1000)
+                    ),
+                    new State("ring3",
+                        new Shoot(8, 6, 360 / 6, 3, 0f, -24, cooldown: 600),
+                        new Follow(1.2f, 16, 2),
+                        new TimedRandomTransition(500, "ring4", "ring5")
+                    ),
+                    new State("ring4",
+                        new Shoot(8, 6, 360 / 6, 3, 0f, 24, cooldown: 500),
+                        new Orbit(1.5f, 2.75f, 18, speedVariance: 0.2f, radiusVariance: .75f, targetPlayers: true, pass: true)
+                    ),
+                    new State("ring5",
+                        new Shoot(8, 6, 360 / 6, 3, 0f, -24, cooldown: 500),
+                        new Orbit(1.5f, 2.75f, 18, speedVariance: 0.2f, radiusVariance: .75f, targetPlayers: true, pass: true)
+                    )
+                ),
+                new State("warning",
+                        new Flash(0xff0033ff, .3f, 3),
+                        new TimedTransition("fire", 1000)
+                    ),
+                new State("fire",
+                    new Shoot(10, 4, 10, 0, cooldown: 200),
+                    new Shoot(10, 2, 40, 1, cooldown: 400),
+                    new Prioritize(false,
+                        new Prioritize(true,
+                            new Charge(2.0, pred: e => e.HasConditionEffect(Common.ConditionEffectIndex.Quiet)),
+                            new Shoot(10, 8, 45, 2, 0f)
+
+                        ),
+                        new Follow(0.8f, range: 1),
+                        new Wander(0.4f)
+                    )
+                    ),
+            new Threshold(0.0001f,
+                new ItemLoot("Undead Lair Key", 0.03f),
+                new ItemLoot("Doom Bow", 0.004f),
+                new ItemLoot("Wine Cellar Incantation", 0.05f),
+                new ItemLoot("Potion of Wisdom", 1f),
+                new TierLoot(3, LootType.Ring, 0.25f),
+                new TierLoot(4, LootType.Ring, 0.125f),
+                new TierLoot(7, LootType.Weapon, 0.25f),
+                new TierLoot(8, LootType.Weapon, 0.25f),
+                new TierLoot(3, LootType.Ability, 0.25f),
+                new TierLoot(4, LootType.Ability, 0.125f),
+                new TierLoot(5, LootType.Ability, 0.0625f)
                 )
             );
             db.Init("Ghost Mage of Septavius",
@@ -220,7 +211,7 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Lair Skeleton",
                 new State("base",
-                    new Shoot(6),
+                    new Shoot(6, cooldown: 250),
                     new Prioritize(
                         new Follow(1, range: 1),
                         new Wander(0.4f)
@@ -231,7 +222,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Lair Skeleton King",
                 new State("base",
-                    new Shoot(10, 3, shootAngle: 10),
+                    new Shoot(10, 3, shootAngle: 10, cooldown: 250),
                     new Prioritize(
                         new Follow(1, range: 7),
                         new Wander(0.4f)
@@ -250,7 +241,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Lair Skeleton Mage",
                 new State("base",
-                    new Shoot(10),
+                    new Shoot(10, cooldown: 350),
                     new Prioritize(
                         new Follow(1, range: 7),
                         new Wander(0.4f)
@@ -261,7 +252,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Lair Skeleton Swordsman",
                 new State("base",
-                    new Shoot(5),
+                    new Shoot(5, cooldown: 250),
                     new Prioritize(
                         new Follow(1, range: 1),
                         new Wander(0.4f)
@@ -272,7 +263,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Lair Skeleton Veteran",
                 new State("base",
-                    new Shoot(5),
+                    new Shoot(5, cooldown: 200),
                     new Prioritize(
                         new Follow(1, range: 1),
                         new Wander(0.4f)
@@ -283,7 +274,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Lair Mummy",
                 new State("base",
-                    new Shoot(10),
+                    new Shoot(10, cooldown: 300),
                     new Prioritize(
                         new Follow(0.9f, range: 7),
                         new Wander(0.4f)
@@ -294,7 +285,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Lair Mummy King",
                 new State("base",
-                    new Shoot(10),
+                    new Shoot(10, cooldown: 270),
                     new Prioritize(
                         new Follow(0.9f, range: 7),
                         new Wander(0.4f)
@@ -305,7 +296,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Lair Mummy Pharaoh",
                 new State("base",
-                    new Shoot(10),
+                    new Shoot(10, cooldown: 250),
                     new Prioritize(
                         new Follow(0.9f, range: 7),
                         new Wander(0.4f)
@@ -427,7 +418,7 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Lair Reaper",
                 new State("base",
-                    new Shoot(3),
+                    new Shoot(3, cooldown: 100),
                     new Follow(1.3f, range: 1),
                     new Wander(0.1f)
                     ),
@@ -501,8 +492,8 @@ namespace RotMG.Game.Logic.Database
                     new PlayerWithinTransition(3, "Aaa")
                         ),
                     new State("Aaa",
-                       new Shoot(8.4f, count: 12, index: 0),
-                       new Suicide()
+                       new Shoot(8.4f, count: 12, index: 0, cooldownOffset: 20),
+                       new Suicide(25)
                     )));
            db.Init("Lair Blast Trap",
                 new State("base",
@@ -511,8 +502,8 @@ namespace RotMG.Game.Logic.Database
                         new PlayerWithinTransition(3, "Aaa")
                     ),
                     new State("Aaa",
-                        new Shoot(25, index: 0, count: 12, cooldown: 3000),
-                        new Suicide()
+                        new Shoot(25, index: 0, count: 12, cooldownOffset: 20, cooldown: 3000),
+                        new Suicide(25)
                     ))
 
             );
