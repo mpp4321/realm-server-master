@@ -1,33 +1,33 @@
 <Char>
-  <Level>10</Level>
-  <Experience>4320</Experience>
-  <ClassType>768</ClassType>
-  <HP>-49</HP>
-  <MP>437</MP>
-  <Stats>720,252,50,25,75,75,40,50,75</Stats>
-  <Equipment>3286,2650,2809,3246,3082,3172,3186,2812,2592,3169,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1</Equipment>
+  <Level>1</Level>
+  <Experience>0</Experience>
+  <ClassType>775</ClassType>
+  <HP>700</HP>
+  <MP>252</MP>
+  <Stats>700,252,75,25,50,50,40,50,75</Stats>
+  <Equipment>3074,2657,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1</Equipment>
   <ItemDatas>{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1},{"ExtraStatBonuses":{},"Meta":-1}</ItemDatas>
-  <Fame>2</Fame>
+  <Fame>0</Fame>
   <Tex1>0</Tex1>
   <Tex2>0</Tex2>
   <SkinType>0</SkinType>
   <HealthPotions>6</HealthPotions>
   <MagicPotions>6</MagicPotions>
   <HasBackpack>false</HasBackpack>
-  <CreationTime>1636577191</CreationTime>
+  <CreationTime>1636590296</CreationTime>
   <Deleted>false</Deleted>
-  <Dead>true</Dead>
-  <DeathFame>2</DeathFame>
-  <DeathTime>1636590289</DeathTime>
+  <Dead>false</Dead>
+  <DeathFame>-1</DeathFame>
+  <DeathTime>-1</DeathTime>
   <PetId>-1</PetId>
   <ItemDataModifier>Classical</ItemDataModifier>
   <Runes></Runes>
   <GlowColor>0</GlowColor>
   <Size>0</Size>
   <FameStats>
-    <Shots>3717</Shots>
-    <ShotsThatDamage>1448</ShotsThatDamage>
-    <TilesUncovered>16066</TilesUncovered>
+    <Shots>21</Shots>
+    <ShotsThatDamage>2</ShotsThatDamage>
+    <TilesUncovered>2259</TilesUncovered>
     <QuestsCompleted>0</QuestsCompleted>
     <PirateCavesCompleted>0</PirateCavesCompleted>
     <UndeadLairsCompleted>0</UndeadLairsCompleted>
@@ -38,22 +38,22 @@
     <Escapes>0</Escapes>
     <NearDeathEscapes>0</NearDeathEscapes>
     <LevelUpAssists>0</LevelUpAssists>
-    <DamageTaken>4786</DamageTaken>
-    <DamageDealt>214204</DamageDealt>
+    <DamageTaken>0</DamageTaken>
+    <DamageDealt>0</DamageDealt>
     <Teleports>0</Teleports>
     <PotionsDrank>0</PotionsDrank>
-    <MonsterKills>48</MonsterKills>
+    <MonsterKills>0</MonsterKills>
     <MonsterAssists>0</MonsterAssists>
-    <GodKills>4</GodKills>
+    <GodKills>0</GodKills>
     <GodAssists>0</GodAssists>
     <OryxKills>0</OryxKills>
     <OryxAssists>0</OryxAssists>
     <CubeKills>0</CubeKills>
     <CubeAssists>0</CubeAssists>
     <CyanBags>0</CyanBags>
-    <BlueBags>2</BlueBags>
-    <WhiteBags>1</WhiteBags>
-    <MinutesActive>6</MinutesActive>
-    <AbilitiesUsed>27</AbilitiesUsed>
+    <BlueBags>0</BlueBags>
+    <WhiteBags>0</WhiteBags>
+    <MinutesActive>1</MinutesActive>
+    <AbilitiesUsed>0</AbilitiesUsed>
   </FameStats>
 </Char>
