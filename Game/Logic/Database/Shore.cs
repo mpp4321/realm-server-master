@@ -65,6 +65,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Scorpion Queen",
                 new State(
                     "base",
+                    new StayBack(0.1f, 6, "Scorpion Queen"),
                     new Wander(0.2f),
                     new Spawn("Poison Scorpion", givesNoXp: false),
                     new Reproduce("Poison Scorpion", cooldown: 10000, densityMax: 10),

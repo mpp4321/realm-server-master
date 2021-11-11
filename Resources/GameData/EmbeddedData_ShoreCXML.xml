@@ -97,10 +97,13 @@
 		<Group>Scorpions</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8rBeach</File><Index>5</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars16x16rEncounters</File>
+			<Index>108</Index>
+		</AnimatedTexture>
 		<HitSound>monster/scorpions_hit</HitSound>
 		<DeathSound>monster/scorpions_death</DeathSound>
-		<Size>150</Size>
+		<Size>80</Size>
 		<MaxHitPoints>100</MaxHitPoints>
 		<Defense>0</Defense>
 		<Terrain>ShoreSand</Terrain>
