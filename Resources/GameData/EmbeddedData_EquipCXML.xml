@@ -10783,6 +10783,7 @@
       <PassesCover />
       <Wavy />
     </Projectile>
+    <RateOfFire>1.0</RateOfFire>
     <NumProjectiles>1</NumProjectiles>
     <Usable/>
     <Resurrects/>
@@ -10791,5 +10792,31 @@
     <Activate>BulletNova</Activate>
     <ActivateOnEquip stat="0" amount="80">IncrementStat</ActivateOnEquip>
     <BagType>5</BagType>
+  </Object>
+  <!-- OK CD5 is ivory wyvern key for some fucking -->
+  <Object type="0xcd6" id="Hooked Dagger">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj6</File>
+      <Index>0x4b</Index>
+    </Texture>
+    <SlotType>2</SlotType>
+    <Description>A hooked dagger.</Description>
+    <Projectile>
+      <ObjectId>Blade</ObjectId>
+      <Speed>0</Speed>
+      <MinDamage>80</MinDamage>
+      <MaxDamage>150</MaxDamage>
+      <LifetimeMS>500</LifetimeMS>
+      <Accelerate>-1000</Accelerate>
+      <SpeedClamp>100</SpeedClamp>
+    </Projectile>
+    <NumProjectiles>2</NumProjectiles>
+    <RateOfFire>1.0</RateOfFire>
+    <ArcGap>20</ArcGap>
+    <ActivateOnEquip stat="4" amount="4">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="1" amount="35">IncrementStat</ActivateOnEquip>
+    <BagType>4</BagType>
   </Object>
 </Objects>
