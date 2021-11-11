@@ -6,7 +6,7 @@
   <Ranked>true</Ranked>
   <Muted>false</Muted>
   <Banned>false</Banned>
-  <Connected>false</Connected>
+  <Connected>true</Connected>
   <NextCharId>5</NextCharId>
   <MaxNumChars>1</MaxNumChars>
   <VaultCount>1</VaultCount>
@@ -14,7 +14,7 @@
   <GuildRank>0</GuildRank>
   <GuildFame>0</GuildFame>
   <RegisterTime>1636069697</RegisterTime>
-  <LastSeen>1636590325</LastSeen>
+  <LastSeen>1636594675</LastSeen>
   <LockedIds></LockedIds>
   <IgnoredIds></IgnoredIds>
   <AllyShots>true</AllyShots>

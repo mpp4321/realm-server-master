@@ -11,6 +11,209 @@ namespace RotMG.Game.Logic.Database
         public void Init(BehaviorDb db)
         {
 
+            db.Init("Fairy",
+                new StayCloseToSpawn(1, 13),
+                new Prioritize(
+                    new Protect(1.2f, "Beefy Fairy", 15, 8,
+                        6),
+                    new Orbit(1.2f, 4, 7)
+                ),
+                new Wander(0.6f),
+                new Shoot(10, 2, 30, 0, predictive: 1,
+                    cooldown: 2000),
+                new Shoot(10, 1, index: 0, predictive: 1, cooldown: 2000,
+                    cooldownOffset: 1000)
+            );
+
+            db.Init("Beefy Fairy",
+                new StayCloseToSpawn(1, 13),
+                new Prioritize(
+                    new Protect(1.2f, "Beefy Fairy", 15, 8,
+                        6),
+                    new Orbit(1.2f, 4, 7)
+                ),
+                new Wander(0.6f),
+                new Shoot(10, 2, 30, 0, predictive: 1,
+                    cooldown: 2000),
+                new Shoot(10, 1, index: 0, predictive: 1, cooldown: 2000,
+                    cooldownOffset: 1000)
+            );
+
+            db.Init("Big Creampuff",
+                new Spawn("Small Creampuff", 4, 0, givesNoXp: false),
+                new Shoot(10, 1, index: 0, predictive: 1, cooldown: 1400),
+                new Shoot(4.4f, 5, 12, 1, predictive: 0.6f,
+                    cooldown: 800),
+                new Prioritize(
+                    new Charge(1.4f, 11, 4200),
+                    new StayBack(1, 4),
+                    new StayBack(0.5f, 7)
+                ),
+                new StayCloseToSpawn(1.35f, 13),
+                new Wander(0.4f)
+            );
+
+            db.Init("Small Creampuff",
+                new Shoot(5, 3, 12, 1, predictive: 0.6f,
+                    cooldown: 1000),
+                new StayCloseToSpawn(1.3f, 13),
+                new Prioritize(
+                    new Charge(1.3f, 13, 2500),
+                    new Protect(0.8f, "Big Creampuff", 15, 7,
+                        6)
+                ),
+                new Wander(0.6f)
+            );
+
+            db.Init("Hard Candy",
+                new Shoot(5, 3, 12, 0, predictive: 0.6f,
+                    cooldown: 1000),
+                new StayCloseToSpawn(1.3f, 13),
+                new Prioritize(
+                    new Charge(1.3f, 13, 2500),
+                    new Protect(0.8f, "Big Creampuff", 15, 7,
+                        6)
+                ),
+                new Wander(0.6f)
+            );
+
+            db.Init("Unicorn",
+                new Prioritize(
+                    new Charge(1.4f, 11, 3800),
+                    new StayBack(0.8f, 6)
+                ),
+                new State("Start",
+                    new State("Shoot",
+                        new Shoot(10, 1, index: 0, predictive: 1, cooldown: 200),
+                        new TimedTransition("ShootPause", 850)
+                    ),
+                    new State("ShootPause",
+                        new Shoot(4.5f, 3, 10, 1, predictive: 0.4f,
+                            cooldown: 3000, cooldownOffset: 500),
+                        new Shoot(4.5f, 3, 10, 1, predictive: 0.4f,
+                            cooldown: 3000, cooldownOffset: 1000),
+                        new Shoot(4.5f, 3, 10, 1, predictive: 0.4f,
+                            cooldown: 3000, cooldownOffset: 1500),
+                        new TimedTransition("Shoot", 1200)
+                    )
+                )
+            );
+
+            db.Init("Spilled Icecream",
+                new Prioritize(
+                    new Charge(1.4f, 11, 3800),
+                    new StayBack(0.8f, 6)
+                ),
+                new State("Start",
+                    new State("Shoot",
+                        new Shoot(10, 1, index: 0, predictive: 1, cooldown: 200),
+                        new TimedTransition("ShootPause", 850)
+                    ),
+                    new State("ShootPause",
+                        new Shoot(4.5f, 3, 10, 0, predictive: 0.4f,
+                            cooldown: 3000, cooldownOffset: 500),
+                        new Shoot(4.5f, 3, 10, 0, predictive: 0.4f,
+                            cooldown: 3000, cooldownOffset: 1000),
+                        new Shoot(4.5f, 3, 10, 0, predictive: 0.4f,
+                            cooldown: 3000, cooldownOffset: 1500),
+                        new TimedTransition("Shoot", 1200)
+                    )
+                )
+            );
+
+            db.Init("Wishing Troll",
+                new State("BaseAttack",
+                    new Shoot(10, 3, 15, 0, predictive: 1,
+                        cooldown: 1400),
+                    new Grenade(radius: 5, damage: 100, range: 8, cooldown: 3000),
+                    new Shoot(10, 1, index: 1, predictive: 1, cooldown: 2000),
+                    new State("Choose",
+                        new TimedRandomTransition(3800, "Run", "Attack")
+                    ),
+                    new State("Run",
+                        new StayBack(1.1f, 10),
+                        new TimedRandomTransition(1200, "Choose")
+                    ),
+                    new State("Attack",
+                        new Charge(1.2f, 11, 1000),
+                        new TimedRandomTransition(1000, "Choose")
+                    ),
+                    new HealthTransition(0.6f, "NextAttack")
+                ),
+                new State("NextAttack",
+                    new Shoot(10, 5, 10, 1, predictive: 0.5f,
+                        angleOffset: 0.4f, cooldown: 2000),
+                    new Shoot(10, 1, index: 1, predictive: 1, cooldown: 2000),
+                    new Shoot(10, 3, 15, 0, predictive: 1,
+                        angleOffset: 1, cooldown: 4000),
+                    new Grenade(radius: 5, damage: 100, range: 8, cooldown: 3000),
+                    new State("Choose2",
+                        new TimedRandomTransition(3800, "Run2", "Attack2")
+                    ),
+                    new State("Run2",
+                        new StayBack(1.5f, 10),
+                        new TimedTransition("Choose2", 1500),
+                        new PlayerWithinTransition(3.5f, "Boom", seeInvis: false)
+                    ),
+                    new State("Attack2",
+                        new Charge(1.2f, 11, 1000),
+                        new TimedTransition("Choose2", 1000),
+                        new PlayerWithinTransition(3.5f, "Boom", seeInvis: false)
+                    ),
+                    new State("Boom",
+                        new Shoot(0, 20, 18, 1, cooldown: 2000),
+                        new TimedTransition("Choose2", 200)
+                    )
+                ),
+                new StayCloseToSpawn(1.5f, 15),
+                new Prioritize(
+                    new Follow(1, 11, 5)
+                ),
+                new Wander(0.4f)
+            );
+
+            db.Init("Candy Gnome",
+                new State("Ini",
+                    new Wander(0.4f),
+                    new PlayerWithinTransition(14, "Main", seeInvis: true)
+                ),
+                new State("Main",
+                    new Follow(1.4f, 17),
+                    new TimedTransition("Flee", 1600)
+                ),
+                new State("Flee",
+                    new PlayerWithinTransition(11, "RunAwayMed", seeInvis: true),
+                    new PlayerWithinTransition(8, "RunAwayMedFast", seeInvis: true),
+                    new PlayerWithinTransition(5, "RunAwayFast", seeInvis: true),
+                    new PlayerWithinTransition(16, "RunAwaySlow", seeInvis: true)
+                ),
+                new State("RunAwayFast",
+                    new StayBack(1.9f, 30),
+                    new TimedRandomTransition(1000, "RunAwayMedFast", "RunAwayMed", "RunAwaySlow")
+                ),
+                new State("RunAwayMedFast",
+                    new StayBack(1.45f, 30),
+                    new TimedRandomTransition(1000, "RunAwayMed", "RunAwaySlow")
+                ),
+                new State("RunAwayMed",
+                    new StayBack(1.1f, 30),
+                    new TimedRandomTransition(1000, "RunAwayMedFast", "RunAwaySlow")
+                ),
+                new State("RunAwaySlow",
+                    new StayBack(0.8f, 30),
+                    new TimedRandomTransition(1000, "RunAwayMedFast", "RunAwayMed")
+                ),
+                new DropPortalOnDeath("Candyland Portal"),
+                new Threshold(0.01f,
+                    new ItemLoot("Rock Candy", 0.15f),
+                    new ItemLoot("Red Gumball", 0.15f),
+                    new ItemLoot("Purple Gumball", 0.15f),
+                    new ItemLoot("Blue Gumball", 0.15f),
+                    new ItemLoot("Green Gumball", 0.15f),
+                    new ItemLoot("Yellow Gumball", 0.15f)
+                )
+            );
+
             db.Init("MegaRototo",
                     new Reproduce(children: "Tiny Rototo", densityRadius: 12, densityMax: 7, cooldown: 7000),
                     new State("Follow",
@@ -300,43 +503,14 @@ namespace RotMG.Game.Logic.Database
                     )
                 )
             );
-            db.Init("Fairy",
-                    new StayCloseToSpawn(speed: 1, range: 13),
-                    new Prioritize(
-                        new Protect(speed: 1.2f, protectee: "Beefy Fairy", acquireRange: 15, protectionRange: 8, reprotectRange: 6),
-                        new Orbit(speed: 1.2f, 4, acquireRange: 7)
-                    ),
-                    new Wander(speed: 0.6f),
-                    new Shoot(10, count: 2, shootAngle: 30, index: 0, predictive: 1, cooldown: 2000),
-                    new Shoot(10, count: 1, index: 0, predictive: 1, cooldown: 2000, cooldownOffset: 1000)
-            );
-            db.Init("Big Creampuff",
-                    new Spawn(children: "Small Creampuff", maxChildren: 4, initialSpawn: 0, givesNoXp: false),
-                    new Shoot(10, count: 1, index: 0, predictive: 1, cooldown: 1400),
-                    new Shoot(4.4f, count: 5, shootAngle: 12, index: 1, predictive: 0.6f, cooldown: 800),
-                    new Prioritize(
-                        new Charge(speed: 1.4f, range: 11, coolDown: 4200),
-                        new StayBack(speed: 1, distance: 4, entity: null),
-                        new StayBack(speed: 0.5f, distance: 7, entity: null)
-                    ),
-                    new StayCloseToSpawn(speed: 1.35f, range: 13),
-                    new Wander(speed: 0.4f)
-            );
-            db.Init("Small Creampuff",
-                    new Shoot(5, count: 3, shootAngle: 12, index: 1, predictive: 0.6f, cooldown: 1000),
-                    new StayCloseToSpawn(speed: 1.3f, range: 13),
-                    new Prioritize(
-                        new Charge(speed: 1.3f, range: 13, coolDown: 2500),
-                        new Protect(speed: 0.8f, protectee: "Big Creampuff", acquireRange: 15, protectionRange: 7, reprotectRange: 6)
-                    ),
-                    new Wander(speed: 0.6f)
-            );
+            
             db.Init("Tiny Rototo",
                     new Prioritize(
                         new Orbit(speed: 1.2f, 4, acquireRange: 10, target: "MegaRototo"),
                         new Protect(speed: 0.8f, protectee: "Rototo", acquireRange: 15, protectionRange: 7, reprotectRange: 6)
                     ),
                     new State("Main",
+                        new TransitionFrom("Main", "Unaware"),
                         new State("Unaware",
                             new Prioritize(
                                 new Orbit(speed: 0.4f, 2.6f, acquireRange: 8, target: "Rototo", speedVariance: 0.2f, radiusVariance: 0.2f, orbitClockwise: true),
