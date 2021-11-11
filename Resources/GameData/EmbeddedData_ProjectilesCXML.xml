@@ -3782,4 +3782,137 @@
 		<Size>60</Size>
 		<Rotation>150</Rotation>
 	</Object>
+	<Object type="0x5018" id="Dragon Attack Red Firewave">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObjBig</File>
+			<Index>0xbc</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x5019" id="Dragon Attack Red Big Fireball">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObjBig</File>
+			<Index>0xbd</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x501a" id="Dragon Attack Blue Fireball">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x3b6</Index>
+		</Texture>
+		<Rotation>120</Rotation>
+	</Object>
+	<Object type="0x501b" id="Dragon Attack Blue Blast">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x3b7</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x501c" id="Dragon Attack Blue Bullet">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x3b8</Index>
+		</Texture>
+		<AngleCorrection>0</AngleCorrection>
+	</Object>
+	<Object type="0x501d" id="Dragon Attack Green Bullet">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x3b9</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x501e" id="Dragon Attack Green Ball">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x3ba</Index>
+		</Texture>
+	</Object>
+	<Object type="0x501f" id="Dragon Attack Green Spin Ball">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObjBig</File>
+			<Index>0xbe</Index>
+		</Texture>
+		<Rotation>100</Rotation>
+	</Object>
+	<Object type="0x5020" id="Dragon Attack Green Arrow">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObjBig</File>
+			<Index>0xbf</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x5021" id="Dragon Attack Green Spine">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x3bb</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x5022" id="Dragon Attack Red Small Fireball">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x3bc</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x5023" id="Dragon Attack Black Ray">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObjBig</File>
+			<Index>0xbb</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x5024" id="Dragon Attack Black Spin">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x3b1</Index>
+		</Texture>
+		<Rotation>100</Rotation>
+	</Object>
+	<Object type="0x5025" id="Dragon Attack Black Shot">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x3b2</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x5026" id="Dragon Attack Black Bullet">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x3b3</Index>
+		</Texture>
+	</Object>
+	<Object type="0x5027" id="Dragon Attack Red Orb">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x3b4</Index>
+		</Texture>
+	</Object>
+	<Object type="0x5028" id="Dragon Attack Red Spinning Fireball">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x3b5</Index>
+		</Texture>
+		<Rotation>100</Rotation>
+	</Object>
 </Objects>
