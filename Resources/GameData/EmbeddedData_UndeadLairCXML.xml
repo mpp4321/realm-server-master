@@ -20,7 +20,7 @@
 			<ObjectId>White Bullet</ObjectId>
 			<Speed>80</Speed>
 			<Damage>75</Damage>
-			<Size>80</Size>
+			<Size>20</Size>
 			<LifetimeMS>1500</LifetimeMS>
 			<ArmorPiercing/>
 		</Projectile>		
@@ -32,7 +32,7 @@
 			<LifetimeMS>2600</LifetimeMS>
 			<Amplitude>2</Amplitude>
 			<Frequency>2.5</Frequency>
-			<ConditionEffect duration="1">Hexed</ConditionEffect>
+			<ConditionEffect duration="1">Quiet</ConditionEffect>
 		</Projectile>			
 		<Projectile id="2">
 			<ObjectId>Yellow Star</ObjectId>
@@ -41,6 +41,14 @@
 			<Size>120</Size>
 			<LifetimeMS>3000</LifetimeMS>
 			<ConditionEffect duration="1.5">Confused</ConditionEffect>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>White Bullet</ObjectId>
+			<Speed>80</Speed>
+			<Damage>75</Damage>
+			<Size>80</Size>
+			<LifetimeMS>500</LifetimeMS>
+			<ArmorPiercing/>
 		</Projectile>
 	</Object>	
 	
