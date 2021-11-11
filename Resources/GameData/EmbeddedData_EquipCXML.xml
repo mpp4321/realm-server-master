@@ -10881,4 +10881,159 @@
     <BagType>5</BagType>
     <FameBonus>4</FameBonus>
   </Object>
+  <Object type="0xcda" id="Etherite Dagger"> 
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x526</Index>
+    </Texture>
+    <SlotType>2</SlotType>
+    <Description>Made of a strange metal not known to the living.</Description>
+    <RateOfFire>1.20</RateOfFire>
+    <Sound>weapon/fire_dagger</Sound>
+    <Projectile>
+      <ObjectId>Spooky Sparkle</ObjectId>
+      <Speed>190</Speed>
+      <MinDamage>180</MinDamage>
+      <MaxDamage>225</MaxDamage>
+      <LifetimeMS>210</LifetimeMS>
+      <Amplitude>0.2</Amplitude>
+      <Frequency>0.2</Frequency>
+    </Projectile>
+    <BagType>5</BagType>
+    <FameBonus>4</FameBonus>
+    <OldSound>daggerSwing</OldSound>
+  </Object>
+  <Object type="0xcdb" id="Mantle of Skuld">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x51E</Index>
+    </Texture>
+    <SlotType>6</SlotType>
+    <Description>He does not kill his victims. He becomes them.</Description>
+    <ActivateOnEquip stat="0" amount="50">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="1" amount="25">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="3" amount="12">IncrementStat</ActivateOnEquip>
+    <BagType>7</BagType>
+    <FameBonus>4</FameBonus>
+    <feedPower>500</feedPower>
+  </Object>
+  <Object type="0xcdc" id="Ghastly Drape">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x52E</Index>
+    </Texture>
+    <SlotType>13</SlotType>
+    <Description>Woven from the skin of a ghast, it cannot be seen...except by the user.</Description>
+    <Sound>spell/fire_nova</Sound>
+    <Usable/>
+    <BagType>7</BagType>
+    <FameBonus>4</FameBonus>
+    <MpCost>110</MpCost>
+    <Activate effect="Invisible" duration="5.5">ConditionEffectSelf</Activate>
+    <Activate effect="Speedy" duration="2">ConditionEffectSelf</Activate>
+    <Cooldown>6.5</Cooldown>
+    <feedPower>500</feedPower>
+  </Object>
+  <Object type="0xcdd" id="Spectral Ring of Horrors">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x536</Index>
+    </Texture>
+    <SlotType>9</SlotType>
+    <Description>Though the whispers can be heard in your head, they're not THAT loud.</Description>
+    <ActivateOnEquip stat="1" amount="50">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="4" amount="4">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="6" amount="4">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="7" amount="4">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="5" amount="4">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="3" amount="3">IncrementStat</ActivateOnEquip>
+    <BagType>7</BagType>
+    <FameBonus>4</FameBonus>
+    <feedPower>500</feedPower>
+  </Object>
+  <Object type="0xcde" id="Sentient Staff">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x528</Index>
+    </Texture>
+    <SlotType>17</SlotType>
+    <Description>While it may be alive, it can't speak. But, it CAN kill.</Description>
+    <RateOfFire>1</RateOfFire>
+    <Sound>weapon/wand_of_death</Sound>
+    <Projectile>
+      <ObjectId>Ancient Magic</ObjectId>
+      <Speed>150</Speed>
+      <MinDamage>55</MinDamage>
+      <MaxDamage>215</MaxDamage>
+      <LifetimeMS>553</LifetimeMS>
+      <Amplitude>1.1</Amplitude>
+      <Frequency>1</Frequency>
+    </Projectile>
+    <ActivateOnEquip stat="0" amount="10">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="1" amount="5">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="7" amount="10">IncrementStat</ActivateOnEquip>
+    <BagType>7</BagType>
+    <FameBonus>4</FameBonus>
+    <feedPower>500</feedPower>
+    <NumProjectiles>2</NumProjectiles>
+    <ArcGap>0</ArcGap>
+    <OldSound>magicShoot</OldSound>
+  </Object>
+  <Object type="0xcdf" id="The Robe of Twilight">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x520</Index>
+    </Texture>
+    <SlotType>14</SlotType>
+    <Description>On simple observation this robe has known many owners. All are dead.</Description>
+    <ActivateOnEquip stat="0" amount="10">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="1" amount="5">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="3" amount="12">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="2" amount="3">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="6" amount="3">IncrementStat</ActivateOnEquip>
+    <BagType>7</BagType>
+    <FameBonus>4</FameBonus>
+    <feedPower>500</feedPower>
+  </Object>
+  <Object type="0xce0" id="Ancient Spell: Pierce">
+    <Class>Equipment</Class>
+    <Item/>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x530</Index>
+    </Texture>
+    <SlotType>11</SlotType>
+    <Description>Magical blasts can be blocked by armor, but true fear will pierce their hides and strike their heart.</Description>
+    <Sound>spell/magic_nova</Sound>
+    <Projectile>
+      <ObjectId>Skull Wave</ObjectId>
+      <Speed>100</Speed>
+      <MinDamage>53</MinDamage>
+      <MaxDamage>115</MaxDamage>
+      <LifetimeMS>1300</LifetimeMS>
+      <ArmorPiercing/>
+    </Projectile>
+    <ActivateOnEquip stat="0" amount="10">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="1" amount="5">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="2" amount="3">IncrementStat</ActivateOnEquip>
+    <ActivateOnEquip stat="3" amount="2">IncrementStat</ActivateOnEquip>
+    <Usable/>
+    <BagType>7</BagType>
+    <FameBonus>4</FameBonus>
+    <feedPower>500</feedPower>
+    <MpCost>80</MpCost>
+    <Activate>BulletNova</Activate>
+  </Object>
 </Objects>

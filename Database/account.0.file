@@ -6,7 +6,7 @@
   <Ranked>true</Ranked>
   <Muted>false</Muted>
   <Banned>false</Banned>
-  <Connected>true</Connected>
+  <Connected>false</Connected>
   <NextCharId>5</NextCharId>
   <MaxNumChars>1</MaxNumChars>
   <VaultCount>1</VaultCount>

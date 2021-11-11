@@ -374,11 +374,6 @@
 
     </Object>
 
-
-
-
-
-
     <Object type="0x6005" id="Zombie Hulk">
 		<Enemy/>
 		<Class>Character</Class>

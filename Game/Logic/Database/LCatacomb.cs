@@ -57,17 +57,6 @@ namespace RotMG.Game.Logic.Database
                     )
                 );
 
-            db.Init("Zombie Hulk",
-                    new State("awaken",
-                        new Flash(0xff0000ff, 1.0, 1),
-                        new PlayerWithinTransition(9f, "base", true)
-                    ),
-                    new State("base",
-                        new Charge(2f, 10, coolDown: 2000),
-                        new Shoot(10, 3, 10, 0, cooldown: 300)
-                    )
-                );
-
             db.Init("Zombie Knight", 
                     new State("base",
                         new Shoot(
