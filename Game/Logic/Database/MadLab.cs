@@ -52,7 +52,7 @@ namespace RotMG.Game.Logic.Database
                         new OrderOnEntry(100, "Red Gas Spawner LR", "ON"),
                         new Wander(0.5f),
                         new SetAltTexture(0),
-                        new Taunt(0.5f, "For Science"),
+                        new Taunt(0.5f, cooldown: 0, "For Science"),
                         new TossObject("Green Potion", cooldown: 2000, coolDownOffset: 0, throwEffect: true),
                         new TimedTransition("TA", 12000)
                         ),
@@ -385,7 +385,7 @@ namespace RotMG.Game.Logic.Database
                     new EntitiesNotExistsTransition(50, "OFF", "Dr Terrible"),
                     new State("OFF"),
                     new State("ON",
-                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0)
+                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 300)
                     )
                     )
             );
@@ -395,7 +395,7 @@ namespace RotMG.Game.Logic.Database
                     new EntitiesNotExistsTransition(50, "OFF", "Dr Terrible"),
                     new State("OFF"),
                     new State("ON",
-                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0)
+                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 300)
                     )
                     )
             );
@@ -405,7 +405,7 @@ namespace RotMG.Game.Logic.Database
                     new EntitiesNotExistsTransition(50, "OFF", "Dr Terrible"),
                     new State("OFF"),
                     new State("ON",
-                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0)
+                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 300)
                     )
                     )
             );
@@ -415,7 +415,7 @@ namespace RotMG.Game.Logic.Database
                     new EntitiesNotExistsTransition(50, "OFF", "Dr Terrible"),
                     new State("OFF"),
                     new State("ON",
-                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0)
+                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 300)
                     )
                     )
             );
@@ -495,12 +495,12 @@ namespace RotMG.Game.Logic.Database
                     new StayCloseToSpawn(0.5f, 9),
                     new State("1",
                         new ConditionalEffect(ConditionEffectIndex.Invincible),
-                        new Taunt(true, "WHO KILL MASTER? RAHHHH!"),
+                        new Taunt(true, cooldown: 0, "WHO KILL MASTER? RAHHHH!"),
                         new EntitiesNotExistsTransition(9999, "2", "Tesla Coil")
                         ),
                     new State("2",
                         new ConditionalEffect(ConditionEffectIndex.Invincible),
-                        new Taunt(true, "My door is open. Come let me crush you!"),
+                        new Taunt(true, cooldown: 0, "My door is open. Come let me crush you!"),
                         new TimedTransition("3", 0)
                         ),
                     new State("3",
@@ -515,7 +515,7 @@ namespace RotMG.Game.Logic.Database
                             ),
                         new State("5",
                             new Flash(0xFFFFFF, .1f, 32),
-                            new Taunt(true, "What, you scared???"),
+                            new Taunt(true, cooldown: 0, "What, you scared???"),
                             new TimedTransition("6", 4000)
                             ),
                         new State("6",//16 shoots
@@ -525,13 +525,13 @@ namespace RotMG.Game.Logic.Database
                             ),
                         new State("7",
                             new SetAltTexture(0),
-                            new Taunt(true, "Me can do this all day!"),
+                            new Taunt(true, cooldown: 0, "Me can do this all day!"),
                             new Charge(2, 14),
                             new Shoot(7, 8, 45, 4, angleOffset: 45, cooldown: 750),
                             new TimedTransition("8", 3000)
                             ),
                         new State("8",
-                            new Taunt(true, "Attacks no hurt me!!!!"),
+                            new Taunt(true, cooldown: 0, "Attacks no hurt me!!!!"),
                             new Flash(0xFFFFFF, .1f, 16),
                             new TimedTransition("9", 1000)
                             ),

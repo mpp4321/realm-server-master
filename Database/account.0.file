@@ -1,20 +1,20 @@
 <Account>
   <AccountId>0</AccountId>
-  <AliveChars>5</AliveChars>
-  <DeadChars>4</DeadChars>
+  <AliveChars></AliveChars>
+  <DeadChars>8,7,6,4</DeadChars>
   <OwnedSkins></OwnedSkins>
   <Ranked>true</Ranked>
   <Muted>false</Muted>
   <Banned>false</Banned>
   <Connected>false</Connected>
-  <NextCharId>5</NextCharId>
+  <NextCharId>8</NextCharId>
   <MaxNumChars>1</MaxNumChars>
   <VaultCount>1</VaultCount>
   <GuildName />
   <GuildRank>0</GuildRank>
   <GuildFame>0</GuildFame>
   <RegisterTime>1636069697</RegisterTime>
-  <LastSeen>1636594675</LastSeen>
+  <LastSeen>1636597000</LastSeen>
   <LockedIds></LockedIds>
   <IgnoredIds></IgnoredIds>
   <AllyShots>true</AllyShots>
@@ -25,9 +25,9 @@
   <Gifts></Gifts>
   <Donator>0</Donator>
   <Stats>
-    <BestCharFame>2</BestCharFame>
-    <TotalFame>2</TotalFame>
-    <Fame>2</Fame>
+    <BestCharFame>12</BestCharFame>
+    <TotalFame>28</TotalFame>
+    <Fame>28</Fame>
     <TotalCredits>0</TotalCredits>
     <Credits>0</Credits>
     <ClassStats objectType="768">
@@ -39,8 +39,8 @@
       <BestFame>0</BestFame>
     </ClassStats>
     <ClassStats objectType="782">
-      <BestLevel>0</BestLevel>
-      <BestFame>0</BestFame>
+      <BestLevel>9</BestLevel>
+      <BestFame>1</BestFame>
     </ClassStats>
     <ClassStats objectType="784">
       <BestLevel>0</BestLevel>
@@ -59,7 +59,7 @@
       <BestFame>0</BestFame>
     </ClassStats>
     <ClassStats objectType="800">
-      <BestLevel>0</BestLevel>
+      <BestLevel>5</BestLevel>
       <BestFame>0</BestFame>
     </ClassStats>
     <ClassStats objectType="801">
@@ -79,8 +79,8 @@
       <BestFame>0</BestFame>
     </ClassStats>
     <ClassStats objectType="805">
-      <BestLevel>0</BestLevel>
-      <BestFame>0</BestFame>
+      <BestLevel>20</BestLevel>
+      <BestFame>12</BestFame>
     </ClassStats>
     <ClassStats objectType="806">
       <BestLevel>0</BestLevel>
