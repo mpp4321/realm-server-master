@@ -14,9 +14,9 @@ namespace RotMG.Game.Logic.Database
             db.Init("Fairy",
                 new StayCloseToSpawn(1, 13),
                 new Prioritize(
-                    new Protect(1.2f, "Beefy Fairy", 15, 8,
+                    new Protect(0.8f, "Beefy Fairy", 15, 8,
                         6),
-                    new Orbit(1.2f, 4, 7)
+                    new Orbit(0.6f, 4, 7)
                 ),
                 new Wander(0.25f),
                 new Shoot(10, 2, 30, 0, predictive: 1,
@@ -28,9 +28,9 @@ namespace RotMG.Game.Logic.Database
             db.Init("Beefy Fairy",
                 new StayCloseToSpawn(1, 13),
                 new Prioritize(
-                    new Protect(1.2f, "Beefy Fairy", 15, 8,
+                    new Protect(0.8f, "Beefy Fairy", 15, 8,
                         6),
-                    new Orbit(1.2f, 4, 7)
+                    new Orbit(0.6f, 4, 7)
                 ),
                 new Wander(0.35f),
                 new Shoot(10, 2, 30, 0, predictive: 1,
@@ -70,9 +70,7 @@ namespace RotMG.Game.Logic.Database
                     cooldown: 1000),
                 new StayCloseToSpawn(1.3f, 13),
                 new Prioritize(
-                    new Charge(1.3f, 13, 2500),
-                    new Protect(0.8f, "Big Creampuff", 15, 7,
-                        6)
+                    new Charge(1.3f, 13, 2500)
                 ),
                 new Wander(0.6f)
             );
@@ -216,7 +214,7 @@ namespace RotMG.Game.Logic.Database
             );
 
             db.Init("MegaRototo",
-                    new Reproduce(children: "Tiny Rototo", densityRadius: 12, densityMax: 7, cooldown: 7000),
+                    new Reproduce(children: "Tiny Rototo", densityRadius: 6, densityMax: 3, cooldown: 7000),
                     new State("Follow",
                         new Prioritize(
                             new Follow(speed: 0.45f, acquireRange: 11, range: 5),
@@ -368,7 +366,7 @@ namespace RotMG.Game.Logic.Database
                 )
             );
             db.Init("Swoll Fairy",
-                    new Spawn(children: "Fairy", maxChildren: 6, initialSpawn: 0, cooldown: 10000, givesNoXp: false),
+                    new Spawn(children: "Fairy", maxChildren: 2, initialSpawn: 0, cooldown: 10000, givesNoXp: false),
                     new StayCloseToSpawn(speed: 0.6f, range: 13),
                     new Prioritize(
                         new Follow(speed: 0.3f, acquireRange: 10, range: 5)
@@ -547,7 +545,33 @@ namespace RotMG.Game.Logic.Database
                         new NoPlayerWithinTransition(dist: 4, targetState: "Moving")
                     )
             );
+            db.Init("Rototo",
+                new Prioritize(
+                        new Orbit(speed: 0.4f, 4, acquireRange: 10, target: "MegaRototo"),
+                        new Protect(speed: 0.8f, protectee: "Rototo", acquireRange: 15, protectionRange: 7, reprotectRange: 6)
+                    ),
+                    new State("Main",
+                        new TransitionFrom("Main", "Unaware"),
+                        new State("Unaware",
+                            new Prioritize(
+                                new Orbit(speed: 0.4f, 2.6f, acquireRange: 8, target: "Rototo", speedVariance: 0.2f, radiusVariance: 0.2f, orbitClockwise: true),
+                                new Wander(speed: 0.35f)
+                            ),
+                            new PlayerWithinTransition(dist: 3.4f, targetState: "Attack"),
+                            new HealthTransition(threshold: 0.999f, targetState: "Attack")
+                            ),
+                        new State("Attack",
+                            new Shoot(0, count: 4, shootAngle: 90, index: 1, defaultAngle: 45, cooldown: 1400),
+                            new Shoot(0, count: 4, shootAngle: 90, index: 0, cooldown: 1400),
+                            new Prioritize(
+                                new Follow(speed: 0.3f, acquireRange: 8, range: 3, duration: 3000, cooldown: 2000),
+                                new Charge(speed: 0.5f, range: 11, coolDown: 1000),
+                                new Wander(speed: 0.35f)
+                            )
+                        )
+                    )
 
+            );
         }
 
     }

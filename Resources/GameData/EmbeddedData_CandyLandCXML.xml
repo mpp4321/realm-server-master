@@ -9,7 +9,7 @@
 		<DeathSound>monster/goblins_death</DeathSound>
 		<Size>120</Size>
 		<ShadowSize>45</ShadowSize>
-		<MaxHitPoints>800</MaxHitPoints>
+		<MaxHitPoints>200</MaxHitPoints>
 		<Defense>12</Defense>
         
 		<Terrain>MidPlains</Terrain>
@@ -32,7 +32,7 @@
 		<DeathSound>monster/flaming_skulls_hit</DeathSound>
 		<Size>140</Size>
 		<ShadowSize>75</ShadowSize>
-		<MaxHitPoints>13000</MaxHitPoints>
+		<MaxHitPoints>8000</MaxHitPoints>
 		<Defense>40</Defense>
 		<God/>
 		<Quest/>
@@ -119,7 +119,7 @@
 		<DeathSound>monster/sprites_death</DeathSound>
 		<Size>140</Size>
 		<ShadowSize>80</ShadowSize>
-		<MaxHitPoints>14500</MaxHitPoints>
+		<MaxHitPoints>8000</MaxHitPoints>
 		<Defense>20</Defense>
 		<God/>
 		<Quest/>
@@ -181,7 +181,7 @@
 		<DeathSound>player/paladin_death</DeathSound>
 		<Size>160</Size>
 		<ShadowSize>80</ShadowSize>
-		<MaxHitPoints>13000</MaxHitPoints>
+		<MaxHitPoints>8000</MaxHitPoints>
 		<Defense>40</Defense>
 		<God/>
 		<Quest/>
@@ -229,7 +229,7 @@
 		<HitSound>spell/light_heal</HitSound>
 		<DeathSound>spell/major_heal</DeathSound>
 		<Size>200</Size>
-		<MaxHitPoints>16000</MaxHitPoints>
+		<MaxHitPoints>10000</MaxHitPoints>
 		<Defense>35</Defense>
 		<God/>
 		<Quest/>
@@ -342,7 +342,7 @@
 		<HitSound>weapon/skull_shrine_hit</HitSound>
 		<DeathSound>spell/light_heal</DeathSound>
 		<Size>140</Size>
-		<MaxHitPoints>5000</MaxHitPoints>
+		<MaxHitPoints>3000</MaxHitPoints>
 		<Defense>25</Defense>
 		<XpMult>0.5</XpMult>
         
@@ -380,7 +380,7 @@
 		<DeathSound>monster/stone_walls_death</DeathSound>
 		<Size>120</Size>
 		<ShadowSize>60</ShadowSize>
-		<MaxHitPoints>1300</MaxHitPoints>
+		<MaxHitPoints>500</MaxHitPoints>
 		<Defense>18</Defense>
 		<XpMult>0.6</XpMult>
         
@@ -406,7 +406,7 @@
 		<DeathSound>monster/wizard_death</DeathSound>
 		<Size>140</Size>
 		<ShadowSize>80</ShadowSize>
-		<MaxHitPoints>5000</MaxHitPoints>
+		<MaxHitPoints>3000</MaxHitPoints>
 		<Defense>30</Defense>
         
 		<Flying/>
@@ -444,7 +444,7 @@
 		<DeathSound>monster/dwarves_hit</DeathSound>
 		<Size>120</Size>
 		<ShadowSize>60</ShadowSize>
-		<MaxHitPoints>1000</MaxHitPoints>
+		<MaxHitPoints>700</MaxHitPoints>
 		<Defense>20</Defense>
         
 		<Flying/>
@@ -474,7 +474,7 @@
 		<DeathSound>monster/flaming_skulls_death</DeathSound>
 		<Size>120</Size>
 		<ShadowSize>60</ShadowSize>
-		<MaxHitPoints>4000</MaxHitPoints>
+		<MaxHitPoints>2000</MaxHitPoints>
 		<Defense>20</Defense>
 		<XpMult>0.6</XpMult>
         
@@ -505,7 +505,7 @@
 		<HitSound>monster/slimes_hit</HitSound>
 		<DeathSound>monster/slimes_death</DeathSound>
 		<Size>100</Size>
-		<MaxHitPoints>1000</MaxHitPoints>
+		<MaxHitPoints>500</MaxHitPoints>
 		<Defense>20</Defense>
 		<XpMult>0.6</XpMult>
         
@@ -533,7 +533,7 @@
 		<DeathSound>monster/blobs_hit</DeathSound>
 		<Size>100</Size>
 		<ShadowSize>80</ShadowSize>
-		<MaxHitPoints>2300</MaxHitPoints>
+		<MaxHitPoints>1500</MaxHitPoints>
 		<Defense>20</Defense>
 		<XpMult>0.6</XpMult>
         
@@ -577,7 +577,7 @@
 		<DeathSound>monster/cubes_death</DeathSound>
 		<Size>100</Size>
 		<ShadowSize>80</ShadowSize>
-		<MaxHitPoints>700</MaxHitPoints>
+		<MaxHitPoints>500</MaxHitPoints>
 		<Defense>20</Defense>
 		<XpMult>0.6</XpMult>
         
@@ -619,7 +619,7 @@
 		<DeathSound>monster/hobbits_death</DeathSound>
 		<Size>100</Size>
 		<ShadowSize>80</ShadowSize>
-		<MaxHitPoints>1200</MaxHitPoints>
+		<MaxHitPoints>600</MaxHitPoints>
 		<Defense>20</Defense>
 		<XpMult>0.4</XpMult>
         
@@ -661,7 +661,7 @@
 		<DeathSound>monster/djinn_hit</DeathSound>
 		<Size>120</Size>
 		<ShadowSize>75</ShadowSize>
-		<MaxHitPoints>2300</MaxHitPoints>
+		<MaxHitPoints>1750</MaxHitPoints>
 		<Defense>25</Defense>
 		<XpMult>0.5</XpMult>
         
