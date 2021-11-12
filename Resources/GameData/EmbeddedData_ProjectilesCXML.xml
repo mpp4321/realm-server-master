@@ -2770,7 +2770,7 @@
     <AngleCorrection>-1</AngleCorrection>
   </Object>
 
-  <Object type="0x2154" id="Thunder Cloud">
+  <Object type="0x2155" id="Thunder Cloud">
     <Enemy/>
     <Friendly/>
     <Class>Character</Class>
@@ -3692,7 +3692,7 @@
 		</Texture>
 	</Object>
 
-  <Object type="0x500c" id="Black Planet Shot">
+  <Object type="0x21cd" id="Black Planet Shot">
     <Class>Projectile</Class>
     <Texture>
       <File>lofiEnvironment2</File>
@@ -3700,7 +3700,7 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-  <Object type="0x500d" id="Silence Bullet">
+  <Object type="0x21ce" id="Silence Bullet">
       <Class>Projectile</Class>
       <Texture>
          <File>lofiObj3</File>
@@ -3708,7 +3708,7 @@
       </Texture>
       <Rotation>185</Rotation>
    </Object>
-	<Object type="0x500e" id="Green Cube Magic">
+	<Object type="0x21cf" id="Green Cube Magic">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj2</File>
@@ -3716,7 +3716,7 @@
 		</Texture>
 		<Size>60</Size>
 	</Object>
-	<Object type="0x500f" id="Orange Cube Magic">
+	<Object type="0x21d0" id="Orange Cube Magic">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj2</File>
@@ -3724,7 +3724,7 @@
 		</Texture>
 		<Size>70</Size>
 	</Object>
-	<Object type="0x5011" id="Blue Cube Magic">
+	<Object type="0x21d1" id="Blue Cube Magic">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj2</File>
@@ -3732,7 +3732,7 @@
 		</Texture>
 		<Size>40</Size>
 	</Object>
-	<Object type="0x5012" id="Cube Magic">
+	<Object type="0x21d2" id="Cube Magic">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj2</File>
@@ -3740,7 +3740,7 @@
 		</Texture>
 		<Size>90</Size>
 	</Object>
-	<Object type="0x5013" id="Cube Dirk">
+	<Object type="0x21d3" id="Cube Dirk">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj2</File>
@@ -3748,7 +3748,7 @@
 		</Texture>
 		<AngleCorrection>1</AngleCorrection>
 	</Object>
-	<Object type="0x5014" id="Ogmur">
+	<Object type="0x21d4" id="Ogmur">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj2</File>
@@ -3756,7 +3756,7 @@
 		</Texture>
 		<AngleCorrection>1</AngleCorrection>
 	</Object>
-	<Object type="0x5015" id="QoT">
+	<Object type="0x21d5" id="QoT">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj2</File>
@@ -3764,7 +3764,7 @@
 		</Texture>
 		<AngleCorrection>1</AngleCorrection>
 	</Object>
-	<Object type="0x5016" id="Orange Spike">
+	<Object type="0x21d6" id="Orange Spike">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj2</File>
@@ -3773,7 +3773,7 @@
 		<Size>70</Size>
 		<AngleCorrection>1</AngleCorrection>
 	</Object>
-	<Object type="0x5017" id="Cube Star">
+	<Object type="0x21d7" id="Cube Star">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj2</File>
@@ -3782,7 +3782,7 @@
 		<Size>60</Size>
 		<Rotation>150</Rotation>
 	</Object>
-	<Object type="0x5018" id="Dragon Attack Red Firewave">
+	<Object type="0x21d8" id="Dragon Attack Red Firewave">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObjBig</File>
@@ -3790,7 +3790,7 @@
 		</Texture>
 		<AngleCorrection>1</AngleCorrection>
 	</Object>
-	<Object type="0x5019" id="Dragon Attack Red Big Fireball">
+	<Object type="0x21d9" id="Dragon Attack Red Big Fireball">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObjBig</File>
@@ -3798,7 +3798,7 @@
 		</Texture>
 		<AngleCorrection>1</AngleCorrection>
 	</Object>
-	<Object type="0x501a" id="Dragon Attack Blue Fireball">
+	<Object type="0x21da" id="Dragon Attack Blue Fireball">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj3</File>
@@ -3806,7 +3806,7 @@
 		</Texture>
 		<Rotation>120</Rotation>
 	</Object>
-	<Object type="0x501b" id="Dragon Attack Blue Blast">
+	<Object type="0x21db" id="Dragon Attack Blue Blast">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj3</File>
@@ -3814,7 +3814,7 @@
 		</Texture>
 		<AngleCorrection>1</AngleCorrection>
 	</Object>
-	<Object type="0x501c" id="Dragon Attack Blue Bullet">
+	<Object type="0x21dc" id="Dragon Attack Blue Bullet">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj3</File>
@@ -3822,7 +3822,7 @@
 		</Texture>
 		<AngleCorrection>0</AngleCorrection>
 	</Object>
-	<Object type="0x501d" id="Dragon Attack Green Bullet">
+	<Object type="0x21de" id="Dragon Attack Green Bullet">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj3</File>
@@ -3830,14 +3830,14 @@
 		</Texture>
 		<AngleCorrection>1</AngleCorrection>
 	</Object>
-	<Object type="0x501e" id="Dragon Attack Green Ball">
+	<Object type="0x21df" id="Dragon Attack Green Ball">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj3</File>
 			<Index>0x3ba</Index>
 		</Texture>
 	</Object>
-	<Object type="0x501f" id="Dragon Attack Green Spin Ball">
+	<Object type="0x21e0" id="Dragon Attack Green Spin Ball">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObjBig</File>
@@ -3845,7 +3845,7 @@
 		</Texture>
 		<Rotation>100</Rotation>
 	</Object>
-	<Object type="0x5020" id="Dragon Attack Green Arrow">
+	<Object type="0x21e1" id="Dragon Attack Green Arrow">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObjBig</File>
@@ -3853,7 +3853,7 @@
 		</Texture>
 		<AngleCorrection>1</AngleCorrection>
 	</Object>
-	<Object type="0x5021" id="Dragon Attack Green Spine">
+	<Object type="0x21e2" id="Dragon Attack Green Spine">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj3</File>
@@ -3861,7 +3861,7 @@
 		</Texture>
 		<AngleCorrection>1</AngleCorrection>
 	</Object>
-	<Object type="0x5022" id="Dragon Attack Red Small Fireball">
+	<Object type="0x21e3" id="Dragon Attack Red Small Fireball">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj3</File>
@@ -3869,7 +3869,7 @@
 		</Texture>
 		<AngleCorrection>1</AngleCorrection>
 	</Object>
-	<Object type="0x5023" id="Dragon Attack Black Ray">
+	<Object type="0x21e4" id="Dragon Attack Black Ray">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObjBig</File>
@@ -3877,7 +3877,7 @@
 		</Texture>
 		<AngleCorrection>1</AngleCorrection>
 	</Object>
-	<Object type="0x5024" id="Dragon Attack Black Spin">
+	<Object type="0x21e5" id="Dragon Attack Black Spin">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj3</File>
@@ -3885,7 +3885,7 @@
 		</Texture>
 		<Rotation>100</Rotation>
 	</Object>
-	<Object type="0x5025" id="Dragon Attack Black Shot">
+	<Object type="0x21e6" id="Dragon Attack Black Shot">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj3</File>
@@ -3893,21 +3893,21 @@
 		</Texture>
 		<AngleCorrection>1</AngleCorrection>
 	</Object>
-	<Object type="0x5026" id="Dragon Attack Black Bullet">
+	<Object type="0x21e7" id="Dragon Attack Black Bullet">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj3</File>
 			<Index>0x3b3</Index>
 		</Texture>
 	</Object>
-	<Object type="0x5027" id="Dragon Attack Red Orb">
+	<Object type="0x21e8" id="Dragon Attack Red Orb">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj3</File>
 			<Index>0x3b4</Index>
 		</Texture>
 	</Object>
-	<Object type="0x5028" id="Dragon Attack Red Spinning Fireball">
+	<Object type="0x21e9" id="Dragon Attack Red Spinning Fireball">
 		<Class>Projectile</Class>
 		<Texture>
 			<File>lofiObj3</File>
@@ -3915,7 +3915,7 @@
 		</Texture>
 		<Rotation>100</Rotation>
 	</Object>
-  <Object type="0x235A" id="Fairy Bullet">
+  <Object type="0x21f0" id="Fairy Bullet">
      <Class>Projectile</Class>
      <Texture>
         <File>lofiObj3</File>
@@ -3923,7 +3923,7 @@
      </Texture>
      <AngleCorrection>1</AngleCorrection>
   </Object>
-  <Object type="0x214f" id="Moth Dust">
+  <Object type="0x21f1" id="Moth Dust">
       <Class>Projectile</Class>
       <RandomTexture>
          <Texture>
@@ -3949,7 +3949,7 @@
       </RandomTexture>
       <Rotation>350</Rotation>
    </Object>
-   <Object type="0x2150" id="Small Moth Bullet">
+   <Object type="0x21f2" id="Small Moth Bullet">
       <Class>Projectile</Class>
       <Texture>
          <File>lofiObj3</File>
@@ -3957,7 +3957,7 @@
       </Texture>
       <AngleCorrection>1</AngleCorrection>
    </Object>
-   <Object type="0x2151" id="Leaf Magic">
+   <Object type="0x21f3" id="Leaf Magic">
       <Class>Projectile</Class>
       <Texture>
          <File>lofiObj3</File>
@@ -3965,7 +3965,7 @@
       </Texture>
       <AngleCorrection>1</AngleCorrection>
    </Object>
-   <Object type="0x2152" id="Acorn">
+   <Object type="0x21f4" id="Acorn">
       <Class>Projectile</Class>
       <Texture>
          <File>lofiObj3</File>
@@ -3973,7 +3973,7 @@
       </Texture>
       <Rotation>120</Rotation>
    </Object>
-   <Object type="0x2153" id="Fire Bust Shot">
+   <Object type="0x21f5" id="Fire Bust Shot">
       <Class>Projectile</Class>
       <Texture>
          <File>lofiObj3</File>
@@ -3981,7 +3981,7 @@
       </Texture>
       <AngleCorrection>1</AngleCorrection>
    </Object>
-   <Object type="0x2154" id="Fire Storm">
+   <Object type="0x21f6" id="Fire Storm">
       <Class>Projectile</Class>
       <RandomTexture>
          <Texture>
@@ -4003,7 +4003,7 @@
       </RandomTexture>
       <Rotation>80</Rotation>
    </Object>
-   <Object type="0xf000" id="Earth's Remembrance 2">
+   <Object type="0x21f7" id="Earth's Remembrance 2">
     <Class>Projectile</Class>
     <Texture>
       <File>CustomItems</File>
@@ -4011,4 +4011,21 @@
     </Texture>
     <Rotation>222</Rotation>
    </Object>
+	<Object type="0x21f8" id="Spooky Sparkle">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x53E</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
+	<Object type="0x21f8" id="Ancient Magic">
+		<Class>Projectile</Class>
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x542</Index>
+		</Texture>
+		<AngleCorrection>1</AngleCorrection>
+	</Object>
 </Objects>
+<!--next avaliable is 0x21f9-->

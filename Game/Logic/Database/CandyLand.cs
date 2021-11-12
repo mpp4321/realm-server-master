@@ -18,7 +18,7 @@ namespace RotMG.Game.Logic.Database
                         6),
                     new Orbit(1.2f, 4, 7)
                 ),
-                new Wander(0.6f),
+                new Wander(0.25f),
                 new Shoot(10, 2, 30, 0, predictive: 1,
                     cooldown: 2000),
                 new Shoot(10, 1, index: 0, predictive: 1, cooldown: 2000,
@@ -32,7 +32,7 @@ namespace RotMG.Game.Logic.Database
                         6),
                     new Orbit(1.2f, 4, 7)
                 ),
-                new Wander(0.6f),
+                new Wander(0.35f),
                 new Shoot(10, 2, 30, 0, predictive: 1,
                     cooldown: 2000),
                 new Shoot(10, 1, index: 0, predictive: 1, cooldown: 2000,
@@ -50,7 +50,7 @@ namespace RotMG.Game.Logic.Database
                     new StayBack(0.5f, 7)
                 ),
                 new StayCloseToSpawn(1.35f, 13),
-                new Wander(0.4f)
+                new Wander(0.2f)
             );
 
             db.Init("Small Creampuff",
@@ -100,13 +100,14 @@ namespace RotMG.Game.Logic.Database
             );
 
             db.Init("Spilled Icecream",
+                new StayBack(0.5f, 3, "Spilled Icecream"),
                 new Prioritize(
-                    new Charge(1.4f, 11, 3800),
+                    new Charge(0.7f, 7, 3800),
                     new StayBack(0.8f, 6)
                 ),
                 new State("Start",
                     new State("Shoot",
-                        new Shoot(10, 1, index: 0, predictive: 1, cooldown: 200),
+                        new Shoot(10, 1, index: 0, predictive: 1, cooldown: 300),
                         new TimedTransition("ShootPause", 850)
                     ),
                     new State("ShootPause",
@@ -126,7 +127,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(10, 3, 15, 0, predictive: 1,
                         cooldown: 1400),
                     new Grenade(radius: 5, damage: 100, range: 8, cooldown: 3000),
-                    new Shoot(10, 1, index: 1, predictive: 1, cooldown: 2000),
+                    new Shoot(10, 1, index: 0, predictive: 1, cooldown: 2000),
                     new State("Choose",
                         new TimedRandomTransition(3800, "Run", "Attack")
                     ),
@@ -141,9 +142,9 @@ namespace RotMG.Game.Logic.Database
                     new HealthTransition(0.6f, "NextAttack")
                 ),
                 new State("NextAttack",
-                    new Shoot(10, 5, 10, 1, predictive: 0.5f,
+                    new Shoot(10, 5, 10, 0, predictive: 0.5f,
                         angleOffset: 0.4f, cooldown: 2000),
-                    new Shoot(10, 1, index: 1, predictive: 1, cooldown: 2000),
+                    new Shoot(10, 1, index: 0, predictive: 1, cooldown: 2000),
                     new Shoot(10, 3, 15, 0, predictive: 1,
                         angleOffset: 1, cooldown: 4000),
                     new Grenade(radius: 5, damage: 100, range: 8, cooldown: 3000),
@@ -230,21 +231,20 @@ namespace RotMG.Game.Logic.Database
                         new Shoot(12, count: 3, shootAngle: 16, index: 1, predictive: 0.6f, cooldown: 1200),
                         new Shoot(12, count: 3, shootAngle: 16, index: 0, predictive: 0.9f, cooldown: 600),
                         new StayBack(speed: 0.5f, distance: 10, entity: null),
-                        new TimedTransition(time: 2400, targetState: "Follow")
+                        new TimedTransition("Follow", 2400)
                     ),
                     new State("FlameThrower",
-                        new State("FB1ORFB2",
-                            new TimedRandomTransition(0, "FB1", "FB2")
-                        ),
+                        new TransitionFrom("Flamethrower", "FB1"),
+                        new TimedTransition("Follow", 4000),
                         new State("FB1",
                             new Shoot(12, count: 2, shootAngle: 16, index: 2, cooldown: 1, cooldownOffset: 400),
-                            new Shoot(12, count: 1, index: 3, cooldown: 1, cooldownOffset: 400)
+                            new Shoot(12, count: 1, index: 3, cooldown: 1, cooldownOffset: 400),
+                            new TimedTransition("FB2", 2000)
                         ),
                         new State("FB2",
                             new Shoot(12, count: 2, shootAngle: 16, index: 3, cooldown: 1, cooldownOffset: 400),
                             new Shoot(12, count: 1, index: 2, cooldown: 1, cooldownOffset: 400)
-                        ),
-                        new TimedTransition(time: 4000, targetState: "Follow")
+                        )
                     ),
                 new Threshold(0.01f,
                     new ItemLoot(item: "Ring Pop", 0.02f),
