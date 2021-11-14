@@ -4011,4 +4011,18 @@
     </Texture>
     <Rotation>222</Rotation>
    </Object>
-</Objects>
+   <Object type="0x2155" id="Arcane Bolt">
+       <Class>Projectile</Class>
+       <RandomTexture>
+         <Texture>
+           <File>CustomItems</File>
+           <Index>0xF7</Index>
+         </Texture>
+         <Texture>
+           <File>CustomItems</File>
+           <Index>0xF8</Index>
+         </Texture>
+       </RandomTexture>
+       <AngleCorrection>1</AngleCorrection>
+    </Object>
+  </Objects>

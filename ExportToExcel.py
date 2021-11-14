@@ -39,7 +39,7 @@ def construct_projectiles(obj):
         if projectile.find("MinDamage") is None:
             toReturn.append(int(projectile.find("Damage").text))
             continue
-        projectile_damage = int(projectile.find("MinDamage").text) + int(projectile.find("MaxDamage").text) / 2
+        projectile_damage = (int(projectile.find("MinDamage").text) + int(projectile.find("MaxDamage").text)) / 2
         toReturn.append(projectile_damage)
     totalDamageOfShot = 0
     for i in range(num_shots):
@@ -55,7 +55,10 @@ def find_stats(obj):
     for stat in stats:
         statAttrib = stat.attrib['stat']
         amount = stat.attrib['amount']
-        toReturn[int(statAttrib)] = int(amount)
+        try:
+            toReturn[int(statAttrib)] = int(amount)
+        except:
+            print(statAttrib, obj.attrib['id'])
     return toReturn
 
 for file in os.listdir("./Resources/GameData"):
@@ -67,16 +70,23 @@ for file in os.listdir("./Resources/GameData"):
             classObj = obj.find("Class")
             if classObj is None: continue
             classStr = classObj.text
+            slottype = obj.find("SlotType")
+
+            if slottype is None: 
+                slottype = "None"
+            else: slottype = slottype.text
+
             if classStr == "Equipment":
                 # Append data to equipmentData
                 equipmentData.append(
                     (
                         obj.attrib["type"],
                         obj.attrib["id"],
+                        slottype,
                         *construct_projectiles(obj),
                         *find_stats(obj)
                     )
                 )
 
-df = pd.DataFrame(equipmentData, columns=["Type", "Id", "Avg P Damage", "Rof Damage", "Health", "Mana", "Attack", "Defense", "Speed", "Dexterity", "Wisdom", "Vitality", "Protection"])
+df = pd.DataFrame(equipmentData, columns=["Type", "Id", "Slot Type", "Avg P Damage", "Rof Damage", "Health", "Mana", "Attack", "Defense", "Speed", "Dexterity", "Wisdom", "Vitality", "Protection"])
 df.to_excel("./EquipmentStats.xlsx")

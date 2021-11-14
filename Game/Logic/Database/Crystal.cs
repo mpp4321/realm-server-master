@@ -230,8 +230,9 @@ namespace RotMG.Game.Logic.Database
                         )
                     ),
                 new Threshold(0.01f,
-                    new ItemLoot("Crystal Sword", 0.03f),
-                    new ItemLoot("Crystal Wand", 0.03f),
+                    new ItemLoot("Crystal Sword", 0.05f),
+                    new ItemLoot("Crystal Wand", 0.05f),
+                    new ItemLoot("Arcane Shiv", 0.05f),
                     new ItemLoot("Potion of Attack", 0.8f),
                     new ItemLoot("Potion of Defense", 0.8f),
                     new ItemLoot("Potion of Dexterity", 0.8f),
@@ -239,9 +240,9 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Wisdom", 0.8f),
                     new ItemLoot("Potion of Life", 0.2f),
                     new ItemLoot("Potion of Mana", 0.2f),
-                    new TierLoot(10, TierLoot.LootType.Weapon, 0.3f),
-                    new TierLoot(10, TierLoot.LootType.Armor, 0.3f),
-                    new TierLoot(4, TierLoot.LootType.Ring, 0.3f)
+                    new TierLoot(10, TierLoot.LootType.Weapon, 1.0f),
+                    new TierLoot(10, TierLoot.LootType.Armor, 1.0f),
+                    new TierLoot(4, TierLoot.LootType.Ring, 1.0f)
                )
                             );
             db.Init("Crystal Prisoner Clone",

@@ -15,7 +15,7 @@
   <MagicPotions>6</MagicPotions>
   <HasBackpack>false</HasBackpack>
   <CreationTime>1636607011</CreationTime>
-  <Deleted>false</Deleted>
+  <Deleted>true</Deleted>
   <Dead>false</Dead>
   <DeathFame>-1</DeathFame>
   <DeathTime>-1</DeathTime>
