@@ -168,4 +168,11 @@
 		<AllowTeleport>true</AllowTeleport>
 		<Portals>0x074a</Portals>
 	</World>
+	<World name="OceanTrench" display="Ocean Trench">
+		<Maps>OceanTrench/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+		<AllowTeleport>true</AllowTeleport>
+		<Portals>0x0730</Portals>
+	</World>
 </Worlds>

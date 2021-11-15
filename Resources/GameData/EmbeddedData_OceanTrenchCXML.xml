@@ -217,7 +217,7 @@
 		<HitSound>monster/medusa_hit</HitSound>
 		<DeathSound>monster/medusa_death</DeathSound>
 	        
-		<MaxHitPoints>69000</MaxHitPoints>
+		<MaxHitPoints>50000</MaxHitPoints>
 		<ShadowSize>0</ShadowSize>
 		<God/>
 		<StasisImmune/>

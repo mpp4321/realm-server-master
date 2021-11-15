@@ -15,7 +15,6 @@ namespace RotMG.Game.Logic.Database
             
 
             db.Init("Septavius the Ghost God",
-                new HealthTransition(0.3f, "warning") { SubIndex=0},
                 new DropPortalOnDeath(target: "Glowing Realm Portal"),
                 new TransformOnDeath("Ghost Mage of Septavius", 1, 3),
                 new TransformOnDeath("Ghost Rogue of Septavius", 1, 3),
@@ -28,6 +27,7 @@ namespace RotMG.Game.Logic.Database
                     new Spawn("Lair Ghost Paladin", 1, 1, cooldown: 2000),
                     new Spawn("Lair Ghost Warrior", 2, 2, cooldown: 3000),
                     new PlayerWithinTransition(8, "transition", seeInvis: true) { SubIndex = 1 },
+                    new HealthTransition(0.3f, "warning"),
                     new State("transition",
                         new Wander(speed: 0.1f),
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
@@ -41,13 +41,13 @@ namespace RotMG.Game.Logic.Database
                             new Wander(speed: 0.1f),
                             new Shoot(24, 3, 360 / 3, 1, 0, 16, cooldown: 300),
                             new Shoot(14, 3, 360 / 3, 0, 0, 16, cooldown: 150), 
-                            new TimedTransition("spiral1", 4000)
+                            new TimedTransition("spiral1", 4500)
                         ),
                         new State("spiral1",
                             new Wander(speed: 0.1f),
                             new Shoot(24, 3, 360 / 3, 1, 0, -16, cooldown: 300),
                             new Shoot(14, 3, 360 / 3, 0, 0, -16, cooldown: 150),
-                            new TimedTransition("spiral0", 4000)
+                            new TimedTransition("spiral0", 4500)
                         )
                     )
                 ),
@@ -58,28 +58,29 @@ namespace RotMG.Game.Logic.Database
                     new TimedTransition("ring", 1500)
                     ),
                 new State("ring",
-                    new TimedTransition("transition", 8000),
+                    new TimedTransition("transition", 1800) { SubIndex = 0 },
+                    new HealthTransition(0.3f, "warning"),
                     new Shoot(8, 3, 18, 2, predictive: 0.4f, cooldownVariance: 750, cooldown: 2250),
                     new TransitionFrom("ring", "ring0"),
                     new State("ring0",
                         new Shoot(8, 6, 360 / 6, 3, 0f, 24, cooldown: 1000),
                         new Wander(0.25f),
-                        new TimedTransition("ring1", 2000)
+                        new TimedTransition("ring1", 400)
                     ),
                     new State("ring1",
                         new Shoot(8, 6, 360 / 6, 3, 0f, -24, cooldown: 800),
                         new Follow(0.6f, 16, 4),
-                        new TimedTransition("ring2", 1500)
+                        new TimedTransition("ring2", 350)
                     ),
                     new State("ring2",
                         new Shoot(8, 6, 360 / 6, 3, 0f, 24, cooldown: 700),
                         new Follow(0.9f, 16, 3),
-                        new TimedTransition("ring3", 1000)
+                        new TimedTransition("ring3", 300)
                     ),
                     new State("ring3",
                         new Shoot(8, 6, 360 / 6, 3, 0f, -24, cooldown: 600),
                         new Follow(1.2f, 16, 2),
-                        new TimedRandomTransition(500, "ring4", "ring5")
+                        new TimedRandomTransition(250, "ring4", "ring5")
                     ),
                     new State("ring4",
                         new Shoot(8, 6, 360 / 6, 3, 0f, 24, cooldown: 500),
@@ -105,7 +106,8 @@ namespace RotMG.Game.Logic.Database
                         ),
                         new Follow(0.8f, range: 1),
                         new Wander(0.4f)
-                    )
+                    ),
+                    new TimedTransition("transition0", 6000)
                     ),
             new Threshold(0.0001f,
                 new ItemLoot("Undead Lair Key", 0.03f),

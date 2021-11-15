@@ -1090,7 +1090,7 @@
       <File>lofiObj2</File>
       <Index>0xb7</Index>
     </Texture>
-	  <AngleCorrection>1</AngleCorrection>
+    <AngleCorrection>1</AngleCorrection>
   </Object>
 
   <Object type="0x0087" id="Super Trident">
@@ -1135,7 +1135,8 @@
       <File>lofiProjs</File>
       <Index>0x32</Index>
     </Texture>
-  </Object>4181044
+  </Object>
+  4181044
   <Object type="0x008d" id="InkBubbles">
     <Class>Projectile</Class>
     <RandomTexture>
@@ -2745,7 +2746,8 @@
       <Index>0xda</Index>
     </Texture>
     <AngleCorrection>1</AngleCorrection>
-  </Object>    <Object type="0x2152" id="Pumpkin Projectile">
+  </Object>
+  <Object type="0x2152" id="Pumpkin Projectile">
     <Class>Projectile</Class>
     <Texture>
       <File>lofiObj5</File>
@@ -2770,9 +2772,9 @@
     <AngleCorrection>-1</AngleCorrection>
   </Object>
 
-  <Object type="0x2154" id="Thunder Cloud">
-    <Enemy/>
-    <Friendly/>
+  <Object type="0x2155" id="Thunder Cloud">
+    <Enemy />
+    <Friendly />
     <Class>Character</Class>
     <Texture>
       <File>lofiProjsBig</File>
@@ -2781,13 +2783,6 @@
     <Size>200</Size>
     <ShadowSize>40</ShadowSize>
     <ShadowColor>0xFFFF00</ShadowColor>
-  </Object>
-  <Object type="0x2155" id="Malphas Axe Projectile">
-    <Class>Projectile</Class>
-    <Texture>
-      <File>lofiObj2</File>
-      <Index>0xbd</Index>
-    </Texture>
   </Object>
 
 
@@ -2943,7 +2938,7 @@
       <File>lofiObj2</File>
       <Index>0x176</Index>
     </Texture>
-	<AngleCorrection>1</AngleCorrection>
+    <AngleCorrection>1</AngleCorrection>
   </Object>
   <Object type="0x2164" id="Crypt Bow Shot 2">
     <Class>Projectile</Class>
@@ -2951,7 +2946,7 @@
       <File>lofiObj2</File>
       <Index>0x177</Index>
     </Texture>
-	<AngleCorrection>1</AngleCorrection>
+    <AngleCorrection>1</AngleCorrection>
   </Object>
   <Object type="0x2165" id="Magma Bolt">
     <Class>Projectile</Class>
@@ -2993,706 +2988,706 @@
     </Animation>
     <Rotation>100</Rotation>
   </Object>
- <Object type="0x2168" id="Soul Orb">
+  <Object type="0x2168" id="Soul Orb">
     <Class>Projectile</Class>
     <Texture>
-       <File>lofiObj3</File>
-       <Index>0x517</Index>
+      <File>lofiObj3</File>
+      <Index>0x517</Index>
     </Texture>
     <AngleCorrection>2</AngleCorrection>
     <Rotation>180</Rotation>
- </Object>
- <Object type="0x2169" id="T0 Dagger">
-	<Class>Projectile</Class>
-	<Texture>
-		<File>lofiProjs</File>
-		<Index>0x80</Index>
-	</Texture>
-	<AngleCorrection>1</AngleCorrection>
- </Object>
-	<Object type="0x2170" id="T1 Dagger">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x81</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2171" id="T2 Dagger">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x82</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2172" id="T3 Dagger">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x83</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2173" id="T4 Dagger">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x84</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2174" id="T5 Dagger">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x85</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2175" id="T6 Dagger">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x86</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2176" id="T7 Dagger">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x87</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2177" id="T8 Dagger">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x88</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2178" id="T9 Dagger">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x89</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2179" id="T10 Dagger">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x8a</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2180" id="T11 Dagger">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x8b</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2181" id="T12 Dagger">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x8c</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2182" id="T13 Dagger">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x8d</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2183" id="Cyclops Hammershot">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x7d</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2184" id="T0 Bow">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x90</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2185" id="T1 Bow">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x91</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2186" id="T2 Bow">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x92</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2187" id="T3 Bow">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x93</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2188" id="T4 Bow">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x94</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2189" id="T5 Bow">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x95</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x218a" id="T6 Bow">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x96</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x218b" id="T7 Bow">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x97</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x218c" id="T8 Bow">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x98</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x218d" id="T9 Bow">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x99</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x218e" id="T10 Bow">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x9a</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x218f" id="T11 Bow">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x9b</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2190" id="T12 Bow">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x9c</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2191" id="T13 Bow">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0x9d</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2192" id="T0 Staff">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xa0</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2193" id="T1 Staff">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xa1</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2194" id="T2 Staff">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xa2</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2195" id="T3 Staff">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xa3</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2196" id="T4 Staff">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xa4</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2197" id="T5 Staff">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xa5</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2198" id="T6 Staff">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xa6</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x2199" id="T7 Staff">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xa7</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x219a" id="T8 Staff">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xa8</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x219b" id="T9 Staff">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xa9</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x219c" id="T10 Staff">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xaa</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x219d" id="T11 Staff">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xab</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x219e" id="T12 Staff">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xac</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x219f" id="T13 Staff">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xad</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21a0" id="T0 Wand">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xb0</Index>
-		</Texture>
-	</Object>
-	<Object type="0x21a1" id="T1 Wand">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xb1</Index>
-		</Texture>
-	</Object>
-	<Object type="0x21a2" id="T2 Wand">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xb2</Index>
-		</Texture>
-	</Object>
-	<Object type="0x21a3" id="T3 Wand">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xb3</Index>
-		</Texture>
-	</Object>
-	<Object type="0x21a4" id="T4 Wand">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xb4</Index>
-		</Texture>
-	</Object>
-	<Object type="0x21a5" id="T5 Wand">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xb5</Index>
-		</Texture>
-	</Object>
-	<Object type="0x21a6" id="T6 Wand">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xb6</Index>
-		</Texture>
-	</Object>
-	<Object type="0x21a7" id="T7 Wand">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xb7</Index>
-		</Texture>
-	</Object>
-	<Object type="0x21a8" id="T8 Wand">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xb8</Index>
-		</Texture>
-	</Object>
-	<Object type="0x21a9" id="T9 Wand">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xb9</Index>
-		</Texture>
-	</Object>
-	<Object type="0x21aa" id="T10 Wand">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xba</Index>
-		</Texture>
-	</Object>
-	<Object type="0x21ab" id="T11 Wand">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xbb</Index>
-		</Texture>
-	</Object>
-	<Object type="0x21ac" id="T12 Wand">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xbc</Index>
-		</Texture>
-	</Object>
-	<Object type="0x21ad" id="T13 Wand">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xbd</Index>
-		</Texture>
-	</Object>
-	<Object type="0x21ae" id="T0 Sword">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xc0</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21af" id="T1 Sword">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xc1</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21b0" id="T2 Sword">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xc2</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21b1" id="T3 Sword">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xc3</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21b2" id="T4 Sword">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xc4</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21b3" id="T5 Sword">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xc5</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21b4" id="T6 Sword">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xc6</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21b5" id="T7 Sword">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xc7</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21b6" id="T8 Sword">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xc8</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21b7" id="T9 Sword">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xc9</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21b8" id="T10 Sword">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xca</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21b9" id="T11 Sword">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xcb</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21ba" id="T12 Sword">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xcc</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21bb" id="T13 Sword">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xcd</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21bc" id="T0 Katana">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xd0</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21bd" id="T1 Katana">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xd1</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21be" id="T2 Katana">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xd2</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21bf" id="T3 Katana">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xd3</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21c0" id="T4 Katana">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xd4</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21c1" id="T5 Katana">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xd5</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21c2" id="T6 Katana">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xd6</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21c3" id="T7 Katana">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xd7</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21c4" id="T8 Katana">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xd8</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21c5" id="T9 Katana">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xd9</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21c6" id="T10 Katana">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xda</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21c7" id="T11 Katana">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xdb</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21c8" id="T12 Katana">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xdc</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21c9" id="T13 Katana">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjs</File>
-			<Index>0xdd</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21ca" id="Scythe Shot">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiProjsBig</File>
-			<Index>0x20</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21cb" id="Miasma">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj4</File>
-			<Index>0xe0</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x21cc" id="Boshy Time">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj2</File>
-			<Index>0x170</Index>
-		</Texture>
-	</Object>
+  </Object>
+  <Object type="0x2169" id="T0 Dagger">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x80</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2170" id="T1 Dagger">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x81</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2171" id="T2 Dagger">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x82</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2172" id="T3 Dagger">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x83</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2173" id="T4 Dagger">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x84</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2174" id="T5 Dagger">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x85</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2175" id="T6 Dagger">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x86</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2176" id="T7 Dagger">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x87</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2177" id="T8 Dagger">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x88</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2178" id="T9 Dagger">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x89</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2179" id="T10 Dagger">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x8a</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2180" id="T11 Dagger">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x8b</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2181" id="T12 Dagger">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x8c</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2182" id="T13 Dagger">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x8d</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2183" id="Cyclops Hammershot">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x7d</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2184" id="T0 Bow">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x90</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2185" id="T1 Bow">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x91</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2186" id="T2 Bow">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x92</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2187" id="T3 Bow">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x93</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2188" id="T4 Bow">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x94</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2189" id="T5 Bow">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x95</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x218a" id="T6 Bow">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x96</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x218b" id="T7 Bow">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x97</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x218c" id="T8 Bow">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x98</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x218d" id="T9 Bow">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x99</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x218e" id="T10 Bow">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x9a</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x218f" id="T11 Bow">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x9b</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2190" id="T12 Bow">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x9c</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2191" id="T13 Bow">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0x9d</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2192" id="T0 Staff">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xa0</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2193" id="T1 Staff">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xa1</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2194" id="T2 Staff">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xa2</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2195" id="T3 Staff">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xa3</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2196" id="T4 Staff">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xa4</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2197" id="T5 Staff">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xa5</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2198" id="T6 Staff">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xa6</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2199" id="T7 Staff">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xa7</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x219a" id="T8 Staff">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xa8</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x219b" id="T9 Staff">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xa9</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x219c" id="T10 Staff">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xaa</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x219d" id="T11 Staff">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xab</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x219e" id="T12 Staff">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xac</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x219f" id="T13 Staff">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xad</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21a0" id="T0 Wand">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xb0</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21a1" id="T1 Wand">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xb1</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21a2" id="T2 Wand">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xb2</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21a3" id="T3 Wand">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xb3</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21a4" id="T4 Wand">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xb4</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21a5" id="T5 Wand">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xb5</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21a6" id="T6 Wand">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xb6</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21a7" id="T7 Wand">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xb7</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21a8" id="T8 Wand">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xb8</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21a9" id="T9 Wand">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xb9</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21aa" id="T10 Wand">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xba</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21ab" id="T11 Wand">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xbb</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21ac" id="T12 Wand">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xbc</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21ad" id="T13 Wand">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xbd</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21ae" id="T0 Sword">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xc0</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21af" id="T1 Sword">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xc1</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21b0" id="T2 Sword">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xc2</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21b1" id="T3 Sword">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xc3</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21b2" id="T4 Sword">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xc4</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21b3" id="T5 Sword">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xc5</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21b4" id="T6 Sword">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xc6</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21b5" id="T7 Sword">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xc7</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21b6" id="T8 Sword">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xc8</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21b7" id="T9 Sword">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xc9</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21b8" id="T10 Sword">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xca</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21b9" id="T11 Sword">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xcb</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21ba" id="T12 Sword">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xcc</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21bb" id="T13 Sword">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xcd</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21bc" id="T0 Katana">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xd0</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21bd" id="T1 Katana">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xd1</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21be" id="T2 Katana">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xd2</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21bf" id="T3 Katana">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xd3</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21c0" id="T4 Katana">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xd4</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21c1" id="T5 Katana">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xd5</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21c2" id="T6 Katana">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xd6</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21c3" id="T7 Katana">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xd7</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21c4" id="T8 Katana">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xd8</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21c5" id="T9 Katana">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xd9</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21c6" id="T10 Katana">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xda</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21c7" id="T11 Katana">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xdb</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21c8" id="T12 Katana">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xdc</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21c9" id="T13 Katana">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjs</File>
+      <Index>0xdd</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21ca" id="Scythe Shot">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjsBig</File>
+      <Index>0x20</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21cb" id="Miasma">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj4</File>
+      <Index>0xe0</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21cc" id="Boshy Time">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0x170</Index>
+    </Texture>
+  </Object>
 
-  <Object type="0x500c" id="Black Planet Shot">
+  <Object type="0x21cd" id="Black Planet Shot">
     <Class>Projectile</Class>
     <Texture>
       <File>lofiEnvironment2</File>
@@ -3700,329 +3695,352 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-  <Object type="0x500d" id="Silence Bullet">
-      <Class>Projectile</Class>
-      <Texture>
-         <File>lofiObj3</File>
-         <Index>0x4BF</Index>
-      </Texture>
-      <Rotation>185</Rotation>
-   </Object>
-	<Object type="0x500e" id="Green Cube Magic">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj2</File>
-			<Index>0xb0</Index>
-		</Texture>
-		<Size>60</Size>
-	</Object>
-	<Object type="0x500f" id="Orange Cube Magic">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj2</File>
-			<Index>0xb1</Index>
-		</Texture>
-		<Size>70</Size>
-	</Object>
-	<Object type="0x5011" id="Blue Cube Magic">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj2</File>
-			<Index>0xb2</Index>
-		</Texture>
-		<Size>40</Size>
-	</Object>
-	<Object type="0x5012" id="Cube Magic">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj2</File>
-			<Index>0xb3</Index>
-		</Texture>
-		<Size>90</Size>
-	</Object>
-	<Object type="0x5013" id="Cube Dirk">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj2</File>
-			<Index>0xb4</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x5014" id="Ogmur">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj2</File>
-			<Index>0xa7</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x5015" id="QoT">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj2</File>
-			<Index>0xa6</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x5016" id="Orange Spike">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj2</File>
-			<Index>0x9d</Index>
-		</Texture>
-		<Size>70</Size>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x5017" id="Cube Star">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj2</File>
-			<Index>0x9e</Index>
-		</Texture>
-		<Size>60</Size>
-		<Rotation>150</Rotation>
-	</Object>
-	<Object type="0x5018" id="Dragon Attack Red Firewave">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObjBig</File>
-			<Index>0xbc</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x5019" id="Dragon Attack Red Big Fireball">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObjBig</File>
-			<Index>0xbd</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x501a" id="Dragon Attack Blue Fireball">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj3</File>
-			<Index>0x3b6</Index>
-		</Texture>
-		<Rotation>120</Rotation>
-	</Object>
-	<Object type="0x501b" id="Dragon Attack Blue Blast">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj3</File>
-			<Index>0x3b7</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x501c" id="Dragon Attack Blue Bullet">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj3</File>
-			<Index>0x3b8</Index>
-		</Texture>
-		<AngleCorrection>0</AngleCorrection>
-	</Object>
-	<Object type="0x501d" id="Dragon Attack Green Bullet">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj3</File>
-			<Index>0x3b9</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x501e" id="Dragon Attack Green Ball">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj3</File>
-			<Index>0x3ba</Index>
-		</Texture>
-	</Object>
-	<Object type="0x501f" id="Dragon Attack Green Spin Ball">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObjBig</File>
-			<Index>0xbe</Index>
-		</Texture>
-		<Rotation>100</Rotation>
-	</Object>
-	<Object type="0x5020" id="Dragon Attack Green Arrow">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObjBig</File>
-			<Index>0xbf</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x5021" id="Dragon Attack Green Spine">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj3</File>
-			<Index>0x3bb</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x5022" id="Dragon Attack Red Small Fireball">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj3</File>
-			<Index>0x3bc</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x5023" id="Dragon Attack Black Ray">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObjBig</File>
-			<Index>0xbb</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x5024" id="Dragon Attack Black Spin">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj3</File>
-			<Index>0x3b1</Index>
-		</Texture>
-		<Rotation>100</Rotation>
-	</Object>
-	<Object type="0x5025" id="Dragon Attack Black Shot">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj3</File>
-			<Index>0x3b2</Index>
-		</Texture>
-		<AngleCorrection>1</AngleCorrection>
-	</Object>
-	<Object type="0x5026" id="Dragon Attack Black Bullet">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj3</File>
-			<Index>0x3b3</Index>
-		</Texture>
-	</Object>
-	<Object type="0x5027" id="Dragon Attack Red Orb">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj3</File>
-			<Index>0x3b4</Index>
-		</Texture>
-	</Object>
-	<Object type="0x5028" id="Dragon Attack Red Spinning Fireball">
-		<Class>Projectile</Class>
-		<Texture>
-			<File>lofiObj3</File>
-			<Index>0x3b5</Index>
-		</Texture>
-		<Rotation>100</Rotation>
-	</Object>
-  <Object type="0x235A" id="Fairy Bullet">
-     <Class>Projectile</Class>
-     <Texture>
-        <File>lofiObj3</File>
-        <Index>0x51C</Index>
-     </Texture>
-     <AngleCorrection>1</AngleCorrection>
+  <Object type="0x21ce" id="Silence Bullet">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x4BF</Index>
+    </Texture>
+    <Rotation>185</Rotation>
   </Object>
-  <Object type="0x214f" id="Moth Dust">
-      <Class>Projectile</Class>
-      <RandomTexture>
-         <Texture>
-            <File>lofiObj3</File>
-            <Index>0x39c</Index>
-         </Texture>
-         <Texture>
-            <File>lofiObj3</File>
-            <Index>0x39d</Index>
-         </Texture>
-         <Texture>
-            <File>lofiObj3</File>
-            <Index>0x39e</Index>
-         </Texture>
-         <Texture>
-            <File>lofiObj3</File>
-            <Index>0x39f</Index>
-         </Texture>
-         <Texture>
-            <File>lofiObj3</File>
-            <Index>0x3a0</Index>
-         </Texture>
-      </RandomTexture>
-      <Rotation>350</Rotation>
-   </Object>
-   <Object type="0x2150" id="Small Moth Bullet">
-      <Class>Projectile</Class>
+  <Object type="0x21cf" id="Green Cube Magic">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0xb0</Index>
+    </Texture>
+    <Size>60</Size>
+  </Object>
+  <Object type="0x21d0" id="Orange Cube Magic">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0xb1</Index>
+    </Texture>
+    <Size>70</Size>
+  </Object>
+  <Object type="0x21d1" id="Blue Cube Magic">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0xb2</Index>
+    </Texture>
+    <Size>40</Size>
+  </Object>
+  <Object type="0x21d2" id="Cube Magic">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0xb3</Index>
+    </Texture>
+    <Size>90</Size>
+  </Object>
+  <Object type="0x21d3" id="Cube Dirk">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0xb4</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21d4" id="Ogmur">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0xa7</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21d5" id="QoT">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0xa6</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21d6" id="Orange Spike">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0x9d</Index>
+    </Texture>
+    <Size>70</Size>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21d7" id="Cube Star">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0x9e</Index>
+    </Texture>
+    <Size>60</Size>
+    <Rotation>150</Rotation>
+  </Object>
+  <Object type="0x21d8" id="Dragon Attack Red Firewave">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObjBig</File>
+      <Index>0xbc</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21d9" id="Dragon Attack Red Big Fireball">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObjBig</File>
+      <Index>0xbd</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21da" id="Dragon Attack Blue Fireball">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x3b6</Index>
+    </Texture>
+    <Rotation>120</Rotation>
+  </Object>
+  <Object type="0x21db" id="Dragon Attack Blue Blast">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x3b7</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21dc" id="Dragon Attack Blue Bullet">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x3b8</Index>
+    </Texture>
+    <AngleCorrection>0</AngleCorrection>
+  </Object>
+  <Object type="0x21de" id="Dragon Attack Green Bullet">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x3b9</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21df" id="Dragon Attack Green Ball">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x3ba</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21e0" id="Dragon Attack Green Spin Ball">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObjBig</File>
+      <Index>0xbe</Index>
+    </Texture>
+    <Rotation>100</Rotation>
+  </Object>
+  <Object type="0x21e1" id="Dragon Attack Green Arrow">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObjBig</File>
+      <Index>0xbf</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21e2" id="Dragon Attack Green Spine">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x3bb</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21e3" id="Dragon Attack Red Small Fireball">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x3bc</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21e4" id="Dragon Attack Black Ray">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObjBig</File>
+      <Index>0xbb</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21e5" id="Dragon Attack Black Spin">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x3b1</Index>
+    </Texture>
+    <Rotation>100</Rotation>
+  </Object>
+  <Object type="0x21e6" id="Dragon Attack Black Shot">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x3b2</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21e7" id="Dragon Attack Black Bullet">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x3b3</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21e8" id="Dragon Attack Red Orb">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x3b4</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21e9" id="Dragon Attack Red Spinning Fireball">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x3b5</Index>
+    </Texture>
+    <Rotation>100</Rotation>
+  </Object>
+  <Object type="0x21f0" id="Fairy Bullet">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x51C</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21f1" id="Moth Dust">
+    <Class>Projectile</Class>
+    <RandomTexture>
       <Texture>
-         <File>lofiObj3</File>
-         <Index>0x3a1</Index>
+        <File>lofiObj3</File>
+        <Index>0x39c</Index>
       </Texture>
-      <AngleCorrection>1</AngleCorrection>
-   </Object>
-   <Object type="0x2151" id="Leaf Magic">
-      <Class>Projectile</Class>
       <Texture>
-         <File>lofiObj3</File>
-         <Index>0x3a2</Index>
+        <File>lofiObj3</File>
+        <Index>0x39d</Index>
       </Texture>
-      <AngleCorrection>1</AngleCorrection>
-   </Object>
-   <Object type="0x2152" id="Acorn">
-      <Class>Projectile</Class>
       <Texture>
-         <File>lofiObj3</File>
-         <Index>0x3a3</Index>
+        <File>lofiObj3</File>
+        <Index>0x39e</Index>
       </Texture>
-      <Rotation>120</Rotation>
-   </Object>
-   <Object type="0x2153" id="Fire Bust Shot">
-      <Class>Projectile</Class>
       <Texture>
-         <File>lofiObj3</File>
-         <Index>0x3b0</Index>
+        <File>lofiObj3</File>
+        <Index>0x39f</Index>
       </Texture>
-      <AngleCorrection>1</AngleCorrection>
-   </Object>
-   <Object type="0x2154" id="Fire Storm">
-      <Class>Projectile</Class>
-      <RandomTexture>
-         <Texture>
-            <File>lofiObjBig</File>
-            <Index>0xb3</Index>
-         </Texture>
-         <Texture>
-            <File>lofiObjBig</File>
-            <Index>0xb4</Index>
-         </Texture>
-         <Texture>
-            <File>lofiObjBig</File>
-            <Index>0xb4</Index>
-         </Texture>
-         <Texture>
-            <File>lofiObjBig</File>
-            <Index>0xba</Index>
-         </Texture>
-      </RandomTexture>
-      <Rotation>80</Rotation>
-   </Object>
-   <Object type="0xf000" id="Earth's Remembrance 2">
+      <Texture>
+        <File>lofiObj3</File>
+        <Index>0x3a0</Index>
+      </Texture>
+    </RandomTexture>
+    <Rotation>350</Rotation>
+  </Object>
+  <Object type="0x21f2" id="Small Moth Bullet">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x3a1</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21f3" id="Leaf Magic">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x3a2</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21f4" id="Acorn">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x3a3</Index>
+    </Texture>
+    <Rotation>120</Rotation>
+  </Object>
+  <Object type="0x21f5" id="Fire Bust Shot">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x3b0</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21f6" id="Fire Storm">
+    <Class>Projectile</Class>
+    <RandomTexture>
+      <Texture>
+        <File>lofiObjBig</File>
+        <Index>0xb3</Index>
+      </Texture>
+      <Texture>
+        <File>lofiObjBig</File>
+        <Index>0xb4</Index>
+      </Texture>
+      <Texture>
+        <File>lofiObjBig</File>
+        <Index>0xb4</Index>
+      </Texture>
+      <Texture>
+        <File>lofiObjBig</File>
+        <Index>0xba</Index>
+      </Texture>
+    </RandomTexture>
+    <Rotation>80</Rotation>
+  </Object>
+  <Object type="0x21f7" id="Earth's Remembrance 2">
     <Class>Projectile</Class>
     <Texture>
       <File>CustomItems</File>
       <Index>0x1c</Index>
     </Texture>
     <Rotation>222</Rotation>
-   </Object>
-   <Object type="0x2155" id="Arcane Bolt">
-       <Class>Projectile</Class>
-       <RandomTexture>
-         <Texture>
-           <File>CustomItems</File>
-           <Index>0xF7</Index>
-         </Texture>
-         <Texture>
-           <File>CustomItems</File>
-           <Index>0xF8</Index>
-         </Texture>
-       </RandomTexture>
-       <AngleCorrection>1</AngleCorrection>
-    </Object>
-  </Objects>
+  </Object>
+  <Object type="0x21f9" id="Spooky Sparkle">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x53E</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21fa" id="Ancient Magic">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj3</File>
+      <Index>0x542</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21fb" id="Arcane Bolt">
+    <Class>Projectile</Class>
+    <RandomTexture>
+      <Texture>
+        <File>CustomItems</File>
+        <Index>0xF7</Index>
+      </Texture>
+      <Texture>
+        <File>CustomItems</File>
+        <Index>0xF8</Index>
+      </Texture>
+    </RandomTexture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x21FC" id="Malphas Axe Projectile">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0xbd</Index>
+    </Texture>
+  </Object>
+</Objects><!--next avaliable is 0x21f9-->

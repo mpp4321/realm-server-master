@@ -14,11 +14,11 @@ namespace RotMG.Game.Logic.Database
             db.Init("Fairy",
                 new StayCloseToSpawn(1, 13),
                 new Prioritize(
-                    new Protect(1.2f, "Beefy Fairy", 15, 8,
+                    new Protect(0.8f, "Beefy Fairy", 15, 8,
                         6),
-                    new Orbit(1.2f, 4, 7)
+                    new Orbit(0.6f, 4, 7)
                 ),
-                new Wander(0.6f),
+                new Wander(0.25f),
                 new Shoot(10, 2, 30, 0, predictive: 1,
                     cooldown: 2000),
                 new Shoot(10, 1, index: 0, predictive: 1, cooldown: 2000,
@@ -28,11 +28,11 @@ namespace RotMG.Game.Logic.Database
             db.Init("Beefy Fairy",
                 new StayCloseToSpawn(1, 13),
                 new Prioritize(
-                    new Protect(1.2f, "Beefy Fairy", 15, 8,
+                    new Protect(0.8f, "Beefy Fairy", 15, 8,
                         6),
-                    new Orbit(1.2f, 4, 7)
+                    new Orbit(0.6f, 4, 7)
                 ),
-                new Wander(0.6f),
+                new Wander(0.35f),
                 new Shoot(10, 2, 30, 0, predictive: 1,
                     cooldown: 2000),
                 new Shoot(10, 1, index: 0, predictive: 1, cooldown: 2000,
@@ -50,7 +50,7 @@ namespace RotMG.Game.Logic.Database
                     new StayBack(0.5f, 7)
                 ),
                 new StayCloseToSpawn(1.35f, 13),
-                new Wander(0.4f)
+                new Wander(0.2f)
             );
 
             db.Init("Small Creampuff",
@@ -70,9 +70,7 @@ namespace RotMG.Game.Logic.Database
                     cooldown: 1000),
                 new StayCloseToSpawn(1.3f, 13),
                 new Prioritize(
-                    new Charge(1.3f, 13, 2500),
-                    new Protect(0.8f, "Big Creampuff", 15, 7,
-                        6)
+                    new Charge(1.3f, 13, 2500)
                 ),
                 new Wander(0.6f)
             );
@@ -100,13 +98,14 @@ namespace RotMG.Game.Logic.Database
             );
 
             db.Init("Spilled Icecream",
+                new StayBack(0.5f, 3, "Spilled Icecream"),
                 new Prioritize(
-                    new Charge(1.4f, 11, 3800),
+                    new Charge(0.7f, 7, 3800),
                     new StayBack(0.8f, 6)
                 ),
                 new State("Start",
                     new State("Shoot",
-                        new Shoot(10, 1, index: 0, predictive: 1, cooldown: 200),
+                        new Shoot(10, 1, index: 0, predictive: 1, cooldown: 300),
                         new TimedTransition("ShootPause", 850)
                     ),
                     new State("ShootPause",
@@ -126,7 +125,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(10, 3, 15, 0, predictive: 1,
                         cooldown: 1400),
                     new Grenade(radius: 5, damage: 100, range: 8, cooldown: 3000),
-                    new Shoot(10, 1, index: 1, predictive: 1, cooldown: 2000),
+                    new Shoot(10, 1, index: 0, predictive: 1, cooldown: 2000),
                     new State("Choose",
                         new TimedRandomTransition(3800, "Run", "Attack")
                     ),
@@ -141,9 +140,9 @@ namespace RotMG.Game.Logic.Database
                     new HealthTransition(0.6f, "NextAttack")
                 ),
                 new State("NextAttack",
-                    new Shoot(10, 5, 10, 1, predictive: 0.5f,
+                    new Shoot(10, 5, 10, 0, predictive: 0.5f,
                         angleOffset: 0.4f, cooldown: 2000),
-                    new Shoot(10, 1, index: 1, predictive: 1, cooldown: 2000),
+                    new Shoot(10, 1, index: 0, predictive: 1, cooldown: 2000),
                     new Shoot(10, 3, 15, 0, predictive: 1,
                         angleOffset: 1, cooldown: 4000),
                     new Grenade(radius: 5, damage: 100, range: 8, cooldown: 3000),
@@ -215,7 +214,7 @@ namespace RotMG.Game.Logic.Database
             );
 
             db.Init("MegaRototo",
-                    new Reproduce(children: "Tiny Rototo", densityRadius: 12, densityMax: 7, cooldown: 7000),
+                    new Reproduce(children: "Tiny Rototo", densityRadius: 6, densityMax: 3, cooldown: 7000),
                     new State("Follow",
                         new Prioritize(
                             new Follow(speed: 0.45f, acquireRange: 11, range: 5),
@@ -230,21 +229,20 @@ namespace RotMG.Game.Logic.Database
                         new Shoot(12, count: 3, shootAngle: 16, index: 1, predictive: 0.6f, cooldown: 1200),
                         new Shoot(12, count: 3, shootAngle: 16, index: 0, predictive: 0.9f, cooldown: 600),
                         new StayBack(speed: 0.5f, distance: 10, entity: null),
-                        new TimedTransition(time: 2400, targetState: "Follow")
+                        new TimedTransition("Follow", 2400)
                     ),
                     new State("FlameThrower",
-                        new State("FB1ORFB2",
-                            new TimedRandomTransition(0, "FB1", "FB2")
-                        ),
+                        new TransitionFrom("Flamethrower", "FB1"),
+                        new TimedTransition("Follow", 4000),
                         new State("FB1",
                             new Shoot(12, count: 2, shootAngle: 16, index: 2, cooldown: 1, cooldownOffset: 400),
-                            new Shoot(12, count: 1, index: 3, cooldown: 1, cooldownOffset: 400)
+                            new Shoot(12, count: 1, index: 3, cooldown: 1, cooldownOffset: 400),
+                            new TimedTransition("FB2", 2000)
                         ),
                         new State("FB2",
                             new Shoot(12, count: 2, shootAngle: 16, index: 3, cooldown: 1, cooldownOffset: 400),
                             new Shoot(12, count: 1, index: 2, cooldown: 1, cooldownOffset: 400)
-                        ),
-                        new TimedTransition(time: 4000, targetState: "Follow")
+                        )
                     ),
                 new Threshold(0.01f,
                     new ItemLoot(item: "Ring Pop", 0.02f),
@@ -368,7 +366,7 @@ namespace RotMG.Game.Logic.Database
                 )
             );
             db.Init("Swoll Fairy",
-                    new Spawn(children: "Fairy", maxChildren: 6, initialSpawn: 0, cooldown: 10000, givesNoXp: false),
+                    new Spawn(children: "Fairy", maxChildren: 2, initialSpawn: 0, cooldown: 10000, givesNoXp: false),
                     new StayCloseToSpawn(speed: 0.6f, range: 13),
                     new Prioritize(
                         new Follow(speed: 0.3f, acquireRange: 10, range: 5)
@@ -547,7 +545,33 @@ namespace RotMG.Game.Logic.Database
                         new NoPlayerWithinTransition(dist: 4, targetState: "Moving")
                     )
             );
+            db.Init("Rototo",
+                new Prioritize(
+                        new Orbit(speed: 0.4f, 4, acquireRange: 10, target: "MegaRototo"),
+                        new Protect(speed: 0.8f, protectee: "Rototo", acquireRange: 15, protectionRange: 7, reprotectRange: 6)
+                    ),
+                    new State("Main",
+                        new TransitionFrom("Main", "Unaware"),
+                        new State("Unaware",
+                            new Prioritize(
+                                new Orbit(speed: 0.4f, 2.6f, acquireRange: 8, target: "Rototo", speedVariance: 0.2f, radiusVariance: 0.2f, orbitClockwise: true),
+                                new Wander(speed: 0.35f)
+                            ),
+                            new PlayerWithinTransition(dist: 3.4f, targetState: "Attack"),
+                            new HealthTransition(threshold: 0.999f, targetState: "Attack")
+                            ),
+                        new State("Attack",
+                            new Shoot(0, count: 4, shootAngle: 90, index: 1, defaultAngle: 45, cooldown: 1400),
+                            new Shoot(0, count: 4, shootAngle: 90, index: 0, cooldown: 1400),
+                            new Prioritize(
+                                new Follow(speed: 0.3f, acquireRange: 8, range: 3, duration: 3000, cooldown: 2000),
+                                new Charge(speed: 0.5f, range: 11, coolDown: 1000),
+                                new Wander(speed: 0.35f)
+                            )
+                        )
+                    )
 
+            );
         }
 
     }
