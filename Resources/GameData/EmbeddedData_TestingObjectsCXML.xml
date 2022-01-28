@@ -76,7 +76,7 @@
 			<PassesCover/>
 		</Projectile>
 
-		<Projectile id="13">					
+		<Projectile id="7">					
 			<ObjectId>Dark Gray Spinner</ObjectId>
 			<Speed>90</Speed>
 			<Size>100</Size>
@@ -86,7 +86,7 @@
 			
 			<PassesCover/>
 		</Projectile>
-		<Projectile id="14">					
+		<Projectile id="8">					
 			<ObjectId>Gray Spinner</ObjectId>
 			<Speed>90</Speed>
 			<Size>100</Size>

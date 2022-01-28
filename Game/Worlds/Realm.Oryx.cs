@@ -477,6 +477,7 @@ namespace RotMG.Game.Worlds
                     Tuple.Create("Big Green Slime", 0.08),
                     Tuple.Create("Swarm", 0.05),
                     Tuple.Create("Wasp Queen", 0.2),
+                    Tuple.Create("Destructo Slime", 0.04),
                     Tuple.Create("Shambling Sludge", 0.03),
                     Tuple.Create("Orc King", 0.06),
                     Tuple.Create("Candy Gnome", 0.02)

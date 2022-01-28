@@ -896,142 +896,30 @@
    </Object>
   <Object type="0x5011" id="Destructo Slime">
     <Group>Slime</Group>
-    <Class>Character</Class>
     <Enemy/>
+    <Class>Character</Class>
+    <Hero/>
     <Quest/>
+    <God/>
     <Encounter/>
+    <StasisImmune/>
     <Level>20</Level>
+    <PerRealmMax>1</PerRealmMax>
 	<AnimatedTexture>
 	  <File>d3Chars16x16rEmbed</File>
-	  <Index>36</Index>
+	  <Index>35</Index>
 	</AnimatedTexture>
     <HitSound>monster/slimes_hit</HitSound>
     <DeathSound>monster/slimes_death</DeathSound>
-    <MaxHitPoints>6000</MaxHitPoints>
-	<Terrain>MidPlains</Terrain>
-	<SpawnProb>1.0</SpawnProb>
+    <MaxHitPoints>20000</MaxHitPoints>
 	<Projectile>
 		<ObjectId>Red Fire</ObjectId>
 		<Speed>70</Speed>
 		<Damage>130</Damage>
 		<LifetimeMS>1200</LifetimeMS>
-		<Size>200</Size>
-	</Projectile>
-	<Projectile id="1">
-		<ObjectId>Aqua Slash</ObjectId>
-		<Speed>140</Speed>
-		<Damage>40</Damage>
-		<LifetimeMS>600</LifetimeMS>
 	</Projectile>
     <Size>140</Size>
     <Defense>30</Defense>
     <XpMult>0.3</XpMult>
-  </Object>
-  <Object type="0x5012" id="Box of Doom">
-    <Class>Character</Class>
-    <Encounter/>
-    <Enemy/>
-    <Level>69</Level>
-	<AnimatedTexture>
-	  <File>d3Chars16x16rEmbed</File>
-	  <Index>37</Index>
-	</AnimatedTexture>
-    <HitSound>monster/slimes_hit</HitSound>
-    <DeathSound>monster/slimes_death</DeathSound>
-    <MaxHitPoints>69000</MaxHitPoints>
-	<Projectile>
-		<ObjectId>Red Fire</ObjectId>
-		<Speed>70</Speed>
-		<Damage>130</Damage>
-		<LifetimeMS>1200</LifetimeMS>
-		<Size>200</Size>
-	</Projectile>
-	<Projectile id="1">
-		<ObjectId>Aqua Slash</ObjectId>
-		<Speed>140</Speed>
-		<Damage>40</Damage>
-		<LifetimeMS>600</LifetimeMS>
-	</Projectile>
-    <Size>140</Size>
-    <Defense>90</Defense>
-    <XpMult>0.3</XpMult>
-  </Object>
-  <Object type="0x5013" id="Armoured Minotaur">
-    <Class>Character</Class>
-    <Encounter/>
-    <Level>20</Level>
-    <Enemy/>
-	<Texture>
-	  <File>lofiCharBig</File>
-	  <Index>0x10</Index>
-	</Texture>
-	<HitSound>monster/ogres_hit</HitSound>
-	<DeathSound>monster/ogres_death</DeathSound>
-    <MaxHitPoints>9000</MaxHitPoints>
-	<Projectile id="0">
-		<ObjectId>Fire Boomerang</ObjectId>
-		<Speed>50</Speed>
-		<Damage>200</Damage>
-		<LifetimeMS>1500</LifetimeMS>
-		<Size>200</Size>
-		<ConditionEffect duration="2.0">Bleeding</ConditionEffect>
-	</Projectile>
-	<Projectile id="1">
-		<ObjectId>Purple Boomerang</ObjectId>
-		<Speed>140</Speed>
-		<Damage>15</Damage>
-		<LifetimeMS>500</LifetimeMS>
-		<Size>100</Size>
-		<ConditionEffect duration="1.0">Confused</ConditionEffect>
-	</Projectile>
-	<Projectile id="2">
-		<ObjectId>Blue Boomerang</ObjectId>
-		<Speed>200</Speed>
-		<Damage>15</Damage>
-		<LifetimeMS>2000</LifetimeMS>
-		<Size>50</Size>
-		<ConditionEffect duration="0.3">Paralyzed</ConditionEffect>
-	</Projectile>
-	<Projectile id="3">
-		<ObjectId>Blade</ObjectId>
-		<Speed>100</Speed>
-		<Damage>60</Damage>
-		<LifetimeMS>1500</LifetimeMS>
-		<Size>200</Size>
-	</Projectile>
-    <Size>200</Size>
-    <Defense>30</Defense>
-    <XpMult>5.0</XpMult>
-  </Object>
-  <Object type="0x5014" id="Fire Slime">
-		<Group>Gods</Group>
-		<Enemy/>
-		<Class>Character</Class>
-		<Texture>
-		  <File>lofiCharBig</File>
-		  <Index>0x11</Index>
-		</Texture>
-		<HitSound>monster/slimes_hit</HitSound>
-		<DeathSound>monster/slimes_death</DeathSound>
-		<Size>100</Size>
-		<MaxHitPoints>2000</MaxHitPoints>
-		<Defense>24</Defense>
-		<Terrain>Mountains</Terrain>
-		<SpawnProb>1.0</SpawnProb>
-		<God/>
-		<Projectile id="0">
-			<ObjectId>Red Fire</ObjectId>
-			<Damage>80</Damage>
-			<Speed>50</Speed>
-			<Size>200</Size>
-			<LifetimeMS>1100</LifetimeMS>
-		</Projectile>
-		<Projectile id="1">
-			<ObjectId>Purple Star</ObjectId>
-			<Damage>0</Damage>
-			<Speed>70</Speed>
-			<LifetimeMS>2000</LifetimeMS>
-			<ConditionEffect duration="6">Slowed</ConditionEffect>
-		</Projectile>
   </Object>
 </Objects>

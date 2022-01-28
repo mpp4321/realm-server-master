@@ -283,5 +283,17 @@ namespace RotMG.Utils
             }
             return nearest;
         }
+        public static void ShowEffectRange(Player sender, World Parent, Vector2 Position, float range, byte[] bytes)
+        {
+            foreach (var j in Parent.PlayerChunks.HitTest(Position, range))
+            {
+                if (j is Player k)
+                {
+                    if (k.Client.Account.Effects || k.Equals(sender))
+                        k.Client.Send(bytes);
+                }
+            }
+        }
     }
+
 }

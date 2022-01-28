@@ -30,8 +30,14 @@ namespace RotMG.Common
         {
             if (File.Exists(Path))
             {
-                Data = XElement.Parse(File.ReadAllText(Path));
-                Load();
+                try
+                {
+                    Data = XElement.Parse(File.ReadAllText(Path));
+                    Load();
+                } catch(Exception e)
+                {
+                    Console.WriteLine("failed to load " + Path);
+                }
             } else
             {
                 Console.WriteLine("Failed to load " + Path);

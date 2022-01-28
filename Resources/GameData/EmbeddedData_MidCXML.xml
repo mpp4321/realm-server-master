@@ -514,10 +514,6 @@
 		<MaxHitPoints>130</MaxHitPoints>
 		<Defense>0</Defense>
 		<Terrain>MidPlains</Terrain>
-
-
-		
-
 	</Object>
 
 	<Object type="0x62c" id="Orc King">
@@ -641,6 +637,7 @@
 
 	<Object type="0x020e" id="Big Green Slime">
 		<Class>Character</Class>
+		<Group>Slime</Group>
 		<Texture>
 			<File>lofiChar8x8</File>
 			<Index>0xb2</Index>
@@ -663,6 +660,7 @@
 
 	<Object type="0x020f" id="Little Green Slime">
 		<Class>Character</Class>
+		<Group>Slime</Group>
 		<Texture>
 			<File>lofiChar8x8</File>
 			<Index>0xb2</Index>

@@ -23,7 +23,8 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
         public void OnTick(Player p)
         {
             float hpRegenPerTick = p.GetHPRegen() * Settings.SecondsPerTick;
-            if(p.Hp > ((int)(p.SVs[StatType.MaxHp]) / 2))
+            var maxHp = p.SVs.GetValueOrDefault(StatType.MaxHp, 0);
+            if(p.Hp > ((int)(maxHp) / 2))
             {
                 p.Hp -= (int)(hpRegenPerTick + 2);
             }

@@ -190,14 +190,13 @@ namespace RotMG.Game.Logic.Database
                         )
                     ),
                     new Threshold(0.0001f,
-                        new ItemLoot("Conducting Wand", 0.004f),
-                        new ItemLoot("Scepter of Fulmination", 0.001f, threshold: 0.01f),
-                        new ItemLoot("Robe of the Mad Scientist", 0.006f),
-                        new ItemLoot("Experimental Ring", 0.006f),//Power Battery
+                        new ItemLoot("Conducting Wand", 0.01f, threshold: 0.01f),
+                        new ItemLoot("Scepter of Fulmination", 0.02f, threshold: 0.01f),
+                        new ItemLoot("Robe of the Mad Scientist", 0.02f, threshold: 0.01f),
+                        new ItemLoot("Experimental Ring", 0.05f, threshold: 0.01f),//Power Battery
                         new ItemLoot("Wine Cellar Incantation", 0.05f),
                         //new ItemLoot("Power Battery", 0.0045f, threshold: 0.01f),
-                        new ItemLoot("Potion of Wisdom", 0.3f, 3),
-                        new ItemLoot("Potion of Wisdom", 0.3f, 3),
+                        new ItemLoot("Potion of Wisdom", 1f),
                         new TierLoot(8, LootType.Weapon, 0.25f),
                         new TierLoot(9, LootType.Weapon, 0.125f),
                         new TierLoot(10, LootType.Weapon, 0.0625f),
@@ -385,7 +384,7 @@ namespace RotMG.Game.Logic.Database
                     new EntitiesNotExistsTransition(50, "OFF", "Dr Terrible"),
                     new State("OFF"),
                     new State("ON",
-                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 300)
+                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 1000)
                     )
                     )
             );
@@ -395,7 +394,7 @@ namespace RotMG.Game.Logic.Database
                     new EntitiesNotExistsTransition(50, "OFF", "Dr Terrible"),
                     new State("OFF"),
                     new State("ON",
-                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 300)
+                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 1000)
                     )
                     )
             );
@@ -405,7 +404,7 @@ namespace RotMG.Game.Logic.Database
                     new EntitiesNotExistsTransition(50, "OFF", "Dr Terrible"),
                     new State("OFF"),
                     new State("ON",
-                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 300)
+                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 1000)
                     )
                     )
             );
@@ -415,9 +414,9 @@ namespace RotMG.Game.Logic.Database
                     new EntitiesNotExistsTransition(50, "OFF", "Dr Terrible"),
                     new State("OFF"),
                     new State("ON",
-                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 300)
+                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 1000)
                     )
-                    )
+                )
             );
             db.Init("Turret Attack",
                 new State("base",
@@ -471,12 +470,15 @@ namespace RotMG.Game.Logic.Database
                     )
                 );
             db.Init("Mad Lab Open Wall",
+                new ClearRectangleOnDeath(new IntPoint(10, 21), new IntPoint(13, 21)),
                 new State("base",
                     new ConditionalEffect(ConditionEffectIndex.Invincible),
                     new State("1",
                         new EntitiesNotExistsTransition(99, "2", "Dr Terrible")
                     ),
-                    new State("2")
+                    new State("2",
+                        new Suicide()
+                    )
                 )
             );
             db.Init("Horrific Creation Summoner",
@@ -505,6 +507,7 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new State("3",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new TransitionFrom("3", "4"),
                         new EntitiesWithinTransition(1, "Hexxer", "10"),
                         new State("4",
                             new SetAltTexture(0),
@@ -537,11 +540,11 @@ namespace RotMG.Game.Logic.Database
                             ),
                         new State("9",
                             new Shoot(999, 8, 45, 3, 0, 0, cooldown: 999999),
-                            new TimedTransition("3", 2500)
+                            new TimedTransition("3", 2500) { SubIndex = 3 }
                             )
                         ),
                     new State("10",
-                        new TimedRandomTransition(100, "a12", "a13", "a14", "a15", "a16", "a17")
+                        new TimedRandomTransition(100, "a12", "a13", "a14", "a15", "a16", "a17") { SubIndex = 2 }
                         ),
                     new State("a12",
                         new SetAltTexture(2),
@@ -583,8 +586,8 @@ namespace RotMG.Game.Logic.Database
                         new ItemLoot("Conducting Wand", 0.008f, threshold: 0.01f),
                         new ItemLoot("Experimental Ring", 0.04f, threshold: 0.01f),
                         new ItemLoot("Wine Cellar Incantation", 0.05f),
-                        new ItemLoot("Potion of Wisdom", .30f),
-                        new ItemLoot("Potion of Defense", 0.3f, 3),
+                        new ItemLoot("Potion of Wisdom", 1.0f),
+                        new ItemLoot("Potion of Defense", 0.3f, 0.5f, min: 3),
                         //new ItemLoot("Grotesque Scepter", 0.006f,  threshold: 0.01f),
                         //new ItemLoot("Garment of the Beast", 0.006f, threshold: 0.01f),
                         //new ItemLoot("Power Battery", 0.008f, threshold: 0.01f),

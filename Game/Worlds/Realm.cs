@@ -49,9 +49,16 @@ namespace RotMG.Game.Worlds
             if (AliveTime % 20000 == 0)
                 OryxTaunt();
 
-            //Close every hour, using 1 - 360xxx because itll close right when it opens lol
-            //Ends in 2 0 because tick speed is 100 increm
-            if (AliveTime % 3600000 == 3599900)
+            // Closes every 20 mins AliveTime > 0 needed because it'll close at AliveTime = 0
+
+            if (AliveTime % 300000 == 0 && AliveTime > 0)
+            {
+                // Oryx warn close
+                foreach (var player in Players.Values)
+                    player.SendInfo("The realm is closing in 5 minutes; mortals prepare to meet your demise!");
+            }
+
+            if (AliveTime % 1200000 == 0 && AliveTime > 0)
                 Close();
             
             base.Tick();

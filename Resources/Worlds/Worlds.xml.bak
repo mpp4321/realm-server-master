@@ -48,14 +48,8 @@
 		<Maps>OryxChamber/0.jm</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
-		<Portals>0x0d7b</Portals>
+		<Portals></Portals>
 		<AllowTeleport>true</AllowTeleport>
-	</World>
-	<World name="WineCellar" display="Wine Cellar">
-		<Maps>WineCellar/0.wmap</Maps>
-		<Background>0</Background>
-		<BlockSight>1</BlockSight>
-		<Portals>0x0757</Portals>
 	</World>
 	<World name="Pirate Cave" display="Pirate Cave">
 		<Maps>PirateCave/0.jm</Maps>

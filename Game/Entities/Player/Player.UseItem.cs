@@ -243,6 +243,27 @@ namespace RotMG.Game.Entities
             var statForScale = ParseStatForScale(eff.StatForScale);
             switch (eff.Index)
             {
+                case ActivateEffectIndex.UnlockPortal:
+                    {
+                        var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, Id, 0xffffa500, new Vector2(3.0f, 0));
+                        foreach(Portal portal in this.GetNearbyEntities(3.0f).OfType<Portal>())
+                        {
+                            // Locked WC
+                            if(portal.Type == 0x0721)
+                            {
+                                //Unlocked WC
+                                Entity new_portal = Entity.Resolve(0x0757);
+                                portal.Parent?.AddEntity(new_portal, portal.Position);
+                                // TODO popup text, needs temporary entity to carry this text
+                                //var notif_text = GameServer.Notification(portal.Id, "Wine Cellar unlocked by " + this.Name, 0xff00ff00);
+                                portal.Parent?.RemoveEntity(portal);
+                                //GameUtils.ShowEffectRange(this, Parent, Position, 99f, notif_text);
+                            }
+                        }
+                        GameUtils.ShowEffectRange(this, this.Parent, this.Position, 3.0f, nova);
+                    }
+
+                    break;
                 case ActivateEffectIndex.Heal:
                     if (!HasConditionEffect(ConditionEffectIndex.Sick))
                         Heal(StatScaling(statForScale, eff.Amount, eff.StatMin, eff.StatScale), false);
@@ -478,7 +499,7 @@ namespace RotMG.Game.Entities
                         Parent.AddEntity(placeholder, target);
 
                         var @throw = GameServer.ShowEffect(ShowEffectIndex.Throw, Id, 0xffddff00, pos1: target, speed: eff.ThrowtimeMS);
-                        var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, placeholder.Id, 0xffddff00, new Vector2(eff.Radius, 0));
+                        var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, placeholder.Id, eff.Color.HasValue ? eff.Color.Value : 0xffddff00, new Vector2(eff.Radius, 0));
 
                         foreach (var j in Parent.PlayerChunks.HitTest(Position, SightRadius))
                             if (j is Player k && (k.Client.Account.Effects || k.Equals(this)))

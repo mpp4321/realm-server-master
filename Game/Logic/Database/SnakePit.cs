@@ -203,6 +203,8 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("blind", 1500)
                     ),
                     new Threshold(0.03f,
+                            new ItemLoot("Potion of Mana", 0.3f),
+                            new ItemLoot("Potion of Vitality", 1.0f),
                             new ItemLoot("Serpentine Guise", 0.008f),
                             new ItemLoot("Stheno's Scourge", 0.01f),
                             new ItemLoot("Ophidian Gem", 0.008f),

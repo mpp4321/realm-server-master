@@ -4043,4 +4043,20 @@
       <Index>0xbd</Index>
     </Texture>
   </Object>
+  <Object type="0x21FD" id="Heat Bolt">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj5</File>
+      <Index>0xf4</Index>
+    </Texture>
+  </Object>
+  <Object type="0x21FE" id="OryxSpear">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0x18a</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+
 </Objects><!--next avaliable is 0x21f9-->

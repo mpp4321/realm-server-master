@@ -129,21 +129,17 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(10, 2, shootAngle: 30, index: 0, predictive: 1f, cooldown: 500),
                     new ConditionalEffect(Common.ConditionEffectIndex.Damaging),
                     new ConditionalEffect(Common.ConditionEffectIndex.Armored),
-                    new Charge(1.8f, 15, coolDown: 1500),
+                    new Charge(1.8f, 15, coolDown: new wServer.logic.Cooldown(1500, 1000)),
                     new Flash(0xffff0505, 0.5, 2)
                 ),
                     new ItemLoot("Demon Frog Generator", 0.02f, 0.01f),
                     new ItemLoot("Demon Blade", 0.05f, 0.01f),
-                    new ItemLoot("The War Path", 0.01f, 0.01f),
-                    new ItemLoot("Abyssal Emblem", 0.02f, 0.01f),
-                    new ItemLoot("Exuberant Heavy Plate", 0.03f, 0.01f),
-                    new ItemLoot("The Horned Circlet", 0.035f, 0.01f),
                     new ItemLoot("Potion of Life", 0.05f, 0.01f),
                     new Threshold(0.01f, 
-                        new ItemLoot("The War Path", 0.01f),
-                        new ItemLoot("Exuberant Heavy Plate", 0.01f),
-                        new ItemLoot("The Horned Circlet", 0.01f),
-                        new ItemLoot("Abyssal Emblem", 0.01f)
+                        new ItemLoot("The War Path", 0.005f),
+                        new ItemLoot("Exuberant Heavy Plate", 0.005f),
+                        new ItemLoot("The Horned Circlet", 0.005f),
+                        new ItemLoot("Abyssal Emblem", 0.005f)
                     ),
                     new Threshold(0.01f,
                         new ItemLoot("Potion of Defense", 0.75f),
@@ -151,7 +147,7 @@ namespace RotMG.Game.Logic.Database
                         new ItemLoot("Potion of Defense", 0.1f),
                         new ItemLoot("Potion of Vitality", 0.1f)
                     ),
-                    new TopDamagersOnly(1, new ItemLoot("Potion of Life", 1f, 0.001f))
+                    new TopDamagersOnly(1, new ItemLoot("Potion of Life", 0.5f, 0.001f))
                 );
 
         }

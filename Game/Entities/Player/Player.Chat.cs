@@ -23,14 +23,14 @@ namespace RotMG.Game.Entities
         {
             "commands", "g", "guild", "tell", "allyshots", "allydamage", "effects", "sounds", "vault", "realm",
             "notifications", "online", "who", "server", "pos", "loc", "where", "find", "fame", "famestats", "stats",
-            "trade", "currentsong", "song", "mix", "quest", "lefttomax", "pinvite", "pcreate", "p", "paccept", "pleave", 
+            "trade", "currentsong", "song", "mix", "quest", "lefttomax", "pinvite", "pcreate", "p", "paccept", "pleave",
             "psummon"
         };
 
         //List of command, rank required
         private readonly (string, int)[] _donatorCommands =
         {
-           ("size", 1), ("glow", 1), ("give", 3), ("spawn", 3), ("l20", 3) 
+           ("size", 1), ("glow", 1), ("give", 3), ("spawn", 3), ("l20", 3)
         };
 
         private readonly string[] _rankedCommands =
@@ -38,10 +38,10 @@ namespace RotMG.Game.Entities
             "announce", "announcement", "legendary", "roll", "disconnect", "dcAll", "dc", "songs", "changesong",
             "terminate", "stop", "gimme", "give", "gift", "closerealm", "rank", "create", "spawn", "killall",
             "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute", "setcomp", "quake",
-            "unlockskin", "summonhere", "makedonator", "lbadd", "lb", "l20"
+            "unlockskin", "summonhere", "makedonator", "lbadd", "lb", "l20", "visit"
         };
 
-        
+
         public void SendInfo(string text) => Client.Send(GameServer.Text("", 0, -1, 0, "", text));
         public void SendError(string text) => Client.Send(GameServer.Text("*Error*", 0, -1, 0, "", text));
         public void SendHelp(string text) => Client.Send(GameServer.Text("*Help*", 0, -1, 0, "", text));
@@ -51,7 +51,7 @@ namespace RotMG.Game.Entities
         {
             return true;
         }
-        
+
         public void Chat(string text)
         {
             if (text.Length <= 0 || text.Length > 128)
@@ -118,7 +118,7 @@ namespace RotMG.Game.Entities
                                 SendError("Usage: /unban <name>");
                                 return;
                             }
-                            
+
                             if (!Database.AccountExists(j[0], out var account))
                                 SendError($"Player {j[0]} doesn't exist");
                             account.Banned = false;
@@ -201,7 +201,7 @@ namespace RotMG.Game.Entities
                         }
                         break;
                     case "/commands":
-                        if(Client.Account.Donator > 0)
+                        if (Client.Account.Donator > 0)
                         {
                             SendInfo("Donator Commands: ");
                             SendInfo(string.Join(", ", _donatorCommands.Where(a => a.Item2 <= Client.Account.Donator).Select(a => a.Item1)));
@@ -222,7 +222,7 @@ namespace RotMG.Game.Entities
                                 TradeRequest(PotentialPartner.Name);
                                 return;
                             }
-                            
+
                             SendError("No pending trades");
                             return;
                         }
@@ -256,7 +256,7 @@ namespace RotMG.Game.Entities
                             return;
                         }
                         var guild = GameServer.Text(Name, Id, NumStars, 5, "*Guild*", input);
-                        
+
                         foreach (var client in Manager.Clients.Values)
                         {
                             if (client.Account.GuildName == Client.Account.GuildName)
@@ -274,7 +274,7 @@ namespace RotMG.Game.Entities
                             return;
                         }
 
-                        if(recipient.Client.Account.IgnoredIds.Contains(AccountId))
+                        if (recipient.Client.Account.IgnoredIds.Contains(AccountId))
                         {
                             SendError("Player has you ignored.");
                             return;
@@ -321,18 +321,20 @@ namespace RotMG.Game.Entities
                                 try
                                 {
                                     Mix.DoMix(this, slot1, slot2);
-                                } catch { SendInfo("Invalid slots"); }
+                                }
+                                catch { SendInfo("Invalid slots"); }
                             }
                         }
                         break;
                     case "/quest":
                         {
-                            if(j.Length > 0)
+                            if (j.Length > 0)
                             {
                                 var questName = string.Join(' ', j);
                                 PrioritizeQuest = questName;
                                 SendInfo("You are prioritizing " + PrioritizeQuest);
-                            } else
+                            }
+                            else
                             {
                                 PrioritizeQuest = null;
                                 SendInfo("You are no longer prioritizing a quest.");
@@ -366,7 +368,7 @@ namespace RotMG.Game.Entities
                                 {
                                     var roll = Resources.Type2Item[(ushort)Inventory[k]].Roll();
                                     var i = Inventory[k];
-                                    ItemDatas[k] = !roll.Item1 ? new ItemDataJson() { Meta=-1} : roll.Item2;
+                                    ItemDatas[k] = !roll.Item1 ? new ItemDataJson() { Meta = -1 } : roll.Item2;
                                     UpdateInventorySlot(k);
                                     RecalculateEquipBonuses();
                                 }
@@ -472,7 +474,7 @@ namespace RotMG.Game.Entities
                         if (Client.Account.Ranked || Client.Account.Donator >= 3)
                         {
 
-                            if(!Client.Account.Ranked && !(Parent is Vault)) 
+                            if (!Client.Account.Ranked && !(Parent is Vault))
                             {
                                 SendError("You can only spawn in your vault!");
                                 return;
@@ -557,7 +559,7 @@ namespace RotMG.Game.Entities
 
                             try
                             {
-                                var setPiece = (ISetPiece) Activator.CreateInstance(System.Type.GetType(
+                                var setPiece = (ISetPiece)Activator.CreateInstance(System.Type.GetType(
                                     "RotMG.Game.SetPieces." + input, true, true));
                                 setPiece?.RenderSetPiece(Parent, (Position + 1).ToIntPoint());
                             }
@@ -599,10 +601,10 @@ namespace RotMG.Game.Entities
 
                         break;
                     case "/l20":
-                        if (Client.Account.Ranked || Client.Account.Donator >= 3) 
+                        if (Client.Account.Ranked || Client.Account.Donator >= 3)
                         {
                             int levelsTo20 = 20 - Level;
-                            for(int i = 0; i < levelsTo20; i++) 
+                            for (int i = 0; i < levelsTo20; i++)
                             {
                                 GainEXP(NextLevelEXP - EXP);
                             }
@@ -622,7 +624,7 @@ namespace RotMG.Game.Entities
                             ConditionEffectIndex eff;
                             if (int.TryParse(input, out var effect))
                             {
-                                eff = (ConditionEffectIndex) effect;
+                                eff = (ConditionEffectIndex)effect;
                             }
                             else if (!Enum.TryParse(input, true, out eff))
                             {
@@ -745,7 +747,7 @@ namespace RotMG.Game.Entities
                     case "/quake":
                         if (Client.Account.Ranked)
                         {
-                            if(j.Length > 0)
+                            if (j.Length > 0)
                             {
                                 var quakeLoc = string.Join(' ', j, 0, j.Length);
                                 if (!(Resources.Worlds.ContainsKey(quakeLoc)))
@@ -754,12 +756,13 @@ namespace RotMG.Game.Entities
                                     break;
                                 }
                                 Parent.QuakeToWorld(Manager.AddWorld(Resources.Worlds[quakeLoc]));
-                            } else
+                            }
+                            else
                             {
                                 SendInfo("/quake {World Id}");
                                 SendInfo("Available:");
                                 var str = "";
-                                foreach(var v in Resources.Worlds)
+                                foreach (var v in Resources.Worlds)
                                 {
                                     str += v.Key + ", ";
                                 }
@@ -774,24 +777,26 @@ namespace RotMG.Game.Entities
                             try
                             {
                                 var output = int.Parse(input);
-                                if(Client.Account.Ranked)
+                                if (Client.Account.Ranked)
                                 {
                                     SetSV(StatType.Size, output);
                                     Client.Character.Size = output;
                                 }
                                 else
                                 {
-                                    if(output > 125 || output < 75)
+                                    if (output > 125 || output < 75)
                                     {
                                         SendInfo("Size out of allowed bounds, 125 > size > 75");
-                                    } else
+                                    }
+                                    else
                                     {
                                         SetSV(StatType.Size, output);
                                         Client.Character.Size = output;
                                     }
                                 }
                                 SendInfo("Size changed!");
-                            } catch { SendInfo("Bad input."); }
+                            }
+                            catch { SendInfo("Bad input."); }
                         }
                         break;
                     case "/glow":
@@ -812,7 +817,7 @@ namespace RotMG.Game.Entities
                     case "/unlockskin":
                         if (Client.Account.Ranked)
                         {
-                            if(j.Length > 0)
+                            if (j.Length > 0)
                             {
                                 var skinid = string.Join(' ', j, 0, j.Length);
                                 var directid = Resources.Id2Skin[skinid].Type;
@@ -820,16 +825,18 @@ namespace RotMG.Game.Entities
                                 {
                                     SendInfo("Already unlocked!");
                                     break;
-                                } else
+                                }
+                                else
                                 {
                                     Client.Account.OwnedSkins.Add(directid);
                                 }
-                            } else
+                            }
+                            else
                             {
                                 SendInfo("/unlockskin {Skin Id}");
                                 SendInfo("Available:");
                                 var str = "";
-                                foreach(var v in Resources.Id2Skin.Keys)
+                                foreach (var v in Resources.Id2Skin.Keys)
                                 {
                                     str += v + ", ";
                                 }
@@ -840,22 +847,22 @@ namespace RotMG.Game.Entities
                     case "/summonhere":
                         if (Client.Account.Ranked)
                         {
-                            if(j.Length == 0)
+                            if (j.Length == 0)
                             {
                                 SendInfo("/summonhere <player name>");
                                 break;
                             }
                             var playername = string.Join(' ', j, 0, j.Length);
-                            foreach(Client c in Manager.Clients.Values)
+                            foreach (Client c in Manager.Clients.Values)
                             {
-                                if(c != null)
+                                if (c != null)
                                 {
                                     var v = c.Player?.Name.Equals(playername);
-                                    if(v ?? false)
+                                    if (v ?? false)
                                     {
-                                       c.Send(GameServer.Reconnect(Parent.Id));
-                                       SendInfo("Found and summoned");
-                                       break;
+                                        c.Send(GameServer.Reconnect(Parent.Id));
+                                        SendInfo("Found and summoned");
+                                        break;
                                     }
                                 }
                             }
@@ -881,19 +888,19 @@ namespace RotMG.Game.Entities
                     case "/makedonator":
                         if (Client.Account.Ranked)
                         {
-                            if(j.Length == 0)
+                            if (j.Length == 0)
                             {
                                 SendInfo("/makedonator <rank> <player name>");
                                 break;
                             }
                             var rank = int.Parse(j[0]);
                             var playername = string.Join(' ', j, 1, j.Length - 1);
-                            foreach(Client c in Manager.Clients.Values)
+                            foreach (Client c in Manager.Clients.Values)
                             {
-                                if(c != null)
+                                if (c != null)
                                 {
                                     var v = c.Player;
-                                    if(v.Name.ToLower().Equals(playername.ToLower()))
+                                    if (v.Name.ToLower().Equals(playername.ToLower()))
                                     {
                                         v.Client.Account.Donator = rank;
                                         v.Client.Account.Save();
@@ -915,7 +922,7 @@ namespace RotMG.Game.Entities
                         {
                             var playername = string.Join(' ', j, 0, j.Length);
                             var player = Manager.GetPlayer(playername);
-                            if(player != null)
+                            if (player != null)
                                 InviteToParty(player);
                             else
                             {
@@ -936,7 +943,7 @@ namespace RotMG.Game.Entities
                         SummonParty();
                         break;
                     case "/lbadd":
-                        if(Client.Account.Ranked)
+                        if (Client.Account.Ranked)
                         {
                             LootBoost += float.Parse(j[0]);
                             SendInfo($"Your lootboost: {LootBoost}");
@@ -947,6 +954,35 @@ namespace RotMG.Game.Entities
                         break;
                     default:
                         SendError("Unknown command");
+                        break;
+                    case "/visit":
+                        if (Client.Account.Ranked)
+                        {
+                            if (j.Length == 0)
+                            {
+                                SendInfo("/visit <player name>");
+                                break;
+                            }
+                            var playername = string.Join(' ', j, 0, j.Length);
+                            foreach (Client c in Manager.Clients.Values)
+                            {
+                                if (c != null)
+                                {
+                                    var v = c.Player?.Name.Equals(playername);
+                                    if (v ?? false)
+                                    {
+                                        var x = c.Player?.Parent?.Id;
+                                        if (x.HasValue)
+                                        {
+                                            Client.Send(GameServer.Reconnect(x.Value));
+                                            SendInfo("Found and summoned");
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
+                            SendInfo("Player not found");
+                        }
                         break;
                 }
                 return;

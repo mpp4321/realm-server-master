@@ -37,6 +37,8 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("CryptRing", new CryptRing());
             Registry.Add("MiasmaPoison", new MiasmaPoison());
             Registry.Add("SpriteRing", new SpriteRing());
+            Registry.Add("GLizard", new TheGreatLizard());
+            Registry.Add("RulerDominion", new RulerDominion());
 
             //components
             Registry.Add("FireRune", new FireRune());

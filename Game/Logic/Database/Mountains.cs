@@ -33,7 +33,7 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(3, LootType.Ability, 0.1f),
                 new TierLoot(4, LootType.Ability, 0.05f),
                 new TierLoot(5, LootType.Ability, 0.01f),
-                new ItemLoot("Cracked Dangerous Prism", 0.015f)
+                new ItemLoot("Cracked Dangerous Prism", 0.035f, 0.01f)
             };
 
             db.Init("Arena Horseman Anchor",
@@ -41,6 +41,7 @@ namespace RotMG.Game.Logic.Database
                     new ConditionalEffect(ConditionEffectIndex.Invincible)
                     )
             );
+
             db.Init("Arena Headless Horseman",
                 new State("base",
                     new Spawn("Arena Horseman Anchor", 1, 1),
@@ -296,6 +297,23 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Defense", 0.25f)
                     )
             );
+            db.Init("Fire Slime",
+                new State("base",
+                    new Prioritize(
+                        new StayAbove(1, 200),
+                        new Follow(1, range: 7),
+                        new Wander(0.4f)
+                    ),
+                    new Shoot(12, index: 0, count: 2, shootAngle: 10, predictive: 1, cooldown: 1000),
+                    new Shoot(10, index: 1, predictive: 1, cooldown: 650)
+                ),
+                new Threshold(0.01f,
+                    LootTemplates.MountainDrops()
+                ),
+                new Threshold(0.01f,
+                    new ItemLoot("Potion of Attack", 0.25f)
+                )
+            );
             db.Init("Rock Bot",
                 new State("base",
                     new Spawn("Paper Bot", maxChildren: 1, initialSpawn: 1, cooldown: 10000, givesNoXp: false),
@@ -307,7 +325,7 @@ namespace RotMG.Game.Logic.Database
                     new State("Attacking",
                         new Shoot(8, cooldown: 2000),
                         new HealEntity(8, "Papers", cooldown: 1000),
-                        new Taunt(0.5f, "We are impervious to non-mystic attacks!"),
+                        new Taunt(0.01f, "We are impervious to non-mystic attacks!"),
                         new TimedTransition("Waiting", 10000)
                         )
                     ),
@@ -360,7 +378,7 @@ namespace RotMG.Game.Logic.Database
                     new State("Attack",
                         new Shoot(8, count: 3, shootAngle: 20, cooldown: 800),
                         new HealEntity(8, "Rocks", cooldown: 1000),
-                        new Taunt(0.5f, "Silly squishy. We heal our brothers in a circle."),
+                        new Taunt(0.01f, "Silly squishy. We heal our brothers in a circle."),
                         new NoPlayerWithinTransition(30, "Idle"),
                         new HealthTransition(0.2f, "Explode")
                         ),
@@ -515,7 +533,7 @@ namespace RotMG.Game.Logic.Database
                 ),
                 new State("throwreddemon", 
                     new TossObject("Red Demon", 10f),
-                    new Taunt("Eat red demon!"),
+                    new Taunt("Eat red demons!"),
                     new TimedTransition("throwwhitedemons", 0)
                 ),
                 new State("throwwhitedemons", 

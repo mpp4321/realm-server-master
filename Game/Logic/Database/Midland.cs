@@ -15,17 +15,17 @@ namespace RotMG.Game.Logic.Database
         {
             db.EveryInit = new IBehavior[]
             {
-                new TierLoot(4, LootType.Weapon, 0.1f),
-                new TierLoot(5, LootType.Weapon, 0.05f),
-                new TierLoot(6, LootType.Weapon, 0.03f),
-                new TierLoot(4, LootType.Armor, 0.1f),
-                new TierLoot(5, LootType.Armor, 0.05f),
-                new TierLoot(6, LootType.Armor, 0.03f),
-                new TierLoot(2, LootType.Ring, 0.1f),
-                new TierLoot(3, LootType.Ring, 0.05f),
-                new TierLoot(4, LootType.Ring, 0.03f),
-                new TierLoot(2, LootType.Ability, 0.05f),
-                new TierLoot(3, LootType.Ability, 0.025f),
+                new TierLoot(4, LootType.Weapon, 0.03f),
+                new TierLoot(5, LootType.Weapon, 0.015f),
+                new TierLoot(6, LootType.Weapon, 0.009f),
+                new TierLoot(4, LootType.Armor, 0.03f),
+                new TierLoot(5, LootType.Armor, 0.015f),
+                new TierLoot(6, LootType.Armor, 0.009f),
+                new TierLoot(2, LootType.Ring, 0.03f),
+                new TierLoot(3, LootType.Ring, 0.015f),
+                new TierLoot(4, LootType.Ring, 0.009f),
+                new TierLoot(2, LootType.Ability, 0.015f),
+                new TierLoot(3, LootType.Ability, 0.0075f),
             };
 
 
@@ -820,6 +820,8 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(6, LootType.Armor, 0.02f),
                 new TierLoot(2, LootType.Ring, 0.07f),
                 new TierLoot(2, LootType.Ability, 0.27f),
+                new TierLoot(5, LootType.Weapon, 1.0f, 0.01f, r: new LootDef.RarityModifiedData(1.0f, 3, true)),
+                new ItemLoot("The Great Lizard", 0.02f, 0.01f),
                 new ItemLoot("Health Potion", 0.12f),
                 new ItemLoot("Magic Potion", 0.10f)
             );
@@ -1065,7 +1067,8 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Health Potion", 0.7f),
                 new ItemLoot("Magic Potion", 0.7f),
                 new ItemLoot("Tincture of Defense", 1f),
-                new ItemLoot("Wooden Prism", 0.005f, 0.001f)
+                new ItemLoot("Wooden Prism", 0.005f, 0.001f),
+                new ItemLoot("Box of Magic", 0.005f, 0.001f)
             );
             db.Init("Ent",
                 new State("base",
@@ -1227,8 +1230,10 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Large Tan Diamond Cloth", 0.03f),
                 new ItemLoot("Small Tan Diamond Cloth", 0.03f),
                 new ItemLoot("Large Smiley Cloth", 0.03f),
-                new ItemLoot("Small Smiley Cloth", 0.03f)
-                    )
+                new ItemLoot("Small Smiley Cloth", 0.03f),
+                new ItemLoot("Bow of Blinding Heat", 0.01f, 0.01f),
+                new ItemLoot("Wand of Purified Flame", 0.01f, 0.01f)
+                )
             );
 
 

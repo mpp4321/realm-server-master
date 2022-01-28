@@ -129,7 +129,7 @@ namespace RotMG.Game.Logic.Behaviors
             }
 
             host.StateObject[Id] = s;
-            return s.State == F.Acquired;
+            return returnType;
         }
     }
 }

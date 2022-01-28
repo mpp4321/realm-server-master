@@ -15,17 +15,17 @@ namespace RotMG.Game.Logic.Database
         {
             db.EveryInit = new IBehavior[]
             {
-                new TierLoot(4, LootType.Weapon, 0.2f),
-                new TierLoot(5, LootType.Weapon, 0.1f),
-                new TierLoot(6, LootType.Weapon, 0.05f),
-                new TierLoot(4, LootType.Armor, 0.2f),
-                new TierLoot(5, LootType.Armor, 0.1f),
-                new TierLoot(6, LootType.Armor, 0.05f),
-                new TierLoot(2, LootType.Ring, 0.2f),
-                new TierLoot(3, LootType.Ring, 0.1f),
-                new TierLoot(4, LootType.Ring, 0.05f),
-                new TierLoot(2, LootType.Ability, 0.1f),
-                new TierLoot(3, LootType.Ability, 0.05f),
+                new TierLoot(4, LootType.Weapon, 0.02f),
+                new TierLoot(5, LootType.Weapon, 0.01f),
+                new TierLoot(6, LootType.Weapon, 0.005f),
+                new TierLoot(4, LootType.Armor, 0.02f),
+                new TierLoot(5, LootType.Armor, 0.01f),
+                new TierLoot(6, LootType.Armor, 0.005f),
+                new TierLoot(2, LootType.Ring, 0.02f),
+                new TierLoot(3, LootType.Ring, 0.01f),
+                new TierLoot(4, LootType.Ring, 0.005f),
+                new TierLoot(2, LootType.Ability, 0.01f),
+                new TierLoot(3, LootType.Ability, 0.005f),
             };
 
             db.Init("Minotaur",

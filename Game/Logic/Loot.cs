@@ -90,6 +90,7 @@ namespace RotMG.Game.Logic
             MaxTop = maxTop;
             this.overrideData = overrideData;
         }
+
     }
     
     public class Loot : ReadOnlyCollection<MobDrop>
