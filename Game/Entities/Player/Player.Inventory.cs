@@ -2,6 +2,7 @@
 using RotMG.Networking;
 using RotMG.Utils;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace RotMG.Game.Entities
@@ -32,6 +33,8 @@ namespace RotMG.Game.Entities
             UpdateInventory();
         }
 
+        public List<string> UniqueEffectsFromSet = new List<string>();
+
         public void RecalculateEquipBonuses()
         {
             for (var i = 0; i < 8; i++)
@@ -61,12 +64,28 @@ namespace RotMG.Game.Entities
             }
 
             var hashForSets = Inventory.Take(4).ToHashSet();
-            if(Resources.Items2EqSet.ContainsKey(hashForSets))
+            var idToTotal = new Dictionary<string, ushort>();
+            UniqueEffectsFromSet.Clear();
+            foreach(var item in hashForSets)
             {
-                var set = Resources.Items2EqSet[hashForSets];
-                foreach(var ace in set.ActivationEffects)
+                Resources.Items2EqSet.TryGetValue((ushort)item, out var set);
+                if(set != null)
                 {
-                    Boosts[ace.stat] += ace.amount;
+                    var totalCur = idToTotal.GetValueOrDefault(set.Id, (ushort) 0);
+                    totalCur += 1;
+                    idToTotal[set.Id] = totalCur;
+                    foreach(var ace in set.ActivationEffects)
+                    {
+                        if(totalCur == ace.requiredPieces)
+                            Boosts[ace.stat] += ace.amount;
+                    }
+                    foreach(var eff in set.UniqueEffs)
+                    {
+                        if(totalCur == eff.required)
+                        {
+                            UniqueEffectsFromSet.Add(eff.effect);
+                        }
+                    }
                 }
             }
 

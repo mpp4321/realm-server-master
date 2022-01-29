@@ -51,11 +51,15 @@ namespace RotMG.Game.Worlds
 
             // Closes every 20 mins AliveTime > 0 needed because it'll close at AliveTime = 0
 
-            if (AliveTime % 300000 == 0 && AliveTime > 0)
+            if (AliveTime % 900000 == 0 && AliveTime > 0)
             {
                 // Oryx warn close
-                foreach (var player in Players.Values)
-                    player.SendInfo("The realm is closing in 5 minutes; mortals prepare to meet your demise!");
+                foreach (var c in Manager.Clients.Values)
+                {
+                    if (c.Player == null)
+                        continue;
+                    c.Player.SendInfo("The realm is closing in 5 minutes; mortals prepare to meet your demise!");
+                }
             }
 
             if (AliveTime % 1200000 == 0 && AliveTime > 0)

@@ -45,7 +45,7 @@ namespace RotMG.Game.Worlds
                 shopEntity.TrySetSV(StatType.MerchandiseType, 0xc89);
                 shopEntity.TrySetSV(StatType.MerchandiseCount, 999);
 
-                shopEntity.Price = 3;
+                shopEntity.Price = 0;
                 shopEntity.Currency = Currency.Fame;
 
                 AddEntity(shopEntity, shop1Point.ToVector2());
@@ -59,7 +59,7 @@ namespace RotMG.Game.Worlds
                 shopEntity.TrySetSV(StatType.MerchandiseType, 0xc8a);
                 shopEntity.TrySetSV(StatType.MerchandiseCount, 999);
 
-                shopEntity.Price = 3;
+                shopEntity.Price = 0;
                 shopEntity.Currency = Currency.Fame;
 
 

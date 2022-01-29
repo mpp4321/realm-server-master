@@ -15,9 +15,8 @@ namespace RotMG.Common
         public static Dictionary<string, ObjectDesc> IdLower2Object = new Dictionary<string, ObjectDesc>();
 
         public static Dictionary<string, EquipmentSet> Id2EqSet = new Dictionary<string, EquipmentSet>();
-        public static Dictionary<HashSet<int>, EquipmentSet> Items2EqSet = new Dictionary<HashSet<int>, EquipmentSet>(
-            HashSet<int>.CreateSetComparer()
-        );
+        //Returns the equipmentset that item is a part of
+        public static Dictionary<ushort, EquipmentSet> Items2EqSet = new Dictionary<ushort, EquipmentSet>();
 
         public static Dictionary<ushort, PlayerDesc> Type2Player = new Dictionary<ushort, PlayerDesc>();
         public static Dictionary<string, PlayerDesc> Id2Player = new Dictionary<string, PlayerDesc>();
@@ -143,8 +142,11 @@ namespace RotMG.Common
                 {
                     var id = e.ParseString("@id");
 
-                    Id2EqSet[id] = new EquipmentSet(e);
-                    Items2EqSet[Id2EqSet[id].Setpieces] = Id2EqSet[id];
+                    Id2EqSet[id] = new EquipmentSet(e, id);
+                    foreach(var item in Id2EqSet[id].Setpieces)
+                    {
+                        Items2EqSet[(ushort) item] = Id2EqSet[id];
+                    }
                 }
             }
 

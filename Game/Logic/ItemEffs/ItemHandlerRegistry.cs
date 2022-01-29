@@ -1,5 +1,6 @@
 ﻿using RotMG.Game.Logic.ItemEffs.ItemDB;
 using RotMG.Game.Logic.ItemEffs.RuneEffects;
+using RotMG.Game.Logic.ItemEffs.SetEffects;
 using RotMG.Game.Logic.Mechanics.Database;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,9 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("SpriteRing", new SpriteRing());
             Registry.Add("GLizard", new TheGreatLizard());
             Registry.Add("RulerDominion", new RulerDominion());
+
+            //Set effs
+            Registry.Add("Phylac", new Phylac());
 
             //components
             Registry.Add("FireRune", new FireRune());

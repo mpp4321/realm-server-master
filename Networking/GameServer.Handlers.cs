@@ -74,7 +74,8 @@ namespace RotMG.Networking
             AcceptTrade,
             TradeAccepted,
             SwitchMusic,
-            ShootDesync
+            ShootDesync,
+            FixMeDesync
         }
 
         public static void Read(Client client, int id, byte[] data)
@@ -945,6 +946,14 @@ namespace RotMG.Networking
             {
                 wtr.Write((byte)PacketId.ShootDesync);
                 wtr.Write(difference);
+                return (wtr.BaseStream as MemoryStream).ToArray();
+            }
+        }
+        public static byte[] FixMePacket()
+        {
+            using (var wtr = new PacketWriter(new MemoryStream()))
+            {
+                wtr.Write((byte)PacketId.FixMeDesync);
                 return (wtr.BaseStream as MemoryStream).ToArray();
             }
         }

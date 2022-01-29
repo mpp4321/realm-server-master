@@ -541,22 +541,20 @@ namespace RotMG.Game.Logic.Database
                             new Threshold(0.05f,
                                 new ItemLoot("Potion of Attack", 0.3f),
                                 new ItemLoot("Potion of Defense", 0.3f),
-                                new ItemLoot("Potion of Wisdom", 0.3f)
+                                new ItemLoot("Potion of Wisdom", 0.3f),
+                                new ItemLoot("Potion of Life", 1.0f, min: 2)
                             ),
                             new Threshold(0.1f, 
                                 new ItemLoot("Scarlet's Power", 0.002f),
                                 new ItemLoot("Horned Suguyari", 0.002f)
                             ),
                             new Threshold(0.1f,
-                                new TierLoot(10, LootType.Weapon, 0.07f),
-                                new TierLoot(11, LootType.Weapon, 0.06f),
-                                new TierLoot(12, LootType.Weapon, 0.05f),
-                                new TierLoot(5, LootType.Ability, 0.07f),
-                                new TierLoot(6, LootType.Ability, 0.05f),
-                                new TierLoot(11, LootType.Armor, 0.07f),
-                                new TierLoot(12, LootType.Armor, 0.06f),
+                                new TierLoot(12, LootType.Weapon, 0.3f, r: new LootDef.RarityModifiedData(1.0f, 1, true)),
+                                new TierLoot(13, LootType.Weapon, 0.06f),
+                                new TierLoot(6, LootType.Ability, 0.3f, r: new LootDef.RarityModifiedData(1.0f, 1, true)),
+                                new TierLoot(12, LootType.Armor, 0.3f, r: new LootDef.RarityModifiedData(1.0f, 1, true)),
                                 new TierLoot(13, LootType.Armor, 0.05f),
-                                new TierLoot(5, LootType.Ring, 0.06f)
+                                new TierLoot(6, LootType.Ring, 0.5f)
                             )
                         );
 
@@ -687,7 +685,8 @@ namespace RotMG.Game.Logic.Database
                 new Threshold(0.05f,
                     new ItemLoot("Potion of Attack", 1f, min: 3),
                     new ItemLoot("Potion of Defense", 1f, min: 3),
-                    new ItemLoot("Potion of Life", 1f)
+                    new ItemLoot("Potion of Life", 1f),
+                    new ItemLoot("Bow of War", 0.03f)
                 ),
                 new Threshold(0.1f, 
                     new ItemLoot("The Molten Cape", 0.002f),

@@ -952,8 +952,12 @@ namespace RotMG.Game.Entities
                     case "/lb":
                         SendInfo($"Your lootboost: {LootBoost}");
                         break;
-                    default:
-                        SendError("Unknown command");
+                    case "/fixme":
+                        // Reset expected projectile ids and send player client
+                        // a packet to inform it to do the same
+                        Client.Send(GameServer.FixMePacket());
+                        Client.Player.NextAEProjectileId = int.MinValue;
+                        Client.Player.NextProjectileId = 0;
                         break;
                     case "/visit":
                         if (Client.Account.Ranked)
@@ -983,6 +987,9 @@ namespace RotMG.Game.Entities
                             }
                             SendInfo("Player not found");
                         }
+                        break;
+                    default:
+                        SendError("Unknown command");
                         break;
                 }
                 return;

@@ -727,24 +727,41 @@ namespace RotMG.Common
     {
         public int stat;
         public int amount;
-        ActivateEffectIndex index;
+        public ushort requiredPieces;
+        public ActivateEffectIndex index;
 
         public SetpieceActivator(XElement xml)
         {
             stat = xml.ParseInt("@stat");
             amount = xml.ParseInt("@amount");
+            requiredPieces = xml.ParseUshort("@required");
             index = (ActivateEffectIndex)Enum.Parse(typeof(ActivateEffectIndex), xml.Value.Replace(" ", ""));
         }
 
+    }
+
+    public class UniqueEffectSets
+    {
+        public int required;
+        public string effect;
+
+        public UniqueEffectSets(XElement xml)
+        {
+            required = xml.ParseInt("@required");
+            effect = xml.Value;
+        }
     }
 
     public class EquipmentSet
     {
         public HashSet<int> Setpieces = new HashSet<int>();
         public List<SetpieceActivator> ActivationEffects;
+        public List<UniqueEffectSets> UniqueEffs = new List<UniqueEffectSets>();
+        public string Id { get; set; }
 
-        public EquipmentSet(XElement xml)
+        public EquipmentSet(XElement xml, string id)
         {
+            Id = id;
             ActivationEffects = new List<SetpieceActivator>();
             foreach(var spiece in xml.Elements("ActivateOnEquipAll"))
             {
@@ -756,6 +773,12 @@ namespace RotMG.Common
             {
                 Setpieces.Add(Int32.Parse(spiece.ParseString("@itemtype").Split("x")[1], NumberStyles.HexNumber));
             }
+
+            foreach(var spiece in xml.Elements("UniqueEffect"))
+            {
+                UniqueEffs.Add(new UniqueEffectSets(spiece));
+            }
+
         }
 
     }

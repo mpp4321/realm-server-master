@@ -443,7 +443,13 @@ namespace RotMG.Game.Entities
             if (Client.Character != null)
             {
                 var runes = Client.Character.SelectedRunes.Select(a => ItemHandlerRegistry.Registry[a]);
-                return equips.Concat(runes);
+                equips = equips.Concat(runes);
+            }
+            if(UniqueEffectsFromSet.Count > 0)
+            {
+                equips = equips.Concat(
+                    UniqueEffectsFromSet.Select(a => ItemHandlerRegistry.Registry[a])
+                );
             }
             return equips;
         }
