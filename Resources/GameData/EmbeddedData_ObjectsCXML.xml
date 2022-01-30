@@ -1372,6 +1372,15 @@
       <Index>0x7c</Index>
     </Texture>
   </Object>
+  <Object type="0x0758" id="Toxic Sewer Portal">
+    <Class>Portal</Class>
+    <IntergamePortal/>
+    <DungeonName>Toxic Sewer</DungeonName>
+    <Texture>
+      <File>lofiEnvironment</File>
+      <Index>0x7c</Index>
+    </Texture>
+  </Object>
 
 
 </Objects>

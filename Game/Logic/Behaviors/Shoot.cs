@@ -147,6 +147,12 @@ namespace RotMG.Game.Logic.Behaviors
                         if (enCast.IsElite) damage = (int)(damage * 1.15f);
                     }
 
+                    if (host.HasConditionEffect(ConditionEffectIndex.Damaging))
+                        damage = (int)(damage * 1.5f);
+
+                    if (host.HasConditionEffect(ConditionEffectIndex.Weak))
+                        damage = (int)((DamageOverride ?? desc.Damage) * 0.5);
+
                     var startAngle = angle - ShootAngle * (count - 1) / 2;
                     var startId = host.Parent.NextProjectileId;
                     var owner = playerOwner != null ? playerOwner(host) : host;

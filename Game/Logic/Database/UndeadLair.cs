@@ -109,18 +109,17 @@ namespace RotMG.Game.Logic.Database
                     ),
                     new TimedTransition("transition0", 6000)
                     ),
-            new Threshold(0.0001f,
+            new Threshold(0.01f,
                 new ItemLoot("Undead Lair Key", 0.03f),
                 new ItemLoot("Doom Bow", 0.004f),
                 new ItemLoot("Wine Cellar Incantation", 0.05f),
                 new ItemLoot("Potion of Wisdom", 1f),
-                new TierLoot(3, LootType.Ring, 0.25f),
-                new TierLoot(4, LootType.Ring, 0.125f),
-                new TierLoot(7, LootType.Weapon, 0.25f),
-                new TierLoot(8, LootType.Weapon, 0.25f),
-                new TierLoot(3, LootType.Ability, 0.25f),
-                new TierLoot(4, LootType.Ability, 0.125f),
-                new TierLoot(5, LootType.Ability, 0.0625f)
+                new TierLoot(4, LootType.Ring, 0.25f),
+                new TierLoot(5, LootType.Ring, 0.125f),
+                new TierLoot(9, LootType.Weapon, 0.25f),
+                new TierLoot(10, LootType.Weapon, 0.25f),
+                new TierLoot(4, LootType.Ability, 0.25f),
+                new TierLoot(5, LootType.Ability, 0.125f)
                 )
             );
             db.Init("Ghost Mage of Septavius",

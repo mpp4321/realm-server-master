@@ -37,7 +37,7 @@ namespace RotMG.Game.Entities
 
         public void RecalculateEquipBonuses()
         {
-            for (var i = 0; i < 8; i++)
+            for (var i = 0; i < Boosts.Count(); i++)
                 Boosts[i] = 0;
 
             for (var i = 0; i < 4; i++)

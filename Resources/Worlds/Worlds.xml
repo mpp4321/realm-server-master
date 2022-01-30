@@ -66,6 +66,8 @@
 	</World>
 	<World name="Undead Lair" display="Undead Lair">
 		<Maps>UDL/UDL1.jm;UDL/UDL2.jm;UDL/UDL3.jm</Maps>
+		<Portals>0x71a</Portals>
+		<AllowTeleport>true</AllowTeleport>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 	</World>
@@ -83,7 +85,8 @@
 		<Portals>0x0754</Portals>
 	</World>
 	<World name="Toxic Sewer" display="Toxic Sewer">
-		<Maps>ToxicSew/0.jm</Maps>
+		<Maps>ToxicSew/1.jm</Maps>
+		<Portals>0x0758</Portals>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 	</World>

@@ -362,7 +362,8 @@ namespace RotMG.Game.Logic.Database
                           new Shoot(10, 1, index: 1, cooldown: 1000),
                           new Shoot(10, 1, index: 2, cooldown: 450),
                           new TimedTransition("tim 4 rekkings", 2500)
-                         )
+                         ),
+                      new ItemLoot("Rusted Helm", 0.02f, 0.01f)
             );
             db.Init("Oryx Pet",
                       new State("swagoo baboon",
@@ -375,7 +376,8 @@ namespace RotMG.Game.Logic.Database
                               ),
                           new Shoot(10, 2, shootAngle: 20, index: 0, cooldown: 1),
                         new Shoot(10, 1, index: 0, cooldown: 1)
-                         )
+                         ),
+                      new ItemLoot("Rusted Helm", 0.0005f, 0.01f)
             );
             db.Init("Oryx Insect Commander",
                       new State("lol jordan is a nub",
@@ -384,7 +386,8 @@ namespace RotMG.Game.Logic.Database
                               ),
                           new Reproduce("Oryx Insect Minion", 10, 20, 1),
                           new Shoot(10, 1, index: 0, cooldown: 900)
-                         )
+                         ),
+                      new ItemLoot("Rusted Helm", 0.05f, 0.01f)
             );
             db.Init("Oryx Insect Minion",
                       new State("its SWARMING time",
@@ -419,7 +422,8 @@ namespace RotMG.Game.Logic.Database
                           new Shoot(10, 6, index: 0, cooldown: 200),
                           new HealSelf(cooldown: 2000, amount: 200),
                           new TimedTransition("jordan is stanking", 1500)
-                         )
+                         ),
+                      new ItemLoot("Rusted Helm", 0.02f, 0.01f)
             );
             db.Init("Oryx Eye Warrior",
                     new State("swaggin",
@@ -431,7 +435,8 @@ namespace RotMG.Game.Logic.Database
                               ),
                           new Shoot(10, 5, index: 0, cooldown: 1000),
                           new Shoot(10, 1, index: 1, cooldown: 500)
-                         )
+                         ),
+                      new ItemLoot("Rusted Helm", 0.0005f, 0.01f)
             );
             db.Init("Oryx Brute",
                       new State("swaggin",
@@ -456,7 +461,8 @@ namespace RotMG.Game.Logic.Database
                           new Reproduce("Oryx Eye Warrior", 10, 4, 2),
                           new Shoot(10, 3, 10, index: 0, cooldown: 300),
                           new TimedTransition("piddle", 4000)
-                         )
+                        ),
+                      new ItemLoot("Rusted Helm", 0.02f, 0.01f)
             );
             db.Init("Quiet Bomb",
                     new ConditionalEffect(ConditionEffectIndex.Invincible, true),
@@ -718,8 +724,12 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(3, 3, 10, 0, cooldown: 1000),
                     new Shoot(3, 3, index: 1, shootAngle: 10, cooldown: 1000)
                     ),
-                new TierLoot(7, LootType.Weapon, 0.2f),
-                new ItemLoot("Magic Potion", 0.03f)
+                new TierLoot(10, LootType.Weapon, 0.2f),
+                new TierLoot(10, LootType.Armor, 0.2f),
+                new ItemLoot("Magic Potion", 0.03f),
+                new Threshold(0.01f,
+                    new ItemLoot("The Red Shield", 0.005f)
+                )
             );
             db.Init("Guardian Element 1",
                 new State("base",
