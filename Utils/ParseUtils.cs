@@ -68,9 +68,25 @@ namespace RotMG.Utils
 
         public static ConditionEffectIndex ParseConditionEffect(this XElement element, string name, ConditionEffectIndex undefined = ConditionEffectIndex.Nothing)
         {
-            var value = name[0].Equals('@') ? element.Attribute(name.Remove(0, 1))?.Value : element.Element(name)?.Value;
+            var value = "";
+            if (name.Equals("."))
+                value = element.Value;
+            else
+                value = name[0].Equals('@') ? element.Attribute(name.Remove(0, 1))?.Value : element.Element(name)?.Value;
+
             if (string.IsNullOrWhiteSpace(value))
                 return undefined;
+            if(Enum.TryParse<ConditionEffectIndex>(value.Replace(" ", ""), out var eff))
+            {
+                return eff;
+            }
+            else
+            {
+#if DEBUG
+                Console.WriteLine("Unknown ConditionEffect " + value);
+#endif
+                return ConditionEffectIndex.Nothing;
+            }
             return (ConditionEffectIndex)Enum.Parse(typeof(ConditionEffectIndex), value.Replace(" ", ""));
         }
 

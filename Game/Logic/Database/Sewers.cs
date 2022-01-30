@@ -112,7 +112,8 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(4, LootType.Ring, 0.25f),
                     new TierLoot(5, LootType.Ring, 0.125f),
                     new ItemLoot("Potion of Defense", 1.0f, 2),
-                    new ItemLoot("Wine Cellar Incantation", 0.05f)
+                    new ItemLoot("Wine Cellar Incantation", 0.05f),
+                    new ItemLoot("Void Blade", 0.001f, 0.01f)
                     //new ItemLoot("Murky Toxin", 0.004f),
                     //new ItemLoot("Virulent Venom", 0.006f),
                     //new ItemLoot("Dagger of Toxin", 0.006f),

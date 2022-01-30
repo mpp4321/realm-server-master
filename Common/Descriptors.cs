@@ -467,7 +467,7 @@ namespace RotMG.Common
         
         public ActivateEffectDesc(XElement e)
         {
-            Index = (ActivateEffectIndex)Enum.Parse(typeof(ActivateEffectIndex), e.Value.Replace(" ", ""));
+            Enum.TryParse<ActivateEffectIndex>(e.Value.Replace(" ", ""), out Index);
             Id = e.ParseString("@id");
             Effect = e.ParseConditionEffect("@effect");
             DurationMS = (int)(e.ParseFloat("@duration") * 1000);
@@ -1221,7 +1221,8 @@ namespace RotMG.Common
 
         public ConditionEffectDesc(XElement e)
         {
-            Effect = (ConditionEffectIndex)Enum.Parse(typeof(ConditionEffectIndex), e.Value.Replace(" ", ""));
+            //Effect = (ConditionEffectIndex)Enum.Parse(typeof(ConditionEffectIndex), e.Value.Replace(" ", ""));
+            Effect = ParseUtils.ParseConditionEffect(e, ".");
             DurationMS = (int)(e.ParseFloat("@duration") * 1000);
         }
     }

@@ -281,6 +281,7 @@ namespace RotMG.Game.Logic.Database
                     )
             );
             db.Init("Slime God",
+                new DropPortalOnDeath("Toxic Sewer Portal", 0.2f),
                 new State("base",
                     new Prioritize(
                         new StayAbove(1, 200),
@@ -498,7 +499,8 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.01f,
                     new ItemLoot("Potion of Vitality", 1.0f),
-                    new ItemLoot("Sanguine Femur", 0.02f, r: new RarityModifiedData(1.2f))
+                    new ItemLoot("Sanguine Femur", 0.02f),
+                    new ItemLoot("Fire Dragon Battle Armor", 0.02f)
                 ),
             new Threshold(.01f,
                     LootTemplates.MountainDrops().Concat(
