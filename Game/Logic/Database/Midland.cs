@@ -81,13 +81,13 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.6f)
                         )
                     ),
-                new TierLoot(4, LootType.Weapon, 0.5f),
-                new TierLoot(5, LootType.Weapon, 0.09f),
-                new TierLoot(5, LootType.Armor, 0.61f),
-                new TierLoot(6, LootType.Armor, 0.2f),
-                new ItemLoot("Magic Potion", 0.06f),
-                new TierLoot(2, LootType.Ring, 0.16f),
-                new TierLoot(2, LootType.Ability, 0.3f)
+                new TierLoot(4, LootType.Weapon, 0.75f),
+                new TierLoot(5, LootType.Weapon, 0.55f),
+                new TierLoot(5, LootType.Armor, 0.5f),
+                new TierLoot(6, LootType.Armor, 0.4f),
+                new ItemLoot("Magic Potion", 1.0f),
+                new TierLoot(2, LootType.Ring, 0.3f),
+                new TierLoot(2, LootType.Ability, 0.5f)
             );
             db.Init("Orc Queen",
                 new State("base",
@@ -123,7 +123,7 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("circle_player", 3500)
                         )
                     ),
-                new ItemLoot("Magic Potion", 0.3f)
+                new ItemLoot("Magic Potion", 0.5f)
             );
             db.Init("Orc Warrior",
                 new State("base",
@@ -282,12 +282,12 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("idle", 1000)
                         )
                     ),
-                new TierLoot(4, LootType.Weapon, 0.3f),
-                new TierLoot(5, LootType.Weapon, 0.1f),
-                new TierLoot(5, LootType.Armor, 0.4f),
-                new TierLoot(6, LootType.Armor, 0.1f),
+                new TierLoot(4, LootType.Weapon, 1.0f),
+                new TierLoot(5, LootType.Weapon, 0.5f),
+                new TierLoot(5, LootType.Armor, 1.0f),
+                new TierLoot(6, LootType.Armor, 0.5f),
                 new TierLoot(2, LootType.Ring, 0.5f),
-                new TierLoot(2, LootType.Ability, 0.3f),
+                new TierLoot(3, LootType.Ability, 0.3f),
                 new ItemLoot("Health Potion", 0.3f),
                 new ItemLoot("Magic Potion", 0.2f)
             );
@@ -512,13 +512,13 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("Circling", 2600) { SubIndex = 1 }
                         )
                     ),
-                new TierLoot(3, LootType.Weapon, 0.6f),
-                new TierLoot(4, LootType.Weapon, 0.2f),
-                new TierLoot(3, LootType.Armor, 0.6f),
-                new TierLoot(4, LootType.Armor, 0.2f),
-                new TierLoot(5, LootType.Armor, 0.1f),
-                new TierLoot(1, LootType.Ring, 0.2f),
-                new TierLoot(1, LootType.Ability, 0.6f),
+                new TierLoot(3, LootType.Weapon, 1.0f),
+                new TierLoot(4, LootType.Weapon, 0.5f),
+                new TierLoot(3, LootType.Armor, 1.0f),
+                new TierLoot(4, LootType.Armor, 0.5f),
+                new TierLoot(5, LootType.Armor, 0.3f),
+                new TierLoot(1, LootType.Ring, 1.0f),
+                new TierLoot(1, LootType.Ability, 1.0f),
                 new ItemLoot("Magic Potion", 0.1f)
             );
             db.Init("Werelion",
@@ -557,12 +557,12 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("idle", 30000) { SubIndex = 1 }
                         )
                     ),
-                new TierLoot(4, LootType.Weapon, 0.6f),
-                new TierLoot(5, LootType.Weapon, 0.1f),
+                new TierLoot(4, LootType.Weapon, 1.0f),
+                new TierLoot(5, LootType.Weapon, 0.5f),
                 new TierLoot(5, LootType.Armor, 0.5f),
-                new TierLoot(6, LootType.Armor, 0.1f),
-                new TierLoot(2, LootType.Ring, 0.5f),
-                new TierLoot(2, LootType.Ability, 0.1f),
+                new TierLoot(6, LootType.Armor, 0.3f),
+                new TierLoot(2, LootType.Ring, 1.0f),
+                new TierLoot(2, LootType.Ability, 1.0f),
                 new ItemLoot("Health Potion", 0.3f),
                 new ItemLoot("Magic Potion", 0.1f)
             );
@@ -661,14 +661,14 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new EntitiesNotExistsTransition(8, "idle", "Drake Baby")
                     ),
-                new TierLoot(5, LootType.Weapon, 0.6f),
-                new TierLoot(6, LootType.Weapon, 0.1f),
-                new TierLoot(5, LootType.Armor, 0.6f),
-                new TierLoot(6, LootType.Armor, 0.1f),
-                new TierLoot(2, LootType.Ring, 0.1f),
-                new TierLoot(3, LootType.Ring, 0.01f),
-                new TierLoot(2, LootType.Ability, 0.3f),
-                new TierLoot(3, LootType.Ability, 0.01f),
+                new TierLoot(5, LootType.Weapon, 1.0f),
+                new TierLoot(6, LootType.Weapon, 0.5f),
+                new TierLoot(5, LootType.Armor, 0.75f),
+                new TierLoot(6, LootType.Armor, 0.4f),
+                new TierLoot(2, LootType.Ring, 0.5f),
+                new TierLoot(3, LootType.Ring, 0.45f),
+                new TierLoot(2, LootType.Ability, 0.5f),
+                new TierLoot(3, LootType.Ability, 0.3f),
                 new ItemLoot("Health Potion", 0.3f),
                 new ItemLoot("Magic Potion", 0.1f),
                 new ItemLoot("Drake's Dialect", 0.025f)
@@ -953,7 +953,7 @@ namespace RotMG.Game.Logic.Database
                         new Transform("Actual Ent Ancient")
                         )
                     )
-            ); ;
+            );
             db.Init("Actual Ent Ancient",
                 new State("base",
                     new Prioritize(
@@ -1068,6 +1068,7 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Magic Potion", 0.7f),
                 new ItemLoot("Tincture of Defense", 1f),
                 new ItemLoot("Wooden Prism", 0.005f, 0.001f),
+                new ItemLoot("Overgrowth Helmet", 0.01f, 0.001f),
                 new ItemLoot("Box of Magic", 0.005f, 0.001f)
             );
             db.Init("Ent",
@@ -1131,7 +1132,7 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Magic Potion", 0.25f),
                 new Threshold(.01f,
                     new ItemLoot("Tincture of Life", 0.56f),
-                    new ItemLoot("Quiver of Thunder", 0.002f),
+                    new ItemLoot("Quiver of Thunder", 0.005f),
                     new TierLoot(10, LootType.Armor, 0.3f, r: new LootDef.RarityModifiedData(1.0f, 3)),
                     new TierLoot(6, LootType.Ability, 0.01f)
                     )
@@ -1233,6 +1234,29 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Small Smiley Cloth", 0.03f),
                 new ItemLoot("Bow of Blinding Heat", 0.01f, 0.01f),
                 new ItemLoot("Wand of Purified Flame", 0.01f, 0.01f)
+                )
+            );
+
+            db.Init("Destructo Slime",
+                new State("base",
+                    new Wander(0.4f),
+                    new Spawn("Big Green Slime", 3, 0.5, 1.0f, cooldown: 15000),
+                    new Shoot(12, index: 0, count: 3, shootAngle: 10, predictive: 1, cooldown: 1000, callback: e =>
+                    {
+                        Entity spawning = Entity.Resolve(
+                            Resources.Id2Object["Big Green Slime"].Type
+                        );
+                        e.Parent.AddEntity(spawning, e.Position);
+                    }),
+                    new Shoot(12, count: 8, shootAngle: 45, fixedAngle: 0, index: 1, cooldown: 650)
+                ),
+                new Threshold(0.01f,
+                    new ItemLoot("Potion of Defense", 0.75f),
+                    new ItemLoot("Potion of Dexterity", 0.75f),
+                    new ItemLoot("Potion of Vitality", 0.75f),
+                    new ItemLoot("Dark Green Clothing Dye", 0.3f),
+                    new ItemLoot("Dark Green Accessory Dye", 0.3f),
+                    new TierLoot(7, LootType.Weapon, 1.0f, r: new LootDef.RarityModifiedData(1.0f, 2, true))
                 )
             );
 

@@ -149,6 +149,7 @@ namespace RotMG.Common
         RemoveFromBag,
         MagicCrystal,
         FishingRod,
+        EggBreak,
     }
 
     public enum ShowEffectIndex
@@ -233,6 +234,8 @@ namespace RotMG.Common
         public readonly bool Oryx;
         public readonly float XpMult;
 
+        public readonly bool NoXp;
+
         public readonly int Size;
         public readonly int MinSize;
         public readonly int MaxSize;
@@ -279,6 +282,7 @@ namespace RotMG.Common
             Level = e.ParseInt("Level", -1);
             Oryx = e.ParseBool("Oryx");
             XpMult = e.ParseFloat("XpMult", 1);
+            NoXp = e.ParseBool("NoXp");
 
             Size = e.ParseInt("Size", 100);
             MinSize = e.ParseInt("MinSize", Size);
@@ -505,6 +509,8 @@ namespace RotMG.Common
     {
 
         public int Meta { get; set; } = -1;
+        public int MiscIntOne { get; set; } = -1;
+
         public Dictionary<ulong, int> ExtraStatBonuses = new Dictionary<ulong, int>();
         public string ItemComponent = null;
         public string SkinId = null;
@@ -1045,6 +1051,9 @@ namespace RotMG.Common
         public readonly int BurstCount;
         public readonly int BurstDelay;
 
+        public readonly bool IsEgg;
+        public readonly int EggType;
+
         public ProjectileDesc NextProjectile(int id)
         {
             if (!HasProjectile) return null;
@@ -1107,6 +1116,8 @@ namespace RotMG.Common
             BurstCount = e.ParseInt("Burst");
             DoBurst = BurstCount > 0;
             BurstDelay = e.ParseInt("BurstCooldown");
+            IsEgg = e.ParseBool("EggItem");
+            EggType = e.ParseInt("EggType", 0);
         }
     }
 

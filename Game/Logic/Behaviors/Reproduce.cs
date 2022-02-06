@@ -91,6 +91,7 @@ namespace RotMG.Game.Logic.Behaviors
                     }
 
                     var entity = Entity.Resolve(_children ?? host.GetObjectDefinition().ObjectType);
+                    entity.IsSpawned = true;
 
                     var enemyHost = host as Enemy;
                     var enemyEntity = entity as Enemy;
@@ -98,15 +99,6 @@ namespace RotMG.Game.Logic.Behaviors
                     if (enemyHost != null && enemyEntity != null)
                     {
                         enemyEntity.Terrain = enemyHost.Terrain;
-                        //if (enemyHost.Spawned)
-                        //{
-                        //    enemyEntity.Spawned = true;
-                        //    enemyEntity.ApplyConditionEffect(new ConditionEffect()
-                        //    {
-                        //        Effect = ConditionEffectIndex.Invisible,
-                        //        DurationMS = -1
-                        //    });
-                        //}
                     }
 
                     host.Parent.AddEntity(entity, new Vector2(targetX, targetY));

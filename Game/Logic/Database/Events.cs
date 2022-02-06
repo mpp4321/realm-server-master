@@ -37,6 +37,7 @@ namespace RotMG.Game.Logic.Database
             };
 
             db.Init("Hermit God",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("base",
                     new TransferDamageOnDeath("Hermit God Drop"),
                     new OrderOnDeath(20, "Hermit God Tentacle Spawner", "Die"),
@@ -114,15 +115,16 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(11, LootType.Armor, 0.2f),
                     new TierLoot(10, LootType.Weapon, 0.35f),
                     new TierLoot(10, LootType.Armor, 0.35f),
-                    new ItemLoot("Potion of Wisdom", 0.65f),
-                    new ItemLoot("Potion of Dexterity", 0.35f),
-                    new ItemLoot("Potion of Defense", 0.5f),
-                    new ItemLoot("Potion of Wisdom", 0.65f),
+                    new ItemLoot("Potion of Wisdom", 0.25f),
+                    new ItemLoot("Potion of Dexterity", 0.15f),
+                    new ItemLoot("Potion of Defense", 0.25f),
+                    new ItemLoot("Potion of Wisdom", 0.15f),
                     new ItemLoot("Helm of the Juggernaut", 0.0005f)
                 )
             );
 
             db.Init("Skull Shrine",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("base",
                     new Shoot(30, 4, 9, cooldown: 1500, predictive: 1f), // add prediction after fixing it...
                     new Reproduce("Blue Flaming Skull", 20, 50, cooldown: 100),
@@ -142,6 +144,7 @@ namespace RotMG.Game.Logic.Database
             );
 
             db.Init("Grand Sphinx",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("base",
                     new DropPortalOnDeath("Tomb of the Ancients Portal", 1.0f),
                     new State("Spawned",
@@ -230,12 +233,14 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(4, LootType.Ability, 0.35f),
                     new TierLoot(3, LootType.Ring, 0.35f),
                     new ItemLoot("Helm of the Juggernaut", 0.005f),
+                    new ItemLoot("Rune of the Juggernaut", 0.01f),
                     new ItemLoot("Spear of the Storm", 0.005f)
-                    )
+                )
             );
 
 
             db.Init("Cube God",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("base",
                     new Wander(.3f),
                     new Shoot(30, 9, 10, 0, predictive: .5f, cooldown: 750),
@@ -250,11 +255,12 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(3, LootType.Ring, 0.2f),
                     new TierLoot(10, LootType.Armor, 0.2f),
                     new TierLoot(10, LootType.Weapon, 0.2f),
-                    new ItemLoot("Dirk of Cronus", 0.005f)
+                    new ItemLoot("Dirk of Cronus", 0.01f)
                   )
                 );
 
             db.Init("Lord of the Lost Lands",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("base",
                     new PlayerWithinTransition(6, "start", true)
                 ),
@@ -358,8 +364,9 @@ namespace RotMG.Game.Logic.Database
                         new TierLoot(4, LootType.Ring, 0.2f),
                         new TierLoot(10, LootType.Armor, 0.35f),
                         new TierLoot(3, LootType.Ring, 0.2f),
-                        new ItemLoot("Skysplitter Sword", 0.01f, r: new RarityModifiedData(1f, 2, true)),
-                        new ItemLoot("Mithril Shield", 0.015f, r: new RarityModifiedData(1f, 2, true))
+                        new ItemLoot("Skysplitter Sword", 0.03f, r: new RarityModifiedData(1f, 2, true)),
+                        new ItemLoot("Mithril Shield", 0.03f, r: new RarityModifiedData(1f, 2, true)),
+                        new ItemLoot("Rune of Vampirism", 0.005f)
                     ),
                 new Threshold(0.005f,
                     LootTemplates.BasicPots()
@@ -407,6 +414,7 @@ namespace RotMG.Game.Logic.Database
             );
 
             db.Init("Ghost Ship",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("waiting",
                     new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                     new PlayerWithinTransition(8, "rotate", true)

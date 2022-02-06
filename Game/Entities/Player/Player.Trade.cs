@@ -85,6 +85,7 @@ namespace RotMG.Game.Entities
                 var theirItems = new TradeItem[12];
                 for (var i = 0; i < 12; i++)
                 {
+                    // Removed rank check here cus i trust my admins :3
                     myItems[i] = new TradeItem
                     {
                         Item = Inventory[i],
@@ -92,8 +93,7 @@ namespace RotMG.Game.Entities
                         SlotType = Resources.Type2Player[Type].SlotTypes[i],
                         Included = false,
                         Tradeable = Inventory[i] != -1 && i >= 4 &&
-                                    !Resources.Type2Item[(ushort) Inventory[i]].Soulbound &&
-                                    Client.Account.Ranked == TradePartner.Client.Account.Ranked
+                                    !Resources.Type2Item[(ushort) Inventory[i]].Soulbound
                     };
 
                     theirItems[i] = new TradeItem
@@ -103,8 +103,7 @@ namespace RotMG.Game.Entities
                         SlotType = Resources.Type2Player[partner.Type].SlotTypes[i],
                         Included = false,
                         Tradeable = partner.Inventory[i] != -1 && i >= 4 &&
-                                    !Resources.Type2Item[(ushort) partner.Inventory[i]].Soulbound &&
-                                    Client.Account.Ranked == TradePartner.Client.Account.Ranked
+                                    !Resources.Type2Item[(ushort) partner.Inventory[i]].Soulbound
                     };
                 }
                 

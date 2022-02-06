@@ -534,18 +534,19 @@ namespace RotMG.Game.Worlds
             { Terrain.Mountains, Tuple.Create(
                 500, new []
                 {
-                    Tuple.Create("White Demon", 0.1),
-                    Tuple.Create("Sprite God", 0.11),
-                    Tuple.Create("Medusa", 0.1),
-                    Tuple.Create("Ent God", 0.1),
-                    Tuple.Create("Beholder", 0.1),
-                    Tuple.Create("Flying Brain", 0.1),
-                    Tuple.Create("Slime God", 0.09),
-                    Tuple.Create("Ghost God", 0.09),
-                    Tuple.Create("Rock Bot", 0.05),
+                    Tuple.Create("Fire Slime", 0.079),
+                    Tuple.Create("White Demon", 0.079),
+                    Tuple.Create("Sprite God", 0.079),
+                    Tuple.Create("Medusa", 0.079),
+                    Tuple.Create("Ent God", 0.079),
+                    Tuple.Create("Beholder", 0.079),
+                    Tuple.Create("Flying Brain", 0.079),
+                    Tuple.Create("Slime God", 0.079),
+                    Tuple.Create("Ghost God", 0.079),
+                    Tuple.Create("Rock Bot", 0.079),
+                    Tuple.Create("Djinn", 0.079),
+                    Tuple.Create("Leviathan", 0.079),
                     Tuple.Create("Greater Fire Skeleton", 0.05),
-                    Tuple.Create("Djinn", 0.09),
-                    Tuple.Create("Leviathan", 0.09)
                 })
             },
         };
@@ -654,6 +655,8 @@ namespace RotMG.Game.Worlds
 
         private void EnsurePopulation()
         {
+            if (Closed)
+                return;
             foreach (var terrain in Map.Terrains.Keys)
             {
                 if (terrain == Terrain.None)
@@ -663,7 +666,7 @@ namespace RotMG.Game.Worlds
                 {
                     foreach (var enemy in _enemies[terrain])
                     {
-                        if (enemy.GetNearestPlayer(Player.SightRadius) != null)
+                        if (enemy?.GetNearestPlayer(Player.SightRadius) != null)
                             continue;
                             
                         RemoveEntity(enemy);
@@ -808,13 +811,14 @@ namespace RotMG.Game.Worlds
 
         private ushort GetRandomObjectType(IEnumerable<Tuple<string, double>> spawnInfo)
         {
-            var threshold = MathUtils.NextFloat();
+            double totalWeight = spawnInfo.Select(a => a.Item2).Aggregate((a, b) => a + b);
+            var rand_n = MathUtils.NextFloat(0, (float) totalWeight);
             double n = 0;
             ushort objType = 0;
             foreach (var (name, density) in spawnInfo)
             {
                 n += density;
-                if (n > threshold)
+                if (rand_n <= n)
                 {
                     objType = Resources.Id2Object[name].Type;
                     break;

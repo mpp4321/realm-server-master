@@ -71,6 +71,12 @@ for file in os.listdir("./Resources/GameData"):
             if classObj is None: continue
             classStr = classObj.text
             slottype = obj.find("SlotType")
+            bagtype = obj.find("BagType")
+            
+            if bagtype is None:
+                bagtype = "0"
+            else:
+                bagtype = bagtype.text
 
             if slottype is None: 
                 slottype = "None"
@@ -83,10 +89,11 @@ for file in os.listdir("./Resources/GameData"):
                         obj.attrib["type"],
                         obj.attrib["id"],
                         slottype,
+                        bagtype,
                         *construct_projectiles(obj),
                         *find_stats(obj)
                     )
                 )
 
-df = pd.DataFrame(equipmentData, columns=["Type", "Id", "Slot Type", "Avg P Damage", "Rof Damage", "Health", "Mana", "Attack", "Defense", "Speed", "Dexterity", "Wisdom", "Vitality", "Protection"])
+df = pd.DataFrame(equipmentData, columns=["Type", "Id", "Slot Type", "Bag Type", "Avg P Damage", "Rof Damage", "Health", "Mana", "Attack", "Defense", "Speed", "Dexterity", "Wisdom", "Vitality", "Protection"])
 df.to_excel("./EquipmentStats.xlsx")

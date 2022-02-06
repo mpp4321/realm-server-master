@@ -55,10 +55,10 @@ namespace RotMG.Game.Logic.Database
                     new Spawn("Hobbit Archer", maxChildren: 4, cooldown: 12000, givesNoXp: false),
                     new Spawn("Hobbit Rogue", maxChildren: 3, cooldown: 6000, givesNoXp: false)
                     ),
-                new TierLoot(2, LootType.Weapon, 0.3f),
-                new TierLoot(2, LootType.Armor, 0.3f),
-                new TierLoot(1, LootType.Ring, 0.11f),
-                new TierLoot(1, LootType.Ability, 0.39f),
+                new TierLoot(2, LootType.Weapon, 1.0f),
+                new TierLoot(2, LootType.Armor, 1.0f),
+                new TierLoot(1, LootType.Ring, 0.5f),
+                new TierLoot(1, LootType.Ability, 0.5f),
                 new ItemLoot("Health Potion", 0.02f),
                 new ItemLoot("Magic Potion", 0.02f)
             );
@@ -126,10 +126,10 @@ namespace RotMG.Game.Logic.Database
                     new Spawn("Undead Hobbit Archer", maxChildren: 4, cooldown: 12000, givesNoXp: false),
                     new Spawn("Undead Hobbit Rogue", maxChildren: 3, cooldown: 6000, givesNoXp: false)
                     ),
-                new TierLoot(3, LootType.Weapon, 0.3f),
-                new TierLoot(3, LootType.Armor, 0.3f),
-                new TierLoot(1, LootType.Ring, 0.12f),
-                new TierLoot(1, LootType.Ability, 0.39f),
+                new TierLoot(3, LootType.Weapon, 1.0f),
+                new TierLoot(3, LootType.Armor, 1.0f),
+                new TierLoot(1, LootType.Ring, 0.5f),
+                new TierLoot(1, LootType.Ability, 0.5f),
                 new ItemLoot("Magic Potion", 0.03f)
             );
             db.Init("Undead Hobbit Archer",
@@ -217,6 +217,10 @@ namespace RotMG.Game.Logic.Database
                             )
                         )
                     ),
+                new TierLoot(3, LootType.Weapon, 1.0f),
+                new TierLoot(3, LootType.Armor, 1.0f),
+                new TierLoot(1, LootType.Ring, 0.5f),
+                new TierLoot(1, LootType.Ability, 0.5f),
                 new ItemLoot("Health Potion", 0.05f),
                 new ItemLoot("Magic Potion", 0.05f)
             );
@@ -266,10 +270,10 @@ namespace RotMG.Game.Logic.Database
                     new Spawn("Elf Swordsman", maxChildren: 4, cooldown: 7000, givesNoXp: false),
                     new Spawn("Elf Mage", maxChildren: 1, cooldown: 8000, givesNoXp: false)
                     ),
-                new TierLoot(2, LootType.Weapon, 0.36f),
-                new TierLoot(2, LootType.Armor, 0.36f),
-                new TierLoot(1, LootType.Ring, 0.11f),
-                new TierLoot(1, LootType.Ability, 0.39f),
+                new TierLoot(2, LootType.Weapon, 1.0f),
+                new TierLoot(2, LootType.Armor, 1.0f),
+                new TierLoot(1, LootType.Ring, 0.5f),
+                new TierLoot(1, LootType.Ability, 0.5f),
                 new ItemLoot("Health Potion", 0.02f),
                 new ItemLoot("Magic Potion", 0.02f)
             );
@@ -444,10 +448,10 @@ namespace RotMG.Game.Logic.Database
                     new Spawn("Sandsman Archer", maxChildren: 2, cooldown: 10000, givesNoXp: false),
                     new Spawn("Sandsman Sorcerer", maxChildren: 3, cooldown: 8000, givesNoXp: false)
                     ),
-                new TierLoot(3, LootType.Weapon, 0.3f),
-                new TierLoot(3, LootType.Armor, 0.3f),
-                new TierLoot(1, LootType.Ring, 0.11f),
-                new TierLoot(1, LootType.Ability, 0.39f),
+                new TierLoot(3, LootType.Weapon, 1.0f),
+                new TierLoot(3, LootType.Armor, 1.0f),
+                new TierLoot(1, LootType.Ring, 0.5f),
+                new TierLoot(1, LootType.Ability, 0.5f),
                 new ItemLoot("Health Potion", 0.04f)
             );
             db.Init("Sandsman Sorcerer",
@@ -517,10 +521,10 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new DropPortalOnDeath("Pirate Cave Portal", .01f)
                     ),
-                new TierLoot(2, LootType.Weapon, 0.14f),
-                new TierLoot(2, LootType.Armor, 0.19f),
-                new TierLoot(1, LootType.Ring, 0.05f),
-                new TierLoot(1, LootType.Ability, 0.28f),
+                new TierLoot(2, LootType.Weapon, 1.0f),
+                new TierLoot(2, LootType.Armor, 1.0f),
+                new TierLoot(1, LootType.Ring, 0.5f),
+                new TierLoot(1, LootType.Ability, 0.5f),
                 new ItemLoot("Health Potion", 0.02f),
                 new ItemLoot("Magic Potion", 0.02f),
                 new ItemLoot("Giant Claw Blade", 0.03f)

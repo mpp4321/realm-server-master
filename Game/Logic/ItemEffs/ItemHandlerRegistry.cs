@@ -52,6 +52,8 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("Vampirism", new Vampirism());
             Registry.Add("Brute", new Brute());
             Registry.Add("Mage", new Mage());
+            Registry.Add("Elven", new Elven());
+            Registry.Add("Juggernaut", new Juggernaut());
         }
 
     }

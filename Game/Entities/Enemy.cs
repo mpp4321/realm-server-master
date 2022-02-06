@@ -62,7 +62,7 @@ namespace RotMG.Game.Entities
                 List<Entity> l;
                 foreach (var en in l = Parent.PlayerChunks.HitTest(Position, Player.SightRadius))
                 {
-                    if (!(en is Player player)) 
+                    if (!(en is Player player) || Desc.NoXp || IsSpawned) 
                         continue;
                     var exp = baseExp;
                     if (exp > Player.GetNextLevelEXP(player.Level) / 10)
@@ -109,8 +109,9 @@ namespace RotMG.Game.Entities
             if (hitter == null)
                 throw new Exception("Undefined hitter");
 #endif
-            if (HasConditionEffect(ConditionEffectIndex.Invincible))
-                return true;
+            if (HasConditionEffect(ConditionEffectIndex.Invincible) || HasConditionEffect(ConditionEffectIndex.Stasis)
+                || HasConditionEffect(ConditionEffectIndex.Invulnerable))
+                return false;
 
             if (Dead || Desc.Friendly)
             {

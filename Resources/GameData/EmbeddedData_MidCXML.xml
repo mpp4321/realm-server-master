@@ -1,6 +1,4 @@
 <Objects>
-	
-	
 	<Object type="0x620" id="Tawny Warg">
 		<Group>Wargs</Group>
 		<Enemy/>
@@ -12,18 +10,13 @@
 		<MaxHitPoints>30</MaxHitPoints>
 		<Defense>0</Defense>
 		<Terrain>MidSand</Terrain>
-		
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>11</Damage>
 			<Speed>60</Speed>
 			<LifetimeMS>600</LifetimeMS>
 		</Projectile>
-		
-		
-		
 	</Object>
-
 	<Object type="0x622" id="Demon Warg">
 		<Group>Wargs</Group>
 		<Enemy/>
@@ -35,7 +28,6 @@
 		<MaxHitPoints>40</MaxHitPoints>
 		<Defense>0</Defense>
 		<Terrain>MidSand</Terrain>
-		
 		<Projectile id="0">
 			<ObjectId>Red Fire</ObjectId>
 			<Damage>13</Damage>
@@ -43,11 +35,7 @@
 			<Size>65</Size>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
-		
-		
-		
 	</Object>
-
 	<Object type="0x623" id="Desert Werewolf">
 		<Enemy/>
 		<Class>Character</Class>
@@ -62,7 +50,6 @@
 		<Level>5</Level>
 		<XpMult>1.6</XpMult>
 		<SpawnProb>0.75</SpawnProb>
-		
 		<Projectile id="0">
 			<ObjectId>Red Fire</ObjectId>
 			<Damage>16</Damage>
@@ -77,11 +64,7 @@
 			<Size>100</Size>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>		
-				
-		
-		
 	</Object>
-
 	<Object type="0x632" id="Fire Golem">
 		<Group>Golems</Group>
 		<Enemy/>
@@ -95,7 +78,6 @@
 		<Terrain>MidSand</Terrain>
 		<XpMult>0.7</XpMult>
 		<SpawnProb>1.0</SpawnProb>
-
 		<Projectile id="0">
 			<ObjectId>Red Fire</ObjectId>
 			<Damage>35</Damage>
@@ -110,10 +92,7 @@
 			<LifetimeMS>2500</LifetimeMS>
 			<Size>220</Size>
 		</Projectile>
-
-
 	</Object>
-
 	<Object type="0x633" id="Darkness Golem">
 		<Group>Golems</Group>
 		<Enemy/>
@@ -127,7 +106,6 @@
 		<Terrain>MidSand</Terrain>
 		<XpMult>0.7</XpMult>
 		<SpawnProb>1.0</SpawnProb>
-
 		<Projectile id="0">
 			<ObjectId>Black Ball</ObjectId>
 			<Damage>22</Damage>
@@ -142,10 +120,7 @@
 			<LifetimeMS>1400</LifetimeMS>
 			<Size>110</Size>
 		</Projectile>
-
-
 	</Object>
-	
 	<Object type="0x6d2" id="Red Satellite">
 		<Group>Golem Satellites</Group>
 		<Enemy/>
@@ -156,10 +131,7 @@
 		<Defense>5</Defense>
 		<XpMult>0.1</XpMult>
 		<MaxHitPoints>1000</MaxHitPoints>
-		
-		
 	</Object>
-
 	<Object type="0x6d3" id="Green Satellite">
 		<Group>Golem Satellites</Group>
 		<Enemy/>
@@ -170,10 +142,7 @@
 		<Defense>5</Defense>
 		<XpMult>0.1</XpMult>
 		<MaxHitPoints>1000</MaxHitPoints>
-		
-		
 	</Object>
-	
 	<Object type="0x6d4" id="Blue Satellite">
 		<Group>Golem Satellites</Group>
 		<Enemy/>
@@ -184,10 +153,7 @@
 		<Defense>5</Defense>
 		<XpMult>0.1</XpMult>
 		<MaxHitPoints>1000</MaxHitPoints>
-		
-		
 	</Object>
-	
 	<Object type="0x6d5" id="Gray Satellite 1">
 		<DisplayId>Gray Satellite</DisplayId>
 		<Group>Golem Satellites</Group>
@@ -200,7 +166,6 @@
 		<XpMult>0.1</XpMult>
 		<MaxHitPoints>1000</MaxHitPoints>
 		<Size>50</Size>
-		
 		<Projectile id="0">
 			<ObjectId>Violet Missile</ObjectId>
 			<Damage>24</Damage>
@@ -208,11 +173,7 @@
 			<LifetimeMS>2500</LifetimeMS>
 			<Size>90</Size>
 		</Projectile>
-		
-
-		
 	</Object>
-
 	<Object type="0x6d6" id="Gray Satellite 2">
 		<DisplayId>Gray Satellite</DisplayId>
 		<Group>Golem Satellites</Group>
@@ -225,7 +186,6 @@
 		<XpMult>0.1</XpMult>
 		<MaxHitPoints>1000</MaxHitPoints>		
 		<Size>50</Size>
-		
 		<Projectile id="0">
 			<ObjectId>Black Missile</ObjectId>
 			<Damage>22</Damage>
@@ -233,11 +193,7 @@
 			<LifetimeMS>2500</LifetimeMS>
 			<Size>90</Size>
 		</Projectile>
-		
-
-		
 	</Object>
-
 	<Object type="0x6d7" id="Gray Satellite 3">
 		<DisplayId>Gray Satellite</DisplayId>
 		<Group>Golem Satellites</Group>
@@ -250,7 +206,6 @@
 		<XpMult>0.1</XpMult>
 		<MaxHitPoints>1000</MaxHitPoints>
 		<Size>50</Size>
-		
 		<Projectile id="0">
 			<ObjectId>Fire Missile</ObjectId>
 			<Damage>24</Damage>
@@ -259,11 +214,7 @@
 			<Size>100</Size>
 			<PassesCover/>
 		</Projectile>
-		
-
-		
 	</Object>
-
 	<Object type="0x6c5" id="Sand Phantom">
 		<Group>SandPhantoms</Group>
 		<Enemy/>
@@ -277,18 +228,13 @@
 		<Terrain>MidSand</Terrain>
 		<XpMult>0.8</XpMult>
 		<SpawnProb>1.0</SpawnProb>
-
 		<Projectile id="0">
 			<ObjectId>Red Fire</ObjectId>
 			<Damage>18</Damage>
 			<Speed>70</Speed>
 			<LifetimeMS>1700</LifetimeMS>
 		</Projectile>
-
-
-			
 	</Object>
-	
 	<Object type="0x7F22" id="Sand Phantom Wisp">
 		<Group>SandPhantoms</Group>
 		<Enemy/>
@@ -302,17 +248,13 @@
 		<Terrain>MidSand</Terrain>
 		<XpMult>2</XpMult>
 		<SpawnProb>1.0</SpawnProb>
-
 		<Projectile id="0">
 			<ObjectId>Red Fire</ObjectId>
 			<Damage>20</Damage>
 			<Speed>65</Speed>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
-
-		
 	</Object>	
-
 	<Object type="0x6c6" id="Nomadic Shaman">
 		<Group>Nomads</Group>
 		<Enemy/>
@@ -325,7 +267,6 @@
 		<Defense>1</Defense>
 		<Terrain>MidSand</Terrain>
 		<SpawnProb>1.0</SpawnProb>
-		
 		<Projectile id="0">
 			<ObjectId>Green Magic</ObjectId>
 			<Damage>20</Damage>
@@ -341,11 +282,7 @@
 			<Size>100</Size>
 			<ConditionEffect duration="1.5">Blind</ConditionEffect>
 		</Projectile>		
-		
-
-		
 	</Object>
-
 	<Object type="0x0952" id="Great Lizard">
 		<Group>Large Lizards</Group>
 		<Enemy/>
@@ -361,7 +298,6 @@
 		<Level>6</Level>
 		<XpMult>1.8</XpMult>
 		<SpawnProb>0.75</SpawnProb>
-		
 		<Projectile id="0">
 			<ObjectId>Desert Spit</ObjectId>
 			<Damage>60</Damage>
@@ -379,9 +315,6 @@
       <SmartAngle></SmartAngle>
 		</Projectile>
 	</Object>
-
-	
-
 	<Object type="0x624" id="Fire Sprite">
 		<Group>Sprites</Group>
 		<Enemy/>
@@ -395,17 +328,13 @@
 		<Terrain>MidPlains</Terrain>
 		<Flying/>
 		<SpawnProb>1.0</SpawnProb>
-		
 		<Projectile id="0">
 			<ObjectId>Red Fire</ObjectId>
 			<Damage>17</Damage>
 			<Speed>50</Speed>
 			<LifetimeMS>4000</LifetimeMS>
 		</Projectile>
-		
-		
 	</Object>
-	
 	<Object type="0x625" id="Ice Sprite">
 		<Group>Sprites</Group>
 		<Enemy/>
@@ -419,7 +348,6 @@
 		<Terrain>MidPlains</Terrain>
 		<Flying/>
 		<SpawnProb>1.0</SpawnProb>
-		
 		<Projectile id="0">
 			<ObjectId>Ice Spinner</ObjectId>
 			<Damage>14</Damage>
@@ -428,10 +356,7 @@
 			<Size>70</Size>
 			<ConditionEffect duration="1.6">Slowed</ConditionEffect>
 		</Projectile>
-		
-		
 	</Object>
-	
 	<Object type="0x626" id="Magic Sprite">
 		<Group>Sprites</Group>
 		<Enemy/>
@@ -445,7 +370,6 @@
 		<Terrain>MidPlains</Terrain>
 		<Flying/>
 		<SpawnProb>1.0</SpawnProb>
-		
 		<Projectile id="0">
 			<ObjectId>Green Magic</ObjectId>
 			<Damage>18</Damage>
@@ -453,10 +377,7 @@
 			<LifetimeMS>4000</LifetimeMS>
 			<Size>120</Size>
 		</Projectile>
-		
-		
 	</Object>
-
 	<Object type="0x629" id="Orc Warrior">
 		<Group>Orcs</Group>
 		<Enemy/>
@@ -468,7 +389,6 @@
 		<MaxHitPoints>90</MaxHitPoints>
 		<Defense>3</Defense>
 		<Terrain>MidPlains</Terrain>
-
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>40</Damage>
@@ -476,11 +396,7 @@
 			<LifetimeMS>1200</LifetimeMS>
 			<ConditionEffect duration="0.5">Stunned</ConditionEffect>
 		</Projectile>
-
-
-
 	</Object>
-
 	<Object type="0x62a" id="Orc Mage">
 		<Group>Orcs</Group>
 		<Enemy/>
@@ -492,17 +408,13 @@
 		<MaxHitPoints>80</MaxHitPoints>
 		<Defense>0</Defense>
 		<Terrain>MidPlains</Terrain>
-
 		<Projectile id="0">
 			<ObjectId>Red Fire</ObjectId>
 			<Damage>17</Damage>
 			<Speed>60</Speed>
 			<LifetimeMS>3000</LifetimeMS>
 		</Projectile>
-
-
 	</Object>
-
 	<Object type="0x62b" id="Orc Queen">
 		<Group>Orcs</Group>
 		<Enemy/>
@@ -515,7 +427,6 @@
 		<Defense>0</Defense>
 		<Terrain>MidPlains</Terrain>
 	</Object>
-
 	<Object type="0x62c" id="Orc King">
 		<Group>OrcKings</Group>
 		<Enemy/>
@@ -528,7 +439,6 @@
 		<Defense>3</Defense>
 		<Terrain>MidPlains</Terrain>
 		<SpawnProb>1.0</SpawnProb>
-
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>27</Damage>
@@ -536,13 +446,7 @@
 			<LifetimeMS>1200</LifetimeMS>
 			<Size>120</Size>
 		</Projectile>
-
-
-
-
-
 	</Object>
-
 	<Object type="0x62f" id="Earth Golem">
 		<Group>Golems</Group>
 		<Enemy/>
@@ -555,7 +459,6 @@
 		<Defense>4</Defense>
 		<Terrain>MidPlains</Terrain>
 		<SpawnProb>1.0</SpawnProb>
-		
 		<Projectile id="0">
 			<ObjectId>Dark Gray Spinner</ObjectId>
 			<Damage>18</Damage>
@@ -564,10 +467,7 @@
 			<LifetimeMS>1500</LifetimeMS>
 			<ConditionEffect duration="3">Weak</ConditionEffect>
 		</Projectile>
-
-
 	</Object>
-
 	<Object type="0x631" id="Paper Golem">
 		<Group>Golems</Group>
 		<Enemy/>
@@ -580,7 +480,6 @@
 		<Defense>1</Defense>
 		<Terrain>MidPlains</Terrain>
 		<SpawnProb>1.0</SpawnProb>
-
 		<Projectile id="0">
 			<ObjectId>Grey Boomerang</ObjectId>
 			<Damage>30</Damage>
@@ -589,10 +488,7 @@
 			<LifetimeMS>2900</LifetimeMS>
 			<Boomerang/>
 		</Projectile>
-
-
 	</Object>
-
 	<Object type="0x0205" id="Pink Blob">
 		<Enemy/>
 		<Class>Character</Class>
@@ -610,9 +506,7 @@
 			<Damage>10</Damage>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
-		
 	</Object>
-
 	<Object type="0x020d" id="Gray Blob">
 		<Class>Character</Class>
 		<Enemy/>
@@ -634,7 +528,6 @@
 			<LifetimeMS>1200</LifetimeMS>
 		</Projectile>
 	</Object>
-
 	<Object type="0x020e" id="Big Green Slime">
 		<Class>Character</Class>
 		<Group>Slime</Group>
@@ -657,7 +550,6 @@
 		</Projectile>
 		<Enemy/>
 	</Object>
-
 	<Object type="0x020f" id="Little Green Slime">
 		<Class>Character</Class>
 		<Group>Slime</Group>
@@ -678,7 +570,6 @@
 		</Projectile>
 		<Enemy/>
 	</Object>
-
 	<Object type="0x0947" id="Wasp Queen">
 		<Group>Wasps</Group>
 		<Enemy/>
@@ -695,7 +586,6 @@
 		<XpMult>2.3</XpMult>
 		<Flying/>
 		<SpawnProb>0.75</SpawnProb>
-		
 		<Projectile id="0">
 			<ObjectId>Yellow Missile</ObjectId>
 			<Damage>22</Damage>
@@ -703,11 +593,7 @@
 			<Size>80</Size>
 			<LifetimeMS>1200</LifetimeMS>
 		</Projectile>		
-		
-		
-
 	</Object>
-
 	<Object type="0x0948" id="Worker Wasp">
 		<Group>Wasps</Group>
 		<Enemy/>
@@ -721,7 +607,6 @@
 		<XpMult>0.5</XpMult>
 		<Flying/>
 		<Terrain>MidPlains</Terrain>
-
 		<Projectile id="0">
 			<ObjectId>Yellow Missile</ObjectId>
 			<Damage>16</Damage>
@@ -729,9 +614,7 @@
 			<Size>60</Size>
 			<LifetimeMS>1200</LifetimeMS>
 		</Projectile>		
-
 	</Object>	
-
 	<Object type="0x0949" id="Warrior Wasp">
 		<Group>Wasps</Group>
 		<Enemy/>
@@ -745,7 +628,6 @@
 		<XpMult>0.5</XpMult>
 		<Flying/>
 		<Terrain>MidPlains</Terrain>
-
 		<Projectile id="0">
 			<ObjectId>Blue Missile</ObjectId>
 			<Damage>25</Damage>
@@ -753,10 +635,7 @@
 			<Size>80</Size>
 			<LifetimeMS>1200</LifetimeMS>
 		</Projectile>		
-
-
 	</Object>
-
 	<Object type="0x0950" id="Shambling Sludge">
 		<Group>Sludges</Group>
 		<Enemy/>
@@ -772,7 +651,6 @@
 		<Level>6</Level>
 		<XpMult>2</XpMult>
 		<SpawnProb>0.75</SpawnProb>
-		
 		<Projectile id="0">
 			<ObjectId>Gray Spinner</ObjectId>
 			<Damage>22</Damage>
@@ -782,10 +660,7 @@
 			<Parametric/>
 			<ConditionEffect duration="2">Slowed</ConditionEffect>
 		</Projectile>
-
-		
 	</Object>
-	
 	<Object type="0x0951" id="Sludget">
 		<Group>Sludges</Group>
 		<Enemy/>
@@ -797,7 +672,6 @@
 		<MaxHitPoints>250</MaxHitPoints>
 		<Defense>0</Defense>
 		<XpMult>0.5</XpMult>
-
 		<Projectile id="0">
 			<ObjectId>White Flame</ObjectId>
 			<Damage>14</Damage>
@@ -805,11 +679,7 @@
 			<LifetimeMS>510</LifetimeMS>
 			<Size>82</Size>
 		</Projectile>	
-
-
-
 	</Object>
-
 	<Object type="0x0955" id="Swarm">
 		<Group>Swarms</Group>
 		<Enemy/>
@@ -826,7 +696,6 @@
 		<XpMult>1.8</XpMult>
 		<SpawnProb>0.75</SpawnProb>
 		<Flying/>
-		
 		<Projectile id="0">
 			<ObjectId>White Flame</ObjectId>
 			<Damage>15</Damage>
@@ -834,12 +703,7 @@
 			<Size>60</Size>
 			<LifetimeMS>1100</LifetimeMS>
 		</Projectile>
-		
-
 	</Object>
-	
-	
-	
 	<Object type="0x61c" id="Dwarf Axebearer">
 		<Group>Dwarves</Group>
 		<Enemy/>
@@ -851,7 +715,6 @@
 		<MaxHitPoints>80</MaxHitPoints>
 		<Defense>2</Defense>
 		<Terrain>MidForest</Terrain>
-		
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>20</Damage>
@@ -859,11 +722,7 @@
 			<Size>80</Size>
 			<LifetimeMS>600</LifetimeMS>
 		</Projectile>
-		
-		
-		
 	</Object>
-
 	<Object type="0x61d" id="Dwarf Mage">
 		<Group>Dwarves</Group>
 		<Enemy/>
@@ -875,7 +734,6 @@
 		<MaxHitPoints>80</MaxHitPoints>
 		<Defense>0</Defense>
 		<Terrain>MidForest</Terrain>
-		
 		<Projectile id="0">
 			<ObjectId>Red Fire</ObjectId>
 			<Damage>12</Damage>
@@ -885,11 +743,7 @@
 			<Amplitude>1.0</Amplitude>
 			<Frequency>3.0</Frequency>
 		</Projectile>
-		
-		
-		
 	</Object>
-
 	<Object type="0x61e" id="Dwarf Veteran">
 		<Group>Dwarves</Group>
 		<Enemy/>
@@ -901,7 +755,6 @@
 		<MaxHitPoints>100</MaxHitPoints>
 		<Defense>3</Defense>
 		<Terrain>MidForest</Terrain>
-		
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>14</Damage>
@@ -909,10 +762,7 @@
 			<Size>110</Size>
 			<LifetimeMS>600</LifetimeMS>
 		</Projectile>
-		
-		
 	</Object>
-
 	<Object type="0x61f" id="Dwarf King">
 		<Enemy/>
 		<Class>Character</Class>
@@ -927,7 +777,6 @@
 		<Level>5</Level>
 		<XpMult>1.6</XpMult>
 		<SpawnProb>0.75</SpawnProb>
-		
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>16</Damage>
@@ -935,12 +784,7 @@
 			<Size>120</Size>
 			<LifetimeMS>900</LifetimeMS>
 		</Projectile>
-		
-		
-
-
 	</Object>
-
 	<Object type="0x62d" id="Metal Golem">
 		<Group>Golems</Group>
 		<Enemy/>
@@ -954,7 +798,6 @@
 		<Terrain>MidForest</Terrain>
 		<XpMult>0.7</XpMult>
 		<SpawnProb>1.0</SpawnProb>
-
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>25</Damage>
@@ -962,10 +805,7 @@
 			<LifetimeMS>1400</LifetimeMS>
 			<Size>120</Size>
 		</Projectile>
-
-
 	</Object>
-
 	<Object type="0x62e" id="Clockwork Golem">
 		<Group>Golems</Group>
 		<Enemy/>
@@ -978,7 +818,6 @@
 		<Defense>3</Defense>
 		<Terrain>MidForest</Terrain>
 		<SpawnProb>1.0</SpawnProb>
-
 		<Projectile id="0">
 			<ObjectId>Blue Mystic Shot</ObjectId>
 			<Damage>37</Damage>
@@ -988,10 +827,7 @@
 			<PassesCover/>
 			<Parametric/>
 		</Projectile>
-
-
 	</Object>
-
 	<Object type="0x635" id="Weretiger">
 		<Group>Werecats</Group>
 		<Enemy/>
@@ -1004,7 +840,6 @@
 		<Defense>3</Defense>
 		<Terrain>MidForest</Terrain>
 		<XpMult>0.4</XpMult>
-
 		<Projectile id="0">
 			<ObjectId>Violet Missile</ObjectId>
 			<Damage>17</Damage>
@@ -1013,11 +848,7 @@
 			<LifetimeMS>2200</LifetimeMS>
 			<PassesCover/>
 		</Projectile>
-
-
-
 	</Object>
-
 	<Object type="0x636" id="Wereleopard">
 		<Group>Werecats</Group>
 		<Enemy/>
@@ -1030,7 +861,6 @@
 		<Defense>1</Defense>
 		<Terrain>MidForest</Terrain>
 		<XpMult>0.4</XpMult>
-
 		<Projectile id="0">
 			<ObjectId>Fire Missile</ObjectId>
 			<Damage>19</Damage>
@@ -1038,11 +868,7 @@
 			<Size>82</Size>
 			<LifetimeMS>1000</LifetimeMS>
 		</Projectile>
-
-
-
 	</Object>
-
 	<Object type="0x639" id="Werepanther">
 		<Group>Werecats</Group>
 		<Enemy/>
@@ -1055,7 +881,6 @@
 		<Defense>3</Defense>
 		<Terrain>MidForest</Terrain>
 		<XpMult>0.4</XpMult>
-
 		<Projectile id="0">
 			<ObjectId>Brown Magic</ObjectId>
 			<Damage>16</Damage>
@@ -1063,10 +888,7 @@
 			<Size>82</Size>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
-
-
 	</Object>
-
 	<Object type="0x637" id="Werelion">
 		<Enemy/>
 		<Class>Character</Class>
@@ -1079,7 +901,6 @@
 		<Terrain>MidForest</Terrain>
 		<XpMult>1</XpMult>
 		<SpawnProb>1.0</SpawnProb>
-
 		<Projectile id="0">
 			<ObjectId>Grey Missile</ObjectId>
 			<Damage>22</Damage>
@@ -1094,12 +915,7 @@
 			<Size>130</Size>
 			<LifetimeMS>2500</LifetimeMS>
 		</Projectile>
-
-
-		
-		
 	</Object>
-
 	<Object type="0x0945" id="Horned Drake">
 		<Group>Drakes</Group>
 		<Enemy/>
@@ -1116,7 +932,6 @@
 		<XpMult>1.8</XpMult>
 		<Flying/>
 		<SpawnProb>0.75</SpawnProb>
-		
 		<Projectile id="0">
 			<ObjectId>Fire Missile</ObjectId>
 			<Damage>30</Damage>
@@ -1130,11 +945,7 @@
 			 <Speed>25</Speed>
 			 <LifetimeMS>2000</LifetimeMS>
 		  </Projectile>
-		
-		
-
 	</Object>
-
 	<Object type="0x0946" id="Drake Baby">
 		<Group>Drakes</Group>
 		<Enemy/>
@@ -1148,7 +959,6 @@
 		<XpMult>0.5</XpMult>
 		<Flying/>
 		<Terrain>MidForest</Terrain>
-
 		<Projectile id="0">
 			<ObjectId>Fire Missile</ObjectId>
 			<Damage>20</Damage>
@@ -1162,9 +972,7 @@
 			 <Speed>25</Speed>
 			 <LifetimeMS>2000</LifetimeMS>
 		  </Projectile>		
-
 	</Object>
-
     <Object type="0x0202" id="Red Spider">
 		<Class>Character</Class>
 		<Texture><File>lofiChar8x8</File><Index>0xc9</Index></Texture>
@@ -1184,9 +992,7 @@
 			<Damage>25</Damage>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
-
 	</Object>
-
 	<Object type="0x0204" id="Black Bat">
 		<Group>Bats</Group>
 		<Class>Character</Class>
@@ -1209,6 +1015,5 @@
 			<Damage>25</Damage>
 			<LifetimeMS>200</LifetimeMS>
 		</Projectile>
-
 	</Object>
 </Objects>

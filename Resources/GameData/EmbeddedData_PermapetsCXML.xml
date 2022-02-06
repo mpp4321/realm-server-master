@@ -1,5 +1,4 @@
 <Objects>
-
   <Object type="0x1500" id="Black Cat Generator">
     <DisplayId>Black Cat</DisplayId>
     <Class>Equipment</Class>
@@ -19,7 +18,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1501" id="Grey Cat Generator">
     <DisplayId>Grey Cat</DisplayId>
     <Class>Equipment</Class>
@@ -129,8 +127,6 @@
     <Description>A loyal and friendly pup.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Grey Pup" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -142,7 +138,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1507" id="Golden Pup Generator">
     <DisplayId>Golden Pup</DisplayId>
     <Class>Equipment</Class>
@@ -153,8 +148,6 @@
     <Description>A loyal and friendly pup.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Golden Pup" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -166,7 +159,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1508" id="White Cat Generator">
     <DisplayId>White Cat</DisplayId>
     <Class>Equipment</Class>
@@ -177,8 +169,6 @@
     <Description>A cute and affectionate cat.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="White Cat" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -190,7 +180,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1509" id="Blue Snail Generator">
     <DisplayId>Blue Snail</DisplayId>
     <Class>Equipment</Class>
@@ -200,8 +189,6 @@
     <Description>A slimy but lovable snail.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Blue Snail" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -212,7 +199,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x150a" id="Grey Wolf Generator">
     <DisplayId>Grey Wolf</DisplayId>
     <Class>Equipment</Class>
@@ -222,8 +208,6 @@
     <Description>A brave, majestic wolf.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Grey Wolf" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -234,7 +218,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x150b" id="Brown Fox Generator">
     <DisplayId>Brown Fox</DisplayId>
     <Class>Equipment</Class>
@@ -244,8 +227,6 @@
     <Description>A quick and cunning fox.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Brown Fox" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -256,7 +237,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x150c" id="Green Frog Generator">
     <DisplayId>Green Frog</DisplayId>
     <Class>Equipment</Class>
@@ -266,8 +246,6 @@
     <Description>A cute little frog.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Green Frog" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -278,7 +256,6 @@
     <NoMiniMap/>
     <Size>80</Size>
   </Object>
-
   <Object type="0x150d" id="Lion Generator">
     <DisplayId>Lion</DisplayId>
     <Class>Equipment</Class>
@@ -288,8 +265,6 @@
     <Description>A fierce but friendly lion.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Lion" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -300,7 +275,6 @@
     <NoMiniMap/>
     <Size>80</Size>
   </Object>
-
   <Object type="0x150e" id="Penguin Generator">
     <DisplayId>Penguin</DisplayId>
     <Class>Equipment</Class>
@@ -310,8 +284,6 @@
     <Description>A cute little penguin.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Penguin" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -322,7 +294,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x150f" id="Sheepdog Generator">
     <DisplayId>Sheepdog</DisplayId>
     <Class>Equipment</Class>
@@ -332,8 +303,6 @@
     <Description>A brave and protective sheepdog.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Sheepdog" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -344,7 +313,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1510" id="Panda Generator">
     <DisplayId>Panda</DisplayId>
     <Class>Equipment</Class>
@@ -354,8 +322,6 @@
     <Description>A rare, beautiful panda.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Panda" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -366,7 +332,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1511" id="Purple Snail Generator">
     <DisplayId>Purple Snail</DisplayId>
     <Class>Equipment</Class>
@@ -377,8 +342,6 @@
     <Description>A slimy but lovable snail.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Purple Snail" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -390,7 +353,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1512" id="Black Wolf Generator">
     <DisplayId>Black Wolf</DisplayId>
     <Class>Equipment</Class>
@@ -402,8 +364,6 @@
     <Description>A brave, majestic wolf.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Black Wolf" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -416,7 +376,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1513" id="Grey Fox Generator">
     <DisplayId>Grey Fox</DisplayId>
     <Class>Equipment</Class>
@@ -427,8 +386,6 @@
     <Description>A quick and cunning fox.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Grey Fox" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -440,7 +397,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1514" id="Purple Frog Generator">
     <DisplayId>Purple Frog</DisplayId>
     <Class>Equipment</Class>
@@ -451,8 +407,6 @@
     <Description>A cute little frog.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Purple Frog" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -464,7 +418,6 @@
     <NoMiniMap/>
     <Size>80</Size>
   </Object>
-
   <Object type="0x1515" id="White Lion Generator">
     <DisplayId>White Lion</DisplayId>
     <Class>Equipment</Class>
@@ -475,8 +428,6 @@
     <Description>A fierce but friendly lion.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="White Lion" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -488,7 +439,6 @@
     <NoMiniMap/>
     <Size>80</Size>
   </Object>
-
   <Object type="0x1516" id="Green Penguin Generator">
     <DisplayId>Green Penguin</DisplayId>
     <Class>Equipment</Class>
@@ -499,8 +449,6 @@
     <Description>A cute little penguin.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Green Penguin" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -512,7 +460,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1517" id="Golden Sheepdog Generator">
     <DisplayId>Golden Sheepdog</DisplayId>
     <Class>Equipment</Class>
@@ -523,8 +470,6 @@
     <Description>A brave and protective sheepdog.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Golden Sheepdog" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -536,7 +481,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1518" id="Bluebird Generator">
     <DisplayId>Bluebird</DisplayId>
     <Class>Equipment</Class>
@@ -546,8 +490,6 @@
     <Description>A sweet bluebird.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Bluebird" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -557,7 +499,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x1519" id="Chick Generator">
     <DisplayId>Chick</DisplayId>
     <Class>Equipment</Class>
@@ -567,8 +508,6 @@
     <Description>A curious young chicken.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Chick" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -578,7 +517,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x151a" id="Pig Generator">
     <DisplayId>Pig</DisplayId>
     <Class>Equipment</Class>
@@ -588,8 +526,6 @@
     <Description>A hungry piglet.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Pig" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -600,7 +536,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-
   <Object type="0x151b" id="Sea Slurp Generator">
     <DisplayId>Sea Slurp</DisplayId>
     <Class>Equipment</Class>
@@ -610,8 +545,6 @@
     <Description>A tame sea slurp.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Sea Slurp" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -622,7 +555,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-  
   <Object type="0x151c" id="Squirrel Generator">
     <DisplayId>Squirrel</DisplayId>
     <Class>Equipment</Class>
@@ -632,8 +564,6 @@
     <Description>A woodland classic.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Squirrel" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -645,7 +575,6 @@
 	<Flying/>
     <Size>60</Size>
   </Object>
-  
   <Object type="0x151d" id="Bat Generator">
     <DisplayId>Bat</DisplayId>
     <Class>Equipment</Class>
@@ -655,29 +584,22 @@
     <Description>A little bat.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Bat" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
   <Object type="0x161d" id="Bat">
     <Class>Character</Class>
-	
 	<Texture><File>lofiChar28x8</File><Index>0x18</Index></Texture>
-	
 	<Animation prob="1.0" period="0.0">
 		<Frame time=".15"><Texture><File>lofiChar28x8</File><Index>0x18</Index></Texture></Frame>
 		<Frame time=".15"><Texture><File>lofiChar28x8</File><Index>0x19</Index></Texture></Frame>
 	</Animation>
-	
     <NoMiniMap/>
 	<Z>0.24</Z>
 	<Flying/>
     <Size>60</Size>
 	<ShadowSize>80</ShadowSize>
   </Object>
-  
-  
   <Object type="0x151e" id="Lil' Ghost Generator">
     <DisplayId>Lil' Ghost</DisplayId>
     <Class>Equipment</Class>
@@ -687,8 +609,6 @@
     <Description>A passive little spirit.</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Lil' Ghost" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -701,7 +621,6 @@
     <Size>60</Size>
 	<ShadowSize>80</ShadowSize>
   </Object>
-
   <Object type="0x151f" id="Valentine Generator">
     <DisplayId>Valentine</DisplayId>
     <Class>Equipment</Class>
@@ -727,7 +646,6 @@
     <Size>40</Size>
 	<ShadowSize>70</ShadowSize>
   </Object>
-  
    <Object type="0x1520" id="Leprechaun Generator">
     <DisplayId>Leprechaun</DisplayId>
     <Class>Equipment</Class>
@@ -737,8 +655,6 @@
     <Description>It's a little Leprechaun. Happy Saint Patrick's Day!!!</Description>
     <Sound>spell/light_heal</Sound>
     <InvUse/>
-    
-    
     <Activate id="Leprechaun" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -748,7 +664,6 @@
     <NoMiniMap/>
     <Size>60</Size>
   </Object>
-  
    <Object type="0x1521" id="Lil' Oryx Generator">
     <DisplayId>Lil' Oryx</DisplayId>
     <Class>Equipment</Class>
@@ -758,7 +673,6 @@
     <Description>Every evil boss creates miniature versions of himself.  It's just something they do.</Description>
     <Sound>spell/light_heal</Sound>
     <Consumable/>
-    
     <Activate id="Lil' Oryx" cooldown="10">PermaPet</Activate>
     <OldSound>use_potion</OldSound>
   </Object>
@@ -770,7 +684,6 @@
     <Size>40</Size>
 	<ShadowSize>70</ShadowSize>
   </Object>
-  
 	<Object type="0x1522" id="Toucan Generator">
 	    <DisplayId>Toucan</DisplayId>
 	    <Class>Equipment</Class>
@@ -780,8 +693,6 @@
 	    <Description>An exotic bird with a large colorful bill.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Toucan" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -795,7 +706,6 @@
 	    	<Flying/>
 	    </WhileMoving>
 	</Object>
-  
 	<Object type="0x1523" id="Skunk Generator">
 	    <DisplayId>Skunk</DisplayId>
 	    <Class>Equipment</Class>
@@ -805,8 +715,6 @@
 	    <Description>Adorable, but watch out for the smell!</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Skunk" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -817,7 +725,6 @@
 	    <NoMiniMap/>
 	    <Size>60</Size>
 	</Object>
-  
 	<Object type="0x1524" id="Mallard Generator">
 	    <DisplayId>Mallard</DisplayId>
 	    <Class>Equipment</Class>
@@ -827,8 +734,6 @@
 	    <Description>A handsome wild duck.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Mallard" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -839,7 +744,6 @@
 	    <NoMiniMap/>
 	    <Size>60</Size>
 	</Object>
-  
 	<Object type="0x1525" id="Duck Generator">
 	    <DisplayId>Duck</DisplayId>
 	    <Class>Equipment</Class>
@@ -849,8 +753,6 @@
 	    <Description>A brilliant yellow duck.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Duck" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -861,7 +763,6 @@
 	    <NoMiniMap/>
 	    <Size>60</Size>
 	</Object>
-  
 	<Object type="0x1526" id="Eagle Generator">
 	    <DisplayId>Eagle</DisplayId>
 	    <Class>Equipment</Class>
@@ -871,8 +772,6 @@
 	    <Description>The majestic king of the skies.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Eagle" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -886,7 +785,6 @@
 	    	<Flying/>
 	    </WhileMoving>
 	</Object>
-  
 	<Object type="0x1527" id="Turtle Generator">
 	    <DisplayId>Turtle</DisplayId>
 	    <Class>Equipment</Class>
@@ -896,8 +794,6 @@
 	    <Description>An adorable little Turtle.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Turtle" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -908,7 +804,6 @@
 	    <NoMiniMap/>
 	    <Size>60</Size>
 	</Object>
-  
 	<Object type="0x1528" id="Jelly Generator">
 	    <DisplayId>Jelly</DisplayId>
 	    <Class>Equipment</Class>
@@ -918,8 +813,6 @@
 	    <Description>A jelly buddy!</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Jelly" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -930,7 +823,6 @@
 	    <Size>60</Size>
 		<ShadowSize>80</ShadowSize>
 	</Object>
-  
 	<Object type="0x1529" id="Bee Generator">
 	    <DisplayId>Bee</DisplayId>
 	    <Class>Equipment</Class>
@@ -940,8 +832,6 @@
 	    <Description>A friendly honey bee.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Bee" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -957,7 +847,6 @@
 		<ShadowSize>60</ShadowSize>
 	    <Size>60</Size>
 	</Object>
-  
 	<Object type="0x152a" id="Raven Generator">
 	    <DisplayId>Raven</DisplayId>
 	    <Class>Equipment</Class>
@@ -967,8 +856,6 @@
 	    <Description>An ominous black bird.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Raven" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -982,7 +869,6 @@
 	    	<Flying/>
 	    </WhileMoving>
 	</Object>
-  
 	<Object type="0x152b" id="Purple Penguin Generator">
 	    <DisplayId>Purple Penguin</DisplayId>
 	    <Class>Equipment</Class>
@@ -992,8 +878,6 @@
 	    <Description>A cute little penguin.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Purple Penguin" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1005,7 +889,6 @@
 	    <Size>60</Size>
 		<ShadowSize>80</ShadowSize>
 	</Object>
-  
 	<Object type="0x152c" id="Grass Penguin Generator">
 	    <DisplayId>Grass Penguin</DisplayId>
 	    <Class>Equipment</Class>
@@ -1015,8 +898,6 @@
 	    <Description>A cute little penguin.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Grass Penguin" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1028,7 +909,6 @@
 	    <Size>60</Size>
 		<ShadowSize>80</ShadowSize>
 	</Object>
-  
 	<Object type="0x152d" id="Elf Generator">
 	    <DisplayId>Elf</DisplayId>
 	    <Class>Equipment</Class>
@@ -1038,8 +918,6 @@
 	    <Description>Your little helper.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Elf" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1050,7 +928,6 @@
 	    <Size>60</Size>
 		<ShadowSize>80</ShadowSize>
 	</Object>
-  
 	<Object type="0x152e" id="Crab Generator">
 	    <DisplayId>Crab</DisplayId>
 	    <Class>Equipment</Class>
@@ -1060,8 +937,6 @@
 	    <Description>Your little helper.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Crab" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1073,7 +948,6 @@
 	    <Size>60</Size>
 		<ShadowSize>80</ShadowSize>
 	</Object>
-  
 	<Object type="0x152f" id="Hamster Generator">
 	    <DisplayId>Hamster</DisplayId>
 	    <Class>Equipment</Class>
@@ -1083,8 +957,6 @@
 	    <Description>A hamster in a ball!</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Hamster" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1095,7 +967,6 @@
 	    <NoMiniMap/>
 	    <Size>60</Size>
 	</Object>
-  
 	<Object type="0x1530" id="Dino Generator">
 	    <DisplayId>Dino</DisplayId>
 	    <Class>Equipment</Class>
@@ -1105,8 +976,6 @@
 	    <Description>A ferocious predator from the past.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Dino" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1117,7 +986,6 @@
 	    <NoMiniMap/>
 	    <Size>60</Size>
 	</Object>
-  
 	<Object type="0x1531" id="Elephant Generator">
 	    <DisplayId>Elephant</DisplayId>
 	    <Class>Equipment</Class>
@@ -1127,8 +995,6 @@
 	    <Description>The smallest elephant in the world.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Elephant" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1139,7 +1005,6 @@
 	    <NoMiniMap/>
 	    <Size>60</Size>
 	</Object>
-  
 	<Object type="0x1532" id="Demon Frog Generator">
 	    <DisplayId>Demon Frog</DisplayId>
 	    <Class>Equipment</Class>
@@ -1149,8 +1014,6 @@
 	    <Description>An amphibian from the abyss.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Demon Frog" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1161,7 +1024,6 @@
 	    <NoMiniMap/>
 	    <Size>60</Size>
 	</Object>
-	
 	<Object type="0x1533" id="Gargoyle Generator">
 	    <DisplayId>Gargoyle</DisplayId>
 	    <Class>Equipment</Class>
@@ -1171,8 +1033,6 @@
 	    <Description>Carved of living stone.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Gargoyle" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1186,7 +1046,6 @@
 	    	<Flying/>
 	    </WhileMoving>
 	</Object>
-	
 	<Object type="0x1534" id="Gummy Bear Generator">
 	    <DisplayId>Gummy Bear</DisplayId>
 	    <Class>Equipment</Class>
@@ -1196,8 +1055,6 @@
 	    <Description>A gummy buddy. NOT FOR EATING!!!</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Gummy Bear" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1208,7 +1065,6 @@
 	    <NoMiniMap/>
 	    <Size>60</Size>
 	</Object>
-	
 	<Object type="0x1535" id="Dragonfly Generator">
 	    <DisplayId>Dragonfly</DisplayId>
 	    <Class>Equipment</Class>
@@ -1218,8 +1074,6 @@
 	    <Description>A symbol of strength and courage.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Dragonfly" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1235,7 +1089,6 @@
 		<ShadowSize>60</ShadowSize>
 	    <Size>60</Size>
 	</Object>
-	
 	<Object type="0x1536" id="Lil' Cyclops Generator">
 	    <DisplayId>Cyclops</DisplayId>
 	    <Class>Equipment</Class>
@@ -1245,8 +1098,6 @@
 	    <Description>A one eyed monster.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Lil' Cyclops" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1256,7 +1107,6 @@
 	    <NoMiniMap/>
 	    <Size>60</Size>
 	</Object>
-	
 	<Object type="0x1537" id="Snowy Owl Generator">
 	    <DisplayId>Snowy Owl</DisplayId>
 	    <Class>Equipment</Class>
@@ -1266,8 +1116,6 @@
 	    <Description>A beautiful white owl.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Snowy Owl" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1282,7 +1130,6 @@
 	    	<Flying/>
 	    </WhileMoving>
 	</Object>
-  
 	<Object type="0x1538" id="Turkey Generator">
 	    <DisplayId>Turkey</DisplayId>
 	    <Class>Equipment</Class>
@@ -1292,8 +1139,6 @@
         <Description>A turkey for turkey day!</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Turkey" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1303,7 +1148,6 @@
 	    <NoMiniMap/>
 	    <Size>60</Size>
 	</Object>
-  
 	<Object type="0x1539" id="Baby Generator">
 	    <DisplayId>Baby</DisplayId>
 	    <Class>Equipment</Class>
@@ -1313,8 +1157,6 @@
 	    <Description>Take good care of him!</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Baby" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1324,7 +1166,6 @@
 	    <NoMiniMap/>
 	    <Size>60</Size>
 	</Object>
-  
 	<Object type="0x153a" id="Baby Dragon Generator">
 	    <DisplayId>Baby Dragon</DisplayId>
 	    <Class>Equipment</Class>
@@ -1334,8 +1175,6 @@
 	    <Description>A baby dragon.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Baby Dragon" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1354,8 +1193,6 @@
 	    <Description>A special penguin trained in the martial arts.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Karate Penguin Red" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1375,8 +1212,6 @@
 	    <Description>A special penguin trained in the martial arts.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Karate Penguin Blue" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1396,8 +1231,6 @@
 	    <Description>A special penguin trained in the martial arts.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Karate Penguin Yellow" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1417,8 +1250,6 @@
 	    <Description>A special penguin trained in the martial arts.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Karate Penguin Purple" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1439,7 +1270,6 @@
 		<BagType>2</BagType>
         <InvUse/>
         <Activate id="Beach Ball" cooldown="1" hideEffect="true">PermaPet</Activate>
-		
 	</Object>
 	<Object type="0x163f" id="Beach Ball">
 		<Class>Character</Class>
@@ -1457,8 +1287,6 @@
 	    <Description>A technological marvel.</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Robobuddy" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1477,8 +1305,6 @@
 	    <Description>A living snowman!</Description>
 	    <Sound>spell/light_heal</Sound>
 	    <InvUse/>
-	    
-	    
 	    <Activate id="Snowman" cooldown="10">PermaPet</Activate>
 	    <OldSound>use_potion</OldSound>
 	</Object>
@@ -1497,8 +1323,6 @@
         <Description>Your very own pet ant!</Description>
         <Sound>spell/light_heal</Sound>
         <InvUse/>
-        
-        
         <Activate id="Black Ant" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
@@ -1517,8 +1341,6 @@
         <Description>Your very own pet ant!</Description>
         <Sound>spell/light_heal</Sound>
         <InvUse/>
-        
-        
         <Activate id="Blue Ant" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
@@ -1537,8 +1359,6 @@
         <Description>Your very own pet ant!</Description>
         <Sound>spell/light_heal</Sound>
         <InvUse/>
-        
-        
         <Activate id="Green Ant" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
@@ -1557,8 +1377,6 @@
         <Description>Your very own pet ant!</Description>
         <Sound>spell/light_heal</Sound>
         <InvUse/>
-        
-        
         <Activate id="Red Ant" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
@@ -1577,8 +1395,6 @@
         <Description>Your very own pet ant!</Description>
         <Sound>spell/light_heal</Sound>
         <InvUse/>
-        
-        
         <Activate id="Purple Ant" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
@@ -1588,7 +1404,6 @@
         <NoMiniMap/>
         <Size>60</Size>
     </Object>
-    
     <Object type="0x1547" id="Beer Slurp Generator">
         <DisplayId>Beer Slurp</DisplayId>
         <Class>Equipment</Class>
@@ -1602,8 +1417,6 @@
         </ExtraTooltipData>
         <Sound>spell/light_heal</Sound>
         <InvUse/>
-        
-        
         <Activate id="Beer Slurp" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
@@ -1616,16 +1429,7 @@
         <NoMiniMap/>
         <Size>60</Size>
         <ShadowSize>50</ShadowSize>
-        
-        
-        
-        
-        
-        
     </Object>
-
-
-    
     <Object type="0x15aa" id="Ball Generator">
         <DisplayId>Beach Ball</DisplayId>
         <Class>Equipment</Class>
@@ -1636,9 +1440,7 @@
         <BagType>2</BagType>
         <InvUse/>
         <Activate id="Ball" cooldown="1" hideEffect="true">PermaPet</Activate>
-        
     </Object>
-    
     <Object type="0x16aa" id="Ball">
         <Class>Character</Class>
         <Texture><File>invisible</File><Index>0</Index></Texture>
@@ -1646,7 +1448,6 @@
         <ShadowSize>0</ShadowSize>
         <Size>0</Size>
     </Object>
-    
     <Object type="0x1549" id="Peppermint Snail Generator">
         <DisplayId>Peppermint Snail</DisplayId>
         <Class>Equipment</Class>
@@ -1656,8 +1457,6 @@
         <Description>Tamed wildlife from the Candyland Hunting Grounds.</Description>
         <Sound>spell/light_heal</Sound>
         <InvUse/>
-        
-        
         <Activate id="Peppermint Snail" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
@@ -1676,8 +1475,6 @@
         <Description>This limited-edition bird will keep you company on all of your adventures. Proceeds go to help the victims of Hurricane Sandy.</Description>
         <Sound>spell/light_heal</Sound>
         <InvUse/>
-        
-        
         <Activate id="Relief Oriole" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
@@ -1692,7 +1489,6 @@
         </WhileMoving>
         <Size>60</Size>
     </Object>
-
     <Object type="0x154b" id="Relief Goldfinch Generator">
         <DisplayId>Goldfinch</DisplayId>
         <Class>Equipment</Class>
@@ -1702,8 +1498,6 @@
         <Description>This limited-edition bird will keep you company on all of your adventures. Proceeds go to help the victims of Hurricane Sandy.</Description>
         <Sound>spell/light_heal</Sound>
         <InvUse/>
-        
-        
         <Activate id="Relief Goldfinch" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
@@ -1718,7 +1512,6 @@
         </WhileMoving>
         <Size>60</Size>
     </Object>
-
     <Object type="0x154c" id="Relief Bluebird Generator">
         <DisplayId>Bluebird</DisplayId>
         <Class>Equipment</Class>
@@ -1728,8 +1521,6 @@
         <Description>This limited-edition bird will keep you company on all of your adventures. Proceeds go to help the victims of Hurricane Sandy.</Description>
         <Sound>spell/light_heal</Sound>
         <InvUse/>
-        
-        
         <Activate id="Relief Bluebird" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
@@ -1744,7 +1535,6 @@
         </WhileMoving>
         <Size>60</Size>
     </Object>
-
     <Object type="0x154d" id="Relief Cardinal Generator">
         <DisplayId>Cardinal</DisplayId>
         <Class>Equipment</Class>
@@ -1754,8 +1544,6 @@
         <Description>This limited-edition bird will keep you company on all of your adventures. Proceeds go to help the victims of Hurricane Sandy.</Description>
         <Sound>spell/light_heal</Sound>
         <InvUse/>
-        
-        
         <Activate id="Relief Cardinal" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
@@ -1770,7 +1558,6 @@
         </WhileMoving>
         <Size>60</Size>
     </Object>
-    
     <Object type="0x154e" id="Tamed Werewolf Cub Generator">
         <DisplayId>Tamed Werewolf Cub</DisplayId>
         <Class>Equipment</Class>
@@ -1780,8 +1567,6 @@
         <Description>An adorable, yet horrific abomination!</Description>
         <Sound>spell/light_heal</Sound>
         <InvUse/>
-        
-        
         <Activate id="Tamed Werewolf Cub" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
@@ -1792,7 +1577,6 @@
         <NoMiniMap/>
         <Size>60</Size>
     </Object>
-    
     <Object type="0x154f" id="Tomb Snake Generator">
         <DisplayId>Tomb Snake</DisplayId>
         <Class>Equipment</Class>
@@ -1802,8 +1586,6 @@
         <Description>A serpent from the egyptian tombs.</Description>
         <Sound>spell/light_heal</Sound>
         <InvUse/>
-        
-        
         <Activate id="Tomb Snake" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
@@ -1814,8 +1596,6 @@
         <NoMiniMap/>
         <Size>60</Size>
     </Object>
-    
-    
     <Object type="0x1550" id="Ninja Cat Generator">
         <DisplayId>Ninja Cat</DisplayId>
         <Class>Equipment</Class>
@@ -1825,8 +1605,6 @@
         <Description>A stealthy feline.</Description>
         <Sound>spell/light_heal</Sound>
         <InvUse/>
-        
-        
         <Activate id="Ninja Cat" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
@@ -1846,8 +1624,6 @@
         <Description>An elegant and noble insect.</Description>
         <Sound>spell/light_heal</Sound>
         <InvUse/>
-        
-        
         <Activate id="Praying Mantis" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
@@ -1858,7 +1634,6 @@
         <NoMiniMap/>
         <Size>40</Size>
     </Object>
-    
     <Object type="0x1552" id="Dreidel Generator">
         <DisplayId>Dreidel</DisplayId>
         <Class>Equipment</Class>
@@ -1868,15 +1643,12 @@
         <Description>A spinning top pet to help you celebrate the holidays.</Description>
         <Sound>spell/light_heal</Sound>
         <InvUse/>
-        
-        
         <Activate id="Dreidel" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
     <Object type="0x1652" id="Dreidel">
         <DisplayId>Dreidel</DisplayId>
         <Class>Character</Class>
-        
         <Texture><File>lofiEnvironment3</File><Index>0xf4</Index></Texture>
         <Animation prob="1.0" period="0.4">
             <Frame time="0.1"><Texture><File>lofiEnvironment3</File><Index>0xf4</Index></Texture></Frame>

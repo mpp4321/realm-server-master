@@ -214,6 +214,7 @@ namespace RotMG.Game.Logic.Database
             );
 
             db.Init("MegaRototo",
+                    HPScale.BOSS_HP_SCALE_DEFAULT(),
                     new Reproduce(children: "Tiny Rototo", densityRadius: 6, densityMax: 3, cooldown: 7000),
                     new State("Follow",
                         new Prioritize(
@@ -265,6 +266,7 @@ namespace RotMG.Game.Logic.Database
                 )
             );
             db.Init("Spoiled Creampuff",
+                    HPScale.BOSS_HP_SCALE_DEFAULT(),
                     new Spawn(children: "Big Creampuff", maxChildren: 2, initialSpawn: 0, givesNoXp: false),
                     new Reproduce(children: "Big Creampuff", densityRadius: 24, densityMax: 2, cooldown: 25000),
                     new Shoot(10, count: 1, index: 0, predictive: 1, cooldown: 1400),
@@ -299,6 +301,7 @@ namespace RotMG.Game.Logic.Database
                 )
             );
             db.Init("Desire Troll",
+                    HPScale.BOSS_HP_SCALE_DEFAULT(),
                     new State("BaseAttack",
                         new Shoot(10, count: 3, shootAngle: 15, index: 0, predictive: 1, cooldown: 1400),
                         new Grenade(5, damage: 160, radius: 8, cooldown: 3000),
@@ -366,6 +369,7 @@ namespace RotMG.Game.Logic.Database
                 )
             );
             db.Init("Swoll Fairy",
+                    HPScale.BOSS_HP_SCALE_DEFAULT(),
                     new Spawn(children: "Fairy", maxChildren: 2, initialSpawn: 0, cooldown: 10000, givesNoXp: false),
                     new StayCloseToSpawn(speed: 0.6f, range: 13),
                     new Prioritize(
@@ -407,6 +411,7 @@ namespace RotMG.Game.Logic.Database
                 )
             );
             db.Init("Gigacorn",
+                    HPScale.BOSS_HP_SCALE_DEFAULT(),
                     new StayCloseToSpawn(speed: 1, range: 13),
                     new Prioritize(
                         new Charge(speed: 1.4f, range: 24, coolDown: 3800),

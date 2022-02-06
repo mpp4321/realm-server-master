@@ -16,6 +16,7 @@ namespace RotMG.Game.Logic.Behaviors
                 ));
 
             db.Init("Bonegrind the Butcher",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("wait", 
                     new PlayerWithinTransition(10, "start")
                 ),

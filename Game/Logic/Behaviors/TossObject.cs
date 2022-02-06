@@ -184,6 +184,7 @@ namespace RotMG.Game.Logic.Behaviors
                             return;
 
                         Entity entity = Entity.Resolve(randChildren);
+                        entity.IsSpawned = true;
                         entity.Parent = host.Parent;
                         host.Parent.AddEntity(entity, target);
 

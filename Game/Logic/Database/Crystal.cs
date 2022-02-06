@@ -78,6 +78,7 @@ namespace RotMG.Game.Logic.Database
                     )
             );
             db.Init("Crystal Prisoner",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("base",
                     new Spawn("Crystal Prisoner Steed", maxChildren: 3, initialSpawn: 0, cooldown: 200, givesNoXp: false),
                     new State("pause",
@@ -236,6 +237,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Attack", 0.8f),
                     new ItemLoot("Potion of Defense", 0.8f),
                     new ItemLoot("Potion of Dexterity", 0.8f),
+                    new ItemLoot("Realm Equipment Crystal", 0.2f),
                     new ItemLoot("Potion of Vitality", 0.8f),
                     new ItemLoot("Potion of Wisdom", 0.8f),
                     new ItemLoot("Potion of Life", 0.2f),

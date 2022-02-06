@@ -639,7 +639,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
     <Object type="0x7325" id="BSD Shot">
         <Class>Projectile</Class>
         <Texture>
@@ -648,7 +647,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
     <Object type="0x7327" id="BLK Shot">
         <Class>Projectile</Class>
         <Texture>
@@ -657,7 +655,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
     <Object type="0x7329" id="MoCS Shot">
         <Class>Projectile</Class>
         <Texture>
@@ -666,7 +663,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
     <Object type="0x7331" id="SoPE Shot">
         <Class>Projectile</Class>
         <Texture>
@@ -675,8 +671,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
-
     <Object type="0x7343" id="SoHA Shot">
         <Class>Projectile</Class>
         <Texture>
@@ -685,7 +679,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
     <Object type="0x7346" id="QoEU Arrow">
         <Class>Projectile</Class>
         <Texture>
@@ -694,7 +687,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
     <Object type="0x7348" id="SoA Bolt">
         <Class>Projectile</Class>
         <Texture>
@@ -703,7 +695,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
     <Object type="0x7412" id="Sanic Ring">
         <Class>Projectile</Class>
         <Texture>
@@ -712,7 +703,6 @@
         </Texture>
         <Rotation>80</Rotation>
     </Object>
-
     <Object type="0x7603" id="SotFB Shot">
         <Class>Projectile</Class>
         <Texture>
@@ -721,7 +711,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
     <Object type="0x7605" id="BFS Missile">
         <Class>Projectile</Class>
         <Texture>
@@ -730,7 +719,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
     <Object type="0x7607" id="Mucus Spray">
         <Class>Projectile</Class>
         <Texture>
@@ -739,7 +727,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
     <Object type="0x7620" id="Night Shot2">
         <Class>Projectile</Class>
         <Texture>
@@ -755,7 +742,6 @@
             <Index>0x5d</Index>
         </Texture>
     </Object>
-
     <Object type="0x7746" id="Large Laser Warn">
         <Class>Projectile</Class>
         <Texture>
@@ -764,7 +750,6 @@
         </Texture>
         <Rotation>0</Rotation>
     </Object>
-
     <Object type="0x7747" id="Large Laser Shot">
         <Class>Projectile</Class>
         <Texture>
@@ -773,7 +758,6 @@
         </Texture>
         <Rotation>0</Rotation>
     </Object>
-
     <Object type="0x7771" id="DWSomShot5">
         <Class>Projectile</Class>
         <Texture>
@@ -1947,8 +1931,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
-
     <Object type="0x165a" id="Dogey Star">
         <Class>Projectile</Class>
         <Texture>
@@ -2740,7 +2722,6 @@
         </Texture>
         <Rotation>80</Rotation>
     </Object>
-
     <Object type="0x44f2" id="Pig Shot 1">
         <Class>Projectile</Class>
         <Texture>
@@ -2852,7 +2833,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
     <Object type="0x43aa" id="Orange Fever Shot">
         <Class>Projectile</Class>
         <Texture>
@@ -2877,7 +2857,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
     <Object type="0x43b3" id="Uglyaza Proj">
         <Class>Projectile</Class>
         <Texture>
@@ -2987,7 +2966,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
     <Object type="0x46f3" id="Wasp Shot 1">
         <Class>Projectile</Class>
         <Texture>
@@ -4258,8 +4236,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
-
     <Object type="0x63e8" id="Dirt Quake">
         <Class>Projectile</Class>
         <Texture>
@@ -4512,7 +4488,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
     <Object type="0x5869" id="SOTP">
         <Class>Projectile</Class>
         <Texture>
@@ -4529,7 +4504,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
     <Object type="0x5875" id="Alikyr Lance Shot">
         <Class>Projectile</Class>
         <Texture>
@@ -4538,7 +4512,6 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
     <Object type="0x5877" id="Parallel Distortion Shot">
         <Class>Projectile</Class>
         <Texture>

@@ -38,7 +38,7 @@ namespace RotMG.Game.Entities
             "announce", "announcement", "legendary", "roll", "disconnect", "dcAll", "dc", "songs", "changesong",
             "terminate", "stop", "gimme", "give", "gift", "closerealm", "rank", "create", "spawn", "killall",
             "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute", "setcomp", "quake",
-            "unlockskin", "summonhere", "makedonator", "lbadd", "lb", "l20", "visit"
+            "unlockskin", "summonhere", "makedonator", "lbadd", "lb", "l20", "visit", "wlb", "doneegg", "makepublicbag"
         };
 
 
@@ -250,16 +250,15 @@ namespace RotMG.Game.Entities
                         break;
                     case "/g":
                     case "/guild":
-                        if (string.IsNullOrEmpty(Client.Account.GuildName))
+                        if (string.IsNullOrEmpty(Client.Account?.GuildName))
                         {
                             SendError("Not in a guild");
                             return;
                         }
                         var guild = GameServer.Text(Name, Id, NumStars, 5, "*Guild*", input);
-
                         foreach (var client in Manager.Clients.Values)
                         {
-                            if (client.Account.GuildName == Client.Account.GuildName)
+                            if (client.Account?.GuildName == Client.Account?.GuildName)
                                 client.Send(guild);
                         }
                         break;
@@ -959,6 +958,16 @@ namespace RotMG.Game.Entities
                         Client.Player.NextAEProjectileId = int.MinValue;
                         Client.Player.NextProjectileId = 0;
                         break;
+                    case "/wlb":
+                        if (Client.Account.Ranked)
+                        {
+                            var amt = float.Parse(j[0]);
+                            Client.Player.Parent.WorldLB = amt;
+                            var announce = GameServer.Text("", 0, -1, 0, "", "<EVENT> An admin has enabled a " + (amt * 100.0f) + "% instance loot boost!");
+                            foreach (var player in Client.Player.Parent.Players)
+                                player.Value.Client.Send(announce);
+                        }
+                        break;
                     case "/visit":
                         if (Client.Account.Ranked)
                         {
@@ -986,6 +995,40 @@ namespace RotMG.Game.Entities
                                 }
                             }
                             SendInfo("Player not found");
+                        }
+                        break;
+                    case "/doneegg":
+                        if(Client.Account.Ranked)
+                        {
+                            var type = int.Parse(j[0]);
+                            var freeSlot = GetFreeInventorySlot();
+                            switch(type)
+                            {
+                                case 1:
+                                    Client.Player.Inventory[freeSlot] = Resources.Id2Item["(Green) UT Egg"].Type;
+                                    Client.Player.ItemDatas[freeSlot] = new()
+                                    {
+                                        Meta = 500000
+                                    };
+                                    break;
+                                case 2:
+                                    Client.Player.Inventory[freeSlot] = Resources.Id2Item["(Blue) RT Egg"].Type;
+                                    Client.Player.ItemDatas[freeSlot] = new()
+                                    {
+                                        Meta = 500000
+                                    };
+                                    break;
+                            }
+                        }
+                        break;
+                    case "/makepublicbag":
+                        if(Client.Account.Ranked)
+                        {
+                            Container _c = new Container(Container.FromBagType(6), -1, 40000);
+                            _c.Inventory = Client.Player.Inventory.Skip(4).ToArray();
+                            _c.ItemDatas = Client.Player.ItemDatas.Skip(4).ToArray();
+                            Client.Player.Parent.AddEntity(_c, Client.Player.Position);
+                            _c.UpdateInventory();
                         }
                         break;
                     default:

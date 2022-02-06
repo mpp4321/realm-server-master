@@ -20,6 +20,10 @@ namespace RotMG.Game.Logic.Mechanics
         {
             return p.Inventory[slot1] == id ? (slot1, slot2) : p.Inventory[slot2] == id ? (slot2, slot1) : (-1, -1);
         }
+        public static (int, int) FindComponentItem(int slot1, int slot2, ItemDesc s1, ItemDesc s2, Func<ItemDesc, bool> pred)
+        {
+            return pred(s1) ? (slot1, slot2) : pred(s2) ? (slot2, slot1) : (-1, -1);
+        }
 
         public static void DoMixComponents(Player p, int slot1, int slot2, IEnumerable<ItemDesc> descs)
         {
@@ -44,7 +48,7 @@ namespace RotMG.Game.Logic.Mechanics
         public static void DoMix(Player p, int slot1, int slot2)
         {
             var items = new int[] { p.Inventory[slot1], p.Inventory[slot2] };
-            var descs = items.Select(a => Resources.Type2Item[(ushort)a]);
+            var descs = items.Select(a => Resources.Type2Item[(ushort)a]).ToList();
 
             if(AreAnyComponents(descs))
             {
@@ -53,7 +57,10 @@ namespace RotMG.Game.Logic.Mechanics
             } else
             {
                 //Crafting
-                (int, int) goo = FindComponentItem(p, slot1, slot2, 0xcb0);
+                (int, int) goo = FindComponentItem(slot1, slot2, descs[0], descs[1], x =>
+                {
+                    return x.ActivateEffects.Count() > 0 && x.ActivateEffects[0].Index == ActivateEffectIndex.MagicCrystal;
+                });
                 (int, int) havocPiece = FindComponentItem(p, slot1, slot2, 0xcaa);
 
                 CombineAndReroll(p, goo);
@@ -67,11 +74,13 @@ namespace RotMG.Game.Logic.Mechanics
         private static void CombineAndReroll(Player p, (int, int) itemPair)
         {
             if (itemPair.Item1 == -1 || itemPair.Item2 == -1) return;
-
+            var crystal = Resources.Type2Item[(ushort)p.Inventory[itemPair.Item1]];
+            var eff = crystal.ActivateEffects[0];
+            int power = eff.Amount;
+            float scale = eff.StatScale;
+            ItemDataModType typeOfMod = Enum.Parse<ItemDataModType>(crystal.ActivateEffects[0].Id ?? p.Client.Character.ItemDataModifier);
             var item = Resources.Type2Item[(ushort)p.Inventory[itemPair.Item2]];
-            ItemDataModType vtype = ItemDataModType.Classical;
-            Enum.TryParse(p.Client.Character.ItemDataModifier, out vtype);
-            var r = item.Roll(new RarityModifiedData(1.0f, 3, true), vtype);
+            var r = item.Roll(new RarityModifiedData(scale, power, true), typeOfMod);
 
             p.Inventory[itemPair.Item1] = -1;
             p.ItemDatas[itemPair.Item1] = new ItemDataJson();

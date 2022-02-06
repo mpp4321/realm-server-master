@@ -118,6 +118,8 @@ namespace RotMG.Game
         public ushort Type;
         public ObjectDesc Desc;
 
+        public bool IsSpawned = false;
+
         public Vector2 _position;
 
         public Vector2 Position { get { return _position; } set {
@@ -599,7 +601,7 @@ namespace RotMG.Game
             if (Behavior != null)
             {
 #if DEBUG
-                Program.Print(PrintType.Debug, $"Behavior resolved for <{Type}> <{Desc.DisplayId}>");
+//                Program.Print(PrintType.Debug, $"Behavior resolved for <{Type}> <{Desc.DisplayId}>");
 #endif
                 StateCooldown = new DictionaryWithDefault<int, int>();
                 StateObject = new DictionaryWithDefault<int, object>();

@@ -170,6 +170,7 @@
 		<Maps>CyclopsChambers/0.jm</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
+		<Portals>0x0759</Portals>
 	</World>
 	<World name="TombOfTheAncients" display="Tomb of the Ancients">
 		<Maps>TOA/0.jm</Maps>

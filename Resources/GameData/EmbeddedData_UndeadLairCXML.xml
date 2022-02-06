@@ -1,4 +1,3 @@
-
 <Objects>
 	<Object type="0x0d90" id="Septavius the Ghost God">
 		<Enemy/>
@@ -51,7 +50,6 @@
 			<ArmorPiercing/>
 		</Projectile>
 	</Object>	
-	
 	<Object type="0x0d91" id="Lair Skeleton">
 		<Group>Lair Skeletons</Group>
 		<Enemy/>

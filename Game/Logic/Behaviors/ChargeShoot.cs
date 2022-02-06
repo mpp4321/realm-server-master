@@ -18,8 +18,8 @@ namespace RotMG.Game.Logic.Behaviors
 
         public override void Death(Entity host)
         {
-            s.Death(host);
-            c.Death(host);
+            s?.Death(host);
+            c?.Death(host);
         }
 
         public override void Enter(Entity host)
@@ -30,8 +30,8 @@ namespace RotMG.Game.Logic.Behaviors
 
         public override void Exit(Entity host)
         {
-            s.Exit(host);
-            c.Exit(host);
+            s?.Exit(host);
+            c?.Exit(host);
         }
 
         public override bool Tick(Entity host)

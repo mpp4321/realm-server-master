@@ -15,6 +15,7 @@ namespace RotMG.Game.Logic.Database
         public void Init(BehaviorDb db)
         {
             db.Init("Oryx Stone Guardian Right",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("Idle",
                     new ConditionalEffect(ConditionEffectIndex.Invulnerable, true),
                     new PlayerWithinTransition(2, "Order")
@@ -166,6 +167,7 @@ namespace RotMG.Game.Logic.Database
                 )
             );
             db.Init("Oryx Stone Guardian Left",
+                    HPScale.BOSS_HP_SCALE_DEFAULT(),
                     new State("Idle",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable, true),
                         new PlayerWithinTransition(2, "Order")
@@ -309,6 +311,7 @@ namespace RotMG.Game.Logic.Database
                     new State("Forever Alone"),
                  new Threshold(0.1f,
                     new ItemLoot("Ancient Stone Sword", 0.02f),
+                    new ItemLoot("Realm Equipment Crystal", 0.02f),
                     new ItemLoot("Potion of Defense", 1),
                     new TierLoot(8, LootType.Weapon, 0.1f),
                     new TierLoot(7, LootType.Armor, 0.1f),
@@ -363,7 +366,7 @@ namespace RotMG.Game.Logic.Database
                           new Shoot(10, 1, index: 2, cooldown: 450),
                           new TimedTransition("tim 4 rekkings", 2500)
                          ),
-                      new ItemLoot("Rusted Helm", 0.02f, 0.01f)
+                      new ItemLoot("Rusted Helm", 0.002f, 0.01f)
             );
             db.Init("Oryx Pet",
                       new State("swagoo baboon",
@@ -387,7 +390,7 @@ namespace RotMG.Game.Logic.Database
                           new Reproduce("Oryx Insect Minion", 10, 20, 1),
                           new Shoot(10, 1, index: 0, cooldown: 900)
                          ),
-                      new ItemLoot("Rusted Helm", 0.05f, 0.01f)
+                      new ItemLoot("Rusted Helm", 0.005f, 0.01f)
             );
             db.Init("Oryx Insect Minion",
                       new State("its SWARMING time",
@@ -423,7 +426,7 @@ namespace RotMG.Game.Logic.Database
                           new HealSelf(cooldown: 2000, amount: 200),
                           new TimedTransition("jordan is stanking", 1500)
                          ),
-                      new ItemLoot("Rusted Helm", 0.02f, 0.01f)
+                      new ItemLoot("Rusted Helm", 0.002f, 0.01f)
             );
             db.Init("Oryx Eye Warrior",
                     new State("swaggin",
@@ -462,7 +465,7 @@ namespace RotMG.Game.Logic.Database
                           new Shoot(10, 3, 10, index: 0, cooldown: 300),
                           new TimedTransition("piddle", 4000)
                         ),
-                      new ItemLoot("Rusted Helm", 0.02f, 0.01f)
+                      new ItemLoot("Rusted Helm", 0.002f, 0.01f)
             );
             db.Init("Quiet Bomb",
                     new ConditionalEffect(ConditionEffectIndex.Invincible, true),
@@ -496,7 +499,7 @@ namespace RotMG.Game.Logic.Database
                             new State("base",
                                 //new ScaleHP(50000),
                                 new State("Attack",
-                                    new Wander(.05f),
+                                    new Wander(.1f),
                                     new Shoot(25, index: 0, count: 8, shootAngle: 45, cooldown: 1500, cooldownOffset: 1500),
                                     new Shoot(25, index: 1, count: 3, shootAngle: 10, cooldown: 1000, cooldownOffset: 1000),
                                     new Shoot(25, index: 2, count: 3, shootAngle: 10, predictive: 0.2f, cooldown: 1000,
@@ -510,7 +513,7 @@ namespace RotMG.Game.Logic.Database
                                     new Shoot(25, index: 6, count: 3, shootAngle: 10, predictive: 1, cooldown: 1000,
                                         cooldownOffset: 1000),
                                     new Taunt(1, 6000, "Puny mortals! My {HP} HP will annihilate you!"),
-                                    new Spawn("Henchman of Oryx", 5, cooldown: 15000),
+                                    new Spawn("Henchman of Oryx", 3, cooldown: 30000),
                                     new HealthTransition(.2f, "prepareRage")
                                 ),
                                 new State("prepareRage",
@@ -522,7 +525,7 @@ namespace RotMG.Game.Logic.Database
                                     new TimedTransition("rage", 10000)
                                 ),
                                 new State("rage",
-                                    new Follow(.1f, 15, 3),
+                                    new Follow(.5f, 15, 3),
                                     new Shoot(25, 30, index: 7, cooldown: 90000001, cooldownOffset: 8000),
                                     new Shoot(25, 30, index: 8, cooldown: 90000001, cooldownOffset: 8500),
                                     new Shoot(25, index: 0, count: 8, shootAngle: 45, cooldown: 1500, cooldownOffset: 1500),
@@ -775,11 +778,10 @@ namespace RotMG.Game.Logic.Database
                                 ),
                         new Shoot(15, predictive: 1, cooldown: 2500),
                         new Shoot(10, count: 3, shootAngle: 10, index: 1, cooldown: 2500),
-                        new Spawn("Vintner of Oryx", maxChildren: 1, initialSpawn: 1, cooldown: 5000),
+                        new Spawn("Vintner of Oryx", maxChildren: 1, initialSpawn: 1, probability: 0.5f, cooldown: 15000),
                         //  new Spawn("Bile of Oryx", maxChildren: 1, initialSpawn: 1, cooldown: 5000),
-                        new Spawn("Aberrant of Oryx", maxChildren: 1, initialSpawn: 1, cooldown: 5000),
-                        new Spawn("Monstrosity of Oryx", maxChildren: 1, initialSpawn: 1, cooldown: 5000),
-                        new Spawn("Abomination of Oryx", maxChildren: 1, initialSpawn: 1, cooldown: 5000)
+                        new Spawn("Aberrant of Oryx", maxChildren: 1, initialSpawn: 1, probability: 0.5f, cooldown: 15000),
+                        new Spawn("Abomination of Oryx", maxChildren: 1, initialSpawn: 1, cooldown: 15000)
                                 ),
                         new State("Suicide",
                             new Decay(0)
@@ -826,7 +828,7 @@ namespace RotMG.Game.Logic.Database
                             new StayBack(1, 15),
                             new Wander(1)
                         ),
-                        new Shoot(10, cooldown: 250)
+                        new Shoot(10, count: 3, 30f, cooldown: 1000)
                         )
                         ));
             db.Init("Aberrant of Oryx",

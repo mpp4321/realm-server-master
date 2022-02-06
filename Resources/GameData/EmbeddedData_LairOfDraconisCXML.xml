@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-
 <Objects>
    <Object type="0x7500" id="NM Altar of Draconis">
       <DisplayId>Altar of Draconis</DisplayId>
@@ -2088,7 +2087,6 @@
       <Consumable/>
       <Soulbound/>
       <Activate id="Ivory Wyvern Portal">Create</Activate>
-      <feedPower>100</feedPower>
    </Object>
    <Object type="0x7411" id="lod Ivory Loot">
       <DisplayId>The Dragon's Treasure Cache</DisplayId>

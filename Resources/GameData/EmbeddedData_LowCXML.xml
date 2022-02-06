@@ -1,6 +1,4 @@
 <Objects>
-	
-	
 	<Object type="0x60a" id="Sandsman Archer">
 		<Group>Sandsmen</Group>
 		<Enemy/>
@@ -12,18 +10,13 @@
 		<MaxHitPoints>30</MaxHitPoints>
 		<Defense>0</Defense>
 		<Terrain>LowSand</Terrain>
-		
 		<Projectile id="0">
 			<ObjectId>Green Arrow</ObjectId>
 			<Damage>8</Damage>
 			<Speed>85</Speed>
 			<LifetimeMS>1400</LifetimeMS>
 		</Projectile>
-		
-		
-		
 	</Object>
-
 	<Object type="0x60c" id="Sandsman Sorcerer">
 		<Group>Sandsmen</Group>
 		<Enemy/>
@@ -35,7 +28,6 @@
 		<MaxHitPoints>88</MaxHitPoints>
 		<Defense>0</Defense>
 		<Terrain>LowSand</Terrain>
-		
 		<Projectile id="0">
 			<ObjectId>Purple Mystic Shot</ObjectId>
 			<Damage>13</Damage>
@@ -50,11 +42,7 @@
 			<Speed>80</Speed>
 			<LifetimeMS>300</LifetimeMS>
 		</Projectile>		
-		
-		
-		
 	</Object>
-
 	<Object type="0x60d" id="Sandsman King">
 		<Enemy/>
 		<Class>Character</Class>
@@ -69,19 +57,13 @@
 		<Level>4</Level>
 		<XpMult>1.6</XpMult>
 		<SpawnProb>0.75</SpawnProb>
-		
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>15</Damage>
 			<Speed>70</Speed>
 			<LifetimeMS>1200</LifetimeMS>
 		</Projectile>
-
-		
-
-		
 	</Object>
-
 	<Object type="0x6c4" id="Giant Crab">
 		<Enemy/>
 		<Class>Character</Class>
@@ -96,7 +78,6 @@
 		<Level>3</Level>
 		<XpMult>1.45</XpMult>	
 		<SpawnProb>0.75</SpawnProb>	
-
 		<Projectile id="0">
 			<ObjectId>Beam</ObjectId>
 			<Damage>1</Damage>
@@ -125,7 +106,6 @@
 			<Size>180</Size>
 			<LifetimeMS>800</LifetimeMS>
 		</Projectile>
-		
 		<Projectile id="4">
 			<ObjectId>Blue Bolt</ObjectId>
 			<Damage>10</Damage>
@@ -133,11 +113,7 @@
 			<LifetimeMS>1800</LifetimeMS>
 			<Size>90</Size>
 		</Projectile>		
-
-
-
 	</Object>	
-
 	<Object type="0x6c7" id="Sand Devil">
 		<Enemy/>
 		<Class>Character</Class>
@@ -150,7 +126,6 @@
 		<Terrain>LowSand</Terrain>
 		<XpMult>0.4</XpMult>		
 		<SpawnProb>1.0</SpawnProb>
-
 		<Projectile id="0">
 			<ObjectId>Dark Gray Spinner</ObjectId>
 			<Damage>10</Damage>
@@ -160,12 +135,7 @@
 			<Wavy/>
 			<ConditionEffect duration="1">Dazed</ConditionEffect>
 		</Projectile>		
-
-
 	</Object>
-
-	
-	
 	<Object type="0x615" id="Hobbit Rogue">
 		<Group>Hobbits</Group>
 		<Enemy/>
@@ -177,17 +147,13 @@
 		<MaxHitPoints>26</MaxHitPoints>
 		<Defense>0</Defense>
 		<Terrain>LowPlains</Terrain>
-		
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>13</Damage>
 			<Speed>60</Speed>
 			<LifetimeMS>800</LifetimeMS>
 		</Projectile>
-		
-		
 	</Object>
-
 	<Object type="0x616" id="Hobbit Archer">
 		<Group>Hobbits</Group>
 		<Enemy/>
@@ -199,18 +165,13 @@
 		<MaxHitPoints>22</MaxHitPoints>
 		<Defense>0</Defense>
 		<Terrain>LowPlains</Terrain>
-		
 		<Projectile id="0">
 			<ObjectId>Green Arrow</ObjectId>
 			<Damage>8</Damage>
 			<Speed>60</Speed>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
-		
-		
-		
 	</Object>
-
 	<Object type="0x617" id="Hobbit Mage">
 		<Enemy/>
 		<Class>Character</Class>
@@ -225,7 +186,6 @@
 		<Level>3</Level>
 		<XpMult>1.6</XpMult>
 		<SpawnProb>1.0</SpawnProb>
-		
 		<Projectile id="0">
 			<ObjectId>Dark Blue Magic</ObjectId>
 			<Damage>10</Damage>
@@ -244,12 +204,7 @@
 			<Speed>50</Speed>
 			<LifetimeMS>340</LifetimeMS>
 		</Projectile>		
-
-
-		
-
 	</Object>
-
 	<Object type="0x618" id="Undead Hobbit Rogue">
 		<Group>Undead Hobbits</Group>
 		<Enemy/>
@@ -261,17 +216,13 @@
 		<MaxHitPoints>34</MaxHitPoints>
 		<Defense>0</Defense>
 		<Terrain>LowPlains</Terrain>
-
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>16</Damage>
 			<Speed>60</Speed>
 			<LifetimeMS>800</LifetimeMS>
 		</Projectile>
-		
-
 	</Object>
-
 	<Object type="0x619" id="Undead Hobbit Archer">
 		<Group>Undead Hobbits</Group>
 		<Enemy/>
@@ -283,18 +234,13 @@
 		<MaxHitPoints>28</MaxHitPoints>
 		<Defense>0</Defense>
 		<Terrain>LowPlains</Terrain>
-
 		<Projectile id="0">
 			<ObjectId>Green Arrow</ObjectId>
 			<Damage>12</Damage>
 			<Speed>60</Speed>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
-		
-		
-
 	</Object>
-
 	<Object type="0x61a" id="Undead Hobbit Mage">
 		<Enemy/>
 		<Class>Character</Class>
@@ -309,7 +255,6 @@
 		<Level>4</Level>
 		<XpMult>1.6</XpMult>
 		<SpawnProb>0.75</SpawnProb>
-
 		<Projectile id="0">
 			<ObjectId>Yellow Missile</ObjectId>
 			<Damage>13</Damage>
@@ -328,7 +273,6 @@
 			<Speed>50</Speed>
 			<LifetimeMS>340</LifetimeMS>
 		</Projectile>
-		
 		<Projectile id="3">
 			<ObjectId>Salmon Missile</ObjectId>
 			<Damage>20</Damage>
@@ -336,18 +280,11 @@
 			<LifetimeMS>1100</LifetimeMS>
 			<Size>150</Size>
 		</Projectile>
-		
-
-
-		
-
 	</Object>
-
 	<Object type="0x61b" id="Sumo Master">
         <Group>Sumo</Group>
         <Enemy/>
         <Class>Character</Class>
-        
         <AnimatedTexture><File>chars16x16rEncounters</File><Index>5</Index></AnimatedTexture> 
         <AltTexture id="1">
 		<AnimatedTexture><File>chars16x16rEncounters</File><Index>6</Index></AnimatedTexture> 
@@ -361,12 +298,9 @@
         <AltTexture id="4">
 		<AnimatedTexture><File>chars16x16rEncounters</File><Index>9</Index></AnimatedTexture> 
 		</AltTexture>
-		
-		
 		<Level>4</Level>
 		<SpawnProb>0.45</SpawnProb>
         <Terrain>LowPlains</Terrain>
-        
         <HitSound>monster/ogres_hit</HitSound>
         <DeathSound>monster/ogres_death</DeathSound>
         <MaxHitPoints>340</MaxHitPoints>
@@ -377,7 +311,6 @@
             <Size>120</Size>
             <LifetimeMS>500</LifetimeMS>
         </Projectile>
-       
         <Projectile id="1">
             <ObjectId>Gold Bullet</ObjectId>
             <Speed>100</Speed>
@@ -386,28 +319,15 @@
             <PassesCover/>
             <LifetimeMS>1000</LifetimeMS>
         </Projectile>
-        
         <Size>100</Size>
         <Defense>5</Defense>
         <XpMult>1.65</XpMult>
-        
-        
-		
-		
-		
-		
-			
-			
-		
     </Object> 
-	
 	<Object type="0x7F01" id="Lil Sumo">
         <Group>Sumo</Group>
         <Enemy/>
         <Class>Character</Class>
-        
         <AnimatedTexture><File>chars8x8rLow2</File><Index>7</Index></AnimatedTexture>
-        
         <HitSound>monster/ogres_hit</HitSound>
         <DeathSound>monster/ogres_death</DeathSound>
         <MaxHitPoints>55</MaxHitPoints>
@@ -418,17 +338,10 @@
             <Size>50</Size>
             <LifetimeMS>3000</LifetimeMS>
         </Projectile>
-       
         <Size>100</Size>
         <Defense>4</Defense>
         <XpMult>2.0</XpMult>
-        
-		
     </Object> 
-
-
-	
-
 	<Object type="0x605" id="Elf Archer">
 		<Group>Elves</Group>
 		<Enemy/>
@@ -440,17 +353,13 @@
 		<MaxHitPoints>22</MaxHitPoints>
 		<Defense>2</Defense>
 		<Terrain>LowForest</Terrain>
-		
 		<Projectile id="0">
 			<ObjectId>Green Arrow</ObjectId>
 			<Damage>9</Damage>
 			<Speed>65</Speed>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
-		
-		
 	</Object>
-
 	<Object type="0x606" id="Elf Swordsman">
 		<Group>Elves</Group>
 		<Enemy/>
@@ -462,18 +371,13 @@
 		<MaxHitPoints>26</MaxHitPoints>
 		<Defense>2</Defense>
 		<Terrain>LowForest</Terrain>
-		
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>13</Damage>
 			<Speed>100</Speed>
 			<LifetimeMS>400</LifetimeMS>
 		</Projectile>
-		
-		
-		
 	</Object>
-
 	<Object type="0x607" id="Elf Mage">
 		<Group>Elves</Group>
 		<Enemy/>
@@ -485,18 +389,13 @@
 		<MaxHitPoints>22</MaxHitPoints>
 		<Defense>0</Defense>
 		<Terrain>LowForest</Terrain>
-		
 		<Projectile id="0">
 			<ObjectId>Cyan Magic</ObjectId>
 			<Damage>4</Damage>
 			<Speed>65</Speed>
 			<LifetimeMS>1500</LifetimeMS>
 		</Projectile>
-		
-		
-		
 	</Object>
-
 	<Object type="0x609" id="Elf Wizard">
 		<Enemy/>
 		<Class>Character</Class>
@@ -511,7 +410,6 @@
 		<Level>3</Level>
 		<XpMult>1.6</XpMult>
 		<SpawnProb>0.75</SpawnProb>
-		
 		<Projectile id="0">
 			<ObjectId>Blue Bolt</ObjectId>
 			<Damage>5</Damage>
@@ -519,11 +417,7 @@
 			<LifetimeMS>2000</LifetimeMS>
 			<Size>90</Size>
 		</Projectile>
-
-				
-
 	</Object>
-
 	<Object type="0x612" id="Goblin Rogue">
 		<Group>Goblins</Group>
 		<Enemy/>
@@ -535,18 +429,13 @@
 		<MaxHitPoints>25</MaxHitPoints>
 		<Defense>0</Defense>
 		<Terrain>LowForest</Terrain>
-		
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>10</Damage>
 			<Speed>60</Speed>
 			<LifetimeMS>800</LifetimeMS>
 		</Projectile>
-		
-
-		
 	</Object>
-
 	<Object type="0x613" id="Goblin Warrior">
 		<Group>Goblins</Group>
 		<Enemy/>
@@ -558,19 +447,13 @@
 		<MaxHitPoints>25</MaxHitPoints>
 		<Defense>2</Defense>
 		<Terrain>LowForest</Terrain>
-		
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>12</Damage>
 			<Speed>60</Speed>
 			<LifetimeMS>600</LifetimeMS>
 		</Projectile>
-		
-
-
-
 	</Object>
-
 	<Object type="0x614" id="Goblin Mage">
 		<Enemy/>
 		<Class>Character</Class>
@@ -585,7 +468,6 @@
 		<XpMult>1.4</XpMult>
 		<SpawnProb>0.75</SpawnProb>
 		<Terrain>LowForest</Terrain>
-
 		<Projectile id="0">
 			<ObjectId>Cyan Magic</ObjectId>
 			<Damage>14</Damage>
@@ -601,11 +483,7 @@
 			<Size>130</Size>
 			<LifetimeMS>1600</LifetimeMS>
 		</Projectile>		
-
-
-		
 	</Object>
-	
 	<Object type="0x6c8" id="Easily Enraged Bunny">
 		<Enemy/>
 		<Class>Character</Class>
@@ -618,10 +496,7 @@
 		<Terrain>LowForest</Terrain>
 		<XpMult>0</XpMult>
 		<SpawnProb>0.7</SpawnProb>
-
-
 	</Object>	
-
 	<Object type="0x6c9" id="Enraged Bunny">
 		<Enemy/>
 		<Class>Character</Class>
@@ -632,7 +507,6 @@
 		<MaxHitPoints>130</MaxHitPoints>
 		<Defense>1</Defense>
 		<XpMult>0.5</XpMult>
-
 		<Projectile id="0">
 			<ObjectId>Fire Missile</ObjectId>
 			<Damage>12</Damage>
@@ -640,12 +514,7 @@
 			<Size>90</Size>
 			<LifetimeMS>1600</LifetimeMS>
 		</Projectile>
-
-
-		
-
 	</Object>
-
 	<Object type="0x6d1" id="Forest Nymph">
 		<Enemy/>
 		<Class>Character</Class>
@@ -658,7 +527,6 @@
 		<Terrain>LowForest</Terrain>
 		<XpMult>0.5</XpMult>	
 		<SpawnProb>1.0</SpawnProb>
-
 		<Projectile id="0">
 			<ObjectId>Purple Boomerang</ObjectId>
 			<Damage>14</Damage>
@@ -675,18 +543,11 @@
 			<LifetimeMS>2900</LifetimeMS>
 			<Boomerang/>
 		</Projectile>
-
-
-
 	</Object>
-
-
-
 	<Object type="0x7F00" id="Sumo Master Ring">
 		<Group>Sumo</Group>
 		<Enemy/>
 		<Class>Character</Class>
-
 		<AnimatedTexture>
 			<File>chars16x16rEncounters</File>
 			<Index>5</Index>
@@ -715,10 +576,7 @@
 				<Index>9</Index>
 			</AnimatedTexture>
 		</AltTexture>
-
-
 		<Level>4</Level>
-
 		<HitSound>monster/ogres_hit</HitSound>
 		<DeathSound>monster/ogres_death</DeathSound>
 		<MaxHitPoints>340</MaxHitPoints>
@@ -729,7 +587,6 @@
 			<Size>120</Size>
 			<LifetimeMS>500</LifetimeMS>
 		</Projectile>
-
 		<Projectile id="1">
 			<ObjectId>Gold Bullet</ObjectId>
 			<Speed>100</Speed>
@@ -738,30 +595,17 @@
 			<PassesCover/>
 			<LifetimeMS>1000</LifetimeMS>
 		</Projectile>
-
 		<Size>100</Size>
 		<Defense>15</Defense>
 		<XpMult>1.65</XpMult>
-
-
-
-
-
-
-
-
-
 	</Object>
-
 	<Object type="0x13ed" id="Lil Sumo Ring">
 		<Enemy/>
 		<Class>Character</Class>
-
 		<AnimatedTexture>
 			<File>chars8x8rLow2</File>
 			<Index>7</Index>
 		</AnimatedTexture>
-
 		<HitSound>monster/ogres_hit</HitSound>
 		<DeathSound>monster/ogres_death</DeathSound>
 		<MaxHitPoints>55</MaxHitPoints>
@@ -772,15 +616,10 @@
 			<Size>50</Size>
 			<LifetimeMS>3000</LifetimeMS>
 		</Projectile>
-
 		<Size>100</Size>
 		<Defense>4</Defense>
 		<XpMult>2.0</XpMult>
-
-
 	</Object>
-
-
 	<Object type="0x13ee" id="NorthKarateSpawner">
 		<Class>Character</Class>
 		<Enemy/>
@@ -797,10 +636,7 @@
 		<Size>0</Size>
 		<Defense>4</Defense>
 		<XpMult>2.0</XpMult>
-
-
 	</Object>
-
 	<Object type="0x13ef" id="EastKarateSpawner">
 		<Class>Character</Class>
 		<Enemy/>
@@ -817,11 +653,7 @@
 		<Size>0</Size>
 		<Defense>4</Defense>
 		<XpMult>2.0</XpMult>
-
-
 	</Object>
-
-
 	<Object type="0x13f0" id="SouthKarateSpawner">
 		<Class>Character</Class>
 		<Enemy/>
@@ -838,11 +670,7 @@
 		<Size>0</Size>
 		<Defense>4</Defense>
 		<XpMult>2.0</XpMult>
-
-
 	</Object>
-
-
 	<Object type="0x13f1" id="WestKarateSpawner">
 		<Class>Character</Class>
 		<Enemy/>
@@ -859,8 +687,5 @@
 		<Size>0</Size>
 		<Defense>4</Defense>
 		<XpMult>2.0</XpMult>
-
-
 	</Object>
-	
 </Objects>

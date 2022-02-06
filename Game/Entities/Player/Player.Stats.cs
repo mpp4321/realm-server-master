@@ -177,7 +177,14 @@ namespace RotMG.Game.Entities
 
         public void InitStats(CharacterModel character)
         {
-            Stats = character.Stats.ToArray();
+            Stats = character.Stats
+                .Zip(Enumerable.Range(0, character.Stats.Count()))
+                .Select(
+                    tupl => Math.Min(
+                            Resources.Type2Player[(ushort)character.ClassType].Stats[tupl.Second].MaxValue,
+                            tupl.First
+                            )
+                ).ToArray();
             Boosts = new int[Stats.Length];
         }
 

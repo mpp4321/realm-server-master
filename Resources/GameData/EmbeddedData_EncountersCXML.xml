@@ -964,4 +964,15 @@
 		</AltTexture>
 		<Size>150</Size>
 	</Object>
+	<Object type="0x5016" id="The Master Hand Ally">
+		<Class>Character</Class>
+		<MaxHitPoints>4000</MaxHitPoints>
+		<Enemy/>
+		<Friendly/>
+		<Texture>
+			<File>lofiCharBig</File>
+			<Index>0x12</Index>
+		</Texture>
+		<Size>100</Size>
+	</Object>
 </Objects>

@@ -114,6 +114,8 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Doom Bow", 0.004f),
                 new ItemLoot("Wine Cellar Incantation", 0.05f),
                 new ItemLoot("Potion of Wisdom", 1f),
+                new ItemLoot("(Green) UT Egg", 0.1f, 0.01f),
+                new ItemLoot("(Blue) RT Egg", 0.01f, 0.01f),
                 new TierLoot(4, LootType.Ring, 0.25f),
                 new TierLoot(5, LootType.Ring, 0.125f),
                 new TierLoot(9, LootType.Weapon, 0.25f),

@@ -1190,7 +1190,6 @@
       <BagType>5</BagType>
       <FameBonus>6</FameBonus>
       <OldSound>daggerSwing</OldSound>
-      <feedPower>900</feedPower>
       <Soulbound />
    </Object>
    <Object type="0x0259" id="Brain of the Golem" setType="0x0010" setName="Lost Golem Set">
@@ -1223,7 +1222,6 @@
       <Activate>Shoot</Activate>
       <BagType>5</BagType>
       <FameBonus>5</FameBonus>
-      <feedPower>900</feedPower>
       <Soulbound />
    </Object>
    <Object type="0x025a" id="Golem Garments" setType="0x0010" setName="Lost Golem Set">
@@ -1240,7 +1238,6 @@
       <ActivateOnEquip stat="6" amount="7">IncrementStat</ActivateOnEquip>
       <BagType>5</BagType>
       <FameBonus>4</FameBonus>
-      <feedPower>435</feedPower>
       <Soulbound />
    </Object>
    <Object type="0x025b" id="Rusty Cuffs" setType="0x0010" setName="Lost Golem Set">
@@ -1257,7 +1254,6 @@
       <ActivateOnEquip stat="4" amount="5">IncrementStat</ActivateOnEquip>
       <BagType>5</BagType>
       <FameBonus>5</FameBonus>
-      <feedPower>900</feedPower>
       <Soulbound />
    </Object>
    <Object type="0xb107" id="Golem Magic">

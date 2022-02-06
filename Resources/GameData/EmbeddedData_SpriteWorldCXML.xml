@@ -13,7 +13,6 @@
 		<MaxHitPoints>100</MaxHitPoints>
 		<Defense>0</Defense>
 		<Flying />
-
 		<Projectile id="0">
 			<ObjectId>Red Fire</ObjectId>
 			<Damage>17</Damage>
@@ -21,7 +20,6 @@
 			<LifetimeMS>4000</LifetimeMS>
 		</Projectile>
 	</Object>
-
 	<Object type="0x0d01" id="Native Ice Sprite">
 		<Group>Native Sprites</Group>
 		<Enemy />
@@ -36,7 +34,6 @@
 		<MaxHitPoints>100</MaxHitPoints>
 		<Defense>0</Defense>
 		<Flying />
-
 		<Projectile id="0">
 			<ObjectId>Ice Spinner</ObjectId>
 			<Damage>14</Damage>
@@ -45,10 +42,7 @@
 			<Size>70</Size>
 			<ConditionEffect duration="1.6">Slowed</ConditionEffect>
 		</Projectile>
-
-
 	</Object>
-
 	<Object type="0x0d02" id="Native Magic Sprite">
 		<Group>Native Sprites</Group>
 		<Enemy />
@@ -63,7 +57,6 @@
 		<MaxHitPoints>100</MaxHitPoints>
 		<Defense>0</Defense>
 		<Flying />
-
 		<Projectile id="0">
 			<ObjectId>Green Magic</ObjectId>
 			<Damage>18</Damage>
@@ -71,10 +64,7 @@
 			<LifetimeMS>4000</LifetimeMS>
 			<Size>120</Size>
 		</Projectile>
-
-
 	</Object>
-
 	<Object type="0x0d03" id="Native Nature Sprite">
 		<Group>Native Sprites</Group>
 		<Enemy />
@@ -96,7 +86,6 @@
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
 	</Object>
-
 	<Object type="0x0d04" id="Native Darkness Sprite">
 		<Group>Native Sprites</Group>
 		<Enemy />
@@ -118,7 +107,6 @@
 			<LifetimeMS>3000</LifetimeMS>
 		</Projectile>
 	</Object>
-
 	<Object type="0x0d05" id="Native Sprite God">
 		<Enemy />
 		<Class>Character</Class>
@@ -147,10 +135,7 @@
 			<ConditionEffect duration="10">Quiet</ConditionEffect>
 			<ParticleTrail />
 		</Projectile>
-
-
 	</Object>
-
 	<Object type="0x0d06" id="Limon the Sprite God">
 		<Class>Character</Class>
 		<Texture>
@@ -170,7 +155,6 @@
 		<Enemy />
 		<XpMult>0.7</XpMult>
 		<NoArticle />
-
 		<Projectile id="0">
 			<ObjectId>Red Fire</ObjectId>
 			<Speed>80</Speed>
@@ -178,9 +162,7 @@
 			<Size>110</Size>
 			<LifetimeMS>2300</LifetimeMS>
 		</Projectile>
-
 	</Object>
-
 	<Object type="0x0d07" id="Limon Element 1">
 		<DisplayId>Limon Element</DisplayId>
 		<Group>AttackType</Group>
@@ -194,7 +176,6 @@
 			<Index>0</Index>
 		</AnimatedTexture>
 		<Size>100</Size>
-
 		<Projectile id="0">
 			<ObjectId>White Flame</ObjectId>
 			<Damage>50</Damage>
@@ -204,7 +185,6 @@
 			<PassesCover />
 		</Projectile>
 	</Object>
-
 	<Object type="0x0d08" id="Limon Element 2">
 		<DisplayId>Limon Element</DisplayId>
 		<Group>AttackType</Group>
@@ -227,7 +207,6 @@
 			<PassesCover />
 		</Projectile>
 	</Object>
-
 	<Object type="0x0d09" id="Limon Element 3">
 		<DisplayId>Limon Element</DisplayId>
 		<Group>AttackType</Group>
@@ -250,7 +229,6 @@
 			<PassesCover />
 		</Projectile>
 	</Object>
-
 	<Object type="0x0d0a" id="Limon Element 4">
 		<DisplayId>Limon Element</DisplayId>
 		<Group>AttackType</Group>
@@ -264,8 +242,6 @@
 			<Index>0</Index>
 		</AnimatedTexture>
 		<Size>100</Size>
-
-
 		<Projectile id="0">
 			<ObjectId>White Flame</ObjectId>
 			<Damage>50</Damage>
@@ -274,10 +250,7 @@
 			<LifetimeMS>1940</LifetimeMS>
 			<PassesCover />
 		</Projectile>
-
-
 	</Object>
-
 	<Object type="0x0d0b" id="Epic Limon the Sprite God">
 		<Class>Character</Class>
 		<Texture>
@@ -322,5 +295,4 @@
 			<MultiHit />
 		</Projectile>
 	</Object>
-
 </Objects>

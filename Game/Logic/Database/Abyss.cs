@@ -77,6 +77,7 @@ namespace RotMG.Game.Logic.Database
                 );
 
             db.Init("Archdemon Malphas",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("Waiting",
                     new PlayerWithinTransition(14, "base", seeInvis: true)
                 ),
@@ -139,7 +140,8 @@ namespace RotMG.Game.Logic.Database
                         new ItemLoot("The War Path", 0.005f),
                         new ItemLoot("Exuberant Heavy Plate", 0.005f),
                         new ItemLoot("The Horned Circlet", 0.005f),
-                        new ItemLoot("Abyssal Emblem", 0.005f)
+                        new ItemLoot("Abyssal Emblem", 0.005f),
+                        new ItemLoot("Realm Equipment Crystal", 0.05f)
                     ),
                     new Threshold(0.01f,
                         new ItemLoot("Potion of Defense", 0.75f),

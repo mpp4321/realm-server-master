@@ -14,6 +14,7 @@ namespace RotMG.Game.Logic.Database
         public void Init(BehaviorDb db)
         {
             db.Init("DS Gulpord the Slime God",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("base",
                     //new ScaleHP2(40,3,15),
                     new DropPortalOnDeath(target: "Glowing Realm Portal"),
@@ -113,6 +114,9 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(5, LootType.Ring, 0.125f),
                     new ItemLoot("Potion of Defense", 1.0f, 2),
                     new ItemLoot("Wine Cellar Incantation", 0.05f),
+                    new ItemLoot("(Green) UT Egg", 0.1f, 0.01f),
+                    new ItemLoot("(Blue) RT Egg", 0.01f, 0.01f),
+                    new ItemLoot("Realm Equipment Crystal", 0.02f),
                     new ItemLoot("Void Blade", 0.001f, 0.01f)
                     //new ItemLoot("Murky Toxin", 0.004f),
                     //new ItemLoot("Virulent Venom", 0.006f),

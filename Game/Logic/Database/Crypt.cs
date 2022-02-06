@@ -49,6 +49,7 @@ namespace RotMG.Game.Logic.Database
                 ));
 
             db.Init("Arena Pumpkin King",
+                    HPScale.BOSS_HP_SCALE_DEFAULT(),
                     new ClearRegionOnDeath(Region.Enemy1),
                     new OrderOnDeath(99, "Arena Spider", "ded"),
                     new State("base",
@@ -274,6 +275,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Attack", 1f),
                     new ItemLoot("Potion of Defense", 1f),
                     new ItemLoot("Potion of Mana", 1f),
+                    new ItemLoot("Realm Equipment Crystal", 0.05f),
                     new ItemLoot("Twilight Truncheon", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
                     new ItemLoot("Midnight Malice", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
                     new ItemLoot("Reaper's Regalia", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),

@@ -1513,7 +1513,6 @@
 		</Texture>
 		<Static />
 		<Size>60</Size>
-
 	</Object>
 	<Object type="0x01cc" id="Character Changer">
 		<Class>CharacterChanger</Class>
@@ -1972,7 +1971,6 @@
 		<OccupySquare />
 		<ShadowSize>0</ShadowSize>
 		<Size>110</Size>
-
 		<Static />
 	</Object>
 	<Object type="0x01e0" id="Weapon Rack">
@@ -1982,7 +1980,6 @@
 			<Index>0x56</Index>
 		</Texture>
 		<Size>100</Size>
-
 		<HitSound>monster/wooden_walls_hit</HitSound>
 		<DeathSound>monster/wooden_walls_death</DeathSound>
 		<Static />
@@ -2001,7 +1998,6 @@
 				<Index>0x58</Index>
 			</Texture>
 		</Top>
-
 		<HitSound>monster/wooden_walls_hit</HitSound>
 		<DeathSound>monster/wooden_walls_death</DeathSound>
 		<Static />
@@ -2022,7 +2018,6 @@
 				<Index>0x58</Index>
 			</Texture>
 		</Top>
-
 		<HitSound>monster/wooden_walls_hit</HitSound>
 		<DeathSound>monster/wooden_walls_death</DeathSound>
 		<Static />
@@ -2056,7 +2051,6 @@
 				<Index>0x58</Index>
 			</Texture>
 		</Top>
-
 		<HitSound>monster/wooden_walls_hit</HitSound>
 		<DeathSound>monster/wooden_walls_death</DeathSound>
 		<Static />
@@ -2076,7 +2070,6 @@
 		<Size>120</Size>
 		<Static />
 	</Object>
-
 	<Object type="0x01e6" id="BulletinBoard">
 		<Class>GameObject</Class>
 		<Model>Sign</Model>
@@ -2088,7 +2081,6 @@
 		<OccupySquare />
 		<ShadowSize>0</ShadowSize>
 	</Object>
-
 	<Object type="0x01e7" id="Guild Board">
 		<Class>GuildBoard</Class>
 		<Model>Sign</Model>
@@ -2100,7 +2092,6 @@
 		<OccupySquare />
 		<ShadowSize>75</ShadowSize>
 	</Object>
-
 	<Object type="0x01e8" id="Spider Dirt Wall">
 		<Class>Wall</Class>
 		<Texture>
@@ -2113,7 +2104,6 @@
 				<Index>0xaa</Index>
 			</Texture>
 		</Top>
-
 		<HitSound>monster/stone_walls_hit</HitSound>
 		<DeathSound>monster/stone_walls_death</DeathSound>
 		<Static />
@@ -2122,7 +2112,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x01e9" id="Grey Wall Crack">
 		<Class>Wall</Class>
 		<RandomTexture>
@@ -2161,7 +2150,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x01ea" id="Grey Wall Arch">
 		<Class>Wall</Class>
 		<Texture>
@@ -2182,7 +2170,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x01eb" id="Grey Wall Candle">
 		<Class>Wall</Class>
 		<Texture>
@@ -2263,8 +2250,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
-
 	<Object type="0x01ec" id="Brown Wall Holes">
 		<Class>Wall</Class>
 		<RandomTexture>
@@ -2299,7 +2284,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x01ed" id="Brown Wall Drawing">
 		<Class>Wall</Class>
 		<RandomTexture>
@@ -2366,7 +2350,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x01ee" id="Brown Wall Candles Light">
 		<Class>Wall</Class>
 		<Texture>
@@ -2458,7 +2441,6 @@
 				<File>lofiEnvironment2</File>
 				<Index>0xd6</Index>
 			</Texture>
-
 			<Texture>
 				<File>lofiEnvironment2</File>
 				<Index>0xd7</Index>
@@ -2471,7 +2453,6 @@
 				<File>lofiEnvironment2</File>
 				<Index>0xd9</Index>
 			</Texture>
-
 			<Texture>
 				<File>lofiEnvironment2</File>
 				<Index>0xda</Index>
@@ -2484,7 +2465,6 @@
 				<File>lofiEnvironment2</File>
 				<Index>0xdc</Index>
 			</Texture>
-
 			<Texture>
 				<File>lofiEnvironment2</File>
 				<Index>0xdd</Index>
@@ -2508,8 +2488,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
-
 	<Object type="0x01f2" id="Jungle Temple Walls">
 		<Class>Wall</Class>
 		<RandomTexture>
@@ -2530,7 +2508,6 @@
 				<Index>0xe4</Index>
 			</Texture>
 		</RandomTexture>
-
 		<Top>
 			<RandomTexture>
 				<Texture>
@@ -2555,7 +2532,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x01f3" id="Jungle Temple Column">
 		<Class>Wall</Class>
 		<Texture>
@@ -2576,7 +2552,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x01f4" id="Jungle Temple Bricks">
 		<Class>Wall</Class>
 		<Texture>
@@ -2597,7 +2572,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x01f5" id="Grey Wall Shelf RT">
 		<Class>Wall</Class>
 		<Texture>
@@ -2618,7 +2592,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x01f6" id="Grey Wall Shelf Lf">
 		<Class>Wall</Class>
 		<Texture>
@@ -2639,7 +2612,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x01f7" id="Grey Wall Shelf M">
 		<Class>Wall</Class>
 		<RandomTexture>
@@ -2670,7 +2642,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x01f8" id="Dark Brown Tile">
 		<Class>GameObject</Class>
 		<Texture>
@@ -2681,7 +2652,6 @@
 		<Size>85</Size>
 		<Static />
 	</Object>
-
 	<Object type="0x01f9" id="Rags">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -2742,7 +2712,6 @@
 		<Size>85</Size>
 		<Static />
 	</Object>
-
 	<Object type="0x01fa" id="Abyss Bones">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -2762,7 +2731,6 @@
 		<Size>85</Size>
 		<Static />
 	</Object>
-
 	<Object type="0x01fc" id="Spider Ground Rocks">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -2791,7 +2759,6 @@
 		<Size>75</Size>
 		<Static />
 	</Object>
-
 	<Object type="0x01fd" id="Spider Junk">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -2812,7 +2779,6 @@
 		<ShadowSize>60</ShadowSize>
 		<Static />
 	</Object>
-
 	<Object type="0x01fe" id="Spider Egg Prop">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -2832,7 +2798,6 @@
 		<Size>80</Size>
 		<Static />
 	</Object>
-
 	<Object type="0x1800" id="Spider Silk">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -2857,18 +2822,15 @@
 		<Size>85</Size>
 		<Static />
 	</Object>
-
 	<Object type="0x1801" id="Big Candle">
 		<Class>GameObject</Class>
 		<Size>80</Size>
 		<ShadowSize>60</ShadowSize>
 		<Static />
-
 		<Texture>
 			<File>lofiEnvironment3</File>
 			<Index>0x54</Index>
 		</Texture>
-
 		<Animation prob="1.0" period="0.0">
 			<Frame time="0.1">
 				<RandomTexture>
@@ -2888,18 +2850,15 @@
 			</Frame>
 		</Animation>
 	</Object>
-
 	<Object type="0x1802" id="Small Candle">
 		<Class>GameObject</Class>
 		<Size>80</Size>
 		<ShadowSize>60</ShadowSize>
 		<Static />
-
 		<Texture>
 			<File>lofiEnvironment3</File>
 			<Index>0x57</Index>
 		</Texture>
-
 		<Animation prob="1.0" period="0.0">
 			<Frame time="0.1">
 				<RandomTexture>
@@ -2919,7 +2878,6 @@
 			</Frame>
 		</Animation>
 	</Object>
-
 	<Object type="0x1803" id="Pool of Blood">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -2964,8 +2922,6 @@
 		<Size>100</Size>
 		<Static />
 	</Object>
-
-
 	<Object type="0x0200" id="Wooden Wall Tutorial">
 		<Class>Wall</Class>
 		<Texture>
@@ -2986,7 +2942,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x0201" id="Wooden Wall Torch Tutorial">
 		<Class>Wall</Class>
 		<Texture>
@@ -3073,8 +3028,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
-
 	<Object type="0x1804" id="Target">
 		<Class>GameObject</Class>
 		<Texture>
@@ -3087,7 +3040,6 @@
 		<DeathSound>monster/stone_walls_death</DeathSound>
 		<NoMiniMap />
 	</Object>
-
 	<Object type="0x1805" id="Dummy">
 		<Class>GameObject</Class>
 		<Texture>
@@ -3100,7 +3052,6 @@
 		<DeathSound>monster/stone_walls_death</DeathSound>
 		<NoMiniMap />
 	</Object>
-
 	<Object type="0x1806" id="Target Strong">
 		<Class>GameObject</Class>
 		<Texture>
@@ -3114,7 +3065,6 @@
 		<Enemy />
 		<XpMult>0.0</XpMult>
 	</Object>
-
 	<Object type="0x1807" id="Dummy Strong">
 		<Class>GameObject</Class>
 		<Texture>
@@ -3128,8 +3078,6 @@
 		<Enemy />
 		<XpMult>0.0</XpMult>
 	</Object>
-
-
 	<Object type="0x1808" id="Target Spawner">
 		<Class>GameObject</Class>
 		<Texture>
@@ -3141,7 +3089,6 @@
 		<NoMiniMap />
 		<StasisImmune />
 	</Object>
-
 	<Object type="0x1809" id="Dummy Spawner">
 		<Class>GameObject</Class>
 		<Texture>
@@ -3153,7 +3100,6 @@
 		<NoMiniMap />
 		<StasisImmune />
 	</Object>
-
 	<Object type="0x180a" id="Gothic Bricks">
 		<Class>Wall</Class>
 		<Texture>
@@ -3174,7 +3120,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x180b" id="Gothic Pillar">
 		<Class>Wall</Class>
 		<RandomTexture>
@@ -3201,8 +3146,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
-
 	<Object type="0x180c" id="Gothic Arch">
 		<Class>Wall</Class>
 		<RandomTexture>
@@ -3229,14 +3172,12 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x180d" id="Gothic Candelabra">
 		<Class>GameObject</Class>
 		<Texture>
 			<File>lofiEnvironment3</File>
 			<Index>0xa0</Index>
 		</Texture>
-
 		<Animation prob="1.0" period="0.0">
 			<Frame time="0.2">
 				<RandomTexture>
@@ -3252,7 +3193,6 @@
 						<File>lofiEnvironment3</File>
 						<Index>0xa2</Index>
 					</Texture>
-
 					<Texture>
 						<File>lofiEnvironment3</File>
 						<Index>0xa3</Index>
@@ -3268,14 +3208,11 @@
 				</RandomTexture>
 			</Frame>
 		</Animation>
-
 		<HitSound>monster/stone_walls_hit</HitSound>
 		<DeathSound>monster/stone_walls_death</DeathSound>
 		<Static />
 		<OccupySquare />
 	</Object>
-
-
 	<Object type="0x180e" id="Gothic Window 1">
 		<Class>Wall</Class>
 		<Texture>
@@ -3288,7 +3225,6 @@
 				<Index>0x9a</Index>
 			</Texture>
 		</Top>
-
 		<Animation sync="true" prob="1" period="5.5">
 			<Frame time="4">
 				<Texture>
@@ -3315,7 +3251,6 @@
 				</Texture>
 			</Frame>
 		</Animation>
-
 		<HitSound>monster/stone_walls_hit</HitSound>
 		<DeathSound>monster/stone_walls_death</DeathSound>
 		<Static />
@@ -3324,8 +3259,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
-
 	<Object type="0x180f" id="Gothic Window Light Da">
 		<Class>GameObject</Class>
 		<Texture>
@@ -3396,7 +3329,6 @@
 		<Static />
 		<DrawOnGround />
 	</Object>
-
 	<Object type="0x1811" id="Gothic Window Light Ua">
 		<Class>GameObject</Class>
 		<Texture>
@@ -3467,7 +3399,6 @@
 		<Static />
 		<DrawOnGround />
 	</Object>
-
 	<Object type="0x1815" id="Gothic Window Light La">
 		<Class>GameObject</Class>
 		<Texture>
@@ -3538,8 +3469,6 @@
 		<Static />
 		<DrawOnGround />
 	</Object>
-
-
 	<Object type="0x1813" id="Gothic Window Light Ra">
 		<Class>GameObject</Class>
 		<Texture>
@@ -3610,8 +3539,6 @@
 		<Static />
 		<DrawOnGround />
 	</Object>
-
-
 	<Object type="0x1817" id="Gothic Landscape Lf">
 		<Class>Wall</Class>
 		<Texture>
@@ -3624,7 +3551,6 @@
 				<Index>0x9a</Index>
 			</Texture>
 		</Top>
-
 		<HitSound>monster/stone_walls_hit</HitSound>
 		<DeathSound>monster/stone_walls_death</DeathSound>
 		<MaxHitPoints>3000</MaxHitPoints>
@@ -3648,7 +3574,6 @@
 				<Index>0x9a</Index>
 			</Texture>
 		</Top>
-
 		<HitSound>monster/stone_walls_hit</HitSound>
 		<DeathSound>monster/stone_walls_death</DeathSound>
 		<MaxHitPoints>3000</MaxHitPoints>
@@ -3660,7 +3585,6 @@
 		<XpMult>0.0</XpMult>
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x1819" id="Gothic Portrait">
 		<Class>Wall</Class>
 		<RandomTexture>
@@ -3687,7 +3611,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x181a" id="Gothic Bookshelf">
 		<Class>Wall</Class>
 		<RandomTexture>
@@ -3717,8 +3640,6 @@
 		<XpMult>0.0</XpMult>
 		<BlocksSight />
 	</Object>
-
-
 	<Object type="0x181b" id="Death Grass">
 		<Class>GameObject</Class>
 		<Size>80</Size>
@@ -3747,7 +3668,6 @@
 			</Texture>
 		</RandomTexture>
 	</Object>
-
 	<Object type="0x181c" id="Death Flower">
 		<Class>GameObject</Class>
 		<Size>80</Size>
@@ -3772,7 +3692,6 @@
 			</Texture>
 		</RandomTexture>
 	</Object>
-
 	<Object type="0x181d" id="Rock Path">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -3780,7 +3699,6 @@
 				<File>lofiEnvironment3</File>
 				<Index>0xc0</Index>
 			</Texture>
-
 			<Texture>
 				<File>lofiEnvironment3</File>
 				<Index>0xc1</Index>
@@ -3801,7 +3719,6 @@
 		<DrawOnGround />
 		<Static />
 	</Object>
-
 	<Object type="0x181e" id="Death Tree">
 		<Class>GameObject</Class>
 		<Size>120</Size>
@@ -3822,7 +3739,6 @@
 				<File>lofiObjBig</File>
 				<Index>0x18</Index>
 			</Texture>
-
 			<Texture>
 				<File>lofiObjBig</File>
 				<Index>0x19</Index>
@@ -3842,7 +3758,6 @@
 		<HitSound>monster/trees_hit</HitSound>
 		<DeathSound>monster/tress_death</DeathSound>
 	</Object>
-
 	<Object type="0x181f" id="Tombstone">
 		<Class>GameObject</Class>
 		<Size>120</Size>
@@ -3861,7 +3776,6 @@
 				<File>lofiEnvironment3</File>
 				<Index>0xc7</Index>
 			</Texture>
-
 			<Texture>
 				<File>lofiEnvironment3</File>
 				<Index>0xc8</Index>
@@ -3888,7 +3802,6 @@
 		<DeathSound>monster/rocks_death</DeathSound>
 		<MaxHitPoints>1000</MaxHitPoints>
 	</Object>
-
 	<Object type="0x1820" id="Egypt Plant">
 		<Class>GameObject</Class>
 		<Size>100</Size>
@@ -3926,10 +3839,7 @@
 		</RandomTexture>
 		<Static />
 	</Object>
-
-
 	<Object type="0x1825" id="Snake Pit Trap">
-
 		<Class>Wall</Class>
 		<RandomTexture>
 			<Texture>
@@ -3955,16 +3865,13 @@
 		<BlocksSight />
 		<Static />
 	</Object>
-
 	<Object type="0x1826" id="GhostShip Wall">
 		<Class>Wall</Class>
-
 		<RandomTexture>
 			<Texture>
 				<File>lofiObj3</File>
 				<Index>0x6b</Index>
 			</Texture>
-
 		</RandomTexture>
 		<Top>
 			<Texture>
@@ -3980,7 +3887,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x1827" id="GhostShip Column">
 		<Class>Wall</Class>
 		<RandomTexture>
@@ -4007,7 +3913,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x1828" id="GhostShip Map 1">
 		<Class>Wall</Class>
 		<Texture>
@@ -4028,7 +3933,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x1829" id="GhostShip Map 2">
 		<Class>Wall</Class>
 		<Texture>
@@ -4049,14 +3953,12 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x182a" id="GhostShip Window">
 		<Class>Wall</Class>
 		<Texture>
 			<File>lofiObj3</File>
 			<Index>0x79</Index>
 		</Texture>
-
 		<Top>
 			<Texture>
 				<File>lofiObj3</File>
@@ -4071,8 +3973,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
-
 	<Object type="0x182b" id="GhostShip Stairs">
 		<Class>GameObject</Class>
 		<Texture>
@@ -4084,8 +3984,6 @@
 		<NoMiniMap />
 		<Static />
 	</Object>
-
-
 	<Object type="0x182c" id="GhostShip Bookshelf Rt">
 		<Class>Wall</Class>
 		<Texture>
@@ -4106,8 +4004,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
-
 	<Object type="0x182d" id="GhostShip Bookshelf Lf">
 		<Class>Wall</Class>
 		<Texture>
@@ -4128,8 +4024,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
-
 	<Object type="0x182e" id="GhostShip Barrel">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -4151,19 +4045,16 @@
 		<Enemy />
 		<XpMult>0.0</XpMult>
 	</Object>
-
 	<Object type="0x1831" id="Ghost Small Candle">
 		<Class>GameObject</Class>
 		<Size>80</Size>
 		<ShadowSize>100</ShadowSize>
 		<ShadowColor>0x404d75</ShadowColor>
 		<Static />
-
 		<Texture>
 			<File>lofiObj3</File>
 			<Index>0x89</Index>
 		</Texture>
-
 		<Animation prob="1.0" period="0.0">
 			<Frame time="0.2">
 				<RandomTexture>
@@ -4183,7 +4074,6 @@
 			</Frame>
 		</Animation>
 	</Object>
-
 	<Object type="0x1832" id="GhostShip Stool">
 		<Class>GameObject</Class>
 		<ShadowSize>80</ShadowSize>
@@ -4191,13 +4081,10 @@
 			<File>lofiObj3</File>
 			<Index>0x8c</Index>
 		</Texture>
-
 		<Static />
-
 		<HitSound>monster/wooden_walls_hit</HitSound>
 		<DeathSound>monster/stone_walls_death</DeathSound>
 	</Object>
-
 	<Object type="0x1833" id="GhostShip Weapons">
 		<Class>GameObject</Class>
 		<Texture>
@@ -4209,8 +4096,6 @@
 		<HitSound>monster/stone_walls_hit</HitSound>
 		<DeathSound>monster/stone_walls_death</DeathSound>
 	</Object>
-
-
 	<Object type="0x1834" id="GhostShip Bones">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -4228,7 +4113,6 @@
 		<DeathSound>monster/stone_walls_death</DeathSound>
 		<StasisImmune />
 	</Object>
-
 	<Object type="0x1835" id="Ghost Table">
 		<Class>GameObject</Class>
 		<Model>Table</Model>
@@ -4242,7 +4126,6 @@
 		<EnemyOccupySquare />
 		<ShadowSize>180</ShadowSize>
 	</Object>
-
 	<Object type="0x1836" id="GhostShip Brig">
 		<Class>Wall</Class>
 		<RandomTexture>
@@ -4269,7 +4152,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x1837" id="Castle Pot">
 		<Class>GameObject</Class>
 		<Texture>
@@ -4283,7 +4165,6 @@
 		<XpMult>0.0</XpMult>
 		<OccupySquare />
 	</Object>
-
 	<Object type="0x1838" id="GhostShip Panel">
 		<Class>Wall</Class>
 		<Texture>
@@ -4304,7 +4185,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x183a" id="Castle Door">
 		<Class>Wall</Class>
 		<Texture>
@@ -4325,7 +4205,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x1863" id="Magic Blue Flame">
 		<Class>GameObject</Class>
 		<Texture>
@@ -4360,7 +4239,6 @@
 		</Animation>
 		<Static />
 	</Object>
-
 	<Object type="0x1865" id="Big Trees">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -4384,10 +4262,8 @@
 		<OccupySquare />
 		<EnemyOccupySquare />
 	</Object>
-
 	<Object type="0x1866" id="Destructible Purple Wall">
 		<Class>Wall</Class>
-
 		<Texture>
 			<File>lofiObj3</File>
 			<Index>0xa8</Index>
@@ -4398,8 +4274,6 @@
 				<Index>0xa9</Index>
 			</Texture>
 		</Top>
-
-
 		<HitSound>monster/stone_walls_hit</HitSound>
 		<DeathSound>monster/stone_walls_death</DeathSound>
 		<MaxHitPoints>800</MaxHitPoints>
@@ -4411,7 +4285,6 @@
 		<XpMult>0.0</XpMult>
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x1867" id="Ghost Ship Crate">
 		<Class>GameObject</Class>
 		<Model>Crate</Model>
@@ -4424,8 +4297,6 @@
 		<OccupySquare />
 		<EnemyOccupySquare />
 	</Object>
-
-
 	<Object type="0x1868" id="GhostShip RedDoor Rt">
 		<Class>Wall</Class>
 		<Texture>
@@ -4466,7 +4337,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x186a" id="GhostShip PurpleDoor Rt">
 		<Class>Wall</Class>
 		<Texture>
@@ -4507,7 +4377,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x186c" id="GhostShip GreenDoor Rt">
 		<Class>Wall</Class>
 		<Texture>
@@ -4548,7 +4417,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x186e" id="GhostShip YellowDoor Rt">
 		<Class>Wall</Class>
 		<Texture>
@@ -4589,7 +4457,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x1870" id="Ghost Puddle">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -4613,7 +4480,6 @@
 		<DrawOnGround />
 		<Static />
 	</Object>
-
 	<Object type="0x1871" id="GP Center">
 		<Class>GameObject</Class>
 		<Texture>
@@ -4695,7 +4561,6 @@
 		<DrawOnGround />
 		<Static />
 	</Object>
-
 	<Object type="0x187a" id="Table Edge UL">
 		<Class>GameObject</Class>
 		<Model>Table Edge</Model>
@@ -4752,8 +4617,6 @@
 		<OccupySquare />
 		<EnemyOccupySquare />
 	</Object>
-
-
 	<Object type="0x187e" id="Ghost Table Edge UL">
 		<Class>GameObject</Class>
 		<Model>Table Edge</Model>
@@ -4810,8 +4673,6 @@
 		<OccupySquare />
 		<EnemyOccupySquare />
 	</Object>
-
-
 	<Object type="0x188a" id="Tesla Coil">
 		<Class>GameObject</Class>
 		<Model>Tesla</Model>
@@ -4828,7 +4689,6 @@
 		<XpMult>0.0</XpMult>
 		<StasisImmune />
 	</Object>
-
 	<Object type="0x188b" id="Lab Table">
 		<Class>GameObject</Class>
 		<Texture>
@@ -4844,7 +4704,6 @@
 		<Enemy />
 		<XpMult>0.0</XpMult>
 	</Object>
-
 	<Object type="0x188c" id="Lab Wall">
 		<Class>Wall</Class>
 		<Texture>
@@ -4865,8 +4724,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
-
 	<Object type="0x188e" id="Lab Equipment Wall">
 		<Class>Wall</Class>
 		<Texture>
@@ -4887,8 +4744,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
-
 	<Object type="0x188f" id="Lab Window Wall">
 		<Class>Wall</Class>
 		<Texture>
@@ -4909,7 +4764,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x189a" id="Cloning Vat">
 		<Class>GameObject</Class>
 		<Model>CloningVat</Model>
@@ -4927,8 +4781,6 @@
 		<Static />
 		<XpMult>0.0</XpMult>
 	</Object>
-
-
 	<Object type="0x189c" id="Monster Tank1">
 		<Class>GameObject</Class>
 		<Model>Monster Tank1</Model>
@@ -4941,7 +4793,6 @@
 		<Size>100</Size>
 		<NoMiniMap />
 	</Object>
-
 	<Object type="0x189d" id="Monster Tank2">
 		<Class>GameObject</Class>
 		<Model>Monster Tank2</Model>
@@ -4954,7 +4805,6 @@
 		<Size>100</Size>
 		<NoMiniMap />
 	</Object>
-
 	<Object type="0x189e" id="Monster Tank3">
 		<Class>GameObject</Class>
 		<Model>Monster Tank3</Model>
@@ -4967,7 +4817,6 @@
 		<Size>100</Size>
 		<NoMiniMap />
 	</Object>
-
 	<Object type="0x189f" id="Monster Tank4">
 		<Class>GameObject</Class>
 		<Model>Monster Tank4</Model>
@@ -4980,7 +4829,6 @@
 		<Size>100</Size>
 		<NoMiniMap />
 	</Object>
-
 	<Object type="0x18a0" id="Partial Horizontal Catwalk">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -4998,7 +4846,6 @@
 		<ProtectFromGroundDamage />
 		<ProtectFromSink />
 	</Object>
-
 	<Object type="0x18a1" id="Partial Vertical Catwalk">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -5016,7 +4863,6 @@
 		<ProtectFromGroundDamage />
 		<ProtectFromSink />
 	</Object>
-
 	<Object type="0x18a2" id="Partial Catwalk">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -5034,7 +4880,6 @@
 		<ProtectFromGroundDamage />
 		<ProtectFromSink />
 	</Object>
-
 	<Object type="0x18a3" id="Mad Lab Bones">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -5055,8 +4900,6 @@
 		<Static />
 		<Z>.04</Z>
 	</Object>
-
-
 	<Object type="0x18a4" id="Iron Brick">
 		<Class>GameObject</Class>
 		<Model>Cube</Model>
@@ -5127,7 +4970,6 @@
 				<File>lofiObjBig</File>
 				<Index>0x52</Index>
 			</Texture>
-
 		</RandomTexture>
 		<OccupySquare />
 		<Static />
@@ -5181,7 +5023,6 @@
 		<EnemyOccupySquare />
 		<Connects />
 	</Object>
-
 	<Object type="0x18a9" id="Ice Crystal Tree">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -5257,7 +5098,6 @@
 		<DrawOnGround />
 		<Static />
 	</Object>
-
 	<Object type="0x18ae" id="MadLab Warning R">
 		<Class>GameObject</Class>
 		<Texture>
@@ -5330,8 +5170,6 @@
 		<DrawOnGround />
 		<Static />
 	</Object>
-
-
 	<Object type="0x18b6" id="MadLab Cables Hor">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -5398,7 +5236,6 @@
 		<DrawOnGround />
 		<Static />
 	</Object>
-
 	<Object type="0x18bc" id="MadLab Warning Inner UR">
 		<Class>GameObject</Class>
 		<Texture>
@@ -5435,7 +5272,6 @@
 		<DrawOnGround />
 		<Static />
 	</Object>
-
 	<Object type="0x18ac" id="Lab Table Plain">
 		<Class>GameObject</Class>
 		<Model>Table</Model>
@@ -5449,7 +5285,6 @@
 		<EnemyOccupySquare />
 		<ShadowSize>180</ShadowSize>
 	</Object>
-
 	<Object type="0x18ad" id="Lab Table Beaker">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -5475,7 +5310,6 @@
 			<File>lofiObj3</File>
 			<Index>0x16c</Index>
 		</Texture>
-
 		<Animation sync="true" prob="1" period="2">
 			<Frame time="1">
 				<Texture>
@@ -5502,7 +5336,6 @@
 				</Texture>
 			</Frame>
 		</Animation>
-
 		<Top>
 			<Texture>
 				<File>lofiObj3</File>
@@ -5517,14 +5350,12 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x18c1" id="Lab Wall Green Glow">
 		<Class>Wall</Class>
 		<Texture>
 			<File>lofiObj3</File>
 			<Index>0x16c</Index>
 		</Texture>
-
 		<Animation sync="true" prob="1" period="2">
 			<Frame time="1">
 				<Texture>
@@ -5551,7 +5382,6 @@
 				</Texture>
 			</Frame>
 		</Animation>
-
 		<Top>
 			<Texture>
 				<File>lofiObj3</File>
@@ -5566,7 +5396,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x18c2" id="Lab Emergency Wall">
 		<Class>Wall</Class>
 		<Texture>
@@ -5587,7 +5416,6 @@
 		<EnemyOccupySquare />
 		<BlocksSight />
 	</Object>
-
 	<Object type="0x18c3" id="Lab Destructible Wall">
 		<Class>Wall</Class>
 		<Texture>
@@ -5682,7 +5510,6 @@
 		<Static />
 		<Z>0.95</Z>
 	</Object>
-
 	<Object type="0x18c8" id="Character Changer NonStatic">
 		<Class>GameObject</Class>
 		<Texture>
@@ -5697,8 +5524,6 @@
 			<Index>0x0a</Index>
 		</Texture>
 	</Object>
-
-
 	<Object type="0x5f13" id="Decal Dye">
 		<Class>GameObject</Class>
 		<DrawOnGround />
@@ -5708,7 +5533,6 @@
 			<Index>0x27f</Index>
 		</Texture>
 	</Object>
-
 	<Object type="0x5f14" id="Decal Cloth">
 		<Class>GameObject</Class>
 		<DrawOnGround />
@@ -5718,7 +5542,6 @@
 			<Index>0x280</Index>
 		</Texture>
 	</Object>
-
 	<Object type="0x5f15" id="Decal Key">
 		<Class>GameObject</Class>
 		<DrawOnGround />
@@ -5728,7 +5551,6 @@
 			<Index>0x281</Index>
 		</Texture>
 	</Object>
-
 	<Object type="0x5f16" id="Decal Pet">
 		<Class>GameObject</Class>
 		<DrawOnGround />
@@ -5738,7 +5560,6 @@
 			<Index>0x288</Index>
 		</Texture>
 	</Object>
-
 	<Object type="0x5f17" id="Decal Fame">
 		<Class>GameObject</Class>
 		<DrawOnGround />
@@ -5748,7 +5569,6 @@
 			<Index>0x283</Index>
 		</Texture>
 	</Object>
-
 	<Object type="0x5f18" id="Decal Special">
 		<Class>GameObject</Class>
 		<DrawOnGround />
@@ -5758,7 +5578,6 @@
 			<Index>0x284</Index>
 		</Texture>
 	</Object>
-
 	<Object type="0x5f19" id="Decal Support">
 		<Class>GameObject</Class>
 		<DrawOnGround />
@@ -5768,7 +5587,6 @@
 			<Index>0x285</Index>
 		</Texture>
 	</Object>
-
 	<Object type="0x5f1c" id="Decal Small Dye">
 		<Class>GameObject</Class>
 		<DrawOnGround />
@@ -5778,7 +5596,6 @@
 			<Index>0x286</Index>
 		</Texture>
 	</Object>
-
 	<Object type="0x5f1d" id="Decal Small Cloth">
 		<Class>GameObject</Class>
 		<DrawOnGround />
@@ -5788,8 +5605,6 @@
 			<Index>0x287</Index>
 		</Texture>
 	</Object>
-
-
 	<Object type="0x18cf" id="Candy Happy Flower 1">
 		<Class>GameObject</Class>
 		<Size>80</Size>
@@ -5799,7 +5614,6 @@
 			<File>lofiObj3</File>
 			<Index>0x2ba</Index>
 		</Texture>
-
 		<Animation prob="1" period="1.2">
 			<Frame time="0.2">
 				<Texture>
@@ -5827,8 +5641,6 @@
 			</Frame>
 		</Animation>
 	</Object>
-
-
 	<Object type="0x18ce" id="Candy Happy Flower 2">
 		<Class>GameObject</Class>
 		<Size>80</Size>
@@ -5838,7 +5650,6 @@
 			<File>lofiObj3</File>
 			<Index>0x2be</Index>
 		</Texture>
-
 		<Animation prob="1" period="1.2">
 			<Frame time="0.2">
 				<Texture>
@@ -5866,7 +5677,6 @@
 			</Frame>
 		</Animation>
 	</Object>
-
 	<Object type="0x18d0" id="Retro Tomb Rock Wall">
 		<Class>ConnectedWall</Class>
 		<Texture>
@@ -5880,7 +5690,6 @@
 		<BlocksSight />
 		<Connects />
 	</Object>
-
 	<Object type="0x18d1" id="Candy Small Tree">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -5910,7 +5719,6 @@
 		<OccupySquare />
 		<ShadowSize>80</ShadowSize>
 	</Object>
-
 	<Object type="0x18d2" id="Candy Jelly Bean">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -5931,8 +5739,6 @@
 		<OccupySquare />
 		<ShadowSize>0</ShadowSize>
 	</Object>
-
-
 	<Object type="0x18d3" id="Candy Peppermint Tree">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -6106,7 +5912,6 @@
 		<EnemyOccupySquare />
 		<Connects />
 	</Object>
-
 	<Object type="0x18dc" id="Candy RockCandy">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -6133,7 +5938,6 @@
 		<OccupySquare />
 		<ShadowSize>0</ShadowSize>
 	</Object>
-
 	<Object type="0x18dd" id="Candy Choc Column Broken">
 		<Class>GameObject</Class>
 		<Model>Candy Col Broken</Model>
@@ -6158,7 +5962,6 @@
 		<FullOccupy />
 		<EnemyOccupySquare />
 	</Object>
-
 	<Object type="0x18e0" id="Candy Straw Column Broken">
 		<Class>GameObject</Class>
 		<Model>Candy Col Broken</Model>
@@ -6183,7 +5986,6 @@
 		<FullOccupy />
 		<EnemyOccupySquare />
 	</Object>
-
 	<Object type="0x18e3" id="Candy Doughnut Sm Flat Choc">
 		<Class>GameObject</Class>
 		<Model>Candy Doughnut 1</Model>
@@ -6206,7 +6008,6 @@
 		<OccupySquare />
 		<ShadowSize>50</ShadowSize>
 	</Object>
-
 	<Object type="0x18e5" id="Candy Doughnut Big Flat Choc">
 		<Class>GameObject</Class>
 		<Model>Candy Doughnut 2</Model>
@@ -6227,7 +6028,6 @@
 		<Static />
 		<OccupySquare />
 	</Object>
-
 	<Object type="0x18e7" id="Candy Doughnut Big Vert Choc">
 		<Class>GameObject</Class>
 		<Model>Candy Doughnut 3</Model>
@@ -6248,7 +6048,6 @@
 		<Static />
 		<OccupySquare />
 	</Object>
-
 	<Object type="0x18e9" id="Candy Peppermint Tree Big">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -6346,7 +6145,6 @@
 		<Static />
 		<FullOccupy />
 		<OccupySquare />
-
 		<Rotation>90</Rotation>
 		<ShadowSize>0</ShadowSize>
 	</Object>
@@ -6360,7 +6158,6 @@
 		<Static />
 		<FullOccupy />
 		<OccupySquare />
-
 		<Rotation>90</Rotation>
 		<ShadowSize>0</ShadowSize>
 	</Object>
@@ -6374,7 +6171,6 @@
 		<Static />
 		<FullOccupy />
 		<OccupySquare />
-
 		<Rotation>90</Rotation>
 		<ShadowSize>0</ShadowSize>
 	</Object>
@@ -6391,7 +6187,6 @@
 		<Rotation>90</Rotation>
 		<ShadowSize>0</ShadowSize>
 	</Object>
-
 	<Object type="0x18f9" id="Holloween Big Jacko">
 		<Class>GameObject</Class>
 		<Model>Jacko</Model>
@@ -6537,7 +6332,6 @@
 		<DrawOnGround />
 		<Static />
 	</Object>
-
 	<Object type="0x5f08" id="Arena Spell Table">
 		<Class>GameObject</Class>
 		<Texture>
@@ -6551,7 +6345,6 @@
 		<XpMult>0.0</XpMult>
 		<OccupySquare />
 	</Object>
-
 	<Object type="0x5f00" id="Arena Cauldron">
 		<Class>GameObject</Class>
 		<Texture>
@@ -6565,7 +6358,6 @@
 		<XpMult>0.0</XpMult>
 		<OccupySquare />
 	</Object>
-
 	<Object type="0x5f11" id="Arena Grave Stones">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -6671,8 +6463,6 @@
 		<ShadowSize>0</ShadowSize>
 		<Rotation>180</Rotation>
 	</Object>
-
-
 	<Object type="0x190a" id="Dark Table">
 		<Class>GameObject</Class>
 		<Model>Table</Model>
@@ -6782,7 +6572,6 @@
 	</Object>
 	<Object type="0x1911" id="Wooden Bench">
 		<Class>ConnectedWall</Class>
-
 		<Texture>
 			<File>lofiEnvironment2</File>
 			<Index>0x5a</Index>
@@ -6796,7 +6585,6 @@
 		<EnemyOccupySquare />
 		<Connects />
 	</Object>
-
 	<Object type="0x1912" id="Armoire">
 		<Class>ReskinVendor</Class>
 		<Texture>
@@ -6808,7 +6596,6 @@
 		<OccupySquare />
 		<Static />
 	</Object>
-
 	<Object type="0x1913" id="Tailor">
 		<Class>ReskinVendor</Class>
 		<Texture>
@@ -6817,8 +6604,6 @@
 		</Texture>
 		<Static />
 	</Object>
-
-
 	<Object type="0x1914" id="Winter Tree Small">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -6826,7 +6611,6 @@
 				<File>lofiObj3</File>
 				<Index>0x337</Index>
 			</Texture>
-
 			<Texture>
 				<File>lofiObj3</File>
 				<Index>0x338</Index>
@@ -6843,7 +6627,6 @@
 		<Static />
 		<OccupySquare />
 	</Object>
-
 	<Object type="0x1915" id="Winter Tree Big">
 		<Class>GameObject</Class>
 		<Size>120</Size>
@@ -6860,7 +6643,6 @@
 				<File>lofiObjBig</File>
 				<Index>0xa0</Index>
 			</Texture>
-
 			<Texture>
 				<File>lofiObjBig</File>
 				<Index>0xa1</Index>
@@ -6873,7 +6655,6 @@
 				<File>lofiObjBig</File>
 				<Index>0xa3</Index>
 			</Texture>
-
 			<Texture>
 				<File>lofiObjBig</File>
 				<Index>0xa4</Index>
@@ -6885,7 +6666,6 @@
 		<HitSound>monster/trees_hit</HitSound>
 		<DeathSound>monster/tress_death</DeathSound>
 	</Object>
-
 	<Object type="0x1916" id="Winter Rock">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -6905,8 +6685,6 @@
 		<Static />
 		<OccupySquare />
 	</Object>
-
-
 	<Object type="0x1917" id="Winter Snowman Big">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -6922,7 +6700,6 @@
 				<File>lofiObjBig</File>
 				<Index>0xa5</Index>
 			</Texture>
-
 			<Texture>
 				<File>lofiObjBig</File>
 				<Index>0xa6</Index>
@@ -6935,7 +6712,6 @@
 				<File>lofiObjBig</File>
 				<Index>0xa7</Index>
 			</Texture>
-
 			<Texture>
 				<File>lofiObjBig</File>
 				<Index>0xa8</Index>
@@ -6945,7 +6721,6 @@
 		<OccupySquare />
 		<ShadowSize>80</ShadowSize>
 	</Object>
-
 	<Object type="0x1918" id="Winter Snowman Small">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -6962,7 +6737,6 @@
 		<OccupySquare />
 		<ShadowSize>80</ShadowSize>
 	</Object>
-
 	<Object type="0x1919" id="Winter Drift">
 		<Class>GameObject</Class>
 		<RandomTexture>
@@ -6984,7 +6758,6 @@
 		<Z>-0.15</Z>
 		<ShadowSize>0</ShadowSize>
 	</Object>
-
 	<!-- Cosmic stuff -->
 	<Object type="0x0056" id="DS Wall">
 		<Class>Wall</Class>
@@ -7149,5 +6922,4 @@
 		<Size>85</Size>
 		<Static />
 	</Object>
-
 </Objects>

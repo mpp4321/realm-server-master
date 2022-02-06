@@ -47,6 +47,7 @@ namespace RotMG.Game.Logic.Database
             //);
 
             db.Init("md1 Head of Shaitan",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("base",
                     new State("1",
                         new ConditionalEffect(ConditionEffectIndex.Invincible),
@@ -551,11 +552,7 @@ namespace RotMG.Game.Logic.Database
                         new SetAltTexture(1),
                         new OrderOnEntry(999, "md1 Governor", "1"),
                         new MoveTo(0.8f, 13.5f, 5),
-                        new TimedTransition("87", 2000)
-                        ),
-                    new State("87",
-                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        new TimedTransition("88", 0)
+                        new TimedTransition("88", 2000)
                         ),
                     new State("88",
                         new HealthTransition(0.2f, "94"),
@@ -908,11 +905,14 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(11, LootType.Armor, 0.125f),
                     new ItemLoot("Large Flame Cloth", 0.1f),
                     new ItemLoot("Small Flame Cloth", 0.1f),
+                    new ItemLoot("(Green) UT Egg", 0.2f, 0.01f),
+                    new ItemLoot("(Blue) RT Egg", 0.05f, 0.01f),
                     new ItemLoot("Large Crossbox Cloth", 0.1f),
                     new ItemLoot("Small Crossbox Cloth", 0.1f),
                     new ItemLoot("Large Heavy Chainmail Cloth", 0.1f),
-                    new ItemLoot("Book of Shaitan", 0.001f),
-                    new ItemLoot("Piercing Fire", 0.001f)
+                    new ItemLoot("Book of Shaitan", 0.005f),
+                    new ItemLoot("Piercing Fire", 0.005f),
+                    new ItemLoot("Spell of Kinetic Projection", 0.005f)
                     //new ItemLoot("50 Credits", 0.01f),
                     //new ItemLoot("Potion of Critical Chance", 0.02f),
                     //new ItemLoot("Potion of Critical Damage", 0.02f)

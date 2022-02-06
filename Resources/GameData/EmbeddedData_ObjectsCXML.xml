@@ -1,5 +1,4 @@
 <Objects>
-
   <Object type="0x023b" id="Test Chicken">
     <Group>Test Chickens</Group>
     <Enemy/>
@@ -29,7 +28,6 @@
     <Defense>0</Defense>
     <XpMult>0.0</XpMult>
   </Object>
-
   <Object type="0x023c" id="Test Chicken Minions">
     <Group>Test Chickens</Group>
     <Enemy/>
@@ -57,10 +55,7 @@
     <Size>60</Size>
     <Defense>0</Defense>
     <XpMult>0.0</XpMult>
-
-
   </Object>
-
   <Object type="0x21b" id="Spider Egg Sac">
     <Enemy/>
     <Class>Character</Class>
@@ -73,7 +68,6 @@
     <Size>75</Size>
     <MaxHitPoints>1</MaxHitPoints>
   </Object>
-
   <Object type="0x021c" id="Green Den Spider Hatchling">
     <Class>Character</Class>
     <Texture>
@@ -93,7 +87,6 @@
       <LifetimeMS>3000</LifetimeMS>
     </Projectile>
   </Object>
-
   <Object type="0x021d" id="Black Den Spider">
     <Class>Character</Class>
     <Texture>
@@ -112,8 +105,6 @@
       <LifetimeMS>2000</LifetimeMS>
     </Projectile>
   </Object>
-
-
   <Object type="0x021e" id="Red Spotted Den Spider">
     <Class>Character</Class>
     <Texture>
@@ -132,7 +123,6 @@
       <LifetimeMS>1250</LifetimeMS>
     </Projectile>
   </Object>
-
   <Object type="0x021f" id="Black Spotted Den Spider">
     <Class>Character</Class>
     <Texture>
@@ -153,8 +143,6 @@
       <LifetimeMS>1250</LifetimeMS>
     </Projectile>
   </Object>
-
-
   <Object type="0x0220" id="Brown Den Spider">
     <Class>Character</Class>
     <Texture>
@@ -173,7 +161,6 @@
       <LifetimeMS>1250</LifetimeMS>
     </Projectile>
   </Object>
-
   <Object type="0x01ff" id="Sheep">
     <Group>Sheep</Group>
     <Class>Character</Class>
@@ -184,8 +171,6 @@
     <Size>100</Size>
     <XpMult>0.0</XpMult>
   </Object>
-
-
   <Object type="0x0500" id="Loot Bag">
     <Class>Container</Class>
     <Container/>
@@ -327,8 +312,6 @@
     <Size>80</Size>
     <SlotTypes>0, 0, 0, 0, 0, 0, 0, 0</SlotTypes>
   </Object>
-
-
   <Object type="0x0700" id="Dungeon Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -414,7 +397,6 @@
       <Index>0x3f</Index>
     </Texture>
   </Object>
-
   <Object type="0x0715" id="Decoy">
     <Class>Character</Class>
     <AnimatedTexture>
@@ -425,7 +407,6 @@
     <CanUseTexes/>
     <NoMiniMap/>
   </Object>
-
   <Object type="0x0717" id="Pirate Cave Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -435,17 +416,14 @@
       <Index>0x7c</Index>
     </Texture>
   </Object>
-
   <Object type="0x0718" id="Snake Pit Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
     <DungeonName>Snake Pit</DungeonName>
-
     <Texture>
       <File>lofiEnvironment2</File>
       <Index>0x8c</Index>
     </Texture>
-
     <Animation prob="0.6" period="1.6">
       <Frame time="0.4">
         <Texture>
@@ -472,9 +450,7 @@
         </Texture>
       </Frame>
     </Animation>
-
   </Object>
-
   <Object type="0x0719" id="Spider Den Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -484,17 +460,14 @@
       <Index>0x8f</Index>
     </Texture>
   </Object>
-
   <Object type="0x071a" id="Undead Lair Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
     <DungeonName>Undead Lair</DungeonName>
-
     <Texture>
       <File>lofiEnvironment2</File>
       <Index>0x97</Index>
     </Texture>
-
     <Animation prob="1.0" period="0.0">
       <Frame time="0.2">
         <RandomTexture>
@@ -510,7 +483,6 @@
             <File>lofiEnvironment2</File>
             <Index>0x9a</Index>
           </Texture>
-
           <Texture>
             <File>lofiEnvironment2</File>
             <Index>0x9b</Index>
@@ -523,9 +495,6 @@
       </Frame>
     </Animation>
   </Object>
-
-
-
   <Object type="0x071b" id="Abyss of Demons Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -535,7 +504,6 @@
       <Index>0x9d</Index>
     </Texture>
   </Object>
-
   <Object type="0x071c" id="Random Realm Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -545,7 +513,6 @@
       <Index>0x36</Index>
     </Texture>
   </Object>
-
   <Object type="0x071d" id="Portal to Nexus">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -555,7 +522,6 @@
       <Index>0x36</Index>
     </Texture>
   </Object>
-
   <Object type="0x071e" id="Kitchen Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -566,7 +532,6 @@
     </Texture>
     <Size>120</Size>
   </Object>
-
   <Object type="0x0720" id="Vault Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -577,7 +542,6 @@
     </Texture>
     <ShadowSize>0</ShadowSize>
   </Object>
-
   <Object type="0x0721" id="Locked Wine Cellar Portal">
     <Class>Portal</Class>
     <LockedPortal/>
@@ -586,7 +550,6 @@
       <Index>0xba</Index>
     </Texture>
   </Object>
-
   <Object type="0x0723" id="Gravestone 1">
     <Class>GameObject</Class>
     <ShowName/>
@@ -595,7 +558,6 @@
       <Index>0x6c</Index>
     </Texture>
   </Object>
-
   <Object type="0x0724" id="Gravestone 2">
     <Class>GameObject</Class>
     <ShowName/>
@@ -604,7 +566,6 @@
       <Index>0x6d</Index>
     </Texture>
   </Object>
-
   <Object type="0x0725" id="Gravestone 3">
     <Class>GameObject</Class>
     <ShowName/>
@@ -613,7 +574,6 @@
       <Index>0x6e</Index>
     </Texture>
   </Object>
-
   <Object type="0x0726" id="Gravestone 4">
     <Class>GameObject</Class>
     <ShowName/>
@@ -622,7 +582,6 @@
       <Index>0x6f</Index>
     </Texture>
   </Object>
-
   <Object type="0x0727" id="Gravestone 5">
     <Class>GameObject</Class>
     <ShowName/>
@@ -631,7 +590,6 @@
       <Index>0x13</Index>
     </Texture>
   </Object>
-
   <Object type="0x0728" id="Gravestone 6">
     <Class>GameObject</Class>
     <ShowName/>
@@ -640,7 +598,6 @@
       <Index>0x14</Index>
     </Texture>
   </Object>
-
   <Object type="0x0729" id="Gravestone 7">
     <Class>GameObject</Class>
     <ShowName/>
@@ -649,7 +606,6 @@
       <Index>0x15</Index>
     </Texture>
   </Object>
-
   <Object type="0x072a" id="Gravestone 8">
     <Class>GameObject</Class>
     <ShowName/>
@@ -658,7 +614,6 @@
       <Index>0x16</Index>
     </Texture>
   </Object>
-
   <Object type="0x072b" id="Gravestone 9">
     <Class>GameObject</Class>
     <ShowName/>
@@ -667,7 +622,6 @@
       <Index>0x17</Index>
     </Texture>
   </Object>
-
   <Object type="0x0734" id="Gravestone 10">
     <Class>GameObject</Class>
     <ShowName/>
@@ -676,7 +630,6 @@
       <Index>0x27</Index>
     </Texture>
   </Object>
-
   <Object type="0x0735" id="Gravestone 11">
     <Class>GameObject</Class>
     <ShowName/>
@@ -685,7 +638,6 @@
       <Index>0x3d</Index>
     </Texture>
   </Object>
-
   <Object type="0x072c" id="Tomb of the Ancients Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -695,7 +647,6 @@
       <Index>0x9e</Index>
     </Texture>
   </Object>
-
   <Object type="0x072d" id="Dreamscape Labyrinth Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -705,7 +656,6 @@
       <Index>0x7c</Index>
     </Texture>
   </Object>
-
   <Object type="0x01ca" id="Merchant">
     <Class>Merchant</Class>
     <Texture>
@@ -713,7 +663,6 @@
       <Index>0x77</Index>
     </Texture>
   </Object>
-
   <Object type="0x01c7" id="White Fountain">
     <Class>GameObject</Class>
     <Model>Tower</Model>
@@ -723,7 +672,6 @@
       <Index>0x96</Index>
     </Texture>
   </Object>
-
   <Object type="0x072f" id="Guild Hall Portal">
     <Class>GuildHallPortal</Class>
     <IntergamePortal/>
@@ -734,7 +682,6 @@
     </Texture>
     <ShadowSize>0</ShadowSize>
   </Object>
-
   <Object type="0x5001" id="MixingBowl">
     <Class>MixingBowl</Class>
     <Texture>
@@ -743,7 +690,6 @@
     </Texture>
     <ShadowSize>0</ShadowSize>
   </Object>
-
   <Object type="0x0730" id="Ocean Trench Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -752,9 +698,7 @@
       <File>lofiEnvironment2</File>
       <Index>0x9f</Index>
     </Texture>
-
   </Object>
-
   <Object type="0x0731" id="Ocean Vent">
     <Class>GameObject</Class>
     <DrawOnGround/>
@@ -764,7 +708,6 @@
       <Index>0x26</Index>
     </Texture>
   </Object>
-
   <Object type="0x0732" id="Spider Web">
     <Class>SpiderWeb</Class>
     <Model>Web</Model>
@@ -789,7 +732,6 @@
     <Static/>
     <ShadowSize>0</ShadowSize>
   </Object>
-
   <Object type="0x0733" id="Forbidden Jungle Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -799,7 +741,6 @@
       <Index>0xa8</Index>
     </Texture>
   </Object>
-
   <Object type="0x0736" id="Guild Hall Upgrade 1">
     <DisplayId>Guild Hall Upgrade</DisplayId>
     <Class>GuildMerchant</Class>
@@ -814,7 +755,6 @@
     <OccupySquare/>
     <Static/>
   </Object>
-
   <Object type="0x0737" id="Guild Hall Upgrade 2">
     <DisplayId>Guild Hall Upgrade</DisplayId>
     <Class>GuildMerchant</Class>
@@ -829,7 +769,6 @@
     <OccupySquare/>
     <Static/>
   </Object>
-
   <Object type="0x0738" id="Guild Hall Upgrade 3">
     <DisplayId>Guild Hall Upgrade</DisplayId>
     <Class>GuildMerchant</Class>
@@ -844,7 +783,6 @@
     <OccupySquare/>
     <Static/>
   </Object>
-
   <Object type="0x0739" id="Manor of the Immortals Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -854,7 +792,6 @@
       <Index>0x4c</Index>
     </Texture>
   </Object>
-
   <Object type="0x073a" id="Cube">
     <Class>GameObject</Class>
     <Model>Cube</Model>
@@ -883,7 +820,6 @@
     <Class>GameObject</Class>
     <Model>Dodec</Model>
   </Object>
-
   <Object type="0x0741" id="Davy Jones's Locker Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -996,7 +932,6 @@
       <Index>0x37</Index>
     </Texture>
   </Object>
-
   <Object type="0x0748" id="Guild Explanation Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -1007,7 +942,6 @@
     </Texture>
     <ShadowSize>0</ShadowSize>
   </Object>
-
   <Object type="0x0749" id="G Door Opener">
     <Class>GameObject</Class>
     <Texture>
@@ -1016,7 +950,6 @@
     </Texture>
     <ShadowSize>0</ShadowSize>
   </Object>
-
   <Object type="0x074a" id="Candyland Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -1027,7 +960,6 @@
     </Texture>
     <ShadowSize>0</ShadowSize>
   </Object>
-
   <Object type="0x074b" id="Crypt Portal">
     <Class>Portal</Class>
     <IntergamePortal/>
@@ -1075,7 +1007,6 @@
       </Frame>
     </Animation>
   </Object>
-
   <Object type="0x5004" id="Mini Flying Brain">
     <Enemy/>
     <Class>Character</Class>
@@ -1093,7 +1024,6 @@
       <LifetimeMS>2000</LifetimeMS>
     </Projectile>
   </Object>
-
   <Object type="0x5008" id="Electric Snake Ally">
     <Enemy/>
     <Friendly/>
@@ -1112,7 +1042,6 @@
       <ConditionEffect duration="1">Paralyzed</ConditionEffect>
     </Projectile>
   </Object>
-
   <Object type="0x5005" id="Poison Fire">
     <Enemy/>
     <Friendly/>
@@ -1195,7 +1124,6 @@
 		<SpeedClamp>180</SpeedClamp>
 		<Boomerang />
 	</Projectile>
-
 	<Projectile id="2">
 		<ObjectId>Extreme Air Magic</ObjectId>
 		<Speed>100</Speed>
@@ -1208,7 +1136,6 @@
 		<PhaseLock>0</PhaseLock>
 		<SmartAngle></SmartAngle>
 	</Projectile>
-
 	<Projectile id="3">
 		<ObjectId>Extreme Air Magic</ObjectId>
 		<Speed>100</Speed>
@@ -1381,7 +1308,13 @@
       <Index>0x7c</Index>
     </Texture>
   </Object>
-
-
+  <Object type="0x0759" id="Cyclops Lair Portal">
+    <Class>Portal</Class>
+    <IntergamePortal/>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0x187</Index>
+    </Texture>
+  </Object>
 </Objects>
 <!-- next 5008 -->

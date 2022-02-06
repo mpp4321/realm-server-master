@@ -267,7 +267,6 @@
 		<God/>
 		<Level>19</Level>
 		<XpMult>1.2</XpMult>
-
 		<Projectile id="0">
 			<ObjectId>Pink Bolt</ObjectId>
 			<Damage>50</Damage>
@@ -284,7 +283,6 @@
 			<Parametric/>
 		</Projectile>
 	</Object>
-
 	<Object type="0x669" id="Imp">
 		<Group>Demons</Group>
 		<Enemy/>
@@ -340,7 +338,6 @@
 			<LifetimeMS>900</LifetimeMS>
 		</Projectile>
 	</Object>
-
 	<Object type="0x678" id="Oasis Giant">
 		<Group>Heros</Group>
 		<Enemy/>
@@ -457,7 +454,6 @@
 			<LifetimeMS>600</LifetimeMS>
 		</Projectile>
 	</Object>
-
 	<Object type="0x67d" id="Cyclops God">
 		<Group>Heros</Group>
 		<Enemy/>
@@ -473,7 +469,6 @@
 		<God/>
 		<Level>16</Level>
 		<XpMult>1</XpMult>
-
 		<Projectile id="0">
 			<ObjectId>Beam</ObjectId>
 			<Damage>8</Damage>
@@ -502,7 +497,6 @@
 			<Size>270</Size>
 			<LifetimeMS>1200</LifetimeMS>
 		</Projectile>
-
 		<Projectile id="4">
 			<ObjectId>Blade</ObjectId>
 			<Damage>70</Damage>
@@ -510,12 +504,7 @@
 			<LifetimeMS>2100</LifetimeMS>
 			<Size>140</Size>
 		</Projectile>
-
-
-
-
 	</Object>
-
 	<Object type="0x67e" id="Cyclops">
 		<Group>Cyclopes</Group>
 		<Enemy/>
@@ -695,19 +684,13 @@
 		<Quest/>
 		<Level>17</Level>
 		<XpMult>1</XpMult>
-		
 		<Projectile id="0">
 			<ObjectId>Fire Bolt</ObjectId>
 			<Damage>65</Damage>
 			<Speed>60</Speed>
 			<LifetimeMS>2400</LifetimeMS>
 		</Projectile>
-		
-		
-		
-		
 	</Object>
-
 	<Object type="0x676" id="Birdman Chief">
 		<Group>Pyre</Group>
 		<Enemy/>
@@ -724,9 +707,7 @@
 			<Size>80</Size>
 			<LifetimeMS>1800</LifetimeMS>
 		</Projectile>
-		
 	</Object>
-
 	<Object type="0x677" id="Birdman">
 		<Group>Pyre</Group>
 		<Enemy/>
@@ -743,9 +724,7 @@
 			<Size>80</Size>
 			<LifetimeMS>1200</LifetimeMS>
 		</Projectile>
-		
 	</Object>
-
 	<Object type="0x6c1" id="Phoenix Reborn">
 		<Group>Heros</Group>
 		<Enemy/>
@@ -758,7 +737,6 @@
 		<Quest/>
 		<Level>17</Level>
 		<XpMult>1</XpMult>
-		
 		<Projectile id="0">
 			<ObjectId>Fire Spinner</ObjectId>
 			<Damage>55</Damage>
@@ -772,13 +750,7 @@
 			<Speed>60</Speed>
 			<LifetimeMS>2400</LifetimeMS>
 		</Projectile>		
-
-		
-			
-
-		
 	</Object>
-
 	<Object type="0x6c2" id="Phoenix Egg">
 		<Enemy/>
 		<Class>Character</Class>
@@ -787,10 +759,7 @@
 		<MaxHitPoints>5000</MaxHitPoints>
 		<Defense>0</Defense>
 		<XpMult>0</XpMult>
-
-		
 	</Object>
-	
 	<Object type="0x6da" id="Specter Mine">
 		<Class>Character</Class>
 		<Enemy/>
@@ -800,13 +769,11 @@
 			<Frame time="0.2"><Texture><File>lofiObj2</File><Index>0x38</Index></Texture></Frame>
 			<Frame time="0.2"><Texture><File>lofiObj2</File><Index>0x39</Index></Texture></Frame>
 		</Animation>
-		
 		<MaxHitPoints>200</MaxHitPoints>
 		<Defense>150</Defense>
 		<XpMult>0.1</XpMult>
 		<Size>100</Size>
 		<ShadowSize>80</ShadowSize>
-		
 		<Projectile id="0">
 			<ObjectId>Specter Spike</ObjectId>
 			<Damage>55</Damage>
@@ -815,25 +782,18 @@
 			<LifetimeMS>1200</LifetimeMS>
 			<ConditionEffect duration="4">Sick</ConditionEffect>
 		</Projectile>
-		
-		
-		
 	</Object>
-
     <Object type="0x5e6a" id="Zombie Archer">
         <Class>Character</Class>
         <Group>Zombies</Group>
         <Enemy/>
-
         <AnimatedTexture><File>chars8x8rEncounters</File><Index>50</Index></AnimatedTexture>
-
         <HitSound>monster/slimes_death</HitSound>
         <DeathSound>monster/flying_brain_death</DeathSound>
         <Size>100</Size>
         <ShadowSize>0</ShadowSize>
         <MaxHitPoints>2500</MaxHitPoints>
         <Defense>20</Defense>
-
         <Projectile id="0">
             <ObjectId>Coral Arrow</ObjectId>
             <Damage>55</Damage>
@@ -841,25 +801,18 @@
             <LifetimeMS>1500</LifetimeMS>
             <Size>75</Size>
         </Projectile>
-
-
-
     </Object>
-
     <Object type="0x5e6b" id="Zombie Warrior">
         <Class>Character</Class>
         <Group>Zombies</Group>
         <Enemy/>
-
         <AnimatedTexture><File>chars8x8rEncounters</File><Index>51</Index></AnimatedTexture>
-
         <HitSound>monster/slimes_death</HitSound>
         <DeathSound>monster/flying_brain_death</DeathSound>
         <Size>100</Size>
         <ShadowSize>0</ShadowSize>
         <MaxHitPoints>2500</MaxHitPoints>
         <Defense>20</Defense>
-
         <Projectile id="0">
             <ObjectId>Fire Bolt</ObjectId>
             <Damage>55</Damage>
@@ -867,25 +820,18 @@
             <LifetimeMS>1000</LifetimeMS>
             <Size>100</Size>
         </Projectile>
-
-
-
     </Object>
-
     <Object type="0x5e6c" id="Zombie Wizard">
         <Class>Character</Class>
         <Group>Zombies</Group>
         <Enemy/>
-
         <AnimatedTexture><File>chars8x8rEncounters</File><Index>52</Index></AnimatedTexture>
-
         <HitSound>monster/slimes_death</HitSound>
         <DeathSound>monster/flying_brain_death</DeathSound>
         <Size>100</Size>
         <ShadowSize>0</ShadowSize>
         <MaxHitPoints>2500</MaxHitPoints>
         <Defense>20</Defense>
-
         <Projectile id="0">
             <ObjectId>Fire Missile</ObjectId>
             <Damage>120</Damage>
@@ -895,24 +841,18 @@
             <Amplitude>0.5</Amplitude>
             <Frequency>2</Frequency>
         </Projectile>
-
-
     </Object>
-
     <Object type="0x5e6d" id="Zombie Rogue">
         <Class>Character</Class>
         <Group>Zombies</Group>
         <Enemy/>
-
         <AnimatedTexture><File>chars8x8rEncounters</File><Index>53</Index></AnimatedTexture>
-
         <HitSound>monster/slimes_death</HitSound>
         <DeathSound>monster/flying_brain_death</DeathSound>
         <Size>100</Size>
         <ShadowSize>0</ShadowSize>
         <MaxHitPoints>2500</MaxHitPoints>
         <Defense>20</Defense>
-
         <Projectile id="0">
             <ObjectId>Rainbow Magic</ObjectId>
             <Damage>55</Damage>
@@ -920,24 +860,18 @@
             <LifetimeMS>1000</LifetimeMS>
             <Size>100</Size>
         </Projectile>
-
-
     </Object>
-
     <Object type="0x5e6e" id="Zombie Priest">
         <Class>Character</Class>
         <Group>Zombies</Group>
         <Enemy/>
-
         <AnimatedTexture><File>chars8x8rEncounters</File><Index>54</Index></AnimatedTexture>
-
         <HitSound>monster/slimes_death</HitSound>
         <DeathSound>monster/flying_brain_death</DeathSound>
         <Size>100</Size>
         <ShadowSize>0</ShadowSize>
         <MaxHitPoints>2500</MaxHitPoints>
         <Defense>20</Defense>
-
         <Projectile id="0">
             <ObjectId>Directed Explosion</ObjectId>
             <Damage>55</Damage>
@@ -945,24 +879,18 @@
             <LifetimeMS>1000</LifetimeMS>
             <Size>50</Size>
         </Projectile>
-
-
     </Object>
-
     <Object type="0x5e6f" id="Zombie Knight">
         <Class>Character</Class>
         <Group>Zombies</Group>
         <Enemy/>
-
         <AnimatedTexture><File>chars8x8rEncounters</File><Index>55</Index></AnimatedTexture>
-
         <HitSound>monster/slimes_death</HitSound>
         <DeathSound>monster/flying_brain_death</DeathSound>
         <Size>100</Size>
         <ShadowSize>0</ShadowSize>
         <MaxHitPoints>7500</MaxHitPoints>
         <Defense>20</Defense>
-
         <Projectile id="0">
             <ObjectId>Stone Slash</ObjectId>
             <Damage>125</Damage>
@@ -978,24 +906,18 @@
             <Size>100</Size>
 						<ConditionEffect duration="1.0">Stunned</ConditionEffect>
         </Projectile>
-
-
     </Object>
-
     <Object type="0x5e7a" id="Zombie Paladin">
         <Class>Character</Class>
         <Group>Zombies</Group>
         <Enemy/>
-
         <AnimatedTexture><File>chars8x8rEncounters</File><Index>56</Index></AnimatedTexture>
-
         <HitSound>monster/slimes_death</HitSound>
         <DeathSound>monster/flying_brain_death</DeathSound>
         <Size>100</Size>
         <ShadowSize>0</ShadowSize>
         <MaxHitPoints>5000</MaxHitPoints>
         <Defense>20</Defense>
-
         <Projectile id="0">
             <ObjectId>Aqua Slash</ObjectId>
             <Damage>55</Damage>
@@ -1003,24 +925,18 @@
             <LifetimeMS>1000</LifetimeMS>
             <Size>100</Size>
         </Projectile>
-
-
     </Object>
-
     <Object type="0x5e7b" id="Zombie Necromancer">
         <Class>Character</Class>
         <Group>Zombies</Group>
         <Enemy/>
-
         <AnimatedTexture><File>chars8x8rEncounters</File><Index>57</Index></AnimatedTexture>
-
         <HitSound>monster/slimes_death</HitSound>
         <DeathSound>monster/flying_brain_death</DeathSound>
         <Size>100</Size>
         <ShadowSize>0</ShadowSize>
         <MaxHitPoints>2500</MaxHitPoints>
         <Defense>20</Defense>
-
         <Projectile id="0">
             <ObjectId>Aqua Missile</ObjectId>
             <Damage>55</Damage>
@@ -1030,24 +946,18 @@
             <Amplitude>0.5</Amplitude>
             <Frequency>2</Frequency>
         </Projectile>
-
-
     </Object>
-
     <Object type="0x5e7c" id="Zombie Huntress">
         <Class>Character</Class>
         <Group>Zombies</Group>
         <Enemy/>
-
         <AnimatedTexture><File>chars8x8rEncounters</File><Index>58</Index></AnimatedTexture>
-
         <HitSound>monster/slimes_death</HitSound>
         <DeathSound>monster/flying_brain_death</DeathSound>
         <Size>100</Size>
         <ShadowSize>0</ShadowSize>
         <MaxHitPoints>2500</MaxHitPoints>
         <Defense>20</Defense>
-
         <Projectile id="0">
             <ObjectId>Black Arrow</ObjectId>
             <Damage>125</Damage>
@@ -1055,23 +965,18 @@
             <LifetimeMS>1000</LifetimeMS>
             <Size>100</Size>
         </Projectile>
-
     </Object>
-
     <Object type="0x5e7d" id="Zombie Mystic">
         <Class>Character</Class>
         <Group>Zombies</Group>
         <Enemy/>
-
         <AnimatedTexture><File>chars8x8rEncounters</File><Index>59</Index></AnimatedTexture>
-
         <HitSound>monster/slimes_death</HitSound>
         <DeathSound>monster/flying_brain_death</DeathSound>
         <Size>100</Size>
         <ShadowSize>0</ShadowSize>
         <MaxHitPoints>2500</MaxHitPoints>
         <Defense>20</Defense>
-
         <Projectile id="0">
             <ObjectId>Crystal Serpent Missile</ObjectId>
             <Damage>200</Damage>
@@ -1088,24 +993,18 @@
             <LifetimeMS>500</LifetimeMS>
             <Size>50</Size>
         </Projectile>
-
-
     </Object>
-
     <Object type="0x5e7e" id="Zombie Trickster">
         <Class>Character</Class>
         <Group>Zombies</Group>
         <Enemy/>
-
         <AnimatedTexture><File>chars8x8rEncounters</File><Index>60</Index></AnimatedTexture>
-
         <HitSound>monster/slimes_death</HitSound>
         <DeathSound>monster/flying_brain_death</DeathSound>
         <Size>100</Size>
         <ShadowSize>0</ShadowSize>
         <MaxHitPoints>2500</MaxHitPoints>
         <Defense>20</Defense>
-
         <Projectile id="0">
             <ObjectId>Spirit Dagger Slash</ObjectId>
             <Damage>55</Damage>
@@ -1113,24 +1012,18 @@
             <LifetimeMS>1000</LifetimeMS>
             <Size>100</Size>
         </Projectile>
-
-
     </Object>
-
     <Object type="0x5e7f" id="Zombie Sorcerer">
         <Class>Character</Class>
         <Group>Zombies</Group>
         <Enemy/>
-
         <AnimatedTexture><File>chars8x8rEncounters</File><Index>61</Index></AnimatedTexture>
-
         <HitSound>monster/slimes_death</HitSound>
         <DeathSound>monster/flying_brain_death</DeathSound>
         <Size>100</Size>
         <ShadowSize>0</ShadowSize>
         <MaxHitPoints>2500</MaxHitPoints>
         <Defense>20</Defense>
-
         <Projectile id="0">
             <ObjectId>Blue Magic</ObjectId>
             <Damage>55</Damage>
@@ -1138,24 +1031,18 @@
             <LifetimeMS>1000</LifetimeMS>
             <Size>100</Size>
         </Projectile>
-
-
     </Object>
-
     <Object type="0x5e8a" id="Zombie Assassin">
         <Class>Character</Class>
         <Group>Zombies</Group>
         <Enemy/>
-
         <AnimatedTexture><File>chars8x8rEncounters</File><Index>62</Index></AnimatedTexture>
-
         <HitSound>monster/slimes_death</HitSound>
         <DeathSound>monster/flying_brain_death</DeathSound>
         <Size>100</Size>
         <ShadowSize>0</ShadowSize>
         <MaxHitPoints>2500</MaxHitPoints>
         <Defense>20</Defense>
-
         <Projectile id="0">
             <ObjectId>Green Bolt</ObjectId>
             <Damage>55</Damage>
@@ -1163,24 +1050,18 @@
             <LifetimeMS>1000</LifetimeMS>
             <Size>100</Size>
         </Projectile>
-
-
     </Object>
-
     <Object type="0x5e8b" id="Zombie Ninja">
         <Class>Character</Class>
         <Group>Zombies</Group>
         <Enemy/>
-
         <AnimatedTexture><File>chars8x8rEncounters</File><Index>63</Index></AnimatedTexture>
-
         <HitSound>monster/slimes_death</HitSound>
         <DeathSound>monster/flying_brain_death</DeathSound>
         <Size>100</Size>
         <ShadowSize>0</ShadowSize>
         <MaxHitPoints>2500</MaxHitPoints>
         <Defense>20</Defense>
-
         <Projectile id="0">
             <ObjectId>Jewel Slash</ObjectId>
             <Damage>55</Damage>
@@ -1188,28 +1069,21 @@
             <LifetimeMS>1000</LifetimeMS>
             <Size>100</Size>
         </Projectile>
-
-
     </Object>
-
-
 	<Object type="0x6db" id="Kage Kami">
 		<Enemy/>
 		<NoMiniMap/>
 		<Class>Character</Class>
 		<Group>Heros</Group>
 		<Level>18</Level>
-		
 		<RandomTexture>
 			<Texture><File>lofiObj2</File><Index>0x3a</Index></Texture>
 			<Texture><File>lofiObj2</File><Index>0x4b</Index></Texture>
 			<Texture><File>lofiObj2</File><Index>0x4c</Index></Texture>
 		</RandomTexture>
-
 		<Portrait>
 			<AnimatedTexture><File>chars16x16rEncounters</File><Index>17</Index></AnimatedTexture>
 		</Portrait>
-		
         <AltTexture id="1">
 			<AnimatedTexture><File>chars16x16rEncounters</File><Index>17</Index></AnimatedTexture>
 			<Effect particle="SwirlingMist" cooldown="0.1">XMLEffect</Effect>
@@ -1217,16 +1091,13 @@
         <AltTexture id="2">
 			<AnimatedTexture><File>chars16x16rEncounters</File><Index>18</Index></AnimatedTexture>
 		</AltTexture>
-		
 		<HitSound>monster/medusa_hit</HitSound>
 		<DeathSound>monster/undead_dwarves_hit</DeathSound>
-		
 		<MaxHitPoints>3000</MaxHitPoints>
 		<Defense>63</Defense>
 		<XpMult>1.4</XpMult>
    		<Size>120</Size>
    		<DontFaceAttacks/>
-		
 		<Projectile id="0">
 			<ObjectId>Specter Spinner</ObjectId>
 			<Damage>50</Damage>
@@ -1236,7 +1107,6 @@
 			<ConditionEffect duration="4">Sick</ConditionEffect>
 			<ConditionEffect duration="1">Confused</ConditionEffect>
 		</Projectile>
-		
 		<Projectile id="1">
 			<ObjectId>Specter Shot</ObjectId>
 			<Damage>75</Damage>
@@ -1245,6 +1115,5 @@
 			<LifetimeMS>2600</LifetimeMS>
 			<ConditionEffect duration="0.4">Paralyzed</ConditionEffect>
 		</Projectile>
-			
 	</Object>
 </Objects>

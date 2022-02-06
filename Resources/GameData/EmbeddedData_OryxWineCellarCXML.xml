@@ -1,4 +1,3 @@
-
 <Objects>
 	<Object type="0x0de0" id="Abomination of Oryx">
 		<Enemy/>
@@ -41,7 +40,6 @@
 			<LifetimeMS>500</LifetimeMS>
 		</Projectile>
 	</Object>
-	
 	<Object type="0x0de1" id="Monstrosity of Oryx">
 		<Enemy/>
 		<Class>Character</Class>
@@ -53,7 +51,6 @@
 		<Defense>12</Defense>
 		<XpMult>0.1</XpMult>
 	</Object>
-	
 	<Object type="0x0de2" id="Monstrosity Scarab">
 		<Enemy/>
 		<Class>Character</Class>
@@ -71,7 +68,6 @@
 			<LifetimeMS>1400</LifetimeMS>
 		</Projectile>
 	</Object>
-	
 	<Object type="0x0de3" id="Aberrant of Oryx">
 		<Enemy/>
 		<Class>Character</Class>
@@ -83,7 +79,6 @@
 		<Defense>12</Defense>
 		<XpMult>0.1</XpMult>
 	</Object>
-
 	<Object type="0x0de4" id="Aberrant Blaster">
 		<Enemy/>
 		<Class>Character</Class>
@@ -101,7 +96,6 @@
 			<LifetimeMS>500</LifetimeMS>
 		</Projectile>
 	</Object>
-
 	<Object type="0x0de5" id="Wine Barrel">
 		<Class>GameObject</Class>
 			<RandomTexture>
@@ -118,7 +112,6 @@
 		<Enemy/>
 		<XpMult>0.0</XpMult>
 	</Object>
-	
 	<Object type="0x0de6" id="WineSpill Puddle">
 		<Class>GameObject</Class>
 			<RandomTexture>
@@ -129,70 +122,60 @@
 		<DrawOnGround/>
 		<Static/>
 	</Object>
-	
 	<Object type="0x0de7" id="WineSpill DL">
 		<Class>GameObject</Class>
 		<Texture><File>lofiEnvironment3</File><Index>0x7c</Index></Texture>
 		<DrawOnGround/>
 		<Static/>
 	</Object>
-	
 	<Object type="0x0de8" id="WineSpill DR">
 		<Class>GameObject</Class>
 		<Texture><File>lofiEnvironment3</File><Index>0x7d</Index></Texture>
 		<DrawOnGround/>
 		<Static/>
 	</Object>
-	
 	<Object type="0x0de9" id="WineSpill UR">
 		<Class>GameObject</Class>
 		<Texture><File>lofiEnvironment3</File><Index>0x7e</Index></Texture>
 		<DrawOnGround/>
 		<Static/>
 	</Object>
-	
 	<Object type="0x0dea" id="WineSpill UL">
 		<Class>GameObject</Class>
 		<Texture><File>lofiEnvironment3</File><Index>0x7f</Index></Texture>
 		<DrawOnGround/>
 		<Static/>
 	</Object>
-	
 	<Object type="0x0deb" id="WineSpill L">
 		<Class>GameObject</Class>
 		<Texture><File>lofiEnvironment3</File><Index>0x80</Index></Texture>
 		<DrawOnGround/>
 		<Static/>
 	</Object>
-	
 	<Object type="0x0dec" id="WineSpill R">
 		<Class>GameObject</Class>
 		<Texture><File>lofiEnvironment3</File><Index>0x81</Index></Texture>
 		<DrawOnGround/>
 		<Static/>
 	</Object>
-	
 	<Object type="0x0ded" id="WineSpill U">
 		<Class>GameObject</Class>
 		<Texture><File>lofiEnvironment3</File><Index>0x82</Index></Texture>
 		<DrawOnGround/>
 		<Static/>
 	</Object>
-	
 	<Object type="0x0dee" id="WineSpill D">
 		<Class>GameObject</Class>
 		<Texture><File>lofiEnvironment3</File><Index>0x83</Index></Texture>
 		<DrawOnGround/>
 		<Static/>
 	</Object>
-	
 	<Object type="0x0def" id="WineSpill C">
 		<Class>GameObject</Class>
 		<Texture><File>lofiEnvironment3</File><Index>0x84</Index></Texture>
 		<DrawOnGround/>
 		<Static/>
 	</Object>
-	
 	<Object type="0x0df0" id="Purple Goo">
 		<Enemy/>
 		<Class>Character</Class>
@@ -203,12 +186,10 @@
 				<Texture><File>lofiEnvironment3</File><Index>0x88</Index></Texture>
 				<Texture><File>lofiEnvironment3</File><Index>0x89</Index></Texture>
 			</RandomTexture>
-		
 		<Size>90</Size>
 		<ShadowSize>0</ShadowSize>
 		<DrawUnder/>
 		<NoMiniMap/>
-	
 		<MaxHitPoints>2000</MaxHitPoints>
 		<Defense>0</Defense>
 		<XpMult>0</XpMult>
@@ -221,12 +202,8 @@
 			<ConditionEffect duration="5">Sick</ConditionEffect>
 			<ConditionEffect duration="3.4">Slowed</ConditionEffect>
 		</Projectile>
-		
-		
 	</Object>
-	
 	<Object type="0x0df1" id="Bile of Oryx">
-		
 		<Enemy/>
 		<Class>Character</Class>
 		<AnimatedTexture><File>chars16x16dEncounters2</File><Index>24</Index></AnimatedTexture>
@@ -237,12 +214,8 @@
 		<MaxHitPoints>3000</MaxHitPoints>
 		<Defense>80</Defense>
 		<XpMult>0.08</XpMult>
-		
-		
 	</Object>
-	
 	<Object type="0x0df2" id="Vintner of Oryx">
-		
 		<Enemy/>
 		<Class>Character</Class>
 		<AnimatedTexture><File>chars16x16rEncounters</File><Index>1</Index></AnimatedTexture>
@@ -257,10 +230,7 @@
 			<Damage>50</Damage>
 			<Speed>70</Speed>
 			<LifetimeMS>1400</LifetimeMS>
-			<ConditionEffect duration="4">Drunk</ConditionEffect>
+			<ConditionEffect duration="1">Drunk</ConditionEffect>
 		</Projectile>
-		
-			
-		
 	</Object>
 </Objects>

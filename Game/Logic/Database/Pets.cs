@@ -45,6 +45,10 @@ namespace RotMG.Game.Logic.Database
                     1f, range: 2
                 ));
 
+            db.Init("Blue Snail", new PetFollow(
+                1f, range: 2
+            ));
+
         }
     }
 }

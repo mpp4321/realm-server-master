@@ -41,6 +41,7 @@ namespace RotMG.Game.Logic.Behaviors
             if (!MathUtils.Chance(probability))
                 return;
             Entity entity = Entity.Resolve(_children);
+            entity.IsSpawned = true;
             entity.Parent = host.Parent;
             //entity.Parent.MoveEntity(entity, host.Position);
 

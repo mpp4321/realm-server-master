@@ -16,6 +16,7 @@ namespace RotMG.Game.Logic.Behaviors
         //State storage: charge host.StateObject[Id]
         public class ChargeState
         {
+            public Entity At;
             public Vector2 Direction;
             public int RemainingTime;
         }
@@ -62,13 +63,12 @@ namespace RotMG.Game.Logic.Behaviors
                     Entity player = GameUtils.GetNearestSmart(host, _range, _targetPlayers, pred);
                     if (player != null && player.Position != host.Position)
                     {
+                        s.At = player;
                         s.Direction = player.Position - host.Position;
                         var d = s.Direction.Length();
                         if (d < 1)
                         {
                             //s.from = host.Get();
-                            if (_callB != null)
-                                _callB(host, player, s);
                             //Cheaty way of later setting s.RemainingTime to 0
                             d = 0;
                         }
@@ -80,6 +80,7 @@ namespace RotMG.Game.Logic.Behaviors
                 }
                 else
                 {
+                    s.At = null;
                     s.Direction = new Vector2(0,0);
                     s.RemainingTime = _coolDown.Next(Random);
                 }
@@ -89,6 +90,8 @@ namespace RotMG.Game.Logic.Behaviors
             {
                 float dist = host.GetSpeed(_speed) * Settings.SecondsPerTick;
                 host.ValidateAndMove(host.Position + dist * s.Direction);
+                if (s.At != null && _callB != null && s.At.Position.Distance(host) < 1)
+                    _callB(host, s.At, s);
                 returnState = true;
             }
 

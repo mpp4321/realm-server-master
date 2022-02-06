@@ -1,17 +1,11 @@
 <Objects>
-
-
-
-
   <Object type="0x0e56" id="Masked Party God">
     <Enemy/>
     <Class>Character</Class>
-
     <Texture>
       <File>lofiObjBig</File>
       <Index>0x40</Index>
     </Texture>
-
     <AltTexture id="1">
       <Texture>
         <File>lofiObjBig</File>
@@ -30,47 +24,34 @@
         <Index>0x3f</Index>
       </Texture>
     </AltTexture>
-
     <HitSound>monster/default_hit</HitSound>
     <DeathSound>monster/dark_elves_death</DeathSound>
     <Size>140</Size>
     <ShadowSize>70</ShadowSize>
     <MaxHitPoints>30000</MaxHitPoints>
     <Defense>10</Defense>
-
-
   </Object>
-
-
-
   <Object type="0x0e55" id="Beach Bum">
     <Enemy/>
     <Class>Character</Class>
-
     <AnimatedTexture>
       <File>chars8x8rEncounters</File>
       <Index>37</Index>
     </AnimatedTexture>
-
     <HitSound>monster/default_hit</HitSound>
     <DeathSound>monster/dark_elves_death</DeathSound>
     <Size>100</Size>
     <ShadowSize>100</ShadowSize>
     <MaxHitPoints>1000</MaxHitPoints>
     <Defense>15</Defense>
-
-
   </Object>
-
   <Object type="0x0e4f" id="Water Mine">
     <Enemy/>
     <Class>Character</Class>
-
     <AnimatedTexture>
       <File>chars16x16rEncounters</File>
       <Index>38</Index>
     </AnimatedTexture>
-
     <HitSound>monster/traps_hit</HitSound>
     <DeathSound>monster/traps_death</DeathSound>
     <Size>100</Size>
@@ -78,7 +59,6 @@
     <MaxHitPoints>1000</MaxHitPoints>
     <Defense>30</Defense>
     <XpMult>0</XpMult>
-
     <Projectile id="0">
       <ObjectId>LavaBombBlast</ObjectId>
       <Damage>80</Damage>
@@ -86,19 +66,15 @@
       <Size>120</Size>
       <LifetimeMS>450</LifetimeMS>
     </Projectile>
-
   </Object>
-
   <Object type="0x0e4e" id="Water Mine Path">
     <Enemy/>
     <DisplayId>Water Mine</DisplayId>
     <Class>Character</Class>
-
     <AnimatedTexture>
       <File>chars16x16rEncounters</File>
       <Index>38</Index>
     </AnimatedTexture>
-
     <HitSound>monster/traps_hit</HitSound>
     <DeathSound>monster/traps_death</DeathSound>
     <Size>100</Size>
@@ -106,7 +82,6 @@
     <MaxHitPoints>1000</MaxHitPoints>
     <Defense>30</Defense>
     <XpMult>0</XpMult>
-
     <Projectile id="0">
       <ObjectId>LavaBombBlast</ObjectId>
       <Damage>80</Damage>
@@ -118,12 +93,10 @@
   <Object type="0x0e3d" id="Beach Spectre">
     <Enemy/>
     <Class>Character</Class>
-
     <AnimatedTexture>
       <File>chars8x8rEncounters</File>
       <Index>35</Index>
     </AnimatedTexture>
-
     <HitSound>monster/dragons_hit</HitSound>
     <DeathSound>monster/dragons_death</DeathSound>
     <Size>100</Size>
@@ -134,7 +107,6 @@
     <Flying/>
     <Z>0.2</Z>
     <XpMult>0.0</XpMult>
-
     <Projectile>
       <ObjectId>Ghostly Arrow</ObjectId>
       <Speed>66</Speed>
@@ -150,7 +122,6 @@
       <File>chars8x8rEncounters</File>
       <Index>36</Index>
     </AnimatedTexture>
-
     <Size>0</Size>
     <ShadowSize>0</ShadowSize>
     <MaxHitPoints>1000</MaxHitPoints>
@@ -233,10 +204,6 @@
       <LifetimeMS>600</LifetimeMS>
     </Projectile>
   </Object>
-
-
-
-
   <Object type="0x0e39" id="Vengeful Spirit">
     <Class>Character</Class>
     <AnimatedTexture>
@@ -252,7 +219,6 @@
     <ShadowSize>80</ShadowSize>
     <Z>0.3</Z>
     <Flying/>
-
     <Projectile>
       <ObjectId>Ghostly Blast</ObjectId>
       <Speed>85</Speed>
@@ -260,15 +226,7 @@
       <Size>100</Size>
       <LifetimeMS>600</LifetimeMS>
     </Projectile>
-
-
-
-
   </Object>
-
-
-
-
   <Object type="0x0e38" id="Ghost Ship Anchor">
     <Enemy/>
     <Class>Character</Class>
@@ -286,7 +244,6 @@
     <NoMiniMap/>
     <PerRealmMax>1</PerRealmMax>
     <Encounter/>
-
     <Projectile id="0">
       <ObjectId>Invisible</ObjectId>
       <Damage>80</Damage>
@@ -294,17 +251,7 @@
       <Size>100</Size>
       <LifetimeMS>5000</LifetimeMS>
     </Projectile>
-
-
-
-
-
-
-
-
-
   </Object>
-
   <Object type="0x0e37" id="Ghost Ship">
     <Enemy/>
     <Class>Character</Class>
@@ -319,15 +266,12 @@
     <MaxHitPoints>42000</MaxHitPoints>
     <Defense>40</Defense>
     <Flying/>
-
     <Hero/>
     <Level>20</Level>
     <Quest/>
     <God/>
     <StasisImmune/>
-
     <KeepDamageRecord/>
-
     <AltTexture id="1">
       <AnimatedTexture>
         <File>chars16x16rEncounters</File>
@@ -341,7 +285,6 @@
       </AnimatedTexture>
       <Effect particle="SwirlingMist" cooldown="0.2">XMLEffect</Effect>
     </AltTexture>
-
     <Projectile id="0">
       <ObjectId>Cannonball</ObjectId>
       <Damage>80</Damage>
@@ -356,26 +299,7 @@
       <Size>180</Size>
       <LifetimeMS>4000</LifetimeMS>
     </Projectile>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   </Object>
-
-
-
-
   <Object type="0x0e32" id="Davy Jones">
     <Class>Character</Class>
     <Enemy/>
@@ -383,21 +307,18 @@
       <File>chars16x16rEncounters</File>
       <Index>26</Index>
     </AnimatedTexture>
-
     <AltTexture id="1">
       <AnimatedTexture>
         <File>chars16x16rEncounters</File>
         <Index>26</Index>
       </AnimatedTexture>
     </AltTexture>
-
     <AltTexture id="2">
       <AnimatedTexture>
         <File>chars16x16rEncounters</File>
         <Index>26</Index>
       </AnimatedTexture>
     </AltTexture>
-
     <AltTexture id="3">
       <AnimatedTexture>
         <File>chars16x16rEncounters</File>
@@ -405,14 +326,12 @@
       </AnimatedTexture>
       <Effect particle="SwirlingMist" cooldown="0.2">XMLEffect</Effect>
     </AltTexture>
-
     <AltTexture id="4">
       <AnimatedTexture>
         <File>chars16x16rEncounters</File>
         <Index>28</Index>
       </AnimatedTexture>
     </AltTexture>
-
     <AltTexture id="5">
       <AnimatedTexture>
         <File>chars16x16rEncounters</File>
@@ -425,11 +344,8 @@
         <Index>30</Index>
       </AnimatedTexture>
     </AltTexture>
-
-
     <HitSound>monster/pirates_hit</HitSound>
     <DeathSound>monster/skull_shrine_death</DeathSound>
-
     <Size>0</Size>
     <MaxHitPoints>8000</MaxHitPoints>
     <StasisImmune/>
@@ -438,7 +354,6 @@
     <Quest/>
     <XpMult>1.75</XpMult>
     <KeepDamageRecord/>
-
     <Projectile id="0">
       <ObjectId>Ghost Boss Slash</ObjectId>
       <Speed>65</Speed>
@@ -447,7 +362,6 @@
       <Size>100</Size>
       <ConditionEffect duration="4">Bleeding</ConditionEffect>
     </Projectile>
-
     <Projectile id="1">
       <ObjectId>Ghost Boss Spinner</ObjectId>
       <Speed>45</Speed>
@@ -457,21 +371,7 @@
       <Boomerang/>
       <ConditionEffect duration="4">Bleeding</ConditionEffect>
     </Projectile>
-
-
-
-
-
-
-
-
-
-
-
-
-
   </Object>
-
   <Object type="0x0e2d" id="Captain Summoner">
     <Class>Character</Class>
     <Texture>
@@ -481,11 +381,7 @@
     <NoMiniMap/>
     <MaxHitPoints>10</MaxHitPoints>
     <Size>0</Size>
-
   </Object>
-
-
-
   <Object type="0x0e50" id="Ghost Pirate Sr">
     <Class>Character</Class>
     <Enemy/>
@@ -493,7 +389,6 @@
       <File>chars16x16rEncounters</File>
       <Index>31</Index>
     </AnimatedTexture>
-
     <AltTexture id="1">
       <AnimatedTexture>
         <File>chars16x16rEncounters</File>
@@ -501,16 +396,13 @@
       </AnimatedTexture>
       <Effect particle="SwirlingMist" cooldown="0.2">XMLEffect</Effect>
     </AltTexture>
-
     <NoMiniMap/>
     <XpMult>0</XpMult>
     <Size>0</Size>
     <MaxHitPoints>1700</MaxHitPoints>
     <Defense>15</Defense>
-
     <HitSound>monster/ghosts_death</HitSound>
     <DeathSound>monster/flaming_skulls_hit</DeathSound>
-
     <Projectile id="0">
       <ObjectId>Ghost Sr Slash</ObjectId>
       <Speed>60</Speed>
@@ -518,35 +410,19 @@
       <LifetimeMS>1700</LifetimeMS>
       <Size>100</Size>
     </Projectile>
-
-
-
-
-
-
-
-
-
   </Object>
-
-
-
-
   <Object type="0x0e36" id="Ghost Lanturn On">
     <Class>Character</Class>
     <Enemy/>
     <NoMiniMap/>
     <StasisImmune/>
     <Group>GhostShip Lamps</Group>
-
     <Texture>
       <File>lofiObj3</File>
       <Index>0xac</Index>
     </Texture>
-
     <HitSound>monster/traps_hit</HitSound>
     <DeathSound>monster/flaming_skulls_hit</DeathSound>
-
     <Projectile id="0">
       <ObjectId>Lanturn Blast</ObjectId>
       <Speed>40</Speed>
@@ -555,41 +431,29 @@
       <Size>140</Size>
       <ConditionEffect duration="2">Paralyzed</ConditionEffect>
     </Projectile>
-
     <XpMult>0.0</XpMult>
     <Size>120</Size>
     <ShadowColor>0xfec937a</ShadowColor>
     <MaxHitPoints>600</MaxHitPoints>
     <Defense>5000</Defense>
-
-
-
   </Object>
-
   <Object type="0x0e35" id="Ghost Lanturn Off">
     <Class>Character</Class>
     <Enemy/>
     <NoMiniMap/>
     <StasisImmune/>
     <Group>GhostShip Lamps</Group>
-
     <Texture>
       <File>lofiObj3</File>
       <Index>0xad</Index>
     </Texture>
-
     <HitSound>monster/traps_hit</HitSound>
     <DeathSound>spell/fire_nova</DeathSound>
-
     <MaxHitPoints>2000</MaxHitPoints>
     <XpMult>0.0</XpMult>
     <Size>120</Size>
     <Defense>2</Defense>
-
-
   </Object>
-
-
   <Object type="0x0e41" id="Yellow Key">
     <Class>Character</Class>
     <Texture>
@@ -600,11 +464,8 @@
     <MaxHitPoints>100</MaxHitPoints>
     <NoMiniMap/>
     <ShadowSize>80</ShadowSize>
-
     <DeathSound>weapon/obsidian_dagger</DeathSound>
-
   </Object>
-
   <Object type="0x0e40" id="Red Key">
     <Class>Character</Class>
     <Texture>
@@ -615,11 +476,8 @@
     <MaxHitPoints>100</MaxHitPoints>
     <NoMiniMap/>
     <ShadowSize>80</ShadowSize>
-
     <DeathSound>weapon/obsidian_dagger</DeathSound>
-
   </Object>
-
   <Object type="0x0e3f" id="Green Key">
     <Class>Character</Class>
     <Texture>
@@ -630,11 +488,8 @@
     <MaxHitPoints>100</MaxHitPoints>
     <NoMiniMap/>
     <ShadowSize>80</ShadowSize>
-
     <DeathSound>weapon/obsidian_dagger</DeathSound>
-
   </Object>
-
   <Object type="0x0e3e" id="Purple Key">
     <Class>Character</Class>
     <Texture>
@@ -645,11 +500,8 @@
     <MaxHitPoints>100</MaxHitPoints>
     <NoMiniMap/>
     <ShadowSize>80</ShadowSize>
-
     <DeathSound>weapon/obsidian_dagger</DeathSound>
-
   </Object>
-
   <Object type="0x0e2e" id="Yellow Opener">
     <Class>Character</Class>
     <Texture>
@@ -659,9 +511,7 @@
     <Size>0</Size>
     <MaxHitPoints>100</MaxHitPoints>
     <NoMiniMap/>
-
   </Object>
-
   <Object type="0x0e30" id="Red Opener">
     <Class>Character</Class>
     <Texture>
@@ -671,9 +521,7 @@
     <Size>0</Size>
     <MaxHitPoints>100</MaxHitPoints>
     <NoMiniMap/>
-
   </Object>
-
   <Object type="0x0e33" id="Green Opener">
     <Class>Character</Class>
     <Texture>
@@ -683,9 +531,7 @@
     <Size>0</Size>
     <MaxHitPoints>100</MaxHitPoints>
     <NoMiniMap/>
-
   </Object>
-
   <Object type="0x0e34" id="Purple Opener">
     <Class>Character</Class>
     <Texture>
@@ -695,9 +541,7 @@
     <Size>0</Size>
     <MaxHitPoints>100</MaxHitPoints>
     <NoMiniMap/>
-
   </Object>
-
   <Object type="0x0e4a" id="VDoor">
     <Class>Character</Class>
     <Enemy/>
@@ -707,13 +551,10 @@
       <File>lofiObj3</File>
       <Index>0xba</Index>
     </Texture>
-
     <MaxHitPoints>10</MaxHitPoints>
     <XpMult>0.0</XpMult>
     <Size>0</Size>
-
   </Object>
-
   <Object type="0x0e49" id="HDoor">
     <Class>Character</Class>
     <Enemy/>
@@ -723,17 +564,12 @@
       <File>lofiObj3</File>
       <Index>0xbb</Index>
     </Texture>
-
     <MaxHitPoints>10</MaxHitPoints>
     <XpMult>0.0</XpMult>
     <Size>0</Size>
-
   </Object>
-
-
   <Object type="0x0e3a" id="Violent Spirit">
     <Class>Character</Class>
-
     <AnimatedTexture>
       <File>chars8x8rEncounters</File>
       <Index>36</Index>
@@ -745,7 +581,6 @@
     <Enemy/>
     <Size>0</Size>
     <Z>0.3</Z>
-
     <Flying/>
     <Projectile>
       <ObjectId>Ghostly Arrow</ObjectId>
@@ -754,13 +589,7 @@
       <Size>50</Size>
       <LifetimeMS>400</LifetimeMS>
     </Projectile>
-
-
-
-
-
   </Object>
-
   <Object type="0x0e48" id="Lost Soul">
     <Class>Character</Class>
     <Group>GhostShip Group</Group>
@@ -793,9 +622,7 @@
     <MaxHitPoints>500</MaxHitPoints>
     <Defense>30</Defense>
     <Z>0.33</Z>
-
     <DeathSound>monster/flaming_skulls_hit</DeathSound>
-
     <Projectile id="0">
       <ObjectId>Spirit Bolt</ObjectId>
       <Damage>40</Damage>
@@ -803,10 +630,7 @@
       <Size>50</Size>
       <LifetimeMS>600</LifetimeMS>
     </Projectile>
-
-
   </Object>
-
   <Object type="0x0e45" id="Ghost of Roger">
     <Class>Character</Class>
     <Group>GhostShip Group</Group>
@@ -815,7 +639,6 @@
       <File>chars16x16rEncounters</File>
       <Index>33</Index>
     </AnimatedTexture>
-
     <XpMult>1.0</XpMult>
     <Size>120</Size>
     <MaxHitPoints>2300</MaxHitPoints>
@@ -823,7 +646,6 @@
     <Z>0.15</Z>
     <HitSound>monster/ghosts_death</HitSound>
     <DeathSound>monster/flaming_skulls_hit</DeathSound>
-
     <Projectile id="0">
       <ObjectId>Roger Blast</ObjectId>
       <Speed>65</Speed>
@@ -838,12 +660,7 @@
       <LifetimeMS>1000</LifetimeMS>
       <Size>100</Size>
     </Projectile>
-
-
-
-
   </Object>
-
   <Object type="0x0e47" id="Maggot Sack">
     <Class>Character</Class>
     <Group>GhostShip Group</Group>
@@ -852,11 +669,9 @@
       <File>invisible</File>
       <Index>0</Index>
     </Texture>
-
     <XpMult>0</XpMult>
     <Size>0</Size>
     <MaxHitPoints>200</MaxHitPoints>
-
   </Object>
   <Object type="0x0e46" id="Maggot">
     <Class>Character</Class>
@@ -866,7 +681,6 @@
       <File>chars8x8rEncounters</File>
       <Index>30</Index>
     </AnimatedTexture>
-
     <XpMult>1.0</XpMult>
     <Size>40</Size>
     <ShadowSize>85</ShadowSize>
@@ -874,7 +688,6 @@
     <Defense>2</Defense>
     <HitSound>monster/blobs_hit</HitSound>
     <DeathSound>monster/blobs_death</DeathSound>
-
     <Projectile id="0">
       <ObjectId>Invisible</ObjectId>
       <Damage>30</Damage>
@@ -883,9 +696,7 @@
       <LifetimeMS>200</LifetimeMS>
       <ConditionEffect duration="3">Sick</ConditionEffect>
     </Projectile>
-
   </Object>
-
   <Object type="0x0e44" id="School of Ghostfish">
     <Class>Character</Class>
     <Group>GhostShip Group</Group>
@@ -894,7 +705,6 @@
       <File>chars8x8rEncounters</File>
       <Index>31</Index>
     </AnimatedTexture>
-
     <XpMult>1.0</XpMult>
     <Size>110</Size>
     <MaxHitPoints>1600</MaxHitPoints>
@@ -902,7 +712,6 @@
     <Z>0.1</Z>
     <HitSound>monster/cubes_death</HitSound>
     <DeathSound>monster/dark_elves_death</DeathSound>
-
     <Projectile id="0">
       <ObjectId>Fish Shot</ObjectId>
       <Speed>40</Speed>
@@ -910,11 +719,7 @@
       <LifetimeMS>1300</LifetimeMS>
       <Size>80</Size>
     </Projectile>
-
-
-
   </Object>
-
   <Object type="0x0e43" id="Zombie Pirate Sr">
     <Class>Character</Class>
     <Group>GhostShip Group</Group>
@@ -923,24 +728,20 @@
       <File>chars16x16rEncounters</File>
       <Index>34</Index>
     </AnimatedTexture>
-
     <AltTexture id="1">
       <AnimatedTexture>
         <File>chars16x16rEncounters</File>
         <Index>35</Index>
       </AnimatedTexture>
     </AltTexture>
-
     <BloodProb>0.5</BloodProb>
     <BloodColor>0x50d71b</BloodColor>
-
     <XpMult>1.0</XpMult>
     <Size>110</Size>
     <MaxHitPoints>1200</MaxHitPoints>
     <Defense>17</Defense>
     <HitSound>monster/pirates_hit</HitSound>
     <DeathSound>monster/undead_hobbits_death</DeathSound>
-
     <Projectile id="0">
       <ObjectId>Zombie Shot</ObjectId>
       <Speed>55</Speed>
@@ -948,13 +749,7 @@
       <LifetimeMS>1700</LifetimeMS>
       <Size>110</Size>
     </Projectile>
-
-
-
-
-
   </Object>
-
   <Object type="0x0e42" id="Zombie Pirate Jr">
     <Class>Character</Class>
     <Group>GhostShip Group</Group>
@@ -963,17 +758,14 @@
       <File>chars8x8rEncounters</File>
       <Index>32</Index>
     </AnimatedTexture>5171081
-
     <XpMult>1.0</XpMult>
     <Size>110</Size>
     <MaxHitPoints>700</MaxHitPoints>
     <Defense>11</Defense>
     <HitSound>monster/pirates_hit</HitSound>
     <DeathSound>monster/undead_hobbits_death</DeathSound>
-
     <BloodProb>0.5</BloodProb>
     <BloodColor>0x50d71b</BloodColor>
-
     <Projectile id="0">
       <ObjectId>Zombie Shot</ObjectId>
       <Speed>33</Speed>
@@ -981,11 +773,7 @@
       <LifetimeMS>1700</LifetimeMS>
       <Size>80</Size>
     </Projectile>
-
-
   </Object>
-
-
   <Object type="0x0e31" id="Lil' Ghost Pirate">
     <Class>Character</Class>
     <Group>GhostShip Group</Group>
@@ -994,7 +782,6 @@
       <File>chars8x8rEncounters</File>
       <Index>33</Index>
     </AnimatedTexture>
-
     <AltTexture id="1">
       <AnimatedTexture>
         <File>chars8x8rEncounters</File>
@@ -1002,16 +789,13 @@
       </AnimatedTexture>
       <Effect particle="SwirlingMist" cooldown="0.2">XMLEffect</Effect>
     </AltTexture>
-
     <NoMiniMap/>
     <XpMult>0.005</XpMult>
     <Size>0</Size>
     <MaxHitPoints>700</MaxHitPoints>
     <Defense>0</Defense>
-
     <HitSound>monster/ghosts_death</HitSound>
     <DeathSound>monster/flaming_skulls_hit</DeathSound>
-
     <Projectile id="0">
       <ObjectId>Ghost Swipe</ObjectId>
       <Speed>66</Speed>
@@ -1019,16 +803,7 @@
       <LifetimeMS>1700</LifetimeMS>
       <Size>90</Size>
     </Projectile>
-
-
-
-
-
-
-
-
   </Object>
-
   <Object type="0x0e2f" id="GhostShip Rat">
     <Class>Character</Class>
     <Enemy/>
@@ -1037,15 +812,12 @@
       <File>chars8x8rEncounters</File>
       <Index>34</Index>
     </AnimatedTexture>
-
     <HitSound>monster/bats_hit</HitSound>
     <DeathSound>monster/flayers_hit</DeathSound>
-
     <XpMult>1.0</XpMult>
     <Size>100</Size>
     <MaxHitPoints>650</MaxHitPoints>
     <Defense>5</Defense>
-
     <Projectile id="0">
       <ObjectId>Rat Tail</ObjectId>
       <Speed>45</Speed>
@@ -1054,9 +826,5 @@
       <Size>100</Size>
       <ConditionEffect duration="1">Stunned</ConditionEffect>
     </Projectile>
-
-
-
   </Object>
-
 </Objects>

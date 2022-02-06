@@ -71,6 +71,12 @@ for file in os.listdir("./Resources/GameData"):
             if classObj is None: continue
             classStr = classObj.text
             slottype = obj.find("SlotType")
+            bagtype = obj.find("BagType")
+            
+            if bagtype is None:
+                bagtype = "0"
+            else:
+                bagtype = bagtype.text
 
             if slottype is None: 
                 slottype = "None"
@@ -83,6 +89,7 @@ for file in os.listdir("./Resources/GameData"):
                         obj.attrib["type"],
                         obj.attrib["id"],
                         slottype,
+                        bagtype,
                         *construct_projectiles(obj),
                         *find_stats(obj)
                     )

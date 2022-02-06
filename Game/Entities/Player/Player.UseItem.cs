@@ -4,6 +4,7 @@ using RotMG.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static RotMG.Game.Logic.LootDef;
 
 namespace RotMG.Game.Entities
 {
@@ -11,6 +12,22 @@ namespace RotMG.Game.Entities
     {
         public const float UseCooldownThreshold = 1.1f;
         public const int MaxAbilityDist = 14;
+
+        public static List<ConditionEffectIndex> NegativeEffects = new List<ConditionEffectIndex>() 
+        {
+            ConditionEffectIndex.Blind,
+            ConditionEffectIndex.Hexed,
+            ConditionEffectIndex.Slowed,
+            ConditionEffectIndex.Confused,
+            ConditionEffectIndex.Drunk,
+            ConditionEffectIndex.Stunned,
+            ConditionEffectIndex.Bleeding,
+            ConditionEffectIndex.Cursed,
+            ConditionEffectIndex.Dazed,
+            ConditionEffectIndex.Weak,
+            ConditionEffectIndex.Quiet,
+            ConditionEffectIndex.Sick,
+        };
 
         public Queue<ushort> ShootAEs;
         public int UseDuration;
@@ -52,6 +69,14 @@ namespace RotMG.Game.Entities
             
             Client.Send(GameServer.Reconnect(world.Id));
             Manager.AddTimedAction(2000, Client.Disconnect);
+        }
+
+        public void RemoveNegativeEffects()
+        {
+            foreach(var eff in NegativeEffects)
+            {
+                RemoveConditionEffect(eff);
+            }
         }
 
         public int ParseStatForScale(string val)
@@ -237,6 +262,7 @@ namespace RotMG.Game.Entities
 
             callback?.Invoke();
         }
+
 
         public bool HandleAbilitySwitchStatement(ActivateEffectDesc eff, Vector2 target, ItemDesc desc, int time, bool inRange, SlotData slot)
         {
@@ -699,6 +725,7 @@ namespace RotMG.Game.Entities
                         return true;
                     }
                     var entity = Resolve(obj.Type);
+                    entity.PlayerOwner = this;
                     Parent.AddEntity(entity, Position);
                     break;
                 case ActivateEffectIndex.ItemDataModifier:
@@ -810,7 +837,9 @@ namespace RotMG.Game.Entities
                         }
                         else
                         {
-                            SendInfo("This item bag is invalid, contact admin.");
+                            ItemDatas[slot.SlotId] = new ItemDataJson();
+                            ItemDatas[slot.SlotId].StoredItems = new ();
+                            SendInfo("Bag broken, should be repaired.");
                             return true;
                         }
                     }
@@ -821,7 +850,7 @@ namespace RotMG.Game.Entities
                     float scale = eff.StatScale;
                     for(int i = 0; i < Inventory.Length; i++)
                     {
-                        if(Inventory[i] != -1 && ItemDesc.GetRank(ItemDatas[i].Meta) == -1)
+                        if(Inventory[i] != -1 && ItemDesc.GetRank(ItemDatas[i].Meta) == -1 && MathUtils.Chance(0.5f))
                         {
                             ItemDatas[i] = Resources.Type2Item[(ushort)Inventory[i]]
                                 .Roll(r: new Logic.LootDef.RarityModifiedData(scale, power, true), typeOfMod).Item2;
@@ -840,9 +869,10 @@ namespace RotMG.Game.Entities
                         ClientSideAdds.Add(bob);
                         EntityUpdates.Add(bob.Id, bob.UpdateCount);
 
-                        ApplyConditionEffect(ConditionEffectIndex.Paralyzed, 3000);
+                        const int FISH_TIME = 1000;
+                        ApplyConditionEffect(ConditionEffectIndex.Paralyzed, FISH_TIME);
                         var worldBefore = Parent.Id;
-                        Manager.AddTimedAction(3000, () =>
+                        Manager.AddTimedAction(FISH_TIME, () =>
                         {
                             if(worldBefore == Parent.Id) { 
                                 var itemId = GetFreeInventorySlot();
@@ -858,6 +888,51 @@ namespace RotMG.Game.Entities
 
                     }
                     break;
+                case ActivateEffectIndex.EggBreak:
+                    {
+                        int overCharge = ItemDatas[slot.SlotId].Meta - 500000 / 100000;
+                        overCharge = Math.Min(overCharge, 6);
+                        if(desc.EggType == 1 && ItemDatas[slot.SlotId].Meta > 200000) 
+                        {
+                            var randomGreen = Player.greenUtItems[MathUtils.NextInt(0, Player.greenUtItems.Count() - 1)];
+                            var itemDesc = Resources.Id2Item[randomGreen];
+                            Inventory[slot.SlotId] = itemDesc.Type;
+                            ItemDatas[slot.SlotId] = itemDesc.Roll(
+                              r: new RarityModifiedData(1.0f, shift: overCharge)
+                            ).Item2;
+                        }
+                        else if(desc.EggType == 2 && ItemDatas[slot.SlotId].Meta > 500000)
+                        {
+                            var randomBlue = Player.blueRtItems[MathUtils.NextInt(0, Player.blueRtItems.Count() - 1)];
+                            var itemDesc = Resources.Id2Item[randomBlue];
+                            Inventory[slot.SlotId] = itemDesc.Type;
+                            ItemDatas[slot.SlotId] = itemDesc.Roll(
+                              r: new RarityModifiedData(1.0f, shift: overCharge)
+                            ).Item2;
+                        }
+                        else
+                        {
+                            SendInfo("This egg is not ready to hatch yet!");
+                        }
+                        UpdateInventorySlot(slot.SlotId);
+                    }
+                    break;
+                case ActivateEffectIndex.RemoveNegativeConditions:
+                    {
+                        var range = StatScalingF(statForScale, eff.Range, eff.StatMin, eff.StatRangeScale);
+                        foreach (var j in Parent.PlayerChunks.HitTest(Position, Math.Max(range, SightRadius)))
+                        {
+                            if (j is Player k)
+                            {
+                                if (Position.Distance(j) <= eff.Range)
+                                    k.RemoveNegativeEffects();
+                            }
+                        }
+                    }
+                    break;
+                case ActivateEffectIndex.RemoveNegativeConditionsSelf:
+                    RemoveNegativeEffects();
+                    break;
 #if DEBUG
                 default:
                     Program.Print(PrintType.Error, $"Unhandled AE <{eff.Index.ToString()}>");
@@ -866,6 +941,8 @@ namespace RotMG.Game.Entities
             }
             return false;
         }
+
+
         public void Lightning(Vector2 target, int dmg, int targetCount, uint color, ConditionEffectDesc[] effs = null, Action<Entity, int> callback = null, int DamageFallOff = 0)
         {
             effs = effs ?? new ConditionEffectDesc[] { };

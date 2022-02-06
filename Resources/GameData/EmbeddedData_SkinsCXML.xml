@@ -1,5 +1,4 @@
 <Objects>
-
   <Object type="0x0342" id="Bandit">
     <Skin/>
     <Class>Skin</Class>
@@ -150,7 +149,6 @@
     <PlayerClassType>0x0310</PlayerClassType>
     <UnlockLevel>10</UnlockLevel>
   </Object>
-
   <Object type="0x0352" id="Golden Rogue">
     <Skin/>
     <Class>Skin</Class>

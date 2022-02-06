@@ -238,6 +238,7 @@ namespace RotMG.Game.Logic.Database
             new ItemLoot("Magic Potion", 0.3f)
             );
             db.Init("Golden Oryx Effigy",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("base",
                     //new HPScale(30),
                     new DropPortalOnDeath(target: "Realm Portal", probability: 1),
@@ -334,7 +335,7 @@ namespace RotMG.Game.Logic.Database
                         new State("T2_4",
                             new SetAltTexture(minValue: 0, maxValue: 1, cooldown: 100, loop: true)
                             ),
-                        new TimedTransition(time: 800, targetState: "Q3")
+                        new TimedTransition(time: 800, targetState: "Q3") { SubIndex = 2 }
                         ),
                     new State("Q3",
                         new SetAltTexture(1),
@@ -371,7 +372,7 @@ namespace RotMG.Game.Logic.Database
                                 new Grenade(radius: 1, damage: 70, range: 3, fixedAngle: 315, cooldown: 1000),
                                 new TimedTransition(time: 1500, targetState: "CardinalBarrage")
                                 ),
-                            new TimedTransition(time: 8500, targetState: "Attack2")
+                            new TimedTransition(time: 8500, targetState: "Attack2") { SubIndex = 2}
                             ),
                         new State("Attack2",
                             new Flash(color: 0x0000FF, flashPeriod: 0.1f, flashRepeats: 10),
@@ -410,7 +411,7 @@ namespace RotMG.Game.Logic.Database
                             new Shoot(range: 0, count: 4, shootAngle: 90, index: 1, defaultAngle: 20, cooldown: 10000000, cooldownOffset: 6600),
                             new Shoot(range: 0, count: 4, shootAngle: 90, index: 1, defaultAngle: 10, cooldown: 10000000, cooldownOffset: 6800),
                             new Shoot(range: 0, count: 4, shootAngle: 45, index: 1, defaultAngle: 0, cooldown: 10000000, cooldownOffset: 7000),
-                            new TimedTransition(time: 7000, targetState: "Recuperate")
+                            new TimedTransition(time: 7000, targetState: "Recuperate") { SubIndex = 2 }
                             ),
                         new State("Recuperate",
                             new ConditionalEffect(ConditionEffectIndex.Invulnerable),
@@ -420,16 +421,17 @@ namespace RotMG.Game.Logic.Database
                         )
                 ),
                 new Threshold(0.005f,
-                   LootTemplates.BasicPots(0.8f).Concat(new []
+                   LootTemplates.BasicPots(0.6f).Concat(new []
                    {
-                       new TierLoot(9, LootType.Weapon, 0.2f),
-                       new TierLoot(9, LootType.Armor, 0.2f),
-                       new TierLoot(5, LootType.Ability, 0.05f),
-                       new TierLoot(6, LootType.Ring, 0.01f),
+                       new TierLoot(9, LootType.Weapon, 0.5f),
+                       new TierLoot(9, LootType.Armor, 0.5f),
+                       new TierLoot(5, LootType.Ability, 0.2f),
+                       new TierLoot(6, LootType.Ring, 0.5f),
                    }).ToArray()
                 ),
                 new Threshold(0.001f,
                 new ItemLoot("Gilded Sword", 0.02f, r: new LootDef.RarityModifiedData(1.2f, 2, true)),
+                new ItemLoot("Realm Equipment Crystal", 0.02f, 0.01f),
                 new MobDrop(new LootDef.Builder()
                             .Item("Skin Unlocker")
                             .OverrideJson( new ItemDataJson() { SkinId = "Golden_Wizard" })

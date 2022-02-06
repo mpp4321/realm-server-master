@@ -264,7 +264,7 @@ namespace RotMG.Utils
             if (radius <= 0) return null;
             Entity nearest = null;
             var dist = float.MaxValue;
-            foreach (var en in entity.Parent.PlayerChunks.HitTest(entity.Position, radius))
+            foreach (var en in entity.Parent?.PlayerChunks.HitTest(entity.Position, radius))
             {
                 if (en.HasConditionEffect(ConditionEffectIndex.Invisible))
                     continue;

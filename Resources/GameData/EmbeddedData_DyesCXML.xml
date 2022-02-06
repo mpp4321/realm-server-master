@@ -10,7 +10,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1100" id="Alice Blue Accessory Dye">
     <Class>Dye</Class>
@@ -23,7 +22,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1001" id="Antique White Clothing Dye">
     <Class>Dye</Class>
@@ -36,7 +34,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1101" id="Antique White Accessory Dye">
     <Class>Dye</Class>
@@ -49,7 +46,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1002" id="Aqua Clothing Dye">
     <Class>Dye</Class>
@@ -62,7 +58,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1102" id="Aqua Accessory Dye">
     <Class>Dye</Class>
@@ -75,7 +70,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1003" id="Aquamarine Clothing Dye">
     <Class>Dye</Class>
@@ -88,7 +82,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1103" id="Aquamarine Accessory Dye">
     <Class>Dye</Class>
@@ -101,7 +94,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1004" id="Azure Clothing Dye">
     <Class>Dye</Class>
@@ -114,7 +106,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1104" id="Azure Accessory Dye">
     <Class>Dye</Class>
@@ -127,7 +118,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1005" id="Beige Clothing Dye">
     <Class>Dye</Class>
@@ -140,7 +130,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1105" id="Beige Accessory Dye">
     <Class>Dye</Class>
@@ -153,7 +142,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1006" id="Bisque Clothing Dye">
     <Class>Dye</Class>
@@ -166,7 +154,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1106" id="Bisque Accessory Dye">
     <Class>Dye</Class>
@@ -179,7 +166,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1007" id="Black Clothing Dye">
     <Class>Dye</Class>
@@ -192,7 +178,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1107" id="Black Accessory Dye">
     <Class>Dye</Class>
@@ -205,7 +190,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1008" id="Blanched Almond Clothing Dye">
     <Class>Dye</Class>
@@ -218,7 +202,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1108" id="Blanched Almond Accessory Dye">
     <Class>Dye</Class>
@@ -231,7 +214,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1009" id="Blue Clothing Dye">
     <Class>Dye</Class>
@@ -244,7 +226,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1109" id="Blue Accessory Dye">
     <Class>Dye</Class>
@@ -257,7 +238,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x100a" id="Blue Violet Clothing Dye">
     <Class>Dye</Class>
@@ -270,7 +250,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x110a" id="Blue Violet Accessory Dye">
     <Class>Dye</Class>
@@ -283,7 +262,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x100b" id="Brown Clothing Dye">
     <Class>Dye</Class>
@@ -296,7 +274,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x110b" id="Brown Accessory Dye">
     <Class>Dye</Class>
@@ -309,7 +286,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x100c" id="Burly Wood Clothing Dye">
     <Class>Dye</Class>
@@ -322,7 +298,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x110c" id="Burly Wood Accessory Dye">
     <Class>Dye</Class>
@@ -335,7 +310,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x100d" id="Cadet Blue Clothing Dye">
     <Class>Dye</Class>
@@ -348,7 +322,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x110d" id="Cadet Blue Accessory Dye">
     <Class>Dye</Class>
@@ -361,7 +334,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x100e" id="Chartreuse Clothing Dye">
     <Class>Dye</Class>
@@ -374,7 +346,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x110e" id="Chartreuse Accessory Dye">
     <Class>Dye</Class>
@@ -387,7 +358,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x100f" id="Chocolate Clothing Dye">
     <Class>Dye</Class>
@@ -400,7 +370,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x110f" id="Chocolate Accessory Dye">
     <Class>Dye</Class>
@@ -413,7 +382,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1010" id="Coral Clothing Dye">
     <Class>Dye</Class>
@@ -426,7 +394,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1110" id="Coral Accessory Dye">
     <Class>Dye</Class>
@@ -439,7 +406,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1011" id="Cornflower Blue Clothing Dye">
     <Class>Dye</Class>
@@ -452,7 +418,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1111" id="Cornflower Blue Accessory Dye">
     <Class>Dye</Class>
@@ -465,7 +430,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1012" id="Cornsilk Clothing Dye">
     <Class>Dye</Class>
@@ -478,7 +442,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1112" id="Cornsilk Accessory Dye">
     <Class>Dye</Class>
@@ -491,7 +454,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1013" id="Crimson Clothing Dye">
     <Class>Dye</Class>
@@ -504,7 +466,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1113" id="Crimson Accessory Dye">
     <Class>Dye</Class>
@@ -517,7 +478,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1014" id="Cyan Clothing Dye">
     <Class>Dye</Class>
@@ -530,7 +490,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1114" id="Cyan Accessory Dye">
     <Class>Dye</Class>
@@ -543,7 +502,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1015" id="Dark Blue Clothing Dye">
     <Class>Dye</Class>
@@ -556,7 +514,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1115" id="Dark Blue Accessory Dye">
     <Class>Dye</Class>
@@ -569,7 +526,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1016" id="Dark Cyan Clothing Dye">
     <Class>Dye</Class>
@@ -582,7 +538,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1116" id="Dark Cyan Accessory Dye">
     <Class>Dye</Class>
@@ -595,7 +550,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1017" id="Dark Golden Rod Clothing Dye">
     <Class>Dye</Class>
@@ -608,7 +562,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1117" id="Dark Golden Rod Accessory Dye">
     <Class>Dye</Class>
@@ -621,7 +574,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1018" id="Dark Gray Clothing Dye">
     <Class>Dye</Class>
@@ -634,7 +586,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1118" id="Dark Gray Accessory Dye">
     <Class>Dye</Class>
@@ -647,7 +598,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1019" id="Dark Green Clothing Dye">
     <Class>Dye</Class>
@@ -660,7 +610,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1119" id="Dark Green Accessory Dye">
     <Class>Dye</Class>
@@ -673,7 +622,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x101a" id="Dark Khaki Clothing Dye">
     <Class>Dye</Class>
@@ -686,7 +634,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x111a" id="Dark Khaki Accessory Dye">
     <Class>Dye</Class>
@@ -699,7 +646,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x101b" id="Dark Magenta Clothing Dye">
     <Class>Dye</Class>
@@ -712,7 +658,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x111b" id="Dark Magenta Accessory Dye">
     <Class>Dye</Class>
@@ -725,7 +670,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x101c" id="Dark Olive Green Clothing Dye">
     <Class>Dye</Class>
@@ -738,7 +682,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x111c" id="Dark Olive Green Accessory Dye">
     <Class>Dye</Class>
@@ -751,7 +694,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x101d" id="Dark Orange Clothing Dye">
     <Class>Dye</Class>
@@ -764,7 +706,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x111d" id="Dark Orange Accessory Dye">
     <Class>Dye</Class>
@@ -777,7 +718,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x101e" id="Dark Orchid Clothing Dye">
     <Class>Dye</Class>
@@ -790,7 +730,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x111e" id="Dark Orchid Accessory Dye">
     <Class>Dye</Class>
@@ -803,7 +742,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x101f" id="Dark Red Clothing Dye">
     <Class>Dye</Class>
@@ -816,7 +754,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x111f" id="Dark Red Accessory Dye">
     <Class>Dye</Class>
@@ -829,7 +766,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1020" id="Dark Salmon Clothing Dye">
     <Class>Dye</Class>
@@ -842,7 +778,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1120" id="Dark Salmon Accessory Dye">
     <Class>Dye</Class>
@@ -855,7 +790,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1021" id="Dark Sea Green Clothing Dye">
     <Class>Dye</Class>
@@ -868,7 +802,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1121" id="Dark Sea Green Accessory Dye">
     <Class>Dye</Class>
@@ -881,7 +814,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1022" id="Dark Slate Blue Clothing Dye">
     <Class>Dye</Class>
@@ -894,7 +826,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1122" id="Dark Slate Blue Accessory Dye">
     <Class>Dye</Class>
@@ -907,7 +838,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1023" id="Dark Slate Gray Clothing Dye">
     <Class>Dye</Class>
@@ -920,7 +850,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1123" id="Dark Slate Gray Accessory Dye">
     <Class>Dye</Class>
@@ -933,7 +862,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1024" id="Dark Turquoise Clothing Dye">
     <Class>Dye</Class>
@@ -946,7 +874,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1124" id="Dark Turquoise Accessory Dye">
     <Class>Dye</Class>
@@ -959,7 +886,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1025" id="Dark Violet Clothing Dye">
     <Class>Dye</Class>
@@ -972,7 +898,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1125" id="Dark Violet Accessory Dye">
     <Class>Dye</Class>
@@ -985,7 +910,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1026" id="Deep Pink Clothing Dye">
     <Class>Dye</Class>
@@ -998,7 +922,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1126" id="Deep Pink Accessory Dye">
     <Class>Dye</Class>
@@ -1011,7 +934,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1027" id="Deep Sky Blue Clothing Dye">
     <Class>Dye</Class>
@@ -1024,7 +946,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1127" id="Deep Sky Blue Accessory Dye">
     <Class>Dye</Class>
@@ -1037,7 +958,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1028" id="Dim Gray Clothing Dye">
     <Class>Dye</Class>
@@ -1050,7 +970,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1128" id="Dim Gray Accessory Dye">
     <Class>Dye</Class>
@@ -1063,7 +982,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1029" id="Dodger Blue Clothing Dye">
     <Class>Dye</Class>
@@ -1076,7 +994,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1129" id="Dodger Blue Accessory Dye">
     <Class>Dye</Class>
@@ -1089,7 +1006,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x102a" id="Fire Brick Clothing Dye">
     <Class>Dye</Class>
@@ -1102,7 +1018,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x112a" id="Fire Brick Accessory Dye">
     <Class>Dye</Class>
@@ -1115,7 +1030,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x102b" id="Floral White Clothing Dye">
     <Class>Dye</Class>
@@ -1128,7 +1042,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x112b" id="Floral White Accessory Dye">
     <Class>Dye</Class>
@@ -1141,7 +1054,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x102c" id="Forest Green Clothing Dye">
     <Class>Dye</Class>
@@ -1154,7 +1066,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x112c" id="Forest Green Accessory Dye">
     <Class>Dye</Class>
@@ -1167,7 +1078,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x102d" id="Fuchsia Clothing Dye">
     <Class>Dye</Class>
@@ -1180,7 +1090,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x112d" id="Fuchsia Accessory Dye">
     <Class>Dye</Class>
@@ -1193,7 +1102,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x102e" id="Gainsboro Clothing Dye">
     <Class>Dye</Class>
@@ -1206,7 +1114,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x112e" id="Gainsboro Accessory Dye">
     <Class>Dye</Class>
@@ -1219,7 +1126,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x102f" id="Ghost White Clothing Dye">
     <Class>Dye</Class>
@@ -1232,7 +1138,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x112f" id="Ghost White Accessory Dye">
     <Class>Dye</Class>
@@ -1245,7 +1150,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1030" id="Gold Clothing Dye">
     <Class>Dye</Class>
@@ -1258,7 +1162,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1130" id="Gold Accessory Dye">
     <Class>Dye</Class>
@@ -1271,7 +1174,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1031" id="Golden Rod Clothing Dye">
     <Class>Dye</Class>
@@ -1284,7 +1186,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1131" id="Golden Rod Accessory Dye">
     <Class>Dye</Class>
@@ -1297,7 +1198,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1032" id="Gray Clothing Dye">
     <Class>Dye</Class>
@@ -1310,7 +1210,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1132" id="Gray Accessory Dye">
     <Class>Dye</Class>
@@ -1323,7 +1222,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1033" id="Green Clothing Dye">
     <Class>Dye</Class>
@@ -1336,7 +1234,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1133" id="Green Accessory Dye">
     <Class>Dye</Class>
@@ -1349,7 +1246,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1034" id="Green Yellow Clothing Dye">
     <Class>Dye</Class>
@@ -1362,7 +1258,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1134" id="Green Yellow Accessory Dye">
     <Class>Dye</Class>
@@ -1375,7 +1270,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1035" id="Honey Dew Clothing Dye">
     <Class>Dye</Class>
@@ -1388,7 +1282,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1135" id="Honey Dew Accessory Dye">
     <Class>Dye</Class>
@@ -1401,7 +1294,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1036" id="Hot Pink Clothing Dye">
     <Class>Dye</Class>
@@ -1414,7 +1306,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1136" id="Hot Pink Accessory Dye">
     <Class>Dye</Class>
@@ -1427,7 +1318,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1037" id="Indian Red Clothing Dye">
     <Class>Dye</Class>
@@ -1440,7 +1330,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1137" id="Indian Red Accessory Dye">
     <Class>Dye</Class>
@@ -1453,7 +1342,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1038" id="Indigo Clothing Dye">
     <Class>Dye</Class>
@@ -1466,7 +1354,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1138" id="Indigo Accessory Dye">
     <Class>Dye</Class>
@@ -1479,7 +1366,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1039" id="Ivory Clothing Dye">
     <Class>Dye</Class>
@@ -1492,7 +1378,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1139" id="Ivory Accessory Dye">
     <Class>Dye</Class>
@@ -1505,7 +1390,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x103a" id="Khaki Clothing Dye">
     <Class>Dye</Class>
@@ -1518,7 +1402,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x113a" id="Khaki Accessory Dye">
     <Class>Dye</Class>
@@ -1531,7 +1414,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x103b" id="Lavender Clothing Dye">
     <Class>Dye</Class>
@@ -1544,7 +1426,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x113b" id="Lavender Accessory Dye">
     <Class>Dye</Class>
@@ -1557,7 +1438,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x103c" id="Lavender Blush Clothing Dye">
     <Class>Dye</Class>
@@ -1570,7 +1450,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x113c" id="Lavender Blush Accessory Dye">
     <Class>Dye</Class>
@@ -1583,7 +1462,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x103d" id="Lawn Green Clothing Dye">
     <Class>Dye</Class>
@@ -1596,7 +1474,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x113d" id="Lawn Green Accessory Dye">
     <Class>Dye</Class>
@@ -1609,7 +1486,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x103e" id="Lemon Chiffon Clothing Dye">
     <Class>Dye</Class>
@@ -1622,7 +1498,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x113e" id="Lemon Chiffon Accessory Dye">
     <Class>Dye</Class>
@@ -1635,7 +1510,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x103f" id="Light Blue Clothing Dye">
     <Class>Dye</Class>
@@ -1648,7 +1522,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x113f" id="Light Blue Accessory Dye">
     <Class>Dye</Class>
@@ -1661,7 +1534,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1040" id="Light Coral Clothing Dye">
     <Class>Dye</Class>
@@ -1674,7 +1546,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1140" id="Light Coral Accessory Dye">
     <Class>Dye</Class>
@@ -1687,7 +1558,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1041" id="Light Cyan Clothing Dye">
     <Class>Dye</Class>
@@ -1700,7 +1570,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1141" id="Light Cyan Accessory Dye">
     <Class>Dye</Class>
@@ -1713,7 +1582,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1042" id="Light Golden Rod Yellow Clothing Dye">
     <Class>Dye</Class>
@@ -1726,7 +1594,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1142" id="Light Golden Rod Yellow Accessory Dye">
     <Class>Dye</Class>
@@ -1739,7 +1606,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1043" id="Light Grey Clothing Dye">
     <Class>Dye</Class>
@@ -1752,7 +1618,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1143" id="Light Grey Accessory Dye">
     <Class>Dye</Class>
@@ -1765,7 +1630,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1044" id="Light Green Clothing Dye">
     <Class>Dye</Class>
@@ -1778,7 +1642,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1144" id="Light Green Accessory Dye">
     <Class>Dye</Class>
@@ -1791,7 +1654,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1045" id="Light Pink Clothing Dye">
     <Class>Dye</Class>
@@ -1804,7 +1666,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1145" id="Light Pink Accessory Dye">
     <Class>Dye</Class>
@@ -1817,7 +1678,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1046" id="Light Salmon Clothing Dye">
     <Class>Dye</Class>
@@ -1830,7 +1690,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1146" id="Light Salmon Accessory Dye">
     <Class>Dye</Class>
@@ -1843,7 +1702,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1047" id="Light Sea Green Clothing Dye">
     <Class>Dye</Class>
@@ -1856,7 +1714,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1147" id="Light Sea Green Accessory Dye">
     <Class>Dye</Class>
@@ -1869,7 +1726,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1048" id="Light Sky Blue Clothing Dye">
     <Class>Dye</Class>
@@ -1882,7 +1738,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1148" id="Light Sky Blue Accessory Dye">
     <Class>Dye</Class>
@@ -1895,7 +1750,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1049" id="Light Slate Gray Clothing Dye">
     <Class>Dye</Class>
@@ -1908,7 +1762,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1149" id="Light Slate Gray Accessory Dye">
     <Class>Dye</Class>
@@ -1921,7 +1774,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x104a" id="Light Steel Blue Clothing Dye">
     <Class>Dye</Class>
@@ -1934,7 +1786,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x114a" id="Light Steel Blue Accessory Dye">
     <Class>Dye</Class>
@@ -1947,7 +1798,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x104b" id="Light Yellow Clothing Dye">
     <Class>Dye</Class>
@@ -1960,7 +1810,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x114b" id="Light Yellow Accessory Dye">
     <Class>Dye</Class>
@@ -1973,7 +1822,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x104c" id="Lime Clothing Dye">
     <Class>Dye</Class>
@@ -1986,7 +1834,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x114c" id="Lime Accessory Dye">
     <Class>Dye</Class>
@@ -1999,7 +1846,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x104d" id="Lime Green Clothing Dye">
     <Class>Dye</Class>
@@ -2012,7 +1858,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x114d" id="Lime Green Accessory Dye">
     <Class>Dye</Class>
@@ -2025,7 +1870,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x104e" id="Linen Clothing Dye">
     <Class>Dye</Class>
@@ -2038,7 +1882,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x114e" id="Linen Accessory Dye">
     <Class>Dye</Class>
@@ -2051,7 +1894,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x104f" id="Magenta Clothing Dye">
     <Class>Dye</Class>
@@ -2064,7 +1906,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x114f" id="Magenta Accessory Dye">
     <Class>Dye</Class>
@@ -2077,7 +1918,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1050" id="Maroon Clothing Dye">
     <Class>Dye</Class>
@@ -2090,7 +1930,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1150" id="Maroon Accessory Dye">
     <Class>Dye</Class>
@@ -2103,7 +1942,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1051" id="Medium Aqua Marine Clothing Dye">
     <Class>Dye</Class>
@@ -2116,7 +1954,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1151" id="Medium Aqua Marine Accessory Dye">
     <Class>Dye</Class>
@@ -2129,7 +1966,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1052" id="Medium Blue Clothing Dye">
     <Class>Dye</Class>
@@ -2142,7 +1978,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1152" id="Medium Blue Accessory Dye">
     <Class>Dye</Class>
@@ -2155,7 +1990,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1053" id="Medium Orchid Clothing Dye">
     <Class>Dye</Class>
@@ -2168,7 +2002,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1153" id="Medium Orchid Accessory Dye">
     <Class>Dye</Class>
@@ -2181,7 +2014,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1054" id="Medium Purple Clothing Dye">
     <Class>Dye</Class>
@@ -2194,7 +2026,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1154" id="Medium Purple Accessory Dye">
     <Class>Dye</Class>
@@ -2207,7 +2038,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1055" id="Medium Sea Green Clothing Dye">
     <Class>Dye</Class>
@@ -2220,7 +2050,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1155" id="Medium Sea Green Accessory Dye">
     <Class>Dye</Class>
@@ -2233,7 +2062,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1056" id="Medium Slate Blue Clothing Dye">
     <Class>Dye</Class>
@@ -2246,7 +2074,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1156" id="Medium Slate Blue Accessory Dye">
     <Class>Dye</Class>
@@ -2259,7 +2086,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1057" id="Medium Spring Green Clothing Dye">
     <Class>Dye</Class>
@@ -2272,7 +2098,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1157" id="Medium Spring Green Accessory Dye">
     <Class>Dye</Class>
@@ -2285,7 +2110,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1058" id="Medium Turquoise Clothing Dye">
     <Class>Dye</Class>
@@ -2298,7 +2122,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1158" id="Medium Turquoise Accessory Dye">
     <Class>Dye</Class>
@@ -2311,7 +2134,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1059" id="Medium Violet Red Clothing Dye">
     <Class>Dye</Class>
@@ -2324,7 +2146,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1159" id="Medium Violet Red Accessory Dye">
     <Class>Dye</Class>
@@ -2337,7 +2158,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x105a" id="Midnight Blue Clothing Dye">
     <Class>Dye</Class>
@@ -2350,7 +2170,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x115a" id="Midnight Blue Accessory Dye">
     <Class>Dye</Class>
@@ -2363,7 +2182,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x105b" id="Mint Cream Clothing Dye">
     <Class>Dye</Class>
@@ -2376,7 +2194,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x115b" id="Mint Cream Accessory Dye">
     <Class>Dye</Class>
@@ -2389,7 +2206,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x105c" id="Misty Rose Clothing Dye">
     <Class>Dye</Class>
@@ -2402,7 +2218,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x115c" id="Misty Rose Accessory Dye">
     <Class>Dye</Class>
@@ -2415,7 +2230,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x105d" id="Moccasin Clothing Dye">
     <Class>Dye</Class>
@@ -2428,7 +2242,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x115d" id="Moccasin Accessory Dye">
     <Class>Dye</Class>
@@ -2441,7 +2254,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x105e" id="Navajo White Clothing Dye">
     <Class>Dye</Class>
@@ -2454,7 +2266,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x115e" id="Navajo White Accessory Dye">
     <Class>Dye</Class>
@@ -2467,7 +2278,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x105f" id="Navy Clothing Dye">
     <Class>Dye</Class>
@@ -2480,7 +2290,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x115f" id="Navy Accessory Dye">
     <Class>Dye</Class>
@@ -2493,7 +2302,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1060" id="Old Lace Clothing Dye">
     <Class>Dye</Class>
@@ -2506,7 +2314,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1160" id="Old Lace Accessory Dye">
     <Class>Dye</Class>
@@ -2519,7 +2326,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1061" id="Olive Clothing Dye">
     <Class>Dye</Class>
@@ -2532,7 +2338,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1161" id="Olive Accessory Dye">
     <Class>Dye</Class>
@@ -2545,7 +2350,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1062" id="Olive Drab Clothing Dye">
     <Class>Dye</Class>
@@ -2558,7 +2362,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1162" id="Olive Drab Accessory Dye">
     <Class>Dye</Class>
@@ -2571,7 +2374,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1063" id="Orange Clothing Dye">
     <Class>Dye</Class>
@@ -2584,7 +2386,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1163" id="Orange Accessory Dye">
     <Class>Dye</Class>
@@ -2597,7 +2398,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1064" id="Orange Red Clothing Dye">
     <Class>Dye</Class>
@@ -2610,7 +2410,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1164" id="Orange Red Accessory Dye">
     <Class>Dye</Class>
@@ -2623,7 +2422,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1065" id="Orchid Clothing Dye">
     <Class>Dye</Class>
@@ -2636,7 +2434,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1165" id="Orchid Accessory Dye">
     <Class>Dye</Class>
@@ -2649,7 +2446,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1066" id="Pale Golden Rod Clothing Dye">
     <Class>Dye</Class>
@@ -2662,7 +2458,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1166" id="Pale Golden Rod Accessory Dye">
     <Class>Dye</Class>
@@ -2675,7 +2470,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1067" id="Pale Green Clothing Dye">
     <Class>Dye</Class>
@@ -2688,7 +2482,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1167" id="Pale Green Accessory Dye">
     <Class>Dye</Class>
@@ -2701,7 +2494,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1068" id="Pale Turquoise Clothing Dye">
     <Class>Dye</Class>
@@ -2714,7 +2506,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1168" id="Pale Turquoise Accessory Dye">
     <Class>Dye</Class>
@@ -2727,7 +2518,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1069" id="Pale Violet Red Clothing Dye">
     <Class>Dye</Class>
@@ -2740,7 +2530,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1169" id="Pale Violet Red Accessory Dye">
     <Class>Dye</Class>
@@ -2753,7 +2542,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x106a" id="Papaya Whip Clothing Dye">
     <Class>Dye</Class>
@@ -2766,7 +2554,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x116a" id="Papaya Whip Accessory Dye">
     <Class>Dye</Class>
@@ -2779,7 +2566,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x106b" id="Peach Puff Clothing Dye">
     <Class>Dye</Class>
@@ -2792,7 +2578,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x116b" id="Peach Puff Accessory Dye">
     <Class>Dye</Class>
@@ -2805,7 +2590,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x106c" id="Peru Clothing Dye">
     <Class>Dye</Class>
@@ -2818,7 +2602,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x116c" id="Peru Accessory Dye">
     <Class>Dye</Class>
@@ -2831,7 +2614,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x106d" id="Pink Clothing Dye">
     <Class>Dye</Class>
@@ -2844,7 +2626,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x116d" id="Pink Accessory Dye">
     <Class>Dye</Class>
@@ -2857,7 +2638,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x106e" id="Plum Clothing Dye">
     <Class>Dye</Class>
@@ -2870,7 +2650,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x116e" id="Plum Accessory Dye">
     <Class>Dye</Class>
@@ -2883,7 +2662,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x106f" id="Powder Blue Clothing Dye">
     <Class>Dye</Class>
@@ -2896,7 +2674,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x116f" id="Powder Blue Accessory Dye">
     <Class>Dye</Class>
@@ -2909,7 +2686,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1070" id="Purple Clothing Dye">
     <Class>Dye</Class>
@@ -2922,7 +2698,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1170" id="Purple Accessory Dye">
     <Class>Dye</Class>
@@ -2935,7 +2710,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1071" id="Red Clothing Dye">
     <Class>Dye</Class>
@@ -2948,7 +2722,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1171" id="Red Accessory Dye">
     <Class>Dye</Class>
@@ -2961,7 +2734,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1072" id="Rosy Brown Clothing Dye">
     <Class>Dye</Class>
@@ -2974,7 +2746,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1172" id="Rosy Brown Accessory Dye">
     <Class>Dye</Class>
@@ -2987,7 +2758,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1073" id="Royal Blue Clothing Dye">
     <Class>Dye</Class>
@@ -3000,7 +2770,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1173" id="Royal Blue Accessory Dye">
     <Class>Dye</Class>
@@ -3013,7 +2782,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1074" id="Saddle Brown Clothing Dye">
     <Class>Dye</Class>
@@ -3026,7 +2794,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1174" id="Saddle Brown Accessory Dye">
     <Class>Dye</Class>
@@ -3039,7 +2806,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1075" id="Salmon Clothing Dye">
     <Class>Dye</Class>
@@ -3052,7 +2818,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1175" id="Salmon Accessory Dye">
     <Class>Dye</Class>
@@ -3065,7 +2830,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1076" id="Sandy Brown Clothing Dye">
     <Class>Dye</Class>
@@ -3078,7 +2842,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1176" id="Sandy Brown Accessory Dye">
     <Class>Dye</Class>
@@ -3091,7 +2854,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1077" id="Sea Green Clothing Dye">
     <Class>Dye</Class>
@@ -3104,7 +2866,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1177" id="Sea Green Accessory Dye">
     <Class>Dye</Class>
@@ -3117,7 +2878,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1078" id="Sea Shell Clothing Dye">
     <Class>Dye</Class>
@@ -3130,7 +2890,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1178" id="Sea Shell Accessory Dye">
     <Class>Dye</Class>
@@ -3143,7 +2902,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1079" id="Sienna Clothing Dye">
     <Class>Dye</Class>
@@ -3156,7 +2914,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1179" id="Sienna Accessory Dye">
     <Class>Dye</Class>
@@ -3169,7 +2926,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x107a" id="Silver Clothing Dye">
     <Class>Dye</Class>
@@ -3182,7 +2938,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x117a" id="Silver Accessory Dye">
     <Class>Dye</Class>
@@ -3195,7 +2950,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x107b" id="Sky Blue Clothing Dye">
     <Class>Dye</Class>
@@ -3208,7 +2962,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x117b" id="Sky Blue Accessory Dye">
     <Class>Dye</Class>
@@ -3221,7 +2974,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x107c" id="Slate Blue Clothing Dye">
     <Class>Dye</Class>
@@ -3234,7 +2986,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x117c" id="Slate Blue Accessory Dye">
     <Class>Dye</Class>
@@ -3247,7 +2998,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x107d" id="Slate Gray Clothing Dye">
     <Class>Dye</Class>
@@ -3260,7 +3010,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x117d" id="Slate Gray Accessory Dye">
     <Class>Dye</Class>
@@ -3273,7 +3022,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x107e" id="Snow Clothing Dye">
     <Class>Dye</Class>
@@ -3286,7 +3034,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x117e" id="Snow Accessory Dye">
     <Class>Dye</Class>
@@ -3299,7 +3046,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x107f" id="Spring Green Clothing Dye">
     <Class>Dye</Class>
@@ -3312,7 +3058,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x117f" id="Spring Green Accessory Dye">
     <Class>Dye</Class>
@@ -3325,7 +3070,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1080" id="Steel Blue Clothing Dye">
     <Class>Dye</Class>
@@ -3338,7 +3082,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1180" id="Steel Blue Accessory Dye">
     <Class>Dye</Class>
@@ -3351,7 +3094,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1081" id="Tan Clothing Dye">
     <Class>Dye</Class>
@@ -3364,7 +3106,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1181" id="Tan Accessory Dye">
     <Class>Dye</Class>
@@ -3377,7 +3118,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1082" id="Teal Clothing Dye">
     <Class>Dye</Class>
@@ -3390,7 +3130,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1182" id="Teal Accessory Dye">
     <Class>Dye</Class>
@@ -3403,7 +3142,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1083" id="Thistle Clothing Dye">
     <Class>Dye</Class>
@@ -3416,7 +3154,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1183" id="Thistle Accessory Dye">
     <Class>Dye</Class>
@@ -3429,7 +3166,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1084" id="Tomato Clothing Dye">
     <Class>Dye</Class>
@@ -3442,7 +3178,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1184" id="Tomato Accessory Dye">
     <Class>Dye</Class>
@@ -3455,7 +3190,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1085" id="Turquoise Clothing Dye">
     <Class>Dye</Class>
@@ -3468,7 +3202,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1185" id="Turquoise Accessory Dye">
     <Class>Dye</Class>
@@ -3481,7 +3214,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1086" id="Violet Clothing Dye">
     <Class>Dye</Class>
@@ -3494,7 +3226,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1186" id="Violet Accessory Dye">
     <Class>Dye</Class>
@@ -3507,7 +3238,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1087" id="Wheat Clothing Dye">
     <Class>Dye</Class>
@@ -3520,7 +3250,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1187" id="Wheat Accessory Dye">
     <Class>Dye</Class>
@@ -3533,7 +3262,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1088" id="White Clothing Dye">
     <Class>Dye</Class>
@@ -3546,7 +3274,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1188" id="White Accessory Dye">
     <Class>Dye</Class>
@@ -3559,7 +3286,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1089" id="White Smoke Clothing Dye">
     <Class>Dye</Class>
@@ -3572,7 +3298,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x1189" id="White Smoke Accessory Dye">
     <Class>Dye</Class>
@@ -3585,7 +3310,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x108a" id="Yellow Clothing Dye">
     <Class>Dye</Class>
@@ -3598,7 +3322,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x118a" id="Yellow Accessory Dye">
     <Class>Dye</Class>
@@ -3611,7 +3334,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x108b" id="Yellow Green Clothing Dye">
     <Class>Dye</Class>
@@ -3624,7 +3346,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x118b" id="Yellow Green Accessory Dye">
     <Class>Dye</Class>
@@ -3637,7 +3358,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x108c" id="St Patrick's Green Clothing Dye">
     <Class>Dye</Class>
@@ -3650,7 +3370,6 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
   <Object type="0x118c" id="St Patrick's Green Accessory Dye">
     <Class>Dye</Class>
@@ -3663,6 +3382,5 @@
     <Activate>Dye</Activate>
     <Sound>use_potion</Sound>
     <Consumable/>
-    
   </Object>
 </Objects>

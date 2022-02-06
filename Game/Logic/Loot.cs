@@ -183,6 +183,7 @@ namespace RotMG.Game.Logic
                     var baseMod = (1f + 0.5f * t);
                     baseMod += enemy.IsElite ? 1f : 0f;
                     baseMod += player.LootBoost;
+                    baseMod += player.Parent?.WorldLB ?? 0.0f;
 
                     foreach (var ih in player.BuildAllItemHandlers())
                         ih.ModifyDrop(player, drop, ref enemy.DamageStorage, ref baseMod);

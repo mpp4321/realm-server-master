@@ -105,6 +105,7 @@ namespace RotMG.Game.Logic.Database
                 )
             );
             db.Init("Son of Arachna",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("sleep",
                     new ConditionalEffect(Common.ConditionEffectIndex.Armored),
                     new PlayerWithinTransition(16, "halfwoke", true)
@@ -222,6 +223,9 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(5, LootType.Ring, 0.55f),
                     new ItemLoot("Potion of Dexterity", 1.0f),
                     new ItemLoot("Potion of Dexterity", 1.0f),
+                    new ItemLoot("Realm Equipment Crystal", 0.05f),
+                    new ItemLoot("(Green) UT Egg", 0.2f, 0.01f),
+                    new ItemLoot("(Blue) RT Egg", 0.02f, 0.01f),
                     new ItemLoot("Will of the Den", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
                     new ItemLoot("Arachnid Garment", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
                     new ItemLoot("Viral Egg", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),

@@ -57,10 +57,26 @@ namespace RotMG.Game.Entities
             GainEXP(0);
         }
 
+
+        public void PropExpToItems(int exp)
+        {
+            for(int i = 0; i < Inventory.Length; i++)
+            {
+                if (Inventory[i] == -1) continue;
+                if(Resources.Type2Item[ (ushort) Inventory[i] ].IsEgg)
+                {
+                    ItemDatas[i].Meta += exp;
+                    UpdateInventorySlot(i);
+                }
+            }
+        }
+
         public bool GainEXP(int exp)
         {
             exp = 2 * exp;
             EXP += exp;
+
+            PropExpToItems(exp);
 
             var newFame = EXP / EXPPerFame;
             if (newFame != CharFame)

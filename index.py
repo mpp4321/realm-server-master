@@ -50,10 +50,6 @@ if __name__ == '__main__':
             largest = i
 
     print("Largest valid id: {}".format(hex(largest)))
-    a = input("Enter a hex value: ")
-    while a != "":
-        if int(a, 16) in hashSet:
-            print("That's a duplicate")
-        else:
-            print("That's a valid type")
-        a = input("Enter a hex value: ")
+    while not is_valid_id(largest):
+        largest += 1
+    print("Next valid id: {}".format(hex(largest)))

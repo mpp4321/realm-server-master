@@ -709,8 +709,6 @@
       <Index>0x02</Index>
     </Texture>
   </Object>
-
-
   <Object type="0x005d" id="White Beam">
     <Class>Projectile</Class>
     <Texture>
@@ -718,7 +716,6 @@
       <Index>0x03</Index>
     </Texture>
   </Object>
-
   <Object type="0x005e" id="Ice Burst">
     <Class>Projectile</Class>
     <Texture>
@@ -726,7 +723,6 @@
       <Index>0x04</Index>
     </Texture>
   </Object>
-
   <Object type="0x005f" id="Vortex">
     <Class>Projectile</Class>
     <Texture>
@@ -735,7 +731,6 @@
     </Texture>
     <Rotation>-60</Rotation>
   </Object>
-
   <Object type="0x0060" id="Pink Swipe">
     <Class>Projectile</Class>
     <Texture>
@@ -744,7 +739,6 @@
     </Texture>
     <Rotation>0</Rotation>
   </Object>
-
   <Object type="0x0061" id="Pink Blast">
     <Class>Projectile</Class>
     <Texture>
@@ -753,7 +747,6 @@
     </Texture>
     <Rotation>0</Rotation>
   </Object>
-
   <Object type="0x0062" id="Blue Blast">
     <Class>Projectile</Class>
     <Texture>
@@ -762,7 +755,6 @@
     </Texture>
     <Rotation>0</Rotation>
   </Object>
-
   <Object type="0x0063" id="Ice Triangle">
     <Class>Projectile</Class>
     <Texture>
@@ -771,7 +763,6 @@
     </Texture>
     <Rotation>80</Rotation>
   </Object>
-
   <Object type="0x0064" id="Oryx Bubble">
     <Class>Projectile</Class>
     <Texture>
@@ -780,7 +771,6 @@
     </Texture>
     <Rotation>0</Rotation>
   </Object>
-
   <Object type="0x0065" id="Oryx Knight Blast Sm">
     <Class>Projectile</Class>
     <Texture>
@@ -789,7 +779,6 @@
     </Texture>
     <Rotation>0</Rotation>
   </Object>
-
   <Object type="0x0066" id="Oryx Knight Swipe">
     <Class>Projectile</Class>
     <Texture>
@@ -798,8 +787,6 @@
     </Texture>
     <Rotation>0</Rotation>
   </Object>
-
-
   <Object type="0x0067" id="Oryx Brute Line">
     <Class>Projectile</Class>
     <Texture>
@@ -808,7 +795,6 @@
     </Texture>
     <Rotation>0</Rotation>
   </Object>
-
   <Object type="0x0068" id="Oryx Brute Rush">
     <Class>Projectile</Class>
     <Texture>
@@ -817,7 +803,6 @@
     </Texture>
     <Rotation>0</Rotation>
   </Object>
-
   <Object type="0x0069" id="Oryx Insect Sting">
     <Class>Projectile</Class>
     <Texture>
@@ -826,7 +811,6 @@
     </Texture>
     <Rotation>0</Rotation>
   </Object>
-
   <Object type="0x006a" id="Oryx Insect Sting Status">
     <Class>Projectile</Class>
     <Texture>
@@ -835,7 +819,6 @@
     </Texture>
     <Rotation>70</Rotation>
   </Object>
-
   <Object type="0x006b" id="Oryx Eye Warrior Swipe">
     <Class>Projectile</Class>
     <Texture>
@@ -843,7 +826,6 @@
       <Index>0x0e</Index>
     </Texture>
   </Object>
-
   <Object type="0x006c" id="Armor Sword Attack">
     <Class>Projectile</Class>
     <Texture>
@@ -851,7 +833,6 @@
       <Index>0x0f</Index>
     </Texture>
   </Object>
-
   <Object type="0x006d" id="Armor Creation">
     <Class>Projectile</Class>
     <Texture>
@@ -859,7 +840,6 @@
       <Index>0x10</Index>
     </Texture>
   </Object>
-
   <Object type="0x006e" id="White Blast">
     <Class>Projectile</Class>
     <Texture>
@@ -867,7 +847,6 @@
       <Index>0x11</Index>
     </Texture>
   </Object>
-
   <Object type="0x006f" id="Lightning Spiral">
     <Class>Projectile</Class>
     <Texture>
@@ -876,7 +855,6 @@
     </Texture>
     <Rotation>60</Rotation>
   </Object>
-
   <Object type="0x0070" id="Super Blast Red">
     <Class>Projectile</Class>
     <Texture>
@@ -884,7 +862,6 @@
       <Index>0x03</Index>
     </Texture>
   </Object>
-
   <Object type="0x0071" id="Super Blast Purple">
     <Class>Projectile</Class>
     <Texture>
@@ -892,7 +869,6 @@
       <Index>0x04</Index>
     </Texture>
   </Object>
-
   <Object type="0x0072" id="Small White Blast">
     <Class>Projectile</Class>
     <Texture>
@@ -900,7 +876,6 @@
       <Index>0x13</Index>
     </Texture>
   </Object>
-
   <Object type="0x0073" id="Purple Blast">
     <Class>Projectile</Class>
     <Texture>
@@ -908,7 +883,6 @@
       <Index>0x14</Index>
     </Texture>
   </Object>
-
   <Object type="0x0074" id="Red Blast">
     <Class>Projectile</Class>
     <Texture>
@@ -916,7 +890,6 @@
       <Index>0x15</Index>
     </Texture>
   </Object>
-
   <Object type="0x0075" id="Pet Bubble">
     <Class>Projectile</Class>
     <Texture>
@@ -924,7 +897,6 @@
       <Index>0x16</Index>
     </Texture>
   </Object>
-
   <Object type="0x0076" id="Oryx Knight Line">
     <Class>Projectile</Class>
     <Texture>
@@ -932,7 +904,6 @@
       <Index>0x17</Index>
     </Texture>
   </Object>
-
   <Object type="0x0077" id="Stone Slash">
     <Class>Projectile</Class>
     <Texture>
@@ -941,7 +912,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x0078" id="Oryx Knight Swipe Spin">
     <Class>Projectile</Class>
     <Texture>
@@ -1025,16 +995,13 @@
         <Index>0x26</Index>
       </Texture>
     </RandomTexture>
-
   </Object>
-
   <Object type="0x007f" id="Sea Arrow">
     <Class>Projectile</Class>
     <Texture>
       <File>lofiProjs</File>
       <Index>0x27</Index>
     </Texture>
-
   </Object>
   <Object type="0x0080" id="Sea Spike">
     <Class>Projectile</Class>
@@ -1044,7 +1011,6 @@
     </Texture>
     <AngleCorrection>-1</AngleCorrection>
   </Object>
-
   <Object type="0x0081" id="Fishman Spear">
     <Class>Projectile</Class>
     <Texture>
@@ -1083,7 +1049,6 @@
     </Texture>
     <Rotation>-85</Rotation>
   </Object>
-
   <Object type="0x0086" id="Rainbow Magic">
     <Class>Projectile</Class>
     <Texture>
@@ -1092,7 +1057,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x0087" id="Super Trident">
     <Class>Projectile</Class>
     <Texture>
@@ -1208,7 +1172,6 @@
     </Texture>
     <Rotation>135</Rotation>
   </Object>
-
   <Object type="0x0095" id="Wine Bomb">
     <Class>Projectile</Class>
     <Texture>
@@ -1217,7 +1180,6 @@
     </Texture>
     <Rotation>-105</Rotation>
   </Object>
-
   <Object type="0x0096" id="Invisible">
     <Class>Projectile</Class>
     <Texture>
@@ -1226,7 +1188,6 @@
     </Texture>
     <ShadowSize>0</ShadowSize>
   </Object>
-
   <Object type="0x0097" id="Fireball 2">
     <Class>Projectile</Class>
     <Texture>
@@ -1235,8 +1196,6 @@
     </Texture>
     <Rotation>-110</Rotation>
   </Object>
-
-
   <Object type="0x0098" id="Ghost Shot">
     <Class>Projectile</Class>
     <Texture>
@@ -1244,8 +1203,6 @@
       <Index>0x3e</Index>
     </Texture>
   </Object>
-
-
   <Object type="0x0099" id="Totem Blast">
     <Class>Projectile</Class>
     <Texture>
@@ -1254,7 +1211,6 @@
     </Texture>
     <AngleCorrection>-1</AngleCorrection>
   </Object>
-
   <Object type="0x009a" id="Hunter Spear">
     <Class>Projectile</Class>
     <Texture>
@@ -1262,7 +1218,6 @@
       <Index>0x40</Index>
     </Texture>
   </Object>
-
   <Object type="0x009b" id="Shaman Star">
     <Class>Projectile</Class>
     <Texture>
@@ -1271,7 +1226,6 @@
     </Texture>
     <Rotation>45</Rotation>
   </Object>
-
   <Object type="0x009c" id="Mask Blast">
     <Class>Projectile</Class>
     <Texture>
@@ -1280,7 +1234,6 @@
     </Texture>
     <AngleCorrection>0</AngleCorrection>
   </Object>
-
   <Object type="0x009d" id="Totem Fire Wall">
     <Class>Projectile</Class>
     <Texture>
@@ -1289,7 +1242,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x009e" id="Mask Powerwave">
     <Class>Projectile</Class>
     <Texture>
@@ -1298,7 +1250,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x009f" id="Mask Powershot">
     <Class>Projectile</Class>
     <Texture>
@@ -1306,7 +1257,6 @@
       <Index>0x45</Index>
     </Texture>
   </Object>
-
   <Object type="0x00a0" id="Crystal Serpent Missile">
     <Class>Projectile</Class>
     <Texture>
@@ -1315,8 +1265,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
-
   <Object type="0x00a1" id="Basilisk Acid">
     <Class>Projectile</Class>
     <Texture>
@@ -1325,7 +1273,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00a2" id="Basilisk Beam">
     <Class>Projectile</Class>
     <Texture>
@@ -1334,8 +1281,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
-
   <Object type="0x00a3" id="Snake Shot">
     <Class>Projectile</Class>
     <Texture>
@@ -1350,7 +1295,6 @@
       <Index>0x4a</Index>
     </Texture>
   </Object>
-
   <Object type="0x00a5" id="Yellow Swipe">
     <Class>Projectile</Class>
     <Texture>
@@ -1359,8 +1303,6 @@
     </Texture>
     <Rotation>-120</Rotation>
   </Object>
-
-
   <Object type="0x00a6" id="White Demon Shot">
     <Class>Projectile</Class>
     <Texture>
@@ -1369,7 +1311,6 @@
     </Texture>
     <Rotation>80</Rotation>
   </Object>
-
   <Object type="0x00a7" id="Thousand Shot Arrow">
     <Class>Projectile</Class>
     <Texture>
@@ -1377,7 +1318,6 @@
       <Index>0x4d</Index>
     </Texture>
   </Object>
-
   <Object type="0x00a8" id="Dagger">
     <Class>Projectile</Class>
     <Texture>
@@ -1385,7 +1325,6 @@
       <Index>0x4e</Index>
     </Texture>
   </Object>
-
   <Object type="0x00a9" id="HellHoundAttack">
     <Class>Projectile</Class>
     <Texture>
@@ -1393,7 +1332,6 @@
       <Index>0x4f</Index>
     </Texture>
   </Object>
-
   <Object type="0x00aa" id="ArmorGuard Attack">
     <Class>Projectile</Class>
     <Texture>
@@ -1402,7 +1340,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00ab" id="Bone Swipe">
     <Class>Projectile</Class>
     <Texture>
@@ -1411,7 +1348,6 @@
     </Texture>
     <Rotation>80</Rotation>
   </Object>
-
   <Object type="0x00ac" id="Vampire Magic">
     <Class>Projectile</Class>
     <Texture>
@@ -1419,7 +1355,6 @@
       <Index>0x52</Index>
     </Texture>
   </Object>
-
   <Object type="0x00ad" id="Vampire Magic Ball">
     <Class>Projectile</Class>
     <Texture>
@@ -1427,7 +1362,6 @@
       <Index>0x53</Index>
     </Texture>
   </Object>
-
   <Object type="0x00ae" id="Rockbomb Spike">
     <Class>Projectile</Class>
     <Texture>
@@ -1436,7 +1370,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00af" id="Coffin Bullet">
     <Class>Projectile</Class>
     <Texture>
@@ -1444,7 +1377,6 @@
       <Index>0x55</Index>
     </Texture>
   </Object>
-
   <Object type="0x00b0" id="Cross Bullet">
     <Class>Projectile</Class>
     <Texture>
@@ -1460,7 +1392,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00b2" id="Specter Spinner">
     <Class>Projectile</Class>
     <Texture>
@@ -1484,7 +1415,6 @@
       <Index>0x5a</Index>
     </Texture>
   </Object>
-
   <Object type="0x00b5" id="Ruthven Shot">
     <Class>Projectile</Class>
     <Texture>
@@ -1493,7 +1423,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00b6" id="LavaBombBlast">
     <Class>Projectile</Class>
     <Texture>
@@ -1502,7 +1431,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00b7" id="Anatis">
     <Class>Projectile</Class>
     <Texture>
@@ -1533,7 +1461,6 @@
       <Index>0x5f</Index>
     </Texture>
   </Object>
-
   <Object type="0x00bb" id="Feather">
     <Class>Projectile</Class>
     <RandomTexture>
@@ -1552,7 +1479,6 @@
     </RandomTexture>
     <Rotation>185</Rotation>
   </Object>
-
   <Object type="0x00bc" id="Rainbow Blaster">
     <Class>Projectile</Class>
     <Texture>
@@ -1561,7 +1487,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00bd" id="Chicken Leg">
     <Class>Projectile</Class>
     <Texture>
@@ -1570,7 +1495,6 @@
     </Texture>
     <Rotation>90</Rotation>
   </Object>
-
   <Object type="0x00be" id="Rainbow Baller">
     <Class>Projectile</Class>
     <Texture>
@@ -1578,7 +1502,6 @@
       <Index>0x64</Index>
     </Texture>
   </Object>
-
   <Object type="0x00bf" id="Planet Shot">
     <Class>Projectile</Class>
     <Texture>
@@ -1587,7 +1510,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00c0" id="Moon Shot">
     <Class>Projectile</Class>
     <Texture>
@@ -1596,7 +1518,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00c1" id="White Orb">
     <Class>Projectile</Class>
     <Texture>
@@ -1604,7 +1525,6 @@
       <Index>0x67</Index>
     </Texture>
   </Object>
-
   <Object type="0x00c2" id="White Orbiter">
     <Class>Projectile</Class>
     <Texture>
@@ -1612,7 +1532,6 @@
       <Index>0x68</Index>
     </Texture>
   </Object>
-
   <Object type="0x00c3" id="White Superblast">
     <Class>Projectile</Class>
     <Texture>
@@ -1621,7 +1540,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00c4" id="White Ball">
     <Class>Projectile</Class>
     <Texture>
@@ -1629,7 +1547,6 @@
       <Index>0x69</Index>
     </Texture>
   </Object>
-
   <Object type="0x00c5" id="White Ball Blast">
     <Class>Projectile</Class>
     <Texture>
@@ -1646,7 +1563,6 @@
     </Texture>
     <Rotation>70</Rotation>
   </Object>
-
   <Object type="0x00c7" id="Black Eye">
     <Class>Projectile</Class>
     <Texture>
@@ -1655,16 +1571,13 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00c8" id="White Blue Bubble">
     <Class>Projectile</Class>
     <Texture>
       <File>lofiProjs</File>
       <Index>0x6d</Index>
     </Texture>
-
   </Object>
-
   <Object type="0x00c9" id="White Planet Blast">
     <Class>Projectile</Class>
     <Texture>
@@ -1721,7 +1634,6 @@
     </Texture>
     <Rotation>120</Rotation>
   </Object>
-
   <Object type="0x00d0" id="Rat Tail">
     <Class>Projectile</Class>
     <Texture>
@@ -1730,7 +1642,6 @@
     </Texture>
     <Rotation>120</Rotation>
   </Object>
-
   <Object type="0x00d1" id="Ghost Swipe">
     <Class>Projectile</Class>
     <Texture>
@@ -1738,7 +1649,6 @@
       <Index>0x4b</Index>
     </Texture>
   </Object>
-
   <Object type="0x00d2" id="Lanturn Blast">
     <Class>Projectile</Class>
     <Texture>
@@ -1747,7 +1657,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00d3" id="Idol Blast">
     <Class>Projectile</Class>
     <Texture>
@@ -1764,8 +1673,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
-
   <Object type="0x00d5" id="Lightning Blast">
     <Class>Projectile</Class>
     <Texture>
@@ -1774,7 +1681,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00d6" id="Eye Laser">
     <Class>Projectile</Class>
     <Texture>
@@ -1798,7 +1704,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00d9" id="Roger Blast">
     <Class>Projectile</Class>
     <Texture>
@@ -1892,7 +1797,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00e5" id="Red Gas">
     <Class>Projectile</Class>
     <Texture>
@@ -1932,7 +1836,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00ea" id="Shockwave Blast">
     <Class>Projectile</Class>
     <Texture>
@@ -1940,7 +1843,6 @@
       <Index>0x164</Index>
     </Texture>
   </Object>
-
   <Object type="0x00eb" id="Robot Attack">
     <Class>Projectile</Class>
     <Texture>
@@ -1949,7 +1851,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00ec" id="Goo Attack">
     <Class>Projectile</Class>
     <Texture>
@@ -1957,7 +1858,6 @@
       <Index>0x199</Index>
     </Texture>
   </Object>
-
   <Object type="0x00ed" id="Psychic Attack">
     <Class>Projectile</Class>
     <Texture>
@@ -1965,7 +1865,6 @@
       <Index>0x19a</Index>
     </Texture>
   </Object>
-
   <Object type="0x00ee" id="Beach Ball Bullet">
     <Class>Projectile</Class>
     <Texture>
@@ -1973,7 +1872,6 @@
       <Index>0x19b</Index>
     </Texture>
   </Object>
-
   <Object type="0x00ef" id="Blade Spiral">
     <Class>Projectile</Class>
     <Texture>
@@ -1982,7 +1880,6 @@
     </Texture>
     <Rotation>60</Rotation>
   </Object>
-
   <Object type="0x00f0" id="Sonic Bat Boom">
     <Class>Projectile</Class>
     <Texture>
@@ -1991,7 +1888,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x00f1" id="Sonic Bat Spinner">
     <Class>Projectile</Class>
     <Texture>
@@ -2000,7 +1896,6 @@
     </Texture>
     <Rotation>60</Rotation>
   </Object>
-
   <Object type="0x00f2" id="Purple Energy Shot">
     <Class>Projectile</Class>
     <Texture>
@@ -2009,7 +1904,6 @@
     </Texture>
     <Rotation>60</Rotation>
   </Object>
-
   <Object type="0x00f3" id="Yellow Energy Shot">
     <Class>Projectile</Class>
     <Texture>
@@ -2188,7 +2082,6 @@
         <Index>0x255</Index>
       </Texture>
     </RandomTexture>
-
     <AngleCorrection>1</AngleCorrection>
   </Object>
   <Object type="0x2107" id="Beam Slash">
@@ -2199,7 +2092,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x2108" id="Ninja Star Basic">
     <Class>Projectile</Class>
     <Texture>
@@ -2264,7 +2156,6 @@
     </Texture>
     <Rotation>-100</Rotation>
   </Object>
-
   <Object type="0x2110" id="Stinger">
     <Class>Projectile</Class>
     <Texture>
@@ -2322,7 +2213,6 @@
       <Index>0x267</Index>
     </Texture>
   </Object>
-
   <Object type="0x2118" id="Beer Barrel">
     <Class>Projectile</Class>
     <Texture>
@@ -2762,7 +2652,6 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
   <Object type="0x2153" id="Thunder Projectile">
     <Class>Projectile</Class>
     <Texture>
@@ -2771,7 +2660,6 @@
     </Texture>
     <AngleCorrection>-1</AngleCorrection>
   </Object>
-
   <Object type="0x2155" id="Thunder Cloud">
     <Enemy />
     <Friendly />
@@ -2784,8 +2672,6 @@
     <ShadowSize>40</ShadowSize>
     <ShadowColor>0xFFFF00</ShadowColor>
   </Object>
-
-
   <!-- Cosmic stuff  -->
   <Object type="0x214b" id="Poison Fireball">
     <Class>Projectile</Class>
@@ -2835,9 +2721,7 @@
     </Texture>
     <Rotation>185</Rotation>
   </Object>
-
   <!-- End Cosmic stuff  -->
-
   <Object type="0x215d" id="Greater Green Magic">
     <Class>Projectile</Class>
     <Texture>
@@ -2891,7 +2775,6 @@
       <Index>0x7b</Index>
     </Texture>
   </Object>
-
   <Object type="0x215e" id="Crypt Staff Shot 1">
     <Class>Projectile</Class>
     <Texture>
@@ -3686,7 +3569,6 @@
       <Index>0x170</Index>
     </Texture>
   </Object>
-
   <Object type="0x21cd" id="Black Planet Shot">
     <Class>Projectile</Class>
     <Texture>
@@ -4058,5 +3940,4 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
-
 </Objects><!--next avaliable is 0x21f9-->

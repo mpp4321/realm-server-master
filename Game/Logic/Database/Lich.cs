@@ -16,6 +16,7 @@ namespace RotMG.Game.Logic.Database
         public void Init(BehaviorDb db)
         {
             db.Init("Lich",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("base",
                     new State("Idle",
                         //new Suicide(),
@@ -329,6 +330,7 @@ namespace RotMG.Game.Logic.Database
             );
 
             db.Init("Deathmage",
+                    HPScale.BOSS_HP_SCALE_DEFAULT(),
                     new DropPortalOnDeath("Crypt Portal", 1f),
                     new State("init",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),

@@ -95,6 +95,7 @@ namespace RotMG.Game.Logic.Database
                 )
             );
             db.Init("Limon the Sprite God",
+                    HPScale.BOSS_HP_SCALE_DEFAULT(),
                     //new ChangeMusic("https://github.com/GhostRealm/GhostRealm.github.io/raw/master/music/Sprite.mp3"),
                     new State("start_the_fun",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
@@ -362,6 +363,7 @@ namespace RotMG.Game.Logic.Database
                       new TierLoot(tier: 4, type: LootType.Ability, chance: 0.125f),
                       new TierLoot(tier: 5, type: LootType.Ability, chance: 0.0625f),
                       new TierLoot(tier: 5, type: LootType.Ring, chance: 0.25f),
+                      new ItemLoot("Realm Equipment Crystal", 0.02f),
                       new ItemLoot(item: "Potion of Dexterity", chance: 0.3f),
                       new ItemLoot(item: "Potion of Dexterity", chance: 1f),
                       new ItemLoot(item: "Potion of Dexterity", chance: 1f),

@@ -4,6 +4,7 @@ using RotMG.Game.Logic.Transitions;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using wServer.logic;
 
 namespace RotMG.Game.Logic.Database
 {
@@ -11,10 +12,10 @@ namespace RotMG.Game.Logic.Database
     {
         public void Init(BehaviorDb db)
         {
-
             db.Init("Cyclops God",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("base",
-                    new DropPortalOnDeath("Crawling Depths Portal", 0.1f),
+                    new DropPortalOnDeath("Cyclops Lair Portal", 1.0f),
                     new State("idle",
                         new PlayerWithinTransition(11, "blade_attack"),
                         new HealthTransition(0.8f, "blade_attack")
@@ -88,7 +89,7 @@ namespace RotMG.Game.Logic.Database
                         new Follow(1.2f, range: 1),
                         new Wander(0.4f)
                         ),
-                    new Shoot(3)
+                    new Shoot(3, cooldown: 1000)
                     ),
                 new ItemLoot("Health Potion", 0.05f)
             );
@@ -99,7 +100,7 @@ namespace RotMG.Game.Logic.Database
                         new Follow(1.2f, range: 1),
                         new Wander(0.4f)
                         ),
-                    new Shoot(3)
+                    new Shoot(3, cooldown: 1000)
                     ),
                 new ItemLoot("Health Potion", 0.05f)
             );
@@ -112,7 +113,7 @@ namespace RotMG.Game.Logic.Database
                         new Follow(1.2f, range: 1),
                         new Wander(0.4f)
                         ),
-                    new Shoot(3)
+                    new Shoot(3, cooldown: 1000)
                     ),
                 new ItemLoot("Health Potion", 0.05f)
             );
@@ -123,7 +124,7 @@ namespace RotMG.Game.Logic.Database
                         new Follow(1.2f, range: 1),
                         new Wander(0.4f)
                         ),
-                    new Shoot(3)
+                    new Shoot(3, cooldown: 1000)
                     ),
                 new ItemLoot("Mithril Dagger", 0.02f),
                 new ItemLoot("Seal of the Divine", 0.01f),
@@ -136,10 +137,11 @@ namespace RotMG.Game.Logic.Database
                         new Follow(1.2f, range: 1),
                         new Wander(0.4f)
                         ),
-                    new Shoot(3)
+                    new Shoot(3, cooldown: 1000)
                     )
             );
             db.Init("Undead Cyclops God",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("base",
                     new DropPortalOnDeath("Realm Portal", 1f),
                     new State("idle",
@@ -196,15 +198,17 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new Taunt(0.7f, 10000, "...!", "Clatter..."),
                     new StayCloseToSpawn(1.2f, 5),
-                    new Spawn("Cyclops", maxChildren: 5, cooldown: 10000, givesNoXp: false),
-                    new Spawn("Cyclops Warrior", maxChildren: 5, cooldown: 10000, givesNoXp: false),
-                    new Spawn("Cyclops Noble", maxChildren: 5, cooldown: 10000, givesNoXp: false),
-                    new Spawn("Cyclops Prince", maxChildren: 5, cooldown: 10000, givesNoXp: false),
-                    new Spawn("Cyclops King", maxChildren: 5, cooldown: 10000, givesNoXp: false)
+                    new Spawn("Cyclops", maxChildren: 5, cooldown: new Cooldown(10000, 5000), givesNoXp: false),
+                    new Spawn("Cyclops Warrior", maxChildren: 5, cooldown: new Cooldown(10000, 5000), givesNoXp: false),
+                    new Spawn("Cyclops Noble", maxChildren: 5, cooldown: new Cooldown(10000, 5000), givesNoXp: false),
+                    new Spawn("Cyclops Prince", maxChildren: 5, cooldown: new Cooldown(10000, 5000), givesNoXp: false),
+                    new Spawn("Cyclops King", maxChildren: 5, cooldown: new Cooldown(10000, 5000), givesNoXp: false)
                     ),
 
                 new Threshold(0.001f,
-                    new ItemLoot("Amulet of Backwards Luck", 0.02f),
+                    new ItemLoot("Amulet of Backwards Luck", 0.0055f),
+                    new ItemLoot("Chain Claw", 0.01f),
+                    new ItemLoot("Realm Equipment Crystal", 0.03f),
                     new ItemLoot("Potion of Defense", 1f),
                     new ItemLoot("Potion of Dexterity", 1f),
                     new ItemLoot("Potion of Dexterity", 1f)

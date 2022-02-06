@@ -72,12 +72,13 @@ namespace RotMG.Game.Logic.Database
                     new StayCloseToSpawn(0.2f, 2),
                     new Follow(0.2f, 4, 1)
                 ),
-                new Shoot(1.8f),
+                new Shoot(1.8f, cooldown: 300),
                 new Shoot(2.5f, 1, index: 1, cooldown: 1000),
                 new Shoot(3.3f, 1, index: 2, cooldown: 1000),
                 new Shoot(4.2f, 1, index: 3, cooldown: 1000)
             );
             db.Init("Thessal the Mermaid Goddess",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new TransformOnDeath("Thessal the Mermaid Goddess Wounded", probability: 0.7f),
                 new State("Start",
                     new Prioritize(
@@ -128,29 +129,27 @@ namespace RotMG.Game.Logic.Database
                     new TimedRandomTransition(3000, "Thunder Swirl", "Super Trident", "Yellow Wall")
                 ),
                 new State("Thunder Swirl",
-                    new Shoot(8.8f, 8, 360 / 8, cooldown:150),
+                    new Shoot(8.8f, 8, 360 / 8, cooldown: 200),
                     new TimedTransition("Thunder Swirl 2", 500)
                 ),
                 new State("Thunder Swirl 2",
-                    new Shoot(8.8f, 8, 360 / 8, cooldown: 150),
                     new TossObject("Coral Bomb Big"),
                     new TimedTransition("Thunder Swirl 3", 500)
                 ),
                 new State("Thunder Swirl 3",
-                    new Shoot(8.8f, 8, 360 / 8, cooldown: 150),
+                    new Shoot(8.8f, 8, 360 / 8, cooldown: 200),
                     new TimedTransition("Main", 100)
                 ),
                 new State("Thunder Swirl Attack2",
-                    new Shoot(8.8f, 16, 360 / 16, cooldown: 150),
+                    new Shoot(8.8f, 16, 360 / 16, cooldown: 200),
                     new TimedTransition("Thunder Swirl 2 Attack2", 500)
                 ),
                 new State("Thunder Swirl 2 Attack2",
-                    new Shoot(8.8f, 16, 360 / 16, cooldown: 150),
                     new TossObject("Coral Bomb Big"),
                     new TimedTransition("Thunder Swirl 3 Attack2", 500)
                 ),
                 new State("Thunder Swirl 3 Attack2",
-                    new Shoot(8.8f, 16, 360 / 16, cooldown: 150),
+                    new Shoot(8.8f, 16, 360 / 16, cooldown: 200),
                     new TimedTransition("Main 2", 100)
                 ),
                 //new State("Trident",
@@ -158,49 +157,37 @@ namespace RotMG.Game.Logic.Database
                 //new TimedTransition(100, "Start")
                 //),
                 new State("Super Trident",
-                    new Shoot(21, 2, 25, 2, angleOffset: 0, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 90, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 180, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 270, cooldown: 150),
+                    new Shoot(21, 2, 25, 2, angleOffset: 0, cooldown: 200),
+                    new Shoot(21, 2, 25, 2, angleOffset: 90, cooldown: 200),
+                    new Shoot(21, 2, 25, 2, angleOffset: 180, cooldown: 200),
+                    new Shoot(21, 2, 25, 2, angleOffset: 270, cooldown: 200),
                     new TossObject("Coral Bomb Big"),
                     new TimedTransition("Super Trident 2", 250)
                 ),
                 new State("Super Trident 2",
-                    new Shoot(21, 2, 25, 2, angleOffset: 45, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 135, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 225, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 315, cooldown: 150),
                     new TossObject("Coral Bomb Big"),
                     new TimedTransition("Main", 100)
                 ),
                 new State("Super Trident Attack2",
-                    new Shoot(21, 2, 25, 2, angleOffset: 0, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 90, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 180, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 270, cooldown: 150),
+                    new Shoot(21, 2, 25, 2, angleOffset: 0, cooldown: 200),
+                    new Shoot(21, 2, 25, 2, angleOffset: 90, cooldown: 200),
+                    new Shoot(21, 2, 25, 2, angleOffset: 180, cooldown: 200),
+                    new Shoot(21, 2, 25, 2, angleOffset: 270, cooldown: 200),
                     new TossObject("Coral Bomb Big"),
                     new TimedTransition("Super Trident 2 Attack2", 250)
                 ),
                 new State("Super Trident 2 Attack2",
-                    new Shoot(21, 2, 25, 2, angleOffset: 45, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 135, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 225, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 315, cooldown: 150),
                     new TimedTransition("Super Trident 3 Attack2", 250)
                 ),
                 new State("Super Trident 3 Attack2",
-                    new Shoot(21, 2, 25, 2, angleOffset: 0, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 90, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 180, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 270, cooldown: 150),
+                    new Shoot(21, 2, 25, 2, angleOffset: 0, cooldown: 200),
+                    new Shoot(21, 2, 25, 2, angleOffset: 90, cooldown: 200),
+                    new Shoot(21, 2, 25, 2, angleOffset: 180, cooldown: 200),
+                    new Shoot(21, 2, 25, 2, angleOffset: 270, cooldown: 200),
                     new TossObject("Coral Bomb Big"),
                     new TimedTransition("Super Trident 4 Attack2", 250)
                 ),
                 new State("Super Trident 4 Attack2",
-                    new Shoot(21, 2, 25, 2, angleOffset: 45, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 135, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 225, cooldown: 150),
-                    new Shoot(21, 2, 25, 2, angleOffset: 315, cooldown: 150),
                     new TimedTransition("Main 2", 100)
                 ),
                 new State("Yellow Wall",
@@ -208,17 +195,17 @@ namespace RotMG.Game.Logic.Database
                     new Prioritize(
                         new StayCloseToSpawn(0.3f, 1)
                     ),
-                    new Shoot(18, 30, fixedAngle: 6, index: 3, cooldown: 150),
+                    new Shoot(18, 30, fixedAngle: 6, index: 3, cooldown: 300),
                     new TimedTransition("Yellow Wall 2", 500)
                 ),
                 new State("Yellow Wall 2",
                     new Flash(0xFFFF00, .1f, 15),
-                    new Shoot(18, 30, fixedAngle: 6, index: 3, cooldown: 150),
+                    new Shoot(18, 30, fixedAngle: 6, index: 3, cooldown: 300),
                     new TimedTransition("Yellow Wall 3", 500)
                 ),
                 new State("Yellow Wall 3",
                     new Flash(0xFFFF00, .1f, 15),
-                    new Shoot(18, 30, fixedAngle: 6, index: 3, cooldown: 150),
+                    new Shoot(18, 30, fixedAngle: 6, index: 3, cooldown: 300),
                     new TimedTransition("Main", 100)
                 ),
                 new State("Yellow Wall Attack2",
@@ -226,29 +213,30 @@ namespace RotMG.Game.Logic.Database
                     new Prioritize(
                         new StayCloseToSpawn(0.3f, 1)
                     ),
-                    new Shoot(18, 30, fixedAngle: 6, index: 3, cooldown: 150),
+                    new Shoot(18, 30, fixedAngle: 6, index: 3, cooldown: 300),
                     new TimedTransition("Yellow Wall 2 Attack2", 500)
                 ),
                 new State("Yellow Wall 2 Attack2",
                     new Flash(0xFFFF00, .1f, 15),
-                    new Shoot(18, 30, fixedAngle: 6, index: 3, cooldown: 150),
+                    new Shoot(18, 30, fixedAngle: 6, index: 3, cooldown: 300),
                     new TimedTransition("Yellow Wall 3 Attack2", 500)
                 ),
                 new State("Yellow Wall 3 Attack2",
                     new Flash(0xFFFF00, .1f, 15),
-                    new Shoot(18, 30, fixedAngle: 6, index: 3, cooldown: 150),
+                    new Shoot(18, 30, fixedAngle: 6, index: 3, cooldown: 300),
                     new TimedTransition("Main 2", 100)
                 ),
                 new State("Attack2",
                     //new TimedTransition(500, "Trident", randomized: true),
                     new TimedRandomTransition(500, "Spawning Bomb", "Thunder Swirl Attack2", "Super Trident Attack2", "Yellow Wall Attack2")
                 ),
-                new Threshold(0.32f,
-                    new ItemLoot("Potion of Mana", 1)
+                new Threshold(0.01f,
+                    new ItemLoot("Potion of Mana", 1f, min: 3)
                 ),
                 new Threshold(0.1f,
                     new ItemLoot("Coral Juice", 0.8f),
                     new ItemLoot("Coral Bow", 0.02f),
+                    new ItemLoot("Rune of Elven Magic", 0.005f),
                     new ItemLoot("Coral Venom Trap", 0.004f),
                     new ItemLoot("Wine Cellar Incantation", 0.02f),
                     new ItemLoot("Coral Silk Armor", 0.004f),
@@ -317,7 +305,7 @@ namespace RotMG.Game.Logic.Database
                         new Follow(0.6f, 9, 2)
                     ),
                     new Orbit(0.6f, 5, 9),
-                    new Shoot(9, 3, index: 0, shootAngle: 10, cooldown: 500),
+                    new Shoot(9, 3, index: 0, shootAngle: 10, cooldown: 1000),
                     new Shoot(9, 6, fixedAngle: 0, index: 2, cooldown: 2000),
                     new NoPlayerWithinTransition(9, "Range Shoot")
                 ),
@@ -335,22 +323,22 @@ namespace RotMG.Game.Logic.Database
                     new Follow(0.7f, 9, 1)
                 ),
                 new Shoot(9, 1, index: 1, cooldown: 2000),
-                new Shoot(9, 1, index: 0, cooldownOffset: 250, cooldown: 500),
-                new Shoot(9, 3, index: 0, shootAngle: 10, cooldownOffset: 500, cooldown: 350)
+                new Shoot(9, 1, index: 0, cooldownOffset: 250, cooldown: 1000),
+                new Shoot(9, 3, index: 0, shootAngle: 10, cooldownOffset: 500, cooldown: 700)
             );
             db.Init("Sea Mare",
-                new Charge(2.0f, 8, 4000),
+                new Charge(1.0f, 8, 4000),
                 new Wander(0.2f),
                 new State("Shoot 1",
-                    new Shoot(9, 3, index: 1, cooldown: 500),
+                    new Shoot(9, 3, index: 1, cooldown: 2000),
                     new TimedTransition( "Shoot 2", 5000)
                 ),
                 new State("Shoot 2",
-                    new Shoot(10, 8, 10, 0, cooldownOffset: 500, cooldown:250),
-                    new Shoot(10, 8, 10, angleOffset: 45, index: 0,
-                        cooldownOffset: 1000, cooldown: 250),
-                    new Shoot(10, 8, 10, angleOffset: 135, index: 0,
-                        cooldownOffset: 1500, cooldown: 250),
+                    new Shoot(10, 8, 45, 0, cooldownOffset: 500, cooldown: 2000),
+                    new Shoot(10, 8, 45, angleOffset: 45, index: 0,
+                        cooldownOffset: 1000, cooldown: 2000),
+                    new Shoot(10, 8, 45, angleOffset: 135, index: 0,
+                        cooldownOffset: 1500, cooldown: 2000),
                     new TimedTransition("Shoot 1", 3000)
                 )
             );
@@ -358,13 +346,13 @@ namespace RotMG.Game.Logic.Database
                 new Orbit(0.2f, 2, 10, "Sea Mare"),
                 new Wander(0.2f),
                 new State("Shoot 1",
-                    new Shoot(9, 1, index: 0, cooldownOffset: 250, cooldown: 150),
-                    new Shoot(9, 2, 5, 0, cooldownOffset: 500, cooldown: 250),
-                    new Shoot(9, 3, 5, 0, cooldownOffset: 750, cooldown: 350)
+                    new Shoot(9, 1, index: 0, cooldownOffset: 250, cooldown: 400),
+                    new Shoot(9, 2, 5, 0, cooldownOffset: 500, cooldown: 800),
+                    new Shoot(9, 3, 5, 0, cooldownOffset: 750, cooldown: 1200)
                 )
             );
             db.Init("Giant Squid",
-                new Shoot(10, 1, index: 0, cooldown: 100),
+                new Shoot(10, 1, index: 0, cooldown: 1000),
                 new Follow(0.4f, 12, 1),
                 new State("Toss",
                     new TossObject("Ink Bubble"),

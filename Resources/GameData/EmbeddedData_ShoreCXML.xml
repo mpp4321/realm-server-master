@@ -1,6 +1,4 @@
 <Objects>
-	
-
 	<Object type="0x600" id="Pirate">
 		<Group>Pirates</Group>
 		<Enemy/>
@@ -12,17 +10,13 @@
 		<MaxHitPoints>5</MaxHitPoints>
 		<Defense>0</Defense>
 		<Terrain>ShoreSand</Terrain>
-
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>4</Damage>
 			<Speed>40</Speed>
 			<LifetimeMS>600</LifetimeMS>
 		</Projectile>
-
-
 	</Object>
-	
 	<Object type="0x601" id="Piratess">
 		<Group>Pirates</Group>
 		<Enemy/>
@@ -35,19 +29,13 @@
 		<Defense>0</Defense>
 		<Terrain>ShoreSand</Terrain>
 		<SpawnProb>1.0</SpawnProb>
-
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>4</Damage>
 			<Speed>40</Speed>
 			<LifetimeMS>600</LifetimeMS>
 		</Projectile>
-
-
-
-
 	</Object>
-	
 	<Object type="0x602" id="Snake">
 		<Group>Snakes</Group>
 		<Enemy/>
@@ -61,17 +49,13 @@
 		<Terrain>ShoreSand</Terrain>
 		<SpawnProb>1.0</SpawnProb>
 		<Spawn><Mean>5</Mean><StdDev>1</StdDev><Min>2</Min><Max>7</Max></Spawn>
-
 		<Projectile id="0">
 			<ObjectId>Green Magic</ObjectId>
 			<Damage>4</Damage>
 			<Speed>40</Speed>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
-
-
 	</Object>
-	
 	<Object type="0x603" id="Poison Scorpion">
 		<Group>Scorpions</Group>
 		<Enemy/>
@@ -83,16 +67,13 @@
 		<MaxHitPoints>10</MaxHitPoints>
 		<Defense>0</Defense>
 		<Terrain>ShoreSand</Terrain>
-
 		<Projectile id="0">
 			<ObjectId>Green Magic</ObjectId>
 			<Damage>7</Damage>
 			<Speed>40</Speed>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
-
 	</Object>
-	
 	<Object type="0x604" id="Scorpion Queen">
 		<Group>Scorpions</Group>
 		<Enemy/>
@@ -111,11 +92,7 @@
 		<Level>1</Level>
 		<XpMult>2</XpMult>
 		<SpawnProb>0.75</SpawnProb>
-
-
-
 	</Object>
-	
 	<Object type="0x0953" id="Bandit Leader">
 		<Group>Bandits</Group>
 		<Enemy/>
@@ -131,7 +108,6 @@
 		<Level>2</Level>
 		<XpMult>1.6</XpMult>
 		<SpawnProb>0.75</SpawnProb>
-		
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>9</Damage>
@@ -139,11 +115,7 @@
 			<Size>60</Size>
 			<LifetimeMS>800</LifetimeMS>
 		</Projectile>
-
-
-
 	</Object>
-	
 	<Object type="0x0954" id="Bandit Enemy">
 		<Group>Bandits</Group>
         <DisplayId>Bandit</DisplayId>
@@ -156,7 +128,6 @@
 		<MaxHitPoints>50</MaxHitPoints>
 		<Defense>1</Defense>
 		<Terrain>ShoreSand</Terrain>
-		
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>
 			<Damage>9</Damage>
@@ -171,12 +142,7 @@
 			<Size>60</Size>
 			<LifetimeMS>1000</LifetimeMS>
 		</Projectile>		
-		
-		
 	</Object>
-
-	
-	
 	<Object type="0x60e" id="Red Gelatinous Cube">
 		<Group>Cubes</Group>
 		<Enemy/>
@@ -192,17 +158,13 @@
 		<Spawn><Mean>5</Mean><StdDev>1</StdDev><Min>2</Min><Max>7</Max></Spawn>
 		<Cube/>
 		<XpMult>0.6</XpMult>
-
 		<Projectile id="0">
 			<ObjectId>Salmon Missile</ObjectId>
 			<Damage>9</Damage>
 			<Speed>60</Speed>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
-
-
 	</Object>
-
 	<Object type="0x60f" id="Purple Gelatinous Cube">
 		<Group>Cubes</Group>
 		<Enemy/>
@@ -218,17 +180,13 @@
 		<Spawn><Mean>5</Mean><StdDev>1</StdDev><Min>2</Min><Max>7</Max></Spawn>
 		<Cube/>
 		<XpMult>0.6</XpMult>
-
 		<Projectile id="0">
 			<ObjectId>Purple Magic</ObjectId>
 			<Damage>12</Damage>
 			<Speed>65</Speed>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
-
-
 	</Object>
-
 	<Object type="0x610" id="Green Gelatinous Cube">
 		<Group>Cubes</Group>
 		<Enemy/>
@@ -244,15 +202,11 @@
 		<Spawn><Mean>5</Mean><StdDev>1</StdDev><Min>2</Min><Max>7</Max></Spawn>
 		<Cube/>
 		<XpMult>0.6</XpMult>
-
 		<Projectile id="0">
 			<ObjectId>Green Magic</ObjectId>
 			<Damage>10</Damage>
 			<Speed>60</Speed>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
-
-
-
 	</Object>
 </Objects>

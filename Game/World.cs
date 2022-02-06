@@ -24,6 +24,8 @@ namespace RotMG.Game
     {
         public Loot WorldLoot = new Loot();
 
+        public float WorldLB = 0.0f;
+
         public int Id;
         public int NextObjectId;
         public int NextProjectileId;

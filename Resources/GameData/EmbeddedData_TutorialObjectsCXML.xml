@@ -1,60 +1,51 @@
 <Objects>
-	
 	<Object type="0x0802" id="South Tutorial Gun">
 		<Class>GameObject</Class>
 		<Model>Tower</Model>
 		<Enemy/>
 		<Texture><File>lofiEnvironment</File><Index>0xc8</Index></Texture>
-
 		<Projectile>
 			<ObjectId>Green Blob</ObjectId>
 			<Speed>40</Speed>
 			<Damage>5</Damage>
 			<LifetimeMS>3000</LifetimeMS>
 		</Projectile>
-
 	</Object>
 	<Object type="0x0803" id="North Tutorial Gun">
 		<Class>GameObject</Class>
 		<Model>Tower</Model>
 		<Enemy/>
 		<Texture><File>lofiEnvironment</File><Index>0xc8</Index></Texture>
-
 		<Projectile>
 			<ObjectId>Green Blob</ObjectId>
 			<Speed>40</Speed>
 			<Damage>5</Damage>
 			<LifetimeMS>3000</LifetimeMS>
 		</Projectile>
-
 	</Object>
 	<Object type="0x0804" id="East Tutorial Gun">
 		<Class>GameObject</Class>
 		<Model>Tower</Model>
 		<Enemy/>
 		<Texture><File>lofiEnvironment</File><Index>0xc8</Index></Texture>
-
 		<Projectile>
 			<ObjectId>Green Blob</ObjectId>
 			<Speed>40</Speed>
 			<Damage>5</Damage>
 			<LifetimeMS>3000</LifetimeMS>
 		</Projectile>
-
 	</Object>
 	<Object type="0x0805" id="West Tutorial Gun">
 		<Class>GameObject</Class>
 		<Model>Tower</Model>
 		<Enemy/>
 		<Texture><File>lofiEnvironment</File><Index>0xc8</Index></Texture>
-
 		<Projectile>
 			<ObjectId>Green Blob</ObjectId>
 			<Speed>40</Speed>
 			<Damage>5</Damage>
 			<LifetimeMS>3000</LifetimeMS>
 		</Projectile>
-
 	</Object>
 	<Object type="0x0806" id="Tutorial Loot Bag">
 		<Class>Container</Class>

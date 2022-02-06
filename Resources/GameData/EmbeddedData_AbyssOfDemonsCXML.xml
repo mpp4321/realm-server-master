@@ -20,7 +20,6 @@
       <LifetimeMS>200</LifetimeMS>
 	</Projectile>
   </Object>
-
   <Object type="0x0909" id="Malphas Missile">
     <Group>Missiles</Group>
     <Enemy/>
@@ -41,7 +40,6 @@
     <Defense>30</Defense>
     <XpMult>0.0</XpMult>
   </Object>
-
   <Object type="0x090a" id="Archdemon Malphas">
     <Group>Demons</Group>
     <Enemy/>
@@ -343,12 +341,10 @@
       <File>invisible</File>
       <Index>0</Index>
     </Texture>
-
     <XpMult>0.0</XpMult>
     <Size>0</Size>
     <MaxHitPoints>10</MaxHitPoints>
   </Object>
-
   <Object type="0x0e1a" id="AbyssTreasureLavaBomb">
     <Class>Character</Class>
     <Enemy/>

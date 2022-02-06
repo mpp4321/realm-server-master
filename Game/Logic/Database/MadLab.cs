@@ -14,6 +14,7 @@ namespace RotMG.Game.Logic.Database
         public void Init(BehaviorDb db)
         {
             db.Init("Dr Terrible",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("base",
                     new HealthTransition(.2f, "rage"),
                     new State("idle",
@@ -493,6 +494,7 @@ namespace RotMG.Game.Logic.Database
                    )
                );
             db.Init("Horrific Creation",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("base",
                     new StayCloseToSpawn(0.5f, 9),
                     new State("1",
@@ -585,9 +587,11 @@ namespace RotMG.Game.Logic.Database
                     new Threshold(0.01f,
                         new ItemLoot("Conducting Wand", 0.008f, threshold: 0.01f),
                         new ItemLoot("Experimental Ring", 0.04f, threshold: 0.01f),
+                        new ItemLoot("Realm Equipment Crystal", 0.01f),
                         new ItemLoot("Wine Cellar Incantation", 0.05f),
                         new ItemLoot("Potion of Wisdom", 1.0f),
                         new ItemLoot("Potion of Defense", 0.3f, 0.5f, min: 3),
+                        new ItemLoot("Rune of the Mage", 0.005f),
                         //new ItemLoot("Grotesque Scepter", 0.006f,  threshold: 0.01f),
                         //new ItemLoot("Garment of the Beast", 0.006f, threshold: 0.01f),
                         //new ItemLoot("Power Battery", 0.008f, threshold: 0.01f),

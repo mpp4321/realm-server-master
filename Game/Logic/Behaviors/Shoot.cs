@@ -190,9 +190,11 @@ namespace RotMG.Game.Logic.Behaviors
                         {
                             if (player.Entities.Contains(host))
                             {
-                                player.AwaitProjectiles(projectiles);
-                                if(!isOwnerPlayer || player.AccountId == ownerAccId || player.Client.Account.AllyShots)
+                                if(!isOwnerPlayer || player.AccountId == ownerAccId)
+                                {
+                                    player.AwaitProjectiles(projectiles);
                                     player.Client.Send(packet);
+                                }
                             }
                         }
                     }
