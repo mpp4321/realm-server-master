@@ -21,6 +21,7 @@ namespace RotMG.Game.Logic.Behaviors
 
         private readonly int _maxChildren;
         private readonly int _initialSpawn;
+        private readonly bool _givesNoXp;
         private Cooldown _coolDown;
         private readonly ushort _children;
         private readonly float dispersion;
@@ -30,6 +31,7 @@ namespace RotMG.Game.Logic.Behaviors
         {
             _children = Resources.Id2Object[children].Type;
             _maxChildren = maxChildren;
+            _givesNoXp = givesNoXp;
             _initialSpawn = (int)(maxChildren * initialSpawn);
             _coolDown = cooldown.Normalize(0);
             this.probability = probability;
@@ -41,7 +43,7 @@ namespace RotMG.Game.Logic.Behaviors
             if (!MathUtils.Chance(probability))
                 return;
             Entity entity = Entity.Resolve(_children);
-            entity.IsSpawned = true;
+            entity.IsSpawned = _givesNoXp;
             entity.Parent = host.Parent;
             //entity.Parent.MoveEntity(entity, host.Position);
 

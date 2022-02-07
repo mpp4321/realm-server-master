@@ -303,7 +303,7 @@ namespace RotMG.Game.Logic.Database
                     )
             );
             db.Init("Fire Slime",
-                new DropPortalOnDeath("Shaitans Lair Portal", 0.05f),
+                new DropPortalOnDeath("Shaitans Lair Portal", 0.2f),
                 new State("base",
                     new Prioritize(
                         new StayAbove(1, 200),
@@ -516,7 +516,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Vitality", 1.0f),
                     new ItemLoot("Potion of Defense", 1.0f),
                     new ItemLoot("Sanguine Femur", 0.02f),
-                    new ItemLoot("Fire Dragon Battle Armor", 0.005f)
+                    new ItemLoot("Fire Dragon Battle Armor", 0.003f)
                 ),
             new Threshold(.01f,
                     LootTemplates.MountainDrops().Concat(

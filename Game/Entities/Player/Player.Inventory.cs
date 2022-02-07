@@ -346,8 +346,21 @@ namespace RotMG.Game.Entities
             con1.UpdateInventorySlot(slot1.SlotId);
             con2.UpdateInventorySlot(slot2.SlotId);
 
+            if (slot2.SlotId < 4)
+                HandleOnEquips(slot2.SlotId);
+            if (slot1.SlotId < 4)
+                HandleOnEquips(slot1.SlotId);
+
             RecalculateEquipBonuses();
             Client.Send(ValidInvSwap);
+        }
+
+        public void HandleOnEquips(int slot)
+        {
+            foreach(var a in BuildAllItemHandlers())
+            {
+                a.OnItemEquip(this, slot);
+            }
         }
 
         public bool HandleItemBag(SlotData slot1, SlotData slot2, ItemDataJson data1, ItemDataJson data2, ItemDesc d1, ItemDesc d2, int item1, int item2, IContainer con1, IContainer con2)

@@ -319,6 +319,12 @@ namespace RotMG.Game
             Effects[(int)effect] = duration;
         }
 
+        public void ApplyConditionEffect(ConditionEffectIndex effect, int duration, float prob)
+        {
+            if (MathUtils.Chance(prob))
+                ApplyConditionEffect(effect, duration);
+        }
+
         public bool HasConditionEffect(ConditionEffectIndex effect)
         {
             return Effects[(int)effect] != 0;

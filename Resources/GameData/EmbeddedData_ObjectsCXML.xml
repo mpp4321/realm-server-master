@@ -1316,5 +1316,13 @@
       <Index>0x187</Index>
     </Texture>
   </Object>
+  <Object type="0x075a" id="Butcher's House Portal">
+    <Class>Portal</Class>
+    <IntergamePortal/>
+	<Texture>
+		<File>lofiObj2</File>
+		<Index>0x18c</Index>
+	</Texture>
+  </Object>
 </Objects>
 <!-- next 5008 -->

@@ -237,10 +237,10 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Coral Juice", 0.8f),
                     new ItemLoot("Coral Bow", 0.02f),
                     new ItemLoot("Rune of Elven Magic", 0.005f),
-                    new ItemLoot("Coral Venom Trap", 0.004f),
+                    new ItemLoot("Coral Venom Trap", 0.01f),
                     new ItemLoot("Wine Cellar Incantation", 0.02f),
-                    new ItemLoot("Coral Silk Armor", 0.004f),
-                    new ItemLoot("Coral Ring", 0.004f)
+                    new ItemLoot("Coral Silk Armor", 0.05f),
+                    new ItemLoot("Coral Ring", 0.05f)
                     /*new ItemLoot("Replica: Trident of the Sea", 0.00002f),
                     new ItemLoot("King Alexander's Treasure", 0.00002f),
                     new ItemLoot("Cane of the Deep Sea", 0.00002f),

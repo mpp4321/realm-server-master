@@ -42,10 +42,10 @@ namespace RotMG.Game.Worlds
                 var shopEntity = new NexusShop(0x01ca);
 
                 //So client gets these values
-                shopEntity.TrySetSV(StatType.MerchandiseType, 0xc89);
+                shopEntity.TrySetSV(StatType.MerchandiseType, (int) Resources.Id2Item["Backpack"].Type);
                 shopEntity.TrySetSV(StatType.MerchandiseCount, 999);
 
-                shopEntity.Price = 0;
+                shopEntity.Price = 25;
                 shopEntity.Currency = Currency.Fame;
 
                 AddEntity(shopEntity, shop1Point.ToVector2());

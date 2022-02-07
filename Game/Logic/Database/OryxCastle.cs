@@ -157,9 +157,10 @@ namespace RotMG.Game.Logic.Database
                     )
                 ),
                 new State("Forever Alone"),
-                new Threshold(0.1f,
+                new Threshold(0.01f,
                     new ItemLoot("Ancient Stone Sword", 0.02f),
-                    new ItemLoot("Potion of Defense", 1),
+                    new ItemLoot("Ancient Stone Maul", 0.005f),
+                    new ItemLoot("Potion of Defense", 1, min: 3),
                     //new ItemLoot("Gauntlet Chaos", 0.001f),
                     new TierLoot(8, LootType.Weapon, 0.1f),
                     new TierLoot(7, LootType.Armor, 0.1f),
@@ -313,6 +314,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Ancient Stone Sword", 0.02f),
                     new ItemLoot("Realm Equipment Crystal", 0.02f),
                     new ItemLoot("Potion of Defense", 1),
+                    new ItemLoot("Ancient Stone Maul", 0.005f),
                     new TierLoot(8, LootType.Weapon, 0.1f),
                     new TierLoot(7, LootType.Armor, 0.1f),
                     new TierLoot(3, LootType.Ring, 0.1f)

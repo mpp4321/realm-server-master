@@ -1,5 +1,5 @@
 <Objects>
-    <Object type="0x57bb" id="Indecisive Power">
+<Object type="0x57bb" id="Indecisive Power">
         <Class>Projectile</Class>
         <AngleCorrection>1</AngleCorrection>
         <Texture>
@@ -742,7 +742,7 @@
             <Index>0x5d</Index>
         </Texture>
     </Object>
-    <Object type="0x7746" id="Large Laser Warn">
+    <Object type="0x7747" id="Large Laser Warn">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -750,7 +750,7 @@
         </Texture>
         <Rotation>0</Rotation>
     </Object>
-    <Object type="0x7747" id="Large Laser Shot">
+    <Object type="0x7748" id="Large Laser Shot">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1265,7 +1265,7 @@
         </Texture>
         <Rotation>60</Rotation>
     </Object>
-    <Object type="0x5458" id="Void Shockwave">
+    <Object type="0x545a" id="Void Shockwave">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1273,14 +1273,14 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x5459" id="Void Wave">
+    <Object type="0x545b" id="Void Wave">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
             <Index>0xa1</Index>
         </Texture>
     </Object>
-    <Object type="0x5462" id="Void Ring">
+    <Object type="0x5463" id="Void Ring">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1288,7 +1288,7 @@
         </Texture>
         <Rotation>120</Rotation>
     </Object>
-    <Object type="0x5465" id="Void Shot">
+    <Object type="0x5466" id="Void Shot">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1384,7 +1384,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x216a" id="Sonic Bat Boom Rock">
+    <Object type="0x216b" id="Sonic Bat Boom Rock">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1392,7 +1392,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x216a" id="Sonic Bat Spinner Rock">
+    <Object type="0x216c" id="Sonic Bat Spinner Rock">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1400,7 +1400,7 @@
         </Texture>
         <Rotation>60</Rotation>
     </Object>
-    <Object type="0x216a" id="Dragon Eye Laser">
+    <Object type="0x216d" id="Dragon Eye Laser">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1408,7 +1408,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x216a" id="Dragon Eye Blast">
+    <Object type="0x216e" id="Dragon Eye Blast">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1416,7 +1416,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x216c" id="Pet Bullet 1">
+    <Object type="0x216f" id="Pet Bullet 1">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1424,7 +1424,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x216d" id="Pet Bullet 2">
+    <Object type="0x217c" id="Pet Bullet 2">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1432,7 +1432,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x216e" id="Pet Bullet 3">
+    <Object type="0x217d" id="Pet Bullet 3">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1440,7 +1440,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x216f" id="Blue Bolt Shot">
+    <Object type="0x217e" id="Blue Bolt Shot">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1448,36 +1448,20 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x217c" id="Sound Wave">
+    <Object type="0x217f" id="Sound Wave">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
             <Index>0xb7</Index>
         </Texture>
     </Object>
-    <Object type="0x217d" id="Gold Shot">
+    <Object type="0x21dd" id="Gold Shot">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
             <Index>0xb8</Index>
         </Texture>
         <AngleCorrection>1</AngleCorrection>
-    </Object>
-    <Object type="0x217e" id="Poison Katana Slash">
-        <Class>Projectile</Class>
-        <Texture>
-            <File>UTRProj</File>
-            <Index>0xb9</Index>
-        </Texture>
-        <AngleCorrection>1</AngleCorrection>
-    </Object>
-    <Object type="0x217f" id="Leaf Arrow">
-        <Class>Projectile</Class>
-        <Texture>
-            <File>UTRProj</File>
-            <Index>0xba</Index>
-        </Texture>
-        <Rotation>350</Rotation>
     </Object>
     <Object type="0x21ea" id="Eucalyptus">
         <Class>Projectile</Class>
@@ -1487,14 +1471,14 @@
         </Texture>
         <Rotation>180</Rotation>
     </Object>
-    <Object type="0x21ea" id="hawt sawce">
+    <Object type="0x21eb" id="hawt sawce">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
             <Index>0xbc</Index>
         </Texture>
     </Object>
-    <Object type="0x21ea" id="Small Dark Shuriken">
+    <Object type="0x21ec" id="Small Dark Shuriken">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1502,7 +1486,7 @@
         </Texture>
         <Rotation>185</Rotation>
     </Object>
-    <Object type="0x21ea" id="Confuse Shuriken">
+    <Object type="0x21ed" id="Confuse Shuriken">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1510,7 +1494,7 @@
         </Texture>
         <Rotation>185</Rotation>
     </Object>
-    <Object type="0x21ea" id="Large White Shuriken">
+    <Object type="0x21ee" id="Large White Shuriken">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1518,7 +1502,7 @@
         </Texture>
         <Rotation>185</Rotation>
     </Object>
-    <Object type="0x21ea" id="Destruction Star">
+    <Object type="0x21ef" id="Destruction Star">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1526,14 +1510,14 @@
         </Texture>
         <Rotation>185</Rotation>
     </Object>
-    <Object type="0x21ea" id="Large White Bullet">
+    <Object type="0x21f8" id="Large White Bullet">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
             <Index>0xc1</Index>
         </Texture>
     </Object>
-    <Object type="0x21ea" id="Small White Bullet">
+    <Object type="0x21ff" id="Small White Bullet">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1798,7 +1782,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x21ea" id="Spooky Sparkle 9000">
+    <Object type="0x2200" id="Spooky Sparkle 9000">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1923,7 +1907,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x165a" id="Winter Kablim Bolt">
+    <Object type="0x165b" id="Winter Kablim Bolt">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1931,7 +1915,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x165a" id="Dogey Star">
+    <Object type="0x165c" id="Dogey Star">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1939,7 +1923,7 @@
         </Texture>
         <Rotation>90</Rotation>
     </Object>
-    <Object type="0x165a" id="Cane Proj">
+    <Object type="0x165d" id="Cane Proj">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1947,7 +1931,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x165a" id="Dire Proj">
+    <Object type="0x165e" id="Dire Proj">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1955,14 +1939,14 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x165a" id="Sunder Proj">
+    <Object type="0x165f" id="Sunder Proj">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
             <Index>0xf8</Index>
         </Texture>
     </Object>
-    <Object type="0x165a" id="Ogre Proj">
+    <Object type="0x1660" id="Ogre Proj">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1970,7 +1954,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x165a" id="bringing Proj">
+    <Object type="0x1661" id="bringing Proj">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1978,7 +1962,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x165a" id="Cheval Proj">
+    <Object type="0x1662" id="Cheval Proj">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -1987,14 +1971,14 @@
         <AngleCorrection>1</AngleCorrection>
         <Rotation>100</Rotation>
     </Object>
-    <Object type="0x165a" id="Frac Proj">
+    <Object type="0x1663" id="Frac Proj">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
             <Index>0xfc</Index>
         </Texture>
     </Object>
-    <Object type="0x165a" id="Red Scale">
+    <Object type="0x1664" id="Red Scale">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -2002,7 +1986,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x165a" id="Blue Scale">
+    <Object type="0x1665" id="Blue Scale">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -2010,7 +1994,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x165a" id="Baron Bolt">
+    <Object type="0x1666" id="Baron Bolt">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -2063,14 +2047,6 @@
         <Texture>
             <File>UTRProj</File>
             <Index>0x105</Index>
-        </Texture>
-        <AngleCorrection>1</AngleCorrection>
-    </Object>
-    <Object type="0xfff" id="WoodLand Proj Ult">
-        <Class>Projectile</Class>
-        <Texture>
-            <File>UTRProj</File>
-            <Index>0x106</Index>
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
@@ -2690,7 +2666,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x22fe" id="Lethal Zol Blast">
+    <Object type="0x22ff" id="Lethal Zol Blast">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -3428,21 +3404,21 @@
             <Index>0x1b1</Index>
         </Texture>
     </Object>
-    <Object type="0x1791" id="RB Bullet">
+    <Object type="0x1795" id="RB Bullet">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
             <Index>0x1b2</Index>
         </Texture>
     </Object>
-    <Object type="0x1792" id="BR Bullet">
+    <Object type="0x1796" id="BR Bullet">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
             <Index>0x1b3</Index>
         </Texture>
     </Object>
-    <Object type="0x1793" id="WR Bullet">
+    <Object type="0x1797" id="WR Bullet">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -3988,7 +3964,7 @@
         </Texture>
         <Rotation>20</Rotation>
     </Object>
-    <Object type="0x7206" id="Zol Turret Blast">
+    <Object type="0x7208" id="Zol Turret Blast">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>
@@ -4076,7 +4052,7 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-    <Object type="0x6162" id="Otherworldly Blade Proj">
+    <Object type="0x6163" id="Otherworldly Blade Proj">
         <Class>Projectile</Class>
         <Texture>
             <File>UTRProj</File>

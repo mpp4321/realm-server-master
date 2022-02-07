@@ -975,4 +975,50 @@
 		</Texture>
 		<Size>100</Size>
 	</Object>
+	<Object type="0x5017" id="Amal Dragon">
+		<Group>Gods</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture>
+			<File>lostHallsChars16x16</File>
+			<Index>34</Index>
+		</AnimatedTexture>
+		<HitSound>monster/dragons_hit</HitSound>
+		<DeathSound>monster/dragons_death</DeathSound>
+		<MaxHitPoints>60000</MaxHitPoints>
+		<Projectile>
+			<ObjectId>Stone Slash</ObjectId>
+			<Speed>50</Speed>
+			<Damage>150</Damage>
+			<LifetimeMS>1600</LifetimeMS>
+			<Size>200</Size>
+			<Boomerang/>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Red Fire</ObjectId>
+			<Speed>70</Speed>
+			<Damage>60</Damage>
+			<Size>120</Size>
+			<LifetimeMS>2200</LifetimeMS>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Grey Star</ObjectId>
+			<Damage>30</Damage>
+			<Speed>120</Speed>
+			<LifetimeMS>1200</LifetimeMS>
+			<PassesCover/>
+			<ConditionEffect duration="2">Confused</ConditionEffect>
+		</Projectile>
+	</Object>
+	<Object type="0x5018" id="Redirection Catalyst">
+		<Class>Character</Class>
+		<MaxHitPoints>4000</MaxHitPoints>
+		<Enemy/>
+		<Friendly/>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x18b</Index>
+		</Texture>
+		<Size>100</Size>
+	</Object>
 </Objects>

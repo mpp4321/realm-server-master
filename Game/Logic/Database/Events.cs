@@ -131,8 +131,9 @@ namespace RotMG.Game.Logic.Database
                     new Reproduce("Red Flaming Skull", 20, 5, cooldown: 1000)
                     ),
                 new Threshold(0.03f,
-                    new ItemLoot("Orb of Conflict", 0.005f)
-                    ),
+                    new ItemLoot("Orb of Conflict", 0.005f),
+                    new ItemLoot("Thousand Suns Spell", 0.005f)
+                ),
                 new Threshold(0.005f,
                     new TierLoot(5, LootType.Ability, 0.2f, r: new RarityModifiedData(1.5f, 2)),
                     new TierLoot(4, LootType.Ring, 0.2f, r: new RarityModifiedData(1.5f, 2)),
@@ -409,7 +410,8 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Attack", .1f),
                     new ItemLoot("Potion of Vitality", .1f),
                     new ItemLoot("Potion of Wisdom", .1f),
-                    new ItemLoot("Potion of Speed", .1f)
+                    new ItemLoot("Potion of Speed", .1f),
+                    new ItemLoot("Jackpot", 0.0005f)
                     )
             );
 

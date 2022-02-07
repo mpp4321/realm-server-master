@@ -183,7 +183,7 @@ namespace RotMG.Game.Logic.Database
                             //Player here is actually enemy
                             if (player.HasConditionEffect(ConditionEffectIndex.Stasis))
                                 return;
-                            (player as Enemy).Damage(host.PlayerOwner, 1000, new ConditionEffectDesc[]
+                            (player as Enemy)?.Damage(host.PlayerOwner, 1000, new ConditionEffectDesc[]
                             {
                                 new ConditionEffectDesc(ConditionEffectIndex.Stasis, 1000)
                             }, true, true);
@@ -198,6 +198,26 @@ namespace RotMG.Game.Logic.Database
                     ),
                     new State("Die", new Decay(0))
                 );
+
+            db.Init("Redirection Catalyst", new State("Base",
+                new PulseFire((h) =>
+                {
+                    var entities = GameUtils.GetNearbyEntities(h, 2).OfType<Enemy>().Where(a => a.Type != h.Type);
+                    foreach (var e in entities)
+                    {
+                        if (e != h)
+                            e?.Damage(h.PlayerOwner, Player.StatScaling(h.PlayerOwner.GetStatTotal(7), 500, 0, 5), new ConditionEffectDesc[] { }, false, true);
+                    }
+                    var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, h.Id, 0xff333333, new Vector2(2, 0));
+                    foreach (var j in h.Parent.PlayerChunks.HitTest(h.Position, Math.Max(4, Player.SightRadius)))
+                    {
+                        if (j is Player p)
+                            p.Client?.Send(nova);
+                    }
+                    return true;
+                }, 200),
+                new TimedTransition("Die", 3000)
+                ), new State("Die", new Suicide()));
 
         }
     }

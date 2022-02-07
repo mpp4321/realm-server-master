@@ -36,12 +36,15 @@ namespace RotMG.Game.Logic.Behaviors
 
         public override bool Tick(Entity host)
         {
-            var rt = c.Tick(host);
+            var rt = c?.Tick(host) ?? false;
             var dir = (host.StateObject[c.Id] as Charge.ChargeState).Direction;
             if(rt)
             {
-                s.FixedAngle = MathF.Atan2(dir.Y, dir.X);
-                s.Tick(host);
+                if(s != null)
+                {
+                    s.FixedAngle = MathF.Atan2(dir.Y, dir.X);
+                    s.Tick(host);
+                }
             }
             return rt;
         }

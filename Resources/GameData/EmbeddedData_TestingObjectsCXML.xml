@@ -3,7 +3,10 @@
 		<DisplayId>Oryx the Mad God</DisplayId>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar16x16</File><Index>0x54</Index></Texture>
+		<Texture>
+			<File>lofiChar16x16</File>
+			<Index>0x54</Index>
+		</Texture>
 		<HitSound>monster/oryx_hit</HitSound>
 		<DeathSound>monster/oryx_death</DeathSound>
 		<Size>120</Size>
@@ -21,14 +24,14 @@
 			<Damage>135</Damage>
 			<Speed>70</Speed>
 			<LifetimeMS>2500</LifetimeMS>
-			<PassesCover/>	
+			<PassesCover/>
 		</Projectile>
 		<Projectile id="1">
 			<ObjectId>Green Star</ObjectId>
 			<Damage>160</Damage>
 			<Speed>70</Speed>
 			<LifetimeMS>2500</LifetimeMS>
-			<PassesCover/>	
+			<PassesCover/>
 			<ConditionEffect duration="10">Slowed</ConditionEffect>
 		</Projectile>
 		<Projectile id="2">
@@ -70,7 +73,7 @@
 			<ArmorPiercing/>
 			<PassesCover/>
 		</Projectile>
-		<Projectile id="7">					
+		<Projectile id="7">
 			<ObjectId>Dark Gray Spinner</ObjectId>
 			<Speed>90</Speed>
 			<Size>100</Size>
@@ -79,7 +82,7 @@
 			<ConditionEffect duration="20">Quiet</ConditionEffect>
 			<PassesCover/>
 		</Projectile>
-		<Projectile id="8">					
+		<Projectile id="8">
 			<ObjectId>Gray Spinner</ObjectId>
 			<Speed>90</Speed>
 			<Size>100</Size>
@@ -87,12 +90,15 @@
 			<LifetimeMS>1800</LifetimeMS>
 			<ConditionEffect duration="60">Weak</ConditionEffect>
 			<PassesCover/>
-		</Projectile>		
+		</Projectile>
 	</Object>
 	<Object type="0x0944" id="Henchman of Oryx">
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars16x16dEncounters2</File><Index>20</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars16x16dEncounters2</File>
+			<Index>20</Index>
+		</AnimatedTexture>
 		<HitSound>monster/minion_of_oryx_hit</HitSound>
 		<DeathSound>monster/minion_of_oryx_death</DeathSound>
 		<Size>100</Size>
@@ -118,7 +124,10 @@
 		<Group>Heros</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8rHero1</File><Index>0x0a</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars8x8rHero1</File>
+			<Index>0x0a</Index>
+		</AnimatedTexture>
 		<HitSound>monster/ghosts_hit</HitSound>
 		<DeathSound>monster/ghosts_death</DeathSound>
 		<Size>95</Size>
@@ -138,7 +147,10 @@
 		<Group>Ghosts</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8rHero1</File><Index>0x0b</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars8x8rHero1</File>
+			<Index>0x0b</Index>
+		</AnimatedTexture>
 		<HitSound>monster/ghosts_hit</HitSound>
 		<DeathSound>monster/ghosts_death</DeathSound>
 		<Size>100</Size>
@@ -158,7 +170,10 @@
 		<Group>Heros</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8rHero1</File><Index>0x0a</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars8x8rHero1</File>
+			<Index>0x0a</Index>
+		</AnimatedTexture>
 		<HitSound>monster/ghosts_hit</HitSound>
 		<DeathSound>monster/ghosts_death</DeathSound>
 		<Size>95</Size>
@@ -178,7 +193,10 @@
 		<Group>Ghosts</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8rHero1</File><Index>0x0b</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars8x8rHero1</File>
+			<Index>0x0b</Index>
+		</AnimatedTexture>
 		<HitSound>monster/ghosts_hit</HitSound>
 		<DeathSound>monster/ghosts_death</DeathSound>
 		<Size>100</Size>
@@ -196,7 +214,10 @@
 		<Group>Ghosts</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8rHero1</File><Index>0x0b</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars8x8rHero1</File>
+			<Index>0x0b</Index>
+		</AnimatedTexture>
 		<HitSound>monster/ghosts_hit</HitSound>
 		<DeathSound>monster/ghosts_death</DeathSound>
 		<MaxHitPoints>4000</MaxHitPoints>
@@ -213,7 +234,10 @@
 		<Group>Ghosts</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8rHero1</File><Index>0x0b</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars8x8rHero1</File>
+			<Index>0x0b</Index>
+		</AnimatedTexture>
 		<HitSound>monster/ghosts_hit</HitSound>
 		<DeathSound>monster/ghosts_death</DeathSound>
 		<Size>180</Size>
@@ -231,7 +255,10 @@
 		<Group>Heros</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8rHero1</File><Index>0x06</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars8x8rHero1</File>
+			<Index>0x06</Index>
+		</AnimatedTexture>
 		<HitSound>monster/skeletons_hit</HitSound>
 		<DeathSound>monster/skeletons_death</DeathSound>
 		<Size>120</Size>
@@ -254,14 +281,17 @@
 			<Speed>60</Speed>
 			<LifetimeMS>2000</LifetimeMS>
 			<Size>110</Size>
-		</Projectile>		
+		</Projectile>
 	</Object>
 	<Object type="0x091c" id="Actual Lich">
 		<DisplayId>Lich</DisplayId>
 		<Group>Heros</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8rHero1</File><Index>0x06</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars8x8rHero1</File>
+			<Index>0x06</Index>
+		</AnimatedTexture>
 		<HitSound>monster/skeletons_hit</HitSound>
 		<DeathSound>monster/skeletons_death</DeathSound>
 		<Size>120</Size>
@@ -284,13 +314,16 @@
 			<Speed>60</Speed>
 			<LifetimeMS>2000</LifetimeMS>
 			<Size>110</Size>
-		</Projectile>	
+		</Projectile>
 	</Object>
 	<Object type="0x091d" id="Phylactery Bearer">
 		<Group>Ghosts</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars16x16dEncounters</File><Index>3</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars16x16dEncounters</File>
+			<Index>3</Index>
+		</AnimatedTexture>
 		<HitSound>monster/ghosts_hit</HitSound>
 		<DeathSound>monster/ghosts_death</DeathSound>
 		<Size>80</Size>
@@ -316,7 +349,10 @@
 		<Group>Ghosts</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8dEncounters</File><Index>2</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars8x8dEncounters</File>
+			<Index>2</Index>
+		</AnimatedTexture>
 		<HitSound>monster/ghosts_hit</HitSound>
 		<DeathSound>monster/ghosts_death</DeathSound>
 		<Size>100</Size>
@@ -335,7 +371,10 @@
 		<Group>Heros</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8dHero1</File><Index>0</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars8x8dHero1</File>
+			<Index>0</Index>
+		</AnimatedTexture>
 		<HitSound>monster/ents_hit</HitSound>
 		<DeathSound>monster/ents_death</DeathSound>
 		<Size>140</Size>
@@ -358,7 +397,10 @@
 		<Group>Heros</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8dHero1</File><Index>0</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars8x8dHero1</File>
+			<Index>0</Index>
+		</AnimatedTexture>
 		<HitSound>monster/ents_hit</HitSound>
 		<DeathSound>monster/ents_death</DeathSound>
 		<Size>140</Size>
@@ -443,7 +485,10 @@
 		<Group>Ents</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8dHero1</File><Index>2</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars8x8dHero1</File>
+			<Index>2</Index>
+		</AnimatedTexture>
 		<HitSound>monster/ents_hit</HitSound>
 		<DeathSound>monster/ents_death</DeathSound>
 		<Size>120</Size>
@@ -462,7 +507,10 @@
 		<Group>Ents</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8dHero1</File><Index>1</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars8x8dHero1</File>
+			<Index>1</Index>
+		</AnimatedTexture>
 		<HitSound>monster/ents_hit</HitSound>
 		<DeathSound>monster/ents_death</DeathSound>
 		<Size>90</Size>
@@ -481,7 +529,10 @@
 		<Group>Greater Nature Sprites</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar28x8</File><Index>0x30</Index></Texture>
+		<Texture>
+			<File>lofiChar28x8</File>
+			<Index>0x30</Index>
+		</Texture>
 		<HitSound>monster/sprites_hit</HitSound>
 		<DeathSound>monster/sprites_death</DeathSound>
 		<Size>140</Size>
@@ -495,7 +546,7 @@
 			<Speed>80</Speed>
 			<LifetimeMS>1700</LifetimeMS>
 			<Size>70</Size>
-			<PassesCover/>			
+			<PassesCover/>
 		</Projectile>
 	</Object>
 	<Object type="0x0924" id="Actual Greater Nature Sprite">
@@ -503,7 +554,10 @@
 		<Group>Greater Nature Sprites</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar28x8</File><Index>0x30</Index></Texture>
+		<Texture>
+			<File>lofiChar28x8</File>
+			<Index>0x30</Index>
+		</Texture>
 		<HitSound>monster/sprites_hit</HitSound>
 		<DeathSound>monster/sprites_death</DeathSound>
 		<Size>140</Size>
@@ -517,14 +571,17 @@
 			<Speed>80</Speed>
 			<LifetimeMS>1700</LifetimeMS>
 			<Size>70</Size>
-			<PassesCover/>			
+			<PassesCover/>
 		</Projectile>
 	</Object>
 	<Object type="0x0925" id="Deathmage">
 		<Group>Heros</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8rHero1</File><Index>0x00</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars8x8rHero1</File>
+			<Index>0x00</Index>
+		</AnimatedTexture>
 		<HitSound>monster/skeletons_hit</HitSound>
 		<DeathSound>monster/skeletons_death</DeathSound>
 		<Size>130</Size>
@@ -559,11 +616,14 @@
 	<Object type="0x0926" id="Bonegrind the Butcher">
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars16x16rEncounters</File><Index>14</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars16x16rEncounters</File>
+			<Index>14</Index>
+		</AnimatedTexture>
 		<HitSound>monster/pirates_hit</HitSound>
 		<DeathSound>monster/pirates_death</DeathSound>
 		<Size>120</Size>
-		<MaxHitPoints>100000</MaxHitPoints>
+		<MaxHitPoints>80000</MaxHitPoints>
 		<Defense>50</Defense>
 		<Quest/>
 		<Level>20</Level>
@@ -581,15 +641,18 @@
 			<Damage>60</Damage>
 			<Size>100</Size>
 			<Speed>45</Speed>
-      <Amplitude>0.8</Amplitude>
-      <Frequency>2</Frequency>
+			<Amplitude>0.8</Amplitude>
+			<Frequency>2</Frequency>
 			<LifetimeMS>1600</LifetimeMS>
-      <ArmorPiercing>true</ArmorPiercing>
+			<ArmorPiercing>true</ArmorPiercing>
 		</Projectile>
 	</Object>
 	<Object type="0x0936" id="Arachna the Spider Queen">
 		<Class>Character</Class>
-		<Texture><File>lofiChar216x16</File><Index>0x31</Index></Texture>
+		<Texture>
+			<File>lofiChar216x16</File>
+			<Index>0x31</Index>
+		</Texture>
 		<HitSound>monster/spider_queen_hit</HitSound>
 		<DeathSound>monster/spider_queen_death</DeathSound>
 		<Size>100</Size>
@@ -615,15 +678,19 @@
 			<Size>185</Size>
 			<LifetimeMS>3000</LifetimeMS>
 			<ConditionEffect duration="5">Weak</ConditionEffect>
-		</Projectile>		
+		</Projectile>
 	</Object>
 	<Object type="0x0937" id="Arachna Web Spoke 1">
 		<DisplayId>Arachna Element</DisplayId>
 		<Group>AttackType</Group>
 		<Class>Character</Class>
 		<StasisImmune/>
-		<MaxHitPoints>100000</MaxHitPoints><Defense>1000</Defense>
-        <Texture><File>lofiObj2</File><Index>0x49</Index></Texture>
+		<MaxHitPoints>100000</MaxHitPoints>
+		<Defense>1000</Defense>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x49</Index>
+		</Texture>
 		<Size>250</Size>
 		<StasisImmune/>
 		<Enemy/>
@@ -641,8 +708,12 @@
 		<Group>AttackType</Group>
 		<Class>Character</Class>
 		<StasisImmune/>
-		<MaxHitPoints>100000</MaxHitPoints><Defense>1000</Defense>
-        <Texture><File>lofiObj2</File><Index>0x49</Index></Texture>
+		<MaxHitPoints>100000</MaxHitPoints>
+		<Defense>1000</Defense>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x49</Index>
+		</Texture>
 		<Size>250</Size>
 		<StasisImmune/>
 		<Enemy/>
@@ -660,8 +731,12 @@
 		<Group>AttackType</Group>
 		<Class>Character</Class>
 		<StasisImmune/>
-		<MaxHitPoints>100000</MaxHitPoints><Defense>1000</Defense>
-        <Texture><File>lofiObj2</File><Index>0x49</Index></Texture>
+		<MaxHitPoints>100000</MaxHitPoints>
+		<Defense>1000</Defense>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x49</Index>
+		</Texture>
 		<Size>250</Size>
 		<StasisImmune/>
 		<Enemy/>
@@ -673,14 +748,18 @@
 			<LifetimeMS>1450</LifetimeMS>
 			<ConditionEffect duration="3">Slowed</ConditionEffect>
 		</Projectile>
-	</Object>	
+	</Object>
 	<Object type="0x093a" id="Arachna Web Spoke 4">
 		<DisplayId>Arachna Element</DisplayId>
 		<Group>AttackType</Group>
 		<Class>Character</Class>
 		<StasisImmune/>
-		<MaxHitPoints>100000</MaxHitPoints><Defense>1000</Defense>
-        <Texture><File>lofiObj2</File><Index>0x49</Index></Texture>
+		<MaxHitPoints>100000</MaxHitPoints>
+		<Defense>1000</Defense>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x49</Index>
+		</Texture>
 		<Size>250</Size>
 		<StasisImmune/>
 		<Enemy/>
@@ -698,8 +777,12 @@
 		<Group>AttackType</Group>
 		<Class>Character</Class>
 		<StasisImmune/>
-		<MaxHitPoints>100000</MaxHitPoints><Defense>1000</Defense>
-        <Texture><File>lofiObj2</File><Index>0x49</Index></Texture>
+		<MaxHitPoints>100000</MaxHitPoints>
+		<Defense>1000</Defense>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x49</Index>
+		</Texture>
 		<Size>250</Size>
 		<StasisImmune/>
 		<Enemy/>
@@ -717,8 +800,12 @@
 		<Group>AttackType</Group>
 		<Class>Character</Class>
 		<StasisImmune/>
-		<MaxHitPoints>100000</MaxHitPoints><Defense>1000</Defense>
-        <Texture><File>lofiObj2</File><Index>0x49</Index></Texture>
+		<MaxHitPoints>100000</MaxHitPoints>
+		<Defense>1000</Defense>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x49</Index>
+		</Texture>
 		<Size>250</Size>
 		<StasisImmune/>
 		<Enemy/>
@@ -731,13 +818,17 @@
 			<ConditionEffect duration="3">Slowed</ConditionEffect>
 		</Projectile>
 	</Object>
-	<Object type="0x093d" id="Arachna Web Spoke 7">  	
+	<Object type="0x093d" id="Arachna Web Spoke 7">
 		<DisplayId>Arachna Element</DisplayId>
 		<Group>AttackType</Group>
 		<Class>Character</Class>
 		<StasisImmune/>
-		<MaxHitPoints>100000</MaxHitPoints><Defense>1000</Defense>
-        <Texture><File>lofiObj2</File><Index>0x49</Index></Texture>
+		<MaxHitPoints>100000</MaxHitPoints>
+		<Defense>1000</Defense>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x49</Index>
+		</Texture>
 		<Size>250</Size>
 		<StasisImmune/>
 		<Enemy/>
@@ -750,13 +841,17 @@
 			<ConditionEffect duration="3">Slowed</ConditionEffect>
 		</Projectile>
 	</Object>
-	<Object type="0x093e" id="Arachna Web Spoke 8">		
+	<Object type="0x093e" id="Arachna Web Spoke 8">
 		<DisplayId>Arachna Element</DisplayId>
 		<Group>AttackType</Group>
 		<Class>Character</Class>
 		<StasisImmune/>
-		<MaxHitPoints>100000</MaxHitPoints><Defense>1000</Defense>
-        <Texture><File>lofiObj2</File><Index>0x49</Index></Texture>
+		<MaxHitPoints>100000</MaxHitPoints>
+		<Defense>1000</Defense>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x49</Index>
+		</Texture>
 		<Size>250</Size>
 		<StasisImmune/>
 		<Enemy/>
@@ -769,13 +864,17 @@
 			<ConditionEffect duration="3">Slowed</ConditionEffect>
 		</Projectile>
 	</Object>
-	<Object type="0x093f" id="Arachna Web Spoke 9">		
+	<Object type="0x093f" id="Arachna Web Spoke 9">
 		<DisplayId>Arachna Element</DisplayId>
 		<Group>AttackType</Group>
 		<Class>Character</Class>
 		<StasisImmune/>
-		<MaxHitPoints>100000</MaxHitPoints><Defense>1000</Defense>
-        <Texture><File>lofiObj2</File><Index>0x49</Index></Texture>
+		<MaxHitPoints>100000</MaxHitPoints>
+		<Defense>1000</Defense>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x49</Index>
+		</Texture>
 		<Size>250</Size>
 		<StasisImmune/>
 		<Enemy/>
@@ -787,14 +886,17 @@
 			<LifetimeMS>880</LifetimeMS>
 			<ConditionEffect duration="3">Slowed</ConditionEffect>
 		</Projectile>
-	</Object>	
+	</Object>
 	<Object type="0x0940" id="XP Gift">
 		<Group>Evaluators</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xcd</Index></Texture>
+		<Texture>
+			<File>lofiChar8x8</File>
+			<Index>0xcd</Index>
+		</Texture>
 		<HitSound>monster/chicken_hit</HitSound>
-		<DeathSound>monster/chicken_death</DeathSound>		
+		<DeathSound>monster/chicken_death</DeathSound>
 		<MaxHitPoints>600</MaxHitPoints>
 		<Size>180</Size>
 		<Defense>0</Defense>
@@ -804,9 +906,12 @@
 		<Group>Evaluators</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xcd</Index></Texture>
+		<Texture>
+			<File>lofiChar8x8</File>
+			<Index>0xcd</Index>
+		</Texture>
 		<HitSound>monster/chicken_hit</HitSound>
-		<DeathSound>monster/chicken_death</DeathSound>		
+		<DeathSound>monster/chicken_death</DeathSound>
 		<MaxHitPoints>400</MaxHitPoints>
 		<Size>180</Size>
 		<Defense>0</Defense>
@@ -816,9 +921,12 @@
 		<Group>Evaluators</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xcd</Index></Texture>
+		<Texture>
+			<File>lofiChar8x8</File>
+			<Index>0xcd</Index>
+		</Texture>
 		<HitSound>monster/chicken_hit</HitSound>
-		<DeathSound>monster/chicken_death</DeathSound>		
+		<DeathSound>monster/chicken_death</DeathSound>
 		<MaxHitPoints>800</MaxHitPoints>
 		<Size>180</Size>
 		<Defense>0</Defense>
@@ -828,9 +936,12 @@
 		<Group>Evaluators</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xcd</Index></Texture>
+		<Texture>
+			<File>lofiChar8x8</File>
+			<Index>0xcd</Index>
+		</Texture>
 		<HitSound>monster/chicken_hit</HitSound>
-		<DeathSound>monster/chicken_death</DeathSound>		
+		<DeathSound>monster/chicken_death</DeathSound>
 		<MaxHitPoints>600</MaxHitPoints>
 		<Size>180</Size>
 		<Defense>0</Defense>
@@ -840,9 +951,12 @@
 		<Group>Evaluators</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xcd</Index></Texture>
+		<Texture>
+			<File>lofiChar8x8</File>
+			<Index>0xcd</Index>
+		</Texture>
 		<HitSound>monster/chicken_hit</HitSound>
-		<DeathSound>monster/chicken_death</DeathSound>		
+		<DeathSound>monster/chicken_death</DeathSound>
 		<MaxHitPoints>600</MaxHitPoints>
 		<Size>180</Size>
 		<Defense>0</Defense>
@@ -852,9 +966,12 @@
 		<Group>Evaluators</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xcd</Index></Texture>
+		<Texture>
+			<File>lofiChar8x8</File>
+			<Index>0xcd</Index>
+		</Texture>
 		<HitSound>monster/chicken_hit</HitSound>
-		<DeathSound>monster/chicken_death</DeathSound>		
+		<DeathSound>monster/chicken_death</DeathSound>
 		<MaxHitPoints>600</MaxHitPoints>
 		<Size>180</Size>
 		<Defense>0</Defense>
@@ -864,9 +981,12 @@
 		<Group>Evaluators</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xcd</Index></Texture>
+		<Texture>
+			<File>lofiChar8x8</File>
+			<Index>0xcd</Index>
+		</Texture>
 		<HitSound>monster/chicken_hit</HitSound>
-		<DeathSound>monster/chicken_death</DeathSound>		
+		<DeathSound>monster/chicken_death</DeathSound>
 		<MaxHitPoints>600</MaxHitPoints>
 		<Size>180</Size>
 		<Defense>0</Defense>
@@ -876,9 +996,12 @@
 		<Group>Evaluators</Group>
 		<Enemy/>
 		<Class>Character</Class>
-		<Texture><File>lofiChar8x8</File><Index>0xcd</Index></Texture>
+		<Texture>
+			<File>lofiChar8x8</File>
+			<Index>0xcd</Index>
+		</Texture>
 		<HitSound>monster/chicken_hit</HitSound>
-		<DeathSound>monster/chicken_death</DeathSound>		
+		<DeathSound>monster/chicken_death</DeathSound>
 		<MaxHitPoints>600</MaxHitPoints>
 		<Size>180</Size>
 		<Defense>0</Defense>
@@ -887,7 +1010,10 @@
 	<Object type="0x0941" id="Crystal Prisoner">
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars16x16dEncounters</File><Index>6</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars16x16dEncounters</File>
+			<Index>6</Index>
+		</AnimatedTexture>
 		<HitSound>monster/ghost_god_hit</HitSound>
 		<DeathSound>monster/ghost_god_death</DeathSound>
 		<Size>100</Size>
@@ -903,7 +1029,7 @@
 			<Size>65</Size>
 			<LifetimeMS>1500</LifetimeMS>
 			<ConditionEffect duration="6">Weak</ConditionEffect>
-		</Projectile>						
+		</Projectile>
 		<Projectile id="1">
 			<ObjectId>White Bullet</ObjectId>
 			<Speed>80</Speed>
@@ -911,7 +1037,7 @@
 			<Size>65</Size>
 			<LifetimeMS>1500</LifetimeMS>
 			<ConditionEffect duration="6">Weak</ConditionEffect>
-		</Projectile>						
+		</Projectile>
 		<Projectile id="2">
 			<ObjectId>Purple Star</ObjectId>
 			<Speed>60</Speed>
@@ -927,7 +1053,7 @@
 			<Size>100</Size>
 			<LifetimeMS>1700</LifetimeMS>
 			<ConditionEffect duration="8">Slowed</ConditionEffect>
-		</Projectile>		
+		</Projectile>
 		<Projectile id="4">
 			<ObjectId>Blue Star</ObjectId>
 			<Speed>60</Speed>
@@ -935,19 +1061,22 @@
 			<Size>100</Size>
 			<LifetimeMS>1700</LifetimeMS>
 			<ConditionEffect duration="8">Slowed</ConditionEffect>
-		</Projectile>		
+		</Projectile>
 		<Projectile id="5">
 			<ObjectId>Silver Shield</ObjectId>
 			<Speed>47</Speed>
 			<Damage>140</Damage>
 			<Size>130</Size>
 			<LifetimeMS>2400</LifetimeMS>
-		</Projectile>		
-	</Object>	
+		</Projectile>
+	</Object>
 	<Object type="0x0942" id="Crystal Prisoner Clone">
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars16x16dEncounters</File><Index>6</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars16x16dEncounters</File>
+			<Index>6</Index>
+		</AnimatedTexture>
 		<HitSound>monster/ghost_god_hit</HitSound>
 		<DeathSound>monster/ghost_god_death</DeathSound>
 		<Size>100</Size>
@@ -961,12 +1090,15 @@
 			<Damage>85</Damage>
 			<Size>65</Size>
 			<LifetimeMS>1500</LifetimeMS>
-		</Projectile>							
-	</Object>	
+		</Projectile>
+	</Object>
 	<Object type="0x0943" id="Crystal Prisoner Steed">
 		<Enemy/>
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars16x16rEncounters</File><Index>0</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars16x16rEncounters</File>
+			<Index>0</Index>
+		</AnimatedTexture>
 		<HitSound>monster/cyclops_hit</HitSound>
 		<DeathSound>monster/cyclops_death</DeathSound>
 		<Size>100</Size>
@@ -983,13 +1115,13 @@
 			<ConditionEffect duration="2">Weak</ConditionEffect>
 		</Projectile>
 	</Object>
-  <Object type="0x500a" id="Undead Giant Hand">
+	<Object type="0x500a" id="Undead Giant Hand">
 		<Enemy/>
 		<Class>Character</Class>
-    <Texture>
-      <File>lofiObj64x64</File>
-      <Index>0x00</Index>
-    </Texture>
+		<Texture>
+			<File>lofiObj64x64</File>
+			<Index>0x00</Index>
+		</Texture>
 		<HitSound>monster/cyclops_hit</HitSound>
 		<DeathSound>monster/cyclops_death</DeathSound>
 		<Size>50</Size>
@@ -999,14 +1131,14 @@
 		<XpMult>100.25</XpMult>
 		<Projectile id="0">
 			<ObjectId>Advanced Fire Bolt</ObjectId>
-      <Size>150</Size>
+			<Size>150</Size>
 			<Speed>67</Speed>
 			<Damage>270</Damage>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
 		<Projectile id="1">
 			<ObjectId>Advanced Brown Bolt</ObjectId>
-      <Size>150</Size>
+			<Size>150</Size>
 			<Speed>67</Speed>
 			<Damage>270</Damage>
 			<LifetimeMS>2000</LifetimeMS>

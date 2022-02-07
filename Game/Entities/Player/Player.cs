@@ -383,7 +383,12 @@ namespace RotMG.Game.Entities
 
             //Projectiles never have null effects. But other sources of damage might.
             foreach (var eff in effects)
-                ApplyConditionEffect(eff.Effect, eff.DurationMS);
+            {
+                if (eff.Probability != 1.0f)
+                    ApplyConditionEffect(eff.Effect, eff.DurationMS, eff.Probability);
+                else
+                    ApplyConditionEffect(eff.Effect, eff.DurationMS);
+            }
 
             //Force pierce if armor broken
             if (HasConditionEffect(ConditionEffectIndex.ArmorBroken))

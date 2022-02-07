@@ -237,7 +237,7 @@ namespace RotMG.Game.Entities
             Action callback = null;
             foreach (var eff in desc.ActivateEffects)
             {
-                if (HandleAbilitySwitchStatement(eff, target, desc, time, inRange, slot)) return;
+                if (HandleAbilitySwitchStatement(eff, target, desc, time, inRange, slot, con)) return;
             }
 
             if (isAbility)
@@ -264,7 +264,7 @@ namespace RotMG.Game.Entities
         }
 
 
-        public bool HandleAbilitySwitchStatement(ActivateEffectDesc eff, Vector2 target, ItemDesc desc, int time, bool inRange, SlotData slot)
+        public bool HandleAbilitySwitchStatement(ActivateEffectDesc eff, Vector2 target, ItemDesc desc, int time, bool inRange, SlotData slot, IContainer con)
         {
             var statForScale = ParseStatForScale(eff.StatForScale);
             switch (eff.Index)
@@ -837,8 +837,10 @@ namespace RotMG.Game.Entities
                         }
                         else
                         {
-                            ItemDatas[slot.SlotId] = new ItemDataJson();
-                            ItemDatas[slot.SlotId].StoredItems = new ();
+
+                            con.ItemDatas[slot.SlotId] = new ItemDataJson();
+                            con.ItemDatas[slot.SlotId].StoredItems = new ();
+                            con.UpdateInventorySlot(slot.SlotId);
                             SendInfo("Bag broken, should be repaired.");
                             return true;
                         }
@@ -890,7 +892,8 @@ namespace RotMG.Game.Entities
                     break;
                 case ActivateEffectIndex.EggBreak:
                     {
-                        int overCharge = ItemDatas[slot.SlotId].Meta - 500000 / 100000;
+                        int overCharge = (ItemDatas[slot.SlotId].Meta - 500000) / 100000;
+                        overCharge = Math.Max(overCharge, 0);
                         overCharge = Math.Min(overCharge, 6);
                         if(desc.EggType == 1 && ItemDatas[slot.SlotId].Meta > 200000) 
                         {
@@ -898,7 +901,7 @@ namespace RotMG.Game.Entities
                             var itemDesc = Resources.Id2Item[randomGreen];
                             Inventory[slot.SlotId] = itemDesc.Type;
                             ItemDatas[slot.SlotId] = itemDesc.Roll(
-                              r: new RarityModifiedData(1.0f, shift: overCharge)
+                              r: new RarityModifiedData(1.0f, shift: overCharge, true)
                             ).Item2;
                         }
                         else if(desc.EggType == 2 && ItemDatas[slot.SlotId].Meta > 500000)
@@ -907,7 +910,7 @@ namespace RotMG.Game.Entities
                             var itemDesc = Resources.Id2Item[randomBlue];
                             Inventory[slot.SlotId] = itemDesc.Type;
                             ItemDatas[slot.SlotId] = itemDesc.Roll(
-                              r: new RarityModifiedData(1.0f, shift: overCharge)
+                              r: new RarityModifiedData(1.0f, shift: overCharge, true)
                             ).Item2;
                         }
                         else

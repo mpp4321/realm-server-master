@@ -1,5 +1,5 @@
 <Objects>
-    <Object type="0x49a1" id="Onrane Cache">
+<Object type="0x49a1" id="Onrane Cache">
         <Class>Equipment</Class>
         <Item />
         <SlotType>10</SlotType>
@@ -453,7 +453,7 @@
         <NumProjectiles>1</NumProjectiles>
         <DisplayId>Spiritclaw</DisplayId>
     </Object>
-    <Object type="0x64e7" id="Drannol's Judgement">
+    <Object type="0x64e8" id="Drannol's Judgement">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -809,7 +809,7 @@
         <Legendary />
         <DisplayId>Soul's Guidance</DisplayId>
     </Object>
-    <Object type="0x46d5" id="Steel-Woven Hide">
+    <Object type="0x46d7" id="Steel-Woven Hide">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -1779,8 +1779,13 @@
         <SlotType>9</SlotType>
         <Description>Those fortunate enough to carry this sack will be granted immense luck.</Description>
         <ActivateOnEquip stat="6" amount="-10">IncrementStat</ActivateOnEquip>
-        <ActivateOnEquip stat="102" amount="30">IncrementStat</ActivateOnEquip>
-        <BagType>14</BagType>
+        <ActivateOnEquip stat="3" amount="-10">IncrementStat</ActivateOnEquip>
+        <ActivateOnEquip stat="0" amount="-100">IncrementStat</ActivateOnEquip>
+		<UniqueEffect>JackpotItem</UniqueEffect>
+        <ExtraTooltipData>
+            <EffectInfo name="Gambler's Luck" description="100% lootboost; upon equiping this item you have a 50% chance to disconnect." />
+        </ExtraTooltipData>
+        <BagType>6</BagType>
         <Legendary />
         <FameBonus>8</FameBonus>
     </Object>
@@ -2018,7 +2023,7 @@
         <OldSound>daggerSwing</OldSound>
         <DisplayId>Evanescence</DisplayId>
     </Object>
-    <Object type="0x1648" id="Dark Conflagration Spell">
+    <Object type="0x1659" id="Dark Conflagration Spell">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -2918,7 +2923,7 @@
         <Activate maxDistance="20">Teleport</Activate>
         <DisplayId>Prism of Mirrors</DisplayId>
     </Object>
-    <Object type="0x6163" id="Eternal Deficit">
+    <Object type="0x6164" id="Eternal Deficit">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -3096,7 +3101,7 @@
         <DisplayId>Blades of Denial</DisplayId>
         <Legendary />
     </Object>
-    <Object type="0x1648" id="Infused Spike">
+    <Object type="0x1667" id="Infused Spike">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -3626,7 +3631,7 @@
         <OldSound>bladeSwing</OldSound>
         <DisplayId>Scythe of the Harvester</DisplayId>
     </Object>
-    <Object type="0x46d7" id="Wand of the Scorching Phoenix">
+    <Object type="0x46db" id="Wand of the Scorching Phoenix">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -3834,7 +3839,7 @@
         <Consumable />
         <BagType>3</BagType>
     </Object>
-    <Object type="0xc95" id="Uncommon Feline Egg">
+    <Object type="0xcf0" id="Uncommon Feline Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -3850,7 +3855,7 @@
         <BagType>3</BagType>
         <Soulbound />
     </Object>
-    <Object type="0xc95" id="Rare Feline Egg">
+    <Object type="0xcfe" id="Rare Feline Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -3866,7 +3871,7 @@
         <Soulbound />
         <BagType>3</BagType>
     </Object>
-    <Object type="0xc95" id="Legendary Feline Egg">
+    <Object type="0xcff" id="Legendary Feline Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -3882,7 +3887,7 @@
         <Soulbound />
         <BagType>3</BagType>
     </Object>
-    <Object type="0xc95" id="Common Canine Egg">
+    <Object type="0xd0c" id="Common Canine Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -3897,7 +3902,7 @@
         <Consumable />
         <BagType>3</BagType>
     </Object>
-    <Object type="0xc95" id="Uncommon Canine Egg">
+    <Object type="0xd0d" id="Uncommon Canine Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -3912,179 +3917,6 @@
         <Consumable />
         <BagType>3</BagType>
         <Soulbound />
-    </Object>
-    <Object type="0xc95" id="Rare Canine Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x99</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Tier>2</Tier>
-        <PetFamily>Canine</PetFamily>
-        <Rarity>Rare</Rarity>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-    </Object>
-    <Object type="0xc95" id="Legendary Canine Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x9a</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Tier>3</Tier>
-        <PetFamily>Canine</PetFamily>
-        <Rarity>Legendary</Rarity>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-    </Object>
-    <Object type="0xc95" id="Common Avian Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x9b</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Tier>0</Tier>
-        <PetFamily>Avian</PetFamily>
-        <Rarity>Common</Rarity>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <BagType>3</BagType>
-    </Object>
-    <Object type="0xc95" id="Uncommon Avian Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x9c</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Tier>1</Tier>
-        <PetFamily>Avian</PetFamily>
-        <Rarity>Uncommon</Rarity>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <BagType>3</BagType>
-        <Soulbound />
-    </Object>
-    <Object type="0xc95" id="Rare Avian Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x9d</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Tier>2</Tier>
-        <PetFamily>Avian</PetFamily>
-        <Rarity>Rare</Rarity>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-    </Object>
-    <Object type="0xc95" id="Legendary Avian Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x9e</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Tier>3</Tier>
-        <PetFamily>Avian</PetFamily>
-        <Rarity>Legendary</Rarity>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-    </Object>
-    <Object type="0xc95" id="Common Exotic Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x9f</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Tier>0</Tier>
-        <PetFamily>Exotic</PetFamily>
-        <Rarity>Common</Rarity>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <BagType>3</BagType>
-    </Object>
-    <Object type="0xc95" id="Uncommon Exotic Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0xa0</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Tier>1</Tier>
-        <PetFamily>Exotic</PetFamily>
-        <Rarity>Uncommon</Rarity>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <BagType>3</BagType>
-        <Soulbound />
-    </Object>
-    <Object type="0xc95" id="Rare Exotic Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0xa1</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Tier>2</Tier>
-        <PetFamily>Exotic</PetFamily>
-        <Rarity>Rare</Rarity>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-    </Object>
-    <Object type="0xc95" id="Legendary Exotic Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0xa2</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Tier>3</Tier>
-        <PetFamily>Exotic</PetFamily>
-        <Rarity>Legendary</Rarity>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-    </Object>
-    <Object type="0xc95" id="Common Farm Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0xa3</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Tier>0</Tier>
-        <PetFamily>Farm</PetFamily>
-        <Rarity>Common</Rarity>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <BagType>3</BagType>
     </Object>
     <Object type="0xae2" id="Wand of Arcane Flame">
         <Class>Equipment</Class>
@@ -4109,7 +3941,7 @@
         <BagType>2</BagType>
         <OldSound>magicShoot</OldSound>
     </Object>
-    <Object type="0xae2" id="Wand of Deep Sorcery">
+    <Object type="0xae6" id="Wand of Deep Sorcery">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4180,7 +4012,7 @@
         <FameBonus>4</FameBonus>
         <OldSound>magicShoot</OldSound>
     </Object>
-    <Object type="0xae2" id="Bearskin Armor">
+    <Object type="0xae7" id="Bearskin Armor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4193,7 +4025,7 @@
         <ActivateOnEquip stat="5" amount="2">IncrementStat</ActivateOnEquip>
         <BagType>1</BagType>
     </Object>
-    <Object type="0xae2" id="Chimera Hide Armor">
+    <Object type="0xae8" id="Chimera Hide Armor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4206,7 +4038,7 @@
         <ActivateOnEquip stat="5" amount="2">IncrementStat</ActivateOnEquip>
         <BagType>1</BagType>
     </Object>
-    <Object type="0xae2" id="Wyvern Skin Armor">
+    <Object type="0xaf4" id="Wyvern Skin Armor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4219,7 +4051,7 @@
         <ActivateOnEquip stat="5" amount="2">IncrementStat</ActivateOnEquip>
         <BagType>2</BagType>
     </Object>
-    <Object type="0xae2" id="Drake Hide Armor">
+    <Object type="0xaf5" id="Drake Hide Armor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4233,7 +4065,7 @@
         <BagType>2</BagType>
         <FameBonus>1</FameBonus>
     </Object>
-    <Object type="0xae2" id="Roc Leather Armor">
+    <Object type="0xaf8" id="Roc Leather Armor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4247,7 +4079,7 @@
         <BagType>3</BagType>
         <FameBonus>2</FameBonus>
     </Object>
-    <Object type="0xae2" id="Hippogriff Hide Armor">
+    <Object type="0xafa" id="Hippogriff Hide Armor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4261,7 +4093,7 @@
         <BagType>3</BagType>
         <FameBonus>3</FameBonus>
     </Object>
-    <Object type="0xae2" id="Griffon Hide Armor">
+    <Object type="0xafb" id="Griffon Hide Armor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4275,7 +4107,7 @@
         <BagType>3</BagType>
         <FameBonus>4</FameBonus>
     </Object>
-    <Object type="0xafa" id="Hydra Skin Armor">
+    <Object type="0xafd" id="Hydra Skin Armor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4303,7 +4135,7 @@
         <BagType>3</BagType>
         <FameBonus>5</FameBonus>
     </Object>
-    <Object type="0xae2" id="Mithril Chainmail">
+    <Object type="0xafe" id="Mithril Chainmail">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4315,7 +4147,7 @@
         <ActivateOnEquip stat="3" amount="13">IncrementStat</ActivateOnEquip>
         <BagType>2</BagType>
     </Object>
-    <Object type="0xae2" id="Desolation Armor">
+    <Object type="0xb00" id="Desolation Armor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4328,7 +4160,7 @@
         <BagType>3</BagType>
         <FameBonus>2</FameBonus>
     </Object>
-    <Object type="0xae2" id="Vengeance Armor">
+    <Object type="0xb01" id="Vengeance Armor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4341,7 +4173,7 @@
         <BagType>3</BagType>
         <FameBonus>3</FameBonus>
     </Object>
-    <Object type="0xae2" id="Abyssal Armor">
+    <Object type="0xb03" id="Abyssal Armor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4354,7 +4186,7 @@
         <BagType>3</BagType>
         <FameBonus>4</FameBonus>
     </Object>
-    <Object type="0xafd" id="Acropolis Armor">
+    <Object type="0xb04" id="Acropolis Armor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4367,7 +4199,7 @@
         <BagType>3</BagType>
         <FameBonus>4</FameBonus>
     </Object>
-    <Object type="0x9d6" id="Dominion Armor">
+    <Object type="0x9d7" id="Dominion Armor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4380,7 +4212,7 @@
         <BagType>3</BagType>
         <FameBonus>5</FameBonus>
     </Object>
-    <Object type="0xae2" id="Ragetalon Dagger">
+    <Object type="0xb06" id="Ragetalon Dagger">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4402,7 +4234,7 @@
         <FameBonus>1</FameBonus>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0xae2" id="Emeraldshard Dagger">
+    <Object type="0xb07" id="Emeraldshard Dagger">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4424,7 +4256,7 @@
         <FameBonus>2</FameBonus>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0xae2" id="Agateclaw Dagger">
+    <Object type="0xb09" id="Agateclaw Dagger">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4446,7 +4278,7 @@
         <FameBonus>3</FameBonus>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0xb00" id="Dagger of Foul Malevolence">
+    <Object type="0xb0a" id="Dagger of Foul Malevolence">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4468,7 +4300,7 @@
         <FameBonus>4</FameBonus>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0x9d6" id="Dagger of Sinister Deeds">
+    <Object type="0x9d8" id="Dagger of Sinister Deeds">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4490,7 +4322,7 @@
         <FameBonus>4</FameBonus>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0xae2" id="Verdant Bow">
+    <Object type="0xb40" id="Verdant Bow">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4517,7 +4349,7 @@ A highly effective bow fashioned of still-living magical springwood.
         <NumProjectiles>3</NumProjectiles>
         <ArcGap>4</ArcGap>
     </Object>
-    <Object type="0xae2" id="Bow of Fey Magic">
+    <Object type="0xb41" id="Bow of Fey Magic">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4544,7 +4376,7 @@ A powerful bow crafted by dryads and blessed by the spirits of the woodlands.
         <NumProjectiles>3</NumProjectiles>
         <ArcGap>4</ArcGap>
     </Object>
-    <Object type="0xae2" id="Bow of Innocent Blood">
+    <Object type="0xb42" id="Bow of Innocent Blood">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4571,7 +4403,7 @@ A runed bow steeped in the dark power of ancient injustice.
         <NumProjectiles>3</NumProjectiles>
         <ArcGap>4</ArcGap>
     </Object>
-    <Object type="0xb03" id="Bow of Covert Havens">
+    <Object type="0xb43" id="Bow of Covert Havens">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4598,7 +4430,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>3</NumProjectiles>
         <ArcGap>4</ArcGap>
     </Object>
-    <Object type="0x9d6" id="Bow of Mystical Energy">
+    <Object type="0x9d9" id="Bow of Mystical Energy">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4726,7 +4558,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <FameBonus>5</FameBonus>
     </Object>
-    <Object type="0xae2" id="Firebrand Staff">
+    <Object type="0xb44" id="Firebrand Staff">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4751,7 +4583,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>magicShoot</OldSound>
     </Object>
-    <Object type="0xae2" id="Comet Staff">
+    <Object type="0xb45" id="Comet Staff">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -4776,236 +4608,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>magicShoot</OldSound>
     </Object>
-    <Object type="0xae2" id="Serpentine Staff">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0xf6</Index>
-        </Texture>
-        <SlotType>17</SlotType>
-        <Tier>3</Tier>
-        <RateOfFire>1</RateOfFire>
-        <Sound>weapon/missile_wand</Sound>
-        <Projectile>
-            <ObjectId>Green Missile</ObjectId>
-            <Speed>180</Speed>
-            <MinDamage>20</MinDamage>
-            <MaxDamage>40</MaxDamage>
-            <LifetimeMS>475</LifetimeMS>
-            <Amplitude>0.5</Amplitude>
-            <Frequency>2</Frequency>
-        </Projectile>
-        <BagType>1</BagType>
-        <NumProjectiles>2</NumProjectiles>
-        <ArcGap>0</ArcGap>
-        <OldSound>magicShoot</OldSound>
-    </Object>
-    <Object type="0xae2" id="Meteor Staff">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0xf7</Index>
-        </Texture>
-        <SlotType>17</SlotType>
-        <Tier>4</Tier>
-        <RateOfFire>1</RateOfFire>
-        <Sound>weapon/missile_wand</Sound>
-        <Projectile>
-            <ObjectId>Yellow Missile</ObjectId>
-            <Speed>180</Speed>
-            <MinDamage>25</MinDamage>
-            <MaxDamage>45</MaxDamage>
-            <LifetimeMS>475</LifetimeMS>
-            <Amplitude>0.5</Amplitude>
-            <Frequency>2</Frequency>
-        </Projectile>
-        <BagType>1</BagType>
-        <NumProjectiles>2</NumProjectiles>
-        <ArcGap>0</ArcGap>
-        <OldSound>magicShoot</OldSound>
-    </Object>
-    <Object type="0xae2" id="Slayer Staff">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0xf8</Index>
-        </Texture>
-        <SlotType>17</SlotType>
-        <Tier>5</Tier>
-        <RateOfFire>1</RateOfFire>
-        <Sound>weapon/hells_fire_wand</Sound>
-        <Projectile>
-            <ObjectId>Salmon Missile</ObjectId>
-            <Speed>180</Speed>
-            <MinDamage>35</MinDamage>
-            <MaxDamage>55</MaxDamage>
-            <LifetimeMS>475</LifetimeMS>
-            <Amplitude>0.5</Amplitude>
-            <Frequency>2</Frequency>
-        </Projectile>
-        <BagType>1</BagType>
-        <NumProjectiles>2</NumProjectiles>
-        <ArcGap>0</ArcGap>
-        <OldSound>magicShoot</OldSound>
-    </Object>
-    <Object type="0xae2" id="Avenger Staff">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0xf9</Index>
-        </Texture>
-        <SlotType>17</SlotType>
-        <Tier>6</Tier>
-        <RateOfFire>1</RateOfFire>
-        <Sound>weapon/wand_of_dark_magic</Sound>
-        <Projectile>
-            <ObjectId>Violet Missile</ObjectId>
-            <Speed>180</Speed>
-            <MinDamage>40</MinDamage>
-            <MaxDamage>70</MaxDamage>
-            <LifetimeMS>475</LifetimeMS>
-            <Amplitude>0.5</Amplitude>
-            <Frequency>2</Frequency>
-        </Projectile>
-        <BagType>1</BagType>
-        <NumProjectiles>2</NumProjectiles>
-        <ArcGap>0</ArcGap>
-        <OldSound>magicShoot</OldSound>
-    </Object>
-    <Object type="0xae2" id="Staff of Destruction">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0xfa</Index>
-        </Texture>
-        <SlotType>17</SlotType>
-        <Tier>7</Tier>
-        <RateOfFire>1</RateOfFire>
-        <Sound>weapon/sprite_wand</Sound>
-        <Projectile>
-            <ObjectId>Fire Missile</ObjectId>
-            <Speed>180</Speed>
-            <MinDamage>45</MinDamage>
-            <MaxDamage>85</MaxDamage>
-            <LifetimeMS>475</LifetimeMS>
-            <Amplitude>0.5</Amplitude>
-            <Frequency>2</Frequency>
-        </Projectile>
-        <BagType>2</BagType>
-        <NumProjectiles>2</NumProjectiles>
-        <ArcGap>0</ArcGap>
-        <OldSound>magicShoot</OldSound>
-    </Object>
-    <Object type="0xae2" id="Staff of Horror">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0xfb</Index>
-        </Texture>
-        <SlotType>17</SlotType>
-        <Tier>8</Tier>
-        <RateOfFire>1</RateOfFire>
-        <Sound>weapon/wand_of_death</Sound>
-        <Projectile>
-            <ObjectId>Blue Missile</ObjectId>
-            <Speed>180</Speed>
-            <MinDamage>50</MinDamage>
-            <MaxDamage>90</MaxDamage>
-            <LifetimeMS>475</LifetimeMS>
-            <Amplitude>0.5</Amplitude>
-            <Frequency>2</Frequency>
-        </Projectile>
-        <BagType>2</BagType>
-        <FameBonus>1</FameBonus>
-        <NumProjectiles>2</NumProjectiles>
-        <ArcGap>0</ArcGap>
-        <OldSound>magicShoot</OldSound>
-    </Object>
-    <Object type="0xae2" id="Staff of Necrotic Arcana">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0xfc</Index>
-        </Texture>
-        <SlotType>17</SlotType>
-        <Tier>9</Tier>
-        <RateOfFire>1</RateOfFire>
-        <Sound>weapon/wand_of_death</Sound>
-        <Projectile>
-            <ObjectId>Grey Missile</ObjectId>
-            <Speed>180</Speed>
-            <MinDamage>50</MinDamage>
-            <MaxDamage>95</MaxDamage>
-            <LifetimeMS>475</LifetimeMS>
-            <Amplitude>0.5</Amplitude>
-            <Frequency>2</Frequency>
-        </Projectile>
-        <BagType>2</BagType>
-        <FameBonus>1</FameBonus>
-        <NumProjectiles>2</NumProjectiles>
-        <ArcGap>0</ArcGap>
-        <OldSound>magicShoot</OldSound>
-    </Object>
-    <Object type="0xae2" id="Staff of Diabolic Secrets">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0xfd</Index>
-        </Texture>
-        <SlotType>17</SlotType>
-        <Tier>10</Tier>
-        <RateOfFire>1</RateOfFire>
-        <Sound>weapon/wand_of_death</Sound>
-        <Projectile>
-            <ObjectId>Violet Missile</ObjectId>
-            <Speed>180</Speed>
-            <MinDamage>55</MinDamage>
-            <MaxDamage>95</MaxDamage>
-            <LifetimeMS>475</LifetimeMS>
-            <Amplitude>0.5</Amplitude>
-            <Frequency>2</Frequency>
-        </Projectile>
-        <BagType>3</BagType>
-        <FameBonus>2</FameBonus>
-        <NumProjectiles>2</NumProjectiles>
-        <ArcGap>0</ArcGap>
-        <OldSound>magicShoot</OldSound>
-    </Object>
-    <Object type="0xae2" id="Staff of Astral Knowledge">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0xfe</Index>
-        </Texture>
-        <SlotType>17</SlotType>
-        <Tier>11</Tier>
-        <RateOfFire>1</RateOfFire>
-        <Sound>weapon/wand_of_death</Sound>
-        <Projectile>
-            <ObjectId>Aqua Missile</ObjectId>
-            <Speed>180</Speed>
-            <MinDamage>55</MinDamage>
-            <MaxDamage>100</MaxDamage>
-            <LifetimeMS>475</LifetimeMS>
-            <Amplitude>0.5</Amplitude>
-            <Frequency>2</Frequency>
-        </Projectile>
-        <BagType>3</BagType>
-        <FameBonus>3</FameBonus>
-        <NumProjectiles>2</NumProjectiles>
-        <ArcGap>0</ArcGap>
-        <OldSound>magicShoot</OldSound>
-    </Object>
-    <Object type="0xb09" id="Staff of the Cosmic Whole">
+    <Object type="0xb46" id="Staff of the Cosmic Whole">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -5031,7 +4634,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>magicShoot</OldSound>
     </Object>
-    <Object type="0x9d6" id="Staff of the Vital Unity">
+    <Object type="0x9da" id="Staff of the Vital Unity">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -5093,7 +4696,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>1</BagType>
         <OldSound>bladeSwing</OldSound>
     </Object>
-    <Object type="0xc51" id="Night Edge">
+    <Object type="0xc52" id="Night Edge">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -5117,7 +4720,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>1</BagType>
         <OldSound>bladeSwing</OldSound>
     </Object>
-    <Object type="0xc51" id="Sky Edge">
+    <Object type="0xc5a" id="Sky Edge">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -5141,7 +4744,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>1</BagType>
         <OldSound>bladeSwing</OldSound>
     </Object>
-    <Object type="0xc51" id="Buster Katana">
+    <Object type="0xc5e" id="Buster Katana">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -5165,131 +4768,6 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>2</BagType>
         <OldSound>bladeSwing</OldSound>
     </Object>
-    <Object type="0xc51" id="Demon Edge">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x107</Index>
-        </Texture>
-        <SlotType>24</SlotType>
-        <Tier>8</Tier>
-        <Description>A cruel blade forged in hell flame and blood.</Description>
-        <RateOfFire>1</RateOfFire>
-        <Sound>weapon/long_sword</Sound>
-        <Projectile>
-            <ObjectId>Demon Slash</ObjectId>
-            <Speed>130</Speed>
-            <LifetimeMS>365</LifetimeMS>
-            <MinDamage>90</MinDamage>
-            <MaxDamage>150</MaxDamage>
-            <MultiHit />
-            <CondChance effect="Bleeding" chance="8.5" duration="2" />
-        </Projectile>
-        <BagType>2</BagType>
-        <FameBonus>1</FameBonus>
-        <OldSound>bladeSwing</OldSound>
-    </Object>
-    <Object type="0xc51" id="Jewel Eye Katana">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x108</Index>
-        </Texture>
-        <SlotType>24</SlotType>
-        <Tier>9</Tier>
-        <Description>A mighty katana with a crystal eye embedded in the hilt.</Description>
-        <RateOfFire>1</RateOfFire>
-        <Sound>weapon/long_sword</Sound>
-        <Projectile>
-            <ObjectId>Jewel Slash</ObjectId>
-            <Speed>130</Speed>
-            <LifetimeMS>365</LifetimeMS>
-            <MinDamage>100</MinDamage>
-            <MaxDamage>160</MaxDamage>
-            <MultiHit />
-            <CondChance effect="Bleeding" chance="9" duration="2" />
-        </Projectile>
-        <BagType>2</BagType>
-        <FameBonus>1</FameBonus>
-        <OldSound>bladeSwing</OldSound>
-    </Object>
-    <Object type="0xc51" id="Ichimonji">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x109</Index>
-        </Texture>
-        <SlotType>24</SlotType>
-        <Tier>10</Tier>
-        <Description>One of the legendary great blades of the master Ichimonji.</Description>
-        <RateOfFire>1</RateOfFire>
-        <Sound>weapon/long_sword</Sound>
-        <Projectile>
-            <ObjectId>Ichimonji Slash</ObjectId>
-            <Speed>130</Speed>
-            <LifetimeMS>365</LifetimeMS>
-            <MinDamage>110</MinDamage>
-            <MaxDamage>165</MaxDamage>
-            <MultiHit />
-            <CondChance effect="Bleeding" chance="9.5" duration="2" />
-        </Projectile>
-        <BagType>3</BagType>
-        <FameBonus>2</FameBonus>
-        <OldSound>bladeSwing</OldSound>
-    </Object>
-    <Object type="0xc51" id="Muramasa">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x10a</Index>
-        </Texture>
-        <SlotType>24</SlotType>
-        <Tier>11</Tier>
-        <Description>An evil blade that hungers for blood.</Description>
-        <RateOfFire>1</RateOfFire>
-        <Sound>weapon/long_sword</Sound>
-        <Projectile>
-            <ObjectId>Muramasa Slash</ObjectId>
-            <Speed>130</Speed>
-            <LifetimeMS>365</LifetimeMS>
-            <MinDamage>120</MinDamage>
-            <MaxDamage>175</MaxDamage>
-            <MultiHit />
-            <CondChance effect="Bleeding" chance="10" duration="2" />
-        </Projectile>
-        <BagType>3</BagType>
-        <FameBonus>3</FameBonus>
-        <OldSound>bladeSwing</OldSound>
-    </Object>
-    <Object type="0xc51" id="Masamune">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x10b</Index>
-        </Texture>
-        <SlotType>24</SlotType>
-        <Tier>12</Tier>
-        <Description>A magnificent legendary blade which only cuts those who deserve death.</Description>
-        <RateOfFire>1</RateOfFire>
-        <Sound>weapon/long_sword</Sound>
-        <Projectile>
-            <ObjectId>Masamune Slash</ObjectId>
-            <Speed>130</Speed>
-            <LifetimeMS>365</LifetimeMS>
-            <MinDamage>135</MinDamage>
-            <MaxDamage>180</MaxDamage>
-            <MultiHit />
-            <CondChance effect="Bleeding" chance="10" duration="3" />
-        </Projectile>
-        <BagType>3</BagType>
-        <FameBonus>4</FameBonus>
-        <OldSound>bladeSwing</OldSound>
-    </Object>
     <Object type="0x92e" id="Useless Katana">
         <Class>Equipment</Class>
         <Item />
@@ -5309,345 +4787,6 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         </Projectile>
         <BagType>3</BagType>
         <OldSound>bladeSwing</OldSound>
-        <Soulbound />
-    </Object>
-    <Object type="0xc95" id="Golden Ankh">
-        <Class>Equipment</Class>
-        <Item />
-        <SlotType>10</SlotType>
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x10d</Index>
-        </Texture>
-        <Description>A treasure from collected from Tomb of the Ancients, Use this to receive gold.</Description>
-        <ExtraTooltipData>
-        </ExtraTooltipData>
-        <Sound>spell/fire_nova</Sound>
-        <BagType>3</BagType>
-        <Treasure />
-        <Soulbound />
-        <Consumable />
-        <Activate amount="125">TreasureActivate</Activate>
-    </Object>
-    <Object type="0xc95" id="Eye of Osiris">
-        <Class>Equipment</Class>
-        <Item />
-        <SlotType>10</SlotType>
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x10e</Index>
-        </Texture>
-        <Description>A treasure from collected from Tomb of the Ancients, Use this to receive gold.</Description>
-        <ExtraTooltipData>
-        </ExtraTooltipData>
-        <Sound>spell/fire_nova</Sound>
-        <BagType>3</BagType>
-        <Treasure />
-        <Soulbound />
-        <Consumable />
-        <Activate amount="120">TreasureActivate</Activate>
-    </Object>
-    <Object type="0xc95" id="Pharaoh's Mask">
-        <Class>Equipment</Class>
-        <Item />
-        <SlotType>10</SlotType>
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x10f</Index>
-        </Texture>
-        <Description>A treasure from collected from Tomb of the Ancients, Use this to receive gold.</Description>
-        <ExtraTooltipData>
-        </ExtraTooltipData>
-        <Sound>spell/fire_nova</Sound>
-        <BagType>3</BagType>
-        <Treasure />
-        <Soulbound />
-        <Consumable />
-        <Activate amount="160">TreasureActivate</Activate>
-    </Object>
-    <Object type="0xc95" id="Golden Cockle">
-        <Class>Equipment</Class>
-        <Item />
-        <SlotType>10</SlotType>
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x110</Index>
-        </Texture>
-        <ExtraTooltipData>
-        </ExtraTooltipData>
-        <Sound>spell/fire_nova</Sound>
-        <BagType>3</BagType>
-        <Treasure />
-        <Soulbound />
-        <Consumable />
-        <Activate amount="125">TreasureActivate</Activate>
-    </Object>
-    <Object type="0xc95" id="Golden Conch">
-        <Class>Equipment</Class>
-        <Item />
-        <SlotType>10</SlotType>
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x111</Index>
-        </Texture>
-        <ExtraTooltipData>
-        </ExtraTooltipData>
-        <Sound>spell/fire_nova</Sound>
-        <BagType>3</BagType>
-        <Treasure />
-        <Soulbound />
-        <Consumable />
-        <Activate amount="150">TreasureActivate</Activate>
-    </Object>
-    <Object type="0xc95" id="Golden Horn Conch">
-        <Class>Equipment</Class>
-        <Item />
-        <SlotType>10</SlotType>
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x112</Index>
-        </Texture>
-        <ExtraTooltipData>
-        </ExtraTooltipData>
-        <Sound>spell/fire_nova</Sound>
-        <BagType>3</BagType>
-        <Treasure />
-        <Soulbound />
-        <Consumable />
-        <Activate amount="180">TreasureActivate</Activate>
-    </Object>
-    <Object type="0xc95" id="Golden Nut">
-        <Class>Equipment</Class>
-        <Item />
-        <SlotType>10</SlotType>
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x113</Index>
-        </Texture>
-        <ExtraTooltipData>
-        </ExtraTooltipData>
-        <Sound>spell/fire_nova</Sound>
-        <BagType>3</BagType>
-        <Treasure />
-        <Soulbound />
-        <Consumable />
-        <Activate amount="125">TreasureActivate</Activate>
-    </Object>
-    <Object type="0xc95" id="Golden Bolt">
-        <Class>Equipment</Class>
-        <Item />
-        <SlotType>10</SlotType>
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x114</Index>
-        </Texture>
-        <ExtraTooltipData>
-        </ExtraTooltipData>
-        <Sound>spell/fire_nova</Sound>
-        <BagType>3</BagType>
-        <Treasure />
-        <Soulbound />
-        <Consumable />
-        <Activate amount="150">TreasureActivate</Activate>
-    </Object>
-    <Object type="0xc95" id="Golden Femur">
-        <Class>Equipment</Class>
-        <Item />
-        <SlotType>10</SlotType>
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x115</Index>
-        </Texture>
-        <ExtraTooltipData>
-        </ExtraTooltipData>
-        <Sound>spell/fire_nova</Sound>
-        <BagType>3</BagType>
-        <Treasure />
-        <Soulbound />
-        <Consumable />
-        <Activate amount="125">TreasureActivate</Activate>
-    </Object>
-    <Object type="0xc95" id="Golden Ribcage">
-        <Class>Equipment</Class>
-        <Item />
-        <SlotType>10</SlotType>
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x116</Index>
-        </Texture>
-        <ExtraTooltipData>
-        </ExtraTooltipData>
-        <Sound>spell/fire_nova</Sound>
-        <BagType>3</BagType>
-        <Treasure />
-        <Soulbound />
-        <Consumable />
-        <Activate amount="150">TreasureActivate</Activate>
-    </Object>
-    <Object type="0xc95" id="Golden Skull">
-        <Class>Equipment</Class>
-        <Item />
-        <SlotType>10</SlotType>
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x117</Index>
-        </Texture>
-        <ExtraTooltipData>
-        </ExtraTooltipData>
-        <Sound>spell/fire_nova</Sound>
-        <BagType>3</BagType>
-        <Treasure />
-        <Soulbound />
-        <Consumable />
-        <Activate amount="180">TreasureActivate</Activate>
-    </Object>
-    <Object type="0xc95" id="Golden Candelabra">
-        <Class>Equipment</Class>
-        <Item />
-        <SlotType>10</SlotType>
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x118</Index>
-        </Texture>
-        <ExtraTooltipData>
-        </ExtraTooltipData>
-        <Sound>spell/fire_nova</Sound>
-        <BagType>3</BagType>
-        <Treasure />
-        <Soulbound />
-        <Consumable />
-        <Activate amount="125">TreasureActivate</Activate>
-    </Object>
-    <Object type="0xc95" id="Holy Cross">
-        <Class>Equipment</Class>
-        <Item />
-        <SlotType>10</SlotType>
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x119</Index>
-        </Texture>
-        <ExtraTooltipData>
-        </ExtraTooltipData>
-        <Sound>spell/fire_nova</Sound>
-        <BagType>3</BagType>
-        <Treasure />
-        <Soulbound />
-        <Consumable />
-        <Activate amount="150">TreasureActivate</Activate>
-    </Object>
-    <Object type="0xc95" id="Pearl Necklace">
-        <Class>Equipment</Class>
-        <Item />
-        <SlotType>10</SlotType>
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x11a</Index>
-        </Texture>
-        <ExtraTooltipData>
-        </ExtraTooltipData>
-        <Sound>spell/fire_nova</Sound>
-        <BagType>3</BagType>
-        <Treasure />
-        <Soulbound />
-        <Consumable />
-        <Activate amount="125">TreasureActivate</Activate>
-    </Object>
-    <Object type="0xc95" id="Golden Chalice">
-        <Class>Equipment</Class>
-        <Item />
-        <SlotType>10</SlotType>
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x11b</Index>
-        </Texture>
-        <ExtraTooltipData>
-        </ExtraTooltipData>
-        <Sound>spell/fire_nova</Sound>
-        <BagType>3</BagType>
-        <Treasure />
-        <Soulbound />
-        <Consumable />
-        <Activate amount="150">TreasureActivate</Activate>
-    </Object>
-    <Object type="0xc95" id="Ruby Gemstone">
-        <Class>Equipment</Class>
-        <Item />
-        <SlotType>10</SlotType>
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x11c</Index>
-        </Texture>
-        <ExtraTooltipData>
-        </ExtraTooltipData>
-        <Sound>spell/fire_nova</Sound>
-        <BagType>3</BagType>
-        <Treasure />
-        <Soulbound />
-        <Consumable />
-        <Activate amount="180">TreasureActivate</Activate>
-    </Object>
-    <Object type="0xc95" id="Speed Sprout">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x11d</Index>
-        </Texture>
-        <SlotType>10</SlotType>
-        <Sound>use_potion</Sound>
-        <Consumable />
-        <BagType>0</BagType>
-        <Activate effect="Speedy" duration="5">ConditionEffectSelf</Activate>
-    </Object>
-    <Object type="0xc95" id="Old Firecracker">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x11e</Index>
-        </Texture>
-        <SlotType>10</SlotType>
-        <Sound>spell/light_heal</Sound>
-        <Consumable />
-        <BagType>0</BagType>
-        <Activate objectId="Lil Firecracker">Pet</Activate>
-        <OldSound>use_potion</OldSound>
-        <Soulbound />
-    </Object>
-    <Object type="0xc95" id="Cheater Light Armor">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x11f</Index>
-        </Texture>
-        <SlotType>6</SlotType>
-        <ActivateOnEquip stat="0" amount="-100">IncrementStat</ActivateOnEquip>
-        <BagType>0</BagType>
-        <Soulbound />
-    </Object>
-    <Object type="0xc95" id="Cheater Robe">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x120</Index>
-        </Texture>
-        <SlotType>14</SlotType>
-        <ActivateOnEquip stat="0" amount="-100">IncrementStat</ActivateOnEquip>
-        <BagType>0</BagType>
-        <Soulbound />
-    </Object>
-    <Object type="0xc95" id="Cheater Heavy Armor">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x121</Index>
-        </Texture>
-        <SlotType>7</SlotType>
-        <ActivateOnEquip stat="0" amount="-100">IncrementStat</ActivateOnEquip>
-        <BagType>0</BagType>
         <Soulbound />
     </Object>
     <Object type="0x7562" id="Leaf Dragon Hide Armor">
@@ -5697,7 +4836,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>6</BagType>
         <FameBonus>6</FameBonus>
     </Object>
-    <Object type="0xcf0" id="Doku No Ken">
+    <Object type="0xd0e" id="Doku No Ken">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -5724,7 +4863,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>4</FameBonus>
         <OldSound>bladeSwing</OldSound>
     </Object>
-    <Object type="0xb41" id="Tablet of the King's Avatar">
+    <Object type="0xb47" id="Tablet of the King's Avatar">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -6109,11 +5248,11 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
             <MaxDamage>330</MaxDamage>
             <LifetimeMS>2000</LifetimeMS>
         </Projectile>
-        <ActivateOnEquip stat="6" amount="2">IncrementStat</ActivateOnEquip>
-        <ActivateOnEquip stat="7" amount="2">IncrementStat</ActivateOnEquip>
+        <ActivateOnEquip stat="6" amount="4">IncrementStat</ActivateOnEquip>
+        <ActivateOnEquip stat="7" amount="4">IncrementStat</ActivateOnEquip>
         <Usable />
-        <BagType>3</BagType>
-        <FameBonus>4</FameBonus>
+        <BagType>5</BagType>
+        <FameBonus>5</FameBonus>
         <MpCost>80</MpCost>
         <Activate>BulletNova</Activate>
         <Soulbound />
@@ -7035,7 +6174,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
             <EffectInfo name="Wearing the whole set will reward you with" description="+100 HP, +100 MP, +10 Attack, +10 Def, +20 Wis" />
         </ExtraTooltipData>
     </Object>
-    <Object type="0x21dd" id="The Forgotten Ring" setType="0x0006" setName="Twilight Archmage Set">
+    <Object type="0x2201" id="The Forgotten Ring" setType="0x0006" setName="Twilight Archmage Set">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -7554,7 +6693,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <FameBonus>4</FameBonus>
     </Object>
-    <Object type="0x1398" id="Darkness Rise Armor">
+    <Object type="0x139a" id="Darkness Rise Armor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -7570,7 +6709,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>8</FameBonus>
         <Legendary />
     </Object>
-    <Object type="0x1399" id="The Forth-Calling">
+    <Object type="0x139b" id="The Forth-Calling">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8209,7 +7348,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>5</FameBonus>
         <OldSound>bladeSwing</OldSound>
     </Object>
-    <Object type="0x1571" id="Scutum of the Legionnaire">
+    <Object type="0x1572" id="Scutum of the Legionnaire">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8245,7 +7384,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate>Shoot</Activate>
         <NumProjectiles>4</NumProjectiles>
     </Object>
-    <Object type="0x1572" id="Holy Breastplate">
+    <Object type="0x1573" id="Holy Breastplate">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8621,7 +7760,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <FameBonus>7</FameBonus>
     </Object>
-    <Object type="0x1648" id="Master Sword">
+    <Object type="0x1668" id="Master Sword">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8643,7 +7782,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>4</FameBonus>
         <OldSound>bladeSwing</OldSound>
     </Object>
-    <Object type="0x1648" id="Hylian Shield">
+    <Object type="0x1669" id="Hylian Shield">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8676,7 +7815,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate>Shoot</Activate>
         <NumProjectiles>5</NumProjectiles>
     </Object>
-    <Object type="0x1648" id="Blue Tunic">
+    <Object type="0x166a" id="Blue Tunic">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8689,7 +7828,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>2</BagType>
         <FameBonus>4</FameBonus>
     </Object>
-    <Object type="0x1648" id="Blue Ring">
+    <Object type="0x166b" id="Blue Ring">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8702,7 +7841,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>2</BagType>
         <FameBonus>4</FameBonus>
     </Object>
-    <Object type="0x1648" id="Sword of Autumn">
+    <Object type="0x166c" id="Sword of Autumn">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8724,7 +7863,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>4</FameBonus>
         <OldSound>bladeSwing</OldSound>
     </Object>
-    <Object type="0x1648" id="Staff of the Soda Company">
+    <Object type="0x166d" id="Staff of the Soda Company">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8750,7 +7889,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>magicShoot</OldSound>
     </Object>
-    <Object type="0x1648" id="Sword of Winter">
+    <Object type="0x166e" id="Sword of Winter">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8772,7 +7911,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>4</FameBonus>
         <OldSound>bladeSwing</OldSound>
     </Object>
-    <Object type="0x1648" id="Ring of Cold Winter">
+    <Object type="0x166f" id="Ring of Cold Winter">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8785,7 +7924,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>2</BagType>
         <FameBonus>4</FameBonus>
     </Object>
-    <Object type="0x1648" id="Sapphire Charm">
+    <Object type="0x1670" id="Sapphire Charm">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8800,7 +7939,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <FameBonus>5</FameBonus>
     </Object>
-    <Object type="0x1648" id="Revealing Chestplate of Fury">
+    <Object type="0x1671" id="Revealing Chestplate of Fury">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8815,7 +7954,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <FameBonus>6</FameBonus>
     </Object>
-    <Object type="0x1648" id="Sword of the Crying Reveal">
+    <Object type="0x1672" id="Sword of the Crying Reveal">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8837,7 +7976,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>6</FameBonus>
         <OldSound>weapon/glass_sword</OldSound>
     </Object>
-    <Object type="0x1648" id="Cloak of Vivacity">
+    <Object type="0x1673" id="Cloak of Vivacity">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8858,7 +7997,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate effect="Invisible" duration="3.3" range="5">ConditionEffectAura</Activate>
         <Cooldown>8</Cooldown>
     </Object>
-    <Object type="0x1648" id="Soul Heart Necklace">
+    <Object type="0x1674" id="Soul Heart Necklace">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8872,7 +8011,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <FameBonus>5</FameBonus>
     </Object>
-    <Object type="0x1648" id="Genisus Dagger">
+    <Object type="0x1675" id="Genisus Dagger">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8900,7 +8039,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>7</FameBonus>
         <OldSound>weapon/fire_dagger</OldSound>
     </Object>
-    <Object type="0x1648" id="Last Armor of the Final Decision">
+    <Object type="0x1676" id="Last Armor of the Final Decision">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8914,7 +8053,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <FameBonus>8</FameBonus>
     </Object>
-    <Object type="0x1648" id="Bastion of Wrath">
+    <Object type="0x1677" id="Bastion of Wrath">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8947,7 +8086,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate>Shoot</Activate>
         <NumProjectiles>7</NumProjectiles>
     </Object>
-    <Object type="0x1648" id="Doge's Tail">
+    <Object type="0x1679" id="Doge's Tail">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8969,7 +8108,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>4</FameBonus>
         <OldSound>bladeSwing</OldSound>
     </Object>
-    <Object type="0x1648" id="Doge's Sharp Swagger Star">
+    <Object type="0x167a" id="Doge's Sharp Swagger Star">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -8996,7 +8135,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <MpCost>90</MpCost>
         <MultiPhase />
     </Object>
-    <Object type="0x1648" id="Doge's Luxurious Fur">
+    <Object type="0x167c" id="Doge's Luxurious Fur">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9011,7 +8150,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <FameBonus>4</FameBonus>
     </Object>
-    <Object type="0x1648" id="Hunter Necklace">
+    <Object type="0x167d" id="Hunter Necklace">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9026,7 +8165,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Fabled />
         <BagType>11</BagType>
     </Object>
-    <Object type="0x1648" id="Ring of Mysteries">
+    <Object type="0x167e" id="Ring of Mysteries">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9039,7 +8178,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ActivateOnEquip stat="0" amount="160">IncrementStat</ActivateOnEquip>
         <BagType>3</BagType>
     </Object>
-    <Object type="0x1648" id="Blade of the Nightbringer">
+    <Object type="0x167f" id="Blade of the Nightbringer">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9063,7 +8202,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>2</NumProjectiles>
         <OldSound>bladeSwing</OldSound>
     </Object>
-    <Object type="0x1648" id="Infused Spike">
+    <Object type="0x1683" id="Infused Spike">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9100,7 +8239,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate radius="4" totalDamage="750" condEffect="Armor Broken" condDuration="3">Trap</Activate>
         <FameBonus>6</FameBonus>
     </Object>
-    <Object type="0x1648" id="Dire Sword">
+    <Object type="0x1684" id="Dire Sword">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9125,7 +8264,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>4</FameBonus>
         <OldSound>weapon/glass_sword</OldSound>
     </Object>
-    <Object type="0x1648" id="Secretive Phial">
+    <Object type="0x1685" id="Secretive Phial">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9142,7 +8281,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>8</FameBonus>
         <Legendary />
     </Object>
-    <Object type="0x1648" id="Helm of the Macrotitans">
+    <Object type="0x1686" id="Helm of the Macrotitans">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9161,7 +8300,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate effect="Healing" duration="2.8">ConditionEffectSelf</Activate>
         <Cooldown>7</Cooldown>
     </Object>
-    <Object type="0x1648" id="Earthsunder Hammer">
+    <Object type="0x1687" id="Earthsunder Hammer">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9185,7 +8324,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>8</FameBonus>
         <OldSound>weapon/mithril_sword</OldSound>
     </Object>
-    <Object type="0x1648" id="Ogreclub">
+    <Object type="0x1689" id="Ogreclub">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9211,7 +8350,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <OldSound>weapon/golden_sword</OldSound>
     </Object>
-    <Object type="0x1648" id="Dark Conflagration Spell">
+    <Object type="0x168a" id="Dark Conflagration Spell">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9239,7 +8378,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate effect="Unstable" duration="2">ConditionEffectSelf</Activate>
         <Activate>BulletNova</Activate>
     </Object>
-    <Object type="0x1648" id="Lightbringer Bow">
+    <Object type="0x168b" id="Lightbringer Bow">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9265,7 +8404,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>15</ArcGap>
         <NumProjectiles>3</NumProjectiles>
     </Object>
-    <Object type="0x1648" id="Cheval Trap Dagger">
+    <Object type="0x168c" id="Cheval Trap Dagger">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9289,7 +8428,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>daggerSwing</OldSound>
         <Fabled />
     </Object>
-    <Object type="0x1659" id="Wand of Fractured Time">
+    <Object type="0x168d" id="Wand of Fractured Time">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9313,7 +8452,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>6</FameBonus>
         <OldSound>weapon/fire_wand</OldSound>
     </Object>
-    <Object type="0x1659" id="Armor of the Iron Golem">
+    <Object type="0x168e" id="Armor of the Iron Golem">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9329,7 +8468,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>8</FameBonus>
         <Legendary />
     </Object>
-    <Object type="0x1659" id="Sword of the Grand Baron">
+    <Object type="0x1690" id="Sword of the Grand Baron">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9352,7 +8491,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>4</FameBonus>
         <OldSound>bladeSwing</OldSound>
     </Object>
-    <Object type="0x1659" id="Seal of the Grand Baron">
+    <Object type="0x1691" id="Seal of the Grand Baron">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9375,7 +8514,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate effect="Slowed" duration="1.5">ConditionEffectSelf</Activate>
         <Cooldown>3</Cooldown>
     </Object>
-    <Object type="0x1660" id="Armor of the Grand Baron">
+    <Object type="0x1692" id="Armor of the Grand Baron">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9390,7 +8529,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <FameBonus>4</FameBonus>
     </Object>
-    <Object type="0x1661" id="Ring of the Grand Baron">
+    <Object type="0x1694" id="Ring of the Grand Baron">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -9605,7 +8744,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate id="The Unspeakable Portal">Create</Activate>
         <DisplayId>The Unspeakable Key</DisplayId>
     </Object>
-    <Object type="0x5060" id="Larry Gun">
+    <Object type="0x5061" id="Larry Gun">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -11792,7 +10931,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Cooldown>7</Cooldown>
         <DisplayId>Skull Helm</DisplayId>
     </Object>
-    <Object type="0x57b9" id="Beastly Remains">
+    <Object type="0x57c0" id="Beastly Remains">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -11923,7 +11062,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>4</FameBonus>
         <DisplayId>Uranium Armor</DisplayId>
     </Object>
-    <Object type="0x542b" id="Split-Shot Crossbow">
+    <Object type="0x542c" id="Split-Shot Crossbow">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -11950,7 +11089,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>arrowShoot</OldSound>
         <DisplayId>Split-Shot Crossbow</DisplayId>
     </Object>
-    <Object type="0x542c" id="Robe of Wrath">
+    <Object type="0x542d" id="Robe of Wrath">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -11995,7 +11134,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Katana of Mythical Alliance</DisplayId>
     </Object>
-    <Object type="0x5437" id="Waterlogged Blade">
+    <Object type="0x5438" id="Waterlogged Blade">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -12038,7 +11177,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <FameBonus>8</FameBonus>
     </Object>
-    <Object type="0x42b7" id="Dagger of Dark Descent">
+    <Object type="0x42ba" id="Dagger of Dark Descent">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -12063,7 +11202,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>daggerSwing</OldSound>
         <Legendary />
     </Object>
-    <Object type="0x42c5" id="Tormentor of the Deep">
+    <Object type="0x42c8" id="Tormentor of the Deep">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -12093,7 +11232,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Tormentor of the Deep</DisplayId>
     </Object>
-    <Object type="0x42c7" id="Eradication Bow">
+    <Object type="0x42c9" id="Eradication Bow">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -12135,7 +11274,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate id="The Crypt Portal">Create</Activate>
         <DisplayId>The Crypt Key</DisplayId>
     </Object>
-    <Object type="0x42f4" id="Sword of Elegance">
+    <Object type="0x42f7" id="Sword of Elegance">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -12164,7 +11303,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Sword of Elegance</DisplayId>
     </Object>
-    <Object type="0x42f6" id="Overlord's Crown">
+    <Object type="0x42f9" id="Overlord's Crown">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -12187,7 +11326,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Overlord's Crown</DisplayId>
     </Object>
-    <Object type="0x42f8" id="Endless Destruction">
+    <Object type="0x42fd" id="Endless Destruction">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -12222,7 +11361,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Endless Destruction</DisplayId>
     </Object>
-    <Object type="0x42f9" id="Gold Cache">
+    <Object type="0x42fe" id="Gold Cache">
         <Class>Equipment</Class>
         <Item />
         <SlotType>10</SlotType>
@@ -12235,7 +11374,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Soulbound />
         <Activate>RandomGold</Activate>
     </Object>
-    <Object type="0x42fa" id="Platemail of the Stalwart">
+    <Object type="0x42ff" id="Platemail of the Stalwart">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -12665,7 +11804,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Potion />
         <BagType>11</BagType>
     </Object>
-    <Object type="0x45d3" id="Energized Cane">
+    <Object type="0x45d5" id="Energized Cane">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -12697,7 +11836,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Sacred id="Arcane Grace" desc="6" />
         <DisplayId>Energized Cane</DisplayId>
     </Object>
-    <Object type="0x45d5" id="Fatefixer Star">
+    <Object type="0x45d9" id="Fatefixer Star">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -12725,7 +11864,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate>ShurikenAbility</Activate>
         <DisplayId>Fatefixer Star</DisplayId>
     </Object>
-    <Object type="0x48c9" id="The ET Experience">
+    <Object type="0x48ca" id="The ET Experience">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -12752,7 +11891,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>weapon/missile_wand</OldSound>
         <DisplayId>The ET Experience</DisplayId>
     </Object>
-    <Object type="0x45d8" id="The Odyssey">
+    <Object type="0x45da" id="The Odyssey">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -12816,7 +11955,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>3</NumProjectiles>
         <DisplayId>Solace and Calamity</DisplayId>
     </Object>
-    <Object type="0x45ef" id="Detrimental Destiny">
+    <Object type="0x45f0" id="Detrimental Destiny">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -12919,7 +12058,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>4</FameBonus>
         <DisplayId>Spiders Fang</DisplayId>
     </Object>
-    <Object type="0x43a2" id="Grasp of Elysium">
+    <Object type="0x43a5" id="Grasp of Elysium">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -12947,7 +12086,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>20</ArcGap>
         <DisplayId>Grasp of Elysium</DisplayId>
     </Object>
-    <Object type="0x43a4" id="The Executioner">
+    <Object type="0x43a8" id="The Executioner">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -12977,7 +12116,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <OldSound>bladeSwing</OldSound>
     </Object>
-    <Object type="0x43a6" id="The Ultimatum">
+    <Object type="0x43a9" id="The Ultimatum">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13021,7 +12160,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>8</FameBonus>
         <DisplayId>An Astonishing Happening</DisplayId>
     </Object>
-    <Object type="0x43a7" id="Rip of Soul">
+    <Object type="0x43ab" id="Rip of Soul">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13040,7 +12179,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <MpCost>100</MpCost>
         <Activate radius="1.0" totalDamage="800">VampireBlast</Activate>
     </Object>
-    <Object type="0x43a9" id="Imprecation Upon Us">
+    <Object type="0x43ad" id="Imprecation Upon Us">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13067,7 +12206,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>3</NumProjectiles>
         <DisplayId>Imprecation Upon Us</DisplayId>
     </Object>
-    <Object type="0x43ab" id="Sword of Orange Fever">
+    <Object type="0x43af" id="Sword of Orange Fever">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13090,7 +12229,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>bladeSwing</OldSound>
         <DisplayId>Sword of Orange Fever</DisplayId>
     </Object>
-    <Object type="0x43ad" id="Papercutter">
+    <Object type="0x43b0" id="Papercutter">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13114,7 +12253,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>bladeSwing</OldSound>
         <DisplayId>Papercutter</DisplayId>
     </Object>
-    <Object type="0x43af" id="No Sunflowers">
+    <Object type="0x43b1" id="No Sunflowers">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13257,7 +12396,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>bladeSwing</OldSound>
         <DisplayId>King's Guard Sword</DisplayId>
     </Object>
-    <Object type="0x46d5" id="Steel-Woven Hide">
+    <Object type="0x46dd" id="Steel-Woven Hide">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13280,7 +12419,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         </Legend>
         <Legendary />
     </Object>
-    <Object type="0x46d7" id="Wand of the Scorching Phoenix">
+    <Object type="0x46df" id="Wand of the Scorching Phoenix">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13309,7 +12448,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>2</NumProjectiles>
         <DisplayId>Wand of the Scorching Phoenix</DisplayId>
     </Object>
-    <Object type="0x46d8" id="The Bewildering">
+    <Object type="0x46e0" id="The Bewildering">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13340,7 +12479,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
             <Surge>40</Surge>
         </Legend>
     </Object>
-    <Object type="0x46db" id="Sword of the Devourer">
+    <Object type="0x46e1" id="Sword of the Devourer">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13364,7 +12503,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>bladeSwing</OldSound>
         <DisplayId>Sword of the Devourer</DisplayId>
     </Object>
-    <Object type="0x46dd" id="Stinger Spell">
+    <Object type="0x46e2" id="Stinger Spell">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13390,7 +12529,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate>BulletNova</Activate>
         <DisplayId>Stinger Spell</DisplayId>
     </Object>
-    <Object type="0x46df" id="Wand of Flowing Water">
+    <Object type="0x46e3" id="Wand of Flowing Water">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13416,7 +12555,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Enchantable />
         <DisplayId>Wand of Flowing Water</DisplayId>
     </Object>
-    <Object type="0x46f2" id="Soulshredder">
+    <Object type="0x46f6" id="Soulshredder">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13562,7 +12701,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate effect="Berserk" duration="3">ConditionEffectSelf</Activate>
         <DisplayId>Shoot Faster Potion</DisplayId>
     </Object>
-    <Object type="0x47bd" id="Tridorno's Tail">
+    <Object type="0x47c1" id="Tridorno's Tail">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13589,7 +12728,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <DisplayId>Tridorno's Tail</DisplayId>
         <Sacred id="Treasure Hunter" desc="4" />
     </Object>
-    <Object type="0x47be" id="Purity's Call">
+    <Object type="0x47c2" id="Purity's Call">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13611,7 +12750,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate effect="Invulnerable" duration="1.5" useWisMod="false">ConditionEffectSelf</Activate>
         <Cooldown>3</Cooldown>
     </Object>
-    <Object type="0x47c1" id="Spear of the Unforgiven">
+    <Object type="0x47c4" id="Spear of the Unforgiven">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13644,7 +12783,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Fabled />
         <Activate>Shoot</Activate>
     </Object>
-    <Object type="0x47c2" id="Exanimation Stone">
+    <Object type="0x47c6" id="Exanimation Stone">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13655,7 +12794,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Description>The dead won't be dead anymore.</Description>
         <BagType>6</BagType>
     </Object>
-    <Object type="0x47c4" id="Sword of Dark Necromancy">
+    <Object type="0x47c8" id="Sword of Dark Necromancy">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13682,7 +12821,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>bladeSwing</OldSound>
         <DisplayId>Sword of Dark Necromancy</DisplayId>
     </Object>
-    <Object type="0x47c6" id="Dirk of Benevolence">
+    <Object type="0x47c9" id="Dirk of Benevolence">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13760,7 +12899,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <MResistance />
         <FameBonus>8</FameBonus>
     </Object>
-    <Object type="0x47db" id="Never Before Seen">
+    <Object type="0x47dc" id="Never Before Seen">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13780,7 +12919,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>8</FameBonus>
         <Legendary />
     </Object>
-    <Object type="0x47dc" id="Swiss Army Knife">
+    <Object type="0x47dd" id="Swiss Army Knife">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13838,7 +12977,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>2</NumProjectiles>
         <DisplayId>Rally of Ajax</DisplayId>
     </Object>
-    <Object type="0x47f3" id="Ancient Warlock's Staff">
+    <Object type="0x47f6" id="Ancient Warlock's Staff">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13872,7 +13011,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Sacred id="Adrenaline Rush" desc="5" />
         <DisplayId>Ancient Warlock's Staff</DisplayId>
     </Object>
-    <Object type="0x47f5" id="Bloodstar">
+    <Object type="0x47f7" id="Bloodstar">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13905,7 +13044,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Bloodstar</DisplayId>
     </Object>
-    <Object type="0x47f6" id="Xion Charge">
+    <Object type="0x47f9" id="Xion Charge">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13932,7 +13071,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Xion Charge</DisplayId>
     </Object>
-    <Object type="0x179c" id="The Storm Blanket">
+    <Object type="0x179d" id="The Storm Blanket">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13957,7 +13096,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>The Storm Blanket</DisplayId>
     </Object>
-    <Object type="0x47f8" id="Protective Psalm">
+    <Object type="0x47fa" id="Protective Psalm">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -13984,7 +13123,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Protective Psalm</DisplayId>
     </Object>
-    <Object type="0x47f9" id="Blessing of Asclepius">
+    <Object type="0x47fb" id="Blessing of Asclepius">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -14011,7 +13150,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Blessing of Asclepius</DisplayId>
     </Object>
-    <Object type="0x47fb" id="Orange Lined Edian">
+    <Object type="0x47fd" id="Orange Lined Edian">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -14027,7 +13166,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>3</FameBonus>
         <DisplayId>Orange Lined Edian</DisplayId>
     </Object>
-    <Object type="0x1483" id="Judgement's Call">
+    <Object type="0x1487" id="Judgement's Call">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -14051,7 +13190,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate effect="Slowed" duration="7" range="2.5" color="0x00ff00" target="enemy" center="player" visualEffect="5" useWisMod="false">GenericActivate</Activate>
         <Activate effect="Curse" duration="7" range="3.5" color="0x00ff00" target="enemy" center="player" visualEffect="0" useWisMod="false">GenericActivate</Activate>
     </Object>
-    <Object type="0x511a" id="Gem of True Eminence">
+    <Object type="0x511c" id="Gem of True Eminence">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -14074,7 +13213,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate effect="Invisible" duration="6">ConditionEffectSelf</Activate>
         <Cooldown>6.5</Cooldown>
     </Object>
-    <Object type="0x47fd" id="Living Corrupted Ambition">
+    <Object type="0x47fe" id="Living Corrupted Ambition">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -14279,7 +13418,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate amount="125">TreasureActivate</Activate>
         <DisplayId>Some Alien Equipment</DisplayId>
     </Object>
-    <Object type="0x48c9" id="The ET Experience">
+    <Object type="0x48cb" id="The ET Experience">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -14344,7 +13483,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>6</BagType>
         <FameBonus>6</FameBonus>
     </Object>
-    <Object type="0x521c" id="Blood Loss Katana">
+    <Object type="0x5220" id="Blood Loss Katana">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -14392,7 +13531,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>9</BagType>
         <White />
     </Object>
-    <Object type="0x1669" id="Storm Palace Key">
+    <Object type="0x1695" id="Storm Palace Key">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -14407,7 +13546,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Track />
         <DisplayId>Storm Palace Key</DisplayId>
     </Object>
-    <Object type="0x167e" id="Crimson Showdown Key">
+    <Object type="0x1696" id="Crimson Showdown Key">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -14422,7 +13561,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Track />
         <DisplayId>Crimson Showdown Key</DisplayId>
     </Object>
-    <Object type="0x48fd" id="Spell of 1000 Strikes">
+    <Object type="0x4900" id="Spell of 1000 Strikes">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -14455,7 +13594,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <Activate>BulletNova</Activate>
     </Object>
-    <Object type="0x48fe" id="Burden of the Warpawn">
+    <Object type="0x4901" id="Burden of the Warpawn">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -14652,7 +13791,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Soulbound />
         <DisplayId>Ring of the Hidden Temple</DisplayId>
     </Object>
-    <Object type="0x169f" id="Stride of the Multitude">
+    <Object type="0x16a0" id="Stride of the Multitude">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -14931,7 +14070,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate id="Crimson Caverns Portal">Create</Activate>
         <DisplayId>Crimson Caverns Key</DisplayId>
     </Object>
-    <Object type="0x49f6" id="The Ranger's Grace">
+    <Object type="0x49f7" id="The Ranger's Grace">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -14966,7 +14105,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>40</ArcGap>
         <FameBonus>8</FameBonus>
     </Object>
-    <Object type="0x1689" id="The Eye of Peril">
+    <Object type="0x1697" id="The Eye of Peril">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -14981,7 +14120,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>6</BagType>
         <FameBonus>6</FameBonus>
     </Object>
-    <Object type="0x1690" id="Skull of Hades">
+    <Object type="0x1698" id="Skull of Hades">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -15001,7 +14140,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate effect="Armor Broken" duration="3" range="4" color="0x05c2b5" target="enemy" center="mouse" visualEffect="0" useWisMod="false">GenericActivate</Activate>
         <Activate duration="2.5" effect="Healing">ConditionEffectSelf</Activate>
     </Object>
-    <Object type="0x1691" id="Truncheon of Immortal Demons">
+    <Object type="0x169a" id="Truncheon of Immortal Demons">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -15028,7 +14167,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>4</NumProjectiles>
         <OldSound>weapon/wand_of_dark_magic</OldSound>
     </Object>
-    <Object type="0x1692" id="Coat of the Devil">
+    <Object type="0x169c" id="Coat of the Devil">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -15044,7 +14183,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>6</BagType>
         <FameBonus>6</FameBonus>
     </Object>
-    <Object type="0x1686" id="Magic Throwing Cards">
+    <Object type="0x16a1" id="Magic Throwing Cards">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -15070,7 +14209,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>4</NumProjectiles>
         <OldSound>weapon/fire_dagger</OldSound>
     </Object>
-    <Object type="0x1687" id="Quiver of the Onslaught">
+    <Object type="0x16a2" id="Quiver of the Onslaught">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -15382,7 +14521,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>6</FameBonus>
         <DisplayId>Shadow Beacon</DisplayId>
     </Object>
-    <Object type="0x1676" id="Wand Of The Prohibited Fire">
+    <Object type="0x16a3" id="Wand Of The Prohibited Fire">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -15988,7 +15127,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>6</FameBonus>
         <DisplayId>God Blood Robes</DisplayId>
     </Object>
-    <Object type="0x49e3" id="Gem of Corruption">
+    <Object type="0x49e5" id="Gem of Corruption">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -16347,7 +15486,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>6</BagType>
         <DisplayId>Funnystone</DisplayId>
     </Object>
-    <Object type="0x53de" id="Gratuitous Gift">
+    <Object type="0x53e0" id="Gratuitous Gift">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -16423,7 +15562,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>magicShoot</OldSound>
         <DisplayId>Sprig of the Copse</DisplayId>
     </Object>
-    <Object type="0xffa" id="Caduceus of Nature" setType="0x0008" setName="Woodland Sorcerer Set">
+    <Object type="0xffb" id="Caduceus of Nature" setType="0x0008" setName="Woodland Sorcerer Set">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -16443,7 +15582,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate useWisMod="true" totalDamage="100" maxTargets="12" color="0x00ff2f">Lightning</Activate>
         <DisplayId>Caduceus of Nature</DisplayId>
     </Object>
-    <Object type="0xffa" id="Shroud of Sagebrush" setType="0x0008" setName="Woodland Sorcerer Set">
+    <Object type="0xffc" id="Shroud of Sagebrush" setType="0x0008" setName="Woodland Sorcerer Set">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -16459,7 +15598,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>4</FameBonus>
         <DisplayId>Shroud of Sagebrush</DisplayId>
     </Object>
-    <Object type="0xffa" id="Trinket of the Groves" setType="0x0008" setName="Woodland Sorcerer Set">
+    <Object type="0xffd" id="Trinket of the Groves" setType="0x0008" setName="Woodland Sorcerer Set">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -16477,7 +15616,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>5</FameBonus>
         <DisplayId>Trinket of the Groves</DisplayId>
     </Object>
-    <Object type="0x54b6" id="An Alien's Blessing">
+    <Object type="0x54b7" id="An Alien's Blessing">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -16529,7 +15668,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>4</NumProjectiles>
         <DisplayId>Forsaken Shield</DisplayId>
     </Object>
-    <Object type="0x55b8" id="Scepter of the Other">
+    <Object type="0x55b9" id="Scepter of the Other">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -16686,7 +15825,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Cooldown>6</Cooldown>
         <OldSound>use_potion</OldSound>
     </Object>
-    <Object type="0x42fc" id="Wand of Violent Mana">
+    <Object type="0x4300" id="Wand of Violent Mana">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -16713,7 +15852,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Wand of Violent Mana</DisplayId>
     </Object>
-    <Object type="0x32c2" id="Sincryer's Demise">
+    <Object type="0x32c3" id="Sincryer's Demise">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -16740,7 +15879,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Sincryer's Demise</DisplayId>
     </Object>
-    <Object type="0x55f6" id="Grace of the Colossus">
+    <Object type="0x55f8" id="Grace of the Colossus">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -16765,7 +15904,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Grace of the Colossus</DisplayId>
     </Object>
-    <Object type="0x55f8" id="Lance of the Terrorshrine">
+    <Object type="0x55fa" id="Lance of the Terrorshrine">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -16797,7 +15936,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>5</NumProjectiles>
         <DisplayId>Lance of the Terrorshrine</DisplayId>
     </Object>
-    <Object type="0x42fc" id="Wand of Violent Mana">
+    <Object type="0x4301" id="Wand of Violent Mana">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -16878,7 +16017,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate amount="100" range="5.5" useWisMod="true">HealNova</Activate>
         <Activate effect="Damaging" duration="2.5" useWisMod="true">ConditionEffectSelf</Activate>
     </Object>
-    <Object type="0xffb" id="Titanic Sword" setType="0x0009" setName="Ancient Colossus Set">
+    <Object type="0xffe" id="Titanic Sword" setType="0x0009" setName="Ancient Colossus Set">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -16902,81 +16041,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>bladeSwing</OldSound>
         <DisplayID>Titanic Sword</DisplayID>
     </Object>
-    <Object type="0xffc" id="Helm of the Titans" setType="0x0009" setName="Ancient Colossus Set">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x35d</Index>
-        </Texture>
-        <SlotType>16</SlotType>
-        <Description>This helmet was used in the Battle of the Titans, centuries before Oryx's Reign.</Description>
-        <ActivateOnEquip stat="3" amount="10">IncrementStat</ActivateOnEquip>
-        <ActivateOnEquip stat="0" amount="15">IncrementStat</ActivateOnEquip>
-        <ActivateOnEquip stat="2" amount="5">IncrementStat</ActivateOnEquip>
-        <Usable />
-        <BagType>3</BagType>
-        <FameBonus>4</FameBonus>
-        <ExtraTooltipData>
-            <EffectInfo name="" description="Damaging on self" />
-            <EffectInfo name="" description="Passive: Good Armor" />
-        </ExtraTooltipData>
-        <Projectile>
-            <ObjectId>Stone Slash</ObjectId>
-            <Speed>100</Speed>
-            <MinDamage>1500</MinDamage>
-            <MaxDamage>1500</MaxDamage>
-            <LifetimeMS>1000</LifetimeMS>
-            <Size>150</Size>
-            <PassesCover />
-            <MultHit />
-            <ArmorPierce />
-        </Projectile>
-        <Usable />
-        <BagType>3</BagType>
-        <FameBonus>4</FameBonus>
-        <NumProjectiles>3</NumProjectiles>
-        <MpCost>0</MpCost>
-        <MpEndCost>110</MpEndCost>
-        <MultiPhase />
-        <Activate>OPBUFF</Activate>
-        <DisplayID>Helm of the Titans</DisplayID>
-    </Object>
-    <Object type="0xffd" id="Armor of the Giants" setType="0x0009" setName="Ancient Colossus Set">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x35e</Index>
-        </Texture>
-        <SlotType>7</SlotType>
-        <Description>This armor was forged in the Eternal Crucible for the allied giant nations nearby.</Description>
-        <ActivateOnEquip stat="0" amount="50">IncrementStat</ActivateOnEquip>
-        <ActivateOnEquip stat="4" amount="5">IncrementStat</ActivateOnEquip>
-        <ActivateOnEquip stat="5" amount="5">IncrementStat</ActivateOnEquip>
-        <ActivateOnEquip stat="3" amount="25">IncrementStat</ActivateOnEquip>
-        <BagType>3</BagType>
-        <FameBonus>4</FameBonus>
-        <DisplayID>Armor of the Giants</DisplayID>
-    </Object>
-    <Object type="0xffe" id="Amulet of the Immortals" setType="0x0009" setName="Ancient Colossus Set">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x35f</Index>
-        </Texture>
-        <SlotType>9</SlotType>
-        <Description>Although lacking the ability to make one immortal, this amulet will make you be able to stand up to most foes.</Description>
-        <ActivateOnEquip stat="5" amount="5">IncrementStat</ActivateOnEquip>
-        <ActivateOnEquip stat="2" amount="5">IncrementStat</ActivateOnEquip>
-        <ActivateOnEquip stat="0" amount="40">IncrementStat</ActivateOnEquip>
-        <ActivateOnEquip stat="1" amount="15">IncrementStat</ActivateOnEquip>
-        <BagType>3</BagType>
-        <FameBonus>5</FameBonus>
-        <DisplayID>Amulet of the Immortals</DisplayID>
-    </Object>
-    <Object type="0x56b8" id="Garnet's Onslaught">
+    <Object type="0x56ba" id="Garnet's Onslaught">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -16992,7 +16057,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>8</FameBonus>
         <Legendary />
     </Object>
-    <Object type="0x56b9" id="Jade's Judgment">
+    <Object type="0x56bb" id="Jade's Judgment">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -17037,7 +16102,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>8</FameBonus>
         <OldSound>magicShoot</OldSound>
     </Object>
-    <Object type="0x1688" id="Path to the Underworld">
+    <Object type="0x16a4" id="Path to the Underworld">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -17080,7 +16145,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>8</FameBonus>
         <DisplayId>Mythical Basilisk Venom</DisplayId>
     </Object>
-    <Object type="0x56c5" id="Time-Worn Redeemer">
+    <Object type="0x56c6" id="Time-Worn Redeemer">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -17456,22 +16521,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <DDSResistance />
         <DisplayId>Dagger of Demon Sacrifice</DisplayId>
     </Object>
-    <Object type="0x5839" id="Jackpot">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x37b</Index>
-        </Texture>
-        <SlotType>9</SlotType>
-        <Description>Those fortunate enough to carry this sack will be granted immense luck.</Description>
-        <ActivateOnEquip stat="6" amount="-10">IncrementStat</ActivateOnEquip>
-        <ActivateOnEquip stat="102" amount="30">IncrementStat</ActivateOnEquip>
-        <BagType>6</BagType>
-        <Legendary />
-        <FameBonus>8</FameBonus>
-    </Object>
-    <Object type="0x168e" id="Bow of Reptile Skin">
+    <Object type="0x16a5" id="Bow of Reptile Skin">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18049,7 +17099,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>6</BagType>
         <FameBonus>6</FameBonus>
     </Object>
-    <Object type="0x585b" id="Skull of Dark Spirits">
+    <Object type="0x585c" id="Skull of Dark Spirits">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18069,7 +17119,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate effect="Healing" duration="5" range="4" color="0xe03434">ConditionEffectAura</Activate>
         <Activate effect="Curse" duration="2" range="3" color="0x05c2b5" target="enemy" center="mouse" visualEffect="0" useWisMod="false">GenericActivate</Activate>
     </Object>
-    <Object type="0x1485" id="Scarlet Battle-Axe">
+    <Object type="0x1488" id="Scarlet Battle-Axe">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18101,7 +17151,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>5</NumProjectiles>
         <OldSound>bladeSwing</OldSound>
     </Object>
-    <Object type="0x64aa" id="Lightsworn Axe">
+    <Object type="0x64ac" id="Lightsworn Axe">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18241,7 +17291,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Potion />
         <BagType>11</BagType>
     </Object>
-    <Object type="0x69cd" id="Herculean Amulet">
+    <Object type="0x69ce" id="Herculean Amulet">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18265,7 +17315,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
             <Surge>0</Surge>
         </Legend>
     </Object>
-    <Object type="0x69d1" id="Scythe of the Harvester">
+    <Object type="0x69d3" id="Scythe of the Harvester">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18292,7 +17342,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>bladeSwing</OldSound>
         <DisplayId>Scythe of the Harvester</DisplayId>
     </Object>
-    <Object type="0x51a2" id="The Zol Awakening (Token)">
+    <Object type="0x51a7" id="The Zol Awakening (Token)">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18307,7 +17357,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FabledToken />
         <DisplayId>The Zol Awakening (Token)</DisplayId>
     </Object>
-    <Object type="0x52ac" id="Calling of the Titan (Token)">
+    <Object type="0x52ad" id="Calling of the Titan (Token)">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18321,7 +17371,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FabledToken />
         <DisplayId>Calling of the Titan (Token)</DisplayId>
     </Object>
-    <Object type="0x51a4" id="A Fallen Light (Token)">
+    <Object type="0x51a8" id="A Fallen Light (Token)">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18335,7 +17385,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FabledToken />
         <DisplayId>A Fallen Light (Token)</DisplayId>
     </Object>
-    <Object type="0x51a5" id="Sidon's Fall (Token)">
+    <Object type="0x51a9" id="Sidon's Fall (Token)">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18349,7 +17399,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FabledToken />
         <DisplayId>Sidon's Fall (Token)</DisplayId>
     </Object>
-    <Object type="0x51a6" id="War of Decades (Token)">
+    <Object type="0x51b0" id="War of Decades (Token)">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18363,7 +17413,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FabledToken />
         <DisplayId>War of Decades (Token)</DisplayId>
     </Object>
-    <Object type="0x69d4" id="Royal Dagger">
+    <Object type="0x69db" id="Royal Dagger">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18395,7 +17445,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>daggerSwing</OldSound>
         <DisplayId>Royal Dagger</DisplayId>
     </Object>
-    <Object type="0x46d9" id="Aegis of the Devourer">
+    <Object type="0x46e4" id="Aegis of the Devourer">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18420,7 +17470,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
             <Surge>0</Surge>
         </Legend>
     </Object>
-    <Object type="0x69d8" id="Wand of Divine Lightning">
+    <Object type="0x69e0" id="Wand of Divine Lightning">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18446,7 +17496,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>6</FameBonus>
         <OldSound>magicShoot</OldSound>
     </Object>
-    <Object type="0x69da" id="Khonsu's Breastplate">
+    <Object type="0x69ea" id="Khonsu's Breastplate">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18470,7 +17520,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
             <Surge>0</Surge>
         </Legend>
     </Object>
-    <Object type="0x69db" id="Asteroid">
+    <Object type="0x69eb" id="Asteroid">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18495,7 +17545,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         </Legend>
         <DisplayId>Asteroid</DisplayId>
     </Object>
-    <Object type="0x69dc" id="The Monarch's Grasp">
+    <Object type="0x69ee" id="The Monarch's Grasp">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18534,7 +17584,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>magicShoot</OldSound>
         <DisplayId>The Monarch's Grasp</DisplayId>
     </Object>
-    <Object type="0x56c4" id="Plate of the Beast">
+    <Object type="0x56c7" id="Plate of the Beast">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18558,7 +17608,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
             <Surge>0</Surge>
         </Legend>
     </Object>
-    <Object type="0x1648" id="Piercing Silence">
+    <Object type="0x16a6" id="Piercing Silence">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18582,7 +17632,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
             <Surge>20</Surge>
         </Legend>
     </Object>
-    <Object type="0x48fb" id="Spiritclaw">
+    <Object type="0x48fc" id="Spiritclaw">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18612,7 +17662,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>1</NumProjectiles>
         <DisplayId>Spiritclaw</DisplayId>
     </Object>
-    <Object type="0x69de" id="Bolstered Helm">
+    <Object type="0x69ef" id="Bolstered Helm">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18634,7 +17684,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Bolstered Helm</DisplayId>
     </Object>
-    <Object type="0x69df" id="Amulet of Oryx">
+    <Object type="0x69f0" id="Amulet of Oryx">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18656,7 +17706,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Amulet of Oryx</DisplayId>
     </Object>
-    <Object type="0x1398" id="Flash-Fire">
+    <Object type="0x139c" id="Flash-Fire">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18679,7 +17729,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
             <Surge>0</Surge>
         </Legend>
     </Object>
-    <Object type="0x69e1" id="Unknown Unstable Ballista">
+    <Object type="0x69f1" id="Unknown Unstable Ballista">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18706,7 +17756,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>arrowShoot</OldSound>
         <DisplayId>Unknown Unstable Ballista</DisplayId>
     </Object>
-    <Object type="0x49e4" id="Enchanted Leather Hide">
+    <Object type="0x49e6" id="Enchanted Leather Hide">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18731,7 +17781,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
             <Surge>35</Surge>
         </Legend>
     </Object>
-    <Object type="0x69e3" id="Cloth of the Battle-Mage">
+    <Object type="0x69f2" id="Cloth of the Battle-Mage">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18755,7 +17805,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>8</FameBonus>
         <DisplayId>Cloth of the Battle-Mage</DisplayId>
     </Object>
-    <Object type="0x69e4" id="Heater of Union">
+    <Object type="0x69f3" id="Heater of Union">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18796,7 +17846,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>8</NumProjectiles>
         <DisplayId>Protector of Grandeur</DisplayId>
     </Object>
-    <Object type="0x52df" id="Band of Exoneration">
+    <Object type="0x52e0" id="Band of Exoneration">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18849,7 +17899,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Poseidon's Will</DisplayId>
     </Object>
-    <Object type="0x69e6" id="Evanescence">
+    <Object type="0x69f4" id="Evanescence">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18883,7 +17933,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>daggerSwing</OldSound>
         <DisplayId>Evanescence</DisplayId>
     </Object>
-    <Object type="0x69e8" id="Immunity Gauntlet">
+    <Object type="0x69f5" id="Immunity Gauntlet">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18907,7 +17957,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         </Legend>
         <DisplayId>Immunity Gauntlet</DisplayId>
     </Object>
-    <Object type="0x69e9" id="Grand Curse">
+    <Object type="0x69f6" id="Grand Curse">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18943,7 +17993,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         </Legend>
         <Activate>BulletNova</Activate>
     </Object>
-    <Object type="0x69ec" id="Psychotic Attacks">
+    <Object type="0x69f7" id="Psychotic Attacks">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -18972,7 +18022,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Steal type="life" amount="1" />
         <Activate>BulletNova</Activate>
     </Object>
-    <Object type="0x69ed" id="The Kingdom's Pride">
+    <Object type="0x69f8" id="The Kingdom's Pride">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19003,7 +18053,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>The Kingdom's Pride</DisplayId>
     </Object>
-    <Object type="0x54d9" id="Soul's Guidance">
+    <Object type="0x54da" id="Soul's Guidance">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19175,7 +18225,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>The Untameable</DisplayId>
     </Object>
-    <Object type="0x61b5" id="Whispers from Beyond">
+    <Object type="0x61b7" id="Whispers from Beyond">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19198,7 +18248,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Whispers from Beyond</DisplayId>
     </Object>
-    <Object type="0x61b6" id="Ring of Shining Light">
+    <Object type="0x61b8" id="Ring of Shining Light">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19215,7 +18265,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Ring of Shining Light</DisplayId>
     </Object>
-    <Object type="0x61b7" id="Predator Necklace">
+    <Object type="0x61ba" id="Predator Necklace">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19232,7 +18282,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>8</BagType>
         <Legendary />
     </Object>
-    <Object type="0x61b8" id="Ancient Stone Maul">
+    <Object type="0x61bb" id="Ancient Stone Maul">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19430,7 +18480,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>5</BagType>
         <DisplayId>Greater Potion of Protection</DisplayId>
     </Object>
-    <Object type="0x61cd" id="Kunai">
+    <Object type="0x61ce" id="Kunai">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19455,7 +18505,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <OldSound>bladeSwing</OldSound>
     </Object>
-    <Object type="0x61cf" id="Dragon Tail Lance">
+    <Object type="0x61d0" id="Dragon Tail Lance">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19488,7 +18538,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>5</ArcGap>
         <DisplayId>Dragon Tail Lance</DisplayId>
     </Object>
-    <Object type="0x61d2" id="Book of Burning Souls">
+    <Object type="0x61d4" id="Book of Burning Souls">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19516,7 +18566,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         </Legend>
         <DisplayId>Book of Burning Souls</DisplayId>
     </Object>
-    <Object type="0x61d3" id="Sheath of True Past">
+    <Object type="0x61d5" id="Sheath of True Past">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19539,7 +18589,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Sheath of True Past</DisplayId>
     </Object>
-    <Object type="0x61d5" id="The Blood Wager">
+    <Object type="0x61d7" id="The Blood Wager">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19558,7 +18608,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Cooldown>3</Cooldown>
         <Legendary />
     </Object>
-    <Object type="0x45d1" id="Ring of Misfortune">
+    <Object type="0x45db" id="Ring of Misfortune">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19573,7 +18623,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <FameBonus>8</FameBonus>
     </Object>
-    <Object type="0x61d7" id="Abyssal Whip">
+    <Object type="0x61d8" id="Abyssal Whip">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19602,7 +18652,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>1</NumProjectiles>
         <DisplayId>Abyssal Whip</DisplayId>
     </Object>
-    <Object type="0x61d8" id="Empowered Whip">
+    <Object type="0x61d9" id="Empowered Whip">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19626,7 +18676,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>daggerSwing</OldSound>
         <DisplayId>Empowered Whip</DisplayId>
     </Object>
-    <Object type="0x61d9" id="Whip">
+    <Object type="0x61dd" id="Whip">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19663,7 +18713,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         </ExtraTooltipData>
         <BagType>8</BagType>
     </Object>
-    <Object type="0x61db" id="Sky-Striker">
+    <Object type="0x61e0" id="Sky-Striker">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19699,7 +18749,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         </Legend>
         <DisplayId>Sky-Striker</DisplayId>
     </Object>
-    <Object type="0x61da" id="Volcanic Vengeance">
+    <Object type="0x61e1" id="Volcanic Vengeance">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19727,7 +18777,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Volcanic Vengeance</DisplayId>
     </Object>
-    <Object type="0x61dc" id="Ascension">
+    <Object type="0x61e2" id="Ascension">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19765,7 +18815,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>8</FameBonus>
         <OldSound>magicShoot</OldSound>
     </Object>
-    <Object type="0x42f3" id="Interstellar Force">
+    <Object type="0x4302" id="Interstellar Force">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19789,7 +18839,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>8</FameBonus>
         <DisplayId>Interstellar Force</DisplayId>
     </Object>
-    <Object type="0x6202" id="Death's Vow">
+    <Object type="0x6204" id="Death's Vow">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19808,7 +18858,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Cooldown>4.5</Cooldown>
         <Legendary />
     </Object>
-    <Object type="0x6120" id="Prism of Mirrors">
+    <Object type="0x6122" id="Prism of Mirrors">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19945,7 +18995,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate stat="3" amount="25" noStack="false">JacketAbility2</Activate>
         <Cooldown>2</Cooldown>
     </Object>
-    <Object type="0x6144" id="Lightweight Jacket">
+    <Object type="0x6145" id="Lightweight Jacket">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -19982,7 +19032,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate stat="3" amount="25" noStack="false">JacketAbility2</Activate>
         <Cooldown>2</Cooldown>
     </Object>
-    <Object type="0x6145" id="Murderous Jacket">
+    <Object type="0x6146" id="Murderous Jacket">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20019,7 +19069,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate stat="3" amount="25" noStack="false">JacketAbility2</Activate>
         <Cooldown>2</Cooldown>
     </Object>
-    <Object type="0x6146" id="Invincibility Jacket">
+    <Object type="0x6147" id="Invincibility Jacket">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20057,7 +19107,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate stat="3" amount="25" noStack="false">JacketAbility2</Activate>
         <Cooldown>2</Cooldown>
     </Object>
-    <Object type="0x6147" id="Jacket of Sorrows">
+    <Object type="0x6148" id="Jacket of Sorrows">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20095,7 +19145,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate stat="3" amount="25" noStack="false">JacketAbility2</Activate>
         <Cooldown>2</Cooldown>
     </Object>
-    <Object type="0x6148" id="Bronze Daggers">
+    <Object type="0x6149" id="Bronze Daggers">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20121,7 +19171,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0x6149" id="Invert Blades">
+    <Object type="0x614a" id="Invert Blades">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20147,7 +19197,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0x614a" id="Dusky Blades">
+    <Object type="0x614b" id="Dusky Blades">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20173,7 +19223,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0x614b" id="Duo Blades">
+    <Object type="0x614c" id="Duo Blades">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20199,7 +19249,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0x614c" id="Silver Blades">
+    <Object type="0x614d" id="Silver Blades">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20225,7 +19275,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0x614d" id="Half Blades">
+    <Object type="0x614e" id="Half Blades">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20251,7 +19301,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0x614e" id="Obsidian Blades">
+    <Object type="0x614f" id="Obsidian Blades">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20277,7 +19327,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0x614f" id="Mithril Blades">
+    <Object type="0x6150" id="Mithril Blades">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20303,7 +19353,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0x6150" id="Infinity Blades">
+    <Object type="0x6151" id="Infinity Blades">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20329,7 +19379,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0x6151" id="Rage Claw Blades">
+    <Object type="0x6152" id="Rage Claw Blades">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20356,7 +19406,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0x6152" id="Emerald Malevolence Blades">
+    <Object type="0x6153" id="Emerald Malevolence Blades">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20383,7 +19433,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0x6153" id="Eldricht Blades">
+    <Object type="0x6154" id="Eldricht Blades">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20410,7 +19460,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0x6154" id="Master Blades">
+    <Object type="0x615f" id="Master Blades">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20437,7 +19487,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0x615f" id="Jacket of True Darkness">
+    <Object type="0x6160" id="Jacket of True Darkness">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20474,7 +19524,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate stat="3" amount="25" noStack="false">JacketAbility2</Activate>
         <Cooldown>2</Cooldown>
     </Object>
-    <Object type="0x6160" id="Otherworldly Blades">
+    <Object type="0x616c" id="Otherworldly Blades">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20500,7 +19550,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <ArcGap>0</ArcGap>
         <OldSound>daggerSwing</OldSound>
     </Object>
-    <Object type="0x6163" id="Eternal Deficit">
+    <Object type="0x616d" id="Eternal Deficit">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -20786,7 +19836,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate>AscensionActivate</Activate>
         <DisplayId>Lost Scripture #2</DisplayId>
     </Object>
-    <Object type="0x621b" id="The Master's Betrayal">
+    <Object type="0x621c" id="The Master's Betrayal">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -21154,7 +20204,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Fabled />
         <DisplayId>The Twisted Cloak</DisplayId>
     </Object>
-    <Object type="0x63a6" id="Drannol's Fury">
+    <Object type="0x63a8" id="Drannol's Fury">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -21178,7 +20228,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Drannol's Fury</DisplayId>
     </Object>
-    <Object type="0x47d8" id="Skull of the Titan">
+    <Object type="0x47d9" id="Skull of the Titan">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -21208,7 +20258,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         </Legend>
         <DisplayId>Skull of the Titan</DisplayId>
     </Object>
-    <Object type="0x63a7" id="Fortification Shield">
+    <Object type="0x63a9" id="Fortification Shield">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -21338,7 +20388,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate>EffectRandom</Activate>
         <DisplayId>Random Effect Chip</DisplayId>
     </Object>
-    <Object type="0x63d1" id="Blades of Denial">
+    <Object type="0x63d3" id="Blades of Denial">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -21652,7 +20702,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>6</FameBonus>
         <DisplayId>Frozen Chestguard</DisplayId>
     </Object>
-    <Object type="0x45d7" id="Told Before Time">
+    <Object type="0x45dd" id="Told Before Time">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -21839,7 +20889,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate duration="5" randVals="Sick, Bravery">DiceActivate</Activate>
         <Activate effect="Damaging" duration="4.5">ConditionEffectSelf</Activate>
     </Object>
-    <Object type="0x69c3" id="Inferno of Truth">
+    <Object type="0x69c5" id="Inferno of Truth">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -21870,7 +20920,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>1</NumProjectiles>
         <DisplayId>Inferno of Truth</DisplayId>
     </Object>
-    <Object type="0x69c4" id="Blood-Fang">
+    <Object type="0x69c6" id="Blood-Fang">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -21904,7 +20954,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         </Legend>
         <DisplayId>Blood-Fang</DisplayId>
     </Object>
-    <Object type="0x69c9" id="Banner of Immense Protection">
+    <Object type="0x69ca" id="Banner of Immense Protection">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -21931,7 +20981,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Banner of Immense Protection</DisplayId>
     </Object>
-    <Object type="0x69e5" id="Lance of Immense Protection">
+    <Object type="0x69f9" id="Lance of Immense Protection">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -21969,7 +21019,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>weapon/blunt_sword</OldSound>
         <DisplayId>Lance of Immense Protection</DisplayId>
     </Object>
-    <Object type="0x5611" id="Infused Katana">
+    <Object type="0x5612" id="Infused Katana">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -21999,7 +21049,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>bladeSwing</OldSound>
         <DisplayId>Infused Katana</DisplayId>
     </Object>
-    <Object type="0x5612" id="Uber Sword">
+    <Object type="0x5613" id="Uber Sword">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22038,7 +21088,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>6</BagType>
         <FameBonus>6</FameBonus>
     </Object>
-    <Object type="0x5613" id="Draketail Blade">
+    <Object type="0x5614" id="Draketail Blade">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22066,7 +21116,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>daggerSwing</OldSound>
         <DisplayId>Draketail Blade</DisplayId>
     </Object>
-    <Object type="0x5614" id="Quiver of the Chosen">
+    <Object type="0x5615" id="Quiver of the Chosen">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22096,7 +21146,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate>Shoot</Activate>
         <DisplayId>Quiver of the Chosen</DisplayId>
     </Object>
-    <Object type="0x5615" id="Chosen Armor">
+    <Object type="0x5617" id="Chosen Armor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22176,7 +21226,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>6</FameBonus>
         <DisplayId>Crashing Crescendo</DisplayId>
     </Object>
-    <Object type="0x59a3" id="Death Amulet">
+    <Object type="0x59a4" id="Death Amulet">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22192,7 +21242,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <FameBonus>3</FameBonus>
     </Object>
-    <Object type="0x59a4" id="Robe of the Gargoyle Summoner">
+    <Object type="0x59a5" id="Robe of the Gargoyle Summoner">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22234,7 +21284,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>5</FameBonus>
         <OldSound>bladeSwing</OldSound>
     </Object>
-    <Object type="0x6706" id="Blades of Majesty">
+    <Object type="0x6708" id="Blades of Majesty">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22357,7 +21407,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>2</NumProjectiles>
         <ArcGap>0</ArcGap>
     </Object>
-    <Object type="0x6708" id="Basic Talisman">
+    <Object type="0x6709" id="Basic Talisman">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22380,7 +21430,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <MpCost>70</MpCost>
         <Cooldown>4</Cooldown>
     </Object>
-    <Object type="0x6709" id="Wooden Talisman">
+    <Object type="0x670a" id="Wooden Talisman">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22403,7 +21453,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <MpCost>70</MpCost>
         <Cooldown>4</Cooldown>
     </Object>
-    <Object type="0x670a" id="Soul Talisman">
+    <Object type="0x670b" id="Soul Talisman">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22426,7 +21476,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <MpCost>75</MpCost>
         <Cooldown>4</Cooldown>
     </Object>
-    <Object type="0x670b" id="Jungle Talisman">
+    <Object type="0x670c" id="Jungle Talisman">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22450,7 +21500,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <MpCost>75</MpCost>
         <Cooldown>4</Cooldown>
     </Object>
-    <Object type="0x670c" id="Cronus Talisman">
+    <Object type="0x670d" id="Cronus Talisman">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22474,7 +21524,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <MpCost>80</MpCost>
         <Cooldown>4</Cooldown>
     </Object>
-    <Object type="0x670d" id="Sentinel Talisman">
+    <Object type="0x670e" id="Sentinel Talisman">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22498,7 +21548,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <MpCost>85</MpCost>
         <Cooldown>4</Cooldown>
     </Object>
-    <Object type="0x670e" id="Oryx Talisman">
+    <Object type="0x670f" id="Oryx Talisman">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22547,7 +21597,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <MpCost>100</MpCost>
         <Cooldown>4</Cooldown>
     </Object>
-    <Object type="0x672c" id="Demonic Resonance">
+    <Object type="0x672d" id="Demonic Resonance">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22670,7 +21720,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate range="6" amount="6" players="false" duration="6" effect="Bleeding" color="0xFF0044" objType="0x673c">Torii</Activate>
         <Cooldown>3</Cooldown>
     </Object>
-    <Object type="0x1648" id="Cloak of Vivacity">
+    <Object type="0x16a7" id="Cloak of Vivacity">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22711,7 +21761,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate effect="Armored" duration="2" range="5" useWisMod="true">ConditionEffectAura</Activate>
         <DisplayId>Seal of Sky Serenade</DisplayId>
     </Object>
-    <Object type="0x58f4" id="Omnisword">
+    <Object type="0x58f6" id="Omnisword">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22778,7 +21828,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>6</BagType>
         <DisplayId>Raptor Ring</DisplayId>
     </Object>
-    <Object type="0x5865" id="Blazed Bow">
+    <Object type="0x5867" id="Blazed Bow">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22805,7 +21855,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>arrowShoot</OldSound>
         <DisplayId>Blazed Bow</DisplayId>
     </Object>
-    <Object type="0x5866" id="Ring of the Seven Seas">
+    <Object type="0x586a" id="Ring of the Seven Seas">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22824,7 +21874,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>6</FameBonus>
         <DisplayId>Ring of the Seven Seas</DisplayId>
     </Object>
-    <Object type="0x5864" id="Dagger of Gilded Pride">
+    <Object type="0x586b" id="Dagger of Gilded Pride">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22853,7 +21903,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Godly />
         <DisplayId>Dagger of Gilded Pride</DisplayId>
     </Object>
-    <Object type="0x5867" id="50k Fame">
+    <Object type="0x586c" id="50k Fame">
         <Class>Equipment</Class>
         <Item />
         <SlotType>10</SlotType>
@@ -22867,7 +21917,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Sound>spell/fire_nova</Sound>
         <DisplayId>50k Fame</DisplayId>
     </Object>
-    <Object type="0x5868" id="Shade of the Phoenix">
+    <Object type="0x586d" id="Shade of the Phoenix">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22896,7 +21946,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <OldSound>arrowShoot</OldSound>
         <DisplayId>Shade of the Phoenix</DisplayId>
     </Object>
-    <Object type="0x5870" id="Blade of the Angel's Honor">
+    <Object type="0x5874" id="Blade of the Angel's Honor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22926,7 +21976,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <GodSlayer />
         <DisplayId>Blade of the Angel's Honor</DisplayId>
     </Object>
-    <Object type="0x5872" id="Poseidon's Gauntlet">
+    <Object type="0x5876" id="Poseidon's Gauntlet">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22946,7 +21996,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>10</FameBonus>
         <DisplayId>Poseidon's Gauntlet</DisplayId>
     </Object>
-    <Object type="0x5874" id="Alikyr the Alien King's Lance">
+    <Object type="0x5879" id="Alikyr the Alien King's Lance">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -22977,7 +22027,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>5</FameBonus>
         <DisplayId>Alikyr the Alien King's Lance</DisplayId>
     </Object>
-    <Object type="0x5876" id="Wand of Parallel Distortion">
+    <Object type="0x587a" id="Wand of Parallel Distortion">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -23008,7 +22058,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>5</FameBonus>
         <DisplayId>Wand of Parallel Distortion</DisplayId>
     </Object>
-    <Object type="0x5878" id="Godly Remnant">
+    <Object type="0x587b" id="Godly Remnant">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -23024,7 +22074,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Godly />
         <DisplayId>Godly Remnant</DisplayId>
     </Object>
-    <Object type="0x586a" id="Shield of Infinity">
+    <Object type="0x586e" id="Shield of Infinity">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -23056,7 +22106,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>7</NumProjectiles>
         <DisplayId>Shield of Infinity</DisplayId>
     </Object>
-    <Object type="0x586b" id="Spell of the Rah'">
+    <Object type="0x586f" id="Spell of the Rah'">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -23084,7 +22134,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Soulbound />
         <DisplayId>Spell of the Rah'</DisplayId>
     </Object>
-    <Object type="0x586c" id="Godly Crown">
+    <Object type="0x587c" id="Godly Crown">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -23166,7 +22216,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <White />
         <DisplayId>Spirit of the Past</DisplayId>
     </Object>
-    <Object type="0x7265" id="Revenant Claw">
+    <Object type="0x7266" id="Revenant Claw">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -23701,7 +22751,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate effect="Weak" duration="2" range="2.5" color="0xff0080" target="enemy" center="player">GenericActivate</Activate>
         <Cooldown>6</Cooldown>
     </Object>
-    <Object type="0x7400" id="Ring of Insanity">
+    <Object type="0x7401" id="Ring of Insanity">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -24092,7 +23142,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate effect="Curse" duration="4.5" range="4" color="0x808080" target="enemy" center="mouse" visualEffect="8" useWisMod="true">GenericActivate</Activate>
         <DisplayId>Coconut Orb</DisplayId>
     </Object>
-    <Object type="0x7872" id="Never Ending Nightmare">
+    <Object type="0x7873" id="Never Ending Nightmare">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -24122,7 +23172,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <DisplayId>Never Ending Nightmare</DisplayId>
         <Legendary />
     </Object>
-    <Object type="0x7873" id="Subspace Slasher">
+    <Object type="0x7875" id="Subspace Slasher">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -24152,7 +23202,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <NumProjectiles>2</NumProjectiles>
         <DisplayId>Subspace Slasher</DisplayId>
     </Object>
-    <Object type="0x7874" id="Bottled Mercury">
+    <Object type="0x7876" id="Bottled Mercury">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -24176,7 +23226,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>8</FameBonus>
         <Sacred id="Open Mind" desc="1" />
     </Object>
-    <Object type="0x7875" id="Cry of the Lost Galaxies">
+    <Object type="0x7877" id="Cry of the Lost Galaxies">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -24208,7 +23258,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>6</FameBonus>
         <DisplayId>Cry of the Lost Galaxies</DisplayId>
     </Object>
-    <Object type="0x7876" id="Nanotech Charm">
+    <Object type="0x7878" id="Nanotech Charm">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -24228,7 +23278,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate stat="2" amount="25" duration="3" noStack="true" useWisMod="false">StatBoostSelf</Activate>
         <Cooldown>4.5</Cooldown>
     </Object>
-    <Object type="0x7877" id="Quasar Hide">
+    <Object type="0x7879" id="Quasar Hide">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -24247,7 +23297,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>6</BagType>
         <FameBonus>7</FameBonus>
     </Object>
-    <Object type="0x7878" id="Cosmic Platemail">
+    <Object type="0x787a" id="Cosmic Platemail">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -24267,7 +23317,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>7</FameBonus>
         <DisplayId>Cosmic Platemail</DisplayId>
     </Object>
-    <Object type="0x7879" id="Contaminated Ring">
+    <Object type="0x787b" id="Contaminated Ring">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -24285,7 +23335,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>7</FameBonus>
         <DisplayId>Contaminated Ring</DisplayId>
     </Object>
-    <Object type="0x7883" id="Sandstone Armor">
+    <Object type="0x7884" id="Sandstone Armor">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -24307,7 +23357,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>8</FameBonus>
         <Sacred id="Runic Offense" desc="0" />
     </Object>
-    <Object type="0x7884" id="Strike of Calamity" setType="0x7889" setName="Catastrophic Dream Set">
+    <Object type="0x7885" id="Strike of Calamity" setType="0x7889" setName="Catastrophic Dream Set">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -24340,7 +23390,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>8</FameBonus>
         <DisplayId>Strike of Calamity</DisplayId>
     </Object>
-    <Object type="0x7885" id="The Grand Grimoire" setType="0x7889" setName="Catastrophic Dream Set">
+    <Object type="0x7886" id="The Grand Grimoire" setType="0x7889" setName="Catastrophic Dream Set">
         <DisplayId>The Grand Grimoire</DisplayId>
         <Description>Known to be one of the darkest magical books around, only the most unholy of souls can handle the book’s power.</Description>
         <ExtraTooltipData>
@@ -24374,7 +23424,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate effect="Healing" duration="5" range="3" useWisMod="true">ConditionEffectAura</Activate>
         <Activate range="4" amount="300" useWisMod="true">HealNova</Activate>
     </Object>
-    <Object type="0x7886" id="Robe of the Celestial Grace" setType="0x7889" setName="Catastrophic Dream Set">
+    <Object type="0x7887" id="Robe of the Celestial Grace" setType="0x7889" setName="Catastrophic Dream Set">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -24395,7 +23445,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <FameBonus>8</FameBonus>
         <DisplayId>Robe of the Celestial Grace</DisplayId>
     </Object>
-    <Object type="0x7887" id="Ring of Dwelling Nightmares" setType="0x7889" setName="Catastrophic Dream Set">
+    <Object type="0x7889" id="Ring of Dwelling Nightmares" setType="0x7889" setName="Catastrophic Dream Set">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -24535,7 +23585,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>6</BagType>
         <DisplayId>The Cornucopia</DisplayId>
     </Object>
-    <Object type="0x7919" id="Trap of Darkened Souls">
+    <Object type="0x791b" id="Trap of Darkened Souls">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -24559,7 +23609,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <DisplayId>Trap of Darkened Souls</DisplayId>
     </Object>
-    <Object type="0x791a" id="Hide of Horrors">
+    <Object type="0x791c" id="Hide of Horrors">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -24577,7 +23627,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Legendary />
         <FameBonus>7</FameBonus>
     </Object>
-    <Object type="0x791c" id="Soul of the Titan">
+    <Object type="0x791d" id="Soul of the Titan">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -24623,7 +23673,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <Activate stat="6" amount="50" duration="6" noStack="true" useWisMod="false">StatBoostSelf</Activate>
         <Cooldown>9</Cooldown>
     </Object>
-    <Object type="0x7925" id="Drannol's Redemption">
+    <Object type="0x7926" id="Drannol's Redemption">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25536,7 +24586,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Black_Cat_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Grey Cat Egg">
+    <Object type="0x1553" id="Grey Cat Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25552,7 +24602,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Grey_Cat_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Orange Cat Egg">
+    <Object type="0x1554" id="Orange Cat Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25568,7 +24618,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Orange_Cat_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Tan Cat Egg">
+    <Object type="0x1555" id="Tan Cat Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25584,7 +24634,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Tan_Cat_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Yellow Cat Egg">
+    <Object type="0x1556" id="Yellow Cat Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25600,7 +24650,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Yellow_Cat_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Brown Pup Egg">
+    <Object type="0x1557" id="Brown Pup Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25616,7 +24666,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Brown_Pup_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Grey Pup Egg">
+    <Object type="0x1558" id="Grey Pup Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25632,7 +24682,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Grey_Pup_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Golden Pup Egg">
+    <Object type="0x1559" id="Golden Pup Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25648,7 +24698,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Golden_Pup_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="White Cat Egg">
+    <Object type="0x155a" id="White Cat Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25664,7 +24714,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.White_Cat_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Blue Snail Egg">
+    <Object type="0x155f" id="Blue Snail Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25680,7 +24730,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Blue_Snail_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Grey Wolf Egg">
+    <Object type="0x1564" id="Grey Wolf Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25696,7 +24746,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Grey_Wolf_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Brown Fox Egg">
+    <Object type="0x156a" id="Brown Fox Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25712,7 +24762,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Brown_Fox_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Green Frog Egg">
+    <Object type="0x156b" id="Green Frog Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25728,7 +24778,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Green_Frog_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Lion Egg">
+    <Object type="0x156c" id="Lion Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25745,7 +24795,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Lion_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Penguin Egg">
+    <Object type="0x156d" id="Penguin Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25761,7 +24811,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Penguin_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Sheepdog Egg">
+    <Object type="0x156e" id="Sheepdog Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25777,7 +24827,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Sheepdog_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Panda Egg">
+    <Object type="0x156f" id="Panda Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25794,7 +24844,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Panda_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Purple Snail Egg">
+    <Object type="0x157a" id="Purple Snail Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25810,7 +24860,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Purple_Snail_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Black Wolf Egg">
+    <Object type="0x157b" id="Black Wolf Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25827,7 +24877,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Black_Wolf_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Grey Fox Egg">
+    <Object type="0x157c" id="Grey Fox Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25843,7 +24893,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Grey_Fox_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Purple Frog Egg">
+    <Object type="0x157d" id="Purple Frog Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25859,7 +24909,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Purple_Frog_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="White Lion Egg">
+    <Object type="0x157e" id="White Lion Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25876,7 +24926,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.White_Lion_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Green Penguin Egg">
+    <Object type="0x157f" id="Green Penguin Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25892,7 +24942,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Green_Penguin_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Golden Sheepdog Egg">
+    <Object type="0x1585" id="Golden Sheepdog Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25909,7 +24959,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Golden_Sheepdog_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Blue Parrot Egg">
+    <Object type="0x1586" id="Blue Parrot Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25925,7 +24975,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Blue_Parrot_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Chick Egg">
+    <Object type="0x1588" id="Chick Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25941,7 +24991,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Chick_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Pig Egg">
+    <Object type="0x158b" id="Pig Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25957,7 +25007,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Pig_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Sea Slurp Egg">
+    <Object type="0x158c" id="Sea Slurp Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25973,7 +25023,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Sea_Slurp_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Squirrel Egg">
+    <Object type="0x158d" id="Squirrel Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -25989,7 +25039,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Squirrel_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Bat Egg">
+    <Object type="0x158e" id="Bat Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26005,7 +25055,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Bat_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Lil' Ghost Egg">
+    <Object type="0x158f" id="Lil' Ghost Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26021,7 +25071,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.LilAPOS_Ghost_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Leprechaun Egg">
+    <Object type="0x159a" id="Leprechaun Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26038,7 +25088,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Leprechaun_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Lil' Oryx Egg">
+    <Object type="0x159b" id="Lil' Oryx Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26055,7 +25105,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.LilAPOS_Oryx_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Toucan Egg">
+    <Object type="0x159c" id="Toucan Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26072,7 +25122,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Toucan_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Skunk Egg">
+    <Object type="0x159d" id="Skunk Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26089,7 +25139,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Skunk_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Mallard Egg">
+    <Object type="0x159e" id="Mallard Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26106,7 +25156,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Mallard_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Duck Egg">
+    <Object type="0x159f" id="Duck Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26122,7 +25172,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Duck_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Eagle Egg">
+    <Object type="0x15a0" id="Eagle Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26139,7 +25189,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Eagle_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Turtle Egg">
+    <Object type="0x15a1" id="Turtle Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26155,7 +25205,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Turtle_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Jelly Egg">
+    <Object type="0x15a2" id="Jelly Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26172,7 +25222,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Jelly_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Bee Egg">
+    <Object type="0x15a3" id="Bee Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26189,7 +25239,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Bee_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Raven Egg">
+    <Object type="0x15a4" id="Raven Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26206,7 +25256,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Raven_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Grape Penguin Egg">
+    <Object type="0x15a5" id="Grape Penguin Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26222,7 +25272,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Grape_Penguin_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Grass Penguin Egg">
+    <Object type="0x15a6" id="Grass Penguin Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26238,7 +25288,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Grass_Penguin_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Elf Egg">
+    <Object type="0x15a7" id="Elf Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26255,7 +25305,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Elf_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Crab Egg">
+    <Object type="0x15a8" id="Crab Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26271,7 +25321,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Crab_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Hamster Egg">
+    <Object type="0x15a9" id="Hamster Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26287,7 +25337,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Hamster_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Dino Egg">
+    <Object type="0x15ab" id="Dino Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26303,7 +25353,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Dino_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Elephant Egg">
+    <Object type="0x15ac" id="Elephant Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26319,7 +25369,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Elephant_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Demon Frog Egg">
+    <Object type="0x15ad" id="Demon Frog Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26336,7 +25386,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Demon_Frog_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Gargoyle Egg">
+    <Object type="0x15ae" id="Gargoyle Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26353,7 +25403,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Gargoyle_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Gummy Bear Egg">
+    <Object type="0x15af" id="Gummy Bear Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26370,7 +25420,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Gummy_Bear_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Dragonfly Egg">
+    <Object type="0x15b0" id="Dragonfly Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26386,7 +25436,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Dragonfly_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Lil' Cyclops Egg">
+    <Object type="0x15b1" id="Lil' Cyclops Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26403,7 +25453,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.LilAPOS_Cyclops_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Snowy Owl Egg">
+    <Object type="0x15b2" id="Snowy Owl Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26420,7 +25470,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Snowy_Owl_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Turkey Egg">
+    <Object type="0x15b3" id="Turkey Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26437,7 +25487,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Turkey_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Baby Egg">
+    <Object type="0x15b4" id="Baby Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26453,206 +25503,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Baby_Egg}</DisplayId>
     </Object>
-    <Object type="0x1548" id="Baby Dragon Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x52f</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Description>{permapets.A_pet_egg._Use_it_in_the_Pet_Yard_located_in_your_Vault}</Description>
-        <PetFamily>Reptile</PetFamily>
-        <PetSkin>Baby Dragon Skin</PetSkin>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-        <DisplayId>{permapets.Baby_Dragon_Egg}</DisplayId>
-    </Object>
-    <Object type="0x1548" id="Karate Penguin Red Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x530</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Description>{permapets.A_pet_egg._Use_it_in_the_Pet_Yard_located_in_your_Vault}</Description>
-        <PetFamily>Penguin</PetFamily>
-        <PetSkin>Karate Red Skin</PetSkin>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-        <DisplayId>{permapets.Karate_Penguin_Red_Egg}</DisplayId>
-    </Object>
-    <Object type="0x1548" id="Karate Penguin Blue Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x531</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Description>{permapets.A_pet_egg._Use_it_in_the_Pet_Yard_located_in_your_Vault}</Description>
-        <PetFamily>Penguin</PetFamily>
-        <PetSkin>Karate Blue Skin</PetSkin>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-        <DisplayId>{permapets.Karate_Penguin_Blue_Egg}</DisplayId>
-    </Object>
-    <Object type="0x1548" id="Karate Penguin Yellow Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x532</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Description>{permapets.A_pet_egg._Use_it_in_the_Pet_Yard_located_in_your_Vault}</Description>
-        <PetFamily>Penguin</PetFamily>
-        <PetSkin>Karate Yellow Skin</PetSkin>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-        <DisplayId>{permapets.Karate_Penguin_Yellow_Egg}</DisplayId>
-    </Object>
-    <Object type="0x1548" id="Karate Penguin Purple Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x533</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Description>{permapets.A_pet_egg._Use_it_in_the_Pet_Yard_located_in_your_Vault}</Description>
-        <PetFamily>Penguin</PetFamily>
-        <PetSkin>Karate Purple Skin</PetSkin>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-        <DisplayId>{permapets.Karate_Penguin_Purple_Egg}</DisplayId>
-    </Object>
-    <Object type="0x1548" id="Robobuddy Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x534</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Description>{permapets.A_pet_egg._Use_it_in_the_Pet_Yard_located_in_your_Vault}</Description>
-        <PetFamily>Automaton</PetFamily>
-        <PetSkin>Robobuddy Skin</PetSkin>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-        <DisplayId>{permapets.Robobuddy_Egg}</DisplayId>
-    </Object>
-    <Object type="0x1548" id="Snowman Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x535</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Description>{permapets.A_pet_egg._Use_it_in_the_Pet_Yard_located_in_your_Vault}</Description>
-        <PetFamily>? ? ? ?</PetFamily>
-        <PetSkin>Snowman Skin</PetSkin>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-        <DisplayId>{permapets.Snowman_Egg}</DisplayId>
-    </Object>
-    <Object type="0x1548" id="Black Ant Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x536</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Description>{permapets.A_pet_egg._Use_it_in_the_Pet_Yard_located_in_your_Vault}</Description>
-        <PetId>Black Ant</PetId>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-        <DisplayId>{permapets.Black_Ant_Egg}</DisplayId>
-    </Object>
-    <Object type="0x1548" id="Blue Ant Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x537</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Description>{permapets.A_pet_egg._Use_it_in_the_Pet_Yard_located_in_your_Vault}</Description>
-        <PetId>Blue Ant</PetId>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-        <DisplayId>{permapets.Blue_Ant_Egg}</DisplayId>
-    </Object>
-    <Object type="0x1548" id="Green Ant Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x538</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Description>{permapets.A_pet_egg._Use_it_in_the_Pet_Yard_located_in_your_Vault}</Description>
-        <PetId>Green Ant</PetId>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-        <DisplayId>{permapets.Green_Ant_Egg}</DisplayId>
-    </Object>
-    <Object type="0x1548" id="Red Ant Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x539</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Description>{permapets.A_pet_egg._Use_it_in_the_Pet_Yard_located_in_your_Vault}</Description>
-        <PetId>Red Ant</PetId>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-        <DisplayId>{permapets.Red_Ant_Egg}</DisplayId>
-    </Object>
-    <Object type="0x1548" id="Purple Ant Egg">
-        <Class>Equipment</Class>
-        <Item />
-        <Texture>
-            <File>UTRImport</File>
-            <Index>0x53a</Index>
-        </Texture>
-        <SlotType>26</SlotType>
-        <Description>{permapets.A_pet_egg._Use_it_in_the_Pet_Yard_located_in_your_Vault}</Description>
-        <PetId>Purple Ant</PetId>
-        <Activate>CreatePet</Activate>
-        <Consumable />
-        <Soulbound />
-        <BagType>3</BagType>
-        <DisplayId>{permapets.Purple_Ant_Egg}</DisplayId>
-    </Object>
-    <Object type="0x1553" id="Peppermint Snail Egg">
+    <Object type="0x15b5" id="Peppermint Snail Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26669,7 +25520,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Peppermint_Snail_Egg}</DisplayId>
     </Object>
-    <Object type="0x1553" id="Relief Oriole Egg">
+    <Object type="0x15b6" id="Relief Oriole Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26685,7 +25536,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Relief_Oriole_Egg}</DisplayId>
     </Object>
-    <Object type="0x1553" id="Relief Goldfinch Egg">
+    <Object type="0x15b7" id="Relief Goldfinch Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26701,7 +25552,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Relief_Goldfinch_Egg}</DisplayId>
     </Object>
-    <Object type="0x1553" id="Relief Bluebird Egg">
+    <Object type="0x15b8" id="Relief Bluebird Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26717,7 +25568,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Relief_Bluebird_Egg}</DisplayId>
     </Object>
-    <Object type="0x1553" id="Relief Cardinal Egg">
+    <Object type="0x15b9" id="Relief Cardinal Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26733,7 +25584,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Relief_Cardinal_Egg}</DisplayId>
     </Object>
-    <Object type="0x1553" id="Werewolf Cub Egg">
+    <Object type="0x15ba" id="Werewolf Cub Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26750,7 +25601,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Werewolf_Cub_Egg}</DisplayId>
     </Object>
-    <Object type="0x1553" id="Tomb Snake Egg">
+    <Object type="0x15bb" id="Tomb Snake Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26766,7 +25617,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Tomb_Snake_Egg}</DisplayId>
     </Object>
-    <Object type="0x1553" id="Ninja Cat Egg">
+    <Object type="0x15bc" id="Ninja Cat Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26783,7 +25634,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Ninja_Cat_Egg}</DisplayId>
     </Object>
-    <Object type="0x1553" id="Praying Mantis Egg">
+    <Object type="0x15bd" id="Praying Mantis Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26800,7 +25651,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Praying_Mantis_Egg}</DisplayId>
     </Object>
-    <Object type="0x1553" id="Dreidel Egg">
+    <Object type="0x15be" id="Dreidel Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26816,7 +25667,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Dreidel_Egg}</DisplayId>
     </Object>
-    <Object type="0x1553" id="Reindeer Egg">
+    <Object type="0x15bf" id="Reindeer Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26833,7 +25684,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Reindeer_Egg}</DisplayId>
     </Object>
-    <Object type="0x1555" id="Koala Egg">
+    <Object type="0x15c0" id="Koala Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26849,7 +25700,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Koala_Egg}</DisplayId>
     </Object>
-    <Object type="0x1556" id="USA Eagle Egg">
+    <Object type="0x15c1" id="USA Eagle Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26866,7 +25717,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.USA_Eagle_Egg}</DisplayId>
     </Object>
-    <Object type="0x1557" id="Spirit Egg">
+    <Object type="0x15c2" id="Spirit Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26882,7 +25733,7 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Spirit_Egg}</DisplayId>
     </Object>
-    <Object type="0x1558" id="Sprite Star Egg">
+    <Object type="0x15c3" id="Sprite Star Egg">
         <Class>Equipment</Class>
         <Item />
         <Texture>
@@ -26898,4 +25749,6 @@ A diamondwire bow used by guardians of the unseen ethereal shrines.
         <BagType>3</BagType>
         <DisplayId>{permapets.Sprite_Star_Egg}</DisplayId>
     </Object>
+
+
 </Objects>

@@ -364,6 +364,8 @@ namespace RotMG.Game.Logic.Database
                       new TierLoot(tier: 5, type: LootType.Ability, chance: 0.0625f),
                       new TierLoot(tier: 5, type: LootType.Ring, chance: 0.25f),
                       new ItemLoot("Realm Equipment Crystal", 0.02f),
+                      new ItemLoot("(Green) UT Egg", 0.03f, 0.01f),
+                      new ItemLoot("(Blue) RT Egg", 0.005f, 0.01f),
                       new ItemLoot(item: "Potion of Dexterity", chance: 0.3f),
                       new ItemLoot(item: "Potion of Dexterity", chance: 1f),
                       new ItemLoot(item: "Potion of Dexterity", chance: 1f),

@@ -206,7 +206,7 @@ namespace RotMG.Game.Logic.Database
                     ),
 
                 new Threshold(0.001f,
-                    new ItemLoot("Amulet of Backwards Luck", 0.0055f),
+                    new ItemLoot("Amulet of Backwards Luck", 0.0008f),
                     new ItemLoot("Chain Claw", 0.01f),
                     new ItemLoot("Realm Equipment Crystal", 0.03f),
                     new ItemLoot("Potion of Defense", 1f),

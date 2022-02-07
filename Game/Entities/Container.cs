@@ -37,7 +37,14 @@ namespace RotMG.Game.Entities
                 case 5: return WhiteBag;
                 case 6: return YellowBag;
             }
-            throw new Exception("Invalid bag type");
+#if DEBUG
+            throw new Exception("Not valid bag type");
+#endif
+            if(bagType > 6)
+            {
+                return YellowBag;
+            }
+            return BrownBag;
         }
         
         private int _ownerId = -1;

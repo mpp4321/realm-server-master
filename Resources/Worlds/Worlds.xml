@@ -171,6 +171,7 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 		<Portals>0x0759</Portals>
+		<AllowTeleports>true</AllowTeleports>
 	</World>
 	<World name="TombOfTheAncients" display="Tomb of the Ancients">
 		<Maps>TOA/0.jm</Maps>
@@ -205,5 +206,18 @@
 		<BlockSight>1</BlockSight>
 		<AllowTeleport>true</AllowTeleport>
 		<Portals>0x0890</Portals>
+	</World>
+	<World name="ManorImmortal" display="Manor of the Immortal">
+		<Maps>Manor/0.wmap</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+		<Portals>0x0739</Portals>
+		<AllowTeleport>true</AllowTeleport>
+	</World>
+	<World name="ButcherHouse" display="Butcher's House">
+		<Maps>ButcherHouse/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+		<Portals>0x075a</Portals>
 	</World>
 </Worlds>

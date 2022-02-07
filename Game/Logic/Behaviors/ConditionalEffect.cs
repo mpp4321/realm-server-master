@@ -16,7 +16,7 @@ namespace RotMG.Game.Logic.Behaviors
         {
             this.effect = effect;
             this.perm = perm;
-            this.duration = duration; 
+            this.duration = duration;
         }
 
         public override void Enter(Entity host)

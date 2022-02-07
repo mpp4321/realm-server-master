@@ -1237,6 +1237,7 @@ namespace RotMG.Game.Logic.Database
                 )
             );
 
+            /*
             db.Init("Destructo Slime",
                 new State("base",
                     new Wander(0.4f),
@@ -1259,7 +1260,7 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(7, LootType.Weapon, 1.0f, r: new LootDef.RarityModifiedData(1.0f, 2, true))
                 )
             );
-
+            */
 
         }
     }

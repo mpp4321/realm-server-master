@@ -40,6 +40,7 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("SpriteRing", new SpriteRing());
             Registry.Add("GLizard", new TheGreatLizard());
             Registry.Add("RulerDominion", new RulerDominion());
+            Registry.Add("JackpotItem", new JackpotItem());
 
             //Set effs
             Registry.Add("Phylac", new Phylac());

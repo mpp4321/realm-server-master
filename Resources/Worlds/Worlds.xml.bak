@@ -48,8 +48,14 @@
 		<Maps>OryxChamber/0.jm</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
-		<Portals></Portals>
+		<Portals>0x0d7b</Portals>
 		<AllowTeleport>true</AllowTeleport>
+	</World>
+	<World name="WineCellar" display="Wine Cellar">
+		<Maps>WineCellar/0.wmap</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+		<Portals>0x0757</Portals>
 	</World>
 	<World name="Pirate Cave" display="Pirate Cave">
 		<Maps>PirateCave/0.jm</Maps>
@@ -60,6 +66,8 @@
 	</World>
 	<World name="Undead Lair" display="Undead Lair">
 		<Maps>UDL/UDL1.jm;UDL/UDL2.jm;UDL/UDL3.jm</Maps>
+		<Portals>0x71a</Portals>
+		<AllowTeleport>true</AllowTeleport>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 	</World>
@@ -77,7 +85,8 @@
 		<Portals>0x0754</Portals>
 	</World>
 	<World name="Toxic Sewer" display="Toxic Sewer">
-		<Maps>ToxicSew/0.jm</Maps>
+		<Maps>ToxicSew/1.jm</Maps>
+		<Portals>0x0758</Portals>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 	</World>
@@ -161,6 +170,8 @@
 		<Maps>CyclopsChambers/0.jm</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
+		<Portals>0x0759</Portals>
+		<AllowTeleports>true</AllowTeleports>
 	</World>
 	<World name="TombOfTheAncients" display="Tomb of the Ancients">
 		<Maps>TOA/0.jm</Maps>
@@ -195,5 +206,12 @@
 		<BlockSight>1</BlockSight>
 		<AllowTeleport>true</AllowTeleport>
 		<Portals>0x0890</Portals>
+	</World>
+	<World name="ManorImmortal" display="Manor of the Immortal">
+		<Maps>Manor/0.wmap</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+		<Portals>0x0d7b</Portals>
+		<AllowTeleport>true</AllowTeleport>
 	</World>
 </Worlds>

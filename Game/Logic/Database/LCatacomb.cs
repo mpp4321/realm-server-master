@@ -30,6 +30,7 @@ namespace RotMG.Game.Logic.Database
                     new State("post jump",
                         new Shoot(5, 3, 30, 0, cooldown: 1000),
                         new Shoot(5, 2, 15, 0, cooldown: 2000),
+                        new HealSelf(cooldown: 500, 1000),
                         new Grenade(0, 0, 5, 0f, 1000, effect: ConditionEffectIndex.Cursed, effectDuration: 1000, color: 0xff11ff11),
                         new ConditionalEffect(ConditionEffectIndex.Armored),
                         new TimedTransition("jumping", 5000)
@@ -39,7 +40,9 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Life", min: 2),
                     new ItemLoot("Potion of Vitality", min: 2),
                     new ItemLoot("Potion of Attack", min: 2),
-                    new TierLoot(12, LootType.Armor, 0.1f),
+                    new TierLoot(12, LootType.Armor, 0.1f, r: new LootDef.RarityModifiedData(1.0f, 1, alwaysRare: true)),
+                    new TierLoot(12, LootType.Weapon, 0.1f, r: new LootDef.RarityModifiedData(1.0f, 1, alwaysRare: true)),
+                    new TierLoot(5, LootType.Ability, 0.1f, r: new LootDef.RarityModifiedData(1.0f, 1, alwaysRare: true)),
                     new ItemLoot("Bow of Life Energy", 0.01f),
                     new ItemLoot("Reinforced Ribcage", 0.01f)
                 )
@@ -52,7 +55,7 @@ namespace RotMG.Game.Logic.Database
                         new EntitiesNotExistsTransition(99, "spawnndie", "Zombie Hulk")
                     ),
                     new State("spawnndie",
-                        new Spawn("Undead Giant Hand", maxChildren: 1),
+                        new Spawn("Undead Giant Hand", maxChildren: 1, initialSpawn: 1.0, givesNoXp: false),
                         new Suicide()
                     )
                 );

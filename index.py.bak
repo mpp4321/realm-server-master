@@ -21,8 +21,8 @@ for file in os.listdir("./Resources/GameData"):
             localSet.add(hexToDec)
     files.append((file, localSet))
 
-def add_valid_id(_type):
-    hashSet.add(_type)
+def add_valid_id(id):
+    hashSet.add(id)
 
 def is_string_id(stri):
     if stri in stringHashSet:

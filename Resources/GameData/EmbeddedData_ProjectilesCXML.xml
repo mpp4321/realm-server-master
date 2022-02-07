@@ -2994,11 +2994,11 @@
   </Object>
   <Object type="0x2183" id="Cyclops Hammershot">
     <Class>Projectile</Class>
-    <Texture>
-      <File>lofiProjs</File>
-      <Index>0x7d</Index>
-    </Texture>
-    <AngleCorrection>1</AngleCorrection>
+	<Texture>
+		<File>lofiObj6</File>
+		<Index>0xd1</Index>
+	</Texture>
+    <Rotation>50</Rotation>
   </Object>
   <Object type="0x2184" id="T0 Bow">
     <Class>Projectile</Class>

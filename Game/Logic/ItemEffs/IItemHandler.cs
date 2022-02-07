@@ -9,6 +9,8 @@ namespace RotMG.Game.Logic.ItemEffs
     public interface IItemHandler
     {
 
+        public virtual void OnItemEquip(Player p, int slot) { }
+
         public virtual void OnEnemyHit(Entity hit, Projectile by, ref int damageDone) { }
 
         public virtual void OnProjectileShoot(Player shotFrom, ref Projectile projectile) { }

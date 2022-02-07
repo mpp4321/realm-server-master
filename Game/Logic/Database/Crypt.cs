@@ -276,6 +276,8 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Defense", 1f),
                     new ItemLoot("Potion of Mana", 1f),
                     new ItemLoot("Realm Equipment Crystal", 0.05f),
+                    new ItemLoot("(Green) UT Egg", 0.03f, 0.01f),
+                    new ItemLoot("(Blue) RT Egg", 0.005f, 0.01f),
                     new ItemLoot("Twilight Truncheon", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
                     new ItemLoot("Midnight Malice", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
                     new ItemLoot("Reaper's Regalia", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),

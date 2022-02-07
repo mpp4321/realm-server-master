@@ -910,9 +910,11 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Large Crossbox Cloth", 0.1f),
                     new ItemLoot("Small Crossbox Cloth", 0.1f),
                     new ItemLoot("Large Heavy Chainmail Cloth", 0.1f),
-                    new ItemLoot("Book of Shaitan", 0.005f),
-                    new ItemLoot("Piercing Fire", 0.005f),
-                    new ItemLoot("Spell of Kinetic Projection", 0.005f)
+                    new ItemLoot("Book of Shaitan", 0.01f),
+                    new ItemLoot("Piercing Fire", 0.01f),
+                    new ItemLoot("Master Sword", 0.01f),
+                    new ItemLoot("Hylian Shield", 0.01f),
+                    new ItemLoot("Spell of Kinetic Projection", 0.01f)
                     //new ItemLoot("50 Credits", 0.01f),
                     //new ItemLoot("Potion of Critical Chance", 0.02f),
                     //new ItemLoot("Potion of Critical Damage", 0.02f)

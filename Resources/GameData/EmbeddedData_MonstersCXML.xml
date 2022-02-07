@@ -660,7 +660,7 @@
 		<HitSound>monster/pirates_hit</HitSound>
 		<DeathSound>monster/pirates_death</DeathSound>
 		<Size>150</Size>
-		<MaxHitPoints>20000</MaxHitPoints>
+		<MaxHitPoints>2000</MaxHitPoints>
 		<Defense>35</Defense>
 		<Projectile id="0">
 			<ObjectId>Blade</ObjectId>

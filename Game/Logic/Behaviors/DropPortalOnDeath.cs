@@ -1,4 +1,5 @@
 ﻿using RotMG.Common;
+using RotMG.Utils;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,8 +13,9 @@ namespace RotMG.Game.Logic.Behaviors
         private readonly ushort _target;
         private readonly float _probability;
         private readonly int? _timeout;
+        private readonly float _dist = 0.0f;
 
-        public DropPortalOnDeath(string target, float probability = 1, int timeout = 30)
+        public DropPortalOnDeath(string target, float probability = 1, int timeout = 30, float dist=0.0f)
         {
 
             if (Resources.Id2Object.ContainsKey(target))
@@ -22,6 +24,7 @@ namespace RotMG.Game.Logic.Behaviors
             }
             else _target = 0x0717;
 
+            _dist = dist;
             _probability = probability;
             _timeout = timeout; // a value of 0 means never timeout, 
             // null means use xml timeout, 
@@ -36,7 +39,8 @@ namespace RotMG.Game.Logic.Behaviors
             {
                 var timeoutTime = _timeout.Value;
                 var entity = Entity.Resolve(_target);
-                host.Parent.AddEntity(entity, host.Position);
+                var randomDirection = new Vector2(MathUtils.NextAngle()) * _dist;
+                host.Parent.AddEntity(entity, host.Position + randomDirection);
 
                 if (timeoutTime != 0)
                     Manager.AddTimedAction(timeoutTime * 1000, () =>

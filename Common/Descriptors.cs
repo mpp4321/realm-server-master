@@ -1223,11 +1223,13 @@ namespace RotMG.Common
     {
         public readonly ConditionEffectIndex Effect;
         public readonly int DurationMS;
+        public readonly float Probability;
 
-        public ConditionEffectDesc(ConditionEffectIndex effect, int durationMs)
+        public ConditionEffectDesc(ConditionEffectIndex effect, int durationMs, float prob=1.0f)
         {
             Effect = effect;
             DurationMS = durationMs;
+            Probability = 1.0f;
         }
 
         public ConditionEffectDesc(XElement e)
@@ -1235,6 +1237,7 @@ namespace RotMG.Common
             //Effect = (ConditionEffectIndex)Enum.Parse(typeof(ConditionEffectIndex), e.Value.Replace(" ", ""));
             Effect = ParseUtils.ParseConditionEffect(e, ".");
             DurationMS = (int)(e.ParseFloat("@duration") * 1000);
+            Probability = e.ParseFloat("@probability", 1.0f);
         }
     }
 

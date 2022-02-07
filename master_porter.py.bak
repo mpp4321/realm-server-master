@@ -82,10 +82,8 @@ def do_texture_block(block, imagesBySize, size, dir_of_pngs):
     obj_txtfile = obj_txt.find("File")
     if obj_txtfile == None:
         return
-        
     if obj_txtfile.text == "invisible":
         return
-        
     imageArr = imagesBySize[size]
     file_name = get_img_name(obj_txtfile.text)
     img_path = os.path.join(dir_of_pngs, file_name)

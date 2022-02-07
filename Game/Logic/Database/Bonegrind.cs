@@ -1,4 +1,5 @@
-﻿using RotMG.Game.Logic.Transitions;
+﻿using RotMG.Game.Logic.Loots;
+using RotMG.Game.Logic.Transitions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,7 +13,7 @@ namespace RotMG.Game.Logic.Behaviors
             db.Init("Butcher", new State("chase",
                     new Charge(1.2f, 20),
                     new Taunt(0.3f, 15000, "Come here you!"),
-                    new Shoot(10, 2, 30, cooldown: 300)
+                    new Shoot(10, 2, 30, cooldown: 600, cooldownVariance: 100)
                 ));
 
             db.Init("Bonegrind the Butcher",
@@ -24,6 +25,7 @@ namespace RotMG.Game.Logic.Behaviors
                     new Taunt(1.0f, 0, "What am I doing here?"),
                     new Taunt(1.0f, 0, "This isn't the tutorial..."),
                     new Taunt(1.0f, 0, "Welp, time to slay some noobs!"),
+                    new ConditionalEffect(Common.ConditionEffectIndex.Invincible, false, 5000),
                     new TimedTransition("fight", 5000)
                 ),
                 new State("fight", 
@@ -56,8 +58,19 @@ namespace RotMG.Game.Logic.Behaviors
                 ),
                 new State("fight2", 
                     new Charge(1.2f, 30),
-                    new Shoot(99, 8, 0, fixedAngle: 0, rotateAngle: 15, cooldown: 200),
+                    new Shoot(99, 8, 45, fixedAngle: 0, rotateAngle: 15, cooldown: 200),
                     new Shoot(10, 1, 0, 1, predictive: 0.2f, cooldown: 200, cooldownVariance: 150)
+                ),
+                new Threshold(0.01f, 
+                    new ItemLoot("Potion of Attack", 1.0f, min: 3),
+                    new ItemLoot("Backpack", 0.01f),
+                    new ItemLoot("Magic Mushroom", 0.5f),
+                    new ItemLoot("Bone Dagger", 0.05f),
+                    new ItemLoot("Spirit Dagger", 0.01f),
+                    new ItemLoot("Spectral Cloth Armor", 0.01f),
+                    new ItemLoot("Realm Equipment Crystal", 0.05f),
+                    new ItemLoot("(Green) UT Egg", 0.03f, 0.01f),
+                    new ItemLoot("(Blue) RT Egg", 0.005f, 0.01f)
                 )
            );
         }
