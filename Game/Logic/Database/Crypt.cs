@@ -76,6 +76,7 @@ namespace RotMG.Game.Logic.Database
                         new TossObject("Arena Spider", 6, 360 / 6 * 6, 100000),
                         new TimedTransition("base", 2500)
                     ),
+                    new ItemLoot("Realm Equipment Crystal", 0.05f, 0.01f),
                     new Threshold(0.01f,
                         LootTemplates.BasicPots(0.01f).Concat(
                             new MobDrop[] {
@@ -183,14 +184,14 @@ namespace RotMG.Game.Logic.Database
                     new PlayerWithinTransition(3.5f, "sleep"),
                     new HealthTransition(0.66f, "charging"),
                     new Order(12, "Phantom Mage", "reveal"),
-                    new TimedTransition("sleep", 1800),
                     new Prioritize(
                         new ChargeShoot(
-                                new Shoot(99, 4, 360 / 4, 2, cooldown: 50),
-                                new Charge(1.5f, 99, 100)
+                            new Shoot(99, 4, 360 / 4, 2, cooldown: 50),
+                            new Charge(1.5f, 99, 100)
                         ),
                         new Wander(0.4f)
-                    )
+                    ),
+                    new TimedTransition("sleep", 1800)
                 ),
                 new State("hide",
                     new ConditionalEffect(ConditionEffectIndex.Invisible),
@@ -275,13 +276,13 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Attack", 1f),
                     new ItemLoot("Potion of Defense", 1f),
                     new ItemLoot("Potion of Mana", 1f),
-                    new ItemLoot("Realm Equipment Crystal", 0.05f),
+                    new ItemLoot("Realm Equipment Crystal", 0.25f),
                     new ItemLoot("(Green) UT Egg", 0.03f, 0.01f),
                     new ItemLoot("(Blue) RT Egg", 0.005f, 0.01f),
-                    new ItemLoot("Twilight Truncheon", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
-                    new ItemLoot("Midnight Malice", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
-                    new ItemLoot("Reaper's Regalia", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
-                    new ItemLoot("Decrepit Cranium", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true))
+                    new ItemLoot("Twilight Truncheon", 0.0125f, r: new RarityModifiedData(1.2f, 1, true)),
+                    new ItemLoot("Midnight Malice", 0.0125f, r: new RarityModifiedData(1.2f, 1, true)),
+                    new ItemLoot("Reaper's Regalia", 0.0125f, r: new RarityModifiedData(1.2f, 1, true)),
+                    new ItemLoot("Decrepit Cranium", 0.0125f, r: new RarityModifiedData(1.2f, 1, true))
                 )
             );
 

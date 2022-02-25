@@ -34,9 +34,9 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(4, LootType.Ability, 0.05f),
                 new TierLoot(5, LootType.Ability, 0.01f),
                 new ItemLoot("Cracked Dangerous Prism", 0.035f, 0.01f),
-                new ItemLoot("Realm Equipment Crystal", 0.001f),
-                new ItemLoot("(Green) UT Egg", 0.003f, 0.01f),
-                new ItemLoot("(Blue) RT Egg", 0.0005f, 0.01f),
+                new ItemLoot("Realm Equipment Crystal", 0.01f),
+                new ItemLoot("(Green) UT Egg", 0.01f, 0.01f),
+                new ItemLoot("(Blue) RT Egg", 0.003f, 0.01f),
             };
 
             db.Init("Arena Horseman Anchor",
@@ -161,9 +161,11 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(10, count: 3, shootAngle: 20, predictive: 1, cooldown: 500)
                     ),
                 new Threshold(0.01f,
-                    new ItemLoot("Potion of Vitality", 0.25f)
+                    new ItemLoot("Potion of Vitality", 0.25f),
+                    new ItemLoot("Antique White Clothing Dye", 0.01f),
+                    new ItemLoot("Antique White Accessory Dye", 0.01f)
                     ),
-            new Threshold(.01f,
+                new Threshold(.01f,
                     LootTemplates.MountainDrops()
                     )
             );
@@ -346,8 +348,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.04f,
                     new ItemLoot("Potion of Attack", 0.50f),
-                    new ItemLoot("Crumbling Construct", 0.02f, r: new RarityModifiedData(1.2f)),
-                    new ItemLoot("Rune of the Brute", 0.001f)
+                    new ItemLoot("Crumbling Construct", 0.02f, r: new RarityModifiedData(1.2f))
                     )
             );
             db.Init("Paper Bot",
@@ -376,8 +377,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.04f,
                     new ItemLoot("Potion of Attack", 0.50f),
-                    new ItemLoot("Crumbling Construct", 0.02f, r: new RarityModifiedData(1.2f)),
-                    new ItemLoot("Rune of the Brute", 0.001f)
+                    new ItemLoot("Crumbling Construct", 0.02f, r: new RarityModifiedData(1.2f))
                     )
             );
             db.Init("Steel Bot",
@@ -406,8 +406,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.04f,
                     new ItemLoot("Potion of Attack", 0.50f),
-                    new ItemLoot("Crumbling Construct", 0.02f, r: new RarityModifiedData(1.2f)),
-                    new ItemLoot("Rune of the Brute", 0.001f)
+                    new ItemLoot("Crumbling Construct", 0.02f, r: new RarityModifiedData(1.2f))
                     )
             );
             db.Init("Djinn",
@@ -491,6 +490,7 @@ namespace RotMG.Game.Logic.Database
                             new TimedTransition("Wander", 1500) { SubIndex = 2 }
                         )
                     ),
+                new DropPortalOnDeath("Dragon Cave Portal", 0.45f),
                 new Threshold(0.01f,
                     LootTemplates.MountainDrops()
                     ),
@@ -516,7 +516,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Vitality", 1.0f),
                     new ItemLoot("Potion of Defense", 1.0f),
                     new ItemLoot("Sanguine Femur", 0.02f),
-                    new ItemLoot("Fire Dragon Battle Armor", 0.003f)
+                    new ItemLoot("Fire Dragon Battle Armor", 0.001f)
                 ),
             new Threshold(.01f,
                     LootTemplates.MountainDrops().Concat(
@@ -559,13 +559,13 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(20f, 3, index: 1, cooldown: 1000, rotateAngle: 90),
                     new Shoot(20f, 1, index: 0, cooldown: 1000)
                 ),
-                new ItemLoot("Potion of Life", 0.5f, 0.01f),
+                new ItemLoot("Potion of Life", 1f, 0.01f),
                 new TierLoot(11, LootType.Weapon, 1f, 0.01f),
                 new TierLoot(11, LootType.Armor, 1f, 0.01f),
                 new TierLoot(6, LootType.Ring, 1f, 0.01f),
-                new ItemLoot("Piece of Havoc", 0.0003f, 0.01f),
-                new ItemLoot("Unholy Robe", 0.0003f, 0.01f),
-                new ItemLoot("Amulet of Backwards Luck", 0.0003f, 0.01f)
+                new ItemLoot("Piece of Havoc", 0.003f, 0.01f),
+                new ItemLoot("Unholy Robe", 0.003f, 0.01f),
+                new ItemLoot("Amulet of Backwards Luck", 0.003f, 0.01f)
             );
 
         }

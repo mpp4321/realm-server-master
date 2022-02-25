@@ -18,8 +18,6 @@ namespace RotMG.Game.Entities
         //Define a dictionary of float, string
         private static List<(float, string)> FishingLoot  = new List<(float, string)>()
         {
-            (5f, "Health Potion"),
-            (5f, "Magic Potion"),
             (3f, "Rice Wine"),
             (3f, "Muscat"),
             (3f, "Sauvignon Blanc"),
@@ -30,8 +28,7 @@ namespace RotMG.Game.Entities
             (0.3f, "Potion of Speed"),
             (0.3f, "Potion of Vitality"),
             (0.3f, "Potion of Wisdom"),
-            (0.1f, "(Green) UT Egg"),
-            (0.05f, "(Blue) RT Egg"),
+            (0.05f, "Realm Equipment Crystal"),
             (0.01f, "Blue Snail Generator")
         };
 

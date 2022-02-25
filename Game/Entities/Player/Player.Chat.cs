@@ -9,6 +9,7 @@ using RotMG.Game.SetPieces;
 using RotMG.Game.Worlds;
 using RotMG.Utils;
 using RotMG.Game.Logic.Mechanics;
+using RotMG.Game.Logic.ItemEffs;
 
 namespace RotMG.Game.Entities
 {
@@ -24,7 +25,7 @@ namespace RotMG.Game.Entities
             "commands", "g", "guild", "tell", "allyshots", "allydamage", "effects", "sounds", "vault", "realm",
             "notifications", "online", "who", "server", "pos", "loc", "where", "find", "fame", "famestats", "stats",
             "trade", "currentsong", "song", "mix", "quest", "lefttomax", "pinvite", "pcreate", "p", "paccept", "pleave",
-            "psummon"
+            "psummon", "takefame", "clearrunes", "market", "mymarket", "removemarket"
         };
 
         //List of command, rank required
@@ -871,17 +872,87 @@ namespace RotMG.Game.Entities
                     case "/desyncme":
                         if (Client.Account.Ranked)
                         {
-                            ItemDatas[4].StoredItems = new List<int>();
-                            ItemDatas[4].AllowedItems = new List<int> {
-                                Resources.Id2Item["Potion of Attack"].Type,
-                                Resources.Id2Item["Potion of Dexterity"].Type,
-                                Resources.Id2Item["Potion of Speed"].Type,
-                                Resources.Id2Item["Potion of Life"].Type,
-                                Resources.Id2Item["Potion of Mana"].Type,
-                                Resources.Id2Item["Potion of Vitality"].Type,
-                                Resources.Id2Item["Potion of Wisdom"].Type,
-                                Resources.Id2Item["Potion of Defense"].Type
-                            };
+                            Database.CreateMarketPost(AccountId, Resources.Id2Item["Crown"].Type, 1, new ItemDataJson());
+                        }
+                        break;
+                    case "/market":
+                        {
+                            if (j.Length != 2)
+                            {
+                                SendInfo("/market <slot> <price>");
+                                break;
+                            }
+                            if(int.TryParse(j[0], out var slot) && int.TryParse(j[1], out var price))
+                            {
+                                // Skip equipment slots.
+                                slot += 3;
+                                if(slot >= Inventory.Length || slot < 0)
+                                {
+                                    SendInfo("Invalid slot");
+                                    break;
+                                }
+                                if(price < 0)
+                                {
+                                    SendInfo("Invalid price.");
+                                    break;
+                                }
+                                var itemType = Inventory[slot];
+                                if (itemType == -1)
+                                {
+                                    SendInfo("That is not a valid item!");
+                                    break;
+                                }
+                                var itemData = ItemDatas[slot];
+                                Database.CreateMarketPost(AccountId, itemType, price, itemData);
+                                SendInfo("Successfully created item post.");
+                                Inventory[slot] = -1;
+                                ItemDatas[slot] = new();
+                                UpdateInventorySlot(slot);
+                                break;
+                            }
+                        }
+                        break;
+                    case "/mymarket":
+                        {
+                            MarketModel model = new MarketModel(AccountId);
+                            foreach (var post in model.Posts)
+                            {
+                                SendInfo($"{post.Id}: {Resources.Type2Item[(ushort) post.Item].Id}");
+                            }
+                        }
+                        break;
+                    case "/removemarket":
+                        {
+                            if(j.Length != 1)
+                            {
+                                SendInfo("/removemarket <market id>");
+                                SendInfo("Do /mymarket to see your market posts");
+                                break;
+                            }
+                            if(int.TryParse(j[0], out var marketid))
+                            {
+                                if(GetFreeInventorySlot() == -1)
+                                {
+                                    SendInfo("Make sure you have a free inventory slot.");
+                                    break;
+                                }
+                                MarketModel model = new MarketModel(AccountId);
+                                foreach (var post in model.Posts)
+                                {
+                                    if(post.Id == marketid)
+                                    {
+                                        var slotToGive = GetFreeInventorySlot();
+                                        Inventory[slotToGive] = post.Item;
+                                        ItemDatas[slotToGive] = post.Json;
+                                        UpdateInventorySlot(slotToGive);
+                                        //Ensures that that id exists
+                                        Database.RemoveMarketPost(AccountId, post.Id);
+                                        SendInfo("Removed");
+                                        break;
+                                    }
+                                }
+                                //Don't save model here because it's less updated then the one currently saved cus of Database.RemoveMarketPost
+                            }
                         }
                         break;
                     case "/makedonator":
@@ -941,6 +1012,41 @@ namespace RotMG.Game.Entities
                     case "/psummon":
                         SummonParty();
                         break;
+                    case "/takefame":
+                        {
+                            if(int.TryParse(j[0], out var toTake))
+                            {
+                                if(toTake < 0)
+                                {
+                                    SendInfo("NO. NOT AGAIN.");
+                                    break;
+                                }
+                                var totalFame = Client.Account.Stats.Fame;
+                                if(toTake <= totalFame && Client.Player.GetFreeInventorySlot() != -1)
+                                {
+                                    SendInfo("Heres your fame little one.");
+                                    Client.Account.Stats.TotalFame -= toTake;
+                                    Client.Account.Stats.Fame -= toTake;
+                                    Client.Player.SetPrivateSV(StatType.Fame, Client.Account.Stats.Fame);
+                                    Client.Account.Save();
+
+                                    var item = Resources.Id2Item["Fame Consumable"];
+                                    var slot = Client.Player.GetFreeInventorySlot();
+
+
+                                    Client.Player.Inventory[slot] = item.Type;
+                                    Client.Player.ItemDatas[slot] = new ItemDataJson()
+                                    {
+                                        MiscIntOne = toTake
+                                    };
+                                    Client.Player.UpdateInventorySlot(slot);
+                                } else
+                                {
+                                    SendInfo("You don't have enough fame, noob.");
+                                }
+                            }
+                        }
+                        break;
                     case "/lbadd":
                         if (Client.Account.Ranked)
                         {
@@ -961,6 +1067,9 @@ namespace RotMG.Game.Entities
                     case "/wlb":
                         if (Client.Account.Ranked)
                         {
+
+                            Client.Send(GameServer.LootNotif(0));
+
                             var amt = float.Parse(j[0]);
                             Client.Player.Parent.WorldLB = amt;
                             var announce = GameServer.Text("", 0, -1, 0, "", "<EVENT> An admin has enabled a " + (amt * 100.0f) + "% instance loot boost!");
@@ -1029,6 +1138,21 @@ namespace RotMG.Game.Entities
                             _c.ItemDatas = Client.Player.ItemDatas.Skip(4).ToArray();
                             Client.Player.Parent.AddEntity(_c, Client.Player.Position);
                             _c.UpdateInventory();
+                        }
+                        break;
+                    case "/clearrunes":
+                        {
+                            if (j.Length == 0) break;
+                            if (int.TryParse(j[0], out var min)) 
+                            {
+                                Client.Character.SelectedRunes = Client.Character.SelectedRunes.Where(
+                                        a => ItemHandlerRegistry.RuneFameCosts[a] >= min
+                                    ).ToArray();
+                                SendInfo("Cleared runes with cost less than " + min);
+                            } else
+                            {
+                                SendInfo("You must supply a minimum rune cost /clearrunes <min cost>");
+                            }
                         }
                         break;
                     default:

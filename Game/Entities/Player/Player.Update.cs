@@ -150,7 +150,7 @@ namespace RotMG.Game.Entities
                 if (Entities.Add(en))
                 {
                     adds.Add(en.GetObjectDefinition());
-                    EntityUpdates.Add(en.Id, en.UpdateCount);
+                    EntityUpdates.TryAdd(en.Id, en.UpdateCount);
                 }
             }
 
@@ -160,7 +160,7 @@ namespace RotMG.Game.Entities
                 if (Entities.Add(player))
                 {
                     adds.Add(player.GetObjectDefinition());
-                    EntityUpdates.Add(player.Id, player.UpdateCount);
+                    EntityUpdates.TryAdd(player.Id, player.UpdateCount);
                 }
             }
 

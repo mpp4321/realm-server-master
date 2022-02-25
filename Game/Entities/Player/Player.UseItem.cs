@@ -1,4 +1,5 @@
 ﻿using RotMG.Common;
+using RotMG.Game.Logic.ItemEffs;
 using RotMG.Networking;
 using RotMG.Utils;
 using System;
@@ -15,9 +16,8 @@ namespace RotMG.Game.Entities
 
         public static List<ConditionEffectIndex> NegativeEffects = new List<ConditionEffectIndex>() 
         {
+            ConditionEffectIndex.ArmorBroken,
             ConditionEffectIndex.Blind,
-            ConditionEffectIndex.Hexed,
-            ConditionEffectIndex.Slowed,
             ConditionEffectIndex.Confused,
             ConditionEffectIndex.Drunk,
             ConditionEffectIndex.Stunned,
@@ -656,6 +656,7 @@ namespace RotMG.Game.Entities
                     {
                         ApplyConditionEffect(ConditionEffectIndex.Invincible, 5000);
                         ApplyConditionEffect(ConditionEffectIndex.Invisible, 5000);
+                        ApplyConditionEffect(ConditionEffectIndex.Stunned, 5000);
                         Teleport(time, eff.Position, false);
                     }
                     else if (inRange)
@@ -717,17 +718,57 @@ namespace RotMG.Game.Entities
                     SendInfo("8 more spaces. Woohoo!");
                     break;
                 case ActivateEffectIndex.Create:
-                    if (!Resources.Id2Object.TryGetValue(eff.Id, out var obj))
                     {
+                        if (!Resources.Id2Object.TryGetValue(eff.Id, out var obj))
+                        {
 #if DEBUG
                         Program.Print(PrintType.Error, $"{eff.Id} not found for AE Create");
 #endif
-                        return true;
+                            return true;
+                        }
+                        var entity = Resolve(obj.Type);
+                        entity.PlayerOwner = this;
+                        Parent.AddEntity(entity, Position);
                     }
-                    var entity = Resolve(obj.Type);
-                    entity.PlayerOwner = this;
-                    Parent.AddEntity(entity, Position);
                     break;
+                case ActivateEffectIndex.TossObject:
+                    {
+                        if (!Resources.Id2Object.TryGetValue(eff.Id, out var obj))
+                        {
+#if DEBUG
+                        Program.Print(PrintType.Error, $"{eff.Id} not found for AE Create");
+#endif
+                            return true;
+                        }
+                        if (inRange)
+                        {
+                            var placeholder = new Placeholder();
+                            Parent.AddEntity(placeholder, target);
+
+                            var @throw = GameServer.ShowEffect(ShowEffectIndex.Throw, Id, 0xffffffff, pos1: target, speed: eff.ThrowtimeMS);
+
+                            foreach (var j in Parent.PlayerChunks.HitTest(Position, SightRadius))
+                                if (j is Player k && (k.Client.Account.Effects || k.Equals(this)))
+                                    k.Client.Send(@throw);
+
+                            Manager.AddTimedAction(eff.ThrowtimeMS, () =>
+                            {
+                                if (placeholder.Parent != null)
+                                {
+                                    if (Parent != null)
+                                    {
+                                        var entity = Resolve(obj.Type);
+                                        entity.PlayerOwner = this;
+                                        placeholder.Parent.AddEntity(entity, placeholder.Position);
+                                    }
+                                    placeholder.Parent.RemoveEntity(placeholder);
+                                }
+                            });
+                        }
+                        //Parent.AddEntity(entity, Position);
+                    }
+                    break;
+
                 case ActivateEffectIndex.ItemDataModifier:
                     SaveToCharacter();
                     Client.Character.ItemDataModifier = eff.StatForScale;
@@ -777,12 +818,26 @@ namespace RotMG.Game.Entities
                 case ActivateEffectIndex.RuneConsume:
                     if (Client.Character != null)
                     {
+                        SaveToCharacter();
                         string runeId = eff.Id;
+                        int fameSumTotal = Client.Character.SelectedRunes.Count() == 0 ? 0
+                            : Client.Character.SelectedRunes.Select(a => ItemHandlerRegistry.RuneFameCosts[a]).Aggregate((a, b) =>
+                            {
+                                return a + b;
+                            });
+                        int requiredFameTotal = ItemHandlerRegistry.RuneFameCosts[runeId] + fameSumTotal;
                         if (Client.Character.SelectedRunes.Any(a => a.Equals(runeId)))
                         {
                             SendInfo("You have that rune already!");
                             return true;
                         }
+
+                        if(Client.Character.Fame < requiredFameTotal)
+                        {
+                            SendInfo("You do not have the required base fame to use this.");
+                            return true;
+                        }
+
                         Client.Character.SelectedRunes = Client.Character.SelectedRunes.Concat(new string[] { runeId }).ToArray();
                         SendInfo("Added rune");
                         UpdateRunes();
@@ -874,6 +929,13 @@ namespace RotMG.Game.Entities
                         const int FISH_TIME = 1000;
                         ApplyConditionEffect(ConditionEffectIndex.Paralyzed, FISH_TIME);
                         var worldBefore = Parent.Id;
+                        if(MathUtils.Chance(0.01f))
+                        {
+                            // Break the rod
+                            con.Inventory[slot.SlotId] = -1;
+                            con.ItemDatas[slot.SlotId] = new();
+                            SendInfo("Your fishing rod broke! Time to get a new one :).");
+                        }
                         Manager.AddTimedAction(FISH_TIME, () =>
                         {
                             if(worldBefore == Parent.Id) { 
@@ -935,6 +997,16 @@ namespace RotMG.Game.Entities
                     break;
                 case ActivateEffectIndex.RemoveNegativeConditionsSelf:
                     RemoveNegativeEffects();
+                    break;
+                case ActivateEffectIndex.FameConsume:
+                    {
+                        Client.Account.Stats.TotalFame += con.ItemDatas[slot.SlotId].MiscIntOne;
+                        Client.Account.Stats.Fame += con.ItemDatas[slot.SlotId].MiscIntOne;
+                        Fame = Client.Account.Stats.Fame;
+                        con.Inventory[slot.SlotId] = -1;
+                        con.ItemDatas[slot.SlotId] = new ItemDataJson() { };
+                        con.UpdateInventorySlot(slot.SlotId);
+                    }
                     break;
 #if DEBUG
                 default:

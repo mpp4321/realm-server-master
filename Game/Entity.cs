@@ -106,7 +106,8 @@ namespace RotMG.Game
         RuneEffects,
         GlowStat,
         Protection,
-        ProtectionBoost
+        ProtectionBoost,
+        MerchantItemData
     }
 
     public class Entity : IDisposable
@@ -145,6 +146,7 @@ namespace RotMG.Game
         public DictionaryWithDefault<int, int> StateCooldown; //Used for cooldowns (could be merged with DynamicObjects but it's faster this way)
 
         public DictionaryWithDefault<int, object> StateObject; //Used for things like WanderStates etc.
+        public DictionaryWithDefault<string, object> StateKeys; // Persistent state keys for easier state management
         public List<Vector2> History;
         public bool Dead;
         public bool Constant;
@@ -594,8 +596,9 @@ namespace RotMG.Game
         //EnterStates from external source, such as "Order" commands
         public void EnterStates()
         {
-            foreach (var s in CurrentStates)
+            for (int i = 0; i < CurrentStates.Count; i++)
             {
+                var s = CurrentStates[i];
                 foreach (var b in s.Behaviors) b.Enter(this);
                 foreach (var t in s.Transitions) t.Enter(this);
             }
@@ -611,6 +614,7 @@ namespace RotMG.Game
 #endif
                 StateCooldown = new DictionaryWithDefault<int, int>();
                 StateObject = new DictionaryWithDefault<int, object>();
+                StateKeys = new DictionaryWithDefault<string, object>();
                 CurrentStates = new List<State>();
                 var states = Behavior.States;
                 while (states != null)

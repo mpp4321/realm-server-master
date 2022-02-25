@@ -119,6 +119,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Dexterity", 0.15f),
                     new ItemLoot("Potion of Defense", 0.25f),
                     new ItemLoot("Potion of Wisdom", 0.15f),
+                    new ItemLoot("Realm Equipment Crystal", 0.03f),
                     new ItemLoot("Helm of the Juggernaut", 0.0005f)
                 )
             );
@@ -139,6 +140,7 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(4, LootType.Ring, 0.2f, r: new RarityModifiedData(1.5f, 2)),
                     new TierLoot(4, LootType.Ability, 0.5f, r: new RarityModifiedData(1.5f, 2)),
                     new TierLoot(3, LootType.Ring, 0.5f, r: new RarityModifiedData(1.5f, 2)),
+                    new ItemLoot("Realm Equipment Crystal", 0.2f),
                     new ItemLoot("Potion of Dexterity", 0.8f),
                     new ItemLoot("Potion of Attack", 0.8f)
                 )
@@ -233,9 +235,10 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(4, LootType.Ring, 0.2f),
                     new TierLoot(4, LootType.Ability, 0.35f),
                     new TierLoot(3, LootType.Ring, 0.35f),
-                    new ItemLoot("Helm of the Juggernaut", 0.005f),
-                    new ItemLoot("Rune of the Juggernaut", 0.01f),
-                    new ItemLoot("Spear of the Storm", 0.005f)
+                    new ItemLoot("Realm Equipment Crystal", 0.25f),
+                    new ItemLoot("Helm of the Juggernaut", 0.01f),
+                    new ItemLoot("Rune of the Juggernaut", 0.02f),
+                    new ItemLoot("Spear of the Storm", 0.008f)
                 )
             );
 
@@ -256,6 +259,7 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(3, LootType.Ring, 0.2f),
                     new TierLoot(10, LootType.Armor, 0.2f),
                     new TierLoot(10, LootType.Weapon, 0.2f),
+                    new ItemLoot("Realm Equipment Crystal", 0.03f),
                     new ItemLoot("Dirk of Cronus", 0.01f)
                   )
                 );
@@ -360,14 +364,15 @@ namespace RotMG.Game.Logic.Database
                         ),
                 new Threshold(0.03f,
                         new ItemLoot("Shield of Ogmur", 0.015f),
-                        new ItemLoot("Soul of the Lost Land", 0.0075f),
-                        new TierLoot(11, LootType.Armor, 0.35f),
-                        new TierLoot(4, LootType.Ring, 0.2f),
-                        new TierLoot(10, LootType.Armor, 0.35f),
-                        new TierLoot(3, LootType.Ring, 0.2f),
+                        new ItemLoot("Soul of the Lost Land", 0.008f),
+                        new TierLoot(11, LootType.Armor, 0.85f),
+                        new TierLoot(5, LootType.Ring, 0.2f),
+                        new TierLoot(4, LootType.Ring, 0.8f),
+                        new TierLoot(10, LootType.Armor, 0.85f),
                         new ItemLoot("Skysplitter Sword", 0.03f, r: new RarityModifiedData(1f, 2, true)),
+                        new ItemLoot("Realm Equipment Crystal", 0.25f),
                         new ItemLoot("Mithril Shield", 0.03f, r: new RarityModifiedData(1f, 2, true)),
-                        new ItemLoot("Rune of Vampirism", 0.005f)
+                        new ItemLoot("Rune of Vampirism", 0.01f)
                     ),
                 new Threshold(0.005f,
                     LootTemplates.BasicPots()
@@ -411,6 +416,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Vitality", .1f),
                     new ItemLoot("Potion of Wisdom", .1f),
                     new ItemLoot("Potion of Speed", .1f),
+                    new ItemLoot("Realm Equipment Crystal", .05f),
                     new ItemLoot("Jackpot", 0.0005f)
                     )
             );
@@ -529,6 +535,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Vitality", .4f),
                     new ItemLoot("Potion of Wisdom", .4f),
                     new ItemLoot("Potion of Speed", .4f),
+                    new ItemLoot("Realm Equipment Crystal", .2f),
                     new ItemLoot("Trap of the Vile Spirit", 0.01f, r: new RarityModifiedData(1.1f, 1, true))
                 )
             );
@@ -610,7 +617,8 @@ namespace RotMG.Game.Logic.Database
                 new State("base",
                     new Prioritize(
                         new Follow(0.6f, 4, 1),
-                        new Orbit(0.6f, 6, 15, "Hermit God", speedVariance: .2f, radiusVariance: .5f)
+                        new Orbit(0.6f, 6, 15, "Hermit God", speedVariance: .2f, radiusVariance: .5f),
+                        new Orbit(0.6f, 6, 15, "Ancient Hermit God", speedVariance: .2f, radiusVariance: .5f)
                         ),
                     new Shoot(3, count: 8, shootAngle: 360 / 8, cooldown: 500)
                     )

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace wServer.logic
 {
-    struct Cooldown
+    public struct Cooldown
     {
         public int CoolDown;
         public int Variance;

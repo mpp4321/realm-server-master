@@ -36,6 +36,8 @@ namespace RotMG.Game.Logic.Behaviors
 
         public override bool Tick(Entity host)
         {
+            if (host.HasConditionEffect(Common.ConditionEffectIndex.Paralyzed))
+                return false;
             var rt = c?.Tick(host) ?? false;
             var dir = (host.StateObject[c.Id] as Charge.ChargeState).Direction;
             if(rt)

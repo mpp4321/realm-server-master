@@ -137,7 +137,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Demon Blade", 0.05f, 0.01f),
                     new ItemLoot("Potion of Life", 0.05f, 0.01f),
                     new Threshold(0.01f, 
-                        new ItemLoot("Realm Equipment Crystal", 0.05f),
+                        new ItemLoot("Realm Equipment Crystal", 0.2f),
                         new ItemLoot("(Green) UT Egg", 0.03f, 0.01f),
                         new ItemLoot("(Blue) RT Egg", 0.005f, 0.01f),
                         new ItemLoot("The War Path", 0.005f),
@@ -145,6 +145,9 @@ namespace RotMG.Game.Logic.Database
                         new ItemLoot("The Horned Circlet", 0.005f),
                         new ItemLoot("Abyssal Emblem", 0.005f),
                         new ItemLoot("Realm Equipment Crystal", 0.05f)
+                    ),
+                    new Threshold(0.5f, 
+                        new ItemLoot("Blazed Bow", 0.005f)
                     ),
                     new Threshold(0.01f,
                         new ItemLoot("Potion of Defense", 0.75f),

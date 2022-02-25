@@ -226,7 +226,7 @@ namespace RotMG.Game.Entities
             { "Ghost King",                     Tuple.Create(11,10, 20) },
             { "Actual Ghost King",              Tuple.Create(11,10, 20) },
             { "Cyclops God",                    Tuple.Create(12,10, 20) },
-            { "Kage Kami",                      Tuple.Create(12,10, 20) },
+            { "Amal Dragon",                    Tuple.Create(12,10, 20) },
             { "Red Demon",                      Tuple.Create(13,15, 20) },
 
                 // events
@@ -237,6 +237,7 @@ namespace RotMG.Game.Entities
             { "Lord of the Lost Lands",         Tuple.Create(14,15, 20) },
             { "Hermit God",                     Tuple.Create(14,15, 20) },
             { "Ghost Ship",                     Tuple.Create(14,15, 20) },
+            { "Yellow Fire Brother",            Tuple.Create(14,15, 20) },
 
             // dungeon bosses
             { "Evil Chicken God",               Tuple.Create(15,1, 20) },

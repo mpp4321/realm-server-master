@@ -216,20 +216,20 @@ namespace RotMG.Game.Logic.Database
                     new TimedRandomTransition(3500, "roto", "stayback", "wander")
                 ),
                 new Threshold(0.01f,
-                    new ItemLoot("Sunsteel Katana", 0.02f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
+                    new ItemLoot("Sunsteel Katana", 0.12f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
                     new TierLoot(10, LootType.Weapon, 0.55f),
                     new TierLoot(10, LootType.Armor, 0.55f),
                     new TierLoot(5, LootType.Ability, 0.55f),
                     new TierLoot(5, LootType.Ring, 0.55f),
                     new ItemLoot("Potion of Dexterity", 1.0f),
                     new ItemLoot("Potion of Dexterity", 1.0f),
-                    new ItemLoot("Realm Equipment Crystal", 0.05f),
+                    new ItemLoot("Realm Equipment Crystal", 0.5f),
                     new ItemLoot("(Green) UT Egg", 0.2f, 0.01f),
                     new ItemLoot("(Blue) RT Egg", 0.02f, 0.01f),
-                    new ItemLoot("Will of the Den", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
-                    new ItemLoot("Arachnid Garment", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
-                    new ItemLoot("Viral Egg", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
-                    new ItemLoot("Doku No Ken", 0.01f),
+                    new ItemLoot("Will of the Den", 0.04f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
+                    new ItemLoot("Arachnid Garment", 0.04f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
+                    new ItemLoot("Viral Egg", 0.04f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
+                    new ItemLoot("Doku No Ken", 0.02f),
                     new ItemLoot("Spider Generator", 0.005f)
                     //new ItemLoot("Arachnid Miasma", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true))
                 )

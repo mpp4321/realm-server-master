@@ -9,7 +9,12 @@ namespace RotMG.Game.Logic.ItemEffs.RuneEffects
     {
 
         public virtual void OnProjectileShoot(Player shotFrom, ref Projectile projectile) {
-            projectile.Damage += (int)(projectile.Damage * 0.01f * shotFrom.GetStatTotal(6));
+            projectile.Damage += (int)(projectile.Damage *
+                (0.02f *
+                    shotFrom.GetBoosts(6)) *
+                (0.01f *
+                    Math.Max(0, shotFrom.GetStat(6) - 50))
+                );
         }
 
     }

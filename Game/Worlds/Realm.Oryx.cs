@@ -87,6 +87,27 @@ namespace RotMG.Game.Worlds
                 }
             },
             {
+                "Yellow Fire Brother", new TauntData()
+                {
+                    Spawn = new[]
+                    {
+                        "You puny insects are nothing compared to the Tri Color Brothers!"
+                    },
+                    NumberOfEnemies = new[]
+                    {
+                        "Fools! {COUNT} of my Tri Color Bros protect me!",
+                    },
+                    Final = new[]
+                    {
+                        "Three powerful brothers strengthen me!",
+                    },
+                    Killed = new[]
+                    {
+                        "{PLAYER}, you may have won this time, but only to die at my hands!"
+                    }
+                }
+            },
+            {
                 "Actual Ghost King", new TauntData()
                 {
                     NumberOfEnemies = new[]
@@ -560,6 +581,7 @@ namespace RotMG.Game.Worlds
             Tuple.Create("Lord of the Lost Lands", (ISetPiece) new LordoftheLostLands()),
             Tuple.Create("Hermit God", (ISetPiece) new Hermit()),
             Tuple.Create("Ghost Ship", (ISetPiece) new GhostShip()),
+            Tuple.Create("Yellow Fire Brother", (ISetPiece) new TriBrother()),
         };
 
         //none of these count minions spawned
@@ -751,12 +773,12 @@ namespace RotMG.Game.Worlds
                         _events.Remove(evt);
                     SpawnEvent(evt.Item1, evt.Item2);
 
-                    if (!CriticalEnemies.TryGetValue(evt.Item1, out tauntData))
+                    if (!CriticalEnemies.TryGetValue(evt.Item1, out var spawnData))
                         return;
 
-                    if (tauntData.Spawn != null)
+                    if (spawnData.Spawn != null)
                     {
-                        var spawnMessages = tauntData.Spawn;
+                        var spawnMessages = spawnData.Spawn;
                         var message = spawnMessages[MathUtils.Next(spawnMessages.Length)];
                         foreach (var player in Players.Values)
                             player.SendInfo(message);

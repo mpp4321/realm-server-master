@@ -38,7 +38,7 @@ namespace RotMG.Common
         private const int MaxInvalidLoginAttempts = 99999;
         private static Dictionary<string, byte> InvalidLoginAttempts;
 
-        private const int MaxRegisteredAccounts = 1;
+        private const int MaxRegisteredAccounts = 2;
         private static Dictionary<string, byte> RegisteredAccounts;
 
         private const int ResetCooldown = 60000 * 5; //5 minutes
@@ -57,6 +57,7 @@ namespace RotMG.Common
             CreateKey("nextAccId", "0", true);
             CreateKey("news", "", true);
             CreateKey("guilds", "", true);
+            CreateKey("market", "", true);
 
             foreach (var span in TimeSpans.Keys)
                 CreateKey($"legends.{span}", "", true);
@@ -224,6 +225,104 @@ namespace RotMG.Common
             acc.Save();
         }
 
+        public static void RemoveMarketPost(int accId, int postId)
+        {
+
+            var marketModel = new MarketModel(accId);
+            marketModel.Posts = marketModel.Posts.Where(a => a.Id != postId).ToList();
+            marketModel.Save();
+
+            var marketContents = GetKeyLines("market", true);
+            var marketNewLines = new List<string>();
+            foreach(string s in marketContents)
+            {
+                if(s != $"{accId}:{postId}")
+                {
+                    marketNewLines.Add(s);
+                }
+            }
+            SetKeyLines("market", marketNewLines.ToArray(), true);
+        }
+
+        public static IEnumerable<MarketPost> GetAllMarketPosts()
+        {
+            var marketLines = GetKeyLines("market", true).AsEnumerable();
+            return marketLines.Select(
+                a =>
+                {
+                    var splitString = a.Split(":");
+                    var postId = int.Parse(splitString[1]);
+                    var acc = new MarketModel(int.Parse(splitString[0]));
+                    foreach(var post in acc.Posts)
+                    {
+                        if (post.Id == postId)
+                            return post;
+                    }
+                    throw new Exception("Unremoved market post");
+                }
+                );
+        }
+
+        public static bool IsValidMarketPost(int acc, int p)
+        {
+            var marketLines = GetKeyLines("market", true);
+            foreach(var line in marketLines)
+            {
+                if (line == $"{acc}:{p}") return true;
+            }
+            return false;
+        }
+
+        public static IEnumerable<MarketPost> GetSomeMarketPosts()
+        {
+            var marketLines = GetKeyLines("market", true).AsEnumerable();
+            if (marketLines.Count() >= 5)
+                marketLines = marketLines.Take(5);
+            return marketLines.Select(
+                a =>
+                {
+                    var splitString = a.Split(":");
+                    var postId = int.Parse(splitString[1]);
+                    var acc = new MarketModel(int.Parse(splitString[0]));
+                    foreach(var post in acc.Posts)
+                    {
+                        if (post.Id == postId)
+                            return post;
+                    }
+#if DEBUG
+                    throw new Exception("Unremoved market post");
+#endif
+                    return new MarketPost()
+                    {
+                        Id = postId,
+                        Price = 999999,
+                        AccountId = acc.AccountId,
+                        Json = new()
+                    };
+                }
+                );
+        }
+
+        public static void CreateMarketPost(int acc, int item, int price, ItemDataJson json)
+        {
+            MarketModel model = new MarketModel(acc);
+            var postId = ++model.NextPostId;
+            model.Posts.Add(
+                    new MarketPost()
+                    {
+                        Item = item,
+                        Json = json,
+                        Price = price,
+                        Id = postId,
+                        AccountId = acc
+                    }
+                );
+            model.Save();
+            var marketContents = GetKeyLines("market", true).ToList();
+            marketContents.Add($"{acc}:{postId}");
+            SetKeyLines("market", marketContents.ToArray(), true);
+        }
+
         public static GuildCreateStatus CreateGuild(string guildName, out GuildModel guild)
         {
             guild = null;
@@ -388,7 +487,7 @@ namespace RotMG.Common
                     ClassStats = CreateClassStats()
                 },
 
-                MaxNumChars = 1,
+                MaxNumChars = 2,
                 NextCharId = 0,
                 VaultCount = 0,
                 AliveChars = new List<int>(),

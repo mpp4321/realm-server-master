@@ -72,10 +72,10 @@ namespace RotMG.Common
             wtr.Write((byte)Stats.Count);
             foreach (var k in Stats)
             {
-                wtr.Write((byte)k.Key);
-                if (k.Key >= StatType.ItemData0 && k.Key <= StatType.ItemData19)
+                wtr.Write((byte) k.Key);
+                if ((k.Key >= StatType.ItemData0 && k.Key <= StatType.ItemData19) || k.Key == StatType.MerchantItemData)
                 {
-                    wtr.Write(ItemDesc.ExportItemDataJson((ItemDataJson)k.Value));
+                    wtr.Write(ItemDesc.ExportItemDataJson((ItemDataJson) k.Value));
                 }
                 else if (IsStringStat(k.Key))
                     wtr.Write((string)k.Value);
@@ -92,6 +92,7 @@ namespace RotMG.Common
                 case StatType.Name:
                 case StatType.RuneEffects:
                 case StatType.GuildName:
+                case StatType.MerchantItemData:
                     return true;
             }
             return false;
@@ -108,6 +109,9 @@ namespace RotMG.Common
             X = x;
             Y = y;
         }
+
+        public static IntPoint operator +(IntPoint a, IntPoint b) => new IntPoint(a.X + b.X, a.Y + b.Y);
+        public static IntPoint operator -(IntPoint a, IntPoint b) => new IntPoint(a.X - b.X, a.Y - b.Y);
 
         public static bool operator ==(IntPoint a, IntPoint b) => a.X == b.X && a.Y == b.Y;
         public static bool operator !=(IntPoint a, IntPoint b) => a.X != b.X || a.Y != b.Y;

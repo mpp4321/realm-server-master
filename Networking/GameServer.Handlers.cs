@@ -75,7 +75,8 @@ namespace RotMG.Networking
             TradeAccepted,
             SwitchMusic,
             ShootDesync,
-            FixMeDesync
+            FixMeDesync,
+            LootNotif
         }
 
         public static void Read(Client client, int id, byte[] data)
@@ -244,7 +245,7 @@ namespace RotMG.Networking
                 return;
             }
             
-            Database.IncrementCurrency(account, -1000, Currency.Fame);
+            Database.IncrementCurrency(account, -200, Currency.Fame);
             client.Player.GuildName = guild.Name;
             client.Player.GuildRank = 40;
             
@@ -294,6 +295,7 @@ namespace RotMG.Networking
             Client otherClient = null;
             foreach (var connectedClient in Manager.Clients.Values)
             {
+                if (connectedClient == null) continue;
                 if (connectedClient.Player.Name == playerName)
                     otherClient = connectedClient;
             }
@@ -1072,6 +1074,15 @@ namespace RotMG.Networking
             {
                 wtr.Write((byte)PacketId.Reconnect);
                 wtr.Write(gameId);
+                return (wtr.BaseStream as MemoryStream).ToArray();
+            }
+        }
+        public static byte[] LootNotif(int type)
+        {
+            using (var wtr = new PacketWriter(new MemoryStream()))
+            {
+                wtr.Write((byte)PacketId.LootNotif);
+                wtr.Write(type);
                 return (wtr.BaseStream as MemoryStream).ToArray();
             }
         }

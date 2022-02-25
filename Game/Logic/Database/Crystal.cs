@@ -233,6 +233,7 @@ namespace RotMG.Game.Logic.Database
                 new Threshold(0.01f,
                     new ItemLoot("Crystal Sword", 0.05f),
                     new ItemLoot("Crystal Wand", 0.05f),
+                    new ItemLoot("Crystal Dagger", 0.05f),
                     new ItemLoot("Arcane Shiv", 0.05f),
                     new ItemLoot("Potion of Attack", 0.8f),
                     new ItemLoot("Potion of Defense", 0.8f),

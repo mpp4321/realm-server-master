@@ -18,7 +18,7 @@ namespace RotMG.Game.Logic.Behaviors
         bool broadcast = false;
         Cooldown cooldown = new Cooldown(1000, 500);
         string[] text;
-        int? ordered;
+        public int? Ordered;
 
         public Taunt(params string[] text)
         {
@@ -100,10 +100,10 @@ namespace RotMG.Game.Logic.Behaviors
             if (_Random.NextDouble() >= probability) return false;
 
             string taunt;
-            if (ordered != null)
+            if (Ordered != null)
             {
-                taunt = text[ordered.Value];
-                ordered = (ordered.Value + 1) % text.Length;
+                taunt = text[Ordered.Value];
+                Ordered = (Ordered.Value + 1) % text.Length;
             }
             else
                 taunt = text[_Random.Next(text.Length)];

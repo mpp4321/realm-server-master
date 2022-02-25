@@ -28,6 +28,14 @@ namespace RotMG.Game.Worlds
                 AddEntity(portal, guildPos.ToVector2() + .5f);
             }
 
+            var marketPos = GetRegion(Region.Note);
+            if (marketPos != new IntPoint(0,0))
+            {
+                var type = Resources.Id2Object["Market Portal"].Type;
+                var portal = new Portal(type, null);
+                AddEntity(portal, marketPos.ToVector2() + .5f);
+            }
+
             RealmSpawns = new List<IntPoint>(GetAllRegion(Region.RealmPortal));
 
             InitShops();
@@ -74,6 +82,16 @@ namespace RotMG.Game.Worlds
                     CreateShopAt(shop1Point, 0xcbb, 100, Currency.Fame);
                 } else {
                     CreateShopAt(shop1Point, Resources.Id2Item["Fishing Rod"].Type, 100, Currency.Fame);
+                }
+            }
+
+            foreach(var shopPoint in GetAllRegion(Region.Store4))
+            {
+                if((++alternating) % 2 == 1)
+                {
+                    CreateShopAt(shopPoint, Resources.Id2Item["Realm Equipment Crystal"].Type, 25, Currency.Fame);
+                } else {
+                    CreateShopAt(shopPoint, Resources.Id2Item["Oryx Equipment Crystal"].Type, 500, Currency.Fame);
                 }
             }
         }

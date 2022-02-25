@@ -109,9 +109,14 @@ namespace RotMG.Game.Logic.Database
                     ),
                     new TimedTransition("transition0", 6000)
                     ),
+            new Threshold(0.9f,
+                new ItemLoot("Hide of Undead Regeneration", 0.005f)
+            ),
             new Threshold(0.01f,
                 new ItemLoot("Undead Lair Key", 0.03f),
-                new ItemLoot("Doom Bow", 0.004f),
+                new ItemLoot("Doom Bow", 0.03f),
+                new ItemLoot("Hide of Undead Regeneration", 0.005f),
+                new ItemLoot("Ephemeral Flail", 0.01f),
                 new ItemLoot("Wine Cellar Incantation", 0.05f),
                 new ItemLoot("Potion of Wisdom", 1f),
                 new ItemLoot("(Green) UT Egg", 0.1f, 0.01f),

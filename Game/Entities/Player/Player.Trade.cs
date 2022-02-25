@@ -170,15 +170,16 @@ namespace RotMG.Game.Entities
 
                 if (TradeAccepted && TradePartner.TradeAccepted)
                 {
-                    if (Client.Account.Ranked == TradePartner.Client.Account.Ranked)
-                    {
-                        DoTrade();
-                    }
-                    else
-                    {
-                        TradePartner.TradeDone(TradeResult.Canceled);
-                        TradeDone(TradeResult.Canceled);
-                    }
+                    DoTrade();
+                    //if (Client.Account.Ranked == TradePartner.Client.Account.Ranked)
+                    //{
+                    //    DoTrade();
+                    //}
+                    //else
+                    //{
+                    //    TradePartner.TradeDone(TradeResult.Canceled);
+                    //    TradeDone(TradeResult.Canceled);
+                    //}
                 }
             }
         }

@@ -682,6 +682,16 @@
     </Texture>
     <ShadowSize>0</ShadowSize>
   </Object>
+  <Object type="0x5022" id="Market Portal">
+	<Class>Portal</Class>
+    <IntergamePortal/>
+    <DungeonName>Market</DungeonName>
+    <Texture>
+      <File>lofiEnvironment</File>
+      <Index>0x5c</Index>
+    </Texture>
+    <ShadowSize>0</ShadowSize>
+  </Object>
   <Object type="0x5001" id="MixingBowl">
     <Class>MixingBowl</Class>
     <Texture>

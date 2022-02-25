@@ -491,12 +491,12 @@ namespace RotMG.Game
                 if (en is Player)
                 {
                     Players.Remove(en?.Id ?? 0);
-                    PlayerChunks?.Remove(en);
+                    PlayerChunks.Remove(en);
                 }
                 else if (en is Decoy)
                 {
                     Entities.Remove(en.Id);
-                    PlayerChunks?.Remove(en);
+                    PlayerChunks.Remove(en);
                 }
                 else
                 {

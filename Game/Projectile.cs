@@ -90,9 +90,33 @@ namespace RotMG.Game
 
             //if (Desc.Decelerate != 0.0f) speed *= 2 - elapsed / Desc.LifetimeMS;
 
-            var distBeforeAccel = MathF.Min(elapsed, Desc.AccelerateDelay) * (Desc.Speed / 10000f);
-            var distAfterAccel = MathF.Max(0, elapsed - Desc.AccelerateDelay) * (speed / 10000f);
-            var dist = distBeforeAccel + distAfterAccel;
+            //var distBeforeAccel = MathF.Min(elapsed, Desc.AccelerateDelay) * (Desc.Speed / 10000f);
+            //var distAfterAccel = MathF.Max(0, elapsed - Desc.AccelerateDelay) * (speed / 10000f);
+            //var dist = distBeforeAccel + distAfterAccel;
+
+            float dist;
+            var elapsedT = elapsed / 1000.0f;
+            // time in T for constant velocity before acceleration
+            var delayT = Desc.AccelerateDelay / 1000.0f;
+            var distDelayT = Desc.Speed * delayT;
+
+            if(Desc.DoAccelerate && elapsedT >= delayT)
+            {
+                var delta = -Desc.Speed / Desc.Accelerate;
+                if ((elapsedT - delayT) > delta && delta > 0) 
+                {
+                    dist = (Desc.Accelerate * MathF.Pow(delta, 2) / 2.0f) + (Desc.Speed * delta);
+                } else
+                {
+                    dist = (Desc.Accelerate * MathF.Pow(elapsedT - delayT, 2) / 2.0f) + (Desc.Speed * (elapsedT - delayT));
+                }
+                //Add the movement before acceleration
+                dist += distDelayT;
+                dist /= 10.0f;
+            } else
+            {
+                dist = elapsed * Desc.Speed / 10000f;
+            }
 
             //Phase != 1 -> MathF.PI locked else 0 lock
             float phase = Desc.PhaseLock == 1 ? 0 : MathF.PI;

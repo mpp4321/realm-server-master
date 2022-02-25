@@ -222,7 +222,7 @@
 		<HitSound>monster/skull_shrine_hit</HitSound>
 		<DeathSound>monster/skull_shrine_death</DeathSound>
 		<Size>120</Size>
-		<MaxHitPoints>10000</MaxHitPoints>
+		<MaxHitPoints>15000</MaxHitPoints>
 		<Defense>40</Defense>
 		<Enemy/>
 		<Hero/>
@@ -291,7 +291,7 @@
 		<HitSound>monster/cubes_hit</HitSound>
 		<DeathSound>monster/cubes_death</DeathSound>
 		<Size>120</Size>
-		<MaxHitPoints>10000</MaxHitPoints>
+		<MaxHitPoints>15000</MaxHitPoints>
 		<Hero/>
 		<Quest/>
 		<God/>
@@ -464,7 +464,7 @@
 				</Texture>
 			</Frame>
 		</Animation>
-		<MaxHitPoints>5000</MaxHitPoints>
+		<MaxHitPoints>10000</MaxHitPoints>
 		<Size>120</Size>
 		<XpMult>0.1</XpMult>
 		<God/>
@@ -1010,7 +1010,7 @@
 			<ConditionEffect duration="2">Confused</ConditionEffect>
 		</Projectile>
 	</Object>
-	<Object type="0x5018" id="Redirection Catalyst">
+	<Object type="0x5019" id="Redirection Catalyst">
 		<Class>Character</Class>
 		<MaxHitPoints>4000</MaxHitPoints>
 		<Enemy/>
@@ -1021,4 +1021,350 @@
 		</Texture>
 		<Size>100</Size>
 	</Object>
+	<Object type="0x5201" id="dcavemanager1">
+		<Class>Character</Class>
+		<StasisImmune/>
+		<ShadowSize>0</ShadowSize>
+		<Size>0</Size>
+		<Enemy/>
+		<NoMiniMap/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<HitSound>monster/skeletons_hit</HitSound>
+		<DeathSound>monster/dwarves_death</DeathSound>
+		<MaxHitPoints>30000</MaxHitPoints>
+		<XpMult>0.0</XpMult>
+	</Object>
+	<Object type="0x5202" id="Parthanax">
+		<Group>Dragon</Group>
+		<Class>Character</Class>
+		<Enemy/>
+		<AnimatedTexture>
+			<File>lofiChar32x32</File>
+			<Index>0</Index>
+		</AnimatedTexture>
+		<HitSound>monster/dragons_hit</HitSound>
+		<DeathSound>monster/dragons_death</DeathSound>
+		<MaxHitPoints>60000</MaxHitPoints>
+		<Projectile>
+			<ObjectId>Stone Slash</ObjectId>
+			<Speed>75</Speed>
+			<Damage>100</Damage>
+			<LifetimeMS>500</LifetimeMS>
+			<Size>100</Size>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Blazed Shot</ObjectId>
+			<Speed>100</Speed>
+			<Damage>180</Damage>
+			<Size>100</Size>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Red Star</ObjectId>
+			<Damage>70</Damage>
+			<Speed>60</Speed>
+			<Size>200</Size>
+			<LifetimeMS>1200</LifetimeMS>
+			<PassesCover/>
+			<ConditionEffect duration="2">Confused</ConditionEffect>
+			<ConditionEffect duration="2">Bleeding</ConditionEffect>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Stone Slash</ObjectId>
+			<Speed>50</Speed>
+			<Damage>300</Damage>
+			<LifetimeMS>5000</LifetimeMS>
+			<Size>200</Size>
+		</Projectile>
+	</Object>
+	<Object type="0x5203" id="Adult Red Dragon">
+		<Class>Character</Class>
+		<Size>90</Size>
+		<Texture>
+			<File>lofiChar16x16</File>
+			<Index>0x43</Index>
+		</Texture>
+		<HitSound>monster/dragons_hit</HitSound>
+		<DeathSound>monster/dragons_death</DeathSound>
+		<MaxHitPoints>30000</MaxHitPoints>
+		<Enemy/>
+		<BloodProb>0.5</BloodProb>
+		<BloodColor>0x50d71b</BloodColor>
+		<Projectile>
+			<ObjectId>Blazed Shot</ObjectId>
+			<Speed>40</Speed>
+			<Damage>200</Damage>
+			<Size>200</Size>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Red Star</ObjectId>
+			<Speed>200</Speed>
+			<Damage>10</Damage>
+			<Size>100</Size>
+			<LifetimeMS>1000</LifetimeMS>
+			<ConditionEffect duration="5.0">Bleeding</ConditionEffect>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Blazed Shot</ObjectId>
+			<Speed>100</Speed>
+			<Damage>80</Damage>
+			<Size>100</Size>
+			<LifetimeMS>1000</LifetimeMS>
+			<ConditionEffect duration="1.0">Armor Broken</ConditionEffect>
+		</Projectile>
+	</Object>
+	<Object type="0x501a" id="AngelHalo">
+		<Class>Character</Class>
+		<MaxHitPoints>4000</MaxHitPoints>
+		<Enemy/>
+		<Friendly/>
+		<NoMiniMap/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<ShadowSize>0</ShadowSize>
+		<Size>100</Size>
+	</Object>
+	<Object type="0x501b" id="Ancient Hermit God">
+		<Group>Hermit God Encounter</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Hero/>
+		<Quest/>
+		<God/>
+		<Encounter/>
+		<StasisImmune/>
+		<Level>20</Level>
+		<KeepDamageRecord/>
+		<AnimatedTexture>
+			<File>chars16x16dEncounters2</File>
+			<Index>11</Index>
+		</AnimatedTexture>
+		<Portrait>
+			<AnimatedTexture>
+				<File>chars16x16dEncounters2</File>
+				<Index>11</Index>
+			</AnimatedTexture>
+		</Portrait>
+		<AltTexture id="1">
+			<AnimatedTexture>
+				<File>chars16x16dEncounters2</File>
+				<Index>12</Index>
+			</AnimatedTexture>
+		</AltTexture>
+		<AltTexture id="2">
+			<AnimatedTexture>
+				<File>chars16x16dEncounters2</File>
+				<Index>13</Index>
+			</AnimatedTexture>
+		</AltTexture>
+		<AltTexture id="3">
+			<Texture>
+				<File>invisible</File>
+				<Index>0</Index>
+			</Texture>
+		</AltTexture>
+		<AltTexture id="4">
+			<AnimatedTexture>
+				<File>chars16x16dEncounters2</File>
+				<Index>14</Index>
+			</AnimatedTexture>
+		</AltTexture>
+		<HitSound>monster/skeletons_hit</HitSound>
+		<DeathSound>monster/dwarves_death</DeathSound>
+		<MaxHitPoints>110000</MaxHitPoints>
+		<XpMult>5.0</XpMult>
+		<Size>210</Size>
+		<Defense>70</Defense>
+		<Projectile id="0">
+			<ObjectId>InkBubbles</ObjectId>
+			<Speed>55</Speed>
+			<Damage>15</Damage>
+			<Size>90</Size>
+			<LifetimeMS>3000</LifetimeMS>
+			<ConditionEffect duration="2.6">Blind</ConditionEffect>
+			<ArmorPierce/>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>OctoBlast</ObjectId>
+			<Speed>55</Speed>
+			<Damage>120</Damage>
+			<Size>110</Size>
+			<LifetimeMS>3000</LifetimeMS>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Deep Sea Blast</ObjectId>
+			<Speed>55</Speed>
+			<Damage>150</Damage>
+			<Size>210</Size>
+			<LifetimeMS>3200</LifetimeMS>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Deep Sea Blast Yellow</ObjectId>
+			<Speed>55</Speed>
+			<Damage>120</Damage>
+			<Size>210</Size>
+			<LifetimeMS>3200</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x501c" id="Ancient Hermit God Tentacle Spawner">
+		<Group>Hermit God Encounter</Group>
+		<Class>Character</Class>
+		<StasisImmune/>
+		<ShadowSize>0</ShadowSize>
+		<Size>0</Size>
+		<Enemy/>
+		<NoMiniMap/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<HitSound>monster/skeletons_hit</HitSound>
+		<DeathSound>monster/dwarves_death</DeathSound>
+		<MaxHitPoints>10000</MaxHitPoints>
+		<XpMult>0.0</XpMult>
+		<Size>110</Size>
+		<Defense>50</Defense>
+	</Object>
+	<Object type="0x501d" id="Ancient Whirlpool">
+		<Group>Hermit God Encounter</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<StasisImmune/>
+		<ShadowSize>0</ShadowSize>
+		<Flying/>
+		<AnimatedTexture>
+			<File>chars16x16dEncounters2</File>
+			<Index>15</Index>
+		</AnimatedTexture>
+		<HitSound>monster/djinn_hit</HitSound>
+		<DeathSound>monster/blobs_death</DeathSound>
+		<MaxHitPoints>20000</MaxHitPoints>
+		<XpMult>0.0</XpMult>
+		<Size>110</Size>
+		<Defense>0</Defense>
+		<Projectile id="0">
+			<ObjectId>Water Shot</ObjectId>
+			<Speed>35</Speed>
+			<Damage>50</Damage>
+			<Size>100</Size>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x501e" id="Ancient Hermit God Drop">
+		<Group>Hermit God Encounter</Group>
+		<Class>Character</Class>
+		<Enemy/>
+		<StasisImmune/>
+		<NoMiniMap/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<HitSound>monster/hobbits_death</HitSound>
+		<DeathSound>monster/minion_of_oryx_death</DeathSound>
+		<MaxHitPoints>100</MaxHitPoints>
+		<Size>0</Size>
+		<Defense>0</Defense>
+		<XpMult>0.0</XpMult>
+	</Object>
+	<Object type="0x501f" id="Green Fire Brother">
+		<Class>Character</Class>
+		<AnimatedTexture>
+			<File>chars16x16dEncounters2</File>
+			<Index>120</Index>
+		</AnimatedTexture>
+		<Quest/>
+		<God/>
+		<Encounter/>
+		<StasisImmune/>
+		<Level>20</Level>
+		<KeepDamageRecord/>
+		<Enemy/>
+		<Defense>40</Defense>
+		<MaxHitPoints>30000</MaxHitPoints>
+		<Projectile id="0">
+			<ObjectId>Green Brother Orb</ObjectId>
+			<Speed>50</Speed>
+			<Damage>90</Damage>
+			<Size>100</Size>
+			<LifetimeMS>500</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Green Brother Orb</ObjectId>
+			<Speed>100</Speed>
+			<Damage>25</Damage>
+			<Size>100</Size>
+			<LifetimeMS>2000</LifetimeMS>
+			<ConditionEffect duration="3.0">Dazed</ConditionEffect>
+		</Projectile>
+	  </Object>
+	<Object type="0x5020" id="Blue Fire Brother">
+		<Class>Character</Class>
+		<AnimatedTexture>
+			<File>chars16x16dEncounters2</File>
+			<Index>121</Index>
+		</AnimatedTexture>
+		<Quest/>
+		<God/>
+		<Encounter/>
+		<StasisImmune/>
+		<Level>20</Level>
+		<KeepDamageRecord/>
+		<Enemy/>
+		<Defense>40</Defense>
+		<MaxHitPoints>30000</MaxHitPoints>
+		<Projectile id="0">
+			<ObjectId>Blue Brother Orb</ObjectId>
+			<Speed>50</Speed>
+			<Damage>90</Damage>
+			<Size>100</Size>
+			<LifetimeMS>500</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Blue Brother Orb</ObjectId>
+			<Speed>100</Speed>
+			<Damage>25</Damage>
+			<Size>100</Size>
+			<LifetimeMS>2000</LifetimeMS>
+			<ConditionEffect duration="3.0">Quiet</ConditionEffect>
+		</Projectile>
+	  </Object>
+	<Object type="0x5021" id="Yellow Fire Brother">
+		<Class>Character</Class>
+		<AnimatedTexture>
+			<File>chars16x16dEncounters2</File>
+			<Index>122</Index>
+		</AnimatedTexture>
+		<Hero/>
+		<Quest/>
+		<God/>
+		<Encounter/>
+		<StasisImmune/>
+		<Level>20</Level>
+		<KeepDamageRecord/>
+		<Enemy/>
+		<Defense>40</Defense>
+		<MaxHitPoints>30000</MaxHitPoints>
+		<Projectile id="0">
+			<ObjectId>Yellow Brother Orb</ObjectId>
+			<Speed>50</Speed>
+			<Damage>90</Damage>
+			<Size>100</Size>
+			<LifetimeMS>500</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Yellow Brother Orb</ObjectId>
+			<Speed>100</Speed>
+			<Damage>25</Damage>
+			<Size>100</Size>
+			<LifetimeMS>2000</LifetimeMS>
+			<ConditionEffect duration="1.0">Stunned</ConditionEffect>
+		</Projectile>
+	  </Object>
 </Objects>

@@ -213,13 +213,8 @@ namespace RotMG.Game.Entities
 #if DEBUG
                 Program.Print(PrintType.Error, "Invalid time for player shoot");
 #endif
+                Program.Print(PrintType.Error, "Invalid move for player shoot");
                 Client.Disconnect();
-                return;
-            }
-
-            if (AwaitingGoto.Count > 0)
-            {
-                Client.Random.Drop(numShots);
                 return;
             }
 
@@ -228,12 +223,20 @@ namespace RotMG.Game.Entities
 #if DEBUG
                 Program.Print(PrintType.Error, "Invalid move for player shoot");
 #endif
-                Client.Disconnect();
+                Program.Print(PrintType.Error, "Invalid move for player shoot");
+                if(AwaitingGoto.Count == 0)
+                    Client.Disconnect();
                 return;
             }
 
             var startId = NextProjectileId;
             NextProjectileId -= numShots;
+
+            if (AwaitingGoto.Count > 0)
+            {
+                Client.Random.Drop(numShots);
+                return;
+            }
 
             ItemDesc desc = ability ? GetItem(1) : GetItem(0);
             if (desc == null)

@@ -70,8 +70,15 @@ namespace RotMG
                     }
                 }
 
-                Database.Tick();
-                Manager.Tick();
+                //try
+                //{
+                    Database.Tick();
+                    Manager.Tick();
+                //} catch(Exception e)
+                //{
+                //    Terminating = true;
+                //    Print(PrintType.Error, e.ToString());
+                //}
 
 #if DEBUG
                 Thread.Sleep(2);

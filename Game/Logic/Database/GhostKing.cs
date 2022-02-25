@@ -260,7 +260,7 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Magic Potion", 0.7f),
                 new Threshold(0.001f,
                     new ItemLoot("Mithril Sword", 0.01f, r: new LootDef.RarityModifiedData(1.3f, 2)),
-                    new ItemLoot("Realm Equipment Crystal", 0.01f),
+                    new ItemLoot("Realm Equipment Crystal", 0.05f),
                     new ItemLoot("Potion of Mana", 0.1f),
                     new ItemLoot("Potion of Dexterity", 0.6f, min: 2)
                 )

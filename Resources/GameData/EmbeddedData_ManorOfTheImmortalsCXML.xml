@@ -16,8 +16,8 @@
 		<ShadowSize>40</ShadowSize>
 		<Z>0.2</Z>
 		<Flying/>
-		<MaxHitPoints>12000</MaxHitPoints>
-		<Defense>30</Defense>
+		<MaxHitPoints>50000</MaxHitPoints>
+		<Defense>45</Defense>
 		<XpMult>0.9</XpMult>
 		<LeachHealth/>
 		<God/>

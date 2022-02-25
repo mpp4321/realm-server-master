@@ -211,7 +211,36 @@
 		<Maps>Manor/0.wmap</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
-		<Portals>0x0d7b</Portals>
+		<Portals>0x0739</Portals>
 		<AllowTeleport>true</AllowTeleport>
+	</World>
+	<World name="ButcherHouse" display="Butcher's House">
+		<Maps>ButcherHouse/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+		<Portals>0x075a</Portals>
+	</World>
+	<World name="DCave" display="Dragon's Cave">
+		<Maps>DCave/0.jm</Maps>
+		<Portals>0x5204</Portals>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+	</World>
+	<World name="ShoeWorld" display="Shoe World">
+		<Maps>ShoeWorld/0.jm</Maps>
+		<Portals>0x5205</Portals>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+		<AllowTeleport>true</AllowTeleport>
+	</World>
+	<World name="AncientHermit" display="Ancient Ocean Rift">
+		<Maps>AncientHermit/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+	</World>
+	<World name="Market" display="Market">
+		<Maps>AncientHermit/0.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
 	</World>
 </Worlds>

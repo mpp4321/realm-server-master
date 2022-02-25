@@ -239,6 +239,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Rune of Elven Magic", 0.005f),
                     new ItemLoot("Coral Venom Trap", 0.01f),
                     new ItemLoot("Wine Cellar Incantation", 0.02f),
+                    new ItemLoot("Realm Equipment Crystal", 0.4f),
                     new ItemLoot("Coral Silk Armor", 0.05f),
                     new ItemLoot("Coral Ring", 0.05f)
                     /*new ItemLoot("Replica: Trident of the Sea", 0.00002f),

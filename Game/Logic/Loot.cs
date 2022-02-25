@@ -5,6 +5,7 @@ using System.Linq;
 using RotMG.Common;
 using RotMG.Game.Entities;
 using RotMG.Game.Logic.Loots;
+using RotMG.Networking;
 using RotMG.Utils;
 
 namespace RotMG.Game.Logic
@@ -58,6 +59,7 @@ namespace RotMG.Game.Logic
             public float RarityMod = 1.0f;
             public int RarityShift = 0;
             public bool AlwaysRare = false;
+            public ItemDataModType? OverrideMod = null;
         }
 
         public readonly ushort Item;
@@ -146,9 +148,14 @@ namespace RotMG.Game.Logic
 
             var privateLoot = new Dictionary<Player, List<LootDef>>();
             var c = 0;
+
+            // Attempt to stop players from getting multiple loot bags
+            HashSet<int> accIdsWithLoot = new HashSet<int>();
+
             //Sort by damage done total
             foreach (var (player, damage) in enemy.DamageStorage.OrderByDescending(k => k.Value))
             {
+                if (accIdsWithLoot.Contains(player.AccountId)) continue;
                 //Count top damagers
                 c++;
                 if (enemy.Desc.Quest)
@@ -175,6 +182,7 @@ namespace RotMG.Game.Logic
                 var t = Math.Min(1f, (float) damage / enemy.MaxHp);
                 var loot = new List<LootDef>();
                 var sentTopDamage = false;
+
                 foreach (var drop in possibleDrops)
                 {
                     if (drop.MaxTop < c)
@@ -202,7 +210,9 @@ namespace RotMG.Game.Logic
                 }
 
                 privateLoot[player] = loot;
+                accIdsWithLoot.Add(player.AccountId);
             }
+
             
             foreach (var (drop, count) in requiredDrops.ToArray())
             {
@@ -216,9 +226,10 @@ namespace RotMG.Game.Logic
                 //    }
                 //    continue;
                 //}
-
+                accIdsWithLoot.Clear();
                 foreach (var (player, damage) in enemy.DamageStorage.OrderByDescending(k => k.Value))
                 {
+                    if (accIdsWithLoot.Contains(player.AccountId)) continue;
                     if (requiredDrops[drop] <= 0)
                         break;
                     
@@ -230,6 +241,7 @@ namespace RotMG.Game.Logic
                         continue;
 
                     privateLoot[player].Add(dropDictionary[drop]);
+                    accIdsWithLoot.Add(player.AccountId);
                     --requiredDrops[drop];
                 }
             }
@@ -252,11 +264,23 @@ namespace RotMG.Game.Logic
             {
                 var bagType = 1;
                 var bagCount = Math.Min(loot.Count, 8);
+                var significantItems = new List<ItemDesc>();
+                ItemDesc topItem = null;
                 for (var k = 0; k < bagCount; k++)
                 {
                     var d = Resources.Type2Item[loot[k].Item];
                     if (d.BagType > bagType)
+                    {
                         bagType = d.BagType;
+                    }
+                    if(d.BagType > 4 && d.BagType < 7)
+                    {
+                        significantItems.Add(d);
+                        if((topItem?.BagType ?? -1) < d.BagType)
+                        {
+                            topItem = d;
+                        }
+                    }
                 }
 
                 if (player != null)
@@ -264,6 +288,35 @@ namespace RotMG.Game.Logic
                     if (bagType == 2) player.FameStats.CyanBags++;
                     else if (bagType == 3) player.FameStats.BlueBags++;
                     else if (bagType >= 4) player.FameStats.WhiteBags++;
+                }
+
+                var precentFormatted = String.Format("{0:0.##}", ((float)enemy.DamageStorage.GetValueOrDefault(player, 0) / enemy.MaxHp) * 100.0);
+                if(topItem != null)
+                {
+                    switch(topItem.BagType)
+                    {
+                        case 6:
+                            player.Client.Send(GameServer.LootNotif(0));
+                            break;
+                        case 5:
+                            player.Client.Send(GameServer.LootNotif(1));
+                            break;
+                        case 4:
+                            player.Client.Send(GameServer.LootNotif(2));
+                            break;
+                    }
+                }
+                foreach(var sItem in significantItems)
+                {
+                    switch (sItem.BagType)
+                    {
+                        case 6:
+                            Manager.Announce("<LOOT> " + player.Name + " just got a legendary item " + sItem.DisplayId + " with " + precentFormatted + "%!");
+                            break;
+                        case 5:
+                            Manager.Announce("<LOOT> " + player.Name + " just got a rare item " + sItem.DisplayId + " with " + precentFormatted  + "%!");
+                            break;
+                    }
                 }
 
                 var c = new Container(Container.FromBagType(bagType), ownerId, 40000 * bagType);

@@ -56,3 +56,13 @@ if __name__ == '__main__':
     while not is_valid_id(largest):
         largest += 1
     print("Next valid id: {}".format(hex(largest)))
+    
+    while True:
+        hexToCheck = input("Enter hex: ")
+        hexToCheck = int(hexToCheck, 16)
+        if hexToCheck in hashSet:
+            while not is_valid_id(hexToCheck):
+                hexToCheck += 1
+            print("taken, next available: ", hexToCheck)
+        else:
+            print("available")

@@ -52,11 +52,12 @@ namespace RotMG.Game.Logic.Database
                     new State("Circle",
                         new TransitionFrom("Circle", "Prepare"),
                         new State("Prepare",
-                            new MoveTo(speed: 1, x: 127.5f, y: 39.5f),
+                            new MoveTo(speed: 1, x: 108f, y: 42f),
+                            new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                             new EntitiesWithinTransition(1, "Oryx Stone Guardian Left", "Prepare2")
                         ),
                         new State("Prepare2",
-                            new MoveTo(speed: 1, x: 130.5f, y: 39.5f),
+                            new MoveTo(speed: 1, x: 111f, y: 40f),
                             new TimedTransition("PrepareEnd", 1000)
                         ),
                         new State("PrepareEnd",
@@ -128,7 +129,7 @@ namespace RotMG.Game.Logic.Database
                     new State("Move Sideways",
                         new TransitionFrom("Move Sideways", "msw_prepare"),
                         new State("msw_prepare",
-                            new MoveTo(speed: 1, x: 141.5f, y: 39.5f),
+                            new MoveTo(speed: 1, x: 112f, y: 43f),
                             new TimedTransition("msw_shoot", 1500)
                         ),
                         new State("msw_shoot",
@@ -159,12 +160,15 @@ namespace RotMG.Game.Logic.Database
                 new State("Forever Alone"),
                 new Threshold(0.01f,
                     new ItemLoot("Ancient Stone Sword", 0.02f),
-                    new ItemLoot("Ancient Stone Maul", 0.005f),
+                    new ItemLoot("Ancient Stone Maul", 0.003f),
                     new ItemLoot("Potion of Defense", 1, min: 3),
+                    new ItemLoot("Potion of Defense", 1, min: 3),
+                    new ItemLoot("Potion of Defense", 1, min: 3),
+                    new ItemLoot("Realm Equipment Crystal", 0.5f),
                     //new ItemLoot("Gauntlet Chaos", 0.001f),
-                    new TierLoot(8, LootType.Weapon, 0.1f),
-                    new TierLoot(7, LootType.Armor, 0.1f),
-                    new TierLoot(3, LootType.Ring, 0.1f)
+                    new TierLoot(10, LootType.Weapon, 0.9f),
+                    new TierLoot(10, LootType.Armor, 0.9f),
+                    new TierLoot(6, LootType.Ring, 0.9f)
                 )
             );
             db.Init("Oryx Stone Guardian Left",
@@ -205,11 +209,12 @@ namespace RotMG.Game.Logic.Database
                         new State("Circle",
                             new TransitionFrom("Circle", "Prepare"),
                             new State("Prepare",
-                                new MoveTo(speed: 1, x: 127.5f, y: 39.5f),
+                                new MoveTo(speed: 1, x: 108f, y: 42f),
+                                new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                                 new EntitiesWithinTransition(1, "Oryx Stone Guardian Right", "Prepare2")
                             ),
                             new State("Prepare2",
-                                new MoveTo(speed: 1, x: 124.5f, y: 39.5f),
+                                new MoveTo(speed: 1, x: 105.5f, y: 39.5f),
                                 new TimedTransition("PrepareEnd", 1000)
                             ),
                             new State("PrepareEnd",
@@ -281,7 +286,7 @@ namespace RotMG.Game.Logic.Database
                         new State("Move Sideways",
                             new TransitionFrom("Move Sideways", "msw_prepare"),
                             new State("msw_prepare",
-                                new MoveTo(speed: 1, x: 113.5f, y: 39.5f),
+                                new MoveTo(speed: 1, x: 105f, y: 33f),
                                 new TimedTransition("msw_shoot", 1500)
                             ),
                             new State("msw_shoot",
@@ -312,9 +317,11 @@ namespace RotMG.Game.Logic.Database
                     new State("Forever Alone"),
                  new Threshold(0.1f,
                     new ItemLoot("Ancient Stone Sword", 0.02f),
-                    new ItemLoot("Realm Equipment Crystal", 0.02f),
+                    new ItemLoot("Realm Equipment Crystal", 0.5f),
                     new ItemLoot("Potion of Defense", 1),
-                    new ItemLoot("Ancient Stone Maul", 0.005f),
+                    new ItemLoot("Potion of Defense", 1),
+                    new ItemLoot("Potion of Defense", 1),
+                    new ItemLoot("Ancient Stone Maul", 0.003f),
                     new TierLoot(8, LootType.Weapon, 0.1f),
                     new TierLoot(7, LootType.Armor, 0.1f),
                     new TierLoot(3, LootType.Ring, 0.1f)
@@ -514,13 +521,13 @@ namespace RotMG.Game.Logic.Database
                                         cooldownOffset: 1000),
                                     new Shoot(25, index: 6, count: 3, shootAngle: 10, predictive: 1, cooldown: 1000,
                                         cooldownOffset: 1000),
-                                    new Taunt(1, 6000, "Puny mortals! My {HP} HP will annihilate you!"),
+                                    new Taunt(1, cooldown: 6000, "Puny mortals! My {HP} HP will annihilate you!"),
                                     new Spawn("Henchman of Oryx", 3, cooldown: 30000),
                                     new HealthTransition(.2f, "prepareRage")
                                 ),
                                 new State("prepareRage",
                                     new Follow(.1f, 15, 3),
-                                    new Taunt("Can't... keep... henchmen... alive... anymore! ARGHHH!!!"),
+                                    new Taunt(cooldown: 0, "Can't... keep... henchmen... alive... anymore! ARGHHH!!!"),
                                     new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                                     new Shoot(25, 30, fixedAngle: 0, index: 7, cooldown: 4000, cooldownOffset: 4000),
                                     new Shoot(25, 30, fixedAngle: 30, index: 8, cooldown: 4000, cooldownOffset: 4000),
@@ -543,7 +550,7 @@ namespace RotMG.Game.Logic.Database
                                     new Shoot(25, index: 6, count: 3, shootAngle: 10, predictive: 1, cooldown: 1000,
                                         cooldownOffset: 1000),
                                     new TossObject("Monstrosity Scarab", 7, 0, cooldown: 1000),
-                                    new Taunt(1, 6000, "Puny mortals! My {HP} HP will annihilate you!")
+                                    new Taunt(1, cooldown: 6000, "Puny mortals! My {HP} HP will annihilate you!")
                                 )
                             ),
                             new Threshold(0.01f,
@@ -557,15 +564,19 @@ namespace RotMG.Game.Logic.Database
                             ),
                             new Threshold(0.1f, 
                                 new ItemLoot("Scarlet's Power", 0.002f),
-                                new ItemLoot("Horned Suguyari", 0.002f)
+                                new ItemLoot("Horned Suguyari", 0.002f),
+                                new ItemLoot("Black Clothing Dye", 0.2f),
+                                new ItemLoot("Black Accessory Dye", 0.2f)
                             ),
                             new Threshold(0.1f,
-                                new TierLoot(12, LootType.Weapon, 0.3f, r: new LootDef.RarityModifiedData(1.0f, 1, true)),
+                                new TierLoot(12, LootType.Weapon, 0.6f, r: new LootDef.RarityModifiedData(1.0f, 1, true)),
                                 new TierLoot(13, LootType.Weapon, 0.06f),
-                                new TierLoot(6, LootType.Ability, 0.3f, r: new LootDef.RarityModifiedData(1.0f, 1, true)),
-                                new TierLoot(12, LootType.Armor, 0.3f, r: new LootDef.RarityModifiedData(1.0f, 1, true)),
+                                new TierLoot(6, LootType.Ability, 0.6f, r: new LootDef.RarityModifiedData(1.0f, 1, true)),
+                                new TierLoot(5, LootType.Ability, 1f, r: new LootDef.RarityModifiedData(1.0f, 3, true)),
+                                new TierLoot(12, LootType.Armor, 0.6f, r: new LootDef.RarityModifiedData(1.0f, 1, true)),
                                 new TierLoot(13, LootType.Armor, 0.05f),
-                                new TierLoot(6, LootType.Ring, 0.5f)
+                                new TierLoot(6, LootType.Ring, 0.5f),
+                                new ItemLoot("Oryx Equipment Crystal", 0.2f)
                             )
                         );
 
@@ -574,16 +585,18 @@ namespace RotMG.Game.Logic.Database
                     new DropPortalOnDeath("Locked Wine Cellar Portal", 100, timeout: 120),
                     new HealthTransition(.2f, "rage"),
                     new State("Slow",
-                        new Taunt("Fools! I still have {HP} hitpoints!"),
+                        new Taunt(cooldown: 5000, "Fools! I still have {HP} hitpoints!"),
                         new Spawn("Minion of Oryx", 5, 0, 350000),
                         new Reproduce("Minion of Oryx", 10, 5, 1500),
                         new Shoot(25, 4, 10, 4, cooldown: 1000),
+                        new HealthTransition(0.75f, "Dance 1"),
                         new TimedTransition("Dance 1", 20000)
                         ),
                     new State("Dance 1",
                         new Flash(0xf389E13, 0.5f, 60),
-                        new Taunt("BE SILENT!!!"),
-                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                        new Taunt(cooldown: 5000, "BE SILENT!!!"),
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable, duration: 1000),
+                        new ConditionalEffect(ConditionEffectIndex.Armored),
                         new Shoot(50, 8, index: 6, cooldown: 700, cooldownOffset: 200),
                         new TossObject("Ring Element", 9, 24, 320000),
                         new TossObject("Ring Element", 9, 48, 320000),
@@ -600,10 +613,15 @@ namespace RotMG.Game.Logic.Database
                         new TossObject("Ring Element", 9, 312, 320000),
                         new TossObject("Ring Element", 9, 336, 320000),
                         new TossObject("Ring Element", 9, 360, 320000),
-                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        //new Grenade(radius: 4, damage: 150, fixedAngle: new Random().Next(0, 359), range: 5, cooldown: 2000),
-                        //new Grenade(radius: 4, damage: 150, fixedAngle: new Random().Next(0, 359), range: 5, cooldown: 2000),
-                        //new Grenade(radius: 4, damage: 150, fixedAngle: new Random().Next(0, 359), range: 5, cooldown: 2000),
+                        new Grenade(radius: 4, damage: 150, fixedAngle: 0, range: 5, cooldown: 2000, cooldownOffset: 0, cooldownVariance: 500),
+                        new Grenade(radius: 4, damage: 150, fixedAngle: 45, range: 5, cooldown: 2000, cooldownOffset: 1000, cooldownVariance: 500),
+                        new Grenade(radius: 4, damage: 150, fixedAngle: 90, range: 5, cooldown: 2000, cooldownOffset: 2000, cooldownVariance: 500),
+                        new Grenade(radius: 4, damage: 150, fixedAngle: 135, range: 5, cooldown: 2000, cooldownOffset: 3000, cooldownVariance: 500),
+                        new Grenade(radius: 4, damage: 150, fixedAngle: 180, range: 5, cooldown: 2000, cooldownOffset: 4000, cooldownVariance: 500),
+                        new Grenade(radius: 4, damage: 150, fixedAngle: 225, range: 5, cooldown: 2000, cooldownOffset: 5000, cooldownVariance: 500),
+                        new Grenade(radius: 4, damage: 150, fixedAngle: 270, range: 5, cooldown: 2000, cooldownOffset: 6000, cooldownVariance: 500),
+                        new Grenade(radius: 4, damage: 150, fixedAngle: 315, range: 5, cooldown: 2000, cooldownOffset: 7000, cooldownVariance: 500),
+                        new Grenade(radius: 4, damage: 150, fixedAngle: 360, range: 5, cooldown: 2000, cooldownOffset: 8000, cooldownVariance: 500),
                         new TimedTransition("artifacts", 25000)
                         ),
                     new State("artifacts",
@@ -680,7 +698,7 @@ namespace RotMG.Game.Logic.Database
             #endregion Dance 2
                     new State("rage",
                         new ChangeSize(10, 200),
-                        new Taunt(.3f, "I HAVE HAD ENOUGH OF YOU!!!",
+                        new Taunt(cooldown: 0, "I HAVE HAD ENOUGH OF YOU!!!",
                             "ENOUGH!!!",
                             "DIE!!!"),
                         new Spawn("Minion of Oryx", 10, 0, 350000),
@@ -701,8 +719,12 @@ namespace RotMG.Game.Logic.Database
                 ),
                 new Threshold(0.1f, 
                     new ItemLoot("The Molten Cape", 0.002f),
-                    new ItemLoot("Seal of Havoc", 0.002f)
+                    new ItemLoot("Seal of Havoc", 0.002f),
+                    new ItemLoot("Black Clothing Dye", 0.2f),
+                    new ItemLoot("Black Accessory Dye", 0.2f),
+                    new ItemLoot("Oryx Equipment Crystal", 0.08f)
                 ),
+                new TopDamagersOnly(1, new ItemLoot("Oryx Equipment Crystal", 0.4f, 0.2f)),
                 new Threshold(0.1f,
                     new TierLoot(10, LootType.Weapon, 0.07f, r: new LootDef.RarityModifiedData(1.0f, 1, alwaysRare: true)),
                     new TierLoot(11, LootType.Weapon, 0.06f, r: new LootDef.RarityModifiedData(1.0f, 1, alwaysRare: true)),

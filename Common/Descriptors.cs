@@ -150,6 +150,8 @@ namespace RotMG.Common
         MagicCrystal,
         FishingRod,
         EggBreak,
+        FameConsume,
+        TossObject,
     }
 
     public enum ShowEffectIndex
@@ -860,6 +862,7 @@ namespace RotMG.Common
 
         public static ItemType[] WeaponTypes =
         {
+            ItemType.All,
             ItemType.Sword,
             ItemType.Dagger,
             ItemType.Staff,
@@ -870,6 +873,7 @@ namespace RotMG.Common
 
         public static ItemType[] ArmorTypes =
         {
+            ItemType.All,
             ItemType.Robe,
             ItemType.Plate,
             ItemType.Leather
@@ -877,11 +881,13 @@ namespace RotMG.Common
 
         public static ItemType[] RingTypes =
         {
+            ItemType.All,
             ItemType.Ring,
         };
 
         public static ItemType[] AbilityTypes =
         {
+            ItemType.All,
             ItemType.Cloak,
             ItemType.Spell,
             ItemType.Tome,
@@ -960,11 +966,12 @@ namespace RotMG.Common
         {
             r = r ?? new RarityModifiedData();
             ItemData data = 0;
+            ItemDataModType modTypeToUse = r.OverrideMod.HasValue ? r.OverrideMod.Value : smod.Value;
             if (!ModifiableTypes.Contains(SlotType))
-                return Tuple.Create(false, FinalizeItemData(smod, data));
+                return Tuple.Create(false, FinalizeItemData(modTypeToUse, data));
 
             if (!MathUtils.Chance(.5f) && !r.AlwaysRare)
-                return Tuple.Create(false, FinalizeItemData(smod, data));
+                return Tuple.Create(false, FinalizeItemData(modTypeToUse, data));
 
             var rank = -1;
             var chance = .5f * r.RarityMod;
@@ -975,7 +982,7 @@ namespace RotMG.Common
                 else break;
             }
             if (rank == -1 && !r.AlwaysRare) 
-                return Tuple.Create(false, FinalizeItemData(smod, data));
+                return Tuple.Create(false, FinalizeItemData(modTypeToUse, data));
             //Considering the -1 rank
             rank = Math.Min(7, rank + r.RarityShift + (r.AlwaysRare ? 1 : 0));
 
@@ -995,7 +1002,7 @@ namespace RotMG.Common
             var s = new List<ItemData>();
             while (s.Count < bonuses)
             {
-                var k = ItemDataModifiers.Registry[smod.Value].GenerateBaseStat();
+                var k = ItemDataModifiers.Registry[modTypeToUse].GenerateBaseStat();
                 if (s.Contains(k) || !modifiers.Contains(k))
                     continue;
                 if (k == ItemData.Damage 
@@ -1005,7 +1012,7 @@ namespace RotMG.Common
                 data |= k;
             }
 
-            return Tuple.Create(true, FinalizeItemData(smod, data));
+            return Tuple.Create(true, FinalizeItemData(modTypeToUse, data));
         }
 
         public readonly string Id;
@@ -1192,6 +1199,8 @@ namespace RotMG.Common
             Damage = e.ParseInt("Damage");
             MinDamage = e.ParseInt("MinDamage", Damage);
             MaxDamage = e.ParseInt("MaxDamage", Damage);
+            if (Damage == 0)
+                Damage = (MinDamage + MaxDamage) / 2;
 
             var effects = new List<ConditionEffectDesc>();
             foreach (var k in e.Elements("ConditionEffect"))
@@ -1210,7 +1219,7 @@ namespace RotMG.Common
             Magnitude = e.ParseFloat("Magnitude", 3);
 
             Accelerate = e.ParseFloat("Accelerate");
-            DoAccelerate = Accelerate > 0.0f;
+            DoAccelerate = MathF.Abs(Accelerate) > 0.0f;
             AccelerateDelay = e.ParseFloat("AccelerateDelay");
             SpeedClamp = e.ParseFloat("SpeedClamp");
 

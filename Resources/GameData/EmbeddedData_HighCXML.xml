@@ -736,6 +736,43 @@
 			<LifetimeMS>2200</LifetimeMS>
 		</Projectile>
 	</Object>
+	<Object type="0x5208" id="Juvenile Red Dragon">
+		<Class>Character</Class>
+		<Size>90</Size>
+		<Texture>
+			<File>lofiChar16x8</File>
+			<Index>0x78</Index>
+		</Texture>
+		<HitSound>monster/dragons_hit</HitSound>
+		<DeathSound>monster/dragons_death</DeathSound>
+		<MaxHitPoints>15000</MaxHitPoints>
+		<Enemy/>
+		<BloodProb>0.5</BloodProb>
+		<BloodColor>0x50d71b</BloodColor>
+		<Projectile>
+			<ObjectId>Blazed Shot</ObjectId>
+			<Speed>40</Speed>
+			<Damage>200</Damage>
+			<Size>200</Size>
+			<LifetimeMS>800</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Red Star</ObjectId>
+			<Speed>200</Speed>
+			<Damage>10</Damage>
+			<Size>100</Size>
+			<LifetimeMS>1000</LifetimeMS>
+			<ConditionEffect duration="1.0">Bleeding</ConditionEffect>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Blazed Shot</ObjectId>
+			<Speed>100</Speed>
+			<Damage>80</Damage>
+			<Size>100</Size>
+			<LifetimeMS>1000</LifetimeMS>
+			<ConditionEffect duration="1.0">Armor Broken</ConditionEffect>
+		</Projectile>
+	</Object>
 	<Object type="0x0209" id="Adult White Dragon">
 		<Class>Character</Class>
 		<Size>120</Size>
@@ -745,7 +782,7 @@
 		</Texture>
 		<HitSound>monster/dragons_hit</HitSound>
 		<DeathSound>monster/dragons_death</DeathSound>
-		<MaxHitPoints>400</MaxHitPoints>
+		<MaxHitPoints>2600</MaxHitPoints>
 		<Terrain>HighForest</Terrain>
 		<Enemy/>
 		<Projectile>

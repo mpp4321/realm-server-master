@@ -217,8 +217,34 @@ namespace RotMG.Game.Logic.Database
                     return true;
                 }, 200),
                 new TimedTransition("Die", 3000)
-                ), new State("Die", new Suicide()));
+                ), new State("Die", new Decay(0)));
 
+            db.Init("AngelHalo", new State("Base",
+                new PulseFire((h) =>
+                {
+                    var nova = GameServer.ShowEffect(ShowEffectIndex.Ring, h.Id, 0xffffffff, new Vector2(6, 0));
+                    GameUtils.ShowEffectRange(h.PlayerOwner, h.Parent, h.Position, 10.0f, nova);
+                    return true;
+                }, 100),
+                new PulseFire((h) =>
+                {
+                    var entities = GameUtils.GetNearbyPlayers(h, 3);
+                    foreach (var e in entities)
+                    {
+                        if (e == null) continue;
+                        if (!(e is Player pl)) continue;
+                        pl.Heal(50, false, true);
+                    }
+                    var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, h.Id, 0xffffffff, new Vector2(6, 0));
+                    foreach (var j in h.Parent.PlayerChunks.HitTest(h.Position, Math.Max(4, Player.SightRadius)))
+                    {
+                        if (j is Player p)
+                            p.Client?.Send(nova);
+                    }
+                    return true;
+                }, 1000),
+                new TimedTransition("Die", 4000)
+                ), new State("Die", new Decay(0)));
         }
     }
 }

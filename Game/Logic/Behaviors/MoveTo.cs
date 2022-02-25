@@ -12,12 +12,14 @@ namespace RotMG.Game.Logic.Behaviors
         private readonly float _speed;
         private readonly float _x;
         private readonly float _y;
+        private readonly bool Relative;
 
-        public MoveTo(float speed, float x, float y)
+        public MoveTo(float speed, float x, float y, bool relative=false)
         {
             _speed = speed;
             _x = x;
             _y = y;
+            Relative = relative;
         }
 
         public override bool Tick(Entity host)
@@ -25,6 +27,10 @@ namespace RotMG.Game.Logic.Behaviors
             if (host.HasConditionEffect(ConditionEffectIndex.Paralyzed))
                 return false;
             var path = new Vector2(_x - host.Position.X, _y - host.Position.Y);
+            if(Relative)
+            {
+                path = new Vector2(_x, _y);
+            }
             var dist = host.GetSpeed(_speed) * Settings.SecondsPerTick;
             if (path.Length() <= dist)
             {

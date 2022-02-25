@@ -241,6 +241,69 @@ namespace RotMG.Common
         }
     }
 
+    // A player account's market data
+    public class MarketModel : DatabaseModel
+    {
+        public readonly int AccountId;
+        public List<MarketPost> Posts = new List<MarketPost>();
+        public int NextPostId = 0;
+
+        public MarketModel(int accountId) : base($"market.{accountId}")
+        {
+            AccountId = accountId;
+        }
+
+
+        public override XElement Export(bool appExport = true)
+        {
+            var data = new XElement("Market");
+            var xElemList = Posts.Select(a => a.Export()).ToArray();
+            data.Add(new XElement("CurrentListings", xElemList));
+            data.Add(new XElement("NextPostId", NextPostId));
+            return data;
+        }
+
+        protected override void Load()
+        {
+            Posts = Data.Element("CurrentListings").Elements().Select(a => new MarketPost(a)).ToList();
+            NextPostId = Data.ParseInt("NextPostId");
+        }
+    }
+
+    public class MarketPost : IDatabaseInfo
+    {
+        public ItemDataJson Json { get; set; } = new ItemDataJson();
+        public int Item { get; set; } = -1;
+        public int Price { get; set; } = 0;
+        public int Id { get; set; } = 0;
+        public int AccountId = 0;
+
+        public MarketPost()
+        {
+
+        }
+
+        public MarketPost(XElement elem)
+        {
+            Item = elem.ParseInt("Item");
+            Price = elem.ParseInt("Price");
+            Json = ItemDesc.ParseItemDataJson(elem.ParseString("ItemData"));
+            Id = elem.ParseInt("Id");
+            AccountId = elem.ParseInt("AccountId");
+        }
+
+        public XElement Export(bool appExport = true)
+        {
+            XElement elem = new XElement("MarketPost");
+            elem.Add(new XElement("Item", Item));
+            elem.Add(new XElement("Price", Price));
+            elem.Add(new XElement("ItemData", ItemDesc.ExportItemDataJson(Json)));
+            elem.Add(new XElement("Id", Id));
+            elem.Add(new XElement("AccountId", AccountId));
+            return elem;
+        }
+    }
+
     public class FameStatsInfo : IDatabaseInfo
     {
         public int Shots;

@@ -10,79 +10,101 @@ namespace RotMG.Game.Worlds
 {
     public class Maze : World
     {
-        private ushort Wall = 0x0d70;
+        private ushort Wall = 0x6316;
         public Maze(Map map, WorldDesc desc) : base(map, desc)
         {
-            GenerateMaze(0, 0, 16, 16, new int[] {});
+            GenerateMaze(map.Width, map.Height);
         }
 
-        public void GenerateMaze(int x, int y, int x1, int y1, int[] validEdges)
+        public List<IntPoint> GetNeighbors(IntPoint p)
         {
-            int inner_x = x;// + 2;
-            int outer_x = x1;// - 1;
-            int inner_y = y;// + 2;
-            int outer_y = y1;// - 1;
-            if(outer_x - inner_x < 6 || outer_y - inner_y < 6)
+            return new List<IntPoint>()
             {
-                return;
-            }
-            IntPoint random_point = new IntPoint(
-                MathUtils.NextInt(inner_x, outer_x - 1),
-                MathUtils.NextInt(inner_y, outer_y - 1)
-            );
-            for(int i = 0; i < 4; i++)
-            {
-                // Generate the inner rects from random_point
-                int tx = 0, ty = 0, tx1 = 0, ty1 = 0;
-                int[] vEdges = new int[] { }; 
-                switch(i)
-                {
-                    case 0:
-                        tx = x;
-                        ty = y;
-                        tx1 = random_point.X;
-                        ty1 = random_point.Y;
-                        vEdges = new int[] { 2, 3 };
-                        break;
-                    case 1:
-                        tx = random_point.X;
-                        ty = y;
-                        tx1 = x1;
-                        ty1 = random_point.Y;
-                        vEdges = new int[] { 0, 3 };
-                        break;
-                    case 2:
-                        tx = random_point.X;
-                        ty = random_point.Y;
-                        tx1 = x1;
-                        ty1 = y1;
-                        vEdges = new int[] { 0, 1 };
-                        break;
-                    case 3:
-                        tx = x;
-                        ty = random_point.Y;
-                        tx1 = random_point.X;
-                        ty1 = y1;
-                        vEdges = new int[] { 1, 2 };
-                        break;
-                }
-                CreateBox(tx, ty, tx1, ty1);
-                GenerateMaze(tx, ty, tx1, ty1, vEdges);
-            }
+                p + new IntPoint(-1, 0),
+                p + new IntPoint(1, 0),
+                p + new IntPoint(0, 1),
+                p + new IntPoint(0, -1),
+            };
         }
 
-        public void CreateBox(int x, int y, int x1, int y1)
+        public List<IntPoint> GetCorners(IntPoint p)
         {
-            for(int i = x; i < x1; i++)
+            return new List<IntPoint>()
+             {
+                 p + new IntPoint(-1, 1),
+                 p + new IntPoint(1, 1),
+                 p + new IntPoint(-1, -1),
+                 p + new IntPoint(1, -1),
+             };
+        }
+
+        public IntPoint RandomFrom(IEnumerable<IntPoint> points)
+        {
+            var list = points.ToList();
+            var count = list.Count();
+            return list[MathUtils.Next(count)];
+        }
+
+        public void GenerateMaze(int width, int height)
+        {
+            IntPoint current_point = new(0, 0);
+            IntPoint end_point = new(width, height);
+            HashSet<IntPoint> closed_set = new();
+            // Defaults to 0
+            Dictionary<IntPoint, byte> open_set = new();
+            open_set.Add(current_point, 0);
+            //points with still valid neighbors
+            HashSet<IntPoint> paths = new();
+            paths.Add(new(0, 0));
+
+            var random = MathUtils.GetStaticRandom();
+            var last_direction = new IntPoint(1, 0);
+            while (open_set.Count() > 0)
             {
-                for(int j = y; j < y1; j++)
+                var neighbors = GetNeighbors(current_point).Where(
+                    a => !closed_set.Contains(a) && (a.X >= 0 && a.Y >= 0 && a.X < width && a.Y < height)
+                ).ToList();
+
+                foreach(var n in neighbors)
+                    open_set.TryAdd(n, 0);
+
+                // Choices valid after wall checking
+                var valid_choices = new List<IntPoint>();
+                foreach(var ipoint in neighbors)
                 {
-                    if (i == x || j == y || j == y1 - 1 || i == x1 - 1)
+                    // This generates the walls
+                    if (ipoint == end_point)
                     {
-                        UpdateStatic(i, j, Wall);
+                        valid_choices.Add(ipoint);
+                        continue;
+                    }
+
+                    open_set[ipoint] += 1;
+                    if(open_set[ipoint] == 2)
+                    {
+                        open_set.Remove(ipoint);
+                        closed_set.Add(ipoint);
+                        UpdateStatic(ipoint.X, ipoint.Y, Wall);
+                    } else
+                    {
+                        valid_choices.Add(ipoint);
                     }
                 }
+
+                open_set.Remove(current_point);
+                closed_set.Add(current_point);
+
+                if(valid_choices.Count() == 0)
+                {
+                    if (open_set.Count() == 0) continue;
+                    current_point = RandomFrom(open_set.Keys);
+                    continue;
+                }
+
+                IntPoint random_point = RandomFrom(valid_choices);
+                current_point = random_point;
             }
         }
+
     }
 }

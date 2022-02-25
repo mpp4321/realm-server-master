@@ -432,16 +432,17 @@ namespace RotMG.Game.Logic.Database
                 new Threshold(0.001f,
                 new ItemLoot("Gilded Sword", 0.02f, r: new LootDef.RarityModifiedData(1.2f, 2, true)),
                 new ItemLoot("Realm Equipment Crystal", 0.02f, 0.01f),
+                new ItemLoot("Golden Tome", 0.01f),
                 new MobDrop(new LootDef.Builder()
                             .Item("Skin Unlocker")
                             .OverrideJson( new ItemDataJson() { SkinId = "Golden_Wizard" })
-                            .Chance(0.001f)
+                            .Chance(0.003f)
                             .Build()
                 ),
                 new MobDrop(new LootDef.Builder()
                             .Item("Skin Unlocker")
                             .OverrideJson( new ItemDataJson() { SkinId = "Golden_Rogue" })
-                            .Chance(0.001f)
+                            .Chance(0.003f)
                             .Build()
                 ),
                 new MobDrop(new LootDef.Builder()

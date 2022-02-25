@@ -3940,4 +3940,68 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
+  <Object type="0x2202" id="Dark Large Bolt">
+    <Class>Projectile</Class>
+	<Texture>
+		<File>lofiObj2</File>
+		<Index>0x17e</Index>
+	</Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2203" id="Dark Large Slash">
+    <Class>Projectile</Class>
+	<Texture>
+		<File>lofiObj2</File>
+		<Index>0x17f</Index>
+	</Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2204" id="Dark Mace Shot">
+    <Class>Projectile</Class>
+	<Texture>
+		<File>lofiObj2</File>
+		<Index>0x102</Index>
+	</Texture>
+    <Rotation>100</Rotation>
+  </Object>
+  <Object type="0x2205" id="Janusproj">
+    <Class>Projectile</Class>
+	<Texture>
+		<File>lofiObj2</File>
+		<Index>0x112</Index>
+	</Texture>
+	<AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2206" id="Green Brother Orb">
+    <Class>Projectile</Class>
+	<Texture>
+		<File>lofiObj2</File>
+		<Index>0x103</Index>
+	</Texture>
+    <Rotation>100</Rotation>
+  </Object>
+  <Object type="0x2207" id="Blue Brother Orb">
+    <Class>Projectile</Class>
+	<Texture>
+		<File>lofiObj2</File>
+		<Index>0x104</Index>
+	</Texture>
+    <Rotation>100</Rotation>
+  </Object>
+  <Object type="0x2208" id="Yellow Brother Orb">
+    <Class>Projectile</Class>
+	<Texture>
+		<File>lofiObj2</File>
+		<Index>0x105</Index>
+	</Texture>
+    <Rotation>100</Rotation>
+  </Object>
+  <Object type="0x2209" id="Chain Boomerang">
+    <Class>Projectile</Class>
+	<Texture>
+		<File>lofiObj2</File>
+		<Index>0x18e</Index>
+	</Texture>
+    <Rotation>100</Rotation>
+  </Object>
 </Objects><!--next avaliable is 0x21f9-->

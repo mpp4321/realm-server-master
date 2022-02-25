@@ -475,7 +475,19 @@
       <XpMult>0.0</XpMult>
       <StasisImmune/>
    </Object>
-   <Object type="0x726a" id="shtrs Blobomb">
+   <Object type="0x735e" id="shtrs blobomb maker">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<NoMiniMap/>
+		<Size>0</Size>
+		<XpMult>0.0</XpMult>
+		<StasisImmune/>
+	</Object>
+	<Object type="0x726a" id="shtrs Blobomb">
       <DisplayId>Blobomb</DisplayId>
       <Class>Character</Class>
       <Enemy/>
@@ -2123,4 +2135,296 @@
       <XpMult>0.0</XpMult>
       <StasisImmune/>
    </Object>
+	<Object type="0xc412" id="shtrs Chest Spawner 1">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<NoMiniMap/>
+		<Size>0</Size>
+		<XpMult>0.0</XpMult>
+		<StasisImmune/>
+		<DisplayId>shtrs Chest Spawner 1</DisplayId>
+	</Object>
+	<Object type="0xc413" id="shtrs Chest Spawner 2">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<NoMiniMap/>
+		<Size>0</Size>
+		<XpMult>0.0</XpMult>
+		<StasisImmune/>
+		<DisplayId>shtrs Chest Spawner 2</DisplayId>
+	</Object>
+	<Object type="0xc414" id="shtrs Chest Spawner 3">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<NoMiniMap/>
+		<Size>0</Size>
+		<XpMult>0.0</XpMult>
+		<StasisImmune/>
+		<DisplayId>shtrs Chest Spawner 3</DisplayId>
+	</Object>
+	<Object type="0xc415" id="shtrs obelisk timer">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<NoMiniMap/>
+		<Size>0</Size>
+		<XpMult>0.0</XpMult>
+		<StasisImmune/>
+	</Object>
+	<Object type="0xc416" id="shtrs obelisk controller">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<NoMiniMap/>
+		<Size>0</Size>
+		<XpMult>0.0</XpMult>
+		<StasisImmune/>
+	</Object>
+	<Object type="0xc401" id="shtrs Wooden Gate 3">
+		<Class>Wall</Class>
+		<RandomTexture>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x44f</Index>
+			</Texture>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x450</Index>
+			</Texture>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x451</Index>
+			</Texture>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x452</Index>
+			</Texture>
+		</RandomTexture>
+		<Top>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x574</Index>
+			</Texture>
+		</Top>
+		<HitSound>monster/wooden_walls_hit</HitSound>
+		<DeathSound>monster/wooden_walls_death</DeathSound>
+		<FullOccupy/>
+		<OccupySquare/>
+		<EnemyOccupySquare/>
+		<BlocksSight/>
+		<Static/>
+		<DisplayId>shtrs Wooden Gate 3</DisplayId>
+	</Object>
+	<Object type="0xc400" id="shtrs Wooden Gate 2">
+		<Class>Wall</Class>
+		<RandomTexture>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x44f</Index>
+			</Texture>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x450</Index>
+			</Texture>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x451</Index>
+			</Texture>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x452</Index>
+			</Texture>
+		</RandomTexture>
+		<Top>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x574</Index>
+			</Texture>
+		</Top>
+		<HitSound>monster/wooden_walls_hit</HitSound>
+		<DeathSound>monster/wooden_walls_death</DeathSound>
+		<FullOccupy/>
+		<OccupySquare/>
+		<EnemyOccupySquare/>
+		<BlocksSight/>
+		<Static/>
+		<DisplayId>shtrs Wooden Gate 2</DisplayId>
+	</Object>
+	<Object type="0x717a" id="shtrs Wooden Gate">
+		<Class>Wall</Class>
+		<RandomTexture>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x44f</Index>
+			</Texture>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x450</Index>
+			</Texture>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x451</Index>
+			</Texture>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x452</Index>
+			</Texture>
+		</RandomTexture>
+		<Top>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x574</Index>
+			</Texture>
+		</Top>
+		<HitSound>monster/wooden_walls_hit</HitSound>
+		<DeathSound>monster/wooden_walls_death</DeathSound>
+		<FullOccupy/>
+		<OccupySquare/>
+		<EnemyOccupySquare/>
+		<BlocksSight/>
+		<Static/>
+		<DisplayId>shtrs Wooden Gate</DisplayId>
+	</Object>
+	<Object type="0xc405" id="shtrs Spawn Bridge 2">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<NoMiniMap/>
+		<Size>0</Size>
+		<XpMult>0.0</XpMult>
+		<StasisImmune/>
+		<DisplayId>{shtrs spawn bridge 2}</DisplayId>
+	</Object>
+	<Object type="0xc406" id="shtrs Spawn Bridge 3">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<NoMiniMap/>
+		<Size>0</Size>
+		<XpMult>0.0</XpMult>
+		<StasisImmune/>
+		<DisplayId>{shtrs spawn bridge 3}</DisplayId>
+	</Object>
+	<Object type="0xc407" id="shtrs Spawn Bridge 4">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<NoMiniMap/>
+		<Size>0</Size>
+		<XpMult>0.0</XpMult>
+		<StasisImmune/>
+		<DisplayId>{shtrs spawn bridge 4}</DisplayId>
+	</Object>
+	<Object type="0xc408" id="shtrs Spawn Bridge 5">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<NoMiniMap/>
+		<Size>0</Size>
+		<XpMult>0.0</XpMult>
+		<StasisImmune/>
+		<DisplayId>{shtrs spawn bridge 5}</DisplayId>
+	</Object>
+	<Object type="0xc409" id="shtrs Crystal Tracker">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<NoMiniMap/>
+		<Size>0</Size>
+		<XpMult>0.0</XpMult>
+		<StasisImmune/>
+	</Object>
+	<Object type="0xc40a" id="shtrs Lava Souls maker">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<NoMiniMap/>
+		<Size>0</Size>
+		<XpMult>0.0</XpMult>
+		<StasisImmune/>
+	</Object>
+	<Object type="0xc40b" id="shtrs king lava1">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<NoMiniMap/>
+		<Size>0</Size>
+		<XpMult>0.0</XpMult>
+		<StasisImmune/>
+	</Object>
+	<Object type="0xc40c" id="shtrs king lava2">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<NoMiniMap/>
+		<Size>0</Size>
+		<XpMult>0.0</XpMult>
+		<StasisImmune/>
+	</Object>
+	<Object type="0xc40d" id="shtrs king timer">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<NoMiniMap/>
+		<Size>0</Size>
+		<XpMult>0.0</XpMult>
+		<StasisImmune/>
+	</Object>
+	<Object type="0xc40e" id="shtrs Abandoned Switch 2 Manager">
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>invisible</File>
+			<Index>0</Index>
+		</Texture>
+		<NoMiniMap/>
+		<Size>0</Size>
+		<XpMult>0.0</XpMult>
+		<StasisImmune/>
+	</Object>
 </Objects>

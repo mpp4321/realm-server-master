@@ -12,6 +12,7 @@ namespace RotMG.Game.Logic.ItemEffs
     {
 
         public static Dictionary<string, IItemHandler> Registry = new Dictionary<string, IItemHandler>();
+        public static Dictionary<string, int> RuneFameCosts = new Dictionary<string, int>();
 
         static ItemHandlerRegistry()
         {
@@ -41,6 +42,15 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("GLizard", new TheGreatLizard());
             Registry.Add("RulerDominion", new RulerDominion());
             Registry.Add("JackpotItem", new JackpotItem());
+            Registry.Add("ShaitTome", new ShaitTome());
+            Registry.Add("GoldenTome", new GoldenTome());
+            Registry.Add("Immunity", new Immunity());
+            Registry.Add("MagmaQuiver", new MagmaQuiver());
+            Registry.Add("DragonRage", new DragonRage());
+            Registry.Add("Thunderbolts", new Thunderbolts());
+            Registry.Add("OutOfCombatRegen", new OutOfCombatRegen());
+
+            //components
 
             //Set effs
             Registry.Add("Phylac", new Phylac());
@@ -50,11 +60,17 @@ namespace RotMG.Game.Logic.ItemEffs
 
             //Runes
             Registry.Add("Percise", new Percise());
+            RuneFameCosts.Add("Percise", 500);
             Registry.Add("Vampirism", new Vampirism());
+            RuneFameCosts.Add("Vampirism", 500);
             Registry.Add("Brute", new Brute());
+            RuneFameCosts.Add("Brute", 500);
             Registry.Add("Mage", new Mage());
+            RuneFameCosts.Add("Mage", 500);
             Registry.Add("Elven", new Elven());
+            RuneFameCosts.Add("Elven", 500);
             Registry.Add("Juggernaut", new Juggernaut());
+            RuneFameCosts.Add("Juggernaut", 150);
         }
 
     }

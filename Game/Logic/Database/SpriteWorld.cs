@@ -10,7 +10,6 @@ namespace RotMG.Game.Logic.Database
 {
     class SpriteWorld : IBehaviorDatabase
     {
-
         public void Init(BehaviorDb db)
         {
             db.Init("Native Fire Sprite",
@@ -181,6 +180,10 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(tier: 4, type: LootType.Ability, chance: 0.125f),
                     new TierLoot(tier: 5, type: LootType.Ability, chance: 0.0625f),
                     new TierLoot(tier: 3, type: LootType.Ring, chance: 0.25f),
+                    new ItemLoot("Realm Equipment Crystal", 0.04f),
+                    new ItemLoot("(Green) UT Egg", 0.02f, 0.01f),
+                    new ItemLoot("(Blue) RT Egg", 0.005f, 0.01f),
+                    new ItemLoot("Band of Exoneration", 0.001f, 0.01f),
                     new ItemLoot(item: "Potion of Dexterity", chance: 1.0f),
                     new ItemLoot(item: "Potion of Defense", chance: 0.3f),
                     new ItemLoot(item: "Sprite Wand", chance: 0.004f),
@@ -188,7 +191,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot(item: "Staff of Extreme Prejudice", chance: 0.006f, threshold: 0.01f),
                     new ItemLoot(item: "Cloak of the Planewalker", chance: 0.006f, threshold: 0.01f),
                     new ItemLoot("Corporeal Shield", 0.02f),
-                    new ItemLoot("Bracelet of the Sprites", 0.005f, r: new LootDef.RarityModifiedData(1.0f, 2, true))
+                    new ItemLoot("Bracelet of the Sprites", 0.01f, r: new LootDef.RarityModifiedData(1.0f, 2, true))
                 )
             );
             db.Init("Limon Element 1",
@@ -315,14 +318,14 @@ namespace RotMG.Game.Logic.Database
             db.Init("Black Sprite Tree",
                     new State("idle", new ConditionalEffect(ConditionEffectIndex.Invincible)),
                     new State("shoot",
-                        new ShootAt("Epic Limon the Sprite God", 99, 1, 0)
+                        new ShootAt("Epic Limon the Sprite God", 99, 1, 0, cooldown: 200)
                     )
                 );
 
             db.Init("Epic Limon the Sprite God",
                       new DropPortalOnDeath("Realm Portal"),
                       new Shoot(50f, 1, 0f, 1, cooldown: 3000, cooldownVariance: 1000),
-                      new State("shootLikeDumb", 
+                      new State("shootLikeDumb",
                           new HealthTransition(0.5f, "black towers shoot"),
                           new State("1",
                               new Wander(1),
@@ -331,8 +334,8 @@ namespace RotMG.Game.Logic.Database
                               ),
                           new State("2",
                               new ConditionalEffect(ConditionEffectIndex.Invincible),
-                              new Shoot(50, count: 8, shootAngle: 90, index: 0, predictive: 1, cooldown: 600),
-                              new Shoot(80, count: 4, shootAngle: 90, index: 0, predictive: 4, cooldown: 600),
+                              new Shoot(50, count: 8, shootAngle: 45, index: 0, predictive: 1, cooldown: 600),
+                              new Shoot(80, count: 4, angleOffset: 15, shootAngle: 90, index: 0, predictive: 4, cooldown: 600),
                               new TimedTransition("3", 3750)
                               ),
                           new State("3",
@@ -363,9 +366,10 @@ namespace RotMG.Game.Logic.Database
                       new TierLoot(tier: 4, type: LootType.Ability, chance: 0.125f),
                       new TierLoot(tier: 5, type: LootType.Ability, chance: 0.0625f),
                       new TierLoot(tier: 5, type: LootType.Ring, chance: 0.25f),
-                      new ItemLoot("Realm Equipment Crystal", 0.02f),
-                      new ItemLoot("(Green) UT Egg", 0.03f, 0.01f),
-                      new ItemLoot("(Blue) RT Egg", 0.005f, 0.01f),
+                      new ItemLoot("Realm Equipment Crystal", 0.08f),
+                      new ItemLoot("(Green) UT Egg", 0.08f, 0.01f),
+                      new ItemLoot("(Blue) RT Egg", 0.02f, 0.01f),
+                      new ItemLoot("Band of Exoneration", 0.005f, 0.01f),
                       new ItemLoot(item: "Potion of Dexterity", chance: 0.3f),
                       new ItemLoot(item: "Potion of Dexterity", chance: 1f),
                       new ItemLoot(item: "Potion of Dexterity", chance: 1f),

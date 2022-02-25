@@ -11,4 +11,7 @@
 	<SetPiece id="Crypt">
         <Map>Crypt.jm</Map>
     </SetPiece>
+	<SetPiece id="TriBrother">
+        <Map>TricolorBrothers.jm</Map>
+    </SetPiece>
 </SetPieces>

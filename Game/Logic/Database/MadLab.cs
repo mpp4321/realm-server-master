@@ -192,9 +192,9 @@ namespace RotMG.Game.Logic.Database
                     ),
                     new Threshold(0.0001f,
                         new ItemLoot("Conducting Wand", 0.01f, threshold: 0.01f),
-                        new ItemLoot("Scepter of Fulmination", 0.02f, threshold: 0.01f),
-                        new ItemLoot("Robe of the Mad Scientist", 0.02f, threshold: 0.01f),
-                        new ItemLoot("Experimental Ring", 0.05f, threshold: 0.01f),//Power Battery
+                        new ItemLoot("Scepter of Fulmination", 0.005f, threshold: 0.01f),
+                        new ItemLoot("Robe of the Mad Scientist", 0.005f, threshold: 0.01f),
+                        new ItemLoot("Experimental Ring", 0.005f, threshold: 0.01f),//Power Battery
                         new ItemLoot("Wine Cellar Incantation", 0.05f),
                         //new ItemLoot("Power Battery", 0.0045f, threshold: 0.01f),
                         new ItemLoot("Potion of Wisdom", 1f),
@@ -546,7 +546,7 @@ namespace RotMG.Game.Logic.Database
                             )
                         ),
                     new State("10",
-                        new TimedRandomTransition(100, "a12", "a13", "a14", "a15", "a16", "a17") { SubIndex = 2 }
+                        new TimedRandomTransition(100, "a12", "a13", "a14", "a15", "a16", "a17") { SubIndex = 1 }
                         ),
                     new State("a12",
                         new SetAltTexture(2),
@@ -586,7 +586,7 @@ namespace RotMG.Game.Logic.Database
                    ),
                     new Threshold(0.01f,
                         new ItemLoot("Conducting Wand", 0.008f, threshold: 0.01f),
-                        new ItemLoot("Experimental Ring", 0.04f, threshold: 0.01f),
+                        new ItemLoot("Experimental Ring", 0.008f, threshold: 0.01f),
                         new ItemLoot("Realm Equipment Crystal", 0.01f),
                         new ItemLoot("Wine Cellar Incantation", 0.05f),
                         new ItemLoot("Potion of Wisdom", 1.0f),

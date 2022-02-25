@@ -346,9 +346,9 @@ namespace RotMG.Game.Entities
             con1.UpdateInventorySlot(slot1.SlotId);
             con2.UpdateInventorySlot(slot2.SlotId);
 
-            if (slot2.SlotId < 4)
+            if (slot2.SlotId < 4 && con2 is Player)
                 HandleOnEquips(slot2.SlotId);
-            if (slot1.SlotId < 4)
+            if (slot1.SlotId < 4 && con1 is Player)
                 HandleOnEquips(slot1.SlotId);
 
             RecalculateEquipBonuses();

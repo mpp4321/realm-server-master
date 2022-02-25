@@ -1,0 +1,14 @@
+<SetPieces>
+    <SetPiece id="Kage Kami">
+        <Map>KageKami.jm</Map>
+    </SetPiece>
+    <SetPiece id="Ghost Ship">
+        <Map>GhostShip.jm</Map>
+    </SetPiece>
+    <SetPiece id="Hermit God">
+        <Map>Hermit.jm</Map>
+    </SetPiece>
+	<SetPiece id="Crypt">
+        <Map>Crypt.jm</Map>
+    </SetPiece>
+</SetPieces>

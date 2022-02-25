@@ -163,6 +163,17 @@ namespace RotMG.Game
             return time / Settings.MillisecondsPerTick;
         }
 
+        public static void Announce(string text)
+        {
+            var announce = GameServer.Text("", 0, -1, 0, "", text);
+            foreach(var client in Clients.Values)
+            {
+                if (client == null) continue;
+
+                client.Send(announce);
+            }
+        }
+
         public static void Tick()
         {
             TotalTimeUnsynced = (int)TickWatch.ElapsedMilliseconds;
