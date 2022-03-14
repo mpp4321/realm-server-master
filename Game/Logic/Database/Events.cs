@@ -393,10 +393,10 @@ namespace RotMG.Game.Logic.Database
                         new Suicide()
                     )
                 ),
-                new Threshold(0.03f,
+                new Threshold(0.0001f,
                     new ItemLoot("Seal of Blasphemous Prayer", 0.001f)
                     ),
-                new Threshold(0.01f,
+                new Threshold(0.0001f,
                    new TierLoot(8, LootType.Weapon, .3f),
                     new TierLoot(9, LootType.Weapon, .3f),
                     new TierLoot(10, LootType.Weapon, .2f),

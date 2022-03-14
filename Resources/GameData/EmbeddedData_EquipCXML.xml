@@ -346,7 +346,7 @@
 		<RateOfFire>1.2</RateOfFire>
 		<Sound>weapon/glass_sword</Sound>
 		<Projectile>
-			<ObjectId>Aqua Slash</ObjectId>
+			<ObjectId>Crystal Aqua Slash</ObjectId>
 			<Speed>100</Speed>
 			<MinDamage>210</MinDamage>
 			<MaxDamage>275</MaxDamage>
@@ -786,7 +786,7 @@
 		<RateOfFire>1.4</RateOfFire>
 		<Sound>weapon/wand_of_death</Sound>
 		<Projectile>
-			<ObjectId>Aqua Missile</ObjectId>
+			<ObjectId>Crystal Aqua Magic</ObjectId>
 			<Speed>130</Speed>
 			<MinDamage>105</MinDamage>
 			<MaxDamage>145</MaxDamage>
@@ -8326,11 +8326,15 @@
 		</Texture>
 		<SlotType>7</SlotType>
 		<Description>A worn and battered suit of armor embedded with a mystic gem that flows with magical strength.</Description>
+		<ExtraTooltipData>
+			<EffectInfo name="Ghostly Aura" description="Gives out a powerful ghostly aura constantly."/>
+		</ExtraTooltipData>
 		<ActivateOnEquip stat="3" amount="17">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="1" amount="150">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="7" amount="5">IncrementStat</ActivateOnEquip>
-		<BagType>2</BagType>
-		<FameBonus>4</FameBonus>
+		<UniqueEffect>GhostlyAura</UniqueEffect>
+		<BagType>5</BagType>
+		<FameBonus>5</FameBonus>
 	</Object>
 	<Object type="0xc6f" id="Cemetery Key">
 		<Class>Equipment</Class>
@@ -8960,7 +8964,7 @@
 		<SlotType>10</SlotType>
 		<Description>Might be usable for something...</Description>
 		<Consumable/>
-		<Activate posx="1105" posy="1227" map="Realm">Teleport</Activate>
+		<Activate>TeleportQuest</Activate>
 		<BagType>2</BagType>
 	</Object>
 	<Object type="0xc8b" id="Crumbling Construct">
@@ -10070,7 +10074,7 @@
 		<Description>A ribcage from a powerful corpse.</Description>
 		<ExtraTooltipData>
 			<EffectInfo name="Lifeless" description=""/>
-			<EffectInfo name="" description="Having less than 20 vit provides 300 bonus health."/>
+			<EffectInfo name="" description="Having less than 20 vit provides 800 bonus health."/>
 		</ExtraTooltipData>
 		<ActivateOnEquip stat="3" amount="30">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="4" amount="6">IncrementStat</ActivateOnEquip>
@@ -10473,7 +10477,7 @@
 		<InvUse/>
 		<Description>A mundane equipment crystal, provides weak enchantments to unenchanted items upon use.</Description>
 		<Activate statScale="1.0" id="Classical" amount="1">MagicCrystal</Activate>
-		<BagType>5</BagType>
+		<BagType>4</BagType>
 	</Object>
 	<Object type="0xcca" id="Boshy Gun">
 		<Class>Equipment</Class>
@@ -11136,8 +11140,8 @@
 		<Projectile>
 			<ObjectId>Desert Spit</ObjectId>
 			<Speed>100</Speed>
-			<MinDamage>200</MinDamage>
-			<MaxDamage>250</MaxDamage>
+			<MinDamage>250</MinDamage>
+			<MaxDamage>300</MaxDamage>
 			<LifetimeMS>600</LifetimeMS>
 			<ArmorPiercing>true</ArmorPiercing>
 		</Projectile>
@@ -11168,6 +11172,7 @@
 		<ArcGap>5</ArcGap>
 		<NumProjectiles>5</NumProjectiles>
 		<BagType>5</BagType>
+		<FameBonus>5</FameBonus>
 		<OldSound>arrowShoot</OldSound>
 	</Object>
 	<Object type="0xcea" id="Wand of Purified Flame">
@@ -11590,6 +11595,7 @@
 		</Texture>
 		<SlotType>9</SlotType>
 		<Description>A horn of a legendary dragon.</Description>
+		<ActivateOnEquip stat="0" amount="75">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="1" amount="75">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="8" amount="10">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="3" amount="10">IncrementStat</ActivateOnEquip>
@@ -11611,8 +11617,8 @@
 		<Projectile>
 			<ObjectId>Blazed Shot</ObjectId>
 			<Speed>150</Speed>
-			<MinDamage>1600</MinDamage>
-			<MaxDamage>2000</MaxDamage>
+			<MinDamage>1400</MinDamage>
+			<MaxDamage>1800</MaxDamage>
 			<LifetimeMS>550</LifetimeMS>
 		</Projectile>
 		<BagType>6</BagType>
@@ -11635,7 +11641,7 @@
 		<InvUse/>
 		<Description>An equipment crystal, provides battle-ready enchantments to unenchanted items upon use.</Description>
 		<Activate statScale="1.0" id="Classical" amount="4">MagicCrystal</Activate>
-		<BagType>6</BagType>
+		<BagType>5</BagType>
 	</Object>
 	<Object type="0xd49" id="Ephemeral Flail">
 		<Class>Equipment</Class>
@@ -11857,5 +11863,110 @@
 		<UniqueEffect>OutOfCombatRegen</UniqueEffect>
 		<BagType>6</BagType>
 		<FameBonus>6</FameBonus>
+	</Object>
+	<Object type="0x5102" id="Old Demon Skull">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x189</Index>
+		</Texture>
+		<SlotType>19</SlotType>
+		<Description>A demonic skull originating from the raging desert.</Description>
+		<Usable/>
+		<Projectile id="0">
+			<ObjectId>White Flame</ObjectId>
+			<Speed>80</Speed>
+			<Damage>400</Damage>
+			<Size>100</Size>
+			<LifetimeMS>500</LifetimeMS>
+			<Amplitude>0.3</Amplitude>
+			<Frequency>0.5</Frequency>	
+		</Projectile>		
+		<BagType>4</BagType>
+		<FameBonus>4</FameBonus>
+		<MpCost>40</MpCost>
+		<Cooldown>3</Cooldown>
+		<Activate radius="2.5" totalDamage="250" useWisMod="true" statMin="30" statScale="5.0">VampireBlast</Activate>
+		<Activate effect="Speedy" duration="3">ConditionEffectSelf</Activate>
+		<!-- targetCursor is backwards on purpose for bullet nova so this targets yourself -->
+		<Activate targetCursor="true">BulletNova</Activate>
+	</Object>
+	<Object type="0x5103" id="Robe of Pure Madness">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0x5d8</Index>
+		</Texture>
+		<Animation period="1.0">
+		<Frame>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x5d8</Index>
+			</Texture>
+		</Frame>
+		<Frame>
+			<Texture>
+				<File>lofiObj3</File>
+				<Index>0x5d9</Index>
+			</Texture>
+		</Frame>
+		</Animation>
+		<SlotType>14</SlotType>
+		<Description>Yuck, what got on this robe!</Description>
+		<ActivateOnEquip stat="0" amount="120">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="3" amount="20">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="4" amount="15">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="6" amount="10">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="7" amount="5">IncrementStat</ActivateOnEquip>
+		<BagType>6</BagType>
+		<FameBonus>6</FameBonus>
+	</Object>
+	<Object type="0x5104" id="Fiery Equipment Crystal">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj4</File>
+			<Index>0xb4</Index>
+		</Texture>
+		<SlotType>10</SlotType>
+		<Consumable/>
+		<InvUse/>
+		<Description>An equipment crystal burning with strength.</Description>
+		<Activate statScale="1.0" id="Strength" amount="5">MagicCrystal</Activate>
+		<BagType>6</BagType>
+	</Object>
+	<Object type="0x5105" id="Ghastly Equipment Crystal">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj4</File>
+			<Index>0xc4</Index>
+		</Texture>
+		<SlotType>10</SlotType>
+		<Consumable/>
+		<InvUse/>
+		<Description>An ethereal crystal pulsing with unknown knowledge.</Description>
+		<Activate statScale="1.0" id="Wisdom" amount="5">MagicCrystal</Activate>
+		<BagType>6</BagType>
+	</Object>
+	<Object type="0x5106" id="Dummy Item for Res Armor">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj6</File>
+			<Index>0x39</Index>
+		</Texture>
+		<SlotType>15</SlotType>
+		<Projectile>
+			<ObjectId>White Flame</ObjectId>
+			<Speed>40</Speed>
+			<Damage>100</Damage>
+			<Size>75</Size>
+			<LifetimeMS>500</LifetimeMS>
+			<Amplitude>0.3</Amplitude>
+			<Frequency>0.5</Frequency>	
+		</Projectile>
 	</Object>
 </Objects>

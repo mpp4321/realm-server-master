@@ -67,7 +67,7 @@ namespace RotMG.Game.Worlds
                 shopEntity.TrySetSV(StatType.MerchandiseType, 0xc8a);
                 shopEntity.TrySetSV(StatType.MerchandiseCount, 999);
 
-                shopEntity.Price = 0;
+                shopEntity.Price = 15;
                 shopEntity.Currency = Currency.Fame;
 
 
@@ -91,7 +91,7 @@ namespace RotMG.Game.Worlds
                 {
                     CreateShopAt(shopPoint, Resources.Id2Item["Realm Equipment Crystal"].Type, 25, Currency.Fame);
                 } else {
-                    CreateShopAt(shopPoint, Resources.Id2Item["Oryx Equipment Crystal"].Type, 500, Currency.Fame);
+                    CreateShopAt(shopPoint, Resources.Id2Item["Oryx Equipment Crystal"].Type, 100, Currency.Fame);
                 }
             }
         }

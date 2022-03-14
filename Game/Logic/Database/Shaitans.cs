@@ -914,7 +914,12 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Piercing Fire", 0.01f),
                     new ItemLoot("Master Sword", 0.01f),
                     new ItemLoot("Hylian Shield", 0.01f),
-                    new ItemLoot("Spell of Kinetic Projection", 0.01f)
+                    new ItemLoot("Spell of Kinetic Projection", 0.01f),
+                    new ItemLoot("Fiery Equipment Crystal", 0.01f, 0.01f),
+                    new ItemLoot("Realm Equipment Crystal", 0.5f, 0.01f),
+                    new ItemLoot("Realm Equipment Crystal", 0.1f, 0.1f),
+                    new ItemLoot("Realm Equipment Crystal", 0.3f, 0.2f),
+                    new ItemLoot("Realm Equipment Crystal", 0.2f, 0.5f)
                     //new ItemLoot("50 Credits", 0.01f),
                     //new ItemLoot("Potion of Critical Chance", 0.02f),
                     //new ItemLoot("Potion of Critical Damage", 0.02f)

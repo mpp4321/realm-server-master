@@ -553,22 +553,22 @@ namespace RotMG.Game.Logic.Database
                                     new Taunt(1, cooldown: 6000, "Puny mortals! My {HP} HP will annihilate you!")
                                 )
                             ),
-                            new Threshold(0.01f,
+                            new Threshold(0.001f,
                                 new ItemLoot("Potion of Vitality", 1)
                             ),
-                            new Threshold(0.05f,
+                            new Threshold(0.01f,
                                 new ItemLoot("Potion of Attack", 0.3f),
                                 new ItemLoot("Potion of Defense", 0.3f),
                                 new ItemLoot("Potion of Wisdom", 0.3f),
                                 new ItemLoot("Potion of Life", 1.0f, min: 2)
                             ),
-                            new Threshold(0.1f, 
+                            new Threshold(0.05f, 
                                 new ItemLoot("Scarlet's Power", 0.002f),
                                 new ItemLoot("Horned Suguyari", 0.002f),
                                 new ItemLoot("Black Clothing Dye", 0.2f),
                                 new ItemLoot("Black Accessory Dye", 0.2f)
                             ),
-                            new Threshold(0.1f,
+                            new Threshold(0.01f,
                                 new TierLoot(12, LootType.Weapon, 0.6f, r: new LootDef.RarityModifiedData(1.0f, 1, true)),
                                 new TierLoot(13, LootType.Weapon, 0.06f),
                                 new TierLoot(6, LootType.Ability, 0.6f, r: new LootDef.RarityModifiedData(1.0f, 1, true)),
@@ -576,6 +576,8 @@ namespace RotMG.Game.Logic.Database
                                 new TierLoot(12, LootType.Armor, 0.6f, r: new LootDef.RarityModifiedData(1.0f, 1, true)),
                                 new TierLoot(13, LootType.Armor, 0.05f),
                                 new TierLoot(6, LootType.Ring, 0.5f),
+                                new ItemLoot("Oryx Equipment Crystal", 0.2f),
+                                new ItemLoot("Oryx Equipment Crystal", 0.2f),
                                 new ItemLoot("Oryx Equipment Crystal", 0.2f)
                             )
                         );

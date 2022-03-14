@@ -18148,7 +18148,11 @@
 			<MinDamage>250</MinDamage>
 			<MaxDamage>320</MaxDamage>
 			<LifetimeMS>430</LifetimeMS>
+      <ConditionEffect probability="0.02" duration="2">Stunned</ConditionEffect>
 		</Projectile>
+		<ExtraTooltipData>
+			<EffectInfo name="" description="2% chance to stun on hit for 2 seconds." />
+		</ExtraTooltipData>
 		<ActivateOnEquip stat="0" amount="80">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="3" amount="12">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="2" amount="10">IncrementStat</ActivateOnEquip>
@@ -20680,7 +20684,7 @@
 		<RateOfFire>1.2</RateOfFire>
 		<Sound>weapon/fire_dagger</Sound>
 		<Projectile>
-			<ObjectId>Aqua Slash</ObjectId>
+			<ObjectId>Crystal Dagger Magic</ObjectId>
 			<Speed>190</Speed>
 			<MinDamage>145</MinDamage>
 			<MaxDamage>165</MaxDamage>

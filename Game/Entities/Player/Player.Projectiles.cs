@@ -557,7 +557,8 @@ namespace RotMG.Game.Entities
 #if DEBUG
                 Program.Print(PrintType.Error, "ShootAck invalid time");
 #endif
-                Client.Disconnect();
+                if(AwaitingGoto.Count() < 1)
+                    Client.Disconnect();
                 return;
             }
 
@@ -588,7 +589,8 @@ namespace RotMG.Game.Entities
 #if DEBUG
                 Program.Print(PrintType.Error, "ShootAck desync");
 #endif
-                Client.Disconnect();
+                if(AwaitingGoto.Count() < 1)
+                    Client.Disconnect();
             }
         }
     }

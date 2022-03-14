@@ -25,7 +25,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
             for (var i = 0; i < count; i++)
             {
                 var d = shotFrom.GetNextDamage(projectile.Damage, projectile.Damage * 2, new Common.ItemDataJson { });
-                var p = new Projectile(shotFrom, desc.Projectile[0], startId + i, Manager.TotalTimeUnsynced, projectile.Angle, shotFrom.Position, d);
+                var p = new Projectile(shotFrom, desc.Projectile[0], startId + i, shotFrom.GetLastClientTime(), projectile.Angle, shotFrom.Position, d);
                 projs.Add(p);
             }
 

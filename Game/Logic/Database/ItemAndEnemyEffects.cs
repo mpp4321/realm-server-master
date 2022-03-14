@@ -228,7 +228,7 @@ namespace RotMG.Game.Logic.Database
                 }, 100),
                 new PulseFire((h) =>
                 {
-                    var entities = GameUtils.GetNearbyPlayers(h, 3);
+                    var entities = GameUtils.GetNearbyPlayers(h, 6);
                     foreach (var e in entities)
                     {
                         if (e == null) continue;
@@ -243,7 +243,33 @@ namespace RotMG.Game.Logic.Database
                     }
                     return true;
                 }, 1000),
-                new TimedTransition("Die", 4000)
+                new TimedTransition("Die", 4100)
+                ), new State("Die", new Decay(0)));
+
+            db.Init("Eye of Marble", new State("Base",
+                new PulseFire((h) =>
+                {
+                    var entities = GameUtils.GetNearbyPlayers(h, 3);
+                    foreach (var e in entities)
+                    {
+                        if (e == null) continue;
+                        if (!(e is Player pl)) continue;
+                        pl.Heal(h.PlayerOwner.GetStatTotal(6) / 2, false, true);
+                        pl.Heal(h.PlayerOwner.GetStatTotal(7) / 6, true, true);
+                    }
+                    var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, h.Id, 0xffff0000, new Vector2(3, 0));
+                    var nova_blue = GameServer.ShowEffect(ShowEffectIndex.Nova, h.Id, 0xff0000ff, new Vector2(3, 0));
+                    foreach (var j in h.Parent.PlayerChunks.HitTest(h.Position, Math.Max(4, Player.SightRadius)))
+                    {
+                        if (j is Player p && p.Client.Account.AllyShots)
+                        {
+                            p.Client?.Send(nova);
+                            p.Client?.Send(nova_blue);
+                        }
+                    }
+                    return true;
+                }, 500),
+                new TimedTransition("Die", 4500)
                 ), new State("Die", new Decay(0)));
         }
     }

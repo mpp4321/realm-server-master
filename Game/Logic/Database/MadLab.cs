@@ -192,11 +192,11 @@ namespace RotMG.Game.Logic.Database
                     ),
                     new Threshold(0.0001f,
                         new ItemLoot("Conducting Wand", 0.01f, threshold: 0.01f),
-                        new ItemLoot("Scepter of Fulmination", 0.005f, threshold: 0.01f),
-                        new ItemLoot("Robe of the Mad Scientist", 0.005f, threshold: 0.01f),
-                        new ItemLoot("Experimental Ring", 0.005f, threshold: 0.01f),//Power Battery
+                        new ItemLoot("Scepter of Fulmination", 0.01f, threshold: 0.01f),
+                        new ItemLoot("Robe of the Mad Scientist", 0.01f, threshold: 0.01f),
+                        new ItemLoot("Experimental Ring", 0.01f, threshold: 0.01f),//Power Battery
                         new ItemLoot("Wine Cellar Incantation", 0.05f),
-                        //new ItemLoot("Power Battery", 0.0045f, threshold: 0.01f),
+                        new ItemLoot("Robe of Pure Madness", 0.003f, threshold: 0.01f),
                         new ItemLoot("Potion of Wisdom", 1f),
                         new TierLoot(8, LootType.Weapon, 0.25f),
                         new TierLoot(9, LootType.Weapon, 0.125f),

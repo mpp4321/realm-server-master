@@ -95,9 +95,15 @@ namespace RotMG.Game.Logic.Behaviors
                     target = host.GetNearestEnemy(Range);
                 }
                 else if (Range > 0)
-                    target = host.GetNearestPlayer(Range); 
+                    target = host.GetNearestPlayer(Range);
 
-                if (target != null || DefaultAngle != null || FixedAngle != null)
+                bool alwaysShoot = false;
+                if(Range == 0 && target == null)
+                {
+                    alwaysShoot = true;
+                }
+
+                if (target != null || DefaultAngle != null || FixedAngle != null || alwaysShoot)
                 {
                     var desc = host.Desc.Projectiles[Index + host.Desc.Projectiles.First().Key];
                     float angle = 0;
@@ -118,12 +124,12 @@ namespace RotMG.Game.Logic.Behaviors
                             targetPos *= PredictNumTicks;
                             targetPos += target.Position;
                             Vector2 dirVector = targetPos - host.Position;
-                            angle = (float) Math.Atan2(dirVector.Y, dirVector.X);
+                            angle = (float)Math.Atan2(dirVector.Y, dirVector.X);
                             Program.Print(PrintType.Info, dirVector);
                         }
                         else
                         {
-                            angle = (float) Math.Atan2(target.Position.Y - host.Position.Y, target.Position.X - host.Position.X);
+                            angle = (float)Math.Atan2(target.Position.Y - host.Position.Y, target.Position.X - host.Position.X);
                         }
                     }
                     else if (DefaultAngle != null)

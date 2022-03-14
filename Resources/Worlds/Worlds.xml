@@ -43,6 +43,7 @@
 		<Maps>OryxCastle/0.jm</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
+    <DoElites/>
 	</World>
 	<World name="OryxChamber" display="Oryx's Chamber">
 		<Maps>OryxChamber/0.jm</Maps>
@@ -50,12 +51,14 @@
 		<BlockSight>1</BlockSight>
 		<Portals>0x0d7b</Portals>
 		<AllowTeleport>true</AllowTeleport>
+    <DoElites/>
 	</World>
 	<World name="WineCellar" display="Wine Cellar">
 		<Maps>WineCellar/0.wmap</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 		<Portals>0x0757</Portals>
+    <DoElites/>
 	</World>
 	<World name="Pirate Cave" display="Pirate Cave">
 		<Maps>PirateCave/0.jm</Maps>
@@ -63,6 +66,7 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 		<Music>PIRATECAVE2</Music>
+    <DoElites/>
 	</World>
 	<World name="Undead Lair" display="Undead Lair">
 		<Maps>UDL/UDL1.jm;UDL/UDL2.jm;UDL/UDL3.jm</Maps>
@@ -70,6 +74,7 @@
 		<AllowTeleport>true</AllowTeleport>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
+    <DoElites/>
 	</World>
 	<World name="Sprite World" display="Sprite World">
 		<Maps>Sprite/0.jm</Maps>
@@ -77,23 +82,27 @@
 		<BlockSight>1</BlockSight>
 		<Portals>0x070c</Portals>
 		<AllowTeleport>true</AllowTeleport>
+    <DoElites/>
 	</World>
 	<World name="Epic Sprite World" display="Epic Sprite World">
 		<Maps>EpicSprite/0.jm</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 		<Portals>0x0754</Portals>
+    <DoElites/>
 	</World>
 	<World name="Toxic Sewer" display="Toxic Sewer">
 		<Maps>ToxicSew/1.jm</Maps>
 		<Portals>0x0758</Portals>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
+    <DoElites/>
 	</World>
 	<World name="Mad Lab" display="Mad Lab">
 		<Maps>MadLab/0.jm</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
+    <DoElites/>
 	</World>
 	<World name="Abyss of Demons" display="Abyss of Demons">
 		<Maps>Abyss/0.jm</Maps>
@@ -102,6 +111,7 @@
 		<AllowTeleport>true</AllowTeleport>
 		<BlockSight>1</BlockSight>
 		<Music>ABYSSOFDEMONS</Music>
+    <DoElites/>
 	</World>
 	<World name="Treasure Cave" display="Treasure Cave">
 		<Maps>TCave/0.jm</Maps>
@@ -109,6 +119,7 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 		<Music>treasurecave</Music>
+    <DoElites/>
 	</World>
 	<World name="Crawling Depth" display="Crawling Depth">
 		<Maps>CDepth/0.jm</Maps>
@@ -116,6 +127,7 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 		<AllowTeleport>true</AllowTeleport>
+    <DoElites/>
 	</World>
 	<World name="Forbidden Jungle" display="Forbidden Jungle">
 		<Maps>ForbiddenJungle/0.jm</Maps>
@@ -123,22 +135,26 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 		<Music>jungletemple</Music>
+    <DoElites/>
 	</World>
 	<World name="Crypt" display="Crypt">
 		<Maps>Crypt/0.jm</Maps>
 		<Portals>0x074b</Portals>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
+    <DoElites/>
 		<Music>CRYPT</Music>
 	</World>
 	<World name="TheRing" display="The Ring">
 		<Maps>TheRing/0.jm</Maps>
 		<Background>0</Background>
+    <DoElites/>
 		<BlockSight>1</BlockSight>
 	</World>
 	<World name="SnakePit" display="Snake Pit">
 		<Maps>SnakePit/0.jm</Maps>
 		<Portals>0x0718</Portals>
+    <DoElites/>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 		<Music>SNAKEPIT</Music>
@@ -146,12 +162,14 @@
 	<World name="TestWorld" display="Test World">
 		<Maps>TestWorld/0.jm</Maps>
 		<Background>0</Background>
+    <DoElites/>
 		<BlockSight>1</BlockSight>
 	</World>
 	<World name="LOShaitans" display="Lair of Shaitans">
 		<Maps>Shaitans/0.jm</Maps>
 		<Background>0</Background>
 		<Portals>0x074e</Portals>
+    <DoElites/>
 		<BlockSight>1</BlockSight>
 	</World>
 	<World name="Arena" display="Arena">
@@ -159,12 +177,14 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 		<Music>CRYPT</Music>
+    <DoElites/>
 	</World>
 	<World name="LCatacomb" display="Lost Catacombs">
 		<Maps>LostCatacombs/0.jm</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 		<Portals>0x074f</Portals>
+    <DoElites/>
 	</World>
 	<World name="CyclopsLair" display="Cyclops' Chambers">
 		<Maps>CyclopsChambers/0.jm</Maps>
@@ -172,6 +192,7 @@
 		<BlockSight>1</BlockSight>
 		<Portals>0x0759</Portals>
 		<AllowTeleports>true</AllowTeleports>
+    <DoElites/>
 	</World>
 	<World name="TombOfTheAncients" display="Tomb of the Ancients">
 		<Maps>TOA/0.jm</Maps>
@@ -179,6 +200,7 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 		<AllowTeleport>true</AllowTeleport>
+    <DoElites/>
 	</World>
 	<World name="CandyLand" display="Candy Lands">
 		<Maps>CandyLand/0.jm</Maps>
@@ -186,6 +208,7 @@
 		<BlockSight>1</BlockSight>
 		<AllowTeleport>true</AllowTeleport>
 		<Portals>0x074a</Portals>
+    <DoElites/>
 	</World>
 	<World name="OceanTrench" display="Ocean Trench">
 		<Maps>OceanTrench/0.jm</Maps>
@@ -193,12 +216,14 @@
 		<BlockSight>1</BlockSight>
 		<AllowTeleport>true</AllowTeleport>
 		<Portals>0x0730</Portals>
+    <DoElites/>
 	</World>
 	<World name="Maze" display="Maze">
 		<Maps>maze.jm</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 		<Music>CRYPT</Music>
+    <DoElites/>
 	</World>
 	<World name="MadLab" display="Mad Lab">
 		<Maps>MadLab/0.jm</Maps>
@@ -206,6 +231,7 @@
 		<BlockSight>1</BlockSight>
 		<AllowTeleport>true</AllowTeleport>
 		<Portals>0x0890</Portals>
+    <DoElites/>
 	</World>
 	<World name="ManorImmortal" display="Manor of the Immortal">
 		<Maps>Manor/0.wmap</Maps>
@@ -213,18 +239,21 @@
 		<BlockSight>1</BlockSight>
 		<Portals>0x0739</Portals>
 		<AllowTeleport>true</AllowTeleport>
+    <DoElites/>
 	</World>
 	<World name="ButcherHouse" display="Butcher's House">
 		<Maps>ButcherHouse/0.jm</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 		<Portals>0x075a</Portals>
+    <DoElites/>
 	</World>
 	<World name="DCave" display="Dragon's Cave">
 		<Maps>DCave/0.jm</Maps>
 		<Portals>0x5204</Portals>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
+    <DoElites/>
 	</World>
 	<World name="ShoeWorld" display="Shoe World">
 		<Maps>ShoeWorld/0.jm</Maps>
@@ -232,11 +261,13 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 		<AllowTeleport>true</AllowTeleport>
+    <DoElites/>
 	</World>
 	<World name="AncientHermit" display="Ancient Ocean Rift">
 		<Maps>AncientHermit/0.jm</Maps>
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
+    <DoElites/>
 	</World>
 	<World name="Market" display="Market">
 		<Maps>Market/Market.jm</Maps>

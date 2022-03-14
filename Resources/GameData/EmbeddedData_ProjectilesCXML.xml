@@ -4004,4 +4004,29 @@
 	</Texture>
     <Rotation>100</Rotation>
   </Object>
+  <Object type="0x2210" id="Crystal Aqua Slash">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0x84</Index>
+    </Texture>
+    <Rotation>0</Rotation>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2211" id="Crystal Aqua Magic">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0x85</Index>
+    </Texture>
+    <Rotation>0</Rotation>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2212" id="Crystal Dagger Magic">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0x86</Index>
+    </Texture>
+  </Object>
 </Objects><!--next avaliable is 0x21f9-->

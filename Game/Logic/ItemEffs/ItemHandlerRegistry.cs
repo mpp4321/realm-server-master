@@ -49,6 +49,7 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("DragonRage", new DragonRage());
             Registry.Add("Thunderbolts", new Thunderbolts());
             Registry.Add("OutOfCombatRegen", new OutOfCombatRegen());
+            Registry.Add("GhostlyAura", new GhostlyAura());
 
             //components
 

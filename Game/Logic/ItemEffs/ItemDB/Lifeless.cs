@@ -29,7 +29,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
             {
                 p.AddIdentifiedEffectBoost(new Player.BoostTimer
                 {
-                    amount = 300,
+                    amount = 800,
                     id = "Lifeless".GetHashCode(),
                     index = 0,
                     timer = 1.0f

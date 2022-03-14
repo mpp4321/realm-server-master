@@ -18,6 +18,7 @@ namespace RotMG.Common
         GuildFame
     }
     
+    
     public enum ItemData : ulong
     {
         //Tiers
@@ -152,6 +153,7 @@ namespace RotMG.Common
         EggBreak,
         FameConsume,
         TossObject,
+        TeleportQuest,
     }
 
     public enum ShowEffectIndex
@@ -949,12 +951,43 @@ namespace RotMG.Common
             return ((ItemData)data & i) != 0;
         }
 
+        private static float IntToMultiplier(int stat) {
+          switch(stat) {
+            case 0: return 0.05f;
+            case 1: return 0.05f;
+          }
+          return 1.0f;
+        }
+
+        private static ItemData IntToItemDataKey(int stat) {
+          switch(stat) {
+            case 0: return ItemData.MaxHP;
+            case 1: return ItemData.MaxMP;
+            case 2: return ItemData.Attack;
+            case 3: return ItemData.Defense;
+            case 4: return ItemData.Speed;
+            case 5: return ItemData.Dexterity;
+            case 6: return ItemData.Vitality;
+            case 7: return ItemData.Wisdom;
+            case 8: return ItemData.Defense;
+          }
+          throw new Exception("Unhandled stat value");
+        }
+
         public ItemDataJson FinalizeItemData(ItemDataModType? smod, ItemData data)
         {
             ItemDataJson j = new ItemDataJson() { Meta = (int)data };
             if (smod.HasValue)
             {
                 var d = ItemDataModifiers.Registry[smod.Value].GenerateStats(ref j);
+
+                if(GetRank((int) data) != -1) {
+                  foreach(var pair in this.StatBoosts) {
+                    var key = IntToItemDataKey(pair.Key);
+                    d[key] = d.GetValueOrDefault(key) + MathUtils.NextInt(0, (int)(IntToMultiplier(pair.Key) * pair.Value) / 2);
+                  }
+                }
+
                 j.ExtraStatBonuses = new Dictionary<ulong, int>(d.Select(a => 
                     new KeyValuePair<ulong, int>((ulong)a.Key, a.Value)
                 ).ToList());
@@ -1274,6 +1307,7 @@ namespace RotMG.Common
         public readonly int BlockSight;
         public readonly bool Persist;
         public readonly bool IsTemplate;
+        public readonly bool DoElites;
         public readonly ushort[] Portals;
         public readonly Map[] Maps;
 
@@ -1288,6 +1322,7 @@ namespace RotMG.Common
             AllowTeleport = e.ParseBool("AllowTeleport");
             BlockSight = e.ParseInt("BlockSight");
             Persist = e.ParseBool("Persist");
+            DoElites = e.ParseBool("DoElites");
             IsTemplate = e.ParseBool("IsTemplate");
             Portals = e.ParseUshortArray("Portals", ";", new ushort[0]);
 

@@ -119,7 +119,7 @@ namespace RotMG.Game.Entities
             }
 
             foreach (var eff in effects)
-                ApplyConditionEffect(eff.Effect, eff.DurationMS);
+                ApplyConditionEffect(eff.Effect, eff.DurationMS, eff.Probability);
 
             if (HasConditionEffect(ConditionEffectIndex.ArmorBroken))
                 pierces = true;

@@ -553,7 +553,7 @@ namespace RotMG.Game.Worlds
                 })
             },
             { Terrain.Mountains, Tuple.Create(
-                500, new []
+                300, new []
                 {
                     Tuple.Create("Fire Slime", 0.079),
                     Tuple.Create("White Demon", 0.079),

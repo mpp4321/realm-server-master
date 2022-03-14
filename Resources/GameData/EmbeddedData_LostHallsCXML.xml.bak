@@ -245,297 +245,260 @@
       <XpMult>1</XpMult>
       <NoMiniMap />
    </Object>
-   <Object type="0xb011" id="LH Marble Colossus">
-        <Class>Character</Class>
-        <Enemy/>
-        <AnimatedTexture>
+   <Object type="0x6391" id="LH Marble Colossus">
+      <DisplayId>Marble Colossus</DisplayId>
+      <Enemy />
+      <Class>Character</Class>
+      <Texture>
+         <File>lostHallsObjects16x16</File>
+         <Index>0x09</Index>
+      </Texture>
+      <AltTexture id="0">
+         <Texture>
+            <File>lostHallsObjects16x16</File>
+            <Index>0x0a</Index>
+         </Texture>
+      </AltTexture>
+      <AltTexture id="1">
+         <Texture>
+            <File>lostHallsObjects16x16</File>
+            <Index>0x0b</Index>
+         </Texture>
+      </AltTexture>
+      <AltTexture id="2">
+         <Texture>
+            <File>lostHallsObjects16x16</File>
+            <Index>0x0c</Index>
+         </Texture>
+      </AltTexture>
+      <AltTexture id="4">
+         <AnimatedTexture>
             <File>lostHallsChars16x16</File>
             <Index>4</Index>
-        </AnimatedTexture>
-        <Portrait>
-            <AnimatedTexture>
-                <File>lostHallsChars16x16</File>
-                <Index>4</Index>
-            </AnimatedTexture>
-        </Portrait>
-        <AltTexture id="1">
-            <AnimatedTexture>
-                <File>lostHallsChars16x16</File>
-                <Index>42</Index>
-            </AnimatedTexture>
-        </AltTexture>
-        <AltTexture id="2">
-            <AnimatedTexture>
-                <File>lostHallsChars16x16</File>
-                <Index>43</Index>
-            </AnimatedTexture>
-        </AltTexture>
-        <AltTexture id="3">
-            <AnimatedTexture>
-                <File>lostHallsChars16x16</File>
-                <Index>44</Index>
-            </AnimatedTexture>
-        </AltTexture>
-        <AltTexture id="4">
-            <AnimatedTexture>
-                <File>lostHallsChars16x16</File>
-                <Index>45</Index>
-            </AnimatedTexture>
-        </AltTexture>
-        <AltTexture id="5">
-            <AnimatedTexture>
-                <File>lostHallsChars16x16</File>
-                <Index>37</Index>
-            </AnimatedTexture>
-        </AltTexture>
-        <AltTexture id="6">
-            <AnimatedTexture>
-                <File>lostHallsChars16x16</File>
-                <Index>38</Index>
-            </AnimatedTexture>
-        </AltTexture>
-        <AltTexture id="7">
-            <AnimatedTexture>
-                <File>lostHallsChars16x16</File>
-                <Index>39</Index>
-            </AnimatedTexture>
-        </AltTexture>
-        <AltTexture id="8">
-            <AnimatedTexture>
-                <File>lostHallsChars16x16</File>
-                <Index>40</Index>
-            </AnimatedTexture>
-        </AltTexture>
-        <DisplayId>Marble Colossus</DisplayId>
-        <Size>140</Size>
-        <MaxHitPoints>250000</MaxHitPoints>
-        <Defense>50</Defense>
-        <Quest/>
-        <God/>
-        <Exp>60000</Exp>
-        <HitSound>monster/golems_hit</HitSound>
-        <DeathSound>monster/golems_death</DeathSound>
-        <StunImmune/>
-        <StasisImmune/>
-        <DazedImmune/>
-        <ParalyzeImmune/>
-        <EventChestBoss/>
-        <UElitedrop/>
-        <TrackLoot/>
-        <Projectile id="0">
-            <ObjectId>Colossal Dark Boomerang</ObjectId>
-            <Damage>200</Damage>
-            <Speed>80</Speed>
-            <LifetimeMS>3000</LifetimeMS>
-            <Amplitude>0.5</Amplitude>
-            <Frequency>8</Frequency>
-            <ConditionEffect duration="2">Stunned</ConditionEffect>
-            <Boomerang/>
-        </Projectile>
-        <Projectile id="1">
-            <ObjectId>Colossal Slash</ObjectId>
-            <Damage>100</Damage>
-            <Speed>90</Speed>
-            <LifetimeMS>1200</LifetimeMS>
-            <ArmorPiercing/>
-            <MultiHit/>
-        </Projectile>
-        <Projectile id="2">
-            <ObjectId>Colossal Light Boomerang</ObjectId>
-            <Damage>150</Damage>
-            <Speed>60</Speed>
-            <LifetimeMS>6000</LifetimeMS>
-            <ConditionEffect duration="2.5">Slowed</ConditionEffect>
-            <Boomerang/>
-        </Projectile>
-        <Projectile id="3">
-            <ObjectId>Colossal Bullet</ObjectId>
-            <Damage>300</Damage>
-            <Speed>30</Speed>
-            <Size>100</Size>
-            <LifetimeMS>6200</LifetimeMS>
-            <MultiHit/>
-        </Projectile>
-        <Projectile id="4">
-            <ObjectId>Colossal Blast</ObjectId>
-            <Damage>115</Damage>
-            <Speed>75</Speed>
-            <LifetimeMS>3250</LifetimeMS>
-            <MultiHit/>
-            <ConditionEffect duration="0.6">Paralyzed</ConditionEffect>
-        </Projectile>
-        <Projectile id="5">
-            <ObjectId>Colossal Spear</ObjectId>
-            <Damage>250</Damage>
-            <Speed>75</Speed>
-            <LifetimeMS>2200</LifetimeMS>
-            <ConditionEffect duration="3">Unstable</ConditionEffect>
-        </Projectile>
-        <Projectile id="6">
-            <ObjectId>Colossal Star</ObjectId>
-            <Damage>100</Damage>
-            <Speed>80</Speed>
-            <LifetimeMS>8000</LifetimeMS>
-            <Parametric/>
-            <Magnitude>6</Magnitude>
-            <MultiHit/>
-            <ConditionEffect duration="2.5">Slowed</ConditionEffect>
-            <ConditionEffect duration="2">Unstable</ConditionEffect>
-        </Projectile>
-        <Projectile id="7">
-            <ObjectId>Colossal Wheel</ObjectId>
-            <Damage>180</Damage>
-            <Speed>50</Speed>
-            <LifetimeMS>4000</LifetimeMS>
-        </Projectile>
-        <Projectile id="8">
-            <ObjectId>Colossal Wheel</ObjectId>
-            <Damage>180</Damage>
-            <Speed>80</Speed>
-            <LifetimeMS>2500</LifetimeMS>
-        </Projectile>
-        <Projectile id="9">
-            <ObjectId>Colossal Rock</ObjectId>
-            <Damage>80</Damage>
-            <Speed>100</Speed>
-            <LifetimeMS>2500</LifetimeMS>
-            <MultiHit/>
-            <ArmorPiercing/>
-            <Size>50</Size>
-            <ConditionEffect duration="4">Nullified</ConditionEffect>
-        </Projectile>
-        <Projectile id="10">
-            <ObjectId>Colossal Rock</ObjectId>
-            <Damage>80</Damage>
-            <Speed>50</Speed>
-            <LifetimeMS>5000</LifetimeMS>
-            <MultiHit/>
-            <ArmorPiercing/>
-            <Size>50</Size>
-            <ConditionEffect duration="4">Nullified</ConditionEffect>
-        </Projectile>
-        <Projectile id="11">
-            <ObjectId>Colossal Ball</ObjectId>
-            <Damage>130</Damage>
-            <Speed>20</Speed>
-            <LifetimeMS>8000</LifetimeMS>
-            <ConditionEffect duration="1.2">Paralyzed</ConditionEffect>
-        </Projectile>
-        <Projectile id="12">
-            <ObjectId>Colossal Spear</ObjectId>
-            <Damage>170</Damage>
-            <Speed>60</Speed>
-            <LifetimeMS>2300</LifetimeMS>
-            <ConditionEffect duration="3">Unstable</ConditionEffect>
-        </Projectile>
-        <Projectile id="13">
-            <ObjectId>Colossal Spear</ObjectId>
-            <Damage>170</Damage>
-            <Speed>90</Speed>
-            <LifetimeMS>2000</LifetimeMS>
-            <ConditionEffect duration="3">Unstable</ConditionEffect>
-        </Projectile>
-        <Projectile id="14">
-            <ObjectId>Colossal Spinner</ObjectId>
-            <Damage>150</Damage>
-            <Speed>50</Speed>
-            <LifetimeMS>5000</LifetimeMS>
-            <Amplitude>0.25</Amplitude>
-            <Frequency>10</Frequency>
-            <ConditionEffect duration="3">Paralyzed</ConditionEffect>
-            <ConditionEffect duration="4">Confused</ConditionEffect>
-            <MultiHit/>
-        </Projectile>
-        <Projectile id="15">
-            <ObjectId>Colossal Spear</ObjectId>
-            <Speed>25</Speed>
-            <Damage>125</Damage>
-            <Size>80</Size>
-            <LifetimeMS>10000</LifetimeMS>
-            <MultiHit/>
-            <ArmorPiercing/>
-            <ConditionEffect duration="1">Unstable</ConditionEffect>
-        </Projectile>
-        <Projectile id="16">
-            <ObjectId>Void Bullet</ObjectId>
-            <Damage>200</Damage>
-            <Speed>25</Speed>
-            <Size>100</Size>
-            <LifetimeMS>5000</LifetimeMS>
-            <ConditionEffect duration="3">Darkness</ConditionEffect>
-            <MultiHit/>
-        </Projectile>
-        <Projectile id="17">
-            <ObjectId>Colossal Spike</ObjectId>
-            <Damage>200</Damage>
-            <Speed>30</Speed>
-            <LifetimeMS>5000</LifetimeMS>
-            <Size>100</Size>
-            <MultiHit/>
-        </Projectile>
-        <Projectile id="18">
-            <ObjectId>Colossal Spike</ObjectId>
-            <Damage>200</Damage>
-            <Speed>50</Speed>
-            <LifetimeMS>5000</LifetimeMS>
-            <Size>100</Size>
-            <MultiHit/>
-        </Projectile>
-        <Projectile id="19">
-            <ObjectId>Colossal Ball</ObjectId>
-            <Damage>130</Damage>
-            <Size>80</Size>
-            <Speed>40</Speed>
-            <LifetimeMS>10000</LifetimeMS>
-            <ConditionEffect duration="0.6">Paralyzed</ConditionEffect>
-        </Projectile>
-        <Projectile id="20">
-            <ObjectId>Colossal Spinner</ObjectId>
-            <Damage>150</Damage>
-            <Speed>50</Speed>
-            <LifetimeMS>5000</LifetimeMS>
-            <Amplitude>0.25</Amplitude>
-            <Frequency>10</Frequency>
-            <ConditionEffect duration="1.4">Paralyzed</ConditionEffect>
-            <ConditionEffect duration="2">Confused</ConditionEffect>
-            <MultiHit/>
-        </Projectile>
-        <Projectile id="21">
-            <ObjectId>Void Ring</ObjectId>
-            <Damage>150</Damage>
-            <Speed>100</Speed>
-            <LifetimeMS>2500</LifetimeMS>
-            <MultiHit/>
-            <ConditionEffect duration="1">Petrify</ConditionEffect>
-        </Projectile>
-        <Projectile id="22">
-            <ObjectId>Void Spear</ObjectId>
-            <Damage>250</Damage>
-            <Speed>70</Speed>
-            <LifetimeMS>4000</LifetimeMS>
-            <Size>80</Size>
-            <ConditionEffect duration="2">Blind</ConditionEffect>
-            <MultiHit/>
-        </Projectile>
-        <Projectile id="23">
-            <ObjectId>Void Blast</ObjectId>
-            <Damage>185</Damage>
-            <Speed>80</Speed>
-            <LifetimeMS>3500</LifetimeMS>
-            <MultiHit/>
-            <ConditionEffect duration="1">Paralyzed</ConditionEffect>
-        </Projectile>
-        <Projectile id="24">
-            <ObjectId>Void Large Bullet</ObjectId>
-            <Damage>200</Damage>
-            <Speed>110</Speed>
-            <LifetimeMS>2000</LifetimeMS>
-            <Size>200</Size>
-            <ArmorPiercing/>
-            <MultiHit/>
-            <ConditionEffect duration="2">Darkness</ConditionEffect>
-        </Projectile>
-    </Object>
+         </AnimatedTexture>
+      </AltTexture>
+      <HitSound>monster/stone_walls_hit</HitSound>
+      <DeathSound>monster/stone_walls_death</DeathSound>
+      <Size>140</Size>
+      <StunImmune />
+      <StasisImmune />
+      <DazedImmune />
+      <ParalyzeImmune />
+      <MaxHitPoints>450000</MaxHitPoints>
+      <Defense>50</Defense>
+      <Quest />
+      <God />
+      <Level>1</Level>
+      <Experience>10000</Experience>
+      <FixedExp />
+      <Projectile id="0">
+         <ObjectId>Colossal Bullet</ObjectId>
+         <Damage>320</Damage>
+         <Speed>38</Speed>
+         <Size>100</Size>
+         <LifetimeMS>6200</LifetimeMS>
+         <MultiHit />
+      </Projectile>
+      <Projectile id="1">
+         <ObjectId>Colossal Dark Boomerang</ObjectId>
+         <Size>155</Size>
+         <Damage>200</Damage>
+         <Speed>80</Speed>
+         <LifetimeMS>3000</LifetimeMS>
+         <Amplitude>0.5</Amplitude>
+         <Frequency>8</Frequency>
+         <ConditionEffect duration="2">Stunned</ConditionEffect>
+         <Boomerang />
+      </Projectile>
+      <Projectile id="2">
+         <ObjectId>Colossal Slash</ObjectId>
+         <Size>145</Size>
+         <Damage>100</Damage>
+         <Speed>90</Speed>
+         <LifetimeMS>1200</LifetimeMS>
+         <ArmorPiercing />
+         <MultiHit />
+      </Projectile>
+      <Projectile id="3">
+         <ObjectId>Colossal Light Boomerang</ObjectId>
+         <Size>155</Size>
+         <Damage>150</Damage>
+         <Speed>60</Speed>
+         <LifetimeMS>6000</LifetimeMS>
+         <ConditionEffect duration="2.5">Slowed</ConditionEffect>
+         <Boomerang />
+      </Projectile>
+      <Projectile id="4">
+         <ObjectId>Colossal Blast</ObjectId>
+         <Damage>115</Damage>
+         <Speed>75</Speed>
+         <LifetimeMS>3250</LifetimeMS>
+         <MultiHit />
+         <ConditionEffect duration="0.6">Paralyzed</ConditionEffect>
+      </Projectile>
+      <Projectile id="5">
+         <ObjectId>Colossal Spear</ObjectId>
+         <Damage>250</Damage>
+         <Speed>75</Speed>
+         <LifetimeMS>2200</LifetimeMS>
+      </Projectile>
+      <Projectile id="6">
+         <ObjectId>Colossal Star</ObjectId>
+         <Damage>100</Damage>
+         <Speed>80</Speed>
+         <LifetimeMS>8000</LifetimeMS>
+         <Parametric />
+         <MultiHit />
+         <ConditionEffect duration="2.5">Confused</ConditionEffect>
+      </Projectile>
+      <Projectile id="7">
+         <ObjectId>Colossal Wheel</ObjectId>
+         <Damage>180</Damage>
+         <Speed>50</Speed>
+         <LifetimeMS>4000</LifetimeMS>
+      </Projectile>
+      <Projectile id="8">
+         <ObjectId>Colossal Rock</ObjectId>
+         <Size>50</Size>
+         <Damage>80</Damage>
+         <Speed>70</Speed>
+         <LifetimeMS>2500</LifetimeMS>
+         <MultiHit />
+         <ArmorPiercing />
+         <ConditionEffect duration="4">Blind</ConditionEffect>
+      </Projectile>
+      <Projectile id="9">
+         <ObjectId>Colossal Ball</ObjectId>
+         <Damage>35</Damage>
+         <Speed>45</Speed>
+         <LifetimeMS>2500</LifetimeMS>
+         <ArmorPiercing />
+         <Wavy />
+         <ConditionEffect duration="0.4">Paralyzed</ConditionEffect>
+      </Projectile>
+      <Projectile id="10">
+         <ObjectId>Colossal Rock</ObjectId>
+         <Size>50</Size>
+         <Damage>80</Damage>
+         <Speed>90</Speed>
+         <LifetimeMS>2500</LifetimeMS>
+         <MultiHit />
+         <ArmorPiercing />
+         <ConditionEffect duration="4">Blind</ConditionEffect>
+      </Projectile>
+      <Projectile id="11">
+         <ObjectId>Colossal Spinner</ObjectId>
+         <Damage>150</Damage>
+         <Speed>50</Speed>
+         <LifetimeMS>5000</LifetimeMS>
+         <Amplitude>0.25</Amplitude>
+         <Frequency>10</Frequency>
+         <ConditionEffect duration="3">Paralyzed</ConditionEffect>
+         <ConditionEffect duration="4">Confused</ConditionEffect>
+         <MultiHit />
+         <Wavy />
+      </Projectile>
+      <Projectile id="12">
+         <ObjectId>Colossal Slash</ObjectId>
+         <Damage>200</Damage>
+         <Speed>30</Speed>
+         <LifetimeMS>15000</LifetimeMS>
+         <MultiHit />
+      </Projectile>
+      <Projectile id="13">
+         <ObjectId>Colossal Slash</ObjectId>
+         <Damage>200</Damage>
+         <Speed>50</Speed>
+         <LifetimeMS>15000</LifetimeMS>
+         <MultiHit />
+      </Projectile>
+      <Projectile id="14">
+         <ObjectId>Void Bullet</ObjectId>
+         <Damage>200</Damage>
+         <Speed>25</Speed>
+         <LifetimeMS>15000</LifetimeMS>
+         <MultiHit />
+      </Projectile>
+      <Projectile id="15">
+         <ObjectId>Purple Spiral</ObjectId>
+         <Size>100</Size>
+         <Damage>75</Damage>
+         <Speed>50</Speed>
+         <LifetimeMS>5000</LifetimeMS>
+         <MultiHit />
+         <ConditionEffect duration="4">Blind</ConditionEffect>
+         <ArmorPiercing />
+      </Projectile>
+      <Projectile id="16">
+         <ObjectId>Red Spiral</ObjectId>
+         <Size>100</Size>
+         <Damage>75</Damage>
+         <Speed>50</Speed>
+         <LifetimeMS>5000</LifetimeMS>
+         <MultiHit />
+         <ConditionEffect duration="2">Bleeding</ConditionEffect>
+         <ArmorPiercing />
+      </Projectile>
+      <Projectile id="17">
+         <ObjectId>Orange Spiral</ObjectId>
+         <Size>100</Size>
+         <Damage>75</Damage>
+         <Speed>50</Speed>
+         <LifetimeMS>5000</LifetimeMS>
+         <MultiHit />
+         <ConditionEffect duration="0.85">Paralyzed</ConditionEffect>
+         <ArmorPiercing />
+      </Projectile>
+      <Projectile id="18">
+         <ObjectId>Blue Spiral</ObjectId>
+         <Size>100</Size>
+         <Damage>75</Damage>
+         <Speed>50</Speed>
+         <LifetimeMS>5000</LifetimeMS>
+         <MultiHit />
+         <ConditionEffect duration="4">Dazed</ConditionEffect>
+         <ArmorPiercing />
+      </Projectile>
+      <Projectile id="19">
+         <ObjectId>White Spiral</ObjectId>
+         <Size>100</Size>
+         <Damage>75</Damage>
+         <Speed>50</Speed>
+         <LifetimeMS>5000</LifetimeMS>
+         <MultiHit />
+         <ConditionEffect duration="4">Slowed</ConditionEffect>
+         <ArmorPiercing />
+      </Projectile>
+      <Projectile id="20">
+         <ObjectId>Green Spiral</ObjectId>
+         <Size>100</Size>
+         <Damage>75</Damage>
+         <Speed>50</Speed>
+         <LifetimeMS>5000</LifetimeMS>
+         <MultiHit />
+         <ArmorPiercing />
+         <ConditionEffect duration="3">Confused</ConditionEffect>
+      </Projectile>
+      <Projectile id="21">
+         <ObjectId>Black Spiral</ObjectId>
+         <Size>100</Size>
+         <Damage>75</Damage>
+         <Speed>50</Speed>
+         <LifetimeMS>5000</LifetimeMS>
+         <MultiHit />
+         <ArmorPiercing />
+         <ConditionEffect duration="2">Blind</ConditionEffect>
+      </Projectile>
+      <Projectile id="22">
+         <ObjectId>Colossal Spear</ObjectId>
+         <Damage>125</Damage>
+         <Speed>25</Speed>
+         <Size>80</Size>
+         <LifetimeMS>10000</LifetimeMS>
+         <ArmorPiercing />
+         <MultiHit />
+      </Projectile>
+   </Object>
    <Object type="0x6136" id="Colossal Bullet">
       <Class>Projectile</Class>
       <Texture>
@@ -1102,16 +1065,18 @@
       <Description>A seal made from the Marble Colossus' head. The power of a pure and mighty paladin still remains within.</Description>
       <Activate effect="Armored" duration="5.0">ConditionEffectSelf</Activate>
       <SlotType>12</SlotType>
-      <BagType>6</BagType>
-      <FameBonus>6</FameBonus>
-      <MpCost>240</MpCost>
+      <BagType>8</BagType>
+      <FameBonus>8</FameBonus>
+      <MpCost>120</MpCost>
       <ExtraTooltipData>
          <EffectInfo name="" description="Summon an Eye of Marble for 4.5 seconds" />
          <EffectInfo name="Eye Effect" description="Heals players within 4 sqrs" />
       </ExtraTooltipData>
-      <ActivateOnEquip stat="3" amount="10">IncrementStat</ActivateOnEquip>
+      <ActivateOnEquip stat="3" amount="5">IncrementStat</ActivateOnEquip>
       <Cooldown>5.5</Cooldown>
       <Activate id="Eye of Marble">Create</Activate>
+	  <Legendary />
+	  <Rage />
    </Object>
    <Object type="0xb053" id="Eye of Marble">
       <Class>GameObject</Class>
@@ -1134,8 +1099,10 @@
       <SlotType>7</SlotType>
 	    <ActivateOnEquip stat="0" amount="225">IncrementStat</ActivateOnEquip>
       <ActivateOnEquip stat="3" amount="16">IncrementStat</ActivateOnEquip>
-      <BagType>6</BagType>
-      <FameBonus>6</FameBonus>
+      <BagType>8</BagType>
+      <FameBonus>8</FameBonus>
+      <Legendary />
+	  <Aegis />
    </Object>
    <Object type="0x0256" id="Magical Lodestone">
       <Class>Equipment</Class>
@@ -1150,8 +1117,10 @@
       <ActivateOnEquip stat="5" amount="8">IncrementStat</ActivateOnEquip>
       <ActivateOnEquip stat="2" amount="8">IncrementStat</ActivateOnEquip>
       <ActivateOnEquip stat="4" amount="8">IncrementStat</ActivateOnEquip>
-      <BagType>6</BagType>
-      <FameBonus>6</FameBonus>
+      <BagType>8</BagType>
+      <FameBonus>8</FameBonus>
+      <Legendary />
+	  <Rage />
    </Object>
    <Object type="0x0257" id="Cloak of Bloody Surprises">
       <Class>Equipment</Class>
@@ -1171,8 +1140,10 @@
       <ActivateOnEquip stat="3" amount="5">IncrementStat</ActivateOnEquip>
       <ActivateOnEquip stat="6" amount="3">IncrementStat</ActivateOnEquip>
       <Cooldown>6</Cooldown>
-      <BagType>6</BagType>
-      <FameBonus>6</FameBonus>
+      <BagType>8</BagType>
+      <FameBonus>8</FameBonus>
+      <Legendary />
+	  <Resurge />
    </Object>
    <Object type="0xb0eb" id="Cultist Fire Shot">
       <Class>Projectile</Class>

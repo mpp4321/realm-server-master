@@ -9,7 +9,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
     {
         public void OnProjectileShoot(Player shotFrom, ref Projectile projectile)
         {
-            shotFrom.Heal(-20, false, false);
+            shotFrom.Heal(-10, false, false);
         }
     }
 }

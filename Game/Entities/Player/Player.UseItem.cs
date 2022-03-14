@@ -654,14 +654,32 @@ namespace RotMG.Game.Entities
                 case ActivateEffectIndex.Teleport:
                     if (eff.Position.X != 0 && eff.Position.Y != 0 && (eff.Map?.Equals(Parent.Name) ?? false))
                     {
-                        ApplyConditionEffect(ConditionEffectIndex.Invincible, 5000);
-                        ApplyConditionEffect(ConditionEffectIndex.Invisible, 5000);
-                        ApplyConditionEffect(ConditionEffectIndex.Stunned, 5000);
+                        ApplyConditionEffect(ConditionEffectIndex.Invincible, 4000);
+                        ApplyConditionEffect(ConditionEffectIndex.Invisible, 4000);
+                        ApplyConditionEffect(ConditionEffectIndex.Stunned, 4000);
                         Teleport(time, eff.Position, false);
                     }
                     else if (inRange)
                     { //Less than 0 means its a manual teleport thingy like a scroll
                         Teleport(time, target, true);
+                    }
+                    break;
+                case ActivateEffectIndex.TeleportQuest:
+                    {
+                        if (Quest == null)
+                        {
+                            SendError("No quest to teleport to");
+                            return true;
+                        }
+                        if (!Parent.AllowTeleport)
+                        {
+                            SendError("You cannot teleport in this area.");
+                            return true;
+                        }
+                        ApplyConditionEffect(ConditionEffectIndex.Invincible, 2000);
+                        ApplyConditionEffect(ConditionEffectIndex.Invisible, 2000);
+                        ApplyConditionEffect(ConditionEffectIndex.Stunned, 2000);
+                        EntityTeleport(_clientTime, Quest.Id, true);
                     }
                     break;
                 case ActivateEffectIndex.Decoy:
@@ -678,6 +696,8 @@ namespace RotMG.Game.Entities
                 case ActivateEffectIndex.BulletNova:
                     if (inRange)
                     {
+                        // Backwards on purpose
+                        var center = eff.TargetCursor ? Position : target;
                         var count = desc.NumProjectiles == 1 ? 20 : desc.NumProjectiles;
                         var projs = new List<Projectile>(count);
                         var novaCount = count;
@@ -687,14 +707,14 @@ namespace RotMG.Game.Entities
                         for (var i = 0; i < novaCount; i++)
                         {
                             var d = GetNextDamage(desc.NextProjectile(startId + i).MinDamage, desc.NextProjectile(startId + i).MaxDamage, ItemDatas[slot.SlotId]);
-                            var p = new Projectile(this, desc.NextProjectile(startId - i), startId + i, time, angleInc * i, target, d);
+                            var p = new Projectile(this, desc.NextProjectile(startId - i), startId + i, time, angleInc * i, center, d);
                             projs.Add(p);
                         }
 
                         AwaitProjectiles(projs);
 
-                        var line = GameServer.ShowEffect(ShowEffectIndex.Line, Id, 0xFFFF00AA, target);
-                        var nova = GameServer.ServerPlayerShoot(startId, Id, desc.Type, target, 0, angleInc, projs);
+                        var line = GameServer.ShowEffect(ShowEffectIndex.Line, Id, 0xFFFF00AA, center);
+                        var nova = GameServer.ServerPlayerShoot(startId, Id, desc.Type, center, 0, angleInc, projs);
 
                         foreach (var j in Parent.PlayerChunks.HitTest(Position, SightRadius))
                         {
@@ -825,7 +845,7 @@ namespace RotMG.Game.Entities
                             {
                                 return a + b;
                             });
-                        int requiredFameTotal = ItemHandlerRegistry.RuneFameCosts[runeId] + fameSumTotal;
+                        int requiredFameTotal = ItemHandlerRegistry.RuneFameCosts[runeId] + fameSumTotal - 500;
                         if (Client.Character.SelectedRunes.Any(a => a.Equals(runeId)))
                         {
                             SendInfo("You have that rune already!");

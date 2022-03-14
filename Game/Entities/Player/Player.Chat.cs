@@ -25,7 +25,7 @@ namespace RotMG.Game.Entities
             "commands", "g", "guild", "tell", "allyshots", "allydamage", "effects", "sounds", "vault", "realm",
             "notifications", "online", "who", "server", "pos", "loc", "where", "find", "fame", "famestats", "stats",
             "trade", "currentsong", "song", "mix", "quest", "lefttomax", "pinvite", "pcreate", "p", "paccept", "pleave",
-            "psummon", "takefame", "clearrunes", "market", "mymarket", "removemarket"
+            "psummon", "takefame", "clearrunes", "market", "mymarket", "removemarket", "glands"
         };
 
         //List of command, rank required
@@ -589,7 +589,21 @@ namespace RotMG.Game.Entities
 
                             EntityTeleport(_clientTime, Quest.Id, true);
                         }
-
+                        break;
+                    case "/glands":
+                        {
+                            if("Realm" == Parent.Name)
+                            {
+                                ApplyConditionEffect(ConditionEffectIndex.Invincible, 5000);
+                                ApplyConditionEffect(ConditionEffectIndex.Invisible, 5000);
+                                ApplyConditionEffect(ConditionEffectIndex.Stunned, 5000);
+                                this.Teleport(Manager.TotalTime, new Vector2(1105, 1227), false);
+                            } else
+                            {
+                                SendError("Not in realm");
+                                return;
+                            }
+                        }
                         break;
                     case "/god":
                         if (Client.Account.Ranked)

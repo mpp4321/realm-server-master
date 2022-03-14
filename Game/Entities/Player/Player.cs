@@ -384,10 +384,7 @@ namespace RotMG.Game.Entities
             //Projectiles never have null effects. But other sources of damage might.
             foreach (var eff in effects)
             {
-                if (eff.Probability != 1.0f)
-                    ApplyConditionEffect(eff.Effect, eff.DurationMS, eff.Probability);
-                else
-                    ApplyConditionEffect(eff.Effect, eff.DurationMS);
+              ApplyConditionEffect(eff.Effect, eff.DurationMS, eff.Probability);
             }
 
             //Force pierce if armor broken
@@ -449,6 +446,11 @@ namespace RotMG.Game.Entities
         private int _serverTime = -1;
         private int _clientStartTime = -1;
         private int _clientTime = -1;
+
+        public int GetLastClientTime()
+        {
+            return _clientTime;
+        }
         public bool ValidTime(int clientTime)
         {
             var serverTime = Manager.TotalTimeUnsynced;

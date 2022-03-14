@@ -547,6 +547,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new ItemLoot("Health Potion", 0.01f),
                 new ItemLoot("Magic Potion", 0.01f),
+                new ItemLoot("Old Demon Skull", 0.03f, 0.01f),
                 new TierLoot(2, LootType.Ring, 0.04f)
             );
             db.Init("Flamer",

@@ -54,6 +54,7 @@ namespace RotMG.Game
         public int BlockSight;
         public bool Persist;
         public bool IsTemplate;
+        public bool DoElites;
 
         public string Name;
         public string DisplayName;
@@ -84,6 +85,7 @@ namespace RotMG.Game
             Width = map.Width;
             Height = map.Height;
 
+            DoElites = desc.DoElites;
             Background = desc.Background;
             ShowDisplays = desc.ShowDisplays;
             AllowTeleport = desc.AllowTeleport;
@@ -428,6 +430,12 @@ namespace RotMG.Game
             en.SpawnPoint = at;
             en.Position = at;
             MoveEntity(en, en.Position);
+
+            if(DoElites && en is Enemy) {
+              if(MathUtils.Chance(en.Desc.Quest ? 0.30f : 0.05f)) {
+                (en as Enemy).MakeElite();
+              }
+            }
 
             if(en is Portal por)
             {

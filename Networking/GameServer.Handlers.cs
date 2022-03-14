@@ -641,6 +641,8 @@ namespace RotMG.Networking
             }
         }
 
+        private static HashSet<int> AccountRetryConnect = new HashSet<int>();
+
         private static void Load(Client client, PacketReader rdr)
         {
             var charId = rdr.ReadInt32();
@@ -650,8 +652,24 @@ namespace RotMG.Networking
                 var character = Database.LoadCharacter(client.Account, charId);
                 if (character == null || character.Dead)
                 {
-                    client.Send(Failure(0, "Failed to load character."));
-                    client.Disconnect();
+                    if(character != null)
+                    {
+                        client.Send(Failure(0, "Failed to load character."));
+                        client.Disconnect();
+                    } else
+                    {
+                        // if (AccountRetryConnect.Contains(client.Id))
+                        // {
+                        //     AccountRetryConnect.Remove(client.Id);
+                        //     client.Send(Failure(0, "Failed to load character."));
+                        //     client.Disconnect();
+                        // } else
+                        // {
+                        AccountRetryConnect.Add(client.Id);
+                        client.Send(Failure(0, "Failed to load character, retrying"));
+                        client.Send(Reconnect(client.TargetWorldId));
+                        // }
+                    }
                     return;
                 }
 
