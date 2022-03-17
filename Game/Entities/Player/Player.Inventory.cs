@@ -321,7 +321,9 @@ namespace RotMG.Game.Entities
             // soulbound item into non soulbound bag
             if (con1 is Player)
             {
-                if (d1 != null && d1.Soulbound && en2 is Container con && con.OwnerId != AccountId)
+                if (d1 != null && d1.Soulbound && en2 is Container con && (
+                    con is not VaultChest && con.OwnerId != AccountId
+                ))
                 {
                     DropItem(slot1.SlotId);
                     Client.Send(ValidInvSwap);
