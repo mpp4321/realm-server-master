@@ -76,6 +76,145 @@ namespace RotMG.Game.Logic.Database
                     )
                 );
 
+            // post boss troom thang
+            db.Init("Abyss Idol",
+
+                new State("0",
+                    new PlayerWithinTransition(8f, "a")
+                ),
+
+                //Shoot AOE ring then toss array of bombs
+                new State("a",
+                    new HealthTransition(0.5f, "b"),
+                    new TransitionFrom("a", "1"),
+                    new State("1",
+                        new Shoot(0, 5, 14, 0, 45, cooldown: 9999),
+                        new Shoot(0, 5, 14, 0, 135, cooldown: 9999),
+                        new Shoot(0, 5, 14, 0, 225, cooldown: 9999),
+                        new Shoot(0, 5, 14, 0, 315, cooldown: 9999),
+
+                        // Spawn some noobs here to fight players
+                        new Spawn("Imp of the Abyss", 2, 1.0, 0.2f, cooldown: 10000),
+                        new Spawn("Brute of the Abyss", 1, 1.0, 0.2f, cooldown: 10000),
+                        new Spawn("Demon of the Abyss", 1, 1.0, 0.2f, cooldown: 10000),
+
+                #region grenade_array
+                        //Grenade array
+                        new TimedBehav(500,
+                            new QueuedBehav( 
+                                new Grenade(1, 100, 2, 0, 1000),
+                                new TimedBehav(100, new Grenade(2, 100, 2, 0, 1000)),
+                                new TimedBehav(100, new Grenade(3, 100, 2, 0, 1000)),
+                                new TimedBehav(100, new Grenade(4, 100, 2, 0, 1000)),
+                                new TimedBehav(100, new Grenade(5, 100, 2, 0, 1000))
+                            )
+                        ),
+                        new TimedBehav(500,
+                            new QueuedBehav(
+                                new Grenade(1, 100, 2, 90, 1000),
+                                new TimedBehav(100, new Grenade(2, 100, 2, 90, 1000)),
+                                new TimedBehav(100, new Grenade(3, 100, 2, 90, 1000)),
+                                new TimedBehav(100, new Grenade(4, 100, 2, 90, 1000)),
+                                new TimedBehav(100, new Grenade(5, 100, 2, 90, 1000))
+                            )
+                        ),
+                        new TimedBehav(500,
+                            new QueuedBehav(
+                                new Grenade(1, 100, 2, 90, 1000),
+                                new TimedBehav(100, new Grenade(2, 100, 2, 180, 1000)),
+                                new TimedBehav(100, new Grenade(3, 100, 2, 180, 1000)),
+                                new TimedBehav(100, new Grenade(4, 100, 2, 180, 1000)),
+                                new TimedBehav(100, new Grenade(5, 100, 2, 180, 1000))
+                            )
+                        ),
+                        new TimedBehav(500,
+                            new QueuedBehav(
+                                new Grenade(1, 100, 2, 90, 1000),
+                                new TimedBehav(100, new Grenade(2, 100, 2, 270, 1000)),
+                                new TimedBehav(100, new Grenade(3, 100, 2, 270, 1000)),
+                                new TimedBehav(100, new Grenade(4, 100, 2, 270, 1000)),
+                                new TimedBehav(100, new Grenade(5, 100, 2, 270, 1000))
+                            )
+                        ),
+    #endregion
+                        new TimedTransition("2", 2000)
+                    ),
+                    // Bullet spiral
+                    new State("2", 
+                       new Shoot(0, 4, 90, 1, null, rotateAngle: 10, cooldown: 200),
+                       new TimedBehav(4000,
+                           new Flash(0xFFFF0000, 1.0, 3)
+                       ),
+
+                       // Outer ring of bombs to deny rangers
+                       new Grenade(9, 100, 3, 0, 600),
+                       new Grenade(9, 100, 3, 45, 600),
+                       new Grenade(9, 100, 3, 90, 600),
+                       new Grenade(9, 100, 3, 135, 600),
+                       new Grenade(9, 100, 3, 180, 600),
+                       new Grenade(9, 100, 3, 225, 600),
+                       new Grenade(9, 100, 3, 270, 600),
+                       new Grenade(9, 100, 3, 315, 600),
+
+                       new TimedTransition("1", 5000)
+                    )
+                ),
+                new State("b",
+                    new TransitionFrom("b", "b1"),
+                    new State("b1",
+                       new Shoot(0, 4, 90, 1, null, rotateAngle: 10, cooldown: 200),
+                       new Flash(0xFFFF0000, 1.0, 3),
+                       // Outer ring of bombs to deny rangers
+                       new Grenade(9, 100, 3, 0, 600),
+                       new Grenade(9, 100, 3, 45, 600),
+                       new Grenade(9, 100, 3, 90, 600),
+                       new Grenade(9, 100, 3, 135, 600),
+                       new Grenade(9, 100, 3, 180, 600),
+                       new Grenade(9, 100, 3, 225, 600),
+                       new Grenade(9, 100, 3, 270, 600),
+                       new Grenade(9, 100, 3, 315, 600),
+
+                        //Grenade array
+                        new TimedBehav(500,
+                            new QueuedBehav(true,
+                                new Grenade(1, 100, 2, 0, 1000),
+                                new TimedBehav(40, new Grenade(2, 100, 2, 0, 1000)),
+                                new TimedBehav(40, new Grenade(3, 100, 2, 0, 1000)),
+                                new TimedBehav(40, new Grenade(4, 100, 2, 0, 1000)),
+                                new TimedBehav(40, new Grenade(5, 100, 2, 0, 1000))
+                            )
+                        ),
+                        new TimedBehav(500,
+                            new QueuedBehav(true,
+                                new Grenade(1, 100, 2, 90, 1000),
+                                new TimedBehav(40, new Grenade(2, 100, 2, 90, 1000)),
+                                new TimedBehav(40, new Grenade(3, 100, 2, 90, 1000)),
+                                new TimedBehav(40, new Grenade(4, 100, 2, 90, 1000)),
+                                new TimedBehav(40, new Grenade(5, 100, 2, 90, 1000))
+                            )
+                        ),
+                        new TimedBehav(500,
+                            new QueuedBehav(true,
+                                new Grenade(1, 100, 2, 90, 1000),
+                                new TimedBehav(40, new Grenade(2, 100, 2, 180, 1000)),
+                                new TimedBehav(40, new Grenade(3, 100, 2, 180, 1000)),
+                                new TimedBehav(40, new Grenade(4, 100, 2, 180, 1000)),
+                                new TimedBehav(40, new Grenade(5, 100, 2, 180, 1000))
+                            )
+                        ),
+                        new TimedBehav(500,
+                            new QueuedBehav(true,
+                                new Grenade(1, 100, 2, 90, 1000),
+                                new TimedBehav(40, new Grenade(2, 100, 2, 270, 1000)),
+                                new TimedBehav(40, new Grenade(3, 100, 2, 270, 1000)),
+                                new TimedBehav(40, new Grenade(4, 100, 2, 270, 1000)),
+                                new TimedBehav(40, new Grenade(5, 100, 2, 270, 1000))
+                            )
+                        )
+                    )
+                )
+                );
+
             db.Init("Archdemon Malphas",
                 HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("Waiting",

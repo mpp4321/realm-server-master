@@ -42,7 +42,7 @@ namespace RotMG.Networking
             _receive = receive;
         }
 
-        public void Disconnect() //Disconnects, clears all individual client data and pushes the instance back to the server queue.
+        public void DisconnectNoAddBack() // clears all individual client data without pushing instance back
         {
             if (State == ProtocolState.Disconnected)
             {
@@ -113,6 +113,12 @@ namespace RotMG.Networking
             Character = null;
             Random = null;
             TargetWorldId = -1;
+        }
+
+        public void Disconnect() //Disconnects, clears all individual client data and pushes the instance back to the server queue.
+        {
+            // clear data
+            DisconnectNoAddBack();
 
             //Push back client to queue
             Manager.RemoveClient(this);

@@ -70,18 +70,18 @@ namespace RotMG
                     }
                 }
 
-                //try
-                //{
+                try
+                {
                     Database.Tick();
                     Manager.Tick();
-                //} catch(Exception e)
-                //{
-                //    Terminating = true;
-                //    Print(PrintType.Error, e.ToString());
-                //}
+                } catch (Exception e)
+                {
+                    Terminating = true;
+                    Print(PrintType.Error, e.ToString());
+                }
 
 #if DEBUG
-                Thread.Sleep(2);
+            Thread.Sleep(2);
 #endif
             }
 
@@ -94,15 +94,15 @@ namespace RotMG
             Thread.Sleep(200);
             foreach (var c in Manager.Clients.Values.ToArray())
             {
-                try { c.Disconnect(); }
+                try { c.DisconnectNoAddBack(); }
                 catch { }
             }
             Thread.Sleep(200);
             try
             {
                 AppServer.Stop();
-                Thread.Yield();
                 GameServer.Stop();
+                Thread.Yield();
             }
             catch { }
         }

@@ -298,12 +298,19 @@
     <DeathSound>monster/stone_walls_hit</DeathSound>
     <Projectile id="0">
       <ObjectId>Idol Wave</ObjectId>
+      <Speed>50</Speed>
+      <Damage>75</Damage>
+      <LifetimeMS>1000</LifetimeMS>
+      <Size>140</Size>
+    </Projectile>
+    <Projectile id="3">
+      <ObjectId>Idol Wave</ObjectId>
       <Speed>30</Speed>
       <Damage>65</Damage>
       <LifetimeMS>400</LifetimeMS>
       <Size>140</Size>
     </Projectile>
-    <Projectile id="2">
+    <Projectile id="1">
       <ObjectId>Idol Blast</ObjectId>
       <Speed>50</Speed>
       <Damage>100</Damage>
@@ -311,7 +318,7 @@
       <Size>160</Size>
       <ConditionEffect duration=".8">Paralyzed</ConditionEffect>
     </Projectile>
-    <Projectile id="3">
+    <Projectile id="2">
       <ObjectId>Idol Blast</ObjectId>
       <Speed>60</Speed>
       <Damage>70</Damage>
