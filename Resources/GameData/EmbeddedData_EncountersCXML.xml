@@ -1367,4 +1367,32 @@
 			<ConditionEffect duration="1.0">Stunned</ConditionEffect>
 		</Projectile>
 	  </Object>
+	<Object type="0x5023" id="Oyster King">
+		<Class>Character</Class>
+		<AnimatedTexture>
+			<File>d3Chars8x8rEmbed</File>
+			<Index>17</Index>
+		</AnimatedTexture>
+		<StasisImmune/>
+		<Level>20</Level>
+		<KeepDamageRecord/>
+		<Enemy/>
+		<Defense>100</Defense>
+		<MaxHitPoints>15000</MaxHitPoints>
+		<Projectile id="0">
+			<ObjectId>FishWarrior Spear</ObjectId>
+			<Speed>100</Speed>
+			<Damage>90</Damage>
+			<Size>200</Size>
+			<LifetimeMS>500</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Coral Shot</ObjectId>
+			<Speed>100</Speed>
+			<Damage>25</Damage>
+			<Size>100</Size>
+			<LifetimeMS>1000</LifetimeMS>
+			<ConditionEffect duration="1.0">Stunned</ConditionEffect>
+		</Projectile>
+	</Object>
 </Objects>

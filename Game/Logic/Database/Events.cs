@@ -38,6 +38,12 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Hermit God",
                 HPScale.BOSS_HP_SCALE_DEFAULT(),
+                new FunctorOnRegion(Region.Enemy1, onDeath: (tuple) =>
+                {
+                    var host = tuple.Item1;
+                    var point = tuple.Item2;
+                    host.Parent.UpdateTile(point.X, point.Y, Resources.Id2Tile["Shallow Water"].Type);
+                }),
                 new State("base",
                     new TransferDamageOnDeath("Hermit God Drop"),
                     new OrderOnDeath(20, "Hermit God Tentacle Spawner", "Die"),

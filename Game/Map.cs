@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using RotMG.Common;
 using RotMG.Game.Entities;
+using RotMG.Utils;
 
 namespace RotMG.Game
 {
@@ -84,7 +85,7 @@ namespace RotMG.Game
         public MapTile[,] Tiles;
         public int Width;
         public int Height;
-        public Dictionary<Region, List<IntPoint>> Regions;
+        public DictionaryWithDefault<Region, List<IntPoint>> Regions;
 
         public bool IsWithin(IntPoint x)
         {
@@ -109,7 +110,14 @@ namespace RotMG.Game
                 if (tile.Region != 0)
                 {
                     world.Map.Regions[tile.Region].Remove(new IntPoint(projX, projY));
-                    world.Map.Regions[spTile.Region].Add(new IntPoint(projX, projY));
+                }
+
+                if (spTile.Region != 0)
+                {
+                    // incase region doesnt exist in map already
+                    var intPointsInRegion = world.Map.Regions[spTile.Region];
+                    intPointsInRegion.Add(new IntPoint(projX, projY));
+                    world.Map.Regions[spTile.Region] = intPointsInRegion;
                 }
                 
                 tile.Region = spTile.Region;

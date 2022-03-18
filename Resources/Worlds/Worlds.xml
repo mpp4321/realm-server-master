@@ -266,6 +266,7 @@
 	<World name="AncientHermit" display="Ancient Ocean Rift">
 		<Maps>AncientHermit/0.jm</Maps>
 		<Background>0</Background>
+		<Portals>0x5024</Portals>
 		<BlockSight>1</BlockSight>
     <DoElites/>
 	</World>

@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using RotMG.Common;
 using RotMG.Networking;
+using RotMG.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -62,7 +63,7 @@ namespace RotMG.Game
 
         private void InitRegions()
         {
-            Regions = new Dictionary<Region, List<IntPoint>>();
+            Regions = new DictionaryWithDefault<Region, List<IntPoint>>(new List<IntPoint>());
             for (var x = 0; x < Width; x++)
                 for (var y = 0; y < Height; y++)
                 {

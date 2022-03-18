@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using Ionic.Zlib;
 using RotMG.Common;
+using RotMG.Utils;
 
 namespace RotMG.Game
 {
@@ -46,7 +47,7 @@ namespace RotMG.Game
                 Height = rdr.ReadInt32();
                 Tiles = new MapTile[Width, Height];
                 
-                Regions = new Dictionary<Region, List<IntPoint>>();
+                Regions = new DictionaryWithDefault<Region, List<IntPoint>>(new List<IntPoint>());
                 Terrains = new Dictionary<Terrain, List<IntPoint>>();
                 for (var y = 0; y < Height; y++)
                     for (var x = 0; x < Width; x++)

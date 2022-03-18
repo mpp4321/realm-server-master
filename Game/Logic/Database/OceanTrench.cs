@@ -389,6 +389,16 @@ namespace RotMG.Game.Logic.Database
                     new TimedTransition("Shoot and Move", 1500)
                 )
             );
+
+            db.Init("Oyster King",
+                    new DropPortalOnDeath("Ancient Hermit Portal", 0.4f),
+                    new State("0",
+                        new Shoot(0, 16, 360/16, 1, 0, 0, cooldown: 5000),
+                        new Shoot(10, 3, 20, 0, cooldown: 1000),
+                        new Grenade(0, 20, 10, 0, 5000, effect: ConditionEffectIndex.ArmorBroken, effectDuration: 1000)
+                    ),
+                    new ItemLoot("Realm Equipment Crystal", 0.5f, 0.01f)
+                );
         }
     }
 }
