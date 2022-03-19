@@ -4029,4 +4029,20 @@
       <Index>0x86</Index>
     </Texture>
   </Object>
+  <Object type="0x2220" id="Bone Bolt">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0x12a</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2221" id="Gilded Bone Bolt">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiObj2</File>
+      <Index>0x12c</Index>
+    </Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
 </Objects><!--next avaliable is 0x21f9-->

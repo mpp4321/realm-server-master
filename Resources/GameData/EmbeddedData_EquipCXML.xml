@@ -361,14 +361,14 @@
 		<Item/>
 		<Texture>
 			<File>lofiObj2</File>
-			<Index>0x69</Index>
+			<Index>0x11a</Index>
 		</Texture>
 		<SlotType>1</SlotType>
 		<Description>A swift and hungry blade that is never satisfied with just one kill.</Description>
 		<RateOfFire>1</RateOfFire>
 		<Sound>weapon/glass_sword</Sound>
 		<Projectile>
-			<ObjectId>Fire Bolt</ObjectId>
+			<ObjectId>Bone Bolt</ObjectId>
 			<Speed>130</Speed>
 			<MinDamage>210</MinDamage>
 			<MaxDamage>275</MaxDamage>
@@ -11968,5 +11968,49 @@
 			<Amplitude>0.3</Amplitude>
 			<Frequency>0.5</Frequency>	
 		</Projectile>
+	</Object>
+	<Object type="0x5107" id="Kingly Pearl">
+		<Class>Equipment</Class>
+		<Item />
+		<SlotType>9</SlotType>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x119</Index>
+		</Texture>
+		<Description>A glistening pearl which echoes the ocean's beauty.</Description>
+		<ActivateOnEquip stat="1" amount="100">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="8" amount="10">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="3" amount="12">IncrementStat</ActivateOnEquip>
+		<BagType>5</BagType>
+		<FameBonus>5</FameBonus>
+	</Object>
+	<Object type="0x5108" id="Gilded Demon Blade">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x11c</Index>
+		</Texture>
+		<SlotType>1</SlotType>
+		<Description>A swift and hungry blade that is never satisfied with just one kill.</Description>
+		<RateOfFire>1</RateOfFire>
+		<Sound>weapon/glass_sword</Sound>
+		<Projectile>
+			<ObjectId>Gilded Bone Bolt</ObjectId>
+			<Speed>130</Speed>
+			<MinDamage>200</MinDamage>
+			<MaxDamage>265</MaxDamage>
+			<MultiHit/>
+			<LifetimeMS>300</LifetimeMS>
+		</Projectile>
+		<UniqueEffect>Bloodlust</UniqueEffect>
+		<ExtraTooltipData>
+			<EffectInfo name="Bloodlust" description="Whenever the projectile passes through an enemy it gains 100 damage."/>
+		</ExtraTooltipData>
+		<BagType>5</BagType>
+		<FameBonus>5</FameBonus>
+		<NumProjectiles>2</NumProjectiles>
+		<ArcGap>35</ArcGap>
+		<OldSound>bladeSwing</OldSound>
 	</Object>
 </Objects>
