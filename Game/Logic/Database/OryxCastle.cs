@@ -506,9 +506,10 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Oryx the Mad God 2",
                             new State("base",
-                                //new ScaleHP(50000),
+                                new HPScale(0.3f),
                                 new State("Attack",
                                     new Wander(.1f),
+                                    new ConditionalEffect(ConditionEffectIndex.Invincible, duration: 10000),
                                     new Shoot(25, index: 0, count: 8, shootAngle: 45, cooldown: 1500, cooldownOffset: 1500),
                                     new Shoot(25, index: 1, count: 3, shootAngle: 10, cooldown: 1000, cooldownOffset: 1000),
                                     new Shoot(25, index: 2, count: 3, shootAngle: 10, predictive: 0.2f, cooldown: 1000,
@@ -583,6 +584,7 @@ namespace RotMG.Game.Logic.Database
                         );
 
             db.Init("Oryx the Mad God 1",
+                new HPScale(0.2f),
                 new State("base",
                     new DropPortalOnDeath("Locked Wine Cellar Portal", 100, timeout: 120),
                     new HealthTransition(.2f, "rage"),
@@ -592,8 +594,9 @@ namespace RotMG.Game.Logic.Database
                         new Reproduce("Minion of Oryx", 10, 5, 1500),
                         new Shoot(25, 4, 10, 4, cooldown: 1000),
                         new HealthTransition(0.75f, "Dance 1"),
-                        new TimedTransition("Dance 1", 20000)
-                        ),
+                        new ConditionalEffect(ConditionEffectIndex.Invincible, duration: 10000),
+                    new TimedTransition("Dance 1", 20000)
+                    ),
                     new State("Dance 1",
                         new Flash(0xf389E13, 0.5f, 60),
                         new Taunt(cooldown: 5000, "BE SILENT!!!"),
@@ -719,7 +722,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Life", 1f),
                     new ItemLoot("Bow of War", 0.03f)
                 ),
-                new Threshold(0.1f, 
+                new Threshold(0.1f,
                     new ItemLoot("The Molten Cape", 0.002f),
                     new ItemLoot("Seal of Havoc", 0.002f),
                     new ItemLoot("Black Clothing Dye", 0.2f),
@@ -734,7 +737,7 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(11, LootType.Armor, 0.07f, r: new LootDef.RarityModifiedData(1.0f, 1, alwaysRare: true)),
                     new TierLoot(5, LootType.Ring, 0.06f, r: new LootDef.RarityModifiedData(1.0f, 1, alwaysRare: true))
                 )
-            );
+            ); ;
             db.Init("Ring Element",
                 new State("base",
                     new State("base",

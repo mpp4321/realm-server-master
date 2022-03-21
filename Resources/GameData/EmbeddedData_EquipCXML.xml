@@ -12000,17 +12000,14 @@
 			<Speed>130</Speed>
 			<MinDamage>200</MinDamage>
 			<MaxDamage>265</MaxDamage>
-			<MultiHit/>
 			<LifetimeMS>300</LifetimeMS>
+			<MultiHit/>
 		</Projectile>
-		<UniqueEffect>Bloodlust</UniqueEffect>
-		<ExtraTooltipData>
-			<EffectInfo name="Bloodlust" description="Whenever the projectile passes through an enemy it gains 100 damage."/>
-		</ExtraTooltipData>
+		<ActivateOnEquip stat="4" amount="10">IncrementStat</ActivateOnEquip>
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>
-		<NumProjectiles>2</NumProjectiles>
-		<ArcGap>35</ArcGap>
+		<NumProjectiles>1</NumProjectiles>
+		<ArcGap>30</ArcGap>
 		<OldSound>bladeSwing</OldSound>
 	</Object>
 </Objects>
