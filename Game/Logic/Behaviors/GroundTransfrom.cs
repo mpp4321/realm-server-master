@@ -89,7 +89,7 @@ namespace RotMG.Game.Logic.Behaviors
                         Y = j
                     });
 
-                    tile.GroundType = tileType;
+                    host.Parent.UpdateTile(i, j, tileType);
                 }
 
             host.StateObject[Id] = tiles;
@@ -107,11 +107,7 @@ namespace RotMG.Game.Logic.Behaviors
                 var x = tile.X;
                 var y = tile.Y;
                 var tileType = tile.TileType;
-                var spawned = tile.Spawned;
-                var map = host.Parent.Map;
-
-                var curTile = map.Tiles[x, y];
-                curTile.GroundType = tileType;
+                host.Parent.UpdateTile(x, y, tileType);
             }
         }
 

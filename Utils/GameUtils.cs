@@ -20,8 +20,15 @@ namespace RotMG.Utils
             if (entity.HasConditionEffect(ConditionEffectIndex.Armored))
                 defense *= 2;
 
-            if (entity.HasConditionEffect(ConditionEffectIndex.Cursed))
-                damage *= 2;
+            var cursedMod = 1.0f;
+            if (entity.HasConditionEffect(ConditionEffectIndex.CursedHigher))
+            {
+                cursedMod = 1.75f;
+            } else if (entity.HasConditionEffect(ConditionEffectIndex.CursedLower))
+            {
+                cursedMod = 1.25f;
+            }
+            damage = (int)(damage * cursedMod);
 
             var min = (int)(damage * (1.0f - (protection / 100.0f)));
             var d = Math.Max(min, damage - defense);

@@ -8,13 +8,20 @@ namespace RotMG.Game.Logic.ItemEffs.RuneEffects
     class Brute : IItemHandler
     {
 
-        public virtual void OnProjectileShoot(Player shotFrom, ref Projectile projectile) {
-            projectile.Damage += (int)(projectile.Damage *
-                (0.02f *
-                    shotFrom.GetBoosts(6)) *
-                (0.01f *
-                    Math.Max(0, shotFrom.GetStat(6) - 50))
-                );
+        public virtual void OnHitByEnemy(Player hit, Entity hitBy, Projectile by) 
+        {
+            var pureDamageTaken = by.Damage;
+            hit.AddIdentifiedEffectBoost(new Player.BoostTimer()
+            {
+                timer = 10.0f,
+                index = 2 * (pureDamageTaken / 100),
+                amount = 6,
+                id = "Brute".GetHashCode()
+            }, true, (a, b) =>
+            {
+                return Math.Min(a + b, 30);
+            });
+            hit.UpdateStats();
         }
 
     }

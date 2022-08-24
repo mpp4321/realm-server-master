@@ -6922,4 +6922,96 @@
 		<Size>85</Size>
 		<Static />
 	</Object>
+	<!-- miu -->
+	<Object type="0x1a44" id="ICECASTLE Wall">
+		<Class>Wall</Class>
+		<RandomTexture>
+			<Texture>
+				<File>miu8x8</File>
+				<Index>0x30</Index>
+			</Texture>
+			<Texture>
+				<File>miu8x8</File>
+				<Index>0x31</Index>
+			</Texture>
+			<Texture>
+				<File>miu8x8</File>
+				<Index>0x32</Index>
+			</Texture>
+			<Texture>
+				<File>miu8x8</File>
+				<Index>0x33</Index>
+			</Texture>
+		</RandomTexture>
+		<Top>
+			<Texture>
+				<File>miu8x8</File>
+				<Index>0x23</Index>
+			</Texture>
+		</Top>
+		<Static/>
+		<FullOccupy/>
+		<OccupySquare/>
+		<EnemyOccupySquare/>
+		<BlocksSight/>
+	</Object>
+
+	<Object type="0x1a45" id="ICECASTLE Wall Shine">
+		<Class>Wall</Class>
+		<Texture>
+			<File>miu8x8</File>
+			<Index>0x30</Index>
+		</Texture>
+
+		<Animation sync="true" prob="1" period="2">
+			<Frame time="2">
+				<Texture>
+					<File>miu8x8</File>
+					<Index>0x30</Index>
+				</Texture>
+			</Frame>
+			<Frame time="0.1">
+				<Texture>
+					<File>miu8x8</File>
+					<Index>0x40</Index>
+				</Texture>
+			</Frame>
+			<Frame time="0.1">
+				<Texture>
+					<File>miu8x8</File>
+					<Index>0x41</Index>
+				</Texture>
+			</Frame>
+			<Frame time="0.1">
+				<Texture>
+					<File>miu8x8</File>
+					<Index>0x42</Index>
+				</Texture>
+			</Frame>
+			<Frame time="0.1">
+				<Texture>
+					<File>miu8x8</File>
+					<Index>0x43</Index>
+				</Texture>
+			</Frame>
+			<Frame time="0.1">
+				<Texture>
+					<File>miu8x8</File>
+					<Index>0x44</Index>
+				</Texture>
+			</Frame>
+		</Animation>
+		<Top>
+			<Texture>
+				<File>miu8x8</File>
+				<Index>0x33</Index>
+			</Texture>
+		</Top>
+
+		<Static/>
+		<FullOccupy/>
+		<OccupySquare/>
+		<EnemyOccupySquare/>
+		<BlocksSight/>
+	</Object>
 </Objects>

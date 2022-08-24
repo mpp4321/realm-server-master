@@ -261,7 +261,7 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("crash", 5000) { SubIndex = 1 }
                     ),
                     new State("crash",
-                        new ConditionalEffect(ConditionEffectIndex.Cursed),
+                        new ConditionalEffect(ConditionEffectIndex.CursedLower),
                         new Charge(1.4f, 99, 4000),
                         new Shoot(99, 5, 360 / 5, 0, 0f, -5f, cooldown: 70),
                         new Shoot(99, 5, 360 / 5, 0, 0f, 5f, cooldownOffset: 2200, cooldown: 70),

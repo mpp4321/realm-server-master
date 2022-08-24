@@ -49,8 +49,8 @@ namespace RotMG.Game.SetPieces
                 SetPiece("Oasis Giant", new Oasis(), 3, 8, Terrain.LowSand, Terrain.MidSand),
                 SetPiece("Phoenix Lord", new Pyre(), 3, 8, Terrain.MidSand, Terrain.HighSand),
                 SetPiece("Red Demon",new LavaFissure(), 3, 8, Terrain.Mountains),
-                SetPiece("", new Crystal(), 1, 2, Terrain.Mountains),
-                SetPiece("", new KageKami(), 2, 3, Terrain.HighForest, Terrain.HighPlains)
+                SetPiece("", new Crystal(), 6, 8, Terrain.Mountains),
+                SetPiece("", new KageKami(), 3, 4, Terrain.HighForest, Terrain.HighPlains)
             };
 
         public static int[,] RotateCW(int[,] mat)

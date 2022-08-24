@@ -36,6 +36,45 @@ namespace RotMG.Game.Logic.Database
                         }).Build())
             };
 
+            db.Init("LH Spectral Sentry",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
+                new State("0", new PlayerWithinTransition(10f, "1", true)),
+                new State("1",
+                    new Follow(0.3f, 10f, 3),
+                    new Charge(1f, 12f, distance: 1f, coolDown: 1000),
+                    new Shoot(10f, 8, 10, 0, cooldown: 3000),
+                    new Shoot(10f, 8, 10, 1, cooldown: 3000, cooldownOffset: 1000),
+                    new Shoot(10f, 8, 10, 2, cooldown: 3000, cooldownOffset: 2000),
+
+                    new Shoot(10f, 8, 360 / 8, 0, cooldown: 3000, cooldownOffset: 500),
+                    new Shoot(10f, 8, 360 / 8, 1, cooldown: 3000, cooldownOffset: 1500),
+                    new Shoot(10f, 8, 360 / 8, 2, cooldown: 3000, cooldownOffset: 2500),
+
+                    new TimedTransition("2", 5000)
+                ),
+                new State("2",
+                    new Flash(0xFF0000FF, 0.5, 3),
+                    new TimedTransition("3", 1500)
+                ),
+                new State("3",
+                    new Charge(1f, 12f, distance: 1f, coolDown: 100),
+
+                    new Grenade(16f, 5, 3, cooldown: 1000, effect: ConditionEffectIndex.Slowed, effectDuration: 1000, color: 0xFF00FF00, speed: 500),
+                    new Grenade(0, 200, 3, 0f, cooldown: 200, effect: ConditionEffectIndex.Sick, effectDuration: 1000, color: 0xFF0000FF, speed: 100),
+
+                    new Shoot(10f, 4, 360 / 4, 0, cooldown: 500, fixedAngle: 0, rotateAngle: 45),
+                    new Shoot(10f, 4, 360 / 4, 1, cooldown: 500, fixedAngle: 15, rotateAngle: 45),
+                    new Shoot(10f, 4, 360 / 4, 2, cooldown: 500, fixedAngle: 30, rotateAngle: 45),
+
+                    new NoPlayerWithinTransition(8f, "3a") { SubIndex = 0 },
+                    new State("3a",
+                        new Charge(0.8f, 12f, coolDown: 15000),
+                        new PlayerWithinTransition(8f, "3", true) { SubIndex = 2 }
+                    ),
+                    new TimedTransition("1", 3000)
+                )
+            );
+
             db.Init("Hermit God",
                 HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new FunctorOnRegion(Region.Enemy1, onDeath: (tuple) =>
@@ -44,6 +83,7 @@ namespace RotMG.Game.Logic.Database
                     var point = tuple.Item2;
                     host.Parent.UpdateTile(point.X, point.Y, Resources.Id2Tile["Shallow Water"].Type);
                 }),
+                new SpawnOnDeath("Oyster King", 0.3333f),
                 new State("base",
                     new TransferDamageOnDeath("Hermit God Drop"),
                     new OrderOnDeath(20, "Hermit God Tentacle Spawner", "Die"),
@@ -369,16 +409,17 @@ namespace RotMG.Game.Logic.Database
                         new Suicide()
                         ),
                 new Threshold(0.03f,
-                        new ItemLoot("Shield of Ogmur", 0.015f),
-                        new ItemLoot("Soul of the Lost Land", 0.008f),
                         new TierLoot(11, LootType.Armor, 0.85f),
                         new TierLoot(5, LootType.Ring, 0.2f),
                         new TierLoot(4, LootType.Ring, 0.8f),
                         new TierLoot(10, LootType.Armor, 0.85f),
-                        new ItemLoot("Skysplitter Sword", 0.03f, r: new RarityModifiedData(1f, 2, true)),
+                        new ItemLoot("Shield of Ogmur", 0.03f),
+                        new ItemLoot("Soul of the Lost Land", 0.02f),
+                        new ItemLoot("Skysplitter Sword", 0.1f, r: new RarityModifiedData(1f, 2, true)),
+                        new ItemLoot("Realm Equipment Crystal", 1f),
                         new ItemLoot("Realm Equipment Crystal", 0.25f),
-                        new ItemLoot("Mithril Shield", 0.03f, r: new RarityModifiedData(1f, 2, true)),
-                        new ItemLoot("Rune of Vampirism", 0.01f)
+                        new ItemLoot("Mithril Shield", 0.1f, r: new RarityModifiedData(1f, 2, true)),
+                        new ItemLoot("Rune of Vampirism", 0.025f)
                     ),
                 new Threshold(0.005f,
                     LootTemplates.BasicPots()

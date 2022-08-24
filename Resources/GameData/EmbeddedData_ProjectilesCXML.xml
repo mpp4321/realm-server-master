@@ -4045,4 +4045,20 @@
     </Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
+  <Object type="0x2222" id="Arched Dagger Shot">
+    <Class>Projectile</Class>
+	<Texture>
+		<File>lofiObj4</File>
+		<Index>0xc7</Index>
+	</Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2223" id="Jellyfish Shot">
+    <Class>Projectile</Class>
+	<Texture>
+		<File>lofiObj4</File>
+		<Index>0xd5</Index>
+	</Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
 </Objects><!--next avaliable is 0x21f9-->

@@ -32,7 +32,7 @@ namespace RotMG.Game.Logic.Database
                         new Shoot(5, 3, 30, 0, cooldown: 1000),
                         new Shoot(5, 2, 15, 0, cooldown: 2000),
                         new HealSelf(cooldown: 500, 1000),
-                        new Grenade(0, 0, 5, 0f, 1000, effect: ConditionEffectIndex.Cursed, effectDuration: 1000, color: 0xff11ff11),
+                        new Grenade(0, 0, 5, 0f, 1000, effect: ConditionEffectIndex.CursedLower, effectDuration: 1000, color: 0xff11ff11),
                         new ConditionalEffect(ConditionEffectIndex.Armored),
                         new TimedTransition("jumping", 5000)
                     )

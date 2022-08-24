@@ -1,6 +1,8 @@
-﻿using RotMG.Game.Logic.Behaviors;
+﻿using RotMG.Common;
+using RotMG.Game.Logic.Behaviors;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
+using RotMG.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -559,6 +561,13 @@ namespace RotMG.Game.Logic.Database
                 new OrderOnDeath(99, "WestKarateSpawner", "inactive"),
                 new OrderOnDeath(99, "Sumo Master Ring", "restart"),
                 new OrderOnDeath(99, "Lil Sumo Ring", "restart"),
+                new ClearRegionOnDeath(Region.Decoration6),
+                new FunctorOnRegion(Region.Trigger1, onDeath: (a) =>
+                {
+                    var world = a.Item1.Parent;
+                    var entity = Entity.Resolve(Resources.Id2Object["The Ring Portal"].Type);
+                    world.AddEntity(entity, new(25.5f, 98.5f));
+                }),
                 new State ("base",
                     new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                     new PlayerWithinTransition(18, "reveal", true)
@@ -620,14 +629,15 @@ namespace RotMG.Game.Logic.Database
                 new State("respawn",
                     new TossObject("Karate King", 0, cooldown: 99999),
                     new Suicide()
-                    ),
+                ),
                 new Threshold(0.01f,
                     // there are 6 pots in this so its really 0.006 for pot
                     LootTemplates.BasicPots(0.001f).Concat(
                         new MobDrop[] {
-                            new TierLoot(6, TierLoot.LootType.Weapon, 1f, r: new RarityModifiedData(1f, 2)),
-                            new TierLoot(6, TierLoot.LootType.Armor, 1f, r: new RarityModifiedData(1f, 2)),
-                            new ItemLoot("Dragonsoul Sword", 0.2f, r: new RarityModifiedData(1.1f, 3, true))
+                            new TierLoot(6, LootType.Weapon, 1f, r: new RarityModifiedData(1f, 2)),
+                            new TierLoot(6, LootType.Armor, 1f, r: new RarityModifiedData(1f, 2)),
+                            new ItemLoot("Dragonsoul Sword", 0.2f, r: new RarityModifiedData(1.1f, 3, true)),
+                            new ItemLoot("Strike Amulet", 0.01f, 0.01f)
                         }
                     ).ToArray()
                 )

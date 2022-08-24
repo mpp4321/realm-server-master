@@ -915,7 +915,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Master Sword", 0.01f),
                     new ItemLoot("Hylian Shield", 0.01f),
                     new ItemLoot("Spell of Kinetic Projection", 0.01f),
-                    new ItemLoot("Fiery Equipment Crystal", 0.01f, 0.01f),
+                    new ItemLoot("Fiery Equipment Crystal", 0.03f, 0.01f),
                     new ItemLoot("Realm Equipment Crystal", 0.5f, 0.01f),
                     new ItemLoot("Realm Equipment Crystal", 0.1f, 0.1f),
                     new ItemLoot("Realm Equipment Crystal", 0.3f, 0.2f),

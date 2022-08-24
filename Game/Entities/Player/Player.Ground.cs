@@ -69,6 +69,7 @@ namespace RotMG.Game.Entities
                 {
                     if (gt + TimeUntilAckTimeout < time)
                     {
+                        AwaitingGoto.Clear();
                         Program.Print(PrintType.Error, "Goto ack timed out");
                         Client.Disconnect();
                         return;
@@ -86,12 +87,10 @@ namespace RotMG.Game.Entities
                 Program.Print(PrintType.Error, "Invalid move");
 #endif
 
+                // Dont worry about updating other players of this
                 AwaitingGoto.Enqueue(time);
                 var go = GameServer.Goto(Id, Position);
-                foreach (var player in Parent.Players.Values)
-                {
-                    player.Client.Send(go);
-                }
+                Client.Send(go);
 
                 //Client.Disconnect();
                 return;

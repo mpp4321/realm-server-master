@@ -542,7 +542,7 @@ namespace RotMG.Game.Logic.Database
                             ),
                         new State("9",
                             new Shoot(999, 8, 45, 3, 0, 0, cooldown: 999999),
-                            new TimedTransition("3", 2500) { SubIndex = 3 }
+                            new TimedTransition("3", 2500) { SubIndex = 2 }
                             )
                         ),
                     new State("10",

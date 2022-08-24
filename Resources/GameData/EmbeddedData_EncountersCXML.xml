@@ -980,8 +980,8 @@
 		<Enemy/>
 		<Class>Character</Class>
 		<AnimatedTexture>
-			<File>lostHallsChars16x16</File>
-			<Index>34</Index>
+			<File>chars16x16dEncounters2</File>
+			<Index>123</Index>
 		</AnimatedTexture>
 		<HitSound>monster/dragons_hit</HitSound>
 		<DeathSound>monster/dragons_death</DeathSound>
@@ -1393,6 +1393,53 @@
 			<Size>100</Size>
 			<LifetimeMS>1000</LifetimeMS>
 			<ConditionEffect duration="1.0">Stunned</ConditionEffect>
+		</Projectile>
+	</Object>
+	<Object type="0x5025" id="AI Giga Steel Reaper">
+		<DisplayId>Giga Steel Reaper</DisplayId>
+		<Enemy />
+		<Class>Character</Class>
+		<AnimatedTexture>
+			<File>alienInvasionChars16x16</File>
+			<Index>33</Index>
+		</AnimatedTexture>
+		<HitSound>monster/golems_hit</HitSound>
+		<DeathSound>monster/golems_death</DeathSound>
+		<Size>100</Size>
+		<ShadowSize>100</ShadowSize>
+		<MaxHitPoints>4500</MaxHitPoints>
+		<Exp>175</Exp>
+		<Defense>30</Defense>
+		<StasisImmune />
+		<Projectile id="0">
+			<ObjectId>T13 Katana</ObjectId>
+			<Damage>110</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>1500</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>T12 Katana</ObjectId>
+			<Damage>90</Damage>
+			<Speed>100</Speed>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>T11 Katana</ObjectId>
+			<Damage>70</Damage>
+			<Speed>120</Speed>
+			<LifetimeMS>800</LifetimeMS>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Yellow Star</ObjectId>
+			<Damage>30</Damage>
+			<ConditionEffect duration="1">Confused</ConditionEffect>
+			<Speed>60</Speed>
+			<LifetimeMS>15000</LifetimeMS>
+			<Frequency>3</Frequency>
+			<Amplitude>2.55</Amplitude>
+			<Accelerate>-85</Accelerate>
+			<SpeedClamp>1</SpeedClamp>
+			<PassesCover/>
 		</Projectile>
 	</Object>
 </Objects>

@@ -148,7 +148,8 @@
 	<World name="TheRing" display="The Ring">
 		<Maps>TheRing/0.jm</Maps>
 		<Background>0</Background>
-    <DoElites/>
+		<Portals>0x5007</Portals>
+		<DoElites/>
 		<BlockSight>1</BlockSight>
 	</World>
 	<World name="SnakePit" display="Snake Pit">

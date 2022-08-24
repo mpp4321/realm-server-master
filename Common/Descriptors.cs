@@ -8,6 +8,7 @@ using System.Xml.Linq;
 using Newtonsoft.Json;
 using static RotMG.Game.Logic.LootDef;
 using System.Globalization;
+using System.Runtime.CompilerServices;
 
 namespace RotMG.Common
 {
@@ -106,7 +107,8 @@ namespace RotMG.Common
         Armored = 23,
         ArmorBroken = 24,
         Hexed = 25,
-        Cursed = 26,
+        CursedLower = 26,
+        CursedHigher = 27
     }
 
     public enum ActivateEffectIndex
@@ -908,7 +910,7 @@ namespace RotMG.Common
 
         static ItemType[] ModifiableTypes = WeaponTypes.Concat(ArmorTypes).Concat(RingTypes).Concat(AbilityTypes).ToArray();
 
-        public static float GetStat(ItemDataJson data, ItemData i, float multiplier)
+        public static float GetStat(ItemDataJson data, ItemData i, float multiplier, float enchantmentStrength)
         {
             var rank = GetRank(data.Meta);
             if (rank == -1)
@@ -918,7 +920,8 @@ namespace RotMG.Common
             {
                 value += rank;
             }
-            return (value * multiplier) + (multiplier * data.GetStatBonus(i));
+            var calcStep = MathF.Ceiling((value * (enchantmentStrength / 8f)) + (multiplier * data.GetStatBonus(i)));
+            return multiplier * calcStep;
         }
 
         public static int GetRank(int data)
@@ -984,7 +987,9 @@ namespace RotMG.Common
                 if(GetRank((int) data) != -1) {
                   foreach(var pair in this.StatBoosts) {
                     var key = IntToItemDataKey(pair.Key);
-                    d[key] = d.GetValueOrDefault(key) + MathUtils.NextInt(0, (int)(IntToMultiplier(pair.Key) * pair.Value) / 2);
+                    var maxExtraBonus = (int)(Math.Ceiling(Math.Log2(pair.Value)));
+                    var extraBonus = IntToMultiplier(pair.Key) * MathUtils.NextInt(0, maxExtraBonus);
+                    d[key] = d.GetValueOrDefault(key) + (int) extraBonus;
                   }
                 }
 
@@ -1028,9 +1033,14 @@ namespace RotMG.Common
                 modifiers = AbilityModifiers;
 
             var bonuses = MathUtils.NextInt(2, 3);
-            if ((data & ItemData.T7) != 0) //T7s can have 4 bonuses
-                if (MathUtils.Chance(0.5f))
+
+            for (var i = 0; i < this.BonusRolls; i++)
+            {
+                if(MathUtils.Chance(0.5f))
+                {
                     bonuses++;
+                }
+            }
 
             var s = new List<ItemData>();
             while (s.Count < bonuses)
@@ -1093,6 +1103,9 @@ namespace RotMG.Common
 
         public readonly bool IsEgg;
         public readonly int EggType;
+
+        public readonly int BonusRolls = 0;
+        public readonly float EnchantmentStrength = 1f;
 
         public ProjectileDesc NextProjectile(int id)
         {
@@ -1158,6 +1171,20 @@ namespace RotMG.Common
             BurstDelay = e.ParseInt("BurstCooldown");
             IsEgg = e.ParseBool("EggItem");
             EggType = e.ParseInt("EggType", 0);
+            
+            EnchantmentStrength = e.ParseFloat("Enchantment", -1f);
+            if(EnchantmentStrength < 0f && Tier != 0)
+            {
+                EnchantmentStrength = MathF.Ceiling(Tier / 2f);
+            } else
+            {
+                if(Tier == 0)
+                {
+                    EnchantmentStrength = 6f;
+                }
+            }
+
+            BonusRolls = e.ParseInt("BonusRolls", 0);
         }
     }
 
@@ -1222,6 +1249,10 @@ namespace RotMG.Common
 
         public readonly ushort ContainerType;
 
+        private readonly ProjectileDesc explodeProjectile = null;
+        public ProjectileDesc ExplodeProjectile => explodeProjectile;
+        public readonly int ExplodeCount = 0;
+
         public ProjectileDesc(XElement e, ushort containerType)
         {
             ContainerType = containerType;
@@ -1256,9 +1287,16 @@ namespace RotMG.Common
             AccelerateDelay = e.ParseFloat("AccelerateDelay");
             SpeedClamp = e.ParseFloat("SpeedClamp");
 
+            {
+                var explodeXML = e.Element("ExplodeProjectile");
+                explodeProjectile = explodeXML == null ? null : new ProjectileDesc(explodeXML, containerType);
+                ExplodeCount = e.ParseInt("ExplodeCount");
+            }
+
             PhaseLock = (short) e.ParseInt("PhaseLock", -1);
 
         }
+
     }
 
     public class ConditionEffectDesc

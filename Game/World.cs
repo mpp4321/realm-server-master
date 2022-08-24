@@ -188,9 +188,9 @@ namespace RotMG.Game
 
         public IntPoint GetRegion(Region region)
         {
-            if (!Map.Regions.ContainsKey(region))
-                return new IntPoint(0, 0);
-            return Map.Regions[region][MathUtils.Next(Map.Regions[region].Count)];
+            var regionPoints = Map.Regions[region];
+            if (regionPoints.Count == 0) return new IntPoint(0, 0);
+            return regionPoints[MathUtils.Next(regionPoints.Count)];
         }
 
         public List<IntPoint> GetAllRegion(Region region)

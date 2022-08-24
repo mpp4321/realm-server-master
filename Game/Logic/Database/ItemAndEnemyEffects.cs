@@ -128,7 +128,7 @@ namespace RotMG.Game.Logic.Database
                             foreach (var e in entities)
                             {
                                 if (e != h)
-                                    e?.Damage(h.PlayerOwner, 175, new ConditionEffectDesc[] { new ConditionEffectDesc(ConditionEffectIndex.Bleeding, 5000) }, false, true);
+                                    e?.Damage(h.PlayerOwner, 175, new ConditionEffectDesc[] { new ConditionEffectDesc(ConditionEffectIndex.ArmorBroken, 5000) }, false, true);
                             }
                             var nova = GameServer.ShowEffect(ShowEffectIndex.Nova, h.Id, 0xffff0000, new Vector2(4, 0));
                             foreach (var j in h.Parent.PlayerChunks.HitTest(h.Position, Math.Max(4, Player.SightRadius)))

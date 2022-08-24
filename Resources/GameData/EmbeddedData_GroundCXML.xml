@@ -277,7 +277,7 @@
       </Texture>
     </Corner>
   </Ground>
-  <Ground type="0xcb" id="Bridge">
+  <Ground type="0x90cb" id="Bridge">
     <Texture>
       <File>lofiEnvironment3</File>
       <Index>0x8b</Index>
@@ -4209,5 +4209,81 @@
             <Index>0x388</Index>
         </Texture>
     </Ground>
+
+	<!-- miu -->
+
+	<Ground type="0x1a3c" id="ICECASTLE Tile">
+		<RandomTexture>
+			<Texture>
+				<File>miu8x8</File>
+				<Index>0x10</Index>
+			</Texture>
+			<Texture>
+				<File>miu8x8</File>
+				<Index>0x11</Index>
+			</Texture>
+			<Texture>
+				<File>miu8x8</File>
+				<Index>0x12</Index>
+			</Texture>
+		</RandomTexture>
+	</Ground>
+
+	<Ground type="0x1a3d" id="ICECASTLE Rocky">
+		<Texture>
+			<File>miu8x8</File>
+			<Index>0x13</Index>
+		</Texture>
+	</Ground>
+	<Ground type="0x1a3e" id="ICECASTLE Snowy">
+		<Texture>
+			<File>miu8x8</File>
+			<Index>0x14</Index>
+		</Texture>
+	</Ground>
+	<Ground type="0xcb" id="ICECASTLE Void">
+		<SameTypeEdgeMode/>
+		<Texture>
+			<File>miu8x8</File>
+			<Index>0x20</Index>
+		</Texture>
+		<Edge>
+			<Texture>
+				<File>miu8x8</File>
+				<Index>0x21</Index>
+			</Texture>
+		</Edge>
+		<InnerCorner>
+			<Texture>
+				<File>miu8x8</File>
+				<Index>0x22</Index>
+			</Texture>
+		</InnerCorner>
+	</Ground>
+	<Ground type="0x1a40" id="ICECASTLE Big Tile NW">
+		<Texture>
+			<File>miu8x8</File>
+			<Index>0x15</Index>
+		</Texture>
+	</Ground>
+	<Ground type="0x1a41" id="ICECASTLE Big Tile NE">
+		<Texture>
+			<File>miu8x8</File>
+			<Index>0x16</Index>
+		</Texture>
+	</Ground>
+	<Ground type="0x1a42" id="ICECASTLE Big Tile SW">
+		<Texture>
+			<File>miu8x8</File>
+			<Index>0x25</Index>
+		</Texture>
+	</Ground>
+	<Ground type="0x1a43" id="ICECASTLE Big Tile SE">
+		<Texture>
+			<File>miu8x8</File>
+			<Index>0x26</Index>
+		</Texture>
+	</Ground>
+	
 </GroundTypes>
 <!-- Next is : 0xb032 !-->

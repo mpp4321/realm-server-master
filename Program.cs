@@ -70,15 +70,19 @@ namespace RotMG
                     }
                 }
 
+#if RELEASE
                 try
                 {
+#endif
                     Database.Tick();
                     Manager.Tick();
+#if RELEASE
                 } catch (Exception e)
                 {
                     Terminating = true;
                     Print(PrintType.Error, e.ToString());
                 }
+#endif
 
 #if DEBUG
             Thread.Sleep(2);
@@ -91,20 +95,25 @@ namespace RotMG
         public static void Terminate(object sender, EventArgs e)
         {
             StartTerminating();
-            Thread.Sleep(200);
-            foreach (var c in Manager.Clients.Values.ToArray())
-            {
-                try { c.DisconnectNoAddBack(); }
-                catch { }
-            }
-            Thread.Sleep(200);
+
+            // Makes more sense to stop these threads before accessing Manager.Clients
             try
             {
                 AppServer.Stop();
                 GameServer.Stop();
-                Thread.Yield();
             }
             catch { }
+
+            // Now we disconnect clients
+            foreach (var c in Manager.Clients.Values.ToArray())
+            {
+                try {
+                    c.Disconnect();
+                }
+                catch { }
+            }
+
+            Thread.Yield();
         }
 
         public static void StartTerminating()

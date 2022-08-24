@@ -22,7 +22,8 @@ namespace RotMG.Game.Entities
             ConditionEffectIndex.Drunk,
             ConditionEffectIndex.Stunned,
             ConditionEffectIndex.Bleeding,
-            ConditionEffectIndex.Cursed,
+            ConditionEffectIndex.CursedLower,
+            ConditionEffectIndex.CursedHigher,
             ConditionEffectIndex.Dazed,
             ConditionEffectIndex.Weak,
             ConditionEffectIndex.Quiet,
@@ -244,7 +245,7 @@ namespace RotMG.Game.Entities
             {
                 MP -= desc.MpCost;
                 UseTime = time;
-                var cooldownMod = ItemDesc.GetStat(ItemDatas[1], ItemData.Cooldown, ItemDesc.CooldownMultiplier);
+                var cooldownMod = ItemDesc.GetStat(ItemDatas[1], ItemData.Cooldown, ItemDesc.CooldownMultiplier, desc.EnchantmentStrength);
                 var cooldown = desc.CooldownMS;
                 cooldown = cooldown + (int)(cooldown * -cooldownMod);
                 UseDuration = cooldown;
@@ -538,7 +539,7 @@ namespace RotMG.Game.Entities
                                 if (Parent != null)
                                 {
                                     foreach (var j in Parent.PlayerChunks.HitTest(Position, SightRadius))
-                                        if (j is Player k && (k.Client.Account.Effects || k.Equals(this)))
+                                        if (j is Player k && (k.Client?.Account.Effects ?? false || k.Equals(this)))
                                             k.Client.Send(nova);
                                     foreach (var j in Parent.EntityChunks.HitTest(placeholder.Position, eff.Radius))
                                         if (j is Enemy e)
@@ -904,9 +905,23 @@ namespace RotMG.Game.Entities
                                 if (freeSlot != -1)
                                 {
                                     Inventory[freeSlot] = topItem;
-                                    ItemDatas[freeSlot] = new ItemDataJson();
+                                    ItemDatas[freeSlot] = new ItemDataJson()
+                                        {
+                                            StoredItems = new List<int>(),
+                                            AllowedItems = new List<int> {
+                                                Resources.Id2Item["Potion of Attack"].Type,
+                                                Resources.Id2Item["Potion of Dexterity"].Type,
+                                                Resources.Id2Item["Potion of Speed"].Type,
+                                                Resources.Id2Item["Potion of Life"].Type,
+                                                Resources.Id2Item["Potion of Mana"].Type,
+                                                Resources.Id2Item["Potion of Vitality"].Type,
+                                                Resources.Id2Item["Potion of Wisdom"].Type,
+                                                Resources.Id2Item["Potion of Defense"].Type
+                                            }
+                                        };
                                     dt.StoredItems.RemoveAt(0);
                                     UpdateInventorySlot(freeSlot);
+                                    UpdateInventorySlot(slot.SlotId);
                                 }
                             }
                         }

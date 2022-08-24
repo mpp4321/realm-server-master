@@ -239,6 +239,12 @@ namespace RotMG.Common
             }
             return data;
         }
+
+        public ItemDesc GetDescription(int k)
+        {
+            int itemInSlot = Inventory[k];
+            return Resources.Type2Item[(ushort) itemInSlot];
+        }
     }
 
     // A player account's market data

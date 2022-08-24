@@ -253,6 +253,7 @@ namespace RotMG.Game.Entities
             AwaitingProjectiles = new Queue<List<Projectile>>();
             AckedProjectiles = new Dictionary<int, ProjectileAck>();
             ShotProjectiles = new Dictionary<int, Projectile>();
+            AckedExplosions = new Dictionary<int, ExplosionAck>();
             AwaitingAoes = new Queue<AoeAck>();
             ShootAEs = new Queue<ushort>();
             AwaitingGoto = new Queue<int>();

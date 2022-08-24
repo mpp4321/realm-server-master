@@ -530,9 +530,10 @@ namespace RotMG.Game.Worlds
             { Terrain.HighPlains, Tuple.Create(
                 300, new []
                 {
-                    Tuple.Create("Shield Orc Key", 0.2),
-                    Tuple.Create("Urgle", 0.2),
-                    Tuple.Create("Undead Dwarf God", 0.6)
+                    Tuple.Create("Shield Orc Key", 0.25),
+                    Tuple.Create("Urgle", 0.25),
+                    Tuple.Create("Undead Dwarf God", 0.5),
+                    Tuple.Create("AI Giga Steel Reaper", 0.05)
                 })
             },
             { Terrain.HighForest, Tuple.Create(
@@ -540,16 +541,18 @@ namespace RotMG.Game.Worlds
                 {
                     Tuple.Create("Ogre King", 0.4),
                     Tuple.Create("Dragon Egg", 0.1),
-                    Tuple.Create("Lizard God", 0.5),
-                    Tuple.Create("Beer God", 0.1)
+                    Tuple.Create("Lizard God", 0.45),
+                    Tuple.Create("Beer God", 0.1),
+                    Tuple.Create("AI Giga Steel Reaper", 0.05),
                 })
             },
             { Terrain.HighSand, Tuple.Create(
                 250, new []
                 {
-                    Tuple.Create("Minotaur", 0.4),
-                    Tuple.Create("Flayer God", 0.4),
-                    Tuple.Create("Flamer King", 0.2)
+                    Tuple.Create("Minotaur", 0.3),
+                    Tuple.Create("Flayer God", 0.3),
+                    Tuple.Create("Flamer King", 0.3),
+                    Tuple.Create("AI Giga Steel Reaper", 0.1),
                 })
             },
             { Terrain.Mountains, Tuple.Create(

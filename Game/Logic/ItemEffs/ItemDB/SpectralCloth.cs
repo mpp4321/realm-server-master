@@ -18,11 +18,8 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
 
         public void OnEnemyHit(Entity hit, Projectile by, ref int damageDone)
         {
-        }
-
-        public void OnHitByEnemy(Player hitBy, Entity hit, Projectile by)
-        {
-            if(MathUtils.NextFloat() < (0.105f - 0.03f*hitBy.EffectBoosts.Count))
+            var hitBy = by.Owner as Player;
+            if(MathUtils.NextFloat() < (0.105f - 0.03f * hitBy.EffectBoosts.Count))
             {
                 hitBy.Parent.BroadcastPacketNearby(GameServer.Notification
                 (
@@ -39,6 +36,10 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
                 });
                 hitBy.UpdateStats();
             }
+        }
+
+        public void OnHitByEnemy(Player hitBy, Entity hit, Projectile by)
+        {
         }
 
         public void OnTick(Player p)

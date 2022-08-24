@@ -90,18 +90,15 @@ namespace RotMG.Game.Logic.Behaviors
 
                 Entity target = null;
 
+                bool alwaysShoot = Range < 0.0001f;
+
                 if (playerOwner != null)
                 {
                     target = host.GetNearestEnemy(Range);
                 }
-                else if (Range > 0)
-                    target = host.GetNearestPlayer(Range);
+                else if (Range > 0 || alwaysShoot)
+                    target = host.GetNearestPlayer(alwaysShoot ? 99f : Range);
 
-                bool alwaysShoot = false;
-                if(Range == 0 && target == null)
-                {
-                    alwaysShoot = true;
-                }
 
                 if (target != null || DefaultAngle != null || FixedAngle != null || alwaysShoot)
                 {
@@ -125,7 +122,6 @@ namespace RotMG.Game.Logic.Behaviors
                             targetPos += target.Position;
                             Vector2 dirVector = targetPos - host.Position;
                             angle = (float)Math.Atan2(dirVector.Y, dirVector.X);
-                            Program.Print(PrintType.Info, dirVector);
                         }
                         else
                         {

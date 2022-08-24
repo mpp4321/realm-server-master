@@ -1,4 +1,5 @@
 ﻿using RotMG.Game.Logic.Behaviors;
+using RotMG.Game.Logic.Transitions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -44,6 +45,19 @@ namespace RotMG.Game.Logic.Database
             db.Init("Sumo Pet", new PetFollow(
                     1f, range: 2
                 ));
+
+            db.Init("Parthanax Pet", 
+                new State("0",
+                    new TransitionOnItemNearby(10f, "Metal Kendo Stick", "say once"),
+                    new PetFollow(
+                        1f, range: 2
+                    )
+                ),
+                new State("say once",
+                    new Taunt(cooldown: 0, "Yum... Kendo Sticks"),
+                    new TimedTransition("0", 100)
+                )
+            );
 
             db.Init("Blue Snail", new PetFollow(
                 1f, range: 2

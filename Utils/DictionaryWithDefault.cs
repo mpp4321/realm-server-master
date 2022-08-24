@@ -6,14 +6,19 @@ namespace RotMG.Utils
 {
     public class DictionaryWithDefault<TKey, TValue> : Dictionary<TKey, TValue>
     {
-        TValue _default;
+        Func<TValue> _default;
+
         public TValue DefaultValue
         {
-            get { return _default; }
-            set { _default = value; }
+            get { return _default(); }
         }
-        public DictionaryWithDefault() : base() { }
-        public DictionaryWithDefault(TValue defaultValue) : base()
+        public DictionaryWithDefault() : base() {
+            _default = () =>
+            {
+                return default(TValue);
+            };
+        }
+        public DictionaryWithDefault(Func<TValue> defaultValue) : base()
         {
             _default = defaultValue;
         }
@@ -22,8 +27,9 @@ namespace RotMG.Utils
         {
             get
             {
-                TValue t;
-                return base.TryGetValue(key, out t) ? t : _default;
+                var worked = base.TryGetValue(key, out var v);
+                if (!worked) return DefaultValue;
+                return v;
             }
             set { 
                 base[key] = value;

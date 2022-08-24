@@ -207,29 +207,6 @@
       </Projectile>
       <ParalyzeImmune />
    </Object>
-   <Object type="0x7744" id="LH Colossus Rock 10">
-      <DisplayId>Marble Colossus Rock</DisplayId>
-      <Class>Character</Class>
-      <NoMiniMap />
-      <Enemy />
-      <Texture>
-         <File>lostHallsObjects8x8</File>
-         <Index>31</Index>
-      </Texture>
-      <MaxHitPoints>50000</MaxHitPoints>
-      <Defense>10</Defense>
-      <Z>0.2</Z>
-      <Flying />
-      <Projectile id="0">
-         <ObjectId>Colossal Spike</ObjectId>
-         <Damage>110</Damage>
-         <Speed>80</Speed>
-         <LifetimeMS>1000</LifetimeMS>
-         <MultiHit />
-         <ArmorPiercing />
-      </Projectile>
-      <ParalyzeImmune />
-   </Object>
    <Object type="0x405c" id="LH Orbit">
       <Enemy />
       <Class>Character</Class>
@@ -1458,14 +1435,6 @@
             <Index>0x6f</Index>
         </Texture>
     </Object>
-    <Object type="0xb0ca" id="Colossal Bullet">
-        <Class>Projectile</Class>
-        <Texture>
-            <File>lostHallsObjects8x8</File>
-            <Index>0x74</Index>
-        </Texture>
-        <Rotation>185</Rotation>
-    </Object>
     <Object type="0xb0cb" id="Colossal Spinner">
         <Class>Projectile</Class>
         <Texture>
@@ -2382,7 +2351,8 @@
         <Size>0</Size>
     </Object>
 	<Object type="0xb170" id="LH Marble Colossus Anchor">
-        <Class>GameObject</Class>
+        <Class>Character</Class>
+        <Enemy/>
         <Texture>
             <File>invisible</File>
             <Index>0</Index>
@@ -2454,12 +2424,12 @@
             <Index>1</Index>
         </AnimatedTexture>
         <DisplayId>Spectral Sentry</DisplayId>
-        <Size>0</Size>
-        <Invincible/>
+        <Size>110</Size>
+		<MaxHitPoints>100000</MaxHitPoints>
         <Exp>10000</Exp>
         <Projectile id="0">
             <ObjectId>Spectral Spinner Blue</ObjectId>
-            <Damage>125</Damage>
+            <Damage>90</Damage>
             <Size>100</Size>
             <Speed>100</Speed>
             <LifetimeMS>1000</LifetimeMS>
@@ -2468,7 +2438,7 @@
         </Projectile>
         <Projectile id="1">
             <ObjectId>Spectral Spinner Green</ObjectId>
-            <Damage>125</Damage>
+            <Damage>80</Damage>
             <Size>100</Size>
             <Speed>85</Speed>
             <LifetimeMS>1000</LifetimeMS>
@@ -3439,6 +3409,7 @@
             <Index>0</Index>
         </Texture>
         <NoMiniMap/>
+		<MaxHitPoints>1000</MaxHitPoints>
         <Size>0</Size>
         <ShadowSize>0</ShadowSize>
         <Invincible/>
@@ -3459,6 +3430,7 @@
             <File>invisible</File>
             <Index>0</Index>
         </Texture>
+		<MaxHitPoints>1000</MaxHitPoints>
         <NoMiniMap/>
         <Size>0</Size>
         <ShadowSize>0</ShadowSize>

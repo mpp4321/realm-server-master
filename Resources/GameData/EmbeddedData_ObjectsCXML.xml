@@ -1279,7 +1279,7 @@
           <Speed>30</Speed>
           <LifetimeMS>3000</LifetimeMS>
           <Size>150</Size>
-          <ConditionEffect duration="1.5">Armor Broken</ConditionEffect>
+          <ConditionEffect duration="1.5">CursedUpper</ConditionEffect>
       </Projectile>
   </Object>
   <Object type="0x0754" id="Epic Glowing Portal">

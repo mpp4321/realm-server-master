@@ -76,14 +76,15 @@ namespace RotMG.Networking
             SwitchMusic,
             ShootDesync,
             FixMeDesync,
-            LootNotif
+            LootNotif,
+            BulletExplosion
         }
 
         public static void Read(Client client, int id, byte[] data)
         {
 #if DEBUG
-            if (id != (int)PacketId.Move)
-                Program.Print(PrintType.Debug, $"Packet received <{(PacketId)id}> <{string.Join(" ,",data.Select(k => k.ToString()).ToArray())}>");
+            //if (id != (int)PacketId.Move)
+            //    Program.Print(PrintType.Debug, $"Packet received <{(PacketId)id}> <{string.Join(" ,",data.Select(k => k.ToString()).ToArray())}>");
 #endif
 
             if (!client.Active)
@@ -91,6 +92,8 @@ namespace RotMG.Networking
 #if DEBUG
                 Program.Print(PrintType.Error, "Didn't process packet, client not active");
 #endif
+                //Attempt to disconnect client again?
+                client.Disconnect();
                 return;
             }
 
@@ -184,6 +187,9 @@ namespace RotMG.Networking
                         break;
                     case PacketId.AcceptTrade:
                         AcceptTrade(client, rdr);
+                        break;
+                    case PacketId.BulletExplosion:
+                        BulletExplosionAck(client, rdr);
                         break;
                 }
             }
@@ -511,8 +517,9 @@ namespace RotMG.Networking
             var pos = new Vector2(rdr);
             var angle = rdr.ReadSingle();
             var ability = rdr.ReadBoolean();
-            var numShots = rdr.PeekChar() != -1 ? rdr.ReadByte() : (byte)1; 
-            client.Player.TryShoot(time, pos, angle, ability, numShots);
+            var expectedProjectileId = rdr.ReadInt32();
+            var numShots = rdr.PeekChar() != -1 ? rdr.ReadByte() : (byte)1;
+            client.Player.TryShoot(time, pos, angle, ability, numShots, expectedProjectileId);
         }
 
         private static void SquareHit(Client client, PacketReader rdr)
@@ -526,6 +533,13 @@ namespace RotMG.Networking
         {
             var bulletId = rdr.ReadInt32(); 
             client.Player.TryHit(bulletId);
+        }
+
+        private static void BulletExplosionAck(Client client, PacketReader rdr)
+        {
+            var time = rdr.ReadInt32();
+            var bulletId = rdr.ReadInt32();
+            client.Player.ExplosionAck(time, bulletId);
         }
 
         private static void ShootAck(Client client, PacketReader rdr)
@@ -608,7 +622,18 @@ namespace RotMG.Networking
 
                 var seed = (uint)MathUtils.NextInt(1, int.MaxValue - 1);
                 client.Random = new wRandom(seed);
-                client.Send(MapInfo(world.Width, world.Height, world.Name, world.DisplayName, seed, world.Background, world.ShowDisplays, world.AllowTeleport, world.Music));
+                client.Send(MapInfo(
+                    world.Width,
+                    world.Height,
+                    world.Name,
+                    world.DisplayName,
+                    seed,
+                    world.Background,
+                    world.ShowDisplays,
+                    world.AllowTeleport,
+                    world.Music,
+                    world.NextProjectileId
+                ));
                 client.State = ProtocolState.Awaiting; //Allow the processing of Load/Create.
             }
         }
@@ -785,7 +810,7 @@ namespace RotMG.Networking
             }
         }
 
-        public static byte[] MapInfo(int width, int height, string name, string displayName, uint seed, int background, bool showDisplays, bool allowPlayerTeleport, string music)
+        public static byte[] MapInfo(int width, int height, string name, string displayName, uint seed, int background, bool showDisplays, bool allowPlayerTeleport, string music, int projectileIdStart)
         {
             using (var wtr = new PacketWriter(new MemoryStream()))
             {
@@ -799,6 +824,7 @@ namespace RotMG.Networking
                 wtr.Write(showDisplays);
                 wtr.Write(allowPlayerTeleport);
                 wtr.Write(music);
+                wtr.Write(projectileIdStart);
                 return (wtr.BaseStream as MemoryStream).ToArray();
             }
         }

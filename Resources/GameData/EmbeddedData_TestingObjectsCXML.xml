@@ -3,6 +3,7 @@
 		<DisplayId>Oryx the Mad God</DisplayId>
 		<Enemy/>
 		<Class>Character</Class>
+		<Group>O2 Minions</Group>
 		<Texture>
 			<File>lofiChar16x16</File>
 			<Index>0x54</Index>
@@ -95,6 +96,7 @@
 	<Object type="0x0944" id="Henchman of Oryx">
 		<Enemy/>
 		<Class>Character</Class>
+		<Group>O2 Minions</Group>
 		<AnimatedTexture>
 			<File>chars16x16dEncounters2</File>
 			<Index>20</Index>
@@ -913,9 +915,9 @@
 		<HitSound>monster/chicken_hit</HitSound>
 		<DeathSound>monster/chicken_death</DeathSound>
 		<MaxHitPoints>400</MaxHitPoints>
-		<Size>180</Size>
+		<Size>100</Size>
 		<Defense>0</Defense>
-		<XpMult>70</XpMult>
+		<XpMult>30</XpMult>
 	</Object>
 	<Object type="0x0963" id="XP Gift B">
 		<Group>Evaluators</Group>
@@ -927,10 +929,10 @@
 		</Texture>
 		<HitSound>monster/chicken_hit</HitSound>
 		<DeathSound>monster/chicken_death</DeathSound>
-		<MaxHitPoints>800</MaxHitPoints>
+		<MaxHitPoints>400</MaxHitPoints>
 		<Size>180</Size>
 		<Defense>0</Defense>
-		<XpMult>70</XpMult>
+		<XpMult>140</XpMult>
 	</Object>
 	<Object type="0x0964" id="XP Gift C">
 		<Group>Evaluators</Group>
@@ -942,10 +944,10 @@
 		</Texture>
 		<HitSound>monster/chicken_hit</HitSound>
 		<DeathSound>monster/chicken_death</DeathSound>
-		<MaxHitPoints>600</MaxHitPoints>
-		<Size>180</Size>
+		<MaxHitPoints>400</MaxHitPoints>
+		<Size>210</Size>
 		<Defense>0</Defense>
-		<XpMult>50</XpMult>
+		<XpMult>210</XpMult>
 	</Object>
 	<Object type="0x0965" id="XP Gift D">
 		<Group>Evaluators</Group>
@@ -957,10 +959,10 @@
 		</Texture>
 		<HitSound>monster/chicken_hit</HitSound>
 		<DeathSound>monster/chicken_death</DeathSound>
-		<MaxHitPoints>600</MaxHitPoints>
-		<Size>180</Size>
+		<MaxHitPoints>800</MaxHitPoints>
+		<Size>240</Size>
 		<Defense>0</Defense>
-		<XpMult>90</XpMult>
+		<XpMult>210</XpMult>
 	</Object>
 	<Object type="0x0966" id="XP Gift E">
 		<Group>Evaluators</Group>
@@ -972,10 +974,10 @@
 		</Texture>
 		<HitSound>monster/chicken_hit</HitSound>
 		<DeathSound>monster/chicken_death</DeathSound>
-		<MaxHitPoints>600</MaxHitPoints>
-		<Size>180</Size>
+		<MaxHitPoints>800</MaxHitPoints>
+		<Size>250</Size>
 		<Defense>0</Defense>
-		<XpMult>120</XpMult>
+		<XpMult>240</XpMult>
 	</Object>
 	<Object type="0x0967" id="XP Gift F">
 		<Group>Evaluators</Group>
@@ -987,10 +989,10 @@
 		</Texture>
 		<HitSound>monster/chicken_hit</HitSound>
 		<DeathSound>monster/chicken_death</DeathSound>
-		<MaxHitPoints>600</MaxHitPoints>
-		<Size>180</Size>
+		<MaxHitPoints>1000</MaxHitPoints>
+		<Size>270</Size>
 		<Defense>0</Defense>
-		<XpMult>200</XpMult>
+		<XpMult>240</XpMult>
 	</Object>
 	<Object type="0x0968" id="XP Gift G">
 		<Group>Evaluators</Group>
@@ -1002,10 +1004,10 @@
 		</Texture>
 		<HitSound>monster/chicken_hit</HitSound>
 		<DeathSound>monster/chicken_death</DeathSound>
-		<MaxHitPoints>600</MaxHitPoints>
-		<Size>180</Size>
+		<MaxHitPoints>1000</MaxHitPoints>
+		<Size>280</Size>
 		<Defense>0</Defense>
-		<XpMult>300</XpMult>
+		<XpMult>240</XpMult>
 	</Object>
 	<Object type="0x0941" id="Crystal Prisoner">
 		<Enemy/>

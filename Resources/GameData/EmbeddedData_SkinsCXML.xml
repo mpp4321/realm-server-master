@@ -219,6 +219,16 @@
     <PlayerClassType>0x031f</PlayerClassType>
     <UnlockLevel>10</UnlockLevel>
   </Object>
+  <Object type="0x035e" id="Golden Assassin">
+    <Skin/>
+    <Class>Skin</Class>
+    <AnimatedTexture>
+      <File>goldenskins</File>
+      <Index>7</Index>
+    </AnimatedTexture>
+    <PlayerClassType>0x0320</PlayerClassType>
+    <UnlockLevel>10</UnlockLevel>
+  </Object>
   <Object type="0x0358" id="Golden Necromancer">
     <Skin/>
     <Class>Skin</Class>

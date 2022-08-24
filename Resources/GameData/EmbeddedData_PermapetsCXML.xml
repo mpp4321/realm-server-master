@@ -1729,4 +1729,30 @@
         <Activate id="Sumo Pet" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
+    <Object type="0x1659" id="Parthanax Pet">
+        <DisplayId>Parthanax</DisplayId>
+        <Class>Character</Class>
+		<MaxHitPoints>1</MaxHitPoints>
+		<AnimatedTexture>
+			<File>lofiChar32x32</File>
+			<Index>0</Index>
+		</AnimatedTexture>
+        <NoMiniMap/>
+        <Size>60</Size>
+    </Object>
+    <Object type="0x165a" id="Parthanax Generator">
+        <DisplayId>Dragon :)</DisplayId>
+        <Class>Equipment</Class>
+        <Item/>
+		<AnimatedTexture>
+			<File>lofiChar32x32</File>
+			<Index>0</Index>
+		</AnimatedTexture>
+        <SlotType>10</SlotType>
+        <Description>Jasteiner's pet of choice.</Description>
+        <Sound>spell/light_heal</Sound>
+        <InvUse/>
+        <Activate id="Parthanax Pet" cooldown="10">PermaPet</Activate>
+        <OldSound>use_potion</OldSound>
+    </Object>
 </Objects>

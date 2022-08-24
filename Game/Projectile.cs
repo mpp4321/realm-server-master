@@ -36,9 +36,6 @@ namespace RotMG.Game
 
         public bool CanHit(Entity en)
         {
-            if (en.HasConditionEffect(ConditionEffectIndex.Invincible) || en.HasConditionEffect(ConditionEffectIndex.Stasis))
-                return false;
-
             if (!Hit.Contains(en.Id))
             {
                 Hit.Add(en.Id);

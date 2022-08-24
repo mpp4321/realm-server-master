@@ -4786,10 +4786,10 @@
 		</Texture>
 		<SlotType>7</SlotType>
 		<Description>Battle armor made from Fire Dragon scales, one of the strongest materials in the realm.</Description>
-		<ActivateOnEquip stat="2" amount="8">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="3" amount="20">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="4" amount="6">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="6" amount="10">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="2" amount="14">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="3" amount="18">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="4" amount="10">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="6" amount="20">IncrementStat</ActivateOnEquip>
 		<BagType>6</BagType>
 		<FameBonus>6</FameBonus>
 	</Object>
@@ -9376,27 +9376,6 @@
 		<Consumable />
 		<Activate amount="150">TreasureActivate</Activate>
 		<DisplayId>Golden Crystal</DisplayId>
-	</Object>
-	<Object type="0x510a" id="Ouija Board">
-		<Class>Equipment</Class>
-		<Item />
-		<SlotType>10</SlotType>
-		<Texture>
-			<File>UTRImport</File>
-			<Index>0x227</Index>
-		</Texture>
-		<Description>A treasure from the Undead Lair.</Description>
-		<ExtraTooltipData>
-			<EffectInfo name="" description="Can be used to obtain 125 gold." />
-		</ExtraTooltipData>
-		<Sound>spell/fire_nova</Sound>
-		<BagType>9</BagType>
-		<White />
-		<Treasure />
-		<Soulbound />
-		<Consumable />
-		<Activate amount="125">TreasureActivate</Activate>
-		<DisplayId>Ouija Board</DisplayId>
 	</Object>
 	<Object type="0x510b" id="Golden Urn">
 		<Class>Equipment</Class>
@@ -18268,7 +18247,7 @@
 		<BagType>6</BagType>
 		<FameBonus>5</FameBonus>
 		<MpCost>75</MpCost>
-		<Activate effect="Cursed" duration="4" range="3" color="0xffffff" target="enemy" center="mouse" visualEffect="5" useWisMod="false">GenericActivate</Activate>
+		<Activate effect="CursedLower" duration="4" range="3" color="0xffffff" target="enemy" center="mouse" visualEffect="5" useWisMod="false">GenericActivate</Activate>
 		<Activate useWisMod="true" radius="6" totalDamage="450" duration="10" color="0xFF69B4" impactDamage="300" throwTime="1">PoisonGrenade</Activate>
 		<DisplayId>Treacherous Venom</DisplayId>
 	</Object>
@@ -25613,13 +25592,10 @@
 		<Level>20</Level>
 		<PerRealmMax>1</PerRealmMax>
 		<KeepDamageRecord/>
-		<AnimatedTexture>
-			<File>chars16x16dEncounters2</File>
-			<Index>45</Index>
-		</AnimatedTexture>
+		<Texture><File>lofiChar216x16</File><Index>0x2a</Index></Texture>
 		<Size>100</Size>
 		<MaxHitPoints>52500</MaxHitPoints>
-		<Defense>85</Defense>
+		<Defense>270</Defense>
 		<XpMult>25</XpMult>
 		<Projectile id="0">
 			<ObjectId>Red Fire</ObjectId>
@@ -25696,7 +25672,6 @@
 	</Object>
 
 	<Object type="0x2f63" id="PhoenixGodPhase1">
-		<DisplayID>Phoenix God</DisplayID>
 		<Group>Phoenix God Encounter</Group>
 		<Enemy/>
 		<Class>Character</Class>
@@ -25706,13 +25681,15 @@
 		</AnimatedTexture>
 		<ShadowSize>0</ShadowSize>
 		<NoMiniMap/>
-		<MaxHitPoints>100000</MaxHitPoints>
+		<MaxHitPoints>20000</MaxHitPoints>
+		<Defense>100</Defense>
 		<XpMult>0</XpMult>
 		<Projectile id="0">
 			<ObjectId>Red Fire</ObjectId>
 			<Damage>95</Damage>
-			<Speed>100</Speed>
-			<LifetimeMS>5000</LifetimeMS>
+			<Speed>90</Speed>
+			<Size>120</Size>
+			<LifetimeMS>3000</LifetimeMS>
 			<MultiHit/>
 		</Projectile>
 	</Object>

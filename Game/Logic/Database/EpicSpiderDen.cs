@@ -223,7 +223,7 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(5, LootType.Ring, 0.55f),
                     new ItemLoot("Potion of Dexterity", 1.0f),
                     new ItemLoot("Potion of Dexterity", 1.0f),
-                    new ItemLoot("Realm Equipment Crystal", 0.5f),
+                    new ItemLoot("Realm Equipment Crystal", 1.0f),
                     new ItemLoot("(Green) UT Egg", 0.2f, 0.01f),
                     new ItemLoot("(Blue) RT Egg", 0.02f, 0.01f),
                     new ItemLoot("Will of the Den", 0.04f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),

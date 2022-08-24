@@ -525,10 +525,13 @@ namespace RotMG.Common
         public static bool IsAccountInUse(AccountModel acc)
         {
             var accountInUse = acc.Connected && Manager.GetClient(acc.Id) != null;
+            // acc connected is true but we are null client
             if (!accountInUse && acc.Connected)
             {
                 acc.Connected = false;
+                acc.LastSeen = Database.UnixTime();
                 acc.Save();
+                Manager.AccountIdToClientId.Remove(acc.Id, out var value);
             }
             return accountInUse;
         }
@@ -982,7 +985,7 @@ namespace RotMG.Common
                 if (character.Inventory[k] != -1)
                 {
                     wellEquipped += Resources.Type2Item[(ushort)character.Inventory[k]].FameBonus;
-                    wellEquipped += (int) ItemDesc.GetStat(ItemDesc.ParseItemDataJson(character.ItemDatas[k]), ItemData.FameBonus, 1);
+                    wellEquipped += (int) ItemDesc.GetStat(ItemDesc.ParseItemDataJson(character.ItemDatas[k]), ItemData.FameBonus, 1, character.GetDescription(k).EnchantmentStrength);
                 }
             if (wellEquipped > 0)
             {

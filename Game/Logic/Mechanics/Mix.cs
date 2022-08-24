@@ -62,9 +62,11 @@ namespace RotMG.Game.Logic.Mechanics
                     return x.ActivateEffects.Count() > 0 && x.ActivateEffects[0].Index == ActivateEffectIndex.MagicCrystal;
                 });
                 (int, int) havocPiece = FindComponentItem(p, slot1, slot2, 0xcaa);
+                (int, int) goldenBar = FindComponentItem(p, slot1, slot2, Resources.Id2Item["Golden Demonic Metal"].Type);
 
                 CombineAndReroll(p, goo);
-                CombineAndTransform(p, havocPiece);
+                CombineAndTransform(p, havocPiece, HavocPieces);
+                CombineAndTransform(p, goldenBar, GoldenBar);
 
                 p.UpdateInventory();
                 return;
@@ -93,16 +95,21 @@ namespace RotMG.Game.Logic.Mechanics
             { 0xc24, 0xccd }
         };
 
-        private static void CombineAndTransform(Player p, (int, int) itemPair)
+        private static Dictionary<ushort, ushort> GoldenBar = new Dictionary<ushort, ushort>
+        {
+            { Resources.Id2Item["Demon Blade"].Type, Resources.Id2Item["Gilded Demon Blade"].Type }
+        };
+
+        private static void CombineAndTransform(Player p, (int, int) itemPair, Dictionary<ushort, ushort> ItemSet)
         {
 
             if (itemPair.Item1 == -1 || itemPair.Item2 == -1) return;
 
             var item = (ushort) p.Inventory[itemPair.Item2];
 
-            if (!HavocPieces.ContainsKey(item)) return;
+            if (!ItemSet.ContainsKey(item)) return;
 
-            var transformTo = HavocPieces[item];
+            var transformTo = ItemSet[item];
 
             p.Inventory[itemPair.Item1] = -1;
             p.ItemDatas[itemPair.Item1] = new ItemDataJson();

@@ -80,7 +80,14 @@ namespace RotMG.Game.Logic.Database
             db.Init("Abyss Idol",
 
                 new State("0",
-                    new PlayerWithinTransition(8f, "a")
+                    new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
+                    new TransitionOnItemNearby(3f, "Potion of Life", "pre a")
+                ),
+
+                new State("pre a",
+                    new ConditionalEffect(Common.ConditionEffectIndex.Invulnerable),
+                    new Flash(0xFFFF0000, 3.0, 9),
+                    new TimedTransition("a", 3000)
                 ),
 
                 //Shoot AOE ring then toss array of bombs
@@ -212,8 +219,15 @@ namespace RotMG.Game.Logic.Database
                             )
                         )
                     )
-                )
-                );
+                ),
+                new ItemLoot("Golden Demonic Metal", 0.06f, 0.01f),
+                new ItemLoot("Fiery Equipment Crystal", 0.03f, 0.01f),
+                new ItemLoot("Realm Equipment Crystal", 0.15f, 0.01f),
+                new ItemLoot("Potion of Vitality", 1.0f, 0.01f),
+                new ItemLoot("Potion of Vitality", 1.0f, 0.01f),
+                new ItemLoot("Potion of Vitality", 1.0f, 0.01f),
+                new ItemLoot("Demon Frog Generator", 0.01f, 0.01f)
+            );
 
             db.Init("Archdemon Malphas",
                 HPScale.BOSS_HP_SCALE_DEFAULT(),

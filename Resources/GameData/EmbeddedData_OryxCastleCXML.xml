@@ -461,6 +461,23 @@
             <Size>80</Size>
             <LifetimeMS>1200</LifetimeMS>
         </Projectile>
+        <Projectile id="4">
+            <ObjectId>Oryx Knight Swipe Spin</ObjectId>
+            <Speed>65</Speed>
+            <Damage>55</Damage>
+            <Size>100</Size>
+            <LifetimeMS>500</LifetimeMS>
+			<ConditionEffect duration="3">Slowed</ConditionEffect>
+			<ExplodeCount>3</ExplodeCount>
+			<ExplodeProjectile>
+				<ObjectId>Oryx Bubble</ObjectId>
+				<Speed>10</Speed>
+				<Damage>50</Damage>
+				<Size>160</Size>
+				<LifetimeMS>1000</LifetimeMS>
+				<PassesCover/>
+			</ExplodeProjectile>
+        </Projectile>
         <Size>100</Size>
         <Defense>20</Defense>
     </Object> 

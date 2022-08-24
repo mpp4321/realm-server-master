@@ -42,32 +42,19 @@ namespace RotMG.Networking
             _receive = receive;
         }
 
-        public void DisconnectNoAddBack() // clears all individual client data without pushing instance back
+        public void DisconnectNoAddBack(bool force = false) // clears all individual client data without pushing instance back
         {
-            if (State == ProtocolState.Disconnected)
-            {
-#if DEBUG
-                Program.Print(PrintType.Error, "Already dcd");
-#endif
-                return;
-            }
-#if DEBUG
             try
             {
-                Program.Print(PrintType.Debug, $"Disconnecting client from <{_socket.RemoteEndPoint}>");
-            }
-            catch (Exception ex)
-            {
-                Program.Print(PrintType.Error, ex.ToString());
-            }
-#endif
-            //Save what's needed
-            if (Account != null)
-            {
-                Account.Connected = false;
-                Account.LastSeen = Database.UnixTime();
-                Account.Save();
-                Manager.AccountIdToClientId.Remove(Account.Id);
+                //Program.Print(PrintType.Debug, $"Disconnecting client from <{_socket.RemoteEndPoint}>");
+                //Save what's needed
+                if (Account != null)
+                {
+                    Account.Connected = false;
+                    Account.LastSeen = Database.UnixTime();
+                    Account.Save();
+                    Manager.AccountIdToClientId.Remove(Account.Id, out var value);
+                }
 
                 if (Player != null && Player.Parent != null)
                 {
@@ -80,27 +67,35 @@ namespace RotMG.Networking
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                Program.Print(PrintType.Error, ex.ToString());
+            }
+
+            if(State != ProtocolState.Disconnected)
+            {
+                try
+                {
+                    _socket.Shutdown(SocketShutdown.Both);
+                    _socket.Close();
+                }
+    #if DEBUG
+                catch (Exception ex)
+                {
+                    Program.Print(PrintType.Error, ex);
+                }
+    #endif
+    #if RELEASE
+                catch 
+                {
+
+                }
+    #endif
+
+            }
 
             //Shutdown socket
             State = ProtocolState.Disconnected;
-
-            try
-            {
-                _socket.Shutdown(SocketShutdown.Both);
-                _socket.Close();
-            }
-#if DEBUG
-            catch (Exception ex)
-            {
-                Program.Print(PrintType.Error, ex);
-            }
-#endif
-#if RELEASE
-            catch 
-            {
-
-            }
-#endif
 
             //Clear data 
             Active = false;
@@ -117,11 +112,12 @@ namespace RotMG.Networking
 
         public void Disconnect() //Disconnects, clears all individual client data and pushes the instance back to the server queue.
         {
+            Manager.RemoveClient(this);
+
             // clear data
-            DisconnectNoAddBack();
+            DisconnectNoAddBack(true);
 
             //Push back client to queue
-            Manager.RemoveClient(this);
             GameServer.AddBack(this);
         }
 

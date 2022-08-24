@@ -56,7 +56,7 @@ namespace RotMG.Game.Entities
 
             Parent?.EnemyKilled(this, killer);
 
-            var baseExp = (int)Math.Ceiling(MaxHp / 10f);
+            var baseExp = (int)Math.Ceiling(MaxHp / 10f) * Desc.XpMult;
             if (baseExp != 0)
             {
                 List<Entity> l;
@@ -65,9 +65,9 @@ namespace RotMG.Game.Entities
                     if (!(en is Player player) || Desc.NoXp || IsSpawned) 
                         continue;
                     var exp = baseExp;
-                    if (exp > Player.GetNextLevelEXP(player.Level) / 10)
-                        exp = Player.GetNextLevelEXP(player.Level) / 10;
-                    if (player.GainEXP(exp))
+                    //if (exp > Player.GetNextLevelEXP(player.Level) / 10)
+                    //   exp = Player.GetNextLevelEXP(player.Level) / 10;
+                    if (player.GainEXP((int)exp))
                         foreach (var p in l)
                             if (!p?.Equals(player) ?? false)
                             {
@@ -159,6 +159,12 @@ namespace RotMG.Game.Entities
             if (projectile.Owner == null || !(projectile.Owner is Player))
                 throw new Exception("Projectile owner is not player");
 #endif
+
+            // This goes here to avoid checking condition effects too much
+            if (HasConditionEffect(ConditionEffectIndex.Invincible)
+                || HasConditionEffect(ConditionEffectIndex.Stasis))
+                return false;
+
             (projectile.Owner as Player).FameStats.ShotsThatDamage++;
             if(projectile.OnHitDelegate != null)
                 projectile.OnHitDelegate(this);

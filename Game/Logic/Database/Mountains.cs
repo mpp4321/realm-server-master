@@ -542,12 +542,8 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Greater Fire Skeleton", 
                 new DropPortalOnDeath("Shaitans Lair Portal", 1f),
-                new Prioritize(
-                    new Orbit(2f, 2f, 10f, "Red Demon"),
-                    new Wander(1.8f)
-                ),
                 new State("starting",
-                    new PlayerWithinTransition(10f, "throwreddemon", true)
+                    new PlayerWithinTransition(8f, "throwreddemon", true)
                 ),
                 new State("throwreddemon", 
                     new TossObject("Red Demon", 10f),
@@ -555,6 +551,19 @@ namespace RotMG.Game.Logic.Database
                     new TimedTransition("throwwhitedemons", 0)
                 ),
                 new State("throwwhitedemons", 
+                    new TransitionFrom("throwwhitedemons", "a"),
+                    new State("a",
+                        new Prioritize(
+                            new Orbit(2f, 2f, 10f, "Red Demon"),
+                            new Wander(1.8f)
+                        ),
+                        new TimedTransition("b", 5000)
+                    ),
+                    new State("b",
+                        new Flash(0xFF333333, 1.0, 1),
+                        new Taunt(cooldown: 0, "All this running around has got me tired..."),
+                        new TimedTransition("a", 2000)
+                    ),
                     new TossObject("White Demon", 10f, cooldown: 15000),
                     new Shoot(20f, 3, index: 1, cooldown: 1000, rotateAngle: 90),
                     new Shoot(20f, 1, index: 0, cooldown: 1000)

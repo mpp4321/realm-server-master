@@ -17,7 +17,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
                 {
                     amount = 3,
                     index = 2,
-                    timer = 3f
+                    timer = 1.5f
                 });
                 pl.UpdateStats();
             }

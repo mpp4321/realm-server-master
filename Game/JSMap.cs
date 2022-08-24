@@ -63,7 +63,7 @@ namespace RotMG.Game
 
         private void InitRegions()
         {
-            Regions = new DictionaryWithDefault<Region, List<IntPoint>>(new List<IntPoint>());
+            Regions = new DictionaryWithDefault<Region, List<IntPoint>>(() => new List<IntPoint>());
             for (var x = 0; x < Width; x++)
                 for (var y = 0; y < Height; y++)
                 {

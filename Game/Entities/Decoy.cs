@@ -9,6 +9,7 @@ namespace RotMG.Game.Entities
         private const int DecoyMoveTime = 1600;
 
         public int Duration;
+        public float Speed = 1.0f;
         public Vector2 Direction;
 
         public Decoy(Player player, float angle, int duration, ushort entityType=0x0715) : base(entityType, duration)
@@ -38,7 +39,7 @@ namespace RotMG.Game.Entities
         {
             var elapsed = Duration - Lifetime.Value;
             if (elapsed <= DecoyMoveTime)
-                ValidateAndMove(Position + Direction);
+                ValidateAndMove(Position + Speed * Direction);
 
             base.Tick();
         }

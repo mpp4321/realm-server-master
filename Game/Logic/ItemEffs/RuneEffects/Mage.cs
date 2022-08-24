@@ -14,7 +14,7 @@ namespace RotMG.Game.Logic.ItemEffs.RuneEffects
             var mpCost = desc.MpCost;
             if(mpCost > 0)
             {
-                player.Heal((int)(mpCost * 0.5), true, false);
+                player.Heal((int)(mpCost * 0.2), true, false);
             }
         }
 

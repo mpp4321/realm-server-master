@@ -115,7 +115,7 @@ namespace RotMG.Game.Logic.Behaviors
                 taunt = taunt.Replace("{PLAYER}", player.Name);
             }
 
-            taunt = taunt.Replace("{HP}", (host as Enemy).Hp.ToString());
+            taunt = taunt.Replace("{HP}", (host as Enemy)?.Hp.ToString() ?? "");
             
             var display = String.IsNullOrEmpty(host.Name) ? host.Desc.DisplayId : host.Name;
 

@@ -17,6 +17,31 @@ namespace RotMG.Game.Entities
         public float Radius;
         public int Time;
     }
+    public struct ExplosionAck
+    {
+        public static ExplosionAck Undefined = new ExplosionAck
+        {
+            Projectile = null,
+            Time = -1
+        };
+
+        public Projectile Projectile;
+        public int Time;
+
+        public override bool Equals(object obj)
+        {
+#if DEBUG
+            if (obj is null)
+                throw new Exception("Undefined object");
+#endif
+            return (obj as ProjectileAck?).Value.Projectile.Id == Projectile.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return Projectile.Id;
+        }
+    }
 
     public struct ProjectileAck
     {
@@ -46,19 +71,22 @@ namespace RotMG.Game.Entities
 
     public partial class Player
     {
-        private const int TimeUntilAckTimeout = 2000;
+        private const int TimeUntilAckTimeout = 5000;
         private const int TickProjectilesDelay = 2000;
-        private const float RateOfFireThreshold = 1.1f;
+        private const float RateOfFireThreshold = 1.2f;
         private const float EnemyHitRangeAllowance = 1.7f;
         private const float EnemyHitTrackPrecision = 8;
         private const int EnemyHitHistoryBacktrack = 2;
 
         public Queue<List<Projectile>> AwaitingProjectiles;
         public Dictionary<int, ProjectileAck> AckedProjectiles;
-
         public Queue<AoeAck> AwaitingAoes; //Doesn't really belong here... But Player.Aoe.cs???
 
         public Dictionary<int, Projectile> ShotProjectiles;
+        // Projectiles that explode get sent here when shot or AckShot then we receive
+        // AckExplosion which spawns the projectiles server side after getting checked here
+        public Dictionary<int, ExplosionAck> AckedExplosions;
+
         public int NextAEProjectileId = int.MinValue; //Goes up positively from bottom (Server sided projectiles)
         public int NextProjectileId; //Goes down negatively (Client sided projectiles)
 
@@ -84,6 +112,19 @@ namespace RotMG.Game.Entities
                 }
             }
 
+            foreach (var explode in AckedExplosions)
+            {
+                var lifetime = explode.Value.Projectile.Desc.LifetimeMS;
+                if (Manager.TotalTime - explode.Value.Time > lifetime + TimeUntilAckTimeout)
+                {
+#if DEBUG
+                    Program.Print(PrintType.Error, "explode timed out");
+#endif
+                    //Client.Disconnect();
+                    return;
+                }
+            }
+
             foreach (var apList in AwaitingProjectiles)
             {
                 foreach (var ap in apList)
@@ -101,17 +142,17 @@ namespace RotMG.Game.Entities
             }
         }
 
-        public int GetNextDamageSeeded(int min, int max, ItemDataJson data)
+        public int GetNextDamageSeeded(int min, int max, ItemDataJson data, float enchantmentStrength)
         {
-            var dmgMod = ItemDesc.GetStat(data, ItemData.Damage, ItemDesc.DamageMultiplier);
+            var dmgMod = ItemDesc.GetStat(data, ItemData.Damage, ItemDesc.DamageMultiplier, enchantmentStrength);
             var minDmg = min + (int)(min * dmgMod);
             var maxDmg = max + (int)(max * dmgMod);
             return (int)Client.Random.NextIntRange((uint)minDmg, (uint)maxDmg);
         }
 
-        public int GetNextDamage(int min, int max, ItemDataJson data)
+        public int GetNextDamage(int min, int max, ItemDataJson data, float enchantmentStrength=1f)
         {
-            var dmgMod = ItemDesc.GetStat(data, ItemData.Damage, ItemDesc.DamageMultiplier);
+            var dmgMod = ItemDesc.GetStat(data, ItemData.Damage, ItemDesc.DamageMultiplier, enchantmentStrength);
             var minDmg = min + (int)(min * dmgMod);
             var maxDmg = max + (int)(max * dmgMod);
             return MathUtils.NextInt(minDmg, maxDmg);
@@ -133,12 +174,8 @@ namespace RotMG.Game.Entities
                 var target = Parent.GetEntity(targetId);
                 if (target == null || !target.Desc.Enemy)
                 {
-#if DEBUG
-                    Program.Print(PrintType.Error, "Invalid enemy target");
-#endif
                     //Add entity to remove next update call
                     ToRemoveFromClient.Add(targetId);
-
                     return;
                 }
                 var elapsed = time - p.Time;
@@ -200,20 +237,45 @@ namespace RotMG.Game.Entities
 #if DEBUG
                 Program.Print(PrintType.Error, "Tried to hit enemy with undefined projectile");
 #endif
-
-                var diff = bulletId - (NextProjectileId + 1);
-                Client.Send(GameServer.ShootDesync(diff));
             }
         }
 
-        public void TryShoot(int time, Vector2 pos, float attackAngle, bool ability, int numShots)
+        public void AddShotProjectiles(int time, Projectile projectile)
         {
+            if(ShotProjectiles.TryAdd(projectile.Id, projectile))
+            {
+                if(projectile.Desc.ExplodeCount != 0)
+                {
+                    AckedExplosions.Add(projectile.Id, new Game.Entities.ExplosionAck()
+                    {
+                        Projectile = projectile,
+                        Time = time
+                    });
+                }
+            }
+        }
+
+        public void TryShoot(int time, Vector2 pos, float attackAngle, bool ability, int numShots, int expectedProjectileId)
+        {
+            if (AwaitingGoto.Count > 0)
+            {
+                Client.Random.Drop(numShots);
+                return;
+            }
+
+            var startId = NextProjectileId;
+            if(expectedProjectileId != NextProjectileId)
+            {
+                var diff = expectedProjectileId - NextProjectileId;
+                Client.Send(GameServer.ShootDesync(diff));
+            }
+            NextProjectileId -= numShots;
+
             if (!ValidTime(time))
             {
 #if DEBUG
                 Program.Print(PrintType.Error, "Invalid time for player shoot");
 #endif
-                Program.Print(PrintType.Error, "Invalid move for player shoot");
                 Client.Disconnect();
                 return;
             }
@@ -223,18 +285,8 @@ namespace RotMG.Game.Entities
 #if DEBUG
                 Program.Print(PrintType.Error, "Invalid move for player shoot");
 #endif
-                Program.Print(PrintType.Error, "Invalid move for player shoot");
                 if(AwaitingGoto.Count == 0)
                     Client.Disconnect();
-                return;
-            }
-
-            var startId = NextProjectileId;
-            NextProjectileId -= numShots;
-
-            if (AwaitingGoto.Count > 0)
-            {
-                Client.Random.Drop(numShots);
                 return;
             }
 
@@ -282,11 +334,10 @@ namespace RotMG.Game.Entities
                     var angle = attackAngle - totalArc / 2f;
                     for (var i = 0; i < numShots; i++)
                     {
-                        var damage = (int)(GetNextDamageSeeded(desc.NextProjectile(startId - i).MinDamage, desc.NextProjectile(startId - i).MaxDamage, ItemDatas[1]) * GetAttackMultiplier());
+                        var damage = (int)(GetNextDamageSeeded(desc.NextProjectile(startId - i).MinDamage, desc.NextProjectile(startId - i).MaxDamage, ItemDatas[1], desc.EnchantmentStrength) * GetAttackMultiplier());
                         //var uneffs = this.Inventory.Take(4).Select(a => Resources.Type2Item[Convert.ToUInt16(a)].UniqueEffect).Where(a => a != null).ToArray();
                         var projectile = new Projectile(this, desc.NextProjectile(startId - i), startId - i, time, angle + arcGap * i, pos, damage);
-
-                        ShotProjectiles.Add(projectile.Id, projectile);
+                        AddShotProjectiles(time, projectile);
                     }
 
                     var packet = GameServer.AllyShoot(Id, desc.Type, attackAngle);
@@ -317,12 +368,12 @@ namespace RotMG.Game.Entities
                     for (var i = 0; i < numShots; i++)
                     {
                         var pdesc = desc.NextProjectile(Math.Abs(startId - i));
-                        var damage = (int)(GetNextDamageSeeded(pdesc.MinDamage, pdesc.MaxDamage, ItemDatas[0]) * GetAttackMultiplier());
+                        var damage = (int)(GetNextDamageSeeded(pdesc.MinDamage, pdesc.MaxDamage, ItemDatas[0], desc.EnchantmentStrength) * GetAttackMultiplier());
                         //var compeffs = this.ItemDatas.Take(4).Select(a => a.ItemComponent != null ? a.ItemComponent : null).Where(a => a != null);
                         var uneffs = BuildAllItemHandlers();
                         var projectile = new Projectile(this, pdesc, startId - i, time, angle + arcGap * i, pos, damage, uniqueEff: uneffs.ToArray());
                         foreach (var ae in abilityEffects) ae.OnProjectileShoot(this, ref projectile);
-                        ShotProjectiles.Add(projectile.Id, projectile);
+                        AddShotProjectiles(time, projectile);
                     }
 
                     var packet = GameServer.AllyShoot(Id, desc.Type, attackAngle);
@@ -332,7 +383,7 @@ namespace RotMG.Game.Entities
                             player.Client.Send(packet);
 
                     FameStats.Shots += numShots;
-                    var rateOfFireMod = ItemDesc.GetStat(ItemDatas[0], ItemData.RateOfFire, ItemDesc.RateOfFireMultiplier);
+                    var rateOfFireMod = ItemDesc.GetStat(ItemDatas[0], ItemData.RateOfFire, ItemDesc.RateOfFireMultiplier, desc.EnchantmentStrength);
                     var rateOfFire = desc.RateOfFire;
                     rateOfFire *= 1 + rateOfFireMod;
                     ShotDuration = (int)(1f / GetAttackFrequency() * (1f / rateOfFire) * (1f / RateOfFireThreshold));
@@ -368,7 +419,7 @@ namespace RotMG.Game.Entities
                 if (elapsed > p.Value.Desc.LifetimeMS)
                 {
 #if DEBUG
-                    Program.Print(PrintType.Error, "Shot projectile removed");
+                    //Program.Print(PrintType.Error, "Shot projectile removed");
 #endif
                     ShotProjectiles.Remove(p.Key);
                     continue;
@@ -380,7 +431,7 @@ namespace RotMG.Game.Entities
                 if (elapsed > p.Value.Projectile.Desc.LifetimeMS)
                 {
 #if DEBUG
-                    Program.Print(PrintType.Error, "Proj lifetime expired");
+                    //Program.Print(PrintType.Error, "Proj lifetime expired");
 #endif
                     AckedProjectiles.Remove(p.Key);
                     continue;
@@ -393,16 +444,17 @@ namespace RotMG.Game.Entities
                 {
                     if (p.Value.Projectile.CanHit(this))
                     {
+                        AckedProjectiles.Remove(p.Key);
+                        AckedExplosions.Remove(p.Key);
                         if (HitByProjectile(p.Value.Projectile))
                         {
 #if DEBUG
-                            Program.Print(PrintType.Error, "Died cause of server collision");
+                            //Program.Print(PrintType.Error, "Died cause of server collision");
 #endif
                             return true;
                         }
-                        AckedProjectiles.Remove(p.Key);
 #if DEBUG
-                        Program.Print(PrintType.Error, "Collided on server");
+                        //Program.Print(PrintType.Error, "Collided on server");
 #endif
                     }
 #if DEBUG
@@ -424,12 +476,14 @@ namespace RotMG.Game.Entities
                 {
                     HitByProjectile(v.Projectile);
                     AckedProjectiles.Remove(bulletId);
+                    if(!v.Projectile.Desc.MultiHit)
+                        AckedExplosions.Remove(bulletId);
                 }
             }
             else
             {
 #if DEBUG
-                Program.Print(PrintType.Error, "Tried to hit with undefined projectile");
+                Program.Print(PrintType.Error, $"Tried to hit with undefined projectile {bulletId}");
 #endif
                 var diff = bulletId - NextProjectileId;
                 Client.Send(GameServer.ShootDesync(diff));
@@ -459,8 +513,14 @@ namespace RotMG.Game.Entities
 
         public override bool HitByProjectile(Projectile projectile)
         {
+
             if (projectile.Owner is Player)
                 return false;
+
+            if (HasConditionEffect(ConditionEffectIndex.Invincible)
+                || HasConditionEffect(ConditionEffectIndex.Stasis))
+                return false;
+
             if(projectile.OnHitDelegate != null)
                 projectile.OnHitDelegate(this);
 
@@ -478,6 +538,86 @@ namespace RotMG.Game.Entities
         public void AwaitProjectiles(List<Projectile> projectiles)
         {
             AwaitingProjectiles.Enqueue(projectiles);
+            var explodingProjectiles = projectiles.Where(a => a.Desc.ExplodeCount != 0)
+                .Select(a => new ExplosionAck()
+                {
+                    Projectile = a,
+                    Time = a.Time
+                });
+
+            foreach(var a in explodingProjectiles) {
+                AckedExplosions.Add(
+                    a.Projectile.Id, a
+                );
+            }
+        }
+
+        private int IdByPlayer(bool isPlayer, int start, int k)
+        {
+            if (isPlayer) return start - k;
+            return start + k;
+        }
+
+        public void ExplosionAck(int time, int bulletId)
+        {
+            if (!ValidTime(time))
+            {
+                Client.Disconnect();
+                return;
+            }
+
+            if (AckedExplosions.TryGetValue(bulletId, out var ac))
+            {
+                var count = ac.Projectile.Desc.ExplodeCount;
+                var projs = new List<Projectile>(count);
+                var owner = ac.Projectile.Owner;
+                var isPlayer = owner is Player;
+                var startId = NextProjectileId;
+                var desc = ac.Projectile.Desc.ExplodeProjectile;
+                var Damage = desc.Damage;
+                NextProjectileId -= count;
+
+                for (var i = 0; i < count; i++)
+                {
+                    var Angle = 360f / count * i * MathUtils.ToRadians;
+                    var p = new Projectile(ac.Projectile.Owner, desc, startId - i, time, Angle, ac.Projectile.PositionAt(
+                       time - ac.Projectile.Time
+                    ), Damage);
+                    projs.Add(p);
+                    if (isPlayer)
+                    {
+                        // Players have already seen there shots since they're procing this
+                        // Enemies need to explode server side and dispatch since players don't manage enemy shot ids
+                        //   or we just make exploding player shots managed by client? nah
+                        //
+                        ShotProjectiles[startId - i] = p;
+                    } else
+                    {
+                        // Since we attach the nextprojectileid to map info now we can do this
+                        AckedProjectiles[startId - i] = new()
+                        {
+                            Projectile = p,
+                            Time = time
+                        };
+                    }
+                }
+
+                // Nested exploders
+                var explodingProjectiles = projs.Where(a => a.Desc.ExplodeCount != 0)
+                    .Select(a => new ExplosionAck()
+                    {
+                        Projectile = a,
+                        Time = a.Time
+                    });
+
+                foreach(var a in explodingProjectiles) {
+                    AckedExplosions.Add(
+                        a.Projectile.Id, a
+                    );
+                }
+            } else
+            {
+            }
         }
 
         public void TryHitSquare(int time, int bulletId)
@@ -498,7 +638,10 @@ namespace RotMG.Game.Entities
 
                 if (tile == null || tile.Type == 255 || TileUpdates[(int)pos.X, (int)pos.Y] != Parent.Tiles[(int)pos.X, (int)pos.Y].UpdateCount ||
                     tile.StaticObject != null && (tile.StaticObject.Desc.EnemyOccupySquare || !ac.Projectile.Desc.PassesCover && tile.StaticObject.Desc.OccupySquare))
+                {
                     AckedProjectiles.Remove(bulletId);
+                    AckedExplosions.Remove(bulletId);
+                }
 #if DEBUG
                 else
                 {
@@ -509,7 +652,7 @@ namespace RotMG.Game.Entities
 #if DEBUG
             else
             {
-                Program.Print(PrintType.Error, "Tried to hit square with undefined projectile");
+                Program.Print(PrintType.Error, $"Tried to hit square with undefined projectile {bulletId}");
             }
 #endif
         }

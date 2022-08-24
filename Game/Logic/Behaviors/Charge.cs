@@ -23,15 +23,18 @@ namespace RotMG.Game.Logic.Behaviors
 
         private readonly float _speed;
         private readonly float _range;
+        private readonly float? _distance;
+
         private Cooldown _coolDown;
         private readonly bool _targetPlayers;
         private readonly Action<Entity, Entity, ChargeState> _callB;
         private readonly Func<Entity, bool> pred;
 
         public Charge(double speed = 4, float range = 10, Cooldown coolDown = new Cooldown(), bool targetPlayers = true,
-            Action<Entity, Entity, ChargeState> callback = null, Func<Entity, bool> pred = null
+            Action<Entity, Entity, ChargeState> callback = null, Func<Entity, bool> pred = null, float? distance=null
         )
         {
+            _distance = distance;
             _speed = (float)speed;
             _range = range;
             _coolDown = coolDown.Normalize(2000);
@@ -75,7 +78,13 @@ namespace RotMG.Game.Logic.Behaviors
                         s.Direction.Normalize();
                         //s.RemainingTime = _coolDown.Next(Random);
                         //if (d / host.GetSpeed(_speed) < s.RemainingTime)
-                        s.RemainingTime = (int)(d / host.GetSpeed(_speed) * 1000);
+                        if (_distance.HasValue)
+                        {
+                            s.RemainingTime = (int)(_distance.Value / host.GetSpeed(_speed) * 1000);
+                        } else
+                        {
+                            s.RemainingTime = (int)(d / host.GetSpeed(_speed) * 1000);
+                        }
                     }
                 }
                 else

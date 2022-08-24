@@ -1069,7 +1069,8 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Tincture of Defense", 1f),
                 new ItemLoot("Wooden Prism", 0.005f, 0.001f),
                 new ItemLoot("Overgrowth Helmet", 0.01f, 0.001f),
-                new ItemLoot("Box of Magic", 0.005f, 0.001f)
+                new ItemLoot("Box of Magic", 0.005f, 0.001f),
+                new ItemLoot("Bark of the Ancient", 0.03f)
             );
             db.Init("Ent",
                 new State("base",

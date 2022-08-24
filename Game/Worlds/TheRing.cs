@@ -9,7 +9,6 @@ namespace RotMG.Game.Worlds
 {
     class TheRing : World
     {
-
         public TheRing(Map map, WorldDesc desc) : base(map, desc)
         {
         }
@@ -20,13 +19,10 @@ namespace RotMG.Game.Worlds
             {
                 case Region.Decoration1:
                     return Region.Decoration2;
-                case Region.Decoration3:
-                    return Region.Decoration4;
                 default:
                     return Region.None;
             }
         }
-
 
         public override void MoveEntity(Entity en, Vector2 to)
         {
@@ -37,7 +33,7 @@ namespace RotMG.Game.Worlds
                 return;
             }
 
-            var player_tile = GetTile((int) pl.Position.X, (int) pl.Position.Y).Region;
+            var player_tile = GetTile((int) to.X, (int) to.Y).Region;
             var to_region = GetRelativeTeleportRegion(player_tile);
             if(to_region != Region.None) {
                 var vp = GetRegion(to_region).ToVector2();

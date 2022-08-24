@@ -837,6 +837,33 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(4, LootType.Ring, .27f)
             );
             db.EveryInit = new IBehavior[] { };
+
+            db.Init("AI Giga Steel Reaper",
+                new Wander(0.4f),
+                new Shoot(0f, 4, index: 3, rotateAngle: 120, fixedAngle: 180, cooldown: 1000),
+                new Shoot(10f, 1, index: 0, cooldown: 3000, cooldownVariance: 1000),
+                new Shoot(10f, 3, index: 1, cooldown: 400, cooldownVariance: 100),
+                new Shoot(10f, 4, shootAngle: 360/4, index: 2, fixedAngle: 45),
+                
+                new Threshold(0.01f,
+                    new ItemLoot("Realm Equipment Crystal", .8f, 0.5f),
+                    new ItemLoot("Potion of Defense", 1f),
+                    new ItemLoot("Potion of Defense", 1f),
+                    new ItemLoot("Sor Reactor", 0.03f),
+                    new TierLoot(4, LootType.Weapon, 0.2f),
+                    new TierLoot(5, LootType.Weapon, 0.1f),
+                    new TierLoot(6, LootType.Weapon, 0.05f),
+                    new TierLoot(4, LootType.Armor, 0.2f),
+                    new TierLoot(5, LootType.Armor, 0.1f),
+                    new TierLoot(6, LootType.Armor, 0.05f),
+                    new TierLoot(2, LootType.Ring, 0.2f),
+                    new TierLoot(3, LootType.Ring, 0.1f),
+                    new TierLoot(4, LootType.Ring, 0.05f),
+                    new TierLoot(2, LootType.Ability, 0.1f),
+                    new TierLoot(3, LootType.Ability, 0.05f)
+                )
+            );
+
         }
     }
 }

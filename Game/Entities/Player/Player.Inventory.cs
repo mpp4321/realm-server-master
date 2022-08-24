@@ -53,14 +53,14 @@ namespace RotMG.Game.Entities
                 if (data.Meta == -1)
                     continue;
 
-                Boosts[0] += (int)ItemDesc.GetStat(data, ItemData.MaxHP, 5);
-                Boosts[1] += (int)ItemDesc.GetStat(data, ItemData.MaxMP, 5);
-                Boosts[2] += (int)ItemDesc.GetStat(data, ItemData.Attack, 1);
-                Boosts[3] += (int)ItemDesc.GetStat(data, ItemData.Defense, 1);
-                Boosts[4] += (int)ItemDesc.GetStat(data, ItemData.Speed, 1);
-                Boosts[5] += (int)ItemDesc.GetStat(data, ItemData.Dexterity, 1);
-                Boosts[6] += (int)ItemDesc.GetStat(data, ItemData.Vitality, 1);
-                Boosts[7] += (int)ItemDesc.GetStat(data, ItemData.Wisdom, 1);
+                Boosts[0] += (int)ItemDesc.GetStat(data, ItemData.MaxHP, 5, item.EnchantmentStrength);
+                Boosts[1] += (int)ItemDesc.GetStat(data, ItemData.MaxMP, 5, item.EnchantmentStrength);
+                Boosts[2] += (int)ItemDesc.GetStat(data, ItemData.Attack, 1,item.EnchantmentStrength);
+                Boosts[3] += (int)ItemDesc.GetStat(data, ItemData.Defense, 1, item.EnchantmentStrength);
+                Boosts[4] += (int)ItemDesc.GetStat(data, ItemData.Speed, 1, item.EnchantmentStrength);
+                Boosts[5] += (int)ItemDesc.GetStat(data, ItemData.Dexterity, 1, item.EnchantmentStrength);
+                Boosts[6] += (int)ItemDesc.GetStat(data, ItemData.Vitality, 1, item.EnchantmentStrength);
+                Boosts[7] += (int)ItemDesc.GetStat(data, ItemData.Wisdom, 1, item.EnchantmentStrength);
             }
 
             var hashForSets = Inventory.Take(4).ToHashSet();
@@ -365,7 +365,16 @@ namespace RotMG.Game.Entities
             }
         }
 
-        public bool HandleItemBag(SlotData slot1, SlotData slot2, ItemDataJson data1, ItemDataJson data2, ItemDesc d1, ItemDesc d2, int item1, int item2, IContainer con1, IContainer con2)
+        public bool HandleItemBag(SlotData slot1,
+            SlotData slot2,
+            ItemDataJson data1,
+            ItemDataJson data2,
+            ItemDesc d1,
+            ItemDesc d2,
+            int item1,
+            int item2,
+            IContainer con1,
+            IContainer con2)
         {
             if ((d2?.StorageMax ?? 0) <= 0 || data2.StoredItems == null)
                 return false;

@@ -135,10 +135,6 @@ namespace RotMG.Game.Logic.Behaviors
 
 			host.StateObject[Id] = m;
 
-#if DEBUG
-			Program.Print(PrintType.Info, $"{arc}, {angleBetween}, {target_}, {m.facing_}");
-#endif
-
 			return true;
 		}
 

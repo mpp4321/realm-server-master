@@ -363,14 +363,15 @@ namespace RotMG.Game.Logic.Database
                               new Follow(0.6f, 10, 3, -1, 0)
                              ),
                           new Shoot(10, 3, 20, 0, cooldown: 350),
+                          new TossObject("Oryx Pet", 10f, cooldown: 2400, throwEffect: true),
                           new TimedTransition("tim 4 singular rekt", 5000)
-                          ),
+                      ),
                       new State("tim 4 singular rekt",
                           new Prioritize(
                                  new Wander(0.2f),
                               new Follow(0.7f, 10, 3, -1, 0)
                               ),
-                          new Shoot(10, 1, index: 0, cooldown: 50),
+                          new Shoot(10, 1, index: 4, cooldown: 200),
                           new Shoot(10, 1, index: 1, cooldown: 1000),
                           new Shoot(10, 1, index: 2, cooldown: 450),
                           new TimedTransition("tim 4 rekkings", 2500)
@@ -392,14 +393,14 @@ namespace RotMG.Game.Logic.Database
                       new ItemLoot("Rusted Helm", 0.0005f, 0.01f)
             );
             db.Init("Oryx Insect Commander",
-                      new State("lol jordan is a nub",
-                          new Prioritize(
-                              new Wander(0.2f)
-                              ),
-                          new Reproduce("Oryx Insect Minion", 10, 20, 1),
-                          new Shoot(10, 1, index: 0, cooldown: 900)
-                         ),
-                      new ItemLoot("Rusted Helm", 0.005f, 0.01f)
+                  new State("lol jordan is a nub",
+                      new Prioritize(
+                          new Wander(0.2f)
+                          ),
+                      new Reproduce("Oryx Insect Minion", 10, 20, 300),
+                      new Shoot(10, 1, index: 0, cooldown: 900)
+                  ),
+                  new ItemLoot("Rusted Helm", 0.005f, 0.01f)
             );
             db.Init("Oryx Insect Minion",
                       new State("its SWARMING time",
@@ -410,7 +411,7 @@ namespace RotMG.Game.Logic.Database
                               ),
                           new Shoot(10, 5, index: 0, cooldown: 1500),
                           new Shoot(10, 1, index: 0, cooldown: 230)
-                          )
+                      )
             );
             db.Init("Oryx Suit of Armor",
                       new State("idle",
@@ -443,8 +444,9 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new State("penispiddle",
                           new Prioritize(
+                              new StayBack(1.0f, 0.5f, "Oryx Eye Warrior"),
                               new Follow(0.6f, 10, 0, -1, 0)
-                              ),
+                          ),
                           new Shoot(10, 5, index: 0, cooldown: 1000),
                           new Shoot(10, 1, index: 1, cooldown: 500)
                          ),
@@ -829,24 +831,21 @@ namespace RotMG.Game.Logic.Database
                         ),
                      new TossObject("Monstrosity Scarab", cooldown: 10000, range: 1, angle: 0, coolDownOffset: 1000)
                      )
-                     ));
+                 ));
             db.Init("Monstrosity Scarab",
-                new State("base",
-                    new State("Attack",
-                    new State("Charge",
-                        new Prioritize(
-                            new Charge(range: 25, coolDown: 1000),
-                            new Wander(.3f)
-                            ),
-                        new PlayerWithinTransition(1, "Boom")
+                new HealEntity(10f, "O2 Minions", 40, cooldown: 200),
+                new State("Charge",
+                    new Prioritize(
+                        new Charge(range: 25, coolDown: 1000),
+                        new Wander(.3f)
                         ),
-                    new State("Boom",
-                        new Shoot(1, count: 16, shootAngle: 360 / 16, fixedAngle: 0),
-                        new Decay(0)
-                       )
-                       )
-                       )
-                       );
+                    new PlayerWithinTransition(1, "Boom")
+                ),
+                new State("Boom",
+                    new Shoot(1, count: 16, shootAngle: 360 / 16, fixedAngle: 0),
+                    new Decay(0)
+               )
+            );
             db.Init("Vintner of Oryx",
                 new State("base",
                     new State("Attack",
@@ -859,7 +858,7 @@ namespace RotMG.Game.Logic.Database
                         ),
                         new Shoot(10, count: 3, 30f, cooldown: 1000)
                         )
-                        ));
+                    ));
             db.Init("Aberrant of Oryx",
                new State("base",
                    new Prioritize(
@@ -881,37 +880,37 @@ namespace RotMG.Game.Logic.Database
                       ),
                    new State("Toss1",
                        new TossObject("Aberrant Blaster", cooldown: 40000, range: 5, angle: 0),
-                       new TimedTransition("Randomize", 4900)
+                       new TimedTransition("Randomize", 2000)
                        ),
                    new State("Toss2",
                        new TossObject("Aberrant Blaster", cooldown: 40000, range: 5, angle: 45),
-                       new TimedTransition("Randomize", 4900)
+                       new TimedTransition("Randomize", 2000)
                        ),
                    new State("Toss3",
                        new TossObject("Aberrant Blaster", cooldown: 40000, range: 5, angle: 90),
-                       new TimedTransition("Randomize", 4900)
+                       new TimedTransition("Randomize", 2000)
                        ),
                    new State("Toss4",
                        new TossObject("Aberrant Blaster", cooldown: 40000, range: 5, angle: 135),
-                       new TimedTransition("Randomize", 4900)
+                       new TimedTransition("Randomize", 2000)
                        ),
                    new State("Toss5",
                        new TossObject("Aberrant Blaster", cooldown: 40000, range: 5, angle: 180),
-                       new TimedTransition("Randomize", 4900)
+                       new TimedTransition("Randomize", 2000)
                        ),
                    new State("Toss6",
                        new TossObject("Aberrant Blaster", cooldown: 40000, range: 5, angle: 225),
-                       new TimedTransition("Randomize", 4900)
+                       new TimedTransition("Randomize", 2000)
                        ),
                    new State("Toss7",
                        new TossObject("Aberrant Blaster", cooldown: 40000, range: 5, angle: 270),
-                       new TimedTransition("Randomize", 4900)
+                       new TimedTransition("Randomize", 2000)
                        ),
                    new State("Toss8",
                        new TossObject("Aberrant Blaster", cooldown: 40000, range: 5, angle: 315),
-                       new TimedTransition("Randomize", 4900)
+                       new TimedTransition("Randomize", 2000)
                        ))
-                       ));
+                   ));
             db.Init("Aberrant Blaster",
                 new State("base",
                     new State("Wait",
@@ -935,24 +934,21 @@ namespace RotMG.Game.Logic.Database
             db.Init("Abomination of Oryx",
                 new State("base",
                     new State("Shoot",
-                        new Shoot(1, 3, shootAngle: 5, index: 0),
-                        new Shoot(1, 5, shootAngle: 5, index: 1),
-                        new Shoot(1, 7, shootAngle: 5, index: 2),
-                        new Shoot(1, 5, shootAngle: 5, index: 3),
-                        new Shoot(1, 3, shootAngle: 5, index: 4),
+                        new Shoot(1, 3, shootAngle: 5, index: 0, cooldown: 2000),
+                        new Shoot(1, 5, shootAngle: 5, index: 1, cooldown: 2000),
+                        new Shoot(1, 7, shootAngle: 5, index: 2, cooldown: 2000),
+                        new Shoot(1, 5, shootAngle: 5, index: 3, cooldown: 2000),
+                        new Shoot(1, 3, shootAngle: 5, index: 4, cooldown: 2000),
                         new TimedTransition("Wait", 1000)
-                        ),
+                    ),
                     new State("Wait",
                         new PlayerWithinTransition(2, "Shoot")),
-                    new Prioritize(
-                        new Charge(3, 10, 3000),
-                        new Wander(.5f))
-                        )
-                        ); ;
-
-
-
-
+                        new Prioritize(
+                            new Charge(3, 10, 3000),
+                            new Wander(.5f)
+                    )
+                )
+            );
         }
     }
 }

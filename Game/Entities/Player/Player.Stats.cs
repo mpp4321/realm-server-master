@@ -204,7 +204,7 @@ namespace RotMG.Game.Entities
             PrivateSVs[type] = value;
         }
 
-        public void AddIdentifiedEffectBoost(BoostTimer t)
+        public void AddIdentifiedEffectBoost(BoostTimer t, bool agg = false, Func<int, int, int> aggf=null)
         {
             //Find matching boost
             for(int i = 0; i < EffectBoosts.Count; i++)
@@ -212,6 +212,10 @@ namespace RotMG.Game.Entities
                 var boost = EffectBoosts[i];
                 if(boost.id == t.id)
                 {
+                    if(agg)
+                    {
+                        EffectBoosts[i].amount = aggf(EffectBoosts[i].amount, t.amount);
+                    }
                     EffectBoosts[i].timer = t.timer;
                     return;
                 }

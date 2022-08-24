@@ -208,7 +208,7 @@
          <MinDamage>70</MinDamage>
          <MaxDamage>70</MaxDamage>
          <LifetimeMS>8000</LifetimeMS>
-         <ConditionEffect duration="7">Cursed</ConditionEffect>
+         <ConditionEffect duration="7">CursedLower</ConditionEffect>
          <Size>100</Size>
       </Projectile>
       <Projectile id="1">
@@ -286,7 +286,7 @@
          <Speed>65</Speed>
          <Size>100</Size>
          <LifetimeMS>2000</LifetimeMS>
-         <ConditionEffect duration="2.75">Cursed</ConditionEffect>
+         <ConditionEffect duration="2.75">CursedLower</ConditionEffect>
       </Projectile>
    </Object>
    <Object type="0x0e5a" id="Snow Bat">

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using RotMG.Game.Worlds;
+using System.Collections.Concurrent;
 
 namespace RotMG.Game
 {
@@ -21,13 +22,17 @@ namespace RotMG.Game
 
         public static int NextWorldId;
         public static int NextClientId;
-        public static Dictionary<int, int> AccountIdToClientId;
+
+        // AppServer / Client needs access? might be causing account login issues...
+        public static ConcurrentDictionary<int, int> AccountIdToClientId;
         public static Dictionary<int, Client> Clients;
         public static Dictionary<int, World> Worlds;
         public static Dictionary<int, World> Realms;
         public static List<Tuple<int, Action>> Timers;
+
         public static BehaviorDb Behaviors;
         public static Stopwatch TickWatch;
+
         public static int TotalTicks;
         public static int TotalTime;
         public static int TotalTimeUnsynced;
@@ -40,7 +45,7 @@ namespace RotMG.Game
             Player.InitSightRays();
 
             TickWatch = Stopwatch.StartNew();
-            AccountIdToClientId = new Dictionary<int, int>();
+            AccountIdToClientId = new ConcurrentDictionary<int, int>();
             Clients = new Dictionary<int, Client>();
             Worlds = new Dictionary<int, World>();
             Realms = new Dictionary<int, World>();
@@ -145,7 +150,16 @@ namespace RotMG.Game
         public static Client GetClient(int accountId)
         {
             if (AccountIdToClientId.TryGetValue(accountId, out var clientId))
-                return Clients[clientId];
+            {
+                if(Clients.TryGetValue(clientId, out var client))
+                {
+                    return client;
+                } else
+                {
+                    AccountIdToClientId.Remove(accountId, out var value);
+                    return null;
+                }
+            }
             return null;
         }
 
