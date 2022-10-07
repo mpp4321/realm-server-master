@@ -22,7 +22,7 @@ namespace RotMG.Common
     
     public enum ItemData : ulong
     {
-        //Tiers
+        //Tiers (deprecated)
         T0 = 1 << 0,
         T1 = 1 << 1,
         T2 = 1 << 2,
@@ -523,6 +523,8 @@ namespace RotMG.Common
 
         public List<int> StoredItems = null;
         public List<int> AllowedItems = null;
+
+        public int ItemLevel = -1;
         
         public int GetStatBonus(ItemData k)
         {
@@ -912,7 +914,7 @@ namespace RotMG.Common
 
         public static float GetStat(ItemDataJson data, ItemData i, float multiplier, float enchantmentStrength)
         {
-            var rank = GetRank(data.Meta);
+            var rank = GetRank(data);
             if (rank == -1)
                 return 0;
             var value = 0;
@@ -920,32 +922,14 @@ namespace RotMG.Common
             {
                 value += rank;
             }
-            var enchantmentPart = (i == ItemData.Damage || i == ItemData.RateOfFire) ? 1.0f : enchantmentStrength / 8f;
-            var calcStep = MathF.Ceiling((value * enchantmentPart) + (multiplier * data.GetStatBonus(i)));
+            //var enchantmentPart = (i == ItemData.Damage || i == ItemData.RateOfFire) ? 1.0f : enchantmentStrength / 8f;
+            var calcStep = value + (multiplier * data.GetStatBonus(i));
             return multiplier * calcStep;
         }
 
-        public static int GetRank(int data)
+        public static int GetRank(ItemDataJson j)
         {
-            if (data == -1)
-                return -1;
-            if (HasStat(data, ItemData.T0))
-                return 1;
-            if (HasStat(data, ItemData.T1))
-                return 2;
-            if (HasStat(data, ItemData.T2))
-                return 3;
-            if (HasStat(data, ItemData.T3))
-                return 4;
-            if (HasStat(data, ItemData.T4))
-                return 5;
-            if (HasStat(data, ItemData.T5))
-                return 6;
-            if (HasStat(data, ItemData.T6))
-                return 7;
-            if (HasStat(data, ItemData.T7))
-                return 8;
-            return -1;
+            return j.ItemLevel;
         }
 
         public static bool HasStat(int data, ItemData i)
@@ -978,14 +962,14 @@ namespace RotMG.Common
           throw new Exception("Unhandled stat value");
         }
 
-        public ItemDataJson FinalizeItemData(ItemDataModType? smod, ItemData data)
+        public ItemDataJson FinalizeItemData(ItemDataModType? smod, int ItemLevel, ItemData data)
         {
-            ItemDataJson j = new ItemDataJson() { Meta = (int)data };
+            ItemDataJson j = new ItemDataJson() { Meta = (int)data, ItemLevel = ItemLevel };
             if (smod.HasValue)
             {
                 var d = ItemDataModifiers.Registry[smod.Value].GenerateStats(ref j);
 
-                if(GetRank((int) data) != -1) {
+                if(ItemLevel != -1) {
                   foreach(var pair in this.StatBoosts) {
                     var key = IntToItemDataKey(pair.Key);
                     var maxExtraBonus = (int)(Math.Ceiling(Math.Log2(Math.Abs(pair.Value))));
@@ -1007,25 +991,26 @@ namespace RotMG.Common
             ItemData data = 0;
             ItemDataModType modTypeToUse = r.OverrideMod.HasValue ? r.OverrideMod.Value : smod.Value;
             if (!ModifiableTypes.Contains(SlotType))
-                return Tuple.Create(false, FinalizeItemData(modTypeToUse, data));
+                return Tuple.Create(false, FinalizeItemData(modTypeToUse, -1, data));
 
             if (!MathUtils.Chance(.5f) && !r.AlwaysRare)
-                return Tuple.Create(false, FinalizeItemData(modTypeToUse, data));
+                return Tuple.Create(false, FinalizeItemData(modTypeToUse, -1, data));
 
+            var maxRank = this.EnchantmentStrength;
             var rank = -1;
-            var chance = .5f * r.RarityMod;
-            for (var i = 0; i < 8 - r.RarityShift; i++)
+            float chance;
+            for (var i = 0; i < maxRank - r.RarityShift; i++)
             {
-                if (MathUtils.Chance(chance) && rank < 8)
+                chance = 0.75f - MathF.Max(0f, MathF.Log(maxRank * i / (8f + BonusRolls + r.RarityMod)) / 4f);
+                if (MathUtils.Chance(chance) && rank < maxRank)
                     rank++;
                 else break;
             }
             if (rank == -1 && !r.AlwaysRare) 
-                return Tuple.Create(false, FinalizeItemData(modTypeToUse, data));
-            //Considering the -1 rank
-            rank = Math.Min(7, rank + r.RarityShift + (r.AlwaysRare ? 1 : 0));
+                return Tuple.Create(false, FinalizeItemData(modTypeToUse, rank, data));
 
-            data |= (ItemData)((ulong)1 << rank);
+            //Considering the -1 rank
+            rank = Math.Min(maxRank, rank + r.RarityShift + (r.AlwaysRare ? 1 : 0));
 
             var modifiers = GlobalModifiers;
             if (WeaponTypes.Contains(SlotType))
@@ -1056,7 +1041,7 @@ namespace RotMG.Common
                 data |= k;
             }
 
-            return Tuple.Create(true, FinalizeItemData(modTypeToUse, data));
+            return Tuple.Create(true, FinalizeItemData(modTypeToUse, rank, data));
         }
 
         public readonly string Id;
@@ -1105,8 +1090,8 @@ namespace RotMG.Common
         public readonly bool IsEgg;
         public readonly int EggType;
 
-        public readonly int BonusRolls = 0;
-        public readonly float EnchantmentStrength = 1f;
+        public readonly float BonusRolls = 0;
+        public readonly int EnchantmentStrength = 1;
 
         public ProjectileDesc NextProjectile(int id)
         {
@@ -1173,19 +1158,15 @@ namespace RotMG.Common
             IsEgg = e.ParseBool("EggItem");
             EggType = e.ParseInt("EggType", 0);
             
-            EnchantmentStrength = e.ParseFloat("EnchantmentStrength", -1f);
-            if(EnchantmentStrength < 0f)
-            {
-                if(Tier > 0)
-                {
-                    EnchantmentStrength = MathF.Ceiling(Tier / 2f);
-                } else
-                {
-                    EnchantmentStrength = 6f;
-                }
-            } 
+            EnchantmentStrength = e.ParseInt("EnchantmentStrength", 8);
 
-            BonusRolls = e.ParseInt("BonusRolls", 0);
+            if(BagType > 4)
+            {
+                var diff = BagType + 4;
+                if (EnchantmentStrength < diff) EnchantmentStrength = diff;
+            }
+
+            BonusRolls = e.ParseFloat("BonusRolls", 1f);
         }
     }
 

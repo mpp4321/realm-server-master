@@ -942,7 +942,7 @@ namespace RotMG.Game.Entities
                     float scale = eff.StatScale;
                     for(int i = 0; i < Inventory.Length; i++)
                     {
-                        if(Inventory[i] != -1 && ItemDesc.GetRank(ItemDatas[i].Meta) == -1 && MathUtils.Chance(0.5f))
+                        if(Inventory[i] != -1 && ItemDesc.GetRank(ItemDatas[i]) == -1 && MathUtils.Chance(0.5f))
                         {
                             ItemDatas[i] = Resources.Type2Item[(ushort)Inventory[i]]
                                 .Roll(r: new Logic.LootDef.RarityModifiedData(scale, power, true), typeOfMod).Item2;

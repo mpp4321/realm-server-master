@@ -10,6 +10,7 @@ using RotMG.Game.Worlds;
 using RotMG.Utils;
 using RotMG.Game.Logic.Mechanics;
 using RotMG.Game.Logic.ItemEffs;
+using static RotMG.Game.Logic.LootDef;
 
 namespace RotMG.Game.Entities
 {
@@ -298,9 +299,8 @@ namespace RotMG.Game.Entities
                             {
                                 var i = Inventory[slot];
                                 var itemDataMod = Enum.Parse<ItemDataModType>(Client.Character.ItemDataModifier ?? "Classical");
-                                var roll = Resources.Type2Item[(ushort)i].Roll(smod: itemDataMod);
-                                while (((ItemData)roll.Item2.Meta & ItemData.T7) == 0)
-                                    roll = Resources.Type2Item[(ushort)i].Roll(smod: itemDataMod);
+                                var resItem = Resources.Type2Item[(ushort)i];
+                                var roll = resItem.Roll(new RarityModifiedData(2.0f, resItem.EnchantmentStrength, true), smod: itemDataMod);
                                 ItemDatas[slot] = !roll.Item1 ? new ItemDataJson() { Meta = -1 } : roll.Item2;
                                 UpdateInventorySlot(slot);
                                 RecalculateEquipBonuses();

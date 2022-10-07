@@ -334,7 +334,7 @@ namespace RotMG.Game.Logic
                         rd.AlwaysRare = true;
 
                         var roll2 = Resources.Type2Item[loot[k].Item].Roll(r: rd, smod: vtype);
-                        if(ItemDesc.GetRank(roll2.Item2.Meta) > ItemDesc.GetRank(roll.Item2.Meta)) {
+                        if(ItemDesc.GetRank(roll2.Item2) > ItemDesc.GetRank(roll.Item2)) {
                             roll = roll2;
                         }
                     }
