@@ -147,9 +147,9 @@ namespace RotMG.Game.Logic.Database
                     cooldownOffset: 3000),
                 new Shoot(8.4f, 1, fixedAngle: 315, index: 0, cooldown: 2000,
                     cooldownOffset: 3000),
-                //new Threshold(0.02f,
-                //    new ItemLoot("Leaf Bow", 0.05f)
-                //),
+                new Threshold(0.02f,
+                    new ItemLoot("Leaf Bow", 0.05f)
+                ),
                 new Threshold(0.03f,
                     new TierLoot(10, TierLoot.LootType.Weapon, 0.1f),
                     new TierLoot(4, TierLoot.LootType.Ability, 0.1f),

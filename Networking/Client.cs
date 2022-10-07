@@ -56,16 +56,22 @@ namespace RotMG.Networking
                     Manager.AccountIdToClientId.Remove(Account.Id, out var value);
                 }
 
-                if (Player != null && Player.Parent != null)
+                if(Player != null)
                 {
                     Player.TradeDone(Player.TradeResult.Canceled);
                     Player.SaveToCharacter();
-                    Player.Parent.RemoveEntity(Player);
+
                     if (!Character.Dead) //Already saved during death.
                     {
                         Database.SaveCharacter(Character);
                     }
+
+                    if (Player.Parent != null)
+                    {
+                        Player.Parent.RemoveEntity(Player);
+                    }
                 }
+
             }
             catch (Exception ex)
             {
@@ -79,19 +85,10 @@ namespace RotMG.Networking
                     _socket.Shutdown(SocketShutdown.Both);
                     _socket.Close();
                 }
-    #if DEBUG
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     Program.Print(PrintType.Error, ex);
                 }
-    #endif
-    #if RELEASE
-                catch 
-                {
-
-                }
-    #endif
-
             }
 
             //Shutdown socket

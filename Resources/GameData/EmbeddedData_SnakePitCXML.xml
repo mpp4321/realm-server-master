@@ -81,13 +81,13 @@
 	<Object type="0x0917" id="Stheno the Snake Queen">
 		<Class>Character</Class>
 		<AnimatedTexture>
-      <File>chars16x16dEncounters2</File>
-      <Index>105</Index>
-    </AnimatedTexture>
+		  <File>chars16x16dEncounters2</File>
+	    <Index>105</Index>
+		</AnimatedTexture>
 		<HitSound>monster/snake_queen_hit</HitSound>
 		<DeathSound>monster/snake_queen_death</DeathSound>
 		<Size>100</Size>
-		<MaxHitPoints>45000</MaxHitPoints>
+		<MaxHitPoints>18000</MaxHitPoints>
 		<Defense>19</Defense>
 		<Enemy/>
 		<God/>

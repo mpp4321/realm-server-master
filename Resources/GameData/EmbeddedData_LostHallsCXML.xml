@@ -10624,5 +10624,14 @@
         </Texture>
         <AngleCorrection>1</AngleCorrection>
     </Object>
-
+   <Object type="0x7000" id="Castle of Fire Portal">
+      <Class>Portal</Class>
+      <IntergamePortal />
+      <DungeonName>Castle of Fire</DungeonName>
+		<Texture>
+		<File>CustomItems</File>
+		<Index>0xb6</Index>
+     	</Texture>
+      <DisplayId>Castle of Fire Portal</DisplayId>
+   </Object>
 </Objects>

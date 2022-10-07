@@ -14,7 +14,6 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
 
         public virtual void OnEnemyHit(Entity hit, Projectile by, ref int damageDone)
         {
-
             if (MathUtils.Chance(0.10f))
             {
                 var @nova = GameServer.ShowEffect(Common.ShowEffectIndex.Nova, hit.Id, 0xFFFFFF00, new Common.Vector2(1.5f, 0f));
@@ -27,7 +26,6 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
                     enemy.Damage(pl, speedTotal * 10, new Common.ConditionEffectDesc[] { }, false, true);
                 }
             }
-
         }
 
     }

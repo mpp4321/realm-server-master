@@ -538,11 +538,8 @@ namespace RotMG.Common
 
         public static AccountModel Verify(string username, string password, string ip)
         {
-            if (!CanAttemptLogin(ip))
-                return null;
-
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
-                return null;
+                return GuestAccount();
 
             var id = IdFromUsername(username);
             if (id == -1) return null;
@@ -550,8 +547,8 @@ namespace RotMG.Common
             var hash = GetKey($"login.hash.{id}");
             var match = (password + GetKey($"login.salt.{id}")).ToSHA1();
 
-            var acc = hash.Equals(match) ? new AccountModel(id) : null;
-            if (acc == null) AddInvalidLoginAttempt(ip);
+            var acc = hash.Equals(match) ? new AccountModel(id) : new AccountModel();
+
             return acc;
         }
 
@@ -1106,6 +1103,7 @@ namespace RotMG.Common
                 Inventory = new int[8], 
                 ItemDatas = new string[8]
             };
+
             for (var i = 0; i < 8; i++)
             {
                 vault.Inventory[i] = -1;
@@ -1143,6 +1141,14 @@ namespace RotMG.Common
             if (acc == null)
                 throw new Exception("Account is null.");
 #endif
+
+            // Auto-fix broken chars
+            acc.AliveChars = acc.AliveChars.Where((x) =>
+            {
+                var model =new CharacterModel(acc.Id, x);
+                return model.Data != null;
+            }).ToList();
+
             if (!HasEnoughCharacterSlots(acc))
                 return null;
 

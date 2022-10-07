@@ -573,6 +573,8 @@ namespace RotMG.Networking
                     return;
                 }
 
+                Manager.GetClient(acc.Id)?.Disconnect();
+
                 if (acc.Banned)
                 {
                     client.Send(Failure(0, "Banned."));
@@ -585,8 +587,6 @@ namespace RotMG.Networking
                     client.Send(Failure(0, "Not ranked."));
                     Manager.AddTimedAction(1000, client.Disconnect);
                 }
-
-                Manager.GetClient(acc.Id)?.Disconnect();
 
                 if (Database.IsAccountInUse(acc))
                 {
@@ -602,7 +602,6 @@ namespace RotMG.Networking
                 client.Account.Save();
                 client.TargetWorldId = gameId;
 
-                Manager.AccountIdToClientId[client.Account.Id] = client.Id;
                 var world = Manager.GetWorld(gameId, client);
 
                 if (client.TargetWorldId == Manager.EditorId)
@@ -619,6 +618,8 @@ namespace RotMG.Networking
                     Manager.AddTimedAction(1000, client.Disconnect);
                     return;
                 }
+
+                Manager.AccountIdToClientId[client.Account.Id] = client.Id;
 
                 var seed = (uint)MathUtils.NextInt(1, int.MaxValue - 1);
                 client.Random = new wRandom(seed);

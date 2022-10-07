@@ -4,8 +4,10 @@ using RotMG.Game.Logic.Behaviors;
 using RotMG.Game.Logic.Conditionals;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
+using RotMG.Game.Worlds;
 using RotMG.Networking;
 using RotMG.Utils;
+using System;
 using System.Linq;
 using static RotMG.Game.Logic.LootDef;
 using static RotMG.Game.Logic.Loots.TierLoot;
@@ -37,6 +39,25 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Realm Equipment Crystal", 0.01f),
                 new ItemLoot("(Green) UT Egg", 0.01f, 0.01f),
                 new ItemLoot("(Blue) RT Egg", 0.003f, 0.01f),
+            };
+
+            var specialSpawns = new ObjectDesc[]
+            {
+                Resources.Id2Object["Crystal Prisoner"],
+                Resources.Id2Object["Septavius the Ghost God"],
+                Resources.Id2Object["Stheno the Snake Queen"],
+            };
+
+            Action<Entity> randomSpawnEventGod = (e) =>
+            {
+                World parent = e.Parent;
+                if (parent is Realm && MathUtils.Chance(0.05f))
+                {
+                    Realm realm = parent as Realm;
+                    var Random = MathUtils.GetStaticRandom();
+                    var randomChoice = specialSpawns[Random.Next(0, specialSpawns.Length)];
+                    realm.Spawn(randomChoice, Terrain.Mountains, MathUtils.NextInt(1, 2));
+                }
             };
 
             db.Init("Arena Horseman Anchor",
@@ -85,6 +106,7 @@ namespace RotMG.Game.Logic.Database
                     LootTemplates.MountainDrops()
                     )
             );
+
            db.Init("Lucky Ent God",
                 new State("base",
                     new DropPortalOnDeath("Woodland Labyrinth", 100),
@@ -141,6 +163,7 @@ namespace RotMG.Game.Logic.Database
                         new Suicide()
                         )
                     ),
+                new OnDeath(randomSpawnEventGod),
                 new Threshold(0.01f,
                     LootTemplates.MountainDrops()
                     ),
@@ -165,6 +188,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Antique White Clothing Dye", 0.01f),
                     new ItemLoot("Antique White Accessory Dye", 0.01f)
                     ),
+                new OnDeath(randomSpawnEventGod),
                 new Threshold(.01f,
                     LootTemplates.MountainDrops()
                     )
@@ -180,6 +204,7 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new Shoot(10, count: 8, shootAngle: (360/8), predictive: 1, cooldown: 500)
                     ),
+                new OnDeath(randomSpawnEventGod),
                 new Threshold(0.01f,
                     new ItemLoot("Potion of Wisdom", 0.25f),
                     new ItemLoot("Spectral Gown", 0.02f, r: new RarityModifiedData(1.2f))
@@ -201,7 +226,8 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(10, count: 5, shootAngle: 10, predictive: 1, cooldown: 2000),
                     new TossObject("Snake", throwEffect: true),
                     new Grenade(damage: 30, effect: ConditionEffectIndex.Bleeding, effectDuration: 200, cooldown: 600)
-                    ),
+                ),
+                new OnDeath(randomSpawnEventGod),
                 new Threshold(0.01f,
                     new ItemLoot("Potion of Speed", 0.05f),
                     new ItemLoot("Garment of Medusa", 0.02f, r: new RarityModifiedData(1.2f))
@@ -224,6 +250,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(10, index: 1, predictive: 1, cooldown: 1000),
                     new Reproduce("Sprite Child", 5, 5, 5000)
                     ),
+                new OnDeath(randomSpawnEventGod),
                 new Threshold(0.01f,
                     LootTemplates.MountainDrops()
                     ),
@@ -242,6 +269,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(12, count: 5, shootAngle: 10, predictive: 1, cooldown: 1250),
                     new Shoot(12, count: 2, shootAngle: 10, predictive: 1, cooldown: 2500, index: 1)
                     ),
+                new OnDeath(randomSpawnEventGod),
                 new Threshold(0.01f,
                     LootTemplates.MountainDrops()
                     ),
@@ -259,6 +287,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(12, index: 0, count: 5, shootAngle: 72, predictive: 0.5f, cooldown: 750),
                     new Shoot(10, index: 1, cooldown: 300)
                     ),
+                new OnDeath(randomSpawnEventGod),
                 new Threshold(0.01f,
                     LootTemplates.MountainDrops()
                     ),
@@ -278,6 +307,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(12, count: 8, shootAngle: 45, cooldown: 1000),
                     new DropPortalOnDeath("Mad Lab Portal", .5f)
                     ),
+                new OnDeath(randomSpawnEventGod),
                 new Threshold(0.01f,
                     LootTemplates.MountainDrops()
                     ),
@@ -294,6 +324,7 @@ namespace RotMG.Game.Logic.Database
                         new Follow(1, range: 7),
                         new Wander(0.4f)
                         ),
+                new OnDeath(randomSpawnEventGod),
                     new Shoot(12, index: 0, count: 5, shootAngle: 10, predictive: 1, cooldown: 1000),
                     new Shoot(10, index: 1, predictive: 1, cooldown: 650)
                     ),
@@ -321,6 +352,7 @@ namespace RotMG.Game.Logic.Database
                     }),
                     new Shoot(10, index: 1, predictive: 1, cooldown: 650)
                 ),
+                new OnDeath(randomSpawnEventGod),
                 new Threshold(0.01f,
                     LootTemplates.MountainDrops()
                 ),
@@ -503,7 +535,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Red Demon",
                 new State("base",
                     // Drop shaitans eventually
-                    new DropPortalOnDeath("Abyss of Demons Portal", 1f),
+                    new DropPortalOnDeath("Castle of Fire Portal", 1f),
                     new Prioritize(
                         new Follow(1, range: 7),
                         new StayCloseToSpawn(1, 20),
@@ -512,6 +544,7 @@ namespace RotMG.Game.Logic.Database
                         new Shoot(10, count: 3, shootAngle: 20, predictive: 1, cooldown: 100),
                         new Shoot(10, count: 3, shootAngle: 20, predictive: 1, index: 1, cooldown: 5000)
                     ),
+                new OnDeath(randomSpawnEventGod),
                 new Threshold(0.01f,
                     new ItemLoot("Potion of Vitality", 1.0f),
                     new ItemLoot("Potion of Defense", 1.0f),
@@ -555,14 +588,14 @@ namespace RotMG.Game.Logic.Database
                     new State("a",
                         new Prioritize(
                             new Orbit(2f, 2f, 10f, "Red Demon"),
-                            new Wander(1.8f)
+                            new Wander(0.9f)
                         ),
                         new TimedTransition("b", 5000)
                     ),
                     new State("b",
                         new Flash(0xFF333333, 1.0, 1),
                         new Taunt(cooldown: 0, "All this running around has got me tired..."),
-                        new TimedTransition("a", 2000)
+                        new TimedTransition("a", 5000)
                     ),
                     new TossObject("White Demon", 10f, cooldown: 15000),
                     new Shoot(20f, 3, index: 1, cooldown: 1000, rotateAngle: 90),

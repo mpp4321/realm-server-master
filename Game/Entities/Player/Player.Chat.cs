@@ -39,7 +39,7 @@ namespace RotMG.Game.Entities
             "announce", "announcement", "legendary", "roll", "disconnect", "dcAll", "dc", "songs", "changesong",
             "terminate", "stop", "gimme", "give", "gift", "closerealm", "rank", "create", "spawn", "killall",
             "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute", "setcomp", "quake",
-            "unlockskin", "summonhere", "makedonator", "lbadd", "lb", "l20", "visit", "wlb", "doneegg", "makepublicbag"
+            "unlockskin", "summonhere", "makedonator", "lbadd", "lb", "l20", "visit", "wlb", "doneegg", "makepublicbag", "instances", "joininstance"
         };
 
 
@@ -684,7 +684,7 @@ namespace RotMG.Game.Entities
                     case "/online":
                     case "/who":
                         SendInfo($"" +
-                            $"<{Manager.Clients.Values.Count(k => k.Player != null)} Player(s)> " +
+                            $"<{Manager.Clients.Values.Count()} Player(s)> " +
                             $"<{string.Join(", ", Manager.Clients.Values.Where(k => k.Player != null).Select(k => k.Player.Name))}>");
                         break;
                     case "/server":
@@ -996,6 +996,24 @@ namespace RotMG.Game.Entities
                             SendInfo("Player not found");
                         }
                         break;
+                    case "/instances":
+                        if (Client.Account.Ranked)
+                        {
+                            var worlds = String.Join(", ", Manager.Worlds.Select(a => $"{a.Key}: {a.Value.Name}").ToArray());
+                            var realms = String.Join(", ", Manager.Realms.Select(a => $"{a.Key}: {a.Value.Name}").ToArray());
+                            SendInfo($"Worlds: {worlds}");
+                            SendInfo($"Realms: {realms}");
+                        }
+                        break;
+                    case "/joininstance":
+                        if (Client.Account.Ranked)
+                        {
+                            var instanceId = int.Parse(j[0]);
+
+                            Client.Send(GameServer.Reconnect(instanceId));
+                            Manager.AddTimedAction(2000, Client.Disconnect);
+                        }
+                        break;
                     case "/pcreate":
                         CreateParty();
                         break;
@@ -1186,8 +1204,11 @@ namespace RotMG.Game.Entities
             var packet = GameServer.Text(name, Id, NumStars, 5, "", validText);
 
             foreach (var player in Parent.Players.Values)
+            {
+                if (player == null || player.Client == null) continue;
                 if (!player.Client.Account.IgnoredIds.Contains(AccountId))
                     player.Client.Send(packet);
+            }
         }
 
     }

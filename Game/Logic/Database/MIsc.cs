@@ -69,7 +69,7 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("whirlpool", 1700)
                     ),
                 new Threshold(0.01f,
-                    new ItemLoot("Forest Giant Slayer", 0.01f),
+                    new ItemLoot("Forest Giant Slayer", 0.08f),
                     new TierLoot(9, TierLoot.LootType.Weapon, 0.35f),
                     new TierLoot(8, TierLoot.LootType.Armor, 0.35f),
                     new TierLoot(3, TierLoot.LootType.Ability, 0.35f)

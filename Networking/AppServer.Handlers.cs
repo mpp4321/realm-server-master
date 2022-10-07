@@ -1,5 +1,6 @@
 ﻿using RotMG.Common;
 using RotMG.Game;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net;
 using System.Xml.Linq;
@@ -19,21 +20,24 @@ namespace RotMG.Networking
             _listenEvent.Reset();
             Program.PushWork(() =>
             {
-                var acc = Database.Verify(username, password, GetIPFromContext(context)) ?? Database.GuestAccount();
+                var acc = Database.Verify(username, password, GetIPFromContext(context));
                 if (!(accountInUse = Database.IsAccountInUse(acc)))
                 {
-                    data.Add(new XAttribute("nextCharId", acc.NextCharId));
-                    data.Add(new XAttribute("maxNumChars", acc.MaxNumChars));
-                    data.Add(acc.Export());
-                    data.Add(Database.GetNews(acc));
-                    data.Add(new XElement("OwnedSkins", string.Join(",", acc.OwnedSkins)));
-                    foreach (var charId in acc.AliveChars)
+                    data.Add(new XAttribute("nextCharId", acc?.NextCharId ?? 0));
+                    data.Add(new XAttribute("maxNumChars", acc?.MaxNumChars ?? 0));
+                    data.Add(acc?.Export() ?? new XElement("Account"));
+                    data.Add(new XElement("OwnedSkins", string.Join(",", acc?.OwnedSkins ?? new List<int>())));
+                    if(acc != null)
                     {
-                        var character = Database.LoadCharacter(acc, charId);
-                        if (character == null) continue;
-                        var export = character.Export();
-                        export.Add(new XAttribute("id", charId));
-                        data.Add(export);
+                        data.Add(Database.GetNews(acc));
+                        foreach (var charId in acc?.AliveChars)
+                        {
+                            var character = Database.LoadCharacter(acc, charId);
+                            if (character == null || character.Data == null) continue;
+                            var export = character.Export();
+                            export.Add(new XAttribute("id", charId));
+                            data.Add(export);
+                        }
                     }
                 }
             }, () => _listenEvent.Set());
@@ -53,7 +57,7 @@ namespace RotMG.Networking
             Program.PushWork(() =>
             {
                 var acc = Database.Verify(username, password, GetIPFromContext(context));
-                if (acc == null)
+                if (acc == null || acc.Data == null)
                     data = WriteError("Invalid account.");
                 else if (Database.IsAccountInUse(acc))
                 {

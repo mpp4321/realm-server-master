@@ -37,7 +37,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
             {
                 if (j is Player k)
                 {
-                    if (k.Client.Account.AllyShots || k.Equals(this))
+                    if (k.Client.Account.AllyShots || k.Equals(shotFrom))
                         k.Client.Send(nova);
                 }
             }

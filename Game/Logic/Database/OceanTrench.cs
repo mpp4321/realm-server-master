@@ -24,8 +24,8 @@ namespace RotMG.Game.Logic.Database
                 ),
                 new Threshold(0.01f,
                     new ItemLoot("Coral Juice", 0.8f),
-                    new ItemLoot("Potion of Mana", 0.2f),
-                    new ItemLoot("Wine Cellar Incantation", 0.02f)
+                    new ItemLoot("Potion of Mana", 0.8f),
+                    new ItemLoot("Wine Cellar Incantation", 0.05f)
                    /* new ItemLoot("Bronze Trinket", 0.005f),
                     new ItemLoot("Silver Trinket", 0.001f),
                     new ItemLoot("Gold Trinket", 0.0005f)*/
@@ -231,16 +231,18 @@ namespace RotMG.Game.Logic.Database
                     new TimedRandomTransition(500, "Spawning Bomb", "Thunder Swirl Attack2", "Super Trident Attack2", "Yellow Wall Attack2")
                 ),
                 new Threshold(0.01f,
-                    new ItemLoot("Potion of Mana", 1f, min: 3)
+                    new ItemLoot("Potion of Mana", 1f),
+                    new ItemLoot("Potion of Mana", 1f),
+                    new ItemLoot("Potion of Life", 1f)
                 ),
                 new Threshold(0.1f,
                     new ItemLoot("Coral Juice", 0.8f),
-                    new ItemLoot("Coral Bow", 0.02f),
-                    new ItemLoot("Rune of Elven Magic", 0.005f),
-                    new ItemLoot("Coral Venom Trap", 0.01f),
+                    new ItemLoot("Coral Bow", 0.04f),
+                    new ItemLoot("Rune of Elven Magic", 0.01f),
+                    new ItemLoot("Coral Venom Trap", 0.08f),
                     new ItemLoot("Wine Cellar Incantation", 0.02f),
                     new ItemLoot("Realm Equipment Crystal", 0.4f),
-                    new ItemLoot("Coral Silk Armor", 0.05f),
+                    new ItemLoot("Coral Silk Armor", 0.08f),
                     new ItemLoot("Coral Ring", 0.05f)
                     /*new ItemLoot("Replica: Trident of the Sea", 0.00002f),
                     new ItemLoot("King Alexander's Treasure", 0.00002f),

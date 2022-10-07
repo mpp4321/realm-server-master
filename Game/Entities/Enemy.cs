@@ -21,13 +21,13 @@ namespace RotMG.Game.Entities
             DamageStorage = new Dictionary<Player, int>();
         }
 
-        public void ApplyPoison(Player hitter, ConditionEffectDesc[] effects, int damage, int damageLeft)
+        public void ApplyPoison(Player hitter, ConditionEffectDesc[] effects, int damage, int damageLeft, uint color=0xffddff00)
         {
             if (HasConditionEffect(ConditionEffectIndex.Invincible) || 
                 HasConditionEffect(ConditionEffectIndex.Stasis))
                 return;
 
-            var poison = GameServer.ShowEffect(ShowEffectIndex.Poison, Id, 0xffddff00);
+            var poison = GameServer.ShowEffect(ShowEffectIndex.Poison, Id, color);
             foreach (var j in Parent.PlayerChunks.HitTest(Position, Player.SightRadius))
                 if (j is Player k && k.Client.Account.Effects)
                     k.Client.Send(poison);
@@ -41,7 +41,7 @@ namespace RotMG.Game.Entities
                     damage = Math.Abs(damageLeft);
 
                 if (hitter.Parent != null && Parent != null) //These have to be here in case enemy dies before poison is applied
-                    ApplyPoison(hitter, effects, damage, damageLeft);
+                    ApplyPoison(hitter, effects, damage, damageLeft, color);
             });
         }
 

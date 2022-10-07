@@ -638,7 +638,7 @@ namespace RotMG.Game.Worlds
             _criticalEnemyCounts[name]++;
         }
         
-        private int Spawn(ObjectDesc desc, Terrain terrain)
+        public int Spawn(ObjectDesc desc, Terrain terrain, int outerNum = 1)
         {
             Vector2 point;
             var terrainPoints = Map.Terrains[terrain];
@@ -654,25 +654,28 @@ namespace RotMG.Game.Worlds
                 else if (num < desc.SpawnData.Min) 
                     num = desc.SpawnData.Min;
             }
-            
-            do
-            {
-                point = terrainPoints[MathUtils.Next(terrainPoints.Count)].ToVector2();
-            } while (!IsUnblocked(point) || PlayerNearby(point));
 
-            for (var i = 0; i < num; i++)
+            for (var z = 0; z < outerNum; z++)
             {
-                var entity = Entity.Resolve(desc.Type);
-                ((Enemy) entity).Terrain = terrain;
-                AddEntity(entity, point);
-
-                if(MathUtils.Chance(desc.Quest ? 0.30f : 0.05f))
+                do
                 {
-                    (entity as Enemy).MakeElite();
-                }
+                    point = terrainPoints[MathUtils.Next(terrainPoints.Count)].ToVector2();
+                } while (!IsUnblocked(point) || PlayerNearby(point));
 
-                _enemies[terrain].Add(entity as Enemy);
-                ret++;
+                for (var i = 0; i < num; i++)
+                {
+                    var entity = Entity.Resolve(desc.Type);
+                    ((Enemy)entity).Terrain = terrain;
+                    AddEntity(entity, point);
+
+                    if (MathUtils.Chance(desc.Quest ? 0.30f : 0.05f))
+                    {
+                        (entity as Enemy).MakeElite();
+                    }
+
+                    _enemies[terrain].Add(entity as Enemy);
+                    ret++;
+                }
             }
 
             return ret;

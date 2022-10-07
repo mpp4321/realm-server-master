@@ -15,4 +15,24 @@
       <ActivateOnEquipAll required="4" stat="6" amount="5">IncrementStat</ActivateOnEquipAll>
 	  <UniqueEffect required="4">Phylac</UniqueEffect>
    </EquipmentSet>
+   <EquipmentSet id="Goo Huntress">
+      <Setpiece slot="1" itemtype="0x5257">Equipment</Setpiece>
+      <Setpiece slot="2" itemtype="0x5256">Equipment</Setpiece>
+      <Setpiece slot="3" itemtype="0xcd0">Equipment</Setpiece>
+      <ActivateOnEquipAll required="2" stat="0" amount="50">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll required="3" stat="0" amount="50">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll required="2" stat="1" amount="5">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll required="3" stat="1" amount="5">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll required="2" stat="2" amount="10">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll required="3" stat="2" amount="10">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll required="3" stat="3" amount="10">IncrementStat</ActivateOnEquipAll>
+
+      <ActivateOnEquipAll required="2" stat="6" amount="10">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll required="3" stat="6" amount="15">IncrementStat</ActivateOnEquipAll>
+
+      <ActivateOnEquipAll required="2" stat="4" amount="-10">IncrementStat</ActivateOnEquipAll>
+      <ActivateOnEquipAll required="3" stat="4" amount="-10">IncrementStat</ActivateOnEquipAll>
+
+      <ActivateOnEquipAll required="3" stat="8" amount="7">IncrementStat</ActivateOnEquipAll>
+   </EquipmentSet>
 </EquipmentSets>

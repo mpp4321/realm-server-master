@@ -262,14 +262,13 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 		<AllowTeleport>true</AllowTeleport>
-    <DoElites/>
+        <DoElites/>
 	</World>
 	<World name="AncientHermit" display="Ancient Ocean Rift">
 		<Maps>AncientHermit/0.jm</Maps>
 		<Background>0</Background>
 		<Portals>0x5024</Portals>
 		<BlockSight>1</BlockSight>
-    <DoElites/>
 	</World>
 	<World name="Market" display="Market">
 		<Maps>Market/Market.jm</Maps>
@@ -277,5 +276,13 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 		<Persist>true</Persist>
+	</World>
+	<World name="CastleOfFire" display="Castle of Fire">
+		<Maps>CastleOfFire/0.jm</Maps>
+		<Portals>0x7000</Portals>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+		<AllowTeleport>true</AllowTeleport>
+        <DoElites/>
 	</World>
 </Worlds>

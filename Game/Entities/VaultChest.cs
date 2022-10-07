@@ -13,7 +13,9 @@ namespace RotMG.Game.Entities
             Inventory = model.Inventory;
             ItemDatas = model.ItemDatas.Select(a => a == null ? new ItemDataJson() { Meta = -1 } : ItemDesc.ParseOrDefault(a)).ToArray();
             _model = model;
-            UpdateInventory();
+
+            if(model != null && model.Data != null)
+                UpdateInventory();
         }
 
         public override void UpdateInventorySlot(int slot)

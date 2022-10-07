@@ -52,6 +52,7 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("GhostlyAura", new GhostlyAura());
             Registry.Add("Bloodlust", new Bloodlust());
             Registry.Add("SorReactor", new SorReactor());
+            Registry.Add("ObsidianPlatemail", new ObsidianPlatemail());
 
             //components
 

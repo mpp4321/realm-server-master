@@ -1442,4 +1442,118 @@
 			<PassesCover/>
 		</Projectile>
 	</Object>
+	<Object type="0x5026" id="Red Sentinel">
+		<Enemy/>
+		<Class>Character</Class>
+		<Texture>
+			<File>lofiCharBig</File>
+			<Index>0x20</Index>
+		</Texture>
+		<HitSound>monster/ogres_hit</HitSound>
+		<DeathSound>monster/ogres_death</DeathSound>
+		<Size>120</Size>
+		<MaxHitPoints>5000</MaxHitPoints>
+		<Defense>30</Defense>
+		<XpMult>1</XpMult>
+	</Object>
+	<Object type="0x5027" id="Lava Slug">
+		<Class>Character</Class>
+		<AnimatedTexture>
+			<File>d3Chars8x8rEmbed</File>
+			<Index>18</Index>
+		</AnimatedTexture>
+		<StasisImmune/>
+		<Level>20</Level>
+		<XpMult>2</XpMult>
+		<Enemy/>
+		<Defense>20</Defense>
+		<MaxHitPoints>1500</MaxHitPoints>
+		<Projectile id="0">
+			<ObjectId>Yellow Brother Orb</ObjectId>
+			<Speed>50</Speed>
+			<Damage>120</Damage>
+			<Size>120</Size>
+			<LifetimeMS>1000</LifetimeMS>
+			<ConditionEffect duration="1.0">ArmorBroken</ConditionEffect>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Dragon Attack Red Small Fireball</ObjectId>
+			<Speed>100</Speed>
+			<Damage>80</Damage>
+			<Size>100</Size>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x5028" id="Lava Protector">
+		<Class>Character</Class>
+		<AnimatedTexture>
+			<File>d3Chars8x8rEmbed</File>
+			<Index>19</Index>
+		</AnimatedTexture>
+		<Level>20</Level>
+		<XpMult>4</XpMult>
+		<Enemy/>
+		<Defense>50</Defense>
+		<Size>200</Size>
+		<MaxHitPoints>1500</MaxHitPoints>
+		<Projectile id="0">
+			<ObjectId>Orange Spike</ObjectId>
+			<Speed>50</Speed>
+			<Damage>40</Damage>
+			<Size>100</Size>
+			<LifetimeMS>1000</LifetimeMS>
+			<ConditionEffect duration="1.0">Bleeding</ConditionEffect>
+		</Projectile>
+	</Object>
+	<Object type="0x5029" id="Flaming Giant Skull">
+		<Group>Flaming Skulls</Group>
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>lofiChar8x8</File>
+			<Index>0x65</Index>
+		</Texture>
+		<AltTexture id="0">
+			<Texture>
+				<File>lofiChar8x8</File>
+				<Index>0x65</Index>
+			</Texture>
+		</AltTexture>
+		<AltTexture id="1">
+			<Texture>
+				<File>lofiChar8x8</File>
+				<Index>0x66</Index>
+			</Texture>
+		</AltTexture>
+		<HitSound>monster/flaming_skulls_hit</HitSound>
+		<DeathSound>monster/flaming_skulls_death</DeathSound>
+		<MaxHitPoints>24000</MaxHitPoints>
+		<Size>200</Size>
+		<Flying/>
+		<Z>0.2</Z>
+		<XpMult>0.8</XpMult>
+		<Projectile>
+			<ObjectId>Flame Breath</ObjectId>
+			<Speed>80</Speed>
+			<Size>150</Size>
+			<Damage>150</Damage>
+			<LifetimeMS>2400</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Paralyze Bullet</ObjectId>
+			<Speed>40</Speed>
+			<Damage>10</Damage>
+			<Size>100</Size>
+			<LifetimeMS>2400</LifetimeMS>
+			<ConditionEffect duration=".4">Paralyzed</ConditionEffect>
+			<Accelerate>80</Accelerate>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>HellHoundAttack</ObjectId>
+			<Speed>100</Speed>
+			<Damage>60</Damage>
+			<Size>100</Size>
+			<LifetimeMS>2400</LifetimeMS>
+		</Projectile>
+	</Object>
 </Objects>

@@ -10697,8 +10697,9 @@
 		</Texture>
 		<SlotType>9</SlotType>
 		<Description>A squishy ring.</Description>
-		<ActivateOnEquip stat="0" amount="35">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="0" amount="50">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="8" amount="3">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="3" amount="5">IncrementStat</ActivateOnEquip>
 		<BagType>4</BagType>
 	</Object>
 	<Object type="0xcd1" id="Drake Scale Hat">
@@ -11041,21 +11042,23 @@
 		<Projectile>
 			<ObjectId>Leaf Magic</ObjectId>
 			<Speed>70</Speed>
-			<MinDamage>35</MinDamage>
-			<MaxDamage>55</MaxDamage>
+			<MinDamage>40</MinDamage>
+			<MaxDamage>60</MaxDamage>
 			<LifetimeMS>900</LifetimeMS>
 			<Size>50</Size>
 			<ArmorPiercing/>
 			<Wavy/>
 		</Projectile>
-		<ActivateOnEquip stat="4" amount="2">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="4" amount="4">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="5" amount="4">IncrementStat</ActivateOnEquip>
+		<EnchantmentStrength>9</EnchantmentStrength>
 		<BagType>5</BagType>
-		<FameBonus>4</FameBonus>
+		<FameBonus>5</FameBonus>
 		<NumProjectiles>3</NumProjectiles>
 		<OldSound>arrowShoot</OldSound>
 		<ArcGap>30</ArcGap>
 	</Object>
-	<Object type="0xce2" id="Earth's Remembrance">
+	<Object type="0x5258" id="Earth's Remembrance">
 		<Class>Equipment</Class>
 		<Item/>
 		<Texture>
@@ -11076,7 +11079,7 @@
 			<Size>80</Size>
 			<Wavy/>
 		</Projectile>
-		<ST/>
+		<EnchantmentStrength>10</EnchantmentStrength>
 		<ActivateOnEquip stat ="0" amount="-45">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="3" amount="-4">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="5" amount="6">IncrementStat</ActivateOnEquip>
@@ -11126,7 +11129,8 @@
 		<ActivateOnEquip stat="5" amount="8">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="3" amount="-6">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="8" amount="15">IncrementStat</ActivateOnEquip>
-		<BagType>9</BagType>
+		<EnchantmentStrength>20</EnchantmentStrength>
+		<BagType>8</BagType>
 		<FameBonus>5</FameBonus>
 		<DisplayId>The Forgotten Crown</DisplayId>
 	</Object>
@@ -11143,7 +11147,8 @@
 		<ActivateOnEquip stat="3" amount="8">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="4" amount="6">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="7" amount="8">IncrementStat</ActivateOnEquip>
-		<BagType>9</BagType>
+		<BagType>8</BagType>
+		<EnchantmentStrength>20</EnchantmentStrength>
 		<FameBonus>5</FameBonus>
 		<DisplayId>The Twilight Gemstone</DisplayId>
 	</Object>
@@ -11162,6 +11167,7 @@
 		<ActivateOnEquip stat="5" amount="6">IncrementStat</ActivateOnEquip>
 		<BagType>8</BagType>
 		<FameBonus>5</FameBonus>
+		<EnchantmentStrength>20</EnchantmentStrength>
 		<DisplayId>Bracer of the Guardian</DisplayId>
 	</Object>
 	<Object type="0xce6" id="Piss Jar">
@@ -11177,6 +11183,7 @@
 		<Usable/>
 		<BagType>5</BagType>
 		<FameBonus>4</FameBonus>
+		<EnchantmentStrength>8</EnchantmentStrength>
 		<MpCost>90</MpCost>
 		<Activate radius="3" color="0x00FF00" totalDamage="450" duration="3.0" useWisMod="true" statMin="15" statScale="35.0" throwTime="0.2">PoisonGrenade</Activate>
 	</Object>
@@ -11285,6 +11292,7 @@
 			<Size>120</Size>
 			<LifetimeMS>800</LifetimeMS>
 		</Projectile>
+		<EnchantmentStrength>10</EnchantmentStrength>
 		<BagType>6</BagType>
 		<FameBonus>6</FameBonus>
 		<NumProjectiles>1</NumProjectiles>
@@ -11304,6 +11312,7 @@
 		<BagType>6</BagType>
 		<FameBonus>6</FameBonus>
 		<MpCost>150</MpCost>
+		<EnchantmentStrength>10</EnchantmentStrength>
 		<Activate effect="Healing" duration="6" range="4">ConditionEffectAura</Activate>
 		<Activate effect="Damaging" duration="6" range="4">ConditionEffectAura</Activate>
 		<Activate effect="Berserk" duration="6" range="4">ConditionEffectAura</Activate>
@@ -11323,6 +11332,7 @@
 		<ActivateOnEquip stat="3" amount="7">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="5" amount="7">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="7" amount="7">IncrementStat</ActivateOnEquip>
+		<EnchantmentStrength>10</EnchantmentStrength>
 		<BagType>6</BagType>
 		<FameBonus>6</FameBonus>
 	</Object>
@@ -11340,6 +11350,7 @@
 		<ActivateOnEquip stat="7" amount="7">IncrementStat</ActivateOnEquip>
 		<BagType>6</BagType>
 		<FameBonus>6</FameBonus>
+		<EnchantmentStrength>15</EnchantmentStrength>
 		<ExtraTooltipData>
 			<EffectInfo name="Ruler's Dominion" description="Instantly kill any enemy with less max health than you in a 2 square radius."/>
 		</ExtraTooltipData>
@@ -12307,7 +12318,136 @@
 			<Size>100</Size>
 			<SmartAngle></SmartAngle>
 		</Projectile>
+		<EnchantmentStrength>10</EnchantmentStrength>
 		<NumProjectiles>3</NumProjectiles>
 		<BagType>6</BagType>
+	</Object>
+	<Object type="0x5256" id="Goopy Gloopy Armor">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj5</File>
+			<Index>0x98</Index>
+		</Texture>
+		<SlotType>6</SlotType>
+		<Description>Goop gloop doop.</Description>
+		<ActivateOnEquip stat="3" amount="21">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="5" amount="3">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="4" amount="-20">IncrementStat</ActivateOnEquip>
+		<BagType>4</BagType>
+	</Object>
+	<Object type="0x5257" id="Goo Trap">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj6</File>
+			<Index>0x19</Index>
+		</Texture>
+		<SlotType>20</SlotType>
+		<Description>Goopy, sticky some would say.</Description>
+		<Usable/>
+		<ActivateOnEquip stat="3" amount="5">IncrementStat</ActivateOnEquip>
+		<BagType>4</BagType>
+		<MpCost>20</MpCost>
+		<Activate radius="5" color="0x229900" totalDamage="50" effect="Slowed" duration="4.5" useWisMod="true" statMin="30" statScale="3.0" statForScale="Attack">Trap</Activate>
+	</Object>
+	<Object type="0x5259" id="Crystal Star">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj6</File>
+			<Index>0xe8</Index>
+		</Texture>
+		<SlotType>25</SlotType>
+		<Description>A prismatic star of pure crystal.</Description>
+		<Sound>spell/fire_spray</Sound>
+		<Projectile>
+			<ObjectId>Ninja Star Crystal</ObjectId>
+			<Speed>200</Speed>
+			<MinDamage>300</MinDamage>
+			<MaxDamage>600</MaxDamage>
+			<LifetimeMS>400</LifetimeMS>
+			<Size>100</Size>
+			<ConditionEffect duration="4">Bleeding</ConditionEffect>
+			<PassesCover/>
+			<Decelerate/>
+		</Projectile>
+		<Usable/>
+		<BagType>5</BagType>
+		<MpCost>100</MpCost>
+		<EnchantmentStrength>8</EnchantmentStrength>
+		<Activate effect="Berserk" duration="1">ConditionEffectSelf</Activate>
+		<Activate amount="4">Shuriken</Activate>
+	</Object>
+	<Object type="0x525a" id="Tempered Staff">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>UTRImport</File>
+			<Index>0x551</Index>
+		</Texture>
+		<SlotType>17</SlotType>
+		<Description>A smoldered staff of glowing energy.</Description>
+		<RateOfFire>1.25</RateOfFire>
+		<Sound>weapon/fire_wand</Sound>
+		<Projectile>
+			<ObjectId>Smoldering Shot</ObjectId>
+			<Speed>150</Speed>
+			<MinDamage>100</MinDamage>
+			<MaxDamage>140</MaxDamage>
+			<LifetimeMS>400</LifetimeMS>
+			<Amplitude>1.0</Amplitude>
+			<Frequency>-0.75</Frequency>
+		</Projectile>
+		<EnchantmentStrength>8</EnchantmentStrength>
+		<ArcGap>0</ArcGap>
+		<NumProjectiles>2</NumProjectiles>
+		<BagType>5</BagType>
+		<FameBonus>5</FameBonus>
+		<OldSound>magicShoot</OldSound>
+	</Object>
+	<Object type="0x525b" id="Obsidian Platemail">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>UTRImport</File>
+			<Index>0x550</Index>
+		</Texture>
+		<SlotType>7</SlotType>
+		<Description>Armor made from almost solid magma.</Description>
+		<ActivateOnEquip stat="3" amount="35">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="4" amount="-12">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="5" amount="-2">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="2" amount="-2">IncrementStat</ActivateOnEquip>
+		<BagType>5</BagType>
+		<ExtraTooltipData>
+			<EffectInfo name="Defender" description="Chance to ignite enemies dealing damage based on defense."/>
+		</ExtraTooltipData>
+		<EnchantmentStrength>8</EnchantmentStrength>
+		<UniqueEffect>ObsidianPlatemail</UniqueEffect>
+	</Object>
+	<Object type="0x525c" id="Horrific Spear">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>CustomItems</File>
+			<Index>0xb5</Index>
+		</Texture>
+		<SlotType>1</SlotType>
+		<Description>An extremely sharp spear corrupted from horrific experiment.</Description>
+		<RateOfFire>0.66</RateOfFire>
+		<Sound>weapon/glass_sword</Sound>
+		<Projectile>
+            <ObjectId>H Creation Blast</ObjectId>
+            <Size>280</Size>
+            <Speed>85</Speed>
+			<MinDamage>302</MinDamage>
+			<MaxDamage>502</MaxDamage>
+            <LifetimeMS>500</LifetimeMS>
+		</Projectile>
+		<EnchantmentStrength>8</EnchantmentStrength>
+		<BagType>5</BagType>
+		<FameBonus>5</FameBonus>
+		<OldSound>bladeSwing</OldSound>
 	</Object>
 </Objects>

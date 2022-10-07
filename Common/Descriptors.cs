@@ -920,7 +920,8 @@ namespace RotMG.Common
             {
                 value += rank;
             }
-            var calcStep = MathF.Ceiling((value * (enchantmentStrength / 8f)) + (multiplier * data.GetStatBonus(i)));
+            var enchantmentPart = (i == ItemData.Damage || i == ItemData.RateOfFire) ? 1.0f : enchantmentStrength / 8f;
+            var calcStep = MathF.Ceiling((value * enchantmentPart) + (multiplier * data.GetStatBonus(i)));
             return multiplier * calcStep;
         }
 
@@ -951,7 +952,7 @@ namespace RotMG.Common
         {
             if (data == -1)
                 return false;
-            return ((ItemData)data & i) != 0;
+            return ((ulong)data & (ulong)i) != 0;
         }
 
         private static float IntToMultiplier(int stat) {
@@ -987,7 +988,7 @@ namespace RotMG.Common
                 if(GetRank((int) data) != -1) {
                   foreach(var pair in this.StatBoosts) {
                     var key = IntToItemDataKey(pair.Key);
-                    var maxExtraBonus = (int)(Math.Ceiling(Math.Log2(pair.Value)));
+                    var maxExtraBonus = (int)(Math.Ceiling(Math.Log2(Math.Abs(pair.Value))));
                     var extraBonus = IntToMultiplier(pair.Key) * MathUtils.NextInt(0, maxExtraBonus);
                     d[key] = d.GetValueOrDefault(key) + (int) extraBonus;
                   }
@@ -1172,17 +1173,17 @@ namespace RotMG.Common
             IsEgg = e.ParseBool("EggItem");
             EggType = e.ParseInt("EggType", 0);
             
-            EnchantmentStrength = e.ParseFloat("Enchantment", -1f);
-            if(EnchantmentStrength < 0f && Tier != 0)
+            EnchantmentStrength = e.ParseFloat("EnchantmentStrength", -1f);
+            if(EnchantmentStrength < 0f)
             {
-                EnchantmentStrength = MathF.Ceiling(Tier / 2f);
-            } else
-            {
-                if(Tier == 0)
+                if(Tier > 0)
+                {
+                    EnchantmentStrength = MathF.Ceiling(Tier / 2f);
+                } else
                 {
                     EnchantmentStrength = 6f;
                 }
-            }
+            } 
 
             BonusRolls = e.ParseInt("BonusRolls", 0);
         }

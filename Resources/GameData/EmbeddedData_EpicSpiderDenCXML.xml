@@ -212,9 +212,9 @@
       <HitSound>monster/spider_queen_hit</HitSound>
       <DeathSound>monster/spider_queen_death</DeathSound>
       <Size>100</Size>
-      <MaxHitPoints>80000</MaxHitPoints>
+      <MaxHitPoints>40000</MaxHitPoints>
       <Defense>30</Defense>
-      <XpMult>0.6</XpMult>
+      <XpMult>0.8</XpMult>
       <Enemy/>
       <God/>
       <StasisImmune/>

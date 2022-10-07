@@ -158,16 +158,17 @@ namespace RotMG.Game.Logic
                 if (accIdsWithLoot.Contains(player.AccountId)) continue;
                 //Count top damagers
                 c++;
-                if (enemy.Desc.Quest)
+
+                if (enemy.Desc.Quest || enemy.IsElite)
                 {
                     player.HealthPotions = Math.Min(Player.MaxPotions, player.HealthPotions + 1);
                     player.MagicPotions = Math.Min(Player.MaxPotions, player.MagicPotions + 1);
                 }
                 else
                 {
-                    if (MathUtils.Chance(.05f))
+                    if (MathUtils.Chance(.1f))
                         player.HealthPotions = Math.Min(Player.MaxPotions, player.HealthPotions + 1);
-                    if (MathUtils.Chance(.05f))
+                    if (MathUtils.Chance(.1f))
                         player.MagicPotions = Math.Min(Player.MaxPotions, player.MagicPotions + 1);
                 }
 

@@ -15,7 +15,7 @@ namespace RotMG.Common
 
     public abstract class DatabaseModel : IDatabaseInfo
     {
-        public XElement Data;
+        public XElement Data = null;
         public readonly string Path;
         public DatabaseModel(string key)
         {
@@ -36,6 +36,7 @@ namespace RotMG.Common
                     Load();
                 } catch(Exception e)
                 {
+                    Console.WriteLine("Error:" + e);
                     Console.WriteLine("failed to load " + Path);
                 }
             } else

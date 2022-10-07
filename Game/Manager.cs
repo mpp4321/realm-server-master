@@ -25,7 +25,7 @@ namespace RotMG.Game
 
         // AppServer / Client needs access? might be causing account login issues...
         public static ConcurrentDictionary<int, int> AccountIdToClientId;
-        public static Dictionary<int, Client> Clients;
+        public static ConcurrentDictionary<int, Client> Clients;
         public static Dictionary<int, World> Worlds;
         public static Dictionary<int, World> Realms;
         public static List<Tuple<int, Action>> Timers;
@@ -46,7 +46,7 @@ namespace RotMG.Game
 
             TickWatch = Stopwatch.StartNew();
             AccountIdToClientId = new ConcurrentDictionary<int, int>();
-            Clients = new Dictionary<int, Client>();
+            Clients = new ConcurrentDictionary<int, Client>();
             Worlds = new Dictionary<int, World>();
             Realms = new Dictionary<int, World>();
             Timers = new List<Tuple<int, Action>>();
@@ -144,7 +144,7 @@ namespace RotMG.Game
             if (client == null)
                 throw new Exception("Client is null.");
 #endif
-            Clients.Remove(client.Id);
+            Clients.Remove(client.Id, out var value);
         }
 
         public static Client GetClient(int accountId)
@@ -193,7 +193,9 @@ namespace RotMG.Game
             TotalTimeUnsynced = (int)TickWatch.ElapsedMilliseconds;
 
             foreach (var client in Clients.Values.ToArray())
+            {
                 client.Tick();
+            }
 
             if ((int)TickWatch.ElapsedMilliseconds - LastTickTime >= Settings.MillisecondsPerTick - TickDelta)
             {

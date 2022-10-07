@@ -40,6 +40,14 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
 
                 p.AddIdentifiedEffectBoost(new Player.BoostTimer
                 {
+                    amount = defenseDecrease,
+                    id = 1,
+                    index = 2,
+                    timer = 1.0f
+                });
+
+                p.AddIdentifiedEffectBoost(new Player.BoostTimer
+                {
                     amount = -defenseDecrease,
                     id = 2,
                     index = 3,

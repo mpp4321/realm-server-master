@@ -4429,6 +4429,7 @@
 		<Tier>6</Tier>
 		<ActivateOnEquip stat="2" amount="9">IncrementStat</ActivateOnEquip>
 		<BagType>3</BagType>
+		<EnchantmentStrength>10</EnchantmentStrength>
 		<FameBonus>5</FameBonus>
 	</Object>
 	<Object type="0xba4" id="Ring of Unbound Defense">
@@ -4442,6 +4443,7 @@
 		<Tier>6</Tier>
 		<ActivateOnEquip stat="3" amount="9">IncrementStat</ActivateOnEquip>
 		<BagType>3</BagType>
+		<EnchantmentStrength>10</EnchantmentStrength>
 		<FameBonus>5</FameBonus>
 	</Object>
 	<Object type="0xba5" id="Ring of Unbound Speed">
@@ -4455,6 +4457,7 @@
 		<Tier>6</Tier>
 		<ActivateOnEquip stat="4" amount="9">IncrementStat</ActivateOnEquip>
 		<BagType>3</BagType>
+		<EnchantmentStrength>10</EnchantmentStrength>
 		<FameBonus>5</FameBonus>
 	</Object>
 	<Object type="0xba6" id="Ring of Unbound Vitality">
@@ -4469,6 +4472,7 @@
 		<ActivateOnEquip stat="6" amount="9">IncrementStat</ActivateOnEquip>
 		<BagType>3</BagType>
 		<FameBonus>5</FameBonus>
+		<EnchantmentStrength>10</EnchantmentStrength>
 	</Object>
 	<Object type="0xba7" id="Ring of Unbound Wisdom">
 		<Class>Equipment</Class>
@@ -4482,6 +4486,7 @@
 		<ActivateOnEquip stat="7" amount="9">IncrementStat</ActivateOnEquip>
 		<BagType>3</BagType>
 		<FameBonus>5</FameBonus>
+		<EnchantmentStrength>10</EnchantmentStrength>
 	</Object>
 	<Object type="0xba8" id="Ring of Unbound Dexterity">
 		<Class>Equipment</Class>
@@ -4495,6 +4500,7 @@
 		<ActivateOnEquip stat="5" amount="9">IncrementStat</ActivateOnEquip>
 		<BagType>3</BagType>
 		<FameBonus>5</FameBonus>
+		<EnchantmentStrength>10</EnchantmentStrength>
 	</Object>
 	<Object type="0xba9" id="Ring of Unbound Health">
 		<Class>Equipment</Class>
@@ -4508,6 +4514,7 @@
 		<ActivateOnEquip stat="0" amount="180">IncrementStat</ActivateOnEquip>
 		<BagType>3</BagType>
 		<FameBonus>5</FameBonus>
+		<EnchantmentStrength>10</EnchantmentStrength>
 	</Object>
 	<Object type="0xbaa" id="Ring of Unbound Magic">
 		<Class>Equipment</Class>
@@ -4521,6 +4528,7 @@
 		<ActivateOnEquip stat="1" amount="180">IncrementStat</ActivateOnEquip>
 		<BagType>3</BagType>
 		<FameBonus>5</FameBonus>
+		<EnchantmentStrength>10</EnchantmentStrength>
 	</Object>
 	<Object type="0xb44" id="Firebrand Staff">
 		<Class>Equipment</Class>
@@ -20577,62 +20585,6 @@
 		<Consumable />
 		<Legendary />
 		<Activate>InsigniaActivate</Activate>
-	</Object>
-	<Object type="0x64c3" id="Ring of Unbound Restoration">
-		<Class>Equipment</Class>
-		<Item />
-		<Texture>
-			<File>UTRImport</File>
-			<Index>0x44e</Index>
-		</Texture>
-		<SlotType>9</SlotType>
-		<Tier>6</Tier>
-		<Description>A huge flawless corundom set in a stunningly beautiful gold ring.</Description>
-		<BagType>3</BagType>
-		<FameBonus>5</FameBonus>
-		<DisplayId>Ring of Unbound Restoration</DisplayId>
-	</Object>
-	<Object type="0x64c4" id="Ring of Unbound Protection">
-		<Class>Equipment</Class>
-		<Item />
-		<Texture>
-			<File>UTRImport</File>
-			<Index>0x44f</Index>
-		</Texture>
-		<SlotType>9</SlotType>
-		<Tier>6</Tier>
-		<Description>A huge flawless diamond set in a stunningly beautiful gold ring.</Description>
-		<BagType>3</BagType>
-		<FameBonus>5</FameBonus>
-		<DisplayId>Ring of Unbound Protection</DisplayId>
-	</Object>
-	<Object type="0x64c5" id="Ring of Unbound Luck">
-		<Class>Equipment</Class>
-		<Item />
-		<Texture>
-			<File>UTRImport</File>
-			<Index>0x450</Index>
-		</Texture>
-		<SlotType>9</SlotType>
-		<Tier>6</Tier>
-		<Description>A huge flawless sphene set in a stunningly beautiful gold ring.</Description>
-		<BagType>3</BagType>
-		<FameBonus>5</FameBonus>
-		<DisplayId>Ring of Unbound Luck</DisplayId>
-	</Object>
-	<Object type="0x64c6" id="Ring of Unbound Might">
-		<Class>Equipment</Class>
-		<Item />
-		<Texture>
-			<File>UTRImport</File>
-			<Index>0x451</Index>
-		</Texture>
-		<SlotType>9</SlotType>
-		<Tier>6</Tier>
-		<Description>A huge flawless garnet set in a stunningly beautiful gold ring.</Description>
-		<BagType>3</BagType>
-		<FameBonus>5</FameBonus>
-		<DisplayId>Ring of Unbound Might</DisplayId>
 	</Object>
 	<Object type="0x64c7" id="Shine">
 		<Class>Equipment</Class>

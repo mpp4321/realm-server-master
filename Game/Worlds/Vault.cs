@@ -34,9 +34,12 @@ namespace RotMG.Game.Worlds
             for (var i = 0; i < client.Account.VaultCount && vaultChestLocations.Count > 0; i++)
             {
                 var chestModel = new VaultChestModel(client.Account.Id, i);
-                var chest = new VaultChest(chestModel);
-                AddEntity(chest, vaultChestLocations[0].ToVector2() + .5f);
-                vaultChestLocations.RemoveAt(0);
+                if(chestModel.Data != null) 
+                {
+                    var chest = new VaultChest(chestModel);
+                    AddEntity(chest, vaultChestLocations[0].ToVector2() + .5f);
+                    vaultChestLocations.RemoveAt(0);
+                }
             }
             
             foreach (var point in vaultChestLocations)

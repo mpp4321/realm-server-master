@@ -203,8 +203,10 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("blind", 1500)
                     ),
                     new Threshold(0.03f,
-                            new ItemLoot("Potion of Mana", 0.3f),
+                            new ItemLoot("Potion of Mana", 1f),
                             new ItemLoot("Potion of Vitality", 1.0f),
+                            new ItemLoot("Potion of Vitality", 1.0f),
+                            new ItemLoot("Potion of Attack", 1.0f),
                             new ItemLoot("Serpentine Guise", 0.01f),
                             new ItemLoot("Stheno's Scourge", 0.01f),
                             new ItemLoot("Ophidian Gem", 0.01f),
@@ -221,7 +223,7 @@ namespace RotMG.Game.Logic.Database
                             new TierLoot(4, LootType.Ring, 0.25f),
                             new TierLoot(3, LootType.Ring, 0.4f),
                             new TierLoot(5, LootType.Ability, 0.2f),
-                            new TierLoot(4, LootType.Ability, 0.3f)
+                            new TierLoot(4, LootType.Ability, 1f)
                         )
                 );
             db.Init("Stheno Pet",

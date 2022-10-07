@@ -52,9 +52,9 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
                     0xffff0000
                 ), hitBy.Position);
 
-                hit.Heal(50, false, true);
+                hit.Heal(hit.MaxHp / 10, false, true);
 
-                HealCooldowns[hit.AccountId] = 15000;
+                HealCooldowns[hit.AccountId] = 7500;
             }
         }
 
