@@ -1,0 +1,1 @@
+scp -r .\bin\Release\net6.0\publish\linux-x64\* root@194.113.194.154:/server/

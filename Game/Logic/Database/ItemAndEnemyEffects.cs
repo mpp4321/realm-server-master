@@ -177,21 +177,36 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("The Master Hand Ally",
                 new State("Base",
-                        new Charge(2.0f, 10f, coolDown: 3000, false, callback: (host, player, state) =>
-                        {
-                            //TODO display visual effect
-                            //Player here is actually enemy
-                            if (player.HasConditionEffect(ConditionEffectIndex.Stasis))
-                                return;
-                            (player as Enemy)?.Damage(host.PlayerOwner, 1000, new ConditionEffectDesc[]
+                        new Prioritize(
+                            new Charge(2.0f, 10f, coolDown: 3000, false, callback: (host, player, state) =>
                             {
-                                new ConditionEffectDesc(ConditionEffectIndex.Stasis, 1000)
-                            }, true, true);
-                        },
-                        pred: (e) =>
-                        {
-                            return !e.HasConditionEffect(ConditionEffectIndex.Stasis);
-                        }
+                                //TODO display visual effect
+                                //Player here is actually enemy
+                                if (player.HasConditionEffect(ConditionEffectIndex.Stasis))
+                                    return;
+                                (player as Enemy)?.Damage(host.PlayerOwner, 1000, new ConditionEffectDesc[]
+                                {
+                                    new ConditionEffectDesc(ConditionEffectIndex.Stasis, 1000)
+                                }, true, true);
+                            },
+                            pred: (e) =>
+                            {
+                                return !e.HasConditionEffect(ConditionEffectIndex.Stasis);
+                            }
+                            ),
+                            new Charge(2.0f, 10f, coolDown: 1000, false, callback: (host, player, state) =>
+                            {
+                                //TODO display visual effect
+                                //Player here is actually enemy
+                                if (player.HasConditionEffect(ConditionEffectIndex.Stasis))
+                                    return;
+                                (player as Enemy)?.Damage(host.PlayerOwner, 1500, new ConditionEffectDesc[] { }, true, true);
+                            },
+                            pred: (e) =>
+                            {
+                                return !e.HasConditionEffect(ConditionEffectIndex.Stasis);
+                            }
+                            )
                         ),
                         new Wander(0.4f),
                         new TimedTransition("Die", 5000)

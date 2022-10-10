@@ -7724,13 +7724,13 @@
 		<Sound>weapon/mithril_sword</Sound>
 		<Projectile>
 			<ObjectId>White Bolt</ObjectId>
-			<Speed>100</Speed>
-			<MinDamage>220</MinDamage>
-			<MaxDamage>275</MaxDamage>
+			<Speed>150</Speed>
+			<MinDamage>230</MinDamage>
+			<MaxDamage>285</MaxDamage>
 			<LifetimeMS>350</LifetimeMS>
 		</Projectile>
-		<BagType>2</BagType>
-		<FameBonus>4</FameBonus>
+		<BagType>6</BagType>
+		<FameBonus>6</FameBonus>
 		<OldSound>bladeSwing</OldSound>
 	</Object>
 	<Object type="0x1669" id="Hylian Shield">
@@ -7746,8 +7746,8 @@
 		<Projectile>
 			<ObjectId>Blue Bolt</ObjectId>
 			<Speed>160</Speed>
-			<MinDamage>300</MinDamage>
-			<MaxDamage>360</MaxDamage>
+			<MinDamage>330</MinDamage>
+			<MaxDamage>390</MaxDamage>
 			<LifetimeMS>200</LifetimeMS>
 			<Size>140</Size>
 			<ConditionEffect duration="3">Stunned</ConditionEffect>
@@ -7755,13 +7755,13 @@
 			<PassesCover />
 			<ParticleTrail>0xffffff</ParticleTrail>
 		</Projectile>
-		<ActivateOnEquip stat="3" amount="12">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="6" amount="2">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="7" amount="2">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="3" amount="15">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="6" amount="4">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="7" amount="4">IncrementStat</ActivateOnEquip>
 		<ConditionEffect duration="3">Stunned</ConditionEffect>
 		<Usable />
-		<BagType>2</BagType>
-		<FameBonus>4</FameBonus>
+		<BagType>6</BagType>
+		<FameBonus>6</FameBonus>
 		<MpCost>100</MpCost>
 		<Activate>Shoot</Activate>
 		<NumProjectiles>5</NumProjectiles>
@@ -7776,8 +7776,9 @@
 		<SlotType>7</SlotType>
 		<Description>A strong tunic that is even worthy of a knight to bear.</Description>
 		<ActivateOnEquip stat="3" amount="24">IncrementStat</ActivateOnEquip>
-		<BagType>2</BagType>
-		<FameBonus>4</FameBonus>
+		<ActivateOnEquip stat="9" amount="5">IncrementStat</ActivateOnEquip>
+		<BagType>6</BagType>
+		<FameBonus>6</FameBonus>
 	</Object>
 	<Object type="0x166b" id="Blue Ring">
 		<Class>Equipment</Class>
@@ -7788,9 +7789,10 @@
 		</Texture>
 		<SlotType>9</SlotType>
 		<Description>A nice, cool ring that Link would wear. SO SHOULD YOU!</Description>
-		<ActivateOnEquip stat="3" amount="8">IncrementStat</ActivateOnEquip>
-		<BagType>2</BagType>
-		<FameBonus>4</FameBonus>
+		<ActivateOnEquip stat="3" amount="10">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="9" amount="5">IncrementStat</ActivateOnEquip>
+		<BagType>5</BagType>
+		<FameBonus>5</FameBonus>
 	</Object>
 	<Object type="0x166c" id="Sword of Autumn">
 		<Class>Equipment</Class>

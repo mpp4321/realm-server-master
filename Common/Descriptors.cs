@@ -1020,7 +1020,7 @@ namespace RotMG.Common
             if (!ModifiableTypes.Contains(SlotType))
                 return Tuple.Create(false, FinalizeItemData(modTypeToUse, -1, data));
 
-            if (!MathUtils.Chance(.5f) && !r.AlwaysRare)
+            if (!MathUtils.Chance(.75f) && !r.AlwaysRare)
                 return Tuple.Create(false, FinalizeItemData(modTypeToUse, -1, data));
 
             var maxRank = this.EnchantmentStrength;
@@ -1028,7 +1028,7 @@ namespace RotMG.Common
             float chance;
             for (var i = 0; i < maxRank - r.RarityShift; i++)
             {
-                chance = 0.75f - MathF.Max(0f, MathF.Log(maxRank * i / (8f + BonusRolls + r.RarityMod)) / 4f);
+                chance = 0.8f - MathF.Max(0f, MathF.Log(maxRank * i / (8f + BonusRolls + r.RarityMod)) / 4f);
                 if (MathUtils.Chance(chance) && rank < maxRank)
                     rank++;
                 else break;
