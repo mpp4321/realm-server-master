@@ -41,7 +41,7 @@ namespace RotMG.Game.Worlds
             {
                 var vp = GetRegion(Region.Decoration2).ToVector2();
                 vp += new Vector2(0.5f, 0.5f);
-                pl.ForceMove(vp, Manager.TotalTime);
+                pl.ForceMove(vp, Manager.TotalTimeUnsynced);
             } else
             {
                 base.MoveEntity(en, to);

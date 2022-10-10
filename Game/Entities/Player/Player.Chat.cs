@@ -26,7 +26,7 @@ namespace RotMG.Game.Entities
             "commands", "g", "guild", "tell", "allyshots", "allydamage", "effects", "sounds", "vault", "realm",
             "notifications", "online", "who", "server", "pos", "loc", "where", "find", "fame", "famestats", "stats",
             "trade", "currentsong", "song", "mix", "quest", "lefttomax", "pinvite", "pcreate", "p", "paccept", "pleave",
-            "psummon", "takefame", "clearrunes", "market", "mymarket", "removemarket", "glands"
+            "psummon", "takefame", "clearrunes", "market", "mymarket", "removemarket", "glands", "fixbonuses"
         };
 
         //List of command, rank required
@@ -597,7 +597,7 @@ namespace RotMG.Game.Entities
                                 ApplyConditionEffect(ConditionEffectIndex.Invincible, 5000);
                                 ApplyConditionEffect(ConditionEffectIndex.Invisible, 5000);
                                 ApplyConditionEffect(ConditionEffectIndex.Stunned, 5000);
-                                this.Teleport(Manager.TotalTime, new Vector2(1105, 1227), false);
+                                this.Teleport(Manager.TotalTimeUnsynced, new Vector2(1105, 1227), false);
                             } else
                             {
                                 SendError("Not in realm");
@@ -1184,6 +1184,19 @@ namespace RotMG.Game.Entities
                             } else
                             {
                                 SendInfo("You must supply a minimum rune cost /clearrunes <min cost>");
+                            }
+                        }
+                        break;
+                    case "/fixbonuses":
+                        {
+                            for(var i = 0; i < Inventory.Length; i++)
+                            {
+                                var data = ItemDatas[i];
+                                if(data != null)
+                                {
+                                    data.ItemLevel = ItemDataJson.GetItemTier_Depcrecated(data.Meta);
+                                    data.Meta = 0x1111111 ^ data.Meta;
+                                }
                             }
                         }
                         break;

@@ -18,7 +18,7 @@ namespace RotMG.Common
         Fame,
         GuildFame
     }
-    
+
     
     public enum ItemData : ulong
     {
@@ -533,6 +533,32 @@ namespace RotMG.Common
                 ? ExtraStatBonuses[(ulong)k] 
                 : 0;
         }
+        public static int GetItemTier_Depcrecated(int data)
+        {
+            if(ItemDesc.HasStat(data, ItemData.T7))
+            {
+                return 8;
+            }
+            if(ItemDesc.HasStat(data, ItemData.T6))
+            {
+                return 7;
+            }
+            if(ItemDesc.HasStat(data, ItemData.T5))
+            {
+                return 6;
+            }
+            if(ItemDesc.HasStat(data, ItemData.T4))
+            {
+                return 5;
+            }
+            if(ItemDesc.HasStat(data, ItemData.T3))
+            {
+                return 4;
+            }
+            // Only refund up to +4 i guess
+            return 0;
+        }
+    
 
         public object Clone()
         {

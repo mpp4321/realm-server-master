@@ -38,7 +38,7 @@ namespace RotMG.Game.Worlds
             if(to_region != Region.None) {
                 var vp = GetRegion(to_region).ToVector2();
                 vp += new Vector2(0.5f, 0.5f);
-                pl.ForceMove(vp, Manager.TotalTime);
+                pl.ForceMove(vp, Manager.TotalTimeUnsynced);
                 return;
             }
 

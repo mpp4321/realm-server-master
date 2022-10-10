@@ -328,14 +328,19 @@ namespace RotMG.Game.Logic
                     var roll = Resources.Type2Item[loot[k].Item].Roll(r: loot[k].RareData, smod: vtype);
 
                     //Roll an item twice on elite enemies, take better roll
-                    if(enemy.IsElite)
+                    if (enemy.IsElite)
                     {
                         var rd = new LootDef.RarityModifiedData(loot[k].RareData);
                         rd.AlwaysRare = true;
 
-                        var roll2 = Resources.Type2Item[loot[k].Item].Roll(r: rd, smod: vtype);
-                        if(ItemDesc.GetRank(roll2.Item2) > ItemDesc.GetRank(roll.Item2)) {
-                            roll = roll2;
+                        var eliteTier = (enemy.MaxHp / 10000) + 1;
+
+                        for (var z = 0; z < eliteTier; z++) {
+                            var roll2 = Resources.Type2Item[loot[k].Item].Roll(r: rd, smod: vtype);
+                            if (ItemDesc.GetRank(roll2.Item2) > ItemDesc.GetRank(roll.Item2))
+                            {
+                                roll = roll2;
+                            }
                         }
                     }
 
