@@ -147,7 +147,9 @@ namespace RotMG.Game.Entities
             var dmgMod = ItemDesc.GetStat(data, ItemData.Damage, ItemDesc.DamageMultiplier, enchantmentStrength);
             var minDmg = min + (int)(min * dmgMod);
             var maxDmg = max + (int)(max * dmgMod);
-            return (int)Client.Random.NextIntRange((uint)minDmg, (uint)maxDmg);
+
+            var damage = (int)Client.Random.NextIntRange((uint)minDmg, (uint)maxDmg);
+            return damage;
         }
 
         public int GetNextDamage(int min, int max, ItemDataJson data, float enchantmentStrength=1f)
@@ -296,7 +298,7 @@ namespace RotMG.Game.Entities
 #if DEBUG
                 Program.Print(PrintType.Error, "Undefined item descriptor");
 #endif
-                Client.Random.Drop(numShots);
+                Client.Random.Drop(numShots * 2);
                 return;
             }
 
@@ -306,7 +308,7 @@ namespace RotMG.Game.Entities
 #if DEBUG
                 Program.Print(PrintType.Error, "Manipulated num shots");
 #endif
-                Client.Random.Drop(numShots);
+                Client.Random.Drop(numShots * 2);
                 return;
             }
 
@@ -315,7 +317,7 @@ namespace RotMG.Game.Entities
 #if DEBUG
                 Program.Print(PrintType.Error, "Stunned...");
 #endif
-                Client.Random.Drop(numShots);
+                Client.Random.Drop(numShots * 2);
                 return;
             }
 
@@ -325,7 +327,7 @@ namespace RotMG.Game.Entities
                 {
                     if (aeItemType != desc.Type)
                     {
-                        Client.Random.Drop(numShots);
+                        Client.Random.Drop(numShots * 2);
                         return;
                     }
 
@@ -334,7 +336,10 @@ namespace RotMG.Game.Entities
                     var angle = attackAngle - totalArc / 2f;
                     for (var i = 0; i < numShots; i++)
                     {
-                        var damage = (int)(GetNextDamageSeeded(desc.NextProjectile(startId - i).MinDamage, desc.NextProjectile(startId - i).MaxDamage, ItemDatas[1], desc.EnchantmentStrength) * GetAttackMultiplier());
+                        var damage = GetNextDamageSeeded(desc.NextProjectile(startId - i).MinDamage, desc.NextProjectile(startId - i).MaxDamage, ItemDatas[1], desc.EnchantmentStrength);
+                        var didCrit = Client.Random.NextFloat() * 100 < GetStatTotal(9);
+                        if (didCrit) damage *= 2;
+                        damage = (int)(damage * GetAttackMultiplier());
                         //var uneffs = this.Inventory.Take(4).Select(a => Resources.Type2Item[Convert.ToUInt16(a)].UniqueEffect).Where(a => a != null).ToArray();
                         var projectile = new Projectile(this, desc.NextProjectile(startId - i), startId - i, time, angle + arcGap * i, pos, damage);
                         AddShotProjectiles(time, projectile);
@@ -368,7 +373,11 @@ namespace RotMG.Game.Entities
                     for (var i = 0; i < numShots; i++)
                     {
                         var pdesc = desc.NextProjectile(Math.Abs(startId - i));
-                        var damage = (int)(GetNextDamageSeeded(pdesc.MinDamage, pdesc.MaxDamage, ItemDatas[0], desc.EnchantmentStrength) * GetAttackMultiplier());
+                        var damage = GetNextDamageSeeded(pdesc.MinDamage, pdesc.MaxDamage, ItemDatas[1], desc.EnchantmentStrength);
+                        var didCrit = Client.Random.NextFloat() * 100 < GetStatTotal(9);
+                        if (didCrit)
+                            damage *= 2;
+                        damage = (int)(damage * GetAttackMultiplier());
                         //var compeffs = this.ItemDatas.Take(4).Select(a => a.ItemComponent != null ? a.ItemComponent : null).Where(a => a != null);
                         var uneffs = BuildAllItemHandlers();
                         var projectile = new Projectile(this, pdesc, startId - i, time, angle + arcGap * i, pos, damage, uniqueEff: uneffs.ToArray());
@@ -401,7 +410,7 @@ namespace RotMG.Game.Entities
 #if DEBUG
                     Program.Print(PrintType.Error, "Shot too early, ignored");
 #endif
-                    Client.Random.Drop(numShots);
+                    Client.Random.Drop(numShots * 2);
                 }
             }
         }

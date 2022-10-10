@@ -340,7 +340,7 @@ namespace RotMG.Common
         public readonly StatDesc[] Stats;
         public readonly int[] StartingValues;
 
-        public const ushort PLAYER_STAT_NUM = 9;
+        public const ushort PLAYER_STAT_NUM = 10;
 
         public PlayerDesc(XElement e, string id, ushort type) : base(e, id, type)
         {
@@ -405,6 +405,7 @@ namespace RotMG.Common
                 case 6: return "HpRegen";
                 case 7: return "MpRegen";
                 case 8: return "Protection";
+                case 9: return "CritChance";
             }
             return null;
         }

@@ -18,6 +18,7 @@
 		<HpRegen max="40">15</HpRegen>
 		<MpRegen max="50">10</MpRegen>
 		<Protection max="75">75</Protection>
+		<CritChance max="25">0</CritChance>
 		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="0" max="2">Attack</LevelIncrease>
@@ -46,6 +47,7 @@
 		<HpRegen max="40">12</HpRegen>
 		<MpRegen max="50">10</MpRegen>
 		<Protection max="75">75</Protection>
+		<CritChance max="25">0</CritChance>
 		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
@@ -74,6 +76,7 @@
 		<HpRegen max="40">12</HpRegen>
 		<MpRegen max="60">12</MpRegen>
 		<Protection max="75">75</Protection>
+		<CritChance max="25">0</CritChance>
 		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
 		<LevelIncrease min="5" max="15">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
@@ -102,6 +105,7 @@
 		<HpRegen max="40">10</HpRegen>
 		<MpRegen max="75">15</MpRegen>
 		<Protection max="75">75</Protection>
+		<CritChance max="25">0</CritChance>
 		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
 		<LevelIncrease min="5" max="15">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="0" max="2">Attack</LevelIncrease>
@@ -130,6 +134,7 @@
 		<HpRegen max="75">10</HpRegen>
 		<MpRegen max="50">10</MpRegen>
 		<Protection max="85">85</Protection>
+		<CritChance max="25">0</CritChance>
 		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
@@ -158,6 +163,7 @@
 		<HpRegen max="75">10</HpRegen>
 		<MpRegen max="50">10</MpRegen>
 		<Protection max="85">85</Protection>
+		<CritChance max="25">0</CritChance>
 		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
@@ -186,6 +192,7 @@
 		<HpRegen max="40">10</HpRegen>
 		<MpRegen max="75">10</MpRegen>
 		<Protection max="85">85</Protection>
+		<CritChance max="25">0</CritChance>
 		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
@@ -214,6 +221,7 @@
 		<HpRegen max="40">15</HpRegen>
 		<MpRegen max="60">10</MpRegen>
 		<Protection max="75">75</Protection>
+		<CritChance max="25">0</CritChance>
 		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="0" max="2">Attack</LevelIncrease>
@@ -242,6 +250,7 @@
 		<HpRegen max="30">10</HpRegen>
 		<MpRegen max="75">12</MpRegen>
 		<Protection max="75">75</Protection>
+		<CritChance max="25">0</CritChance>
 		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
 		<LevelIncrease min="5" max="15">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
@@ -270,6 +279,7 @@
 		<HpRegen max="40">12</HpRegen>
 		<MpRegen max="50">10</MpRegen>
 		<Protection max="75">75</Protection>
+		<CritChance max="25">0</CritChance>
 		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
@@ -298,6 +308,7 @@
 		<HpRegen max="40">15</HpRegen>
 		<MpRegen max="75">15</MpRegen>
 		<Protection max="75">75</Protection>
+		<CritChance max="25">0</CritChance>
 		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
 		<LevelIncrease min="5" max="15">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
@@ -326,6 +337,7 @@
 		<HpRegen max="40">12</HpRegen>
 		<MpRegen max="60">12</MpRegen>
 		<Protection max="75">75</Protection>
+		<CritChance max="25">0</CritChance>
 		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
@@ -354,6 +366,7 @@
 		<HpRegen max="75">10</HpRegen>
 		<MpRegen max="60">15</MpRegen>
 		<Protection max="75">75</Protection>
+		<CritChance max="25">0</CritChance>
 		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
 		<LevelIncrease min="5" max="15">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
@@ -382,6 +395,7 @@
 		<HpRegen max="40">10</HpRegen>
 		<MpRegen max="70">12</MpRegen>
 		<Protection max="75">75</Protection>
+		<CritChance max="25">0</CritChance>
 		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
@@ -410,6 +424,7 @@
 		<HpRegen max="70">10</HpRegen>
 		<MpRegen max="70">12</MpRegen>
 		<Protection max="75">75</Protection>
+		<CritChance max="25">0</CritChance>
 		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>
@@ -439,6 +454,7 @@
 		<HpRegen max="40">10</HpRegen>
 		<MpRegen max="100">12</MpRegen>
 		<Protection max="80">75</Protection>
+		<CritChance max="25">0</CritChance>
 		<LevelIncrease min="20" max="30">MaxHitPoints</LevelIncrease>
 		<LevelIncrease min="2" max="8">MaxMagicPoints</LevelIncrease>
 		<LevelIncrease min="1" max="2">Attack</LevelIncrease>

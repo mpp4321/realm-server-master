@@ -24,7 +24,8 @@ namespace RotMG.Game.Entities
             "Dexterity",
             "Vitality",
             "Wisdom",
-            "Protection" 
+            "Protection",
+            "CritChance",
         };
 
         public int[] Stats;
@@ -177,11 +178,29 @@ namespace RotMG.Game.Entities
 
         public void InitStats(CharacterModel character)
         {
+            var playerType = Resources.Type2Player[(ushort)character.ClassType];
+
+            /*if(character.Stats.Length < playerType.Stats.Length)
+            {
+                var oldStats = character.Stats;
+                character.Stats = new int[playerType.Stats.Length];
+                for(var i = 0; i < playerType.Stats.Length; i++)
+                {
+                    if(i > oldStats.Length)
+                    {
+                        character.Stats[i] = playerType.StartingValues[i];
+                    } else
+                    {
+                        character.Stats[i] = oldStats[i];
+                    }
+                }
+            }*/
+
             Stats = character.Stats
-                .Zip(Enumerable.Range(0, character.Stats.Count()))
+                .Zip(Enumerable.Range(0, playerType.Stats.Length))
                 .Select(
                     tupl => Math.Min(
-                            Resources.Type2Player[(ushort)character.ClassType].Stats[tupl.Second].MaxValue,
+                            playerType.Stats[tupl.Second].MaxValue,
                             tupl.First
                             )
                 ).ToArray();
@@ -255,6 +274,8 @@ namespace RotMG.Game.Entities
             SetPrivateSV(StatType.WisdomBoost, GetBoosts(7));
             TrySetSV(StatType.Protection, GetStatTotal(8));
             TrySetSV(StatType.ProtectionBoost, GetBoosts(8));
+            TrySetSV(StatType.CritChance, GetStatTotal(9));
+            TrySetSV(StatType.CritChanceBoost, GetBoosts(9));
         }
 
         public void TickBoosts()

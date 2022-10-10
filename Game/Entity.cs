@@ -107,7 +107,9 @@ namespace RotMG.Game
         GlowStat,
         Protection,
         ProtectionBoost,
-        MerchantItemData
+        MerchantItemData,
+        CritChance,
+        CritChanceBoost,
     }
 
     public class Entity : IDisposable

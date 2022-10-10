@@ -262,6 +262,10 @@ namespace RotMG.Networking
         {
             return min == max ? min : min + Gen() % (max - min);
         }
+        public float NextFloat()
+        {
+            return 2 * (Gen() >> 8) / (1 << 24);
+        }
 
         private uint Gen()
         {
