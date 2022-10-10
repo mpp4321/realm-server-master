@@ -1,5 +1,6 @@
 ﻿using RotMG.Common;
 using RotMG.Game.Entities;
+using RotMG.Game.Logic.Behaviors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,11 @@ namespace RotMG.Game.Logic.Mechanics
 {
     class Mix
     {
+
+        interface IMix
+        {
+            bool CanMix(ItemDesc item, ItemDataJson json);
+        }
 
         public static bool AreAnyComponents(IEnumerable<ItemDesc> items)
         {
@@ -45,32 +51,91 @@ namespace RotMG.Game.Logic.Mechanics
             p.UpdateInventory();
         }
 
-        public static void DoMix(Player p, int slot1, int slot2)
+        public static bool DoMix(Player p, int slot1, int slot2)
         {
             var items = new int[] { p.Inventory[slot1], p.Inventory[slot2] };
+            if (items[0] == -1 || items[1] == -1) return false;
             var descs = items.Select(a => Resources.Type2Item[(ushort)a]).ToList();
 
-            if(AreAnyComponents(descs))
+            //Crafting
+            (int, int) goo = FindComponentItem(slot1, slot2, descs[0], descs[1], x =>
             {
-                DoMixComponents(p, slot1, slot2, descs);
-                return;
-            } else
+                return x.ActivateEffects.Count() > 0 && x.ActivateEffects[0].Index == ActivateEffectIndex.MagicCrystal;
+            });
+
+            (int, int) comp = FindComponentItem(slot1, slot2, descs[0], descs[1], x =>
             {
-                //Crafting
-                (int, int) goo = FindComponentItem(slot1, slot2, descs[0], descs[1], x =>
-                {
-                    return x.ActivateEffects.Count() > 0 && x.ActivateEffects[0].Index == ActivateEffectIndex.MagicCrystal;
-                });
-                (int, int) havocPiece = FindComponentItem(p, slot1, slot2, 0xcaa);
-                (int, int) goldenBar = FindComponentItem(p, slot1, slot2, Resources.Id2Item["Golden Demonic Metal"].Type);
+                return x.Component != null;
+            });
 
-                CombineAndReroll(p, goo);
-                CombineAndTransform(p, havocPiece, HavocPieces);
-                CombineAndTransform(p, goldenBar, GoldenBar);
-
+            if (ItemTransforms.ContainsKey(descs[0].Type))
+            {
+                CombineAndTransform(p, (slot1, slot2), ItemTransforms[slot1]);
                 p.UpdateInventory();
-                return;
+                return true; 
             }
+            else if (ItemTransforms.ContainsKey(descs[1].Type))
+            {
+                CombineAndTransform(p, (slot2, slot1), ItemTransforms[slot2]);
+                p.UpdateInventory();
+                return true;
+            }
+            else if (comp != (-1, -1))
+            {
+                ApplyComponent(p, comp);
+                p.UpdateInventory();
+                return true;
+            }
+            else if (!(goo.Item1 == -1 || goo.Item2 == -1))
+            {
+                CombineAndReroll(p, goo);
+                p.UpdateInventory();
+                return true;
+            }
+
+            return false;
+        }
+
+        private static Dictionary<string, Action<int, ItemDataJson>> OnApply = new Dictionary<string, Action<int, ItemDataJson>>()
+        {
+            {"AttackComp", (id, json) => {
+                json.ExtraStatBonuses[(ulong) ItemData.Attack] += 6;
+            } },
+            {"FireRune", (id, json) => {
+                var v = json.ExtraStatBonuses.GetValueOrDefault((ulong) ItemData.Attack);
+                json.ExtraStatBonuses[(ulong) ItemData.Attack] = v + 1000;
+            } }
+        };
+
+        private static Dictionary<string, Action<int, ItemDataJson>> OnRemove = new Dictionary<string, Action<int, ItemDataJson>>()
+        {
+            {"AttackComp", (id, json) => {
+                json.ExtraStatBonuses[(ulong) ItemData.Attack] -= 6;
+            } },
+            {"FireRune", (id, json) => {
+                var v = json.ExtraStatBonuses.GetValueOrDefault((ulong) ItemData.Attack);
+                json.ExtraStatBonuses[(ulong) ItemData.Attack] = v - 1000;
+            } }
+        };
+
+        private static void ApplyComponent(Player p, (int, int) itemPair)
+        {
+            var desc = Resources.Type2Item[(ushort) p.Inventory[itemPair.Item1]].Component;
+
+            p.Inventory[itemPair.Item1] = -1;
+            p.ItemDatas[itemPair.Item1] = new ItemDataJson();
+
+            if (OnApply.TryGetValue(desc, out var add))
+            {
+                add(itemPair.Item2, p.ItemDatas[itemPair.Item2]);
+            }
+
+            if (OnRemove.TryGetValue(desc, out var remove))
+            {
+                remove(itemPair.Item2, p.ItemDatas[itemPair.Item2]);
+            }
+
+            p.ItemDatas[itemPair.Item2].ItemComponent = desc;
         }
 
         private static void CombineAndReroll(Player p, (int, int) itemPair)
@@ -90,17 +155,12 @@ namespace RotMG.Game.Logic.Mechanics
             p.ItemDatas[itemPair.Item2] = r.Item1 ? r.Item2 : new ItemDataJson();
         }
 
-        private static Dictionary<ushort, ushort> HavocPieces = new Dictionary<ushort, ushort>
-        {
-            { 0xc24, 0xccd }
+        private static Dictionary<int, Dictionary<int, int>> ItemTransforms = new Dictionary<int, Dictionary<int, int>> {
+            { Resources.Id2Item["Piece of Havoc"].Type, new Dictionary<int, int> { { 0xc24, 0xccd } } },
+            { Resources.Id2Item["Golden Demonic Metal"].Type, new Dictionary<int, int> { { Resources.Id2Item["Demon Blade"].Type, Resources.Id2Item["Gilded Demon Blade"].Type } } }
         };
 
-        private static Dictionary<ushort, ushort> GoldenBar = new Dictionary<ushort, ushort>
-        {
-            { Resources.Id2Item["Demon Blade"].Type, Resources.Id2Item["Gilded Demon Blade"].Type }
-        };
-
-        private static void CombineAndTransform(Player p, (int, int) itemPair, Dictionary<ushort, ushort> ItemSet)
+        private static void CombineAndTransform(Player p, (int, int) itemPair, Dictionary<int, int> ItemSet)
         {
 
             if (itemPair.Item1 == -1 || itemPair.Item2 == -1) return;
