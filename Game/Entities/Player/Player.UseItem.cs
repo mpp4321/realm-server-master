@@ -992,6 +992,7 @@ namespace RotMG.Game.Entities
                         int overCharge = (ItemDatas[slot.SlotId].Meta - 500000) / 100000;
                         overCharge = Math.Max(overCharge, 0);
                         overCharge = Math.Min(overCharge, 6);
+
                         if(desc.EggType == 1 && ItemDatas[slot.SlotId].Meta > 200000) 
                         {
                             var randomGreen = Player.greenUtItems[MathUtils.NextInt(0, Player.greenUtItems.Count() - 1)];
@@ -1002,6 +1003,15 @@ namespace RotMG.Game.Entities
                             ).Item2;
                         }
                         else if(desc.EggType == 2 && ItemDatas[slot.SlotId].Meta > 500000)
+                        {
+                            var randomBlue = Player.blueRtItems[MathUtils.NextInt(0, Player.blueRtItems.Count() - 1)];
+                            var itemDesc = Resources.Id2Item[randomBlue];
+                            Inventory[slot.SlotId] = itemDesc.Type;
+                            ItemDatas[slot.SlotId] = itemDesc.Roll(
+                              r: new RarityModifiedData(1.0f, shift: overCharge, true)
+                            ).Item2;
+                        }
+                        else if(desc.EggType == 3 && ItemDatas[slot.SlotId].Meta > 100000)
                         {
                             var randomBlue = Player.blueRtItems[MathUtils.NextInt(0, Player.blueRtItems.Count() - 1)];
                             var itemDesc = Resources.Id2Item[randomBlue];

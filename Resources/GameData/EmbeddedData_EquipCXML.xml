@@ -12014,7 +12014,7 @@
 		<Consumable/>
 		<InvUse/>
 		<Description>An equipment crystal burning with strength.</Description>
-		<Activate statScale="1.0" id="Strength" amount="5">MagicCrystal</Activate>
+		<Activate statScale="1.0" id="Strength" amount="7">MagicCrystal</Activate>
 		<BagType>6</BagType>
 	</Object>
 	<Object type="0x5105" id="Ghastly Equipment Crystal">
@@ -12028,7 +12028,7 @@
 		<Consumable/>
 		<InvUse/>
 		<Description>An ethereal crystal pulsing with unknown knowledge.</Description>
-		<Activate statScale="1.0" id="Wisdom" amount="5">MagicCrystal</Activate>
+		<Activate statScale="1.0" id="Wisdom" amount="7">MagicCrystal</Activate>
 		<BagType>6</BagType>
 	</Object>
 	<Object type="0x5106" id="Dummy Item for Res Armor">
@@ -12449,5 +12449,33 @@
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>
 		<OldSound>bladeSwing</OldSound>
+	</Object>
+	<Object type="0x525d" id="Lesser Fiery Equipment Crystal">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj4</File>
+			<Index>0xb4</Index>
+		</Texture>
+		<SlotType>10</SlotType>
+		<Consumable/>
+		<InvUse/>
+		<Description>An equipment crystal burning with strength.</Description>
+		<Activate statScale="1.0" id="Strength" amount="3">MagicCrystal</Activate>
+		<BagType>5</BagType>
+	</Object>
+	<Object type="0x525e" id="Lesser Ghastly Equipment Crystal">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj4</File>
+			<Index>0xc4</Index>
+		</Texture>
+		<SlotType>10</SlotType>
+		<Consumable/>
+		<InvUse/>
+		<Description>An ethereal crystal pulsing with unknown knowledge.</Description>
+		<Activate statScale="1.0" id="Wisdom" amount="3">MagicCrystal</Activate>
+		<BagType>5</BagType>
 	</Object>
 </Objects>

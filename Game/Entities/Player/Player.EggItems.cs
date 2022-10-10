@@ -119,5 +119,12 @@ namespace RotMG.Game.Entities
             "Golem Garments",
             "Rusty Cuffs",
         };
+
+        public static List<string> eventEggItems = new List<string>()
+        {
+            "Lesser Fiery Equipment Crystal",
+            "Lesser Ghastly Equipment Crystal",
+            "Oryx Equipment Crystal",
+        };
     }
 }

@@ -142,6 +142,8 @@ namespace RotMG.Game.Logic.Mechanics
         {
             if (itemPair.Item1 == -1 || itemPair.Item2 == -1) return;
             var crystal = Resources.Type2Item[(ushort)p.Inventory[itemPair.Item1]];
+            var other = Resources.Type2Item[(ushort)p.Inventory[itemPair.Item2]];
+            if (other.Consumable) return;
             var eff = crystal.ActivateEffects[0];
             int power = eff.Amount;
             float scale = eff.StatScale;
