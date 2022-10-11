@@ -26,7 +26,7 @@ namespace RotMG.Game.Entities
             "commands", "g", "guild", "tell", "allyshots", "allydamage", "effects", "sounds", "vault", "realm",
             "notifications", "online", "who", "server", "pos", "loc", "where", "find", "fame", "famestats", "stats",
             "trade", "currentsong", "song", "mix", "quest", "lefttomax", "pinvite", "pcreate", "p", "paccept", "pleave",
-            "psummon", "takefame", "clearrunes", "market", "mymarket", "removemarket", "glands", "fixbonuses"
+            "psummon", "takefame", "clearrunes", "market", "mymarket", "removemarket", "glands", "fixbonuses", "lockitem"
         };
 
         //List of command, rank required
@@ -1197,6 +1197,34 @@ namespace RotMG.Game.Entities
                                     data.ItemLevel = ItemDataJson.GetItemTier_Depcrecated(data.Meta);
                                     data.Meta = 0x1111111 ^ data.Meta;
                                 }
+                            }
+                        }
+                        break;
+                    case "lockitem":
+                        {
+                            if (j.Length < 1)
+                            {
+                                SendError("Usage: /lockitem <slot>");
+                                return;
+                            }
+                            var slot1 = int.Parse(j[0]) + 3;
+                            if (slot1 > 0)
+                            {
+                                try
+                                {
+                                    if (ItemDatas[slot1] != null && Inventory[slot1] != -1)
+                                    {
+                                        ItemDatas[slot1].IsLocked = !ItemDatas[slot1].IsLocked;
+                                        if (ItemDatas[slot1].IsLocked)
+                                        {
+                                            SendInfo("Your item is now locked");
+                                        } else
+                                        {
+                                            SendInfo("Your item is now unlocked");
+                                        }
+                                    }
+                                }
+                                catch { SendInfo("Invalid slot"); }
                             }
                         }
                         break;

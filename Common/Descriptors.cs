@@ -526,6 +526,8 @@ namespace RotMG.Common
         public List<int> AllowedItems = null;
 
         public int ItemLevel = -1;
+
+        public bool IsLocked = false;
         
         public int GetStatBonus(ItemData k)
         {
@@ -985,6 +987,7 @@ namespace RotMG.Common
             case 6: return ItemData.Vitality;
             case 7: return ItemData.Wisdom;
             case 8: return ItemData.Defense;
+            case 9: return ItemData.Attack;
           }
           throw new Exception("Unhandled stat value");
         }

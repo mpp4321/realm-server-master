@@ -151,11 +151,14 @@ namespace RotMG.Game.Logic.Mechanics
             var item = Resources.Type2Item[(ushort)p.Inventory[itemPair.Item2]];
             var r = item.Roll(new RarityModifiedData(scale, power, true), typeOfMod);
 
-            p.Inventory[itemPair.Item1] = -1;
-            p.ItemDatas[itemPair.Item1] = new ItemDataJson();
+            if (!p.ItemDatas[itemPair.Item2].IsLocked)
+            {
+                p.Inventory[itemPair.Item1] = -1;
+                p.ItemDatas[itemPair.Item1] = new ItemDataJson();
 
-            p.ItemDatas[itemPair.Item2] = r.Item1 ? r.Item2 : new ItemDataJson();
-        }
+                p.ItemDatas[itemPair.Item2] = r.Item1 ? r.Item2 : new ItemDataJson();
+            }
+       }
 
         private static Dictionary<int, Dictionary<int, int>> ItemTransforms = new Dictionary<int, Dictionary<int, int>> {
             { Resources.Id2Item["Piece of Havoc"].Type, new Dictionary<int, int> { { 0xc24, 0xccd } } },
