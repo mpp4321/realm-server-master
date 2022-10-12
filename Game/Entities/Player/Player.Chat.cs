@@ -1200,7 +1200,7 @@ namespace RotMG.Game.Entities
                             }
                         }
                         break;
-                    case "lockitem":
+                    case "/lockitem":
                         {
                             if (j.Length < 1)
                             {
