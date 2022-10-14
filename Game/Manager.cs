@@ -58,6 +58,11 @@ namespace RotMG.Game
             AddWorld(Resources.Worlds["GuildHall"], GuildId);
         }
 
+        public static void ReInitBehaviors()
+        {
+            Behaviors = new BehaviorDb();
+        }
+
         public static World AddWorld(WorldDesc desc, Client client = null)
         {
             return AddWorld(desc, ++NextWorldId, client);

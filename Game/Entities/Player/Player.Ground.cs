@@ -161,6 +161,7 @@ namespace RotMG.Game.Entities
 #if DEBUG
                 Program.Print(PrintType.Error, "No GotoAck to ack");
 #endif
+                AwaitingGoto.Clear();
                 Client.Disconnect();
                 return;
             }

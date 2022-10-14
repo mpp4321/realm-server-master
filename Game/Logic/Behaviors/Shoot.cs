@@ -4,6 +4,7 @@ using RotMG.Networking;
 using RotMG.Utils;
 using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Linq;
 
 namespace RotMG.Game.Logic.Behaviors
@@ -161,6 +162,13 @@ namespace RotMG.Game.Logic.Behaviors
                     host.Parent.NextProjectileId += count;
 
                     var projectiles = new List<Projectile>();
+
+                    var burstCount = 1;
+                    if(desc.DoStretchShot)
+                    {
+                        burstCount = desc.StretchShotCount;
+                    }
+
                     for (byte k = 0; k < count; k++)
                     {
                         var p = new Projectile(owner, desc, startId + k, Manager.TotalTime, startAngle + ShootAngle * k, host.Position, damage, (e) => { 
@@ -174,7 +182,19 @@ namespace RotMG.Game.Logic.Behaviors
                             if(Callback != null) Callback(e);
                         });
                        
-                        projectiles.Add(p);
+                        if(desc.DoStretchShot)
+                        {
+                            for(var i = 0; i < burstCount; i++)
+                            {
+                                var copyP = new Projectile(p, k + startId + i);
+                                copyP.OverrideSpeed = copyP.Desc.Speed - (i / burstCount) * copyP.Desc.Speed;
+                                projectiles.Add(copyP);
+                            }
+                        } else
+                        {
+                            projectiles.Add(p);
+                        }
+
                         if(owner is Player pl)
                         {
                             //if(pl.ShotProjectiles.ContainsKey(p.Id)) bad

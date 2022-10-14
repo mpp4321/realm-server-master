@@ -1228,6 +1228,15 @@ namespace RotMG.Game.Entities
                             }
                         }
                         break;
+                    case "/reloadbehavs":
+                        {
+                            if (Client.Account.Ranked)
+                            {
+                                Manager.ReInitBehaviors();
+                                SendInfo("Done.");
+                            }
+                        }
+                        break;
                     default:
                         SendError("Unknown command");
                         break;

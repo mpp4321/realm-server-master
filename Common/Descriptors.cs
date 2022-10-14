@@ -1265,6 +1265,9 @@ namespace RotMG.Common
         public ProjectileDesc ExplodeProjectile => explodeProjectile;
         public readonly int ExplodeCount = 0;
 
+        public readonly bool DoStretchShot = false;
+        public readonly int StretchShotCount = 0;
+
         public ProjectileDesc(XElement e, ushort containerType)
         {
             ContainerType = containerType;
@@ -1307,6 +1310,8 @@ namespace RotMG.Common
 
             PhaseLock = (short) e.ParseInt("PhaseLock", -1);
 
+            DoStretchShot = e.ParseBool("DoStretchShot", false);
+            StretchShotCount = e.ParseInt("StretchShotCount", -1);
         }
 
     }

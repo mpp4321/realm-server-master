@@ -13,6 +13,7 @@ namespace RotMG.Game
         public readonly ProjectileDesc Desc;
         public readonly int Id;
         public readonly float Angle;
+        public float OverrideSpeed = -1f;
         public readonly Vector2 StartPosition;
         public int Damage;
         public readonly HashSet<int> Hit;
@@ -20,7 +21,7 @@ namespace RotMG.Game
 
         public int Time;
 
-        public Projectile(Entity owner, ProjectileDesc desc, int id, int time, float angle, Vector2 startPos, int damage, Action<Entity> hitDelegate=null, IItemHandler[] uniqueEff = null)
+        public Projectile(Entity owner, ProjectileDesc desc, int id, int time, float angle, Vector2 startPos, int damage, Action<Entity> hitDelegate = null, IItemHandler[] uniqueEff = null, float overrideSpeed = -1f)
         {
             Owner = owner;
             Desc = desc;
@@ -32,6 +33,23 @@ namespace RotMG.Game
             Hit = new HashSet<int>();
             OnHitDelegate = hitDelegate;
             UniqueEffects = uniqueEff ?? new IItemHandler[] { };
+            OverrideSpeed = overrideSpeed;
+        }
+
+        // Does not clone hit map
+        public Projectile(Projectile p, int newid)
+        {
+            Owner = p.Owner;
+            Desc = p.Desc;
+            Id = newid;
+            Time = p.Time;
+            Angle = p.Angle;
+            StartPosition = p.StartPosition;
+            Damage = p.Damage;
+            Hit = new HashSet<int>();
+            OnHitDelegate = p.OnHitDelegate;
+            UniqueEffects = p.UniqueEffects;
+            OverrideSpeed = p.OverrideSpeed;
         }
 
         public bool CanHit(Entity en)
@@ -46,31 +64,33 @@ namespace RotMG.Game
 
         public float SpeedAt(float elapsed)
         {
-            var speed = Desc.Speed;
+            var speed = OverrideSpeed == -1f ? Desc.Speed : OverrideSpeed;
+            var accel = Desc.Accelerate;
             if (Desc.DoAccelerate && elapsed > Desc.AccelerateDelay)
             {
                 //var elapsedWithDelay = MathF.Max(0, elapsed - Desc.AccelerateDelay);
-                var speedIncreaseByLifeTime = elapsed * (Desc.Accelerate / 1000);
+                var speedIncreaseByLifeTime = elapsed * (accel / 1000);
                 //speed *= elapsed / Desc.LifetimeMS;
                 speed += speedIncreaseByLifeTime;
             }
 
             var hasSpeedClamp = Desc.SpeedClamp > 0;
 
-            if(hasSpeedClamp)
+            if (hasSpeedClamp)
             {
-                if(Desc.Speed > Desc.SpeedClamp)
+                if (Desc.Speed > Desc.SpeedClamp)
                 {
-                    
-                    if(speed < Desc.SpeedClamp)
+
+                    if (speed < Desc.SpeedClamp)
                     {
                         speed = Desc.SpeedClamp;
                     }
 
-                } else
+                }
+                else
                 {
                     //Desc.Speed < Desc.SpeedClamp
-                    if(speed > Desc.SpeedClamp)
+                    if (speed > Desc.SpeedClamp)
                     {
                         speed = Desc.SpeedClamp;
                     }
@@ -83,7 +103,8 @@ namespace RotMG.Game
         {
             elapsed = float.IsNaN(elapsed) ? 0.0f : elapsed;
             var p = new Vector2(StartPosition.X, StartPosition.Y);
-            var speed = SpeedAt(elapsed);
+            //var speed = SpeedAt(elapsed)//////;
+            var accel = OverrideSpeed == -1f ? Desc.Accelerate : OverrideSpeed;
 
             //if (Desc.Decelerate != 0.0f) speed *= 2 - elapsed / Desc.LifetimeMS;
 
@@ -97,20 +118,22 @@ namespace RotMG.Game
             var delayT = Desc.AccelerateDelay / 1000.0f;
             var distDelayT = Desc.Speed * delayT;
 
-            if(Desc.DoAccelerate && elapsedT >= delayT)
+            if (Desc.DoAccelerate && elapsedT >= delayT)
             {
-                var delta = -Desc.Speed / Desc.Accelerate;
-                if ((elapsedT - delayT) > delta && delta > 0) 
+                var delta = -Desc.Speed / accel;
+                if ((elapsedT - delayT) > delta && delta > 0)
                 {
-                    dist = (Desc.Accelerate * MathF.Pow(delta, 2) / 2.0f) + (Desc.Speed * delta);
-                } else
+                    dist = (accel * MathF.Pow(delta, 2) / 2.0f) + (Desc.Speed * delta);
+                }
+                else
                 {
-                    dist = (Desc.Accelerate * MathF.Pow(elapsedT - delayT, 2) / 2.0f) + (Desc.Speed * (elapsedT - delayT));
+                    dist = (accel * MathF.Pow(elapsedT - delayT, 2) / 2.0f) + (Desc.Speed * (elapsedT - delayT));
                 }
                 //Add the movement before acceleration
                 dist += distDelayT;
                 dist /= 10.0f;
-            } else
+            }
+            else
             {
                 dist = elapsed * Desc.Speed / 10000f;
             }
@@ -118,7 +141,7 @@ namespace RotMG.Game
             //Phase != 1 -> MathF.PI locked else 0 lock
             float phase = Desc.PhaseLock == 1 ? 0 : MathF.PI;
 
-            if(Desc.PhaseLock == -1)
+            if (Desc.PhaseLock == -1)
                 phase = Id % 2 == 0 ? 0 : MathF.PI;
 
             var theta = Angle;
@@ -158,7 +181,7 @@ namespace RotMG.Game
             if (Desc.Amplitude != 0)
             {
                 var ampFactor = Desc.Amplitude;
-                if(Desc.Wavy)
+                if (Desc.Wavy)
                 {
                     ampFactor *= MathF.Pow(elapsed / Desc.LifetimeMS, 1.4f);
                 }
