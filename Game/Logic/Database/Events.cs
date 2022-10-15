@@ -885,6 +885,57 @@ namespace RotMG.Game.Logic.Database
                 )
             );
 
+            db.Init("Super Snail", 
+                new Charge(1f, 99, coolDown: 300, distance: 0.01f),
+                new Shoot(10, 1, cooldown: 1000),
+                new Shoot(10, 1, angleOffset: 180.0f, cooldown: 1000),
+                new Shoot(10, 1, angleOffset: 90.0f, cooldown: 1000),
+                new Shoot(10, 1, angleOffset: 270.0f, cooldown: 1000),
+
+                new Shoot(10, 4, 90f, 1, rotateAngle: 45f, cooldown: 500)
+            );
+
+            db.Init("NM Green Dragon God Hardmode",
+                new ChangeSize(75, 300),
+                new State("1",
+                    new Wander(0.05f),
+                    new Shoot(0, 5, 40, cooldown: 3000),
+                    new Shoot(5, 3, 20, index: 3, cooldown: 1000),
+                    new HealthTransition(0.9f, "2")
+                ),
+                new State("2",
+                    new Wander(0.05f),
+                    new Shoot(0, 5, 40, cooldown: 1500),
+                    new Shoot(5, 3, 20, index: 3, cooldown: 500),
+                    new Shoot(0, 8, 45 / 2, 1, null, null, 180),
+                    new Shoot(0, 1, null, 2, null, 45 / 2, 180, cooldown: 200),
+                    new HealthTransition(0.5f, "3")
+                ),
+                new State("3",
+                    new Wander(0.1f),
+                    new Shoot(0, 5, 40, cooldown: 1500),
+                    new Shoot(5, 3, 20, index: 3, cooldown: 500),
+                    new Shoot(0, 8, 45 / 2, 1, null, null, 180),
+                    new Shoot(0, 1, null, 2, null, 45 / 2, 180, cooldown: 200),
+                    new HealthTransition(0.1f, "die")
+                ),
+                new State("die",
+                    new Flash(0xff0000, 1.0, 3),
+                    new Suicide(1000),
+                    new Taunt(cooldown: 0, "Lucky.")
+                ),
+                new Threshold(0.01f,
+                    new ItemLoot("Realm Equipment Crystal", 1.0f),
+                    new ItemLoot("Realm Equipment Crystal", 0.8f),
+                    new ItemLoot("Realm Equipment Crystal", 0.6f),
+                    new ItemLoot("Realm Equipment Crystal", 0.4f),
+                    new ItemLoot("Oryx Equipment Crystal", 0.4f),
+                    new ItemLoot("Oryx Equipment Crystal", 0.1f),
+                    new TierLoot(6, LootType.Ring, 1.0f, r: new(1.0f, 1, true)),
+                    new TierLoot(6, LootType.Ring, 1.0f, r: new(1.0f, 1, true))
+                )
+            );
+
         }
     }
 }

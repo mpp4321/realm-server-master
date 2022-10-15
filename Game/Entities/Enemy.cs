@@ -188,7 +188,7 @@ namespace RotMG.Game.Entities
         public void MakeElite()
         {
             IsElite = true;
-            MaxHp += MaxHp + (int)(MaxHp * 1.75f);
+            MaxHp = (int)(MaxHp * 1.75f);
             Hp = MaxHp;
             Glow = 0xff0000;
             Size = (int) (Desc.Size * 1.25f);

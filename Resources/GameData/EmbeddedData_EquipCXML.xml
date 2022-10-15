@@ -389,7 +389,7 @@
 		</Texture>
 		<SlotType>1</SlotType>
 		<Description>A slow but powerful sword that is a relic of a long forgotten age.</Description>
-		<RateOfFire>0.6</RateOfFire>
+		<RateOfFire>0.8</RateOfFire>
 		<Sound>weapon/glass_sword</Sound>
 		<Projectile>
 			<ObjectId>Stone Slash</ObjectId>
@@ -12487,5 +12487,22 @@
 		<Description>An ethereal crystal pulsing with unknown knowledge.</Description>
 		<Activate statScale="1.0" id="Wisdom" amount="3">MagicCrystal</Activate>
 		<BagType>5</BagType>
+	</Object>
+	<Object type="0x525f" id="Sand Monster Contract">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj4</File>
+			<Index>0xd4</Index>
+		</Texture>
+		<SlotType>20</SlotType>
+		<Description>A trusted hunting companion on call. The little guy does big damage to summoned mobs (scales w/ wis)!</Description>
+		<Usable/>
+		<BagType>6</BagType>
+		<MpCost>150</MpCost>
+		<ActivateOnEquip stat="0" amount="50">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="1" amount="200">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="6" amount="15">IncrementStat</ActivateOnEquip>
+		<Activate id="Sand Monster Ally">TossObject</Activate>
 	</Object>
 </Objects>

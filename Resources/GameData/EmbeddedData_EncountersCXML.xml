@@ -1556,4 +1556,125 @@
 			<LifetimeMS>2400</LifetimeMS>
 		</Projectile>
 	</Object>
+	<Object type="0x5206" id="Super Snail">
+		<Class>Character</Class>
+		<AnimatedTexture><File>chars8x8rPets1</File><Index>0x03</Index></AnimatedTexture>
+		<StasisImmune/>
+		<Level>20</Level>
+		<XpMult>2</XpMult>
+		<Enemy/>
+		<Size>150</Size>
+		<Defense>100</Defense>
+		<MaxHitPoints>25000</MaxHitPoints>
+		<Projectile id="0">
+			<ObjectId>Blue Brother Orb</ObjectId>
+			<Speed>50</Speed>
+			<Damage>100</Damage>
+			<Size>120</Size>
+			<LifetimeMS>2000</LifetimeMS>
+			<DoStretchShot/>
+			<StretchShotCount>10</StretchShotCount>
+			<ConditionEffect duration="1.0">Weakness</ConditionEffect>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Dragon Attack Red Small Fireball</ObjectId>
+			<Speed>100</Speed>
+			<Damage>80</Damage>
+			<Size>100</Size>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+	</Object>
+	<Object type="0x5207" id="Sand Monster Ally">
+		<Class>Character</Class>
+		<MaxHitPoints>4000</MaxHitPoints>
+		<Enemy/>
+		<Friendly/>
+		<AnimatedTexture>
+		  <File>chars16x16rEncounters</File>
+		  <Index>110</Index>
+		</AnimatedTexture>
+		<Size>100</Size>
+	</Object>
+   <Object type="0x520a" id="NM Green Dragon God Hardmode">
+      <DisplayId>Limoz the Plague Bearer</DisplayId>
+      <Group>Dragon Gods</Group>
+      <Enemy/>
+      <Class>Character</Class>
+      <AnimatedTexture>
+         <File>chars16x16dEncounters2</File>
+         <Index>49</Index>
+      </AnimatedTexture>
+      <AltTexture id="1">
+         <AnimatedTexture>
+            <File>chars16x16dEncounters2</File>
+            <Index>50</Index>
+         </AnimatedTexture>
+      </AltTexture>
+      <HitSound>monster/skeletons_hit</HitSound>
+      <DeathSound>monster/skeletons_death</DeathSound>
+      <Size>225</Size>
+      <MaxHitPoints>110000</MaxHitPoints>
+      <Defense>60</Defense>
+      <XpMult>1.0</XpMult>
+      <Level>20</Level>
+      <Quest/>
+      <God/>
+      <ParalyzeImmune/>
+      <DazedImmune/>
+      <StasisImmune/>
+      <StunImmune/>
+      <Projectile id="0">
+         <ObjectId>Dragon Attack Green Ball</ObjectId>
+         <Damage>135</Damage>
+         <Speed>70</Speed>
+         <LifetimeMS>1900</LifetimeMS>
+		 <ConditionEffect duration="3.0">Bleeding</ConditionEffect>
+         <PassesCover/>
+      </Projectile>
+      <Projectile id="1">
+         <ObjectId>Dragon Attack Green Spin Ball</ObjectId>
+         <Damage>120</Damage>
+         <Speed>80</Speed>
+         <Size>100</Size>
+         <LifetimeMS>500</LifetimeMS>
+         <ConditionEffect duration="5">Sick</ConditionEffect>
+      </Projectile>
+      <Projectile id="2">
+         <ObjectId>Dragon Attack Green Arrow</ObjectId>
+         <Speed>50</Speed>
+         <Damage>300</Damage>
+		 <ArmorPierce/>
+         <Size>250</Size>
+         <LifetimeMS>2400</LifetimeMS>
+      </Projectile>
+      <Projectile id="3">
+         <ObjectId>Dragon Attack Green Bullet</ObjectId>
+         <Damage>120</Damage>
+         <Speed>100</Speed>
+         <LifetimeMS>1000</LifetimeMS>
+      </Projectile>
+      <Projectile id="4">
+         <ObjectId>Dragon Attack Green Spine</ObjectId>
+         <Speed>55</Speed>
+         <Damage>100</Damage>
+         <Size>100</Size>
+         <LifetimeMS>2500</LifetimeMS>
+      </Projectile>
+      <Projectile id="5">
+         <ObjectId>Dragon Attack Blue Fireball</ObjectId>
+         <Speed>75</Speed>
+         <Damage>75</Damage>
+         <Size>140</Size>
+         <LifetimeMS>1500</LifetimeMS>
+         <ConditionEffect duration="8">Weak</ConditionEffect>
+      </Projectile>
+      <Projectile id="6">
+         <ObjectId>Dragon Attack Red Spinning Fireball</ObjectId>
+         <Speed>55</Speed>
+         <Damage>120</Damage>
+         <Size>110</Size>
+         <LifetimeMS>2000</LifetimeMS>
+         <ConditionEffect duration="3">Armor Broken</ConditionEffect>
+      </Projectile>
+   </Object>
 </Objects>

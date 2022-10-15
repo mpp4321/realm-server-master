@@ -276,7 +276,7 @@ namespace RotMG.Game.Logic.Database
                     var nova_blue = GameServer.ShowEffect(ShowEffectIndex.Nova, h.Id, 0xff0000ff, new Vector2(3, 0));
                     foreach (var j in h.Parent.PlayerChunks.HitTest(h.Position, Math.Max(4, Player.SightRadius)))
                     {
-                        if (j is Player p && p.Client.Account.AllyShots)
+                        if (j is Player p && p.Client.Account.AllyShots && p.Client.Account.Effects)
                         {
                             p.Client?.Send(nova);
                             p.Client?.Send(nova_blue);
@@ -286,6 +286,37 @@ namespace RotMG.Game.Logic.Database
                 }, 500),
                 new TimedTransition("Die", 4500)
                 ), new State("Die", new Decay(0)));
+
+            db.Init("Sand Monster Ally",
+                new State("Base", 
+                new Wander(0.1f),
+                new PulseFire((h) =>
+                {
+                    var entities = GameUtils.GetNearbyEntities(h, 5).Where(e =>
+                    {
+                        return e.IsSpawned && e is Enemy && e != h;
+                    });
+                    foreach (var e in entities)
+                    {
+                        if (e == null) continue;
+                        if (e is Enemy en)
+                        {
+                            en.Damage(h.PlayerOwner, 500 + (h.PlayerOwner.GetStatTotal(6) * 5), new ConditionEffectDesc[] { }, true, true);
+                        }
+                    }
+                    var nova_blue = GameServer.ShowEffect(ShowEffectIndex.Nova, h.Id, 0xff00ffff, new Vector2(5, 0));
+                    foreach (var j in h.Parent.PlayerChunks.HitTest(h.Position, Math.Max(4, Player.SightRadius)))
+                    {
+                        if (j is Player p && p.Client.Account.Effects)
+                        {
+                            p.Client?.Send(nova_blue);
+                        }
+                    }
+                    return true;
+                }, 500),
+                new TimedTransition("Die", 4500)),
+                new State("Die", new Decay(0))
+            );
         }
     }
 }

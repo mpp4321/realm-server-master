@@ -38,9 +38,9 @@ namespace RotMG.Game.Logic.Behaviors
             this.dispersion = dispersion;
         }
 
-        private void SpawnChildAt(Entity host, ref SpawnState state)
+        private void SpawnChildAt(Entity host, ref SpawnState state, bool isInit=false)
         {
-            if (!MathUtils.Chance(probability))
+            if (!MathUtils.Chance(probability) && !isInit)
                 return;
             Entity entity = Entity.Resolve(_children);
             entity.IsSpawned = _givesNoXp;
@@ -81,7 +81,7 @@ namespace RotMG.Game.Logic.Behaviors
             state.CurrentNumber = NewEntities.Count;
         }
 
-        public void InitializeState(Entity host)
+        public void InitializeState(Entity host, bool isInit=false)
         {
             if(host.StateObject[Id] == null)
                 host.StateObject[Id] = new SpawnState()
@@ -95,13 +95,13 @@ namespace RotMG.Game.Logic.Behaviors
 
             for (int i = 0; i < Math.Min(_initialSpawn, _maxChildren - state.CurrentNumber); i++)
             {
-                SpawnChildAt(host, ref state);
+                SpawnChildAt(host, ref state, isInit);
             }
         }
 
         public override void Enter(Entity host)
         {
-            InitializeState(host);
+            InitializeState(host, true);
         }
 
         public override bool Tick(Entity host)

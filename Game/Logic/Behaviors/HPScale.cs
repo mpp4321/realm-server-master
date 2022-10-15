@@ -55,6 +55,10 @@ namespace RotMG.Game.Logic.Behaviors
                     state.Players = setOfPlayers;
                     var oldMaxHp = en.MaxHp;
                     en.MaxHp = (int)(en.Desc.MaxHp * (1.0f + (Factor * (setCount - 1)) ));
+                    if(en.IsElite)
+                    {
+                        en.MaxHp = (int)(en.MaxHp * 1.75f);
+                    }
                     en.Hp += (en.MaxHp - oldMaxHp);
                     state.TimeLeft = cooldown.Next(MathUtils.GetStaticRandom());
                 }
