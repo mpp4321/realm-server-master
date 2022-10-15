@@ -69,8 +69,7 @@ namespace RotMG.Common
         protected override void Load()
         {
             Inventory = Data.ParseIntArray("Inventory", ",");
-            ItemDatas = Data.ParseStringArray("ItemDatas", null, regex: new System.Text.RegularExpressions.Regex(@"(?<=}),(?={)"));
-            if (ItemDatas == null) ItemDatas = Enumerable.Repeat("{\"Meta\": -1}", 20).ToArray();
+            ItemDatas = Data.ParseStringArray("ItemDatas", null, regex: new System.Text.RegularExpressions.Regex(@"(?<=}),(?={)"))?.Take(8).ToArray() ?? Enumerable.Repeat("{\"Meta\": -1}", 8).ToArray();
         }
 
         public override XElement Export(bool appExport = true)
