@@ -161,7 +161,7 @@ namespace RotMG.Game.Logic.Mechanics
        }
 
         private static Dictionary<int, Dictionary<int, int>> ItemTransforms = new Dictionary<int, Dictionary<int, int>> {
-            { Resources.Id2Item["Piece of Havoc"].Type, new Dictionary<int, int> { { 0xc24, 0xccd } } },
+            { Resources.Id2Item["Piece of Havoc"].Type, new Dictionary<int, int> { { 0xc24, 0xccd }, { Resources.Id2Item["Cracked Waraxe"].Type, Resources.Id2Item["Paladin's Waraxe"].Type } } },
             { Resources.Id2Item["Golden Demonic Metal"].Type, new Dictionary<int, int> { { Resources.Id2Item["Demon Blade"].Type, Resources.Id2Item["Gilded Demon Blade"].Type } } }
         };
 

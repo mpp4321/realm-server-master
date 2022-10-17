@@ -4077,4 +4077,20 @@
 	</Texture>
     <AngleCorrection>1</AngleCorrection>
   </Object>
+  <Object type="0x2226" id="Cracked Waraxe Shot">
+    <Class>Projectile</Class>
+	<Texture>
+		<File>lofiObj5</File>
+		<Index>0xf7</Index>
+	</Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2227" id="Paladin Waraxe Shot">
+    <Class>Projectile</Class>
+	<Texture>
+		<File>lofiObj5</File>
+		<Index>0xfa</Index>
+	</Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
 </Objects><!--next avaliable is 0x2225-->
