@@ -443,6 +443,7 @@ namespace RotMG.Game.Entities
                     //Program.Print(PrintType.Error, "Proj lifetime expired");
 #endif
                     AckedProjectiles.Remove(p.Key);
+                    AckedExplosions.Remove(p.Key);
                     continue;
                 }
 

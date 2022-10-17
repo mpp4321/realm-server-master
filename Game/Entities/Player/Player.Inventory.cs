@@ -339,7 +339,7 @@ namespace RotMG.Game.Entities
             if(slot1.SlotId != slot2.SlotId)
             {
                 if (HandleItemBag(slot1, slot2, data1, data2, d1, d2, item1, item2, con1, con2)) return;
-                if (Mix.DoMix(this, slot1.SlotId, slot2.SlotId)) return;
+                if (con1 == con2 && Mix.DoMix(this, slot1.SlotId, slot2.SlotId)) return;
             } 
 
             con1.Inventory[slot1.SlotId] = item2;

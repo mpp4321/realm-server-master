@@ -70,13 +70,13 @@ namespace RotMG.Game.Logic.Mechanics
 
             if (ItemTransforms.ContainsKey(descs[0].Type))
             {
-                CombineAndTransform(p, (slot1, slot2), ItemTransforms[slot1]);
+                CombineAndTransform(p, (slot1, slot2), ItemTransforms[descs[0].Type]);
                 p.UpdateInventory();
                 return true; 
             }
             else if (ItemTransforms.ContainsKey(descs[1].Type))
             {
-                CombineAndTransform(p, (slot2, slot1), ItemTransforms[slot2]);
+                CombineAndTransform(p, (slot2, slot1), ItemTransforms[descs[1].Type]);
                 p.UpdateInventory();
                 return true;
             }

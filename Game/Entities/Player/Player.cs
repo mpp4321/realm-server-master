@@ -502,6 +502,7 @@ namespace RotMG.Game.Entities
             Entities.Clear();
             CalculatedSightCircle.Clear();
             AwaitingProjectiles.Clear();
+            AckedExplosions.Clear();
             AckedProjectiles.Clear();
             ShotProjectiles.Clear();
             AwaitingAoes.Clear();
