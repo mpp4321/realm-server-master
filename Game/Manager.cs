@@ -193,6 +193,17 @@ namespace RotMG.Game
             }
         }
 
+        // Forcfully removes entity from all instances currently loaded
+        // used for player disconnects so we can assure they will be removed
+        // even if their world is invalidated
+        public static void RemoveEntityImportant(Entity en)
+        {
+            foreach(var world in Worlds.Values)
+            {
+                world.RemoveEntity(en);
+            }
+        }
+
         public static void Tick()
         {
             TotalTimeUnsynced = (int)TickWatch.ElapsedMilliseconds;

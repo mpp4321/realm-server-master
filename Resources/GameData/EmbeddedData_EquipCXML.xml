@@ -12574,4 +12574,18 @@
 			<EffectInfo name="Paladin's Recovery" description="Heal everyone around you for 2*vit every few seconds."/>
 		</ExtraTooltipData>
 	</Object>
+	<Object type="0x5263" id="Upgrading Equipment Crystal">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj4</File>
+			<Index>0xa4</Index>
+		</Texture>
+		<SlotType>10</SlotType>
+		<Consumable/>
+		<InvUse/>
+		<Description>Like a regular equipment crystal except it can never degrade or change your equipment.</Description>
+		<Activate statScale="0.1" id="Classical" amount="1" upgradeOnly="true">MagicCrystal</Activate>
+		<BagType>6</BagType>
+	</Object>
 </Objects>

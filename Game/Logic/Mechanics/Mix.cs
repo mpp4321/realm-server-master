@@ -88,7 +88,7 @@ namespace RotMG.Game.Logic.Mechanics
             }
             else if (!(goo.Item1 == -1 || goo.Item2 == -1))
             {
-                CombineAndReroll(p, goo);
+                var success = CombineAndReroll(p, goo);
                 p.UpdateInventory();
                 return true;
             }
@@ -138,26 +138,44 @@ namespace RotMG.Game.Logic.Mechanics
             p.ItemDatas[itemPair.Item2].ItemComponent = desc;
         }
 
-        private static void CombineAndReroll(Player p, (int, int) itemPair)
+        private static bool CombineAndReroll(Player p, (int, int) itemPair)
         {
-            if (itemPair.Item1 == -1 || itemPair.Item2 == -1) return;
+            if (itemPair.Item1 == -1 || itemPair.Item2 == -1) return false;
             var crystal = Resources.Type2Item[(ushort)p.Inventory[itemPair.Item1]];
             var other = Resources.Type2Item[(ushort)p.Inventory[itemPair.Item2]];
-            if (other.Consumable) return;
+            if (other.Consumable) return false;
             var eff = crystal.ActivateEffects[0];
             int power = eff.Amount;
             float scale = eff.StatScale;
             ItemDataModType typeOfMod = Enum.Parse<ItemDataModType>(crystal.ActivateEffects[0].Id ?? p.Client.Character.ItemDataModifier);
             var item = Resources.Type2Item[(ushort)p.Inventory[itemPair.Item2]];
             var r = item.Roll(new RarityModifiedData(scale, power, true), typeOfMod);
+            var upgradeOnly = eff.UpgradeOnly;
+            if(upgradeOnly)
+            {
+                var currentLevel = p.ItemDatas[itemPair.Item2].ItemLevel;
+                r = item.Roll(new RarityModifiedData(scale, currentLevel, false), typeOfMod);
+                if(currentLevel < 1)
+                {
+                    return false;
+                }
+            }
 
             if (!p.ItemDatas[itemPair.Item2].IsLocked)
             {
                 p.Inventory[itemPair.Item1] = -1;
                 p.ItemDatas[itemPair.Item1] = new ItemDataJson();
 
-                p.ItemDatas[itemPair.Item2] = r.Item1 ? r.Item2 : new ItemDataJson();
+                if(upgradeOnly)
+                {
+                    if(r.Item1)
+                        p.ItemDatas[itemPair.Item2].ItemLevel = r.Item2.ItemLevel;
+                } else
+                {
+                    p.ItemDatas[itemPair.Item2] = r.Item1 ? r.Item2 : new ItemDataJson();
+                }
             }
+            return true;
        }
 
         private static Dictionary<int, Dictionary<int, int>> ItemTransforms = new Dictionary<int, Dictionary<int, int>> {

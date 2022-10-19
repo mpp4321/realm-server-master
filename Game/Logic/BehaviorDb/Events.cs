@@ -1,7 +1,9 @@
 ﻿using RotMG.Common;
+using RotMG.Game.Entities;
 using RotMG.Game.Logic.Behaviors;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
+using RotMG.Utils;
 using RoTMG.Game.Logic.Transitions;
 using System;
 using System.Collections.Generic;
@@ -909,6 +911,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(5, 3, 20, index: 3, cooldown: 500),
                     new Shoot(0, 8, 45 / 2, 1, null, null, 180),
                     new Shoot(0, 1, null, 2, null, 45 / 2, 180, cooldown: 200),
+                    new TossObject("Dragon God Gas Cloud", 10, cooldown: 800, tossInvis: true, minAngle: 0f, maxAngle: 360f, minRange: -10f, maxRange: 10f),
                     new HealthTransition(0.5f, "3")
                 ),
                 new State("3",
@@ -917,24 +920,50 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(5, 3, 20, index: 3, cooldown: 500),
                     new Shoot(0, 8, 45 / 2, 1, null, null, 180),
                     new Shoot(0, 1, null, 2, null, 45 / 2, 180, cooldown: 200),
+                    new TossObject("Dragon God Gas Cloud", 10, cooldown: 400, tossInvis: true, minAngle: 0f, maxAngle: 360f, minRange: 0f, maxRange: 10f),
                     new HealthTransition(0.1f, "die")
                 ),
                 new State("die",
                     new Flash(0xff0000, 1.0, 3),
                     new Suicide(1000),
+                    new ConditionalEffect(ConditionEffectIndex.Invincible),
                     new Taunt(cooldown: 0, "Lucky.")
                 ),
                 new Threshold(0.01f,
+                    new ItemLoot("Realm Equipment Crystal", 1.0f),
                     new ItemLoot("Realm Equipment Crystal", 1.0f),
                     new ItemLoot("Realm Equipment Crystal", 0.8f),
                     new ItemLoot("Realm Equipment Crystal", 0.6f),
                     new ItemLoot("Realm Equipment Crystal", 0.4f),
                     new ItemLoot("Oryx Equipment Crystal", 0.4f),
                     new ItemLoot("Oryx Equipment Crystal", 0.1f),
+                    new ItemLoot("Ghastly Equipment Crystal", 0.1f),
+                    new ItemLoot("Ghastly Equipment Crystal", 0.1f),
                     new TierLoot(6, LootType.Ring, 1.0f, r: new(1.0f, 1, true)),
-                    new TierLoot(6, LootType.Ring, 1.0f, r: new(1.0f, 1, true))
+                    new TierLoot(6, LootType.Ring, 1.0f, r: new(1.0f, 1, true)),
+                    new TierLoot(12, LootType.Weapon, 1.0f, r: new(1.0f, 1, true)),
+                    new TierLoot(12, LootType.Armor, 1.0f, r: new(1.0f, 1, true))
+                ),
+                new Threshold(0.1f,
+                    new ItemLoot("Realm Equipment Crystal", 1.0f),
+                    new ItemLoot("Plague Poison", 0.05f)
                 )
             );
+
+            db.Init("Dragon God Gas Cloud", 
+            new ConditionalEffect(ConditionEffectIndex.Invincible), 
+            new PulseFire((e) =>
+            {
+                var nearbyPlayers = e.GetNearbyPlayers(2);
+                foreach(var p in nearbyPlayers)
+                {
+                    if(p is Player pl)
+                    {
+                        pl.Damage("Gas Cloud", 50, new ConditionEffectDesc[] { new ConditionEffectDesc(ConditionEffectIndex.Sick, 300) }, true, true);
+                    }
+                }
+                return true;
+            }, 100), /*new ChangeSize(2, 0),*/ new Decay(5000));
 
         }
     }

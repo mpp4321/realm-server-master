@@ -14,4 +14,7 @@
 	<SetPiece id="TriBrother">
         <Map>TricolorBrothers.jm</Map>
     </SetPiece>
+	<SetPiece id="testtopo">
+        <Map>testtopo.jm</Map>
+    </SetPiece>
 </SetPieces>

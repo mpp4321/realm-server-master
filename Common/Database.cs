@@ -1141,14 +1141,6 @@ namespace RotMG.Common
             if (acc == null)
                 throw new Exception("Account is null.");
 #endif
-
-            // Auto-fix broken chars
-            acc.AliveChars = acc.AliveChars.Where((x) =>
-            {
-                var model =new CharacterModel(acc.Id, x);
-                return model.Data != null;
-            }).ToList();
-
             if (!HasEnoughCharacterSlots(acc))
                 return null;
 
@@ -1165,7 +1157,6 @@ namespace RotMG.Common
 
             var newId = acc.NextCharId += 1;
             acc.AliveChars.Add(newId);
-            acc.Save();
 
             var character = new CharacterModel(acc.Id, newId)
             {
@@ -1194,6 +1185,8 @@ namespace RotMG.Common
             };
 
             character.Save();
+            acc.Save();
+
             return character;
         }
 

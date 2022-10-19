@@ -1,4 +1,8 @@
-﻿using RotMG.Common;
+﻿using DeBroglie;
+using DeBroglie.Models;
+using DeBroglie.Topo;
+using RotMG.Common;
+using RotMG.Game.Entities;
 using RotMG.Utils;
 using System;
 using System.Collections.Generic;
@@ -46,6 +50,41 @@ namespace RotMG.Game.Worlds
         }
 
         public void GenerateMaze(int width, int height)
+        {
+            var setPiece = Resources.SetPieces["testtopo"];
+
+            var model = OverlappingModel.Create<MapTile>(setPiece.Tiles, 3, true, 0);;
+
+            var topology = new GridTopology(width, height, true);
+            var prop = new TilePropagator(model, topology);
+            var status = prop.Run();
+            if (status != Resolution.Decided) throw new Exception("Failed");
+            var output = prop.ToValueArray<MapTile>();
+            for (var y = 0; y < height; y++)
+            {
+                for (var x = 0; x < width; x++)
+                {
+                    var js = output.Get(x, y);
+                    var tile = this.Tiles[x, y];
+                    tile.Type = js.GroundType;
+                    if (js.ObjectType != 0xff)
+                    {
+                        var entity = Entity.Resolve(js.ObjectType);
+
+                        if (!(entity is Enemy) && entity.Desc.Static)
+                        {
+                            if (entity.Desc.BlocksSight)
+                                tile.BlocksSight = true;
+                            tile.StaticObject = (StaticObject) entity;
+                        }
+
+                        AddEntity(entity, new Vector2(x + 0.5f, y + 0.5f));
+                    }
+                }
+            }
+        }
+
+        public void Old_GenerateMaze(int width, int height)
         {
             IntPoint current_point = new(0, 0);
             IntPoint end_point = new(width, height);

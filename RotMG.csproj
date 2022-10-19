@@ -21,4 +21,8 @@
 		</Content>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\DeBroglie\DeBroglie\DeBroglie.csproj" />
+	</ItemGroup>
+
 </Project>

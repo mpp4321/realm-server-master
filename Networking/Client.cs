@@ -44,9 +44,9 @@ namespace RotMG.Networking
 
         public void DisconnectNoAddBack(bool force = false) // clears all individual client data without pushing instance back
         {
+            // Still
             try
             {
-                //Program.Print(PrintType.Debug, $"Disconnecting client from <{_socket.RemoteEndPoint}>");
                 //Save what's needed
                 if (Account != null)
                 {
@@ -55,7 +55,15 @@ namespace RotMG.Networking
                     Account.Save();
                     Manager.AccountIdToClientId.Remove(Account.Id, out var value);
                 }
+            } catch (Exception ex)
+            {
+                Program.Print(PrintType.Error, ex.ToString());
+                Manager.AccountIdToClientId.Remove(Account.Id, out var value);
+            }
 
+            try
+            {
+                //Save what's needed
                 if(Player != null)
                 {
                     Player.TradeDone(Player.TradeResult.Canceled);
@@ -63,10 +71,13 @@ namespace RotMG.Networking
 
                     if (!Character.Dead) //Already saved during death.
                     {
-                        Database.SaveCharacter(Character);
+                        Character.Save();
                     }
 
-                    if (Player.Parent != null)
+                    if(Player.Parent == null)
+                    {
+                        Manager.RemoveEntityImportant(Player);
+                    } else
                     {
                         Player.Parent.RemoveEntity(Player);
                     }

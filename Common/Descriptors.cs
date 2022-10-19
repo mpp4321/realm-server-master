@@ -475,6 +475,8 @@ namespace RotMG.Common
         public readonly bool TargetCursor;
 
         public readonly int StatMin;
+
+        public readonly bool UpgradeOnly = false;
         
         public ActivateEffectDesc(XElement e)
         {
@@ -497,6 +499,7 @@ namespace RotMG.Common
             StatRangeScale = e.ParseFloat("@statRangeScale", 0.0f);
             UseWisMod = e.ParseBool("useWisMod", false);
             TargetCursor = e.ParseBool("@targetCursor", false);
+            UpgradeOnly = e.ParseBool("@upgradeOnly", false);
             StatForScale = e.ParseString("@statForScale", "Wisdom");
 
             Position = new Vector2(e.ParseInt("@posx", 0), e.ParseInt("@posy", 0));

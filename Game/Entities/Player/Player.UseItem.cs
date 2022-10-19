@@ -937,19 +937,8 @@ namespace RotMG.Game.Entities
                     }
                     break;
                 case ActivateEffectIndex.MagicCrystal:
-                    ItemDataModType typeOfMod = Enum.Parse<ItemDataModType>(eff.Id ?? Client.Character.ItemDataModifier);
-                    int power = eff.Amount;
-                    float scale = eff.StatScale;
-                    for(int i = 0; i < Inventory.Length; i++)
-                    {
-                        if(Inventory[i] != -1 && ItemDesc.GetRank(ItemDatas[i]) == -1 && MathUtils.Chance(0.5f))
-                        {
-                            ItemDatas[i] = Resources.Type2Item[(ushort)Inventory[i]]
-                                .Roll(r: new Logic.LootDef.RarityModifiedData(scale, power, true), typeOfMod).Item2;
-                            UpdateInventorySlot(i);
-                        }
-                    }
-                    break;
+                    // Deprecated use Mix.cs
+                    return false;
                 case ActivateEffectIndex.FishingRod:
                     var nearestSpot = GameUtils.GetNearestEntity(this, 8f, Resources.Id2Object["Fishing Spot"].Type);
                     if(nearestSpot != null && !HasConditionEffect(ConditionEffectIndex.Paralyzed)) 

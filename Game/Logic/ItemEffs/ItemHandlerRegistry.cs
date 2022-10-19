@@ -53,7 +53,7 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("Bloodlust", new Bloodlust());
             Registry.Add("SorReactor", new SorReactor());
             Registry.Add("ObsidianPlatemail", new ObsidianPlatemail());
-            Registry.Add("PaladinRecovery", new PaladinRecovery());
+            //Registry.Add("PaladinRecovery", new PaladinRecovery());
 
             //components
 

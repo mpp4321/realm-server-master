@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotMG", "RotMG.csproj", "{0987DDCB-6A0F-47A4-AD61-FDD27E906C68}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeBroglie", "..\DeBroglie\DeBroglie\DeBroglie.csproj", "{AA05B674-D1D9-48FE-BF9F-C9923DA33CC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,18 @@ Global
 		{0987DDCB-6A0F-47A4-AD61-FDD27E906C68}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0987DDCB-6A0F-47A4-AD61-FDD27E906C68}.Release|x64.ActiveCfg = Release|x64
 		{0987DDCB-6A0F-47A4-AD61-FDD27E906C68}.Release|x64.Build.0 = Release|x64
+		{AA05B674-D1D9-48FE-BF9F-C9923DA33CC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA05B674-D1D9-48FE-BF9F-C9923DA33CC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA05B674-D1D9-48FE-BF9F-C9923DA33CC0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{AA05B674-D1D9-48FE-BF9F-C9923DA33CC0}.Debug|x64.Build.0 = Debug|Any CPU
+		{AA05B674-D1D9-48FE-BF9F-C9923DA33CC0}.Linux|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA05B674-D1D9-48FE-BF9F-C9923DA33CC0}.Linux|Any CPU.Build.0 = Debug|Any CPU
+		{AA05B674-D1D9-48FE-BF9F-C9923DA33CC0}.Linux|x64.ActiveCfg = Debug|Any CPU
+		{AA05B674-D1D9-48FE-BF9F-C9923DA33CC0}.Linux|x64.Build.0 = Debug|Any CPU
+		{AA05B674-D1D9-48FE-BF9F-C9923DA33CC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA05B674-D1D9-48FE-BF9F-C9923DA33CC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA05B674-D1D9-48FE-BF9F-C9923DA33CC0}.Release|x64.ActiveCfg = Release|Any CPU
+		{AA05B674-D1D9-48FE-BF9F-C9923DA33CC0}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
