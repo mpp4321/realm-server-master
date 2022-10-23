@@ -7,7 +7,6 @@ namespace RotMG.Game.Entities
     public class VaultChest : Container
     {
         private VaultChestModel _model;
-        
         public VaultChest(VaultChestModel model) : base(0x0504, -1, null)
         {
             Inventory = model.Inventory;

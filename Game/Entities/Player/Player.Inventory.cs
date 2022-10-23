@@ -340,7 +340,9 @@ namespace RotMG.Game.Entities
             {
                 if (HandleItemBag(slot1, slot2, data1, data2, d1, d2, item1, item2, con1, con2)) return;
                 if (con1 == con2 && Mix.DoMix(this, slot1.SlotId, slot2.SlotId)) return;
-            } 
+            }
+
+            if (item1 == 0 || item2 == 0) return;
 
             con1.Inventory[slot1.SlotId] = item2;
             con1.ItemDatas[slot1.SlotId] = data2;

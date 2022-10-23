@@ -1344,5 +1344,13 @@
 		<Index>0x18c</Index>
 	</Texture>
   </Object>
+  <Object type="0x075b" id="CrystalConverter">
+    <Class>CrystalConverter</Class>
+    <ShadowSize>0</ShadowSize>
+	<Texture>
+		<File>lofiObjBig</File>
+		<Index>0x1B3</Index>
+	</Texture>
+  </Object>
 </Objects>
 <!-- next 5008 -->

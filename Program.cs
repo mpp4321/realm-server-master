@@ -4,6 +4,7 @@ using RotMG.Networking;
 using RotMG.Utils;
 using System;
 using System.Collections.Concurrent;
+using System.IO;
 using System.Linq;
 using System.Threading;
 
@@ -79,7 +80,12 @@ namespace RotMG
 #if RELEASE
                 } catch (Exception e)
                 {
-                    Terminating = true;
+                    Terminate(null, null);
+                    try
+                    {
+                        File.WriteAllText("lastCrash.txt", e.ToString());
+                    }
+                    catch { }
                     Print(PrintType.Error, e.ToString());
                 }
 #endif
@@ -113,7 +119,12 @@ namespace RotMG
                 catch { }
             }
 
-            Thread.Yield();
+            /*if(Thread.Yield()) {
+                Console.WriteLine("Waiting for next thread to close.");
+            } else
+            {
+                Console.WriteLine("Terminating imediately...");
+            }*/
         }
 
         public static void StartTerminating()

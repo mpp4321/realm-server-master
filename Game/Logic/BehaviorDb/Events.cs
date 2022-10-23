@@ -916,11 +916,35 @@ namespace RotMG.Game.Logic.Database
                 ),
                 new State("3",
                     new Wander(0.1f),
+                    new TossObject("Dragon God Gas Cloud", 10, cooldown: 400, tossInvis: true, minAngle: 0f, maxAngle: 360f, minRange: 0f, maxRange: 10f),
+                    new TimedTransition("inner1", 3000) { SubIndex = 0 },
+                    new TimedTransition("inner2", 9000) { SubIndex = 0 },
                     new Shoot(0, 5, 40, cooldown: 1500),
                     new Shoot(5, 3, 20, index: 3, cooldown: 500),
                     new Shoot(0, 8, 45 / 2, 1, null, null, 180),
                     new Shoot(0, 1, null, 2, null, 45 / 2, 180, cooldown: 200),
-                    new TossObject("Dragon God Gas Cloud", 10, cooldown: 400, tossInvis: true, minAngle: 0f, maxAngle: 360f, minRange: 0f, maxRange: 10f),
+                    new QueuedBehav(true,
+                        new Taunt(cooldown: 0, "Fear me!"),
+                        new CooldownBehav(3000, new Flash(0xff, 0.1, 3)),
+                        new CooldownBehav(1000, new Charge(1f, 10))
+                    ),
+                    new HealthTransition(0.3f, "4")
+                ),
+                new State("4",
+                    new Wander(0.15f),
+                    new ConditionalEffect(ConditionEffectIndex.Armored),
+                    new TossObject("Dragon God Gas Cloud", 10, cooldown: 200, tossInvis: true, minAngle: 0f, maxAngle: 360f, minRange: 0f, maxRange: 10f),
+                    new TimedTransition("inner1", 3000) { SubIndex = 0 },
+                    new TimedTransition("inner2", 9000) { SubIndex = 0 },
+                    new Shoot(0, 5, 40, cooldown: 1500),
+                    new Shoot(5, 3, 20, index: 3, cooldown: 500),
+                    new Shoot(0, 8, 45 / 2, 1, null, null, 180),
+                    new Shoot(0, 1, null, 2, null, 45 / 2, 180, cooldown: 200),
+                    new QueuedBehav(true,
+                        new Taunt(cooldown: 0, "Fear me!"),
+                        new CooldownBehav(3000, new Flash(0xff, 0.1, 3)),
+                        new CooldownBehav(1000, new Charge(1.5f, 10))
+                    ),
                     new HealthTransition(0.1f, "die")
                 ),
                 new State("die",
@@ -952,6 +976,7 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Dragon God Gas Cloud", 
             new ConditionalEffect(ConditionEffectIndex.Invincible), 
+            new Wander(0.3f),
             new PulseFire((e) =>
             {
                 var nearbyPlayers = e.GetNearbyPlayers(2);

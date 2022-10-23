@@ -283,6 +283,7 @@ namespace RotMG.Game.Logic
                         }
                     }
                 }
+                var isEquipCrystal = topItem?.Id.Contains("Equipment Crystal") ?? false;
 
                 if (player != null)
                 {
@@ -292,7 +293,7 @@ namespace RotMG.Game.Logic
                 }
 
                 var precentFormatted = String.Format("{0:0.##}", ((float)enemy.DamageStorage.GetValueOrDefault(player, 0) / enemy.MaxHp) * 100.0);
-                if(topItem != null)
+                if(topItem != null && !isEquipCrystal)
                 {
                     switch(topItem.BagType)
                     {
@@ -312,10 +313,12 @@ namespace RotMG.Game.Logic
                     switch (sItem.BagType)
                     {
                         case 6:
-                            Manager.Announce("<LOOT> " + player.Name + " just got a legendary item " + sItem.DisplayId + " with " + precentFormatted + "%!");
+                            if(!isEquipCrystal)
+                                Manager.Announce("<LOOT> " + player.Name + " just got a legendary item " + sItem.DisplayId + " with " + precentFormatted + "%!");
                             break;
                         case 5:
-                            Manager.Announce("<LOOT> " + player.Name + " just got a rare item " + sItem.DisplayId + " with " + precentFormatted  + "%!");
+                            if(!isEquipCrystal)
+                                Manager.Announce("<LOOT> " + player.Name + " just got a rare item " + sItem.DisplayId + " with " + precentFormatted  + "%!");
                             break;
                     }
                 }

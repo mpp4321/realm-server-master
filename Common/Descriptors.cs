@@ -1034,13 +1034,15 @@ namespace RotMG.Common
             float chance;
             for (var i = 0; i < maxRank - r.RarityShift; i++)
             {
-                chance = 0.8f - MathF.Max(0f, MathF.Log(maxRank * i / (8f + BonusRolls + r.RarityMod)) / 4f);
-                if (MathUtils.Chance(chance) && rank < maxRank)
+                var k = i + 1 + r.RarityShift;
+                chance = 1f - MathF.Max(0, (MathF.Log(k) / MathF.Log(2*k)));
+                chance *= r.RarityMod;
+                if (MathUtils.Chance(chance) && rank < (maxRank - r.RarityShift))
                     rank++;
                 else break;
             }
             if (rank == -1 && !r.AlwaysRare) 
-                return Tuple.Create(false, FinalizeItemData(modTypeToUse, rank, data));
+                return Tuple.Create(false, FinalizeItemData(modTypeToUse, -1, data));
 
             //Considering the -1 rank
             rank = Math.Min(maxRank, rank + r.RarityShift + (r.AlwaysRare ? 1 : 0));
@@ -1236,6 +1238,7 @@ namespace RotMG.Common
         public readonly byte BulletType;
         public readonly string ObjectId;
         public readonly int LifetimeMS;
+        public readonly int Size;
         public readonly float Speed;
 
         public readonly int Damage;
@@ -1278,6 +1281,7 @@ namespace RotMG.Common
             ObjectId = e.ParseString("ObjectId");
             LifetimeMS = e.ParseInt("LifetimeMS");
             Speed = e.ParseFloat("Speed");
+            Size = e.ParseInt("Size", 100);
             Damage = e.ParseInt("Damage");
             MinDamage = e.ParseInt("MinDamage", Damage);
             MaxDamage = e.ParseInt("MaxDamage", Damage);

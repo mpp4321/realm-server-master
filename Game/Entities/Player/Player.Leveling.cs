@@ -63,10 +63,13 @@ namespace RotMG.Game.Entities
             for(int i = 0; i < Inventory.Length; i++)
             {
                 if (Inventory[i] == -1) continue;
-                if(Resources.Type2Item[ (ushort) Inventory[i] ].IsEgg)
+                if(Resources.Type2Item.TryGetValue((ushort) Inventory[i], out var idesc))
                 {
-                    ItemDatas[i].Meta += exp;
-                    UpdateInventorySlot(i);
+                    if(idesc.IsEgg)
+                    {
+                        ItemDatas[i].Meta += exp;
+                        UpdateInventorySlot(i);
+                    }
                 }
             }
         }

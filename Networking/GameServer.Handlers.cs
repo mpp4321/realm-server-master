@@ -77,7 +77,8 @@ namespace RotMG.Networking
             ShootDesync,
             FixMeDesync,
             LootNotif,
-            BulletExplosion
+            BulletExplosion,
+            CrystalConv
         }
 
         public static void Read(Client client, int id, byte[] data)
@@ -190,6 +191,9 @@ namespace RotMG.Networking
                         break;
                     case PacketId.BulletExplosion:
                         BulletExplosionAck(client, rdr);
+                        break;
+                    case PacketId.CrystalConv:
+                        CrystalConv(client, rdr);
                         break;
                 }
             }
@@ -1153,6 +1157,10 @@ namespace RotMG.Networking
                 wtr.Write(objectId);
                 return (wtr.BaseStream as MemoryStream).ToArray();
             }
+        }
+        private static void CrystalConv(Client client, PacketReader rdr)
+        {
+            client.Player.ExchangeCrystals();
         }
 
         public static byte[] PolicyFile = _policyFile();

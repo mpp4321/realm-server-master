@@ -95,5 +95,5 @@ for file in os.listdir("./Resources/GameData"):
                     )
                 )
 
-df = pd.DataFrame(equipmentData, columns=["Type", "Id", "Slot Type", "Bag Type", "Avg P Damage", "Rof Damage", "Health", "Mana", "Attack", "Defense", "Speed", "Dexterity", "Wisdom", "Vitality", "Protection"])
+df = pd.DataFrame(equipmentData, columns=["Type", "Id", "Equipment Type", "Bag Type", "Avg P Damage", "Rof Damage", "Health", "Mana", "Attack", "Defense", "Speed", "Dexterity", "Wisdom", "Vitality", "Protection"])
 df.to_excel("./EquipmentStats.xlsx")

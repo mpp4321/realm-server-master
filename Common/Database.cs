@@ -1098,7 +1098,7 @@ namespace RotMG.Common
         {
             IncrementCurrency(acc, -price, currency);
 
-            var vault = new VaultChestModel(acc.Id, acc.VaultCount++)
+            var vault = new VaultChestModel(acc.Id, acc.VaultCount+1)
             {
                 Inventory = new int[8], 
                 ItemDatas = new string[8]
@@ -1111,6 +1111,8 @@ namespace RotMG.Common
             }
 
             vault.Save();
+
+            acc.VaultCount += 1;
             acc.Save();
             return vault;
         }
@@ -1141,6 +1143,13 @@ namespace RotMG.Common
             if (acc == null)
                 throw new Exception("Account is null.");
 #endif
+
+            acc.AliveChars = acc.AliveChars.Where((c) =>
+            {
+                return new CharacterModel(acc.Id, c).Data != null;
+            }).ToList();
+            acc.Save();
+
             if (!HasEnoughCharacterSlots(acc))
                 return null;
 
@@ -1156,7 +1165,6 @@ namespace RotMG.Common
             }
 
             var newId = acc.NextCharId += 1;
-            acc.AliveChars.Add(newId);
 
             var character = new CharacterModel(acc.Id, newId)
             {
@@ -1185,6 +1193,8 @@ namespace RotMG.Common
             };
 
             character.Save();
+
+            acc.AliveChars.Add(newId);
             acc.Save();
 
             return character;

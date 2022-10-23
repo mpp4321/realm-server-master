@@ -11345,10 +11345,12 @@
 			<Index>0x17d</Index>
 		</Texture>
 		<SlotType>9</SlotType>
-		<Description></Description>
+		<Description>Pure dominion.</Description>
 		<ActivateOnEquip stat="2" amount="7">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="3" amount="7">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="5" amount="7">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="7" amount="7">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="9" amount="7">IncrementStat</ActivateOnEquip>
 		<BagType>6</BagType>
 		<FameBonus>6</FameBonus>
 		<EnchantmentStrength>15</EnchantmentStrength>
@@ -12007,6 +12009,7 @@
 		<ActivateOnEquip stat="4" amount="15">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="6" amount="10">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="7" amount="5">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="9" amount="2">IncrementStat</ActivateOnEquip>
 		<BagType>6</BagType>
 		<FameBonus>6</FameBonus>
 	</Object>
@@ -12511,7 +12514,7 @@
 		<Item/>
 		<Texture>
 			<File>lofiObj5</File>
-			<Index>0xf5</Index>
+			<Index>0xf6</Index>
 		</Texture>
 		<SlotType>6</SlotType>
 		<Description>A dusty outfit of a forgotten hero.</Description>
@@ -12585,7 +12588,27 @@
 		<Consumable/>
 		<InvUse/>
 		<Description>Like a regular equipment crystal except it can never degrade or change your equipment.</Description>
-		<Activate statScale="0.1" id="Classical" amount="1" upgradeOnly="true">MagicCrystal</Activate>
+		<Activate statScale="0.5" id="Classical" amount="1" upgradeOnly="true">MagicCrystal</Activate>
 		<BagType>6</BagType>
+	</Object>
+	<Object type="0x5264" id="Cosmic Cloak">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x128</Index>
+		</Texture>
+		<SlotType>14</SlotType>
+		<Description>A robe favored by alien wizards.</Description>
+		<ActivateOnEquip stat="3" amount="-10">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="5" amount="10">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="2" amount="-5">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="9" amount="1">IncrementStat</ActivateOnEquip>
+		<BagType>6</BagType>
+		<FameBonus>5</FameBonus>
+		<ExtraTooltipData>
+			<EffectInfo name="Cosmic Power" description="The lower your mana gets the more damage (attack) you gain!"/>
+		</ExtraTooltipData>
+		<UniqueEffect>CosmicCloak</UniqueEffect>
 	</Object>
 </Objects>

@@ -160,6 +160,11 @@ namespace RotMG.Game.Entities
             return MathUtils.NextInt(minDmg, maxDmg);
         }
 
+        public float GetDynamicRangeAllowance(Projectile proj)
+        {
+            return (proj.Desc.Size / 200.0f) - 0.5f;
+        }
+
         public void TryHitEnemy(int time, int bulletId, int targetId)
         {
             if (!ValidTime(time))
@@ -191,7 +196,7 @@ namespace RotMG.Game.Entities
                     {
                         if (target.Desc.Static)
                         {
-                            if (pos.Distance(target.Position) <= EnemyHitRangeAllowance && p.CanHit(target))
+                            if (pos.Distance(target.Position) <= (EnemyHitRangeAllowance + GetDynamicRangeAllowance(p)) && p.CanHit(target))
                             {
                                 target.HitByProjectile(p);
                                 if (!p.Desc.MultiHit)
@@ -203,7 +208,7 @@ namespace RotMG.Game.Entities
                         {
                             for (var j = 0; j <= EnemyHitHistoryBacktrack; j++)
                             {
-                                if (pos.Distance(target.TryGetHistory(j)) <= EnemyHitRangeAllowance && p.CanHit(target))
+                                if (pos.Distance(target.TryGetHistory(j)) <= (EnemyHitRangeAllowance + GetDynamicRangeAllowance(p)) && p.CanHit(target))
                                 {
                                     target.HitByProjectile(p);
                                     if (!p.Desc.MultiHit)

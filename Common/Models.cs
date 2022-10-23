@@ -41,7 +41,7 @@ namespace RotMG.Common
                 }
             } else
             {
-                Console.WriteLine("Failed to load " + Path);
+                Console.WriteLine("File doesn't exist " + Path);
             }
         }
 
@@ -60,10 +60,17 @@ namespace RotMG.Common
         public readonly int Id;
         public int[] Inventory;
         public string[] ItemDatas;
-
         public VaultChestModel(int accountId, int key) : base($"vault.{accountId}.{key}")
         {
             Id = key;
+        }
+        private VaultChestModel() : base(null) { }
+        public static VaultChestModel CreateFrom(int Id, int[] inventory, string[] itemDatas)
+        {
+            var model = new VaultChestModel();
+            model.Inventory = inventory;
+            model.ItemDatas = itemDatas;
+            return model;
         }
 
         protected override void Load()
@@ -135,7 +142,7 @@ namespace RotMG.Common
             // There are 9 stats including new protection, this is to ensure backwards compatibility with old stat blocks
             // now 10 stats
             Stats = Stats.Concat(Enumerable.Range(Stats.Length, 10 - Stats.Length).Select(a => Resources.Type2Player[(ushort) ClassType].Stats[a].StartingValue)).ToArray();
-            Inventory = Data.ParseIntArray("Equipment", ",");
+            Inventory = Data.ParseIntArray("Equipment", ",").Select(a => a != 0 ? a : -1).ToArray();
             ItemDatas = Data.ParseStringArray("ItemDatas", null, regex: new System.Text.RegularExpressions.Regex(@"(?<=}),(?={)"));
             ItemDataJsons = ItemDatas?.Select(a => ItemDesc.ParseItemDataJson(a)).ToArray();
             Fame = Data.ParseInt("Fame");

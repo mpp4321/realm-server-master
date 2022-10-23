@@ -154,7 +154,7 @@ namespace RotMG.Game.Logic.Mechanics
             if(upgradeOnly)
             {
                 var currentLevel = p.ItemDatas[itemPair.Item2].ItemLevel;
-                r = item.Roll(new RarityModifiedData(scale, currentLevel, false), typeOfMod);
+                r = item.Roll(new RarityModifiedData(scale, currentLevel, true), typeOfMod);
                 if(currentLevel < 1)
                 {
                     return false;

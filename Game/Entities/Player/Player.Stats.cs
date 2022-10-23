@@ -300,5 +300,37 @@ namespace RotMG.Game.Entities
         {
             return Boosts[v] + GetTemporaryStatBoost(v);
         }
+
+        public void ClearItemData(int slot)
+        {
+            ItemDatas[slot] = new ItemDataJson();
+        }
+
+        public void ExchangeCrystals()
+        {
+            var crystals = new List<int>();
+            var crystalType = Resources.Id2Item["Realm Equipment Crystal"].Type;
+            for(var i = 0; i < Inventory.Length; i++)
+            {
+                if (Inventory[i] != -1)
+                {
+                    if (Inventory[i] == crystalType)
+                    {
+                        crystals.Add(i);
+                    }
+                }
+            }
+            if(crystals.Count >= 3)
+            {
+                Inventory[crystals[0]] = Resources.Id2Item["Upgrading Equipment Crystal"].Type;
+                ClearItemData(crystals[0]);
+                for(var i = 1; i < 3; i++)
+                {
+                    Inventory[crystals[i]] = -1;
+                    ClearItemData(crystals[i]);
+                }
+                UpdateInventory();
+            }
+        }
     }
 }

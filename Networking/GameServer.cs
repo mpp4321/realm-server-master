@@ -100,7 +100,7 @@ namespace RotMG.Networking
         public static void Stop()
         {
             _terminating = true;
-            //Thread.Sleep(200);
+            _listener.Close();
         }
 
         public static void Start()

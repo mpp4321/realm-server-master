@@ -29,7 +29,7 @@ namespace RotMG.Networking
             _terminating = true;
             //Thread.Sleep(200);
             _listenEvent.Set();
-            _listener.Abort();
+            _listener.Close();
         }
 
         public static void Start()
