@@ -608,7 +608,8 @@ namespace RotMG.Game.Logic.Database
                         new TierLoot(4, LootType.Ability, 0.125f),
                         new TierLoot(5, LootType.Ability, 0.0625f),
                         new TierLoot(5, LootType.Ring, 0.0625f)
-                        )
+                    ),
+                    new Threshold(0.01f, LootTemplates.CrystalsDungeonBoss())
                );
             db.Init("Hexxer",
                 new State("base",

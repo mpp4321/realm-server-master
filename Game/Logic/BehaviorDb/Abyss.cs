@@ -221,8 +221,8 @@ namespace RotMG.Game.Logic.Database
                     )
                 ),
                 new ItemLoot("Golden Demonic Metal", 0.06f, 0.01f),
-                new ItemLoot("Fiery Equipment Crystal", 0.03f, 0.01f),
-                new ItemLoot("Realm Equipment Crystal", 0.15f, 0.01f),
+                new ItemLoot("Fiery Equipment Crystal", 0.45f, 0.01f),
+                new Threshold(0.01f, LootTemplates.CrystalsDungeonBoss()),
                 new ItemLoot("Potion of Vitality", 1.0f, 0.01f),
                 new ItemLoot("Potion of Vitality", 1.0f, 0.01f),
                 new ItemLoot("Potion of Vitality", 1.0f, 0.01f),
@@ -289,15 +289,14 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Demon Frog Generator", 0.02f, 0.01f),
                     new ItemLoot("Demon Blade", 0.05f, 0.01f),
                     new ItemLoot("Potion of Life", 0.05f, 0.01f),
+                    new Threshold(0.01f, LootTemplates.CrystalsDungeonBoss()),
                     new Threshold(0.01f, 
-                        new ItemLoot("Realm Equipment Crystal", 0.2f),
                         new ItemLoot("(Green) UT Egg", 0.03f, 0.01f),
                         new ItemLoot("(Blue) RT Egg", 0.005f, 0.01f),
                         new ItemLoot("The War Path", 0.005f),
                         new ItemLoot("Exuberant Heavy Plate", 0.005f),
                         new ItemLoot("The Horned Circlet", 0.005f),
                         new ItemLoot("Abyssal Emblem", 0.005f),
-                        new ItemLoot("Realm Equipment Crystal", 0.05f)
                     ),
                     new Threshold(0.5f, 
                         new ItemLoot("Blazed Bow", 0.005f)

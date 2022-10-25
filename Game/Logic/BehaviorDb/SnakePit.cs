@@ -213,7 +213,6 @@ namespace RotMG.Game.Logic.Database
                             new ItemLoot("Snakeskin Guard", 0.01f),
                             new ItemLoot("(Green) UT Egg", 0.1f, 0.01f),
                             new ItemLoot("(Blue) RT Egg", 0.02f, 0.01f),
-                            new ItemLoot("Realm Equipment Crystal", 0.02f),
                             new ItemLoot("Wand of the Bulwark", 0.01f),
                             new ItemLoot("Wine Cellar Incantation", 0.03f),
                             new TierLoot(11, LootType.Armor, 0.3f),
@@ -224,7 +223,8 @@ namespace RotMG.Game.Logic.Database
                             new TierLoot(3, LootType.Ring, 0.4f),
                             new TierLoot(5, LootType.Ability, 0.2f),
                             new TierLoot(4, LootType.Ability, 1f)
-                        )
+                        ),
+                    new Threshold(0.01f, LootTemplates.CrystalsDungeonBoss())
                 );
             db.Init("Stheno Pet",
                     new State("based",

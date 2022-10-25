@@ -80,7 +80,8 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Cyclops Mace", 0.01f, 0.01f),
                 new ItemLoot("Ancient Crown", 0.01f, 0.01f),
                 new ItemLoot("Seal of Cyclops Command", 0.01f, 0.01f),
-                new ItemLoot("Head of the Cyclops King", 0.01f, 0.01f)
+                new ItemLoot("Head of the Cyclops King", 0.01f, 0.01f),
+                new ItemLoot("Realm Equipment Crystal", 1.0f)
             );
             db.Init("Cyclops",
                 new State("base",
@@ -208,11 +209,11 @@ namespace RotMG.Game.Logic.Database
                 new Threshold(0.001f,
                     new ItemLoot("Amulet of Backwards Luck", 0.0008f),
                     new ItemLoot("Chain Claw", 0.01f),
-                    new ItemLoot("Realm Equipment Crystal", 0.03f),
                     new ItemLoot("Potion of Defense", 1f),
                     new ItemLoot("Potion of Dexterity", 1f),
                     new ItemLoot("Potion of Dexterity", 1f)
-                )
+                ),
+                new Threshold(0.01f, LootTemplates.CrystalsDungeonBoss())
             );
         }
     }

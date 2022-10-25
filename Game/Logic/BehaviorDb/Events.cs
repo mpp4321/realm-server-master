@@ -74,7 +74,8 @@ namespace RotMG.Game.Logic.Database
                         new PlayerWithinTransition(8f, "3", true) { SubIndex = 2 }
                     ),
                     new TimedTransition("1", 3000)
-                )
+                ),
+                new Threshold(0.001f, LootTemplates.CrystalsHardRegular())
             );
 
             db.Init("Hermit God",
@@ -167,7 +168,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Dexterity", 0.15f),
                     new ItemLoot("Potion of Defense", 0.25f),
                     new ItemLoot("Potion of Wisdom", 0.15f),
-                    new ItemLoot("Realm Equipment Crystal", 0.03f),
+                    new ItemLoot("Realm Equipment Crystal", 0.3f),
                     new ItemLoot("Helm of the Juggernaut", 0.0005f)
                 )
             );
@@ -188,10 +189,10 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(4, LootType.Ring, 0.2f, r: new RarityModifiedData(1.5f, 2)),
                     new TierLoot(4, LootType.Ability, 0.5f, r: new RarityModifiedData(1.5f, 2)),
                     new TierLoot(3, LootType.Ring, 0.5f, r: new RarityModifiedData(1.5f, 2)),
-                    new ItemLoot("Realm Equipment Crystal", 0.2f),
-                    new ItemLoot("Potion of Dexterity", 0.8f),
-                    new ItemLoot("Potion of Attack", 0.8f)
-                )
+                    new ItemLoot("Potion of Dexterity", 1f),
+                    new ItemLoot("Potion of Attack", 1f)
+                ),
+                new Threshold(0.001f, LootTemplates.CrystalsRealmBoss())
             );
 
             db.Init("Grand Sphinx",
@@ -287,7 +288,8 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Helm of the Juggernaut", 0.01f),
                     new ItemLoot("Rune of the Juggernaut", 0.02f),
                     new ItemLoot("Spear of the Storm", 0.008f)
-                )
+                ),
+                new Threshold(0.001f, LootTemplates.CrystalsRealmBoss())
             );
 
 
@@ -309,7 +311,8 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(10, LootType.Weapon, 0.2f),
                     new ItemLoot("Realm Equipment Crystal", 0.03f),
                     new ItemLoot("Dirk of Cronus", 0.01f)
-                  )
+                  ),
+                  new Threshold(0.001f, LootTemplates.CrystalsRealmBoss())
                 );
 
             db.Init("Lord of the Lost Lands",
@@ -425,7 +428,8 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.005f,
                     LootTemplates.BasicPots()
-                )
+                ),
+                new Threshold(0.001f, LootTemplates.CrystalsRealmBoss())
             );
 
             db.Init("Pentaract Tower Corpse",
@@ -466,8 +470,9 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Wisdom", .1f),
                     new ItemLoot("Potion of Speed", .1f),
                     new ItemLoot("Realm Equipment Crystal", .05f),
-                    new ItemLoot("Jackpot", 0.0005f)
-                    )
+                    new ItemLoot("Jackpot", 0.001f)
+                ),
+                new Threshold(0.001f, LootTemplates.CrystalsRealmBoss())
             );
 
             db.Init("Ghost Ship",
@@ -586,7 +591,8 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Speed", .4f),
                     new ItemLoot("Realm Equipment Crystal", .2f),
                     new ItemLoot("Trap of the Vile Spirit", 0.01f, r: new RarityModifiedData(1.1f, 1, true))
-                )
+                ),
+                new Threshold(0.001f, LootTemplates.CrystalsRealmBoss())
             );
 
             db.EveryInit = new ItemLoot[0];
@@ -884,7 +890,8 @@ namespace RotMG.Game.Logic.Database
                             new TierLoot(5, LootType.Ring, 1.0f, r: new RarityModifiedData(1.3f, 2)),
                         }
                     ).ToArray()
-                )
+                ),
+                new Threshold(0.001f, LootTemplates.CrystalsHardRegular())
             );
 
             db.Init("Super Snail", 
@@ -953,12 +960,8 @@ namespace RotMG.Game.Logic.Database
                     new ConditionalEffect(ConditionEffectIndex.Invincible),
                     new Taunt(cooldown: 0, "Lucky.")
                 ),
+                new Threshold(0.01f, LootTemplates.CrystalsHardRegular()),
                 new Threshold(0.01f,
-                    new ItemLoot("Realm Equipment Crystal", 1.0f),
-                    new ItemLoot("Realm Equipment Crystal", 1.0f),
-                    new ItemLoot("Realm Equipment Crystal", 0.8f),
-                    new ItemLoot("Realm Equipment Crystal", 0.6f),
-                    new ItemLoot("Realm Equipment Crystal", 0.4f),
                     new ItemLoot("Oryx Equipment Crystal", 0.4f),
                     new ItemLoot("Oryx Equipment Crystal", 0.1f),
                     new ItemLoot("Ghastly Equipment Crystal", 0.1f),
@@ -969,7 +972,6 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(12, LootType.Armor, 1.0f, r: new(1.0f, 1, true))
                 ),
                 new Threshold(0.1f,
-                    new ItemLoot("Realm Equipment Crystal", 1.0f),
                     new ItemLoot("Plague Poison", 0.05f)
                 )
             );

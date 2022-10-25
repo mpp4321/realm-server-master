@@ -13,12 +13,14 @@ namespace RotMG.Game.Logic.Behaviors
         private String From;
         private String To;
         private int Range;
+        private Region? Region;
 
-        public ReplaceTileNearby(string from, string to, int range)
+        public ReplaceTileNearby(string from, string to, int range, Region? region = null)
         {
             From = from;
             To = to;
             Range = range;
+            Region = region;
         }
 
         public override void Enter(Entity host)
@@ -34,9 +36,13 @@ namespace RotMG.Game.Logic.Behaviors
                     int relPositionX = hostPosX + i;
                     int relPositionY = hostPosY + j;
 
-                    if(host.Parent.GetTile(relPositionX, relPositionY).Type == FromType)
+                    var tile = host.Parent.GetTile(relPositionX, relPositionY);
+                    if(tile.Type == FromType)
                     {
-                        host.Parent.UpdateTile(relPositionX, relPositionY, ToType);
+                        if(Region != null && tile.Region == Region.Value)
+                        {
+                            host.Parent.UpdateTile(relPositionX, relPositionY, ToType);
+                        }
                     }
                 }
             }

@@ -285,4 +285,10 @@
 		<AllowTeleport>true</AllowTeleport>
         <DoElites/>
 	</World>
+	<World name="Shatters" display="Shatters">
+		<Maps>shatters.jm</Maps>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+        <DoElites/>
+	</World>
 </Worlds>

@@ -86,7 +86,8 @@ namespace RotMG.Game.Logic.Database
                         )
                     ),
                     new Threshold(0.01f, BrotherLoots),
-                    new ItemLoot("Sword of Heroic Flame", 0.01f, 0.1f)
+                    new ItemLoot("Sword of Heroic Flame", 0.01f, 0.1f),
+                    new Threshold(0.05f, LootTemplates.CrystalsRealmBoss())
                 );
 
             db.Init("Yellow Fire Brother",
@@ -134,6 +135,7 @@ namespace RotMG.Game.Logic.Database
                         )
                     ),
                     new Threshold(0.01f, BrotherLoots),
+                    new Threshold(0.05f, LootTemplates.CrystalsRealmBoss()),
                     new ItemLoot("Pendant of Thunder", 0.01f, 0.1f)
                 );
 
@@ -182,7 +184,8 @@ namespace RotMG.Game.Logic.Database
                         )
                     ),
                     new Threshold(0.01f, BrotherLoots),
-                    new ItemLoot("Star of Flowing Water", 0.03f, 0.01f)
+                    new ItemLoot("Star of Flowing Water", 0.03f, 0.01f),
+                    new Threshold(0.05f, LootTemplates.CrystalsRealmBoss())
                 );
         }
     }

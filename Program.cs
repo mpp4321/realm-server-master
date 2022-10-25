@@ -118,13 +118,6 @@ namespace RotMG
                 }
                 catch { }
             }
-
-            /*if(Thread.Yield()) {
-                Console.WriteLine("Waiting for next thread to close.");
-            } else
-            {
-                Console.WriteLine("Terminating imediately...");
-            }*/
         }
 
         public static void StartTerminating()

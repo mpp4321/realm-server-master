@@ -42,7 +42,8 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Mana", 0.05f),
                     new TierLoot(10, TierLoot.LootType.Weapon, 0.8f, r: new LootDef.RarityModifiedData(1.0f, 3, true)),
                     new TierLoot(3, TierLoot.LootType.Ring, 0.8f, r: new LootDef.RarityModifiedData(1.0f, 3, true))
-                )
+                ),
+                new Threshold(0.05f, LootTemplates.CrystalsDungeonBoss())
             );
         }
     }

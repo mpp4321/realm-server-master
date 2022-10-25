@@ -7725,8 +7725,8 @@
 		<Projectile>
 			<ObjectId>White Bolt</ObjectId>
 			<Speed>150</Speed>
-			<MinDamage>230</MinDamage>
-			<MaxDamage>285</MaxDamage>
+			<MinDamage>290</MinDamage>
+			<MaxDamage>345</MaxDamage>
 			<LifetimeMS>350</LifetimeMS>
 		</Projectile>
 		<BagType>6</BagType>

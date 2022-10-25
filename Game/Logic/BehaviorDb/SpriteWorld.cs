@@ -360,7 +360,7 @@ namespace RotMG.Game.Logic.Database
                           ),
                           new State("weakened")
                       ),
-                      new Threshold(0.01f,
+                    new Threshold(0.01f,
                       new TierLoot(tier: 9, type: LootType.Armor, chance: 0.4f),
                       new TierLoot(tier: 10, type: LootType.Armor, chance: 0.4f),
                       new TierLoot(tier: 3, type: LootType.Ability, chance: 0.25f),
@@ -384,7 +384,8 @@ namespace RotMG.Game.Logic.Database
                       new ItemLoot("Corporeal Shield", 0.02f, r: new LootDef.RarityModifiedData(1.2f, 2, true)),
                       new ItemLoot("Bracelet of the Sprites", 0.005f, r: new LootDef.RarityModifiedData(1.0f, 4, true)),
                       new ItemLoot("Piece of Havoc", 0.003f)
-                  )
+                    ),
+                    new Threshold(0.01f, LootTemplates.CrystalsDungeonBoss())
               );
 
 

@@ -123,7 +123,8 @@ namespace RotMG.Game.Logic.Database
                     //new ItemLoot("Virulent Venom", 0.006f),
                     //new ItemLoot("Dagger of Toxin", 0.006f),
                     //new ItemLoot("Sewer Cocktail", 0.006f)
-                )
+                ),
+                new Threshold(0.01f, LootTemplates.CrystalsRealmBoss())
             );
             db.Init("DS Boss Minion",
                 new State("base",

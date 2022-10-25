@@ -107,10 +107,8 @@ namespace RotMG.Game.Logic.Database
                         new TimedTransition("play_1_stone", 8000)
                     ),
                     new Threshold(0.01f,
-                        new ItemLoot("Realm Equipment Crystal", 0.05f),
                         new ItemLoot("(Green) UT Egg", 0.12f, 0.01f),
                         new ItemLoot("(Blue) RT Egg", 0.05f, 0.05f),
-                        new ItemLoot("Realm Equipment Crystal", 0.15f),
                         new ItemLoot("Potion of Dexterity", 1.0f),
                         new ItemLoot("Potion of Mana", 1.0f),
                         new ItemLoot("Potion of Attack", 1.0f),
@@ -128,7 +126,8 @@ namespace RotMG.Game.Logic.Database
                         new ItemLoot("Parthanax's Horn", 0.01f),
                         new ItemLoot("Dominion of the Dragon", 0.005f),
                         new ItemLoot("Rune of the Brute", 0.01f)
-                    )
+                    ),
+                    new Threshold(0.01f, LootTemplates.CrystalsHardRegular())
                 );
         }
 

@@ -56,7 +56,8 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Tome of Purification", 0.001f),
                     new ItemLoot("Ring of Divine Faith", 0.005f),
                     new ItemLoot("Bone Dagger", 0.08f)
-                    )
+                ),
+                new Threshold(0.01f, LootTemplates.CrystalsRealmBoss())
             );
             db.Init("Hellhound",
                 new State("base",
@@ -208,7 +209,8 @@ namespace RotMG.Game.Logic.Database
                  new ItemLoot("Potion of Defense", 1.0f, min: 3),
                  new ItemLoot("Potion of Mana", 1.0f),
                  new ItemLoot("Prism of Redirection", 0.01f)
-                )
+                ),
+                new Threshold(0.01f, LootTemplates.CrystalsRealmBoss())
                );
 
         }

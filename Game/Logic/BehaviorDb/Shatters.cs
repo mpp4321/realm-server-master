@@ -233,146 +233,163 @@ namespace RotMG.Game.Logic.Database
         #endregion portals
             #region 1stboss
             db.Init("shtrs Bridge Sentinel",
+            new FunctorOnRegion(Region.Decoration2, onDeath: (p) => 
+            {
+                var en = p.Item1;
+                var point = p.Item2;
+                en.Parent.UpdateTile(point.X, point.Y, Resources.Id2Tile["shtrs Bridge"].Type);
+            }),
+            new State("uberbase",
+                new HealthTransition(0.1f, "Death") { SubIndex = 1 },
+                new TransitionFrom("uberbase", "base"),
                 new State("base",
-                    new Shoot(2, index: 5, count: 3, fixedAngle: 0, cooldown: 10),
-                    new Shoot(2, index: 5, count: 3, fixedAngle: 45, cooldown: 10),
-                    new Shoot(2, index: 5, count: 3, fixedAngle: 90, cooldown: 10),
-                    new Shoot(2, index: 5, count: 3, fixedAngle: 135, cooldown: 10),
-                    new Shoot(2, index: 5, count: 3, fixedAngle: 180, cooldown: 10),
-                    new HealthTransition(0.1f, "Death"),
+                    new Shoot(2, index: 5, count: 3, fixedAngle: 0),
+                    new Shoot(2, index: 5, count: 3, fixedAngle: 45),
+                    new Shoot(2, index: 5, count: 3, fixedAngle: 90),
+                    new Shoot(2, index: 5, count: 3, fixedAngle: 135),
+                    new Shoot(2, index: 5, count: 3, fixedAngle: 180),
                     new State("Idle",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                         new PlayerWithinTransition(15, "Close Bridge")
-                        ),
+                    ),
                     new State("Close Bridge",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        new Order(46, "shtrs Bridge Closer", "Closer"),
-                        new TimedTransition("Close Bridge2", 5000)
-                        ),
-                    new State("Close Bridge2",
+                        new TimedTransition("Actual Close Bridge", 20000)
+                    ),
+                    new State("Actual Close Bridge",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        new Order(46, "shtrs Bridge Closer", "Closer2"),
-                        new TimedTransition("Close Bridge3", 5000)
-                        ),
-                    new State("Close Bridge3",
-                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        new Order(46, "shtrs Bridge Closer", "Closer3"),
-                        new TimedTransition("Close Bridge4", 5000)
-                        ),
-                    new State("Close Bridge4",
-                        new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        new Order(46, "shtrs Bridge Closer", "Closer4"),
-                        new TimedTransition("BEGIN", 6000)
-                        ),
+                        new Taunt(cooldown: 0, "Times up!"),
+                        new OrderOnEntry(99f, "shtrs Bridge Obelisk A", "TALK"),
+                        new OrderOnEntry(99f, "shtrs Bridge Obelisk B", "TALK"),
+                        new OrderOnEntry(99f, "shtrs Bridge Obelisk C", "JustKillMe"),
+                        new OrderOnEntry(99f, "shtrs Bridge Obelisk D", "TALK"),
+                        new OrderOnEntry(99f, "shtrs Bridge Obelisk E", "TALK"),
+                        new FunctorOnRegion(Region.Decoration1, onEnter: (p) => 
+                        {
+                            var en = p.Item1;
+                            var point = p.Item2;
+                            en.Parent.UpdateTile(point.X, point.Y, Resources.Id2Tile["shtrs Pure Evil"].Type);
+                        }),
+                        new TimedTransition("BEGIN", 1000)
+                    ),
                     new State("BEGIN",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        new EntitiesNotExistsTransition(30, "Wake", "shtrs Bridge Obelisk A", "shtrs Bridge Obelisk B", "shtrs Bridge Obelisk D", "shtrs Bridge Obelisk E")
+                        new EntitiesNotExistsTransition(99f, "Wake", "shtrs Bridge Obelisk A", "shtrs Bridge Obelisk B", "shtrs Bridge Obelisk D", "shtrs Bridge Obelisk E")
                     ),
-                        new State("Wake",
+                    new State("Wake",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                         new Taunt("Who has woken me...? Leave this place."),
                         new QueuedBehav(true,
                             new CooldownBehav(2100, null),
-                            new Shoot(15, 15, 12, index: 0, fixedAngle: 180, cooldown: 700, cooldownOffset: 3000))
+                            new Shoot(15, 15, 12, index: 0, fixedAngle: 180, cooldown: 700, cooldownOffset: 3000)
                         ),
-                        new TimedTransition("Swirl Shot", 8000)
-                        ),
-                        new State("Swirl Shot",
-                            new Taunt("Go."),
-                            new TimedTransition("Blobomb", 10000),
-                            new State("Swirl1",
-                            new Shoot(50, index: 0, count: 1, shootAngle: 102, fixedAngle: 102, cooldown: 6000),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 114, fixedAngle: 114, cooldown: 6000, cooldownOffset: 200),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 126, fixedAngle: 126, cooldown: 6000, cooldownOffset: 400),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 138, fixedAngle: 138, cooldown: 6000, cooldownOffset: 600),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 150, fixedAngle: 150, cooldown: 6000, cooldownOffset: 800),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 162, fixedAngle: 162, cooldown: 6000, cooldownOffset: 1000),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 174, fixedAngle: 174, cooldown: 6000, cooldownOffset: 1200),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 186, fixedAngle: 186, cooldown: 6000, cooldownOffset: 1400),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 198, fixedAngle: 198, cooldown: 6000, cooldownOffset: 1600),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 210, fixedAngle: 210, cooldown: 6000, cooldownOffset: 1800),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 222, fixedAngle: 222, cooldown: 6000, cooldownOffset: 2000),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 234, fixedAngle: 234, cooldown: 6000, cooldownOffset: 2200),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 246, fixedAngle: 246, cooldown: 6000, cooldownOffset: 2400),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 258, fixedAngle: 258, cooldown: 6000, cooldownOffset: 2600),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 270, fixedAngle: 270, cooldown: 6000, cooldownOffset: 2800),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 282, fixedAngle: 282, cooldown: 6000, cooldownOffset: 3000),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 270, fixedAngle: 270, cooldown: 6000, cooldownOffset: 3200),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 258, fixedAngle: 258, cooldown: 6000, cooldownOffset: 3400),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 246, fixedAngle: 246, cooldown: 6000, cooldownOffset: 3600),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 234, fixedAngle: 234, cooldown: 6000, cooldownOffset: 3800),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 222, fixedAngle: 222, cooldown: 6000, cooldownOffset: 4000),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 210, fixedAngle: 210, cooldown: 6000, cooldownOffset: 4200),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 198, fixedAngle: 198, cooldown: 6000, cooldownOffset: 4400),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 186, fixedAngle: 186, cooldown: 6000, cooldownOffset: 4600),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 174, fixedAngle: 174, cooldown: 6000, cooldownOffset: 4800),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 162, fixedAngle: 162, cooldown: 6000, cooldownOffset: 5000),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 150, fixedAngle: 150, cooldown: 6000, cooldownOffset: 5200),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 138, fixedAngle: 138, cooldown: 6000, cooldownOffset: 5400),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 126, fixedAngle: 126, cooldown: 6000, cooldownOffset: 5600),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 114, fixedAngle: 114, cooldown: 6000, cooldownOffset: 5800),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 102, fixedAngle: 102, cooldown: 6000, cooldownOffset: 6000),
-                            new TimedTransition("Swirl1", 6000)
-                            )
-                            ),
-                            new State("Blobomb",
-                            new Taunt("You live still? DO NOT TEMPT FATE!"),
-                            new Taunt("CONSUME!"),
-                            new Order(20, "shtrs blobomb maker", "Spawn"),
-                            new EntitiesNotExistsTransition(30, "SwirlAndShoot", "shtrs Blobomb")
-                                ),
-                                new State("SwirlAndShoot",
-                                    new TimedTransition("Blobomb", 10000),
-                                    new Taunt("FOOLS! YOU DO NOT UNDERSTAND!"),
-                                    new ChangeSize(20, 130),
-                            new Shoot(15, 15, 11, index: 0, fixedAngle: 180, cooldown: 700, cooldownOffset: 700),
-                                    new State("Swirl1_2",
-                            new Shoot(50, index: 0, count: 1, shootAngle: 102, fixedAngle: 102, cooldown: 6000),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 114, fixedAngle: 114, cooldown: 6000, cooldownOffset: 200),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 126, fixedAngle: 126, cooldown: 6000, cooldownOffset: 400),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 138, fixedAngle: 138, cooldown: 6000, cooldownOffset: 600),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 150, fixedAngle: 150, cooldown: 6000, cooldownOffset: 800),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 162, fixedAngle: 162, cooldown: 6000, cooldownOffset: 1000),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 174, fixedAngle: 174, cooldown: 6000, cooldownOffset: 1200),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 186, fixedAngle: 186, cooldown: 6000, cooldownOffset: 1400),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 198, fixedAngle: 198, cooldown: 6000, cooldownOffset: 1600),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 210, fixedAngle: 210, cooldown: 6000, cooldownOffset: 1800),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 222, fixedAngle: 222, cooldown: 6000, cooldownOffset: 2000),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 234, fixedAngle: 234, cooldown: 6000, cooldownOffset: 2200),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 246, fixedAngle: 246, cooldown: 6000, cooldownOffset: 2400),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 258, fixedAngle: 258, cooldown: 6000, cooldownOffset: 2600),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 270, fixedAngle: 270, cooldown: 6000, cooldownOffset: 2800),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 282, fixedAngle: 282, cooldown: 6000, cooldownOffset: 3000),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 270, fixedAngle: 270, cooldown: 6000, cooldownOffset: 3200),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 258, fixedAngle: 258, cooldown: 6000, cooldownOffset: 3400),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 246, fixedAngle: 246, cooldown: 6000, cooldownOffset: 3600),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 234, fixedAngle: 234, cooldown: 6000, cooldownOffset: 3800),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 222, fixedAngle: 222, cooldown: 6000, cooldownOffset: 4000),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 210, fixedAngle: 210, cooldown: 6000, cooldownOffset: 4200),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 198, fixedAngle: 198, cooldown: 6000, cooldownOffset: 4400),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 186, fixedAngle: 186, cooldown: 6000, cooldownOffset: 4600),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 174, fixedAngle: 174, cooldown: 6000, cooldownOffset: 4800),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 162, fixedAngle: 162, cooldown: 6000, cooldownOffset: 5000),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 150, fixedAngle: 150, cooldown: 6000, cooldownOffset: 5200),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 138, fixedAngle: 138, cooldown: 6000, cooldownOffset: 5400),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 126, fixedAngle: 126, cooldown: 6000, cooldownOffset: 5600),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 114, fixedAngle: 114, cooldown: 6000, cooldownOffset: 5800),
-                            new Shoot(50, index: 0, count: 1, shootAngle: 102, fixedAngle: 102, cooldown: 6000, cooldownOffset: 6000),
-                            new TimedTransition("Swirl1_2", 6000)
-                            )
-                                ),
-                        new State("Death",
-                            new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                            new TransferDamageOnDeath("shtrs Loot Balloon Bridge"),
-                            new Taunt("I tried to protect you... I have failed. You release a great evil upon this realm...."),
-                            new TimedTransition("Suicide", 2000)
-                            ),
-                        new State("Suicide",
-                            new Shoot(35, index: 0, count: 30),
-                            new Order(1, "shtrs Chest Spawner 1", "Open"),
-                            new Suicide()
-                        )
-                );
+                        new TimedTransition("Swirl Shot", 8000) { SubIndex = 2}
+                    )
+                ),
+                new State("Swirl Shot",
+                    new Taunt(cooldown: 0, "Go."),
+                    new TimedTransition("Blobomb", 10000),
+                    new TransitionFrom("Swirl Shot", "Swirl1"),
+                    new State("Swirl1",
+                        new Shoot(50, index: 0, count: 1, shootAngle: 102, fixedAngle: 102, cooldown: 6000),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 114, fixedAngle: 114, cooldown: 6000, cooldownOffset: 200),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 126, fixedAngle: 126, cooldown: 6000, cooldownOffset: 400),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 138, fixedAngle: 138, cooldown: 6000, cooldownOffset: 600),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 150, fixedAngle: 150, cooldown: 6000, cooldownOffset: 800),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 162, fixedAngle: 162, cooldown: 6000, cooldownOffset: 1000),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 174, fixedAngle: 174, cooldown: 6000, cooldownOffset: 1200),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 186, fixedAngle: 186, cooldown: 6000, cooldownOffset: 1400),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 198, fixedAngle: 198, cooldown: 6000, cooldownOffset: 1600),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 210, fixedAngle: 210, cooldown: 6000, cooldownOffset: 1800),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 222, fixedAngle: 222, cooldown: 6000, cooldownOffset: 2000),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 234, fixedAngle: 234, cooldown: 6000, cooldownOffset: 2200),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 246, fixedAngle: 246, cooldown: 6000, cooldownOffset: 2400),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 258, fixedAngle: 258, cooldown: 6000, cooldownOffset: 2600),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 270, fixedAngle: 270, cooldown: 6000, cooldownOffset: 2800),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 282, fixedAngle: 282, cooldown: 6000, cooldownOffset: 3000),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 270, fixedAngle: 270, cooldown: 6000, cooldownOffset: 3200),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 258, fixedAngle: 258, cooldown: 6000, cooldownOffset: 3400),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 246, fixedAngle: 246, cooldown: 6000, cooldownOffset: 3600),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 234, fixedAngle: 234, cooldown: 6000, cooldownOffset: 3800),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 222, fixedAngle: 222, cooldown: 6000, cooldownOffset: 4000),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 210, fixedAngle: 210, cooldown: 6000, cooldownOffset: 4200),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 198, fixedAngle: 198, cooldown: 6000, cooldownOffset: 4400),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 186, fixedAngle: 186, cooldown: 6000, cooldownOffset: 4600),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 174, fixedAngle: 174, cooldown: 6000, cooldownOffset: 4800),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 162, fixedAngle: 162, cooldown: 6000, cooldownOffset: 5000),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 150, fixedAngle: 150, cooldown: 6000, cooldownOffset: 5200),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 138, fixedAngle: 138, cooldown: 6000, cooldownOffset: 5400),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 126, fixedAngle: 126, cooldown: 6000, cooldownOffset: 5600),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 114, fixedAngle: 114, cooldown: 6000, cooldownOffset: 5800),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 102, fixedAngle: 102, cooldown: 6000, cooldownOffset: 6000),
+                        new TimedTransition("Swirl1", 6000)
+                    )
+                ),
+                new State("Blobomb",
+                    new Taunt(cooldown: 0, "You live still? DO NOT TEMPT FATE!"),
+                    new Taunt(cooldown: 0, "CONSUME!"),
+                    new Order(20, "shtrs blobomb maker", "Spawn"),
+                    new EntitiesNotExistsTransition(30, "SwirlAndShoot", "shtrs Blobomb")
+                ),
+                new State("SwirlAndShoot",
+                    new TimedTransition("Blobomb", 10000),
+                    new Taunt("FOOLS! YOU DO NOT UNDERSTAND!"),
+                    new ChangeSize(20, 130),
+                    new Shoot(15, 15, 11, index: 0, fixedAngle: 180, cooldown: 700, cooldownOffset: 700),
+                    new State("Swirl1_2",
+                        new Shoot(50, index: 0, count: 1, shootAngle: 102, fixedAngle: 102, cooldown: 6000),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 114, fixedAngle: 114, cooldown: 6000, cooldownOffset: 200),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 126, fixedAngle: 126, cooldown: 6000, cooldownOffset: 400),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 138, fixedAngle: 138, cooldown: 6000, cooldownOffset: 600),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 150, fixedAngle: 150, cooldown: 6000, cooldownOffset: 800),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 162, fixedAngle: 162, cooldown: 6000, cooldownOffset: 1000),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 174, fixedAngle: 174, cooldown: 6000, cooldownOffset: 1200),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 186, fixedAngle: 186, cooldown: 6000, cooldownOffset: 1400),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 198, fixedAngle: 198, cooldown: 6000, cooldownOffset: 1600),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 210, fixedAngle: 210, cooldown: 6000, cooldownOffset: 1800),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 222, fixedAngle: 222, cooldown: 6000, cooldownOffset: 2000),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 234, fixedAngle: 234, cooldown: 6000, cooldownOffset: 2200),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 246, fixedAngle: 246, cooldown: 6000, cooldownOffset: 2400),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 258, fixedAngle: 258, cooldown: 6000, cooldownOffset: 2600),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 270, fixedAngle: 270, cooldown: 6000, cooldownOffset: 2800),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 282, fixedAngle: 282, cooldown: 6000, cooldownOffset: 3000),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 270, fixedAngle: 270, cooldown: 6000, cooldownOffset: 3200),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 258, fixedAngle: 258, cooldown: 6000, cooldownOffset: 3400),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 246, fixedAngle: 246, cooldown: 6000, cooldownOffset: 3600),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 234, fixedAngle: 234, cooldown: 6000, cooldownOffset: 3800),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 222, fixedAngle: 222, cooldown: 6000, cooldownOffset: 4000),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 210, fixedAngle: 210, cooldown: 6000, cooldownOffset: 4200),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 198, fixedAngle: 198, cooldown: 6000, cooldownOffset: 4400),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 186, fixedAngle: 186, cooldown: 6000, cooldownOffset: 4600),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 174, fixedAngle: 174, cooldown: 6000, cooldownOffset: 4800),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 162, fixedAngle: 162, cooldown: 6000, cooldownOffset: 5000),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 150, fixedAngle: 150, cooldown: 6000, cooldownOffset: 5200),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 138, fixedAngle: 138, cooldown: 6000, cooldownOffset: 5400),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 126, fixedAngle: 126, cooldown: 6000, cooldownOffset: 5600),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 114, fixedAngle: 114, cooldown: 6000, cooldownOffset: 5800),
+                        new Shoot(50, index: 0, count: 1, shootAngle: 102, fixedAngle: 102, cooldown: 6000, cooldownOffset: 6000),
+                        new TimedTransition("Swirl1_2", 6000)
+                    )
+                )
+            ),
+            new State("Death",
+                new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                new TransferDamageOnDeath("shtrs Loot Balloon Bridge"),
+                new Taunt(cooldown: 0, "I tried to protect you... I have failed. You release a great evil upon this realm...."),
+                new TimedTransition("Suicide", 2000)
+            ),
+            new State("Suicide",
+                new Shoot(35, index: 0, count: 30),
+                new Order(1, "shtrs Chest Spawner 1", "Open"),
+                new FunctorOnRegion(Region.Decoration2, onEnter: (p) => 
+                {
+                    var en = p.Item1;
+                    var point = p.Item2;
+                    en.Parent.UpdateTile(point.X, point.Y, Resources.Id2Tile["shtrs Bridge"].Type);
+                }),
+                new Suicide()
+            )
+        );
         #endregion 1stboss
             #region blobomb
             db.Init("shtrs Blobomb",
@@ -713,20 +730,19 @@ namespace RotMG.Game.Logic.Database
         #endregion 2ndbosschest
             #region BridgeStatues
             db.Init("shtrs Bridge Obelisk A",
-                new State("base",
                     new State("Idle",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable)
-                        ),
+                    ),
                     new State("TALK",
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                         new Taunt("DO NOT WAKE THE BRIDGE GUARDIAN!"),
                         new TimedTransition("AFK", 2000)
-                        ),
+                    ),
                     new State("AFK",
                             new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                             new Flash(0x0000FF0C, 0.5f, 4),
                             new TimedTransition("activatetimer", 2500)
-                        ),
+                    ),
                     new State("activatetimer",
                             new ConditionalEffect(ConditionEffectIndex.Invulnerable),
                             new Order(60, "shtrs obelisk timer", "timer1"),
@@ -794,7 +810,6 @@ namespace RotMG.Game.Logic.Database
                         new Spawn("shtrs Stone Knight", maxChildren: 1, initialSpawn: 1, cooldown: 7500),
                         new Spawn("shtrs Stone Mage", maxChildren: 1, initialSpawn: 1, cooldown: 7500)
                         )
-                    )
             );
             db.Init("shtrs Bridge Obelisk B",
                 new State("base",
@@ -1380,16 +1395,16 @@ namespace RotMG.Game.Logic.Database
             );
 
             db.Init("shtrs Abandoned Switch 2 Manager",
-                new State("base",
-                    new ConditionalEffect(ConditionEffectIndex.Invincible),
-                    new EntitiesNotExistsTransition(99f, "clear", "shtrs Abandoned Switch 2") { SubIndex = 0 },
-                    new State("clear",
                     new ClearRegionOnDeath(
                             Region.Callback2
-                        ),
-                    new Suicide(0)
+                    ),
+                    new State("base",
+                        new ConditionalEffect(ConditionEffectIndex.Invincible),
+                        new EntitiesNotExistsTransition(99f, "clear", "shtrs Abandoned Switch 2")
+                    ),
+                    new State("clear",
+                        new Suicide(0)
                     )
-                )
             );
 
             db.Init("shtrs Abandoned Switch 3",
@@ -1513,23 +1528,11 @@ namespace RotMG.Game.Logic.Database
                 )
             );
         db.Init("shtrs Spawn Bridge 2",
-            new State("base",
-                new State("Idle",
-                    new ConditionalEffect(ConditionEffectIndex.Invincible, true),
-                    new EntitiesNotExistsTransition(500, "Open", "shtrs Abandoned Switch 3")
-                    ),
+                new ConditionalEffect(ConditionEffectIndex.Invincible, true),
+                new EntitiesNotExistsTransition(500, "Open", "shtrs Abandoned Switch 3"),
                 new State("Open",
-                    //new ChangeGroundOnDeath(new[] { "shtrs Pure Evil" }, new[] { "shtrs Shattered Floor" },
-                    //    1),
-                    new ChangeGroundOnDeath(Region.Decoration5, "shtrs Shattered Floor"),
+                    new ChangeGroundOnDeath(Region.Note, "shtrs Shattered Floor"),
                     new Suicide()
-                    ),
-                new State("CloseBridge2",
-                    //new ChangeGroundOnDeath(new[] { "shtrs Shattered Floor" }, new[] { "shtrs Pure Evil" },
-                    //    1),
-                    new ChangeGroundOnDeath(Region.Decoration5, "shtrs Shattered Floor"),
-                    new Suicide()
-                    )
                 )
             );
         db.Init("shtrs Spawn Bridge 3",
@@ -2583,20 +2586,18 @@ namespace RotMG.Game.Logic.Database
                 )
             );
         db.Init("shtrs blobomb maker",
-            new State("base",
-                 new State("Idle",
-                    new ConditionalEffect(ConditionEffectIndex.Invincible)
-                    ),
-                     new State("Spawn",
-                        new Spawn("shtrs Blobomb", cooldown: 1500),
-                        new TimedTransition("Spawn2", 3000)
-                         ),
-                     new State("Spawn2",
-                         new Spawn("shtrs Blobomb", cooldown: 1000),
-                         new TimedTransition("Idle", 3000)
-                        )
-                    )
-                );
+             new State("Idle",
+                new ConditionalEffect(ConditionEffectIndex.Invincible)
+             ),
+             new State("Spawn",
+                new Spawn("shtrs Blobomb", cooldown: 8000),
+                new TimedTransition("Spawn2", 3000)
+             ),
+             new State("Spawn2",
+                 new Spawn("shtrs Blobomb", cooldown: 8000),
+                 new TimedTransition("Idle", 3000)
+            )
+        );
           db.Init("shtrs Lava Souls maker",
             new State("base",
                  new State("Idle",

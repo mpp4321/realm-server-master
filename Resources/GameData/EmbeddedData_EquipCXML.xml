@@ -12611,4 +12611,30 @@
 		</ExtraTooltipData>
 		<UniqueEffect>CosmicCloak</UniqueEffect>
 	</Object>
+	<Object type="0x5265" id="Crystal Staff">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj6</File>
+			<Index>0xF6</Index>
+		</Texture>
+		<SlotType>17</SlotType>
+		<Description>A staff made of pure and transparent magical crystal.</Description>
+		<RateOfFire>1.25</RateOfFire>
+		<Sound>weapon/fire_wand</Sound>
+		<Projectile>
+			<ObjectId>Crystal Aqua Magic</ObjectId>
+			<Speed>180</Speed>
+			<MinDamage>105</MinDamage>
+			<MaxDamage>145</MaxDamage>
+			<LifetimeMS>650</LifetimeMS>
+			<MultiHit/>
+			<Amplitude>0.5</Amplitude>
+			<Frequency>2</Frequency>
+		</Projectile>
+		<NumProjectiles>2</NumProjectiles>
+		<BagType>5</BagType>
+		<FameBonus>5</FameBonus>
+		<OldSound>magicShoot</OldSound>
+	</Object>
 </Objects>

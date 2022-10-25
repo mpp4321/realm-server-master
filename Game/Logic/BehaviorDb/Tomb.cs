@@ -133,7 +133,8 @@ namespace RotMG.Game.Logic.Database
                 //new ItemLoot("Ring of Ancient Slaves", 0.006f),
                 //new ItemLoot("Seal of the Royal Priest", 0.006f),
                 //new ItemLoot("Unbound Temple Armor", 0.006f)
-                )
+                ),
+                new Threshold(0.01f, LootTemplates.CrystalsHardRegular())
             );
             db.Init("Tomb Support",
                 new State("base",
@@ -257,7 +258,8 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Life", 1),
                     new ItemLoot("Ring of the Sphinx", 0.01f),
                     new TierLoot(5, TierLoot.LootType.Ability, 1.0f, r: new(1.0f, 1, true))
-                )
+                ),
+                new Threshold(0.01f, LootTemplates.CrystalsHardRegular())
             );
             db.Init("Tomb Attacker",
                     new State("idle",
@@ -388,7 +390,8 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Life", 1),
                     new ItemLoot("Ring of the Nile", 0.01f),
                     new TierLoot(10, TierLoot.LootType.Weapon, 1.0f, r: new(1.0f, 1, true))
-                )
+                ),
+                new Threshold(0.01f, LootTemplates.CrystalsHardRegular())
             );
             //Minions
             db.Init("Pyramid Artifact 1",

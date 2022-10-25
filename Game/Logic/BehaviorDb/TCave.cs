@@ -433,7 +433,7 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Cracked Waraxe", 0.01f),
                 new ItemLoot("Hero's Garb", 0.005f),
                 new ItemLoot("Gilded Sword", 0.02f, r: new LootDef.RarityModifiedData(1.2f, 2, true)),
-                new ItemLoot("Realm Equipment Crystal", 0.02f, 0.01f),
+                new ItemLoot("Realm Equipment Crystal", 0.1f),
                 new ItemLoot("Golden Tome", 0.01f),
                 new MobDrop(new LootDef.Builder()
                             .Item("Skin Unlocker")

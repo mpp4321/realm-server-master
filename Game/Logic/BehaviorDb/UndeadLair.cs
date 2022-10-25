@@ -132,7 +132,8 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(10, LootType.Weapon, 0.25f),
                 new TierLoot(4, LootType.Ability, 0.25f),
                 new TierLoot(5, LootType.Ability, 0.125f)
-            )
+            ),
+            new Threshold(0.01f, LootTemplates.CrystalsDungeonBoss())
         );
             db.Init("Ghost Mage of Septavius",
                 new State("base",

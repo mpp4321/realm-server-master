@@ -100,12 +100,14 @@ namespace RotMG.Networking
         public static void Stop()
         {
             _terminating = true;
+            Thread.Sleep(200);
             _listener.Close();
         }
 
         public static void Start()
         {
             _listener.Listen((int)(Settings.MaxClients * 1.2f));
+
             Program.Print(PrintType.Info, $"Started GameServer listening at <{_listener.LocalEndPoint}>");
 
             while (!_terminating)

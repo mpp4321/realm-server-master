@@ -1,4 +1,5 @@
-﻿using RotMG.Game.Logic.Loots;
+﻿using RotMG.Game.Logic.Database;
+using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
 using System;
 using System.Collections.Generic;
@@ -61,7 +62,8 @@ namespace RotMG.Game.Logic.Behaviors
                     new Shoot(99, 8, 45, fixedAngle: 0, rotateAngle: 15, cooldown: 200),
                     new Shoot(10, 1, 0, 1, predictive: 0.2f, cooldown: 200, cooldownVariance: 150)
                 ),
-                new ItemLoot("Haunted Silo", 0.01f, 0.03f),
+                new ItemLoot("Haunted Silo", 0.025f, 0.03f),
+                new Threshold(0.01f, LootTemplates.CrystalsHardRegular()),
                 new Threshold(0.01f, 
                     new ItemLoot("Potion of Attack", 1.0f, min: 3),
                     new ItemLoot("Backpack", 0.1f),
@@ -69,7 +71,6 @@ namespace RotMG.Game.Logic.Behaviors
                     new ItemLoot("Bone Dagger", 0.1f),
                     new ItemLoot("Spirit Dagger", 0.05f),
                     new ItemLoot("Spectral Cloth Armor", 0.05f),
-                    new ItemLoot("Realm Equipment Crystal", 0.75f),
                     new ItemLoot("(Green) UT Egg", 0.1f, 0.01f),
                     new ItemLoot("(Blue) RT Egg", 0.03f, 0.01f)
                 )

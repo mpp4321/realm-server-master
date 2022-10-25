@@ -86,7 +86,8 @@ namespace RotMG.Game.Logic.Database
                                     new ItemLoot("Crypt Keeper's Crossbow", 0.01f, r: new RarityModifiedData(1.2f)),
                                     new ItemLoot("Amulet of Ancient Power", 0.005f),
                                     new ItemLoot("Potion of Dexterity", 0.9f)
-                                )
+                                ),
+                                new Threshold(0.05f, LootTemplates.CrystalsDungeonBoss())
                             }
                         ).ToArray()
                     )
@@ -283,7 +284,8 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Midnight Malice", 0.0125f, r: new RarityModifiedData(1.2f, 1, true)),
                     new ItemLoot("Reaper's Regalia", 0.0125f, r: new RarityModifiedData(1.2f, 1, true)),
                     new ItemLoot("Decrepit Cranium", 0.0125f, r: new RarityModifiedData(1.2f, 1, true))
-                )
+                ),
+                new Threshold(0.05f, LootTemplates.CrystalsDungeonBoss())
             );
 
             db.Init("Realm Reaper Anchor",

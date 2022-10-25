@@ -233,6 +233,7 @@ namespace RotMG.Game.Logic.Database
                 new Threshold(0.01f,
                     new ItemLoot("Crystal Sword", 0.05f),
                     new ItemLoot("Crystal Wand", 0.05f),
+                    new ItemLoot("Crystal Staff", 0.05f),
                     new ItemLoot("Crystal Dagger", 0.05f),
                     new ItemLoot("Crystal Star", 0.05f),
                     new ItemLoot("Arcane Shiv", 0.05f),
@@ -247,8 +248,9 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(10, TierLoot.LootType.Weapon, 1.0f),
                     new TierLoot(10, TierLoot.LootType.Armor, 1.0f),
                     new TierLoot(4, TierLoot.LootType.Ring, 1.0f)
-               )
-                            );
+           ),
+           new Threshold(0.01f, LootTemplates.CrystalsRealmBoss())
+        );
             db.Init("Crystal Prisoner Clone",
                 new State("base",
                     new Prioritize(

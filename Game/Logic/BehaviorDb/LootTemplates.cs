@@ -17,7 +17,7 @@ namespace RotMG.Game.Logic.Database
             };
         }
 
-        internal static MobDrop[] BasicPots(float chance=0.5f)
+        public static MobDrop[] BasicPots(float chance=0.5f)
         {
             return new MobDrop[] { 
                 new ItemLoot("Potion of Speed", chance),
@@ -26,6 +26,36 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Potion of Dexterity", chance),
                 new ItemLoot("Potion of Attack", chance),
                 new ItemLoot("Potion of Defense", chance)
+            };
+        }
+        public static MobDrop[] CrystalsRealmBoss()
+        {
+            return new MobDrop[] { 
+                new ItemLoot("Realm Equipment Crystal", 1.0f),
+                new ItemLoot("Realm Equipment Crystal", 0.75f),
+                new ItemLoot("Realm Equipment Crystal", 0.5f),
+                new ItemLoot("Realm Equipment Crystal", 0.25f),
+                new ItemLoot("Realm Equipment Crystal", 0.1f),
+            };
+        }
+        public static MobDrop[] CrystalsDungeonBoss()
+        {
+            return new MobDrop[] { 
+                new ItemLoot("Realm Equipment Crystal", 1.0f),
+                new ItemLoot("Realm Equipment Crystal", 1.0f),
+                new ItemLoot("Realm Equipment Crystal", 0.75f),
+                new ItemLoot("Realm Equipment Crystal", 0.5f),
+                new ItemLoot("Realm Equipment Crystal", 0.25f),
+            };
+        }
+        public static MobDrop[] CrystalsHardRegular()
+        {
+            return new MobDrop[] { 
+                new ItemLoot("Realm Equipment Crystal", 1.0f),
+                new ItemLoot("Realm Equipment Crystal", 1.0f),
+                new ItemLoot("Realm Equipment Crystal", 1.0f),
+                new ItemLoot("Realm Equipment Crystal", 0.75f),
+                new ItemLoot("Realm Equipment Crystal", 0.5f),
             };
         }
     }
