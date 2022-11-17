@@ -28,7 +28,12 @@ namespace RotMG.Game.Logic.Behaviors
 
             if (cool <= 0)
             {
-                host.Parent.RemoveEntity(host);
+                // Safe as possible since this could be couldnt be related to other behavior/tick stuff
+                Manager.StartOfTickAction(() =>
+                {
+                    if(host?.Parent != null)
+                        host.Parent.RemoveEntity(host);
+                });
             }
             else
                 cool -= Settings.MillisecondsPerTick;

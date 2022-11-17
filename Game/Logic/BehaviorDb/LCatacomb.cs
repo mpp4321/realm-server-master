@@ -167,6 +167,136 @@ namespace RotMG.Game.Logic.Database
                     )
                 );
 
+            db.Init("Sentinel Cube", 
+                new State("wakeup",
+                    new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                    new RandomTransition(
+                        new TransitionFrom("wakeup", "slayer") { SubIndex=2 },
+                        new TransitionFrom("wakeup", "watcher") { SubIndex=2 },
+                        new TransitionFrom("wakeup", "charger") { SubIndex=2 },
+                        new TransitionFrom("wakeup", "blob") { SubIndex=2 }
+                    )
+                ), 
+                new State("wait",
+                    new ConditionalEffect(ConditionEffectIndex.Invulnerable)
+                ),
+                new State("statue death",
+                    new Taunt(cooldown: 0, "Grrr!"),
+                    new TimedTransition("wakeup", 8000)
+                ),
+                new State("slayer", 
+                    new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                    new Taunt("Here comes the slayer!"),
+                    new TossObject("Sentinel Slayer", 7, 45f, 3000, throwEffect: true),
+                    new TimedTransition("wait", 1000)
+                ),
+                new State("watcher", 
+                    new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                    new Taunt("Here comes the watcher!"),
+                    new TossObject("Sentinel Watcher", 7, 135f, 3000, throwEffect: true),
+                    new TimedTransition("wait", 1000)
+                ),
+                new State("charger", 
+                    new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                    new Taunt("Here comes the charger!"),
+                    new TossObject("Sentinel Charger", 7, -45f, 3000, throwEffect: true),
+                    new TimedTransition("wait", 1000)
+                ),
+                new State("blob", 
+                    new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                    new Taunt("Here comes the BLOB!"),
+                    new TossObject("Sentinel Blob", 7, -135f, 3000, throwEffect: true),
+                    new TimedTransition("wait", 1000)
+                ),
+                new SetPieceOnDeath(new IntPoint(-3, -3), null, "SentinelDeath", true)
+            );
+
+            db.Init("Sentinel Slayer",
+                new HPScale(0.1f),
+                new ChangeGroundOnDeath(Region.Decoration1, "Green Cube Tile"),
+                new ChangeGroundOnDeath(Region.Decoration2, "Red Cube Tile"),
+                new ChangeGroundOnDeath(Region.Decoration3, "Pink Cube Tile"),
+                new State("wakeup",
+                    new ConditionalEffect(Common.ConditionEffectIndex.Invulnerable),
+                    new Taunt(cooldown: 0, "Try to escape this!"),
+                    new TimedTransition("go", 5000)
+                ),
+                new State("go",
+                    new ChangeGroundOnEnter(Region.Decoration1, "Magma Lava"),
+                    new ChangeGroundOnEnter(Region.Decoration2, "Magma Lava"),
+                    new ChangeGroundOnEnter(Region.Decoration3, "Magma Lava"),
+                    new OrderOnDeath(99f, "Sentinel Cube", "statue death"),
+                    new Shoot(10f, 5, 360 / 5, 0, fixedAngle: 0, rotateAngle: 35, cooldown: 1000),
+                    new QueuedBehav(true,
+                        new CooldownBehav(500, null),
+                        new RandomBehavior(
+                            new Grenade(0f, 200, 10, 0, 0, color: 0xFFFF),
+                            new Grenade(0f, 50, 10, 0, 0, color: 0xFF00FF, effect: ConditionEffectIndex.Bleeding, effectDuration: 500),
+                            new Grenade(0f, 50, 10, 0, 0, color: 0x00FF00, effect: ConditionEffectIndex.Paralyzed, effectDuration: 500)
+                        )
+                    )
+                )
+            );
+
+            db.Init("Sentinel Charger",
+                new HPScale(0.1f),
+                new ChangeGroundOnDeath(Region.Decoration1, "Green Cube Tile"),
+                new ChangeGroundOnDeath(Region.Decoration4, "Yellow Cube Tile"),
+                new ChangeGroundOnDeath(Region.Decoration2, "Red Cube Tile"),
+                new State("wake", 
+                    new TimedTransition("go", 3000),
+                    new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                    new Taunt(cooldown: 0, "Crush...")
+                ),
+                new State("go",
+                    new ChangeGroundOnEnter(Region.Decoration1, "Magma Lava"),
+                    new ChangeGroundOnEnter(Region.Decoration4, "Magma Lava"),
+                    new ChangeGroundOnEnter(Region.Decoration2, "Magma Lava"),
+                    new OrderOnDeath(10f, "Sentinel Cube", "statue death"),
+                    new Shoot(99f, 12, 360/12, rotateAngle: 360/24, fixedAngle: 0, index: 0),
+                    new Charge(1f, 10f, distance: 2f)
+                )
+            );
+
+            db.Init("Sentinel Watcher",
+                new HPScale(0.1f),
+                new ChangeGroundOnDeath(Region.Decoration1, "Green Cube Tile"),
+                new ChangeGroundOnDeath(Region.Decoration4, "Yellow Cube Tile"),
+                new ChangeGroundOnDeath(Region.Decoration3, "Pink Cube Tile"),
+                new State("wake", 
+                    new TimedTransition("go", 3000),
+                    new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                    new Taunt(cooldown: 0, "...")
+                ),
+                new State("go",
+                    new ChangeGroundOnEnter(Region.Decoration1, "Magma Lava"),
+                    new ChangeGroundOnEnter(Region.Decoration4, "Magma Lava"),
+                    new ChangeGroundOnEnter(Region.Decoration3, "Magma Lava"),
+                    new OrderOnDeath(99f, "Sentinel Cube", "statue death"),
+                    new Shoot(99f, 3, 15, 0, predictive: 1, cooldown: 500, cooldownVariance: 500),
+                    new OrbitSpawn(2f, 6f, 99f)
+                )
+            );
+
+            db.Init("Sentinel Blob",
+                new HPScale(0.1f),
+                new ChangeGroundOnDeath(Region.Decoration2, "Red Cube Tile"),
+                new ChangeGroundOnDeath(Region.Decoration4, "Yellow Cube Tile"),
+                new ChangeGroundOnDeath(Region.Decoration3, "Pink Cube Tile"),
+                new State("wake", 
+                    new TimedTransition("go", 3000),
+                    new ConditionalEffect(ConditionEffectIndex.Invulnerable),
+                    new Taunt(cooldown: 0, "...")
+                ),
+                new State("go",
+                    new ChangeGroundOnEnter(Region.Decoration2, "Magma Lava"),
+                    new ChangeGroundOnEnter(Region.Decoration4, "Magma Lava"),
+                    new ChangeGroundOnEnter(Region.Decoration3, "Magma Lava"),
+                    new OrderOnDeath(99f, "Sentinel Cube", "statue death"),
+                    new Shoot(99f, 3, 360/3, 0, 0, 10),
+                    new Shoot(99f, 8, 360/8, 1, 0, 360/18, cooldown: 300)
+                )
+            );
         }
     }
 }

@@ -5,10 +5,8 @@ using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
 using RotMG.Utils;
 using RoTMG.Game.Logic.Transitions;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using static RotMG.Game.Logic.LootDef;
 using static RotMG.Game.Logic.Loots.TierLoot;
 
@@ -33,7 +31,8 @@ namespace RotMG.Game.Logic.Database
                                 Resources.Id2Item["Potion of Mana"].Type,
                                 Resources.Id2Item["Potion of Vitality"].Type,
                                 Resources.Id2Item["Potion of Wisdom"].Type,
-                                Resources.Id2Item["Potion of Defense"].Type
+                                Resources.Id2Item["Potion of Defense"].Type,
+                                Resources.Id2Item["Realm Equipment Crystal"].Type
                             }
                         }).Build())
             };
@@ -285,9 +284,10 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(4, LootType.Ability, 0.35f),
                     new TierLoot(3, LootType.Ring, 0.35f),
                     new ItemLoot("Realm Equipment Crystal", 0.25f),
-                    new ItemLoot("Helm of the Juggernaut", 0.01f),
+                    new ItemLoot("Helm of the Juggernaut", 0.025f),
+					new ItemLoot("Angel's Halo", 0.025f),
                     new ItemLoot("Rune of the Juggernaut", 0.02f),
-                    new ItemLoot("Spear of the Storm", 0.008f)
+                    new ItemLoot("Spear of the Storm", 0.01f)
                 ),
                 new Threshold(0.001f, LootTemplates.CrystalsRealmBoss())
             );
@@ -905,6 +905,7 @@ namespace RotMG.Game.Logic.Database
             );
 
             db.Init("NM Green Dragon God Hardmode",
+                new HPScale(0.4f),
                 new ChangeSize(75, 300),
                 new State("1",
                     new Wander(0.05f),
@@ -972,7 +973,10 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(12, LootType.Armor, 1.0f, r: new(1.0f, 1, true))
                 ),
                 new Threshold(0.1f,
-                    new ItemLoot("Plague Poison", 0.05f)
+                    new ItemLoot("Plague Poison", 0.05f),
+                    new ItemLoot("Warped Worlds Staff", 0.05f),
+                    new ItemLoot("Ephemeral Flail", 0.05f),
+                    new ItemLoot("Predator Necklace", 0.01f)
                 )
             );
 

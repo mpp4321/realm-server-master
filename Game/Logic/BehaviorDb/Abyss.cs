@@ -296,7 +296,7 @@ namespace RotMG.Game.Logic.Database
                         new ItemLoot("The War Path", 0.005f),
                         new ItemLoot("Exuberant Heavy Plate", 0.005f),
                         new ItemLoot("The Horned Circlet", 0.005f),
-                        new ItemLoot("Abyssal Emblem", 0.005f),
+                        new ItemLoot("Abyssal Emblem", 0.005f)
                     ),
                     new Threshold(0.5f, 
                         new ItemLoot("Blazed Bow", 0.005f)

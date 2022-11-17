@@ -231,12 +231,24 @@ namespace RotMG.Game.Logic.Database
                         )
                     ),
                 new Threshold(0.01f,
-                    new ItemLoot("Crystal Sword", 0.05f),
-                    new ItemLoot("Crystal Wand", 0.05f),
-                    new ItemLoot("Crystal Staff", 0.05f),
-                    new ItemLoot("Crystal Dagger", 0.05f),
-                    new ItemLoot("Crystal Star", 0.05f),
-                    new ItemLoot("Arcane Shiv", 0.05f),
+                    new MobDrop(new LootDef.Builder()
+                                .Item("Skin Unlocker")
+                                .OverrideJson( new ItemDataJson() { SkinId = "Iceman" })
+                                .Chance(0.005f)
+                                .Build()
+                    ),
+                    new MobDrop(new LootDef.Builder()
+                                .Item("Skin Unlocker")
+                                .OverrideJson( new ItemDataJson() { SkinId = "Inuit" })
+                                .Chance(0.005f)
+                                .Build()
+                    ),
+                    new ItemLoot("Crystal Sword", 0.01f),
+                    new ItemLoot("Crystal Wand", 0.01f),
+                    new ItemLoot("Crystal Staff", 0.01f),
+                    new ItemLoot("Crystal Dagger", 0.01f),
+                    new ItemLoot("Crystal Star", 0.01f),
+                    new ItemLoot("Arcane Shiv", 0.005f),
                     new ItemLoot("Potion of Attack", 0.8f),
                     new ItemLoot("Potion of Defense", 0.8f),
                     new ItemLoot("Potion of Dexterity", 0.8f),

@@ -947,8 +947,6 @@ namespace RotMG.Common
         public static float GetStat(ItemDataJson data, ItemData i, float multiplier, float enchantmentStrength)
         {
             var rank = GetRank(data);
-            if (rank == -1)
-                return 0;
             var value = 0;
             if (HasStat(data.Meta, i))
             {
@@ -995,9 +993,9 @@ namespace RotMG.Common
           throw new Exception("Unhandled stat value");
         }
 
-        public ItemDataJson FinalizeItemData(ItemDataModType? smod, int ItemLevel, ItemData data)
+        public ItemDataJson FinalizeItemData(ItemDataModType? smod, int ItemLevel, ItemData data, ItemDataJson preData)
         {
-            ItemDataJson j = new ItemDataJson() { Meta = (int)data, ItemLevel = ItemLevel };
+            ItemDataJson j = new ItemDataJson() { Meta = (int)data, ItemLevel = ItemLevel, ItemComponent = preData?.ItemComponent ?? null };
             if (smod.HasValue)
             {
                 var d = ItemDataModifiers.Registry[smod.Value].GenerateStats(ref j);
@@ -1018,16 +1016,16 @@ namespace RotMG.Common
             return j;
         }
 
-        public Tuple<bool, ItemDataJson> Roll(RarityModifiedData r=null, ItemDataModType? smod=ItemDataModType.Classical)
+        public Tuple<bool, ItemDataJson> Roll(RarityModifiedData r=null, ItemDataModType? smod=ItemDataModType.Classical, ItemDataJson preData=null)
         {
             r = r ?? new RarityModifiedData();
             ItemData data = 0;
             ItemDataModType modTypeToUse = r.OverrideMod.HasValue ? r.OverrideMod.Value : smod.Value;
             if (!ModifiableTypes.Contains(SlotType))
-                return Tuple.Create(false, FinalizeItemData(modTypeToUse, -1, data));
+                return Tuple.Create(false, FinalizeItemData(modTypeToUse, -1, data, preData));
 
             if (!MathUtils.Chance(.75f) && !r.AlwaysRare)
-                return Tuple.Create(false, FinalizeItemData(modTypeToUse, -1, data));
+                return Tuple.Create(false, FinalizeItemData(modTypeToUse, -1, data, preData));
 
             var maxRank = this.EnchantmentStrength;
             var rank = -1;
@@ -1042,7 +1040,7 @@ namespace RotMG.Common
                 else break;
             }
             if (rank == -1 && !r.AlwaysRare) 
-                return Tuple.Create(false, FinalizeItemData(modTypeToUse, -1, data));
+                return Tuple.Create(false, FinalizeItemData(modTypeToUse, -1, data, preData));
 
             //Considering the -1 rank
             rank = Math.Min(maxRank, rank + r.RarityShift + (r.AlwaysRare ? 1 : 0));
@@ -1076,7 +1074,7 @@ namespace RotMG.Common
                 data |= k;
             }
 
-            return Tuple.Create(true, FinalizeItemData(modTypeToUse, rank, data));
+            return Tuple.Create(true, FinalizeItemData(modTypeToUse, rank, data, preData));
         }
 
         public readonly string Id;
@@ -1127,6 +1125,8 @@ namespace RotMG.Common
 
         public readonly float BonusRolls = 0;
         public readonly int EnchantmentStrength = 1;
+
+        public readonly bool NoLootAnnouncement = false;
 
         public ProjectileDesc NextProjectile(int id)
         {
@@ -1202,6 +1202,7 @@ namespace RotMG.Common
             }
 
             BonusRolls = e.ParseFloat("BonusRolls", 1f);
+            NoLootAnnouncement = e.ParseBool("NoLootAnnouncement");
         }
     }
 

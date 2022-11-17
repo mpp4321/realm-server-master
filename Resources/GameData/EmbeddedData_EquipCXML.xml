@@ -282,8 +282,8 @@
 		<Projectile>
 			<ObjectId>T12 Sword</ObjectId>
 			<Speed>100</Speed>
-			<MinDamage>220</MinDamage>
-			<MaxDamage>275</MaxDamage>
+			<MinDamage>260</MinDamage>
+			<MaxDamage>315</MaxDamage>
 			<LifetimeMS>350</LifetimeMS>
 		</Projectile>
 		<BagType>2</BagType>
@@ -304,8 +304,8 @@
 		<Projectile>
 			<ObjectId>T13 Sword</ObjectId>
 			<Speed>100</Speed>
-			<MinDamage>225</MinDamage>
-			<MaxDamage>285</MaxDamage>
+			<MinDamage>280</MinDamage>
+			<MaxDamage>335</MaxDamage>
 			<LifetimeMS>350</LifetimeMS>
 		</Projectile>
 		<BagType>2</BagType>
@@ -326,8 +326,8 @@
 		<Projectile>
 			<ObjectId>Darkness Bolt</ObjectId>
 			<Speed>100</Speed>
-			<MinDamage>235</MinDamage>
-			<MaxDamage>290</MaxDamage>
+			<MinDamage>300</MinDamage>
+			<MaxDamage>335</MaxDamage>
 			<LifetimeMS>350</LifetimeMS>
 		</Projectile>
 		<BagType>2</BagType>
@@ -719,8 +719,8 @@
 		<Projectile>
 			<ObjectId>T12 Wand</ObjectId>
 			<Speed>130</Speed>
-			<MinDamage>90</MinDamage>
-			<MaxDamage>135</MaxDamage>
+			<MinDamage>110</MinDamage>
+			<MaxDamage>155</MaxDamage>
 			<LifetimeMS>770</LifetimeMS>
 			<MultiHit/>
 		</Projectile>
@@ -788,8 +788,8 @@
 		<Projectile>
 			<ObjectId>Crystal Aqua Magic</ObjectId>
 			<Speed>130</Speed>
-			<MinDamage>105</MinDamage>
-			<MaxDamage>145</MaxDamage>
+			<MinDamage>160</MinDamage>
+			<MaxDamage>200</MaxDamage>
 			<LifetimeMS>650</LifetimeMS>
 			<MultiHit/>
 		</Projectile>
@@ -1834,8 +1834,8 @@
 		<Projectile>
 			<ObjectId>T12 Dagger</ObjectId>
 			<Speed>140</Speed>
-			<MinDamage>95</MinDamage>
-			<MaxDamage>175</MaxDamage>
+			<MinDamage>115</MinDamage>
+			<MaxDamage>195</MaxDamage>
 			<LifetimeMS>400</LifetimeMS>
 		</Projectile>
 		<BagType>2</BagType>
@@ -2215,8 +2215,8 @@
 		<Projectile>
 			<ObjectId>T12 Bow</ObjectId>
 			<Speed>160</Speed>
-			<MinDamage>50</MinDamage>
-			<MaxDamage>70</MaxDamage>
+			<MinDamage>56</MinDamage>
+			<MaxDamage>76</MaxDamage>
 			<LifetimeMS>440</LifetimeMS>
 			<MultiHit/>
 		</Projectile>
@@ -5433,8 +5433,8 @@
 		<Projectile>
 			<ObjectId>T12 Staff</ObjectId>
 			<Speed>180</Speed>
-			<MinDamage>60</MinDamage>
-			<MaxDamage>100</MaxDamage>
+			<MinDamage>80</MinDamage>
+			<MaxDamage>120</MaxDamage>
 			<LifetimeMS>475</LifetimeMS>
 			<Amplitude>0.5</Amplitude>
 			<Frequency>2</Frequency>
@@ -6735,7 +6735,8 @@
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>
 		<MpCost>120</MpCost>
-		<Activate radius="4" totalDamage="350" effect="Paralyzed" duration="5.5" useWisMod="true" statScale="15" statMin="15" statForScale="Attack">Trap</Activate>
+		<Activate radius="4" totalDamage="500" effect="Paralyzed" duration="5.5" useWisMod="true" statScale="25" statMin="30" statForScale="Attack">Trap</Activate>
+		<Activate radius="2" totalDamage="1000" effect="Slowed" duration="10.0" useWisMod="false">Trap</Activate>
 	</Object>
 	<Object type="0xc1d" id="St. Abraham's Wand">
 		<Class>Equipment</Class>
@@ -7754,8 +7755,8 @@
 		<Projectile>
 			<ObjectId>T12 Katana</ObjectId>
 			<Speed>120</Speed>
-			<MinDamage>140</MinDamage>
-			<MaxDamage>160</MaxDamage>
+			<MinDamage>160</MinDamage>
+			<MaxDamage>180</MaxDamage>
 			<LifetimeMS>350</LifetimeMS>
 			<MultiHit/>
 		</Projectile>
@@ -8886,8 +8887,8 @@
 		<Projectile>
 			<ObjectId>Blue Magic</ObjectId>
 			<Speed>130</Speed>
-			<MinDamage>240</MinDamage>
-			<MaxDamage>270</MaxDamage>
+			<MinDamage>260</MinDamage>
+			<MaxDamage>290</MaxDamage>
 			<LifetimeMS>400</LifetimeMS>
 			<Amplitude>0.5</Amplitude>
 			<Frequency>0.5</Frequency>
@@ -9335,18 +9336,30 @@
 			<Frame>
 				<Texture>
 					<File>lofiObj5</File>
+					<Index>0xcd</Index>
+				</Texture>
+			</Frame>
+			<Frame>
+				<Texture>
+					<File>lofiObj5</File>
+					<Index>0xcc</Index>
+				</Texture>
+			</Frame>
+			<Frame>
+				<Texture>
+					<File>lofiObj5</File>
 					<Index>0xcb</Index>
 				</Texture>
 			</Frame>
 		</Animation>
 		<SlotType>8</SlotType>
 		<Description>A lost soul harnessed for power.</Description>
-		<RateOfFire>0.20</RateOfFire>
+		<RateOfFire>0.30</RateOfFire>
 		<Sound>weapon/wand_of_death</Sound>
 		<Projectile>
-			<ObjectId>Vortex</ObjectId>
+			<ObjectId>Void Vortex</ObjectId>
 			<Speed>50</Speed>
-			<MinDamage>500</MinDamage>
+			<MinDamage>750</MinDamage>
 			<MaxDamage>1000</MaxDamage>
 			<LifetimeMS>3000</LifetimeMS>
 			<Size>300</Size>
@@ -9437,47 +9450,9 @@
 		<Class>Equipment</Class>
 		<Item/>
 		<Texture>
-			<File>lofiObjBig</File>
-			<Index>0x1A0</Index>
+			<File>lofiObj2</File>
+			<Index>0x120</Index>
 		</Texture>
-		<Animation period="1.0">
-			<Frame>
-				<Texture>
-					<File>lofiObjBig</File>
-					<Index>0x1A0</Index>
-				</Texture>
-			</Frame>
-			<Frame>
-				<Texture>
-					<File>lofiObjBig</File>
-					<Index>0x1A1</Index>
-				</Texture>
-			</Frame>
-			<Frame>
-				<Texture>
-					<File>lofiObjBig</File>
-					<Index>0x1A2</Index>
-				</Texture>
-			</Frame>
-			<Frame>
-				<Texture>
-					<File>lofiObjBig</File>
-					<Index>0x1A3</Index>
-				</Texture>
-			</Frame>
-			<Frame>
-				<Texture>
-					<File>lofiObjBig</File>
-					<Index>0x1A4</Index>
-				</Texture>
-			</Frame>
-			<Frame>
-				<Texture>
-					<File>lofiObjBig</File>
-					<Index>0x1A5</Index>
-				</Texture>
-			</Frame>
-		</Animation>
 		<SlotType>1</SlotType>
 		<Description>An axe given from Malphas to his warriors.</Description>
 		<RateOfFire>0.75</RateOfFire>
@@ -9586,7 +9561,7 @@
 		<Item/>
 		<Texture>
 			<File>lofiObj2</File>
-			<Index>0x162</Index>
+			<Index>0x123</Index>
 		</Texture>
 		<SlotType>9</SlotType>
 		<Description> Companions of Malphas feel awe when laying their eyes on this crown. Design by Bee. </Description>
@@ -9602,7 +9577,7 @@
 		<Item/>
 		<Texture>
 			<File>lofiObj2</File>
-			<Index>0x164</Index>
+			<Index>0x122</Index>
 		</Texture>
 		<SlotType>7</SlotType>
 		<Description> A heavy plate ripped from the body of a paladin filled with passion and life. Wearing it makes you feel energized.    </Description>
@@ -9617,7 +9592,7 @@
 		<Item/>
 		<Texture>
 			<File>lofiObj2</File>
-			<Index>0x160</Index>
+			<Index>0x121</Index>
 		</Texture>
 		<SlotType>12</SlotType>
 		<Description>
@@ -9663,6 +9638,7 @@
 		<UniqueEffect>ShaitTome</UniqueEffect>
 		<FameBonus>6</FameBonus>
 		<MpCost>85</MpCost>
+		<Activate effect="Damaging" duration="3">ConditionEffectSelf</Activate>
 		<Activate color="0xffCD4D3B" targetCursor="true" effect="Bleeding" duration="5" range="5">ConditionEffectBlast</Activate>
 	</Object>
 	<Object type="0xcb2" id="Piercing Fire">
@@ -10545,6 +10521,7 @@
 		<SlotType>10</SlotType>
 		<Consumable/>
 		<InvUse/>
+		<NoLootAnnouncement/>
 		<Description>A mundane equipment crystal, provides weak enchantments to unenchanted items upon /mix slot1 slot2.</Description>
 		<Activate statScale="1.0" id="Classical" amount="1">MagicCrystal</Activate>
 		<BagType>4</BagType>
@@ -10832,8 +10809,8 @@
 		<Projectile>
 			<ObjectId>Fairy Bullet</ObjectId>
 			<Speed>140</Speed>
-			<MinDamage>70</MinDamage>
-			<MaxDamage>80</MaxDamage>
+			<MinDamage>100</MinDamage>
+			<MaxDamage>130</MaxDamage>
 			<LifetimeMS>325</LifetimeMS>
 			<Size>80</Size>
 		</Projectile>
@@ -10841,7 +10818,7 @@
 		<ArcGap>10</ArcGap>
 		<ActivateOnEquip stat="2" amount="5">IncrementStat</ActivateOnEquip>
 		<BagType>5</BagType>
-		<FameBonus>4</FameBonus>
+		<FameBonus>5</FameBonus>
 		<OldSound>bladeSwing</OldSound>
 	</Object>
 	<Object type="0xcd8" id="Seal of the Enchanted Forest">
@@ -11130,7 +11107,7 @@
 		<ActivateOnEquip stat="5" amount="8">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="3" amount="-6">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="8" amount="15">IncrementStat</ActivateOnEquip>
-		<EnchantmentStrength>20</EnchantmentStrength>
+		<EnchantmentStrength>15</EnchantmentStrength>
 		<BagType>8</BagType>
 		<FameBonus>5</FameBonus>
 		<DisplayId>The Forgotten Crown</DisplayId>
@@ -11149,7 +11126,7 @@
 		<ActivateOnEquip stat="4" amount="6">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="7" amount="8">IncrementStat</ActivateOnEquip>
 		<BagType>8</BagType>
-		<EnchantmentStrength>20</EnchantmentStrength>
+		<EnchantmentStrength>15</EnchantmentStrength>
 		<FameBonus>5</FameBonus>
 		<DisplayId>The Twilight Gemstone</DisplayId>
 	</Object>
@@ -11168,7 +11145,7 @@
 		<ActivateOnEquip stat="5" amount="6">IncrementStat</ActivateOnEquip>
 		<BagType>8</BagType>
 		<FameBonus>5</FameBonus>
-		<EnchantmentStrength>20</EnchantmentStrength>
+		<EnchantmentStrength>15</EnchantmentStrength>
 		<DisplayId>Bracer of the Guardian</DisplayId>
 	</Object>
 	<Object type="0xce6" id="Piss Jar">
@@ -11267,8 +11244,8 @@
 			<ObjectId>Heat Bolt</ObjectId>
 			<Speed>100</Speed>
 			<Size>150</Size>
-			<MinDamage>155</MinDamage>
-			<MaxDamage>270</MaxDamage>
+			<MinDamage>175</MinDamage>
+			<MaxDamage>290</MaxDamage>
 			<LifetimeMS>600</LifetimeMS>
 		</Projectile>
 		<BagType>5</BagType>
@@ -11287,8 +11264,8 @@
 		<Sound>weapon/glass_sword</Sound>
 		<Projectile id="0">
 			<ObjectId>OryxSpear</ObjectId>
-			<MinDamage>321</MinDamage>
-			<MaxDamage>400</MaxDamage>
+			<MinDamage>421</MinDamage>
+			<MaxDamage>500</MaxDamage>
 			<Speed>80</Speed>
 			<Size>120</Size>
 			<LifetimeMS>800</LifetimeMS>
@@ -11373,8 +11350,8 @@
 		<Projectile>
 			<ObjectId>HellHoundAttack</ObjectId>
 			<Speed>160</Speed>
-			<MinDamage>80</MinDamage>
-			<MaxDamage>125</MaxDamage>
+			<MinDamage>60</MinDamage>
+			<MaxDamage>115</MaxDamage>
 			<LifetimeMS>440</LifetimeMS>
 			<ConditionEffect duration="1">Bleeding</ConditionEffect>
 		</Projectile>
@@ -11458,7 +11435,7 @@
 		<MpCost>200</MpCost>
 		<Activate stat="0" duration="10" amount="1000">StatBoostSelf</Activate>
 		<Activate amount="1000">Heal</Activate>
-		<Cooldown>30</Cooldown>
+		<Cooldown>15</Cooldown>
 	</Object>
 	<Object type="0xcf9" id="Spell of Kinetic Projection">
 		<Class>Equipment</Class>
@@ -11499,6 +11476,7 @@
 			<File>lofiObj4</File>
 			<Index>0xa3</Index>
 		</Texture>
+		<NoLootAnnouncement/>
 		<SlotType>10</SlotType>
 		<Sound>use_potion</Sound>
 		<Activate>EggBreak</Activate>
@@ -11506,7 +11484,7 @@
 		<EggType>2</EggType>
 		<InvUse/>
 		<Usable/>
-		<BagType>4</BagType>
+		<BagType>5</BagType>
 	</Object>
 	<Object type="0xcfc" id="Rune of Elven Magic">
 		<Class>Equipment</Class>
@@ -11723,6 +11701,7 @@
 		<SlotType>10</SlotType>
 		<Consumable/>
 		<InvUse/>
+		<NoLootAnnouncement/>
 		<Description>An equipment crystal, provides battle-ready enchantments to unenchanted items upon /mix slot1 slot2.</Description>
 		<Activate statScale="1.1" id="Classical" amount="4">MagicCrystal</Activate>
 		<BagType>6</BagType>
@@ -11866,25 +11845,25 @@
       <Class>Equipment</Class>
       <Item />
 	  <Texture>
-		<File>lofiObj2</File>
-		<Index>0x115</Index>
+		<File>lofiObj6</File>
+		<Index>0xf8</Index>
   	  </Texture>
       <SlotType>1</SlotType>
       <Description>A sword that delivers a slash of beautiful blue flames.</Description>
       <RateOfFire>1.1</RateOfFire>
       <Sound>weapon/golden_bow</Sound>
       <Projectile>
-         <ObjectId>Green Brother Orb</ObjectId>
+         <ObjectId>Heroic Flame</ObjectId>
          <Speed>100</Speed>
-         <MinDamage>290</MinDamage>
-         <MaxDamage>440</MaxDamage>
+         <MinDamage>165</MinDamage>
+         <MaxDamage>240</MaxDamage>
          <LifetimeMS>475</LifetimeMS>
          <Amplitude>0.7</Amplitude>
          <Frequency>0.5</Frequency>
       </Projectile>
       <BagType>6</BagType>
       <FameBonus>6</FameBonus>
-      <NumProjectiles>1</NumProjectiles>
+      <NumProjectiles>2</NumProjectiles>
       <OldSound>bladeSwing</OldSound>
    </Object>
 	<Object type="0xd4e" id="Pendant of Thunder">
@@ -12023,6 +12002,7 @@
 		<SlotType>10</SlotType>
 		<Consumable/>
 		<InvUse/>
+		<NoLootAnnouncement/>
 		<Description>An equipment crystal burning with strength.</Description>
 		<Activate statScale="1.0" id="Strength" amount="7">MagicCrystal</Activate>
 		<BagType>6</BagType>
@@ -12034,6 +12014,7 @@
 			<File>lofiObj4</File>
 			<Index>0xc4</Index>
 		</Texture>
+		<NoLootAnnouncement/>
 		<SlotType>10</SlotType>
 		<Consumable/>
 		<InvUse/>
@@ -12088,8 +12069,8 @@
 		<Projectile>
 			<ObjectId>Gilded Bone Bolt</ObjectId>
 			<Speed>130</Speed>
-			<MinDamage>200</MinDamage>
-			<MaxDamage>265</MaxDamage>
+			<MinDamage>150</MinDamage>
+			<MaxDamage>150</MaxDamage>
 			<LifetimeMS>400</LifetimeMS>
 			<Wavy/>
 			<MultiHit/>
@@ -12310,8 +12291,8 @@
 		<Projectile>
 			<ObjectId>Jellyfish Shot</ObjectId>
 			<Speed>80</Speed>
-			<MinDamage>120</MinDamage>
-			<MaxDamage>330</MaxDamage>
+			<MinDamage>140</MinDamage>
+			<MaxDamage>160</MaxDamage>
 			<LifetimeMS>500</LifetimeMS>
 			<Amplitude>0.5</Amplitude>
 			<Frequency>1</Frequency>
@@ -12321,8 +12302,8 @@
 		<Projectile>
 			<ObjectId>Jellyfish Shot</ObjectId>
 			<Speed>100</Speed>
-			<MinDamage>120</MinDamage>
-			<MaxDamage>330</MaxDamage>
+			<MinDamage>140</MinDamage>
+			<MaxDamage>160</MaxDamage>
 			<LifetimeMS>500</LifetimeMS>
 			<Amplitude>0.5</Amplitude>
 			<Frequency>1</Frequency>
@@ -12471,6 +12452,7 @@
 			<File>lofiObj4</File>
 			<Index>0xb4</Index>
 		</Texture>
+		<NoLootAnnouncement/>
 		<SlotType>10</SlotType>
 		<Consumable/>
 		<InvUse/>
@@ -12587,8 +12569,9 @@
 		<SlotType>10</SlotType>
 		<Consumable/>
 		<InvUse/>
+		<NoLootAnnouncement/>
 		<Description>Like a regular equipment crystal except it can never degrade or change your equipment.</Description>
-		<Activate statScale="0.5" id="Classical" amount="1" upgradeOnly="true">MagicCrystal</Activate>
+		<Activate statScale="1" id="Classical" amount="1" upgradeOnly="true">MagicCrystal</Activate>
 		<BagType>6</BagType>
 	</Object>
 	<Object type="0x5264" id="Cosmic Cloak">
@@ -12616,7 +12599,7 @@
 		<Item/>
 		<Texture>
 			<File>lofiObj6</File>
-			<Index>0xF6</Index>
+			<Index>0xF7</Index>
 		</Texture>
 		<SlotType>17</SlotType>
 		<Description>A staff made of pure and transparent magical crystal.</Description>
@@ -12636,5 +12619,285 @@
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>
 		<OldSound>magicShoot</OldSound>
+	</Object>
+	<Object type="0x5266" id="White Drake in an Orb">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj6</File>
+			<Index>0xd8</Index>
+		</Texture>
+		<SlotType>21</SlotType>
+		<Description>A drake found it's way inside an orb.</Description>
+		<Usable/>
+		<BagType>4</BagType>
+		<FameBonus>4</FameBonus>
+		<MpCost>80</MpCost>
+		<Cooldown>5</Cooldown>
+		<UniqueEffect>WhiteDragonInAnOrb</UniqueEffect>
+		<ExtraTooltipData>
+			<EffectInfo name="Free him" description="When used, create an allied 'white drake' pet that fights by your side for 5 seconds."/>
+		</ExtraTooltipData>
+	</Object>
+	<Object type="0x5267" id="Potion of Grand Attack">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x34</Index>
+		</Texture>
+		<SlotType>10</SlotType>
+		<Tier>2</Tier>
+		<Description>A potion that permanently increases attack power.</Description>
+		<Sound>use_potion</Sound>
+		<Activate stat="2" amount="10">IncrementStat</Activate>
+		<Consumable/>
+		<Potion/>
+		<BagType>4</BagType>
+	</Object>
+	<Object type="0x5268" id="Potion of Grand Defense">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x35</Index>
+		</Texture>
+		<SlotType>10</SlotType>
+		<Tier>2</Tier>
+		<Description>A potion that permanently increases defense power.</Description>
+		<Sound>use_potion</Sound>
+		<Activate stat="3" amount="10">IncrementStat</Activate>
+		<Consumable/>
+		<Potion/>
+		<BagType>4</BagType>
+	</Object>
+	<Object type="0x5269" id="Potion of Grand Speed">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x36</Index>
+		</Texture>
+		<SlotType>10</SlotType>
+		<Tier>2</Tier>
+		<Description>A potion that permanently increases speed.</Description>
+		<Sound>use_potion</Sound>
+		<Activate stat="4" amount="10">IncrementStat</Activate>
+		<Consumable/>
+		<Potion/>
+		<BagType>4</BagType>
+	</Object>
+	<Object type="0x526a" id="Potion of Grand Vitality">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x30</Index>
+		</Texture>
+		<SlotType>10</SlotType>
+		<Tier>2</Tier>
+		<Description>A potion that permanently increases vitality.</Description>
+		<Sound>use_potion</Sound>
+		<Activate stat="6" amount="10">IncrementStat</Activate>
+		<Consumable/>
+		<Potion/>
+		<BagType>4</BagType>
+	</Object>
+	<Object type="0x526b" id="Potion of Grand Wisdom">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x31</Index>
+		</Texture>
+		<SlotType>10</SlotType>
+		<Tier>2</Tier>
+		<Description>A potion that permanently increases wisdom.</Description>
+		<Sound>use_potion</Sound>
+		<Activate stat="7" amount="10">IncrementStat</Activate>
+		<Consumable/>
+		<Potion/>
+		<BagType>4</BagType>
+	</Object>
+	<Object type="0x526c" id="Potion of Grand Dexterity">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x37</Index>
+		</Texture>
+		<SlotType>10</SlotType>
+		<Tier>2</Tier>
+		<Description>A potion that permanently increases dexterity.</Description>
+		<Sound>use_potion</Sound>
+		<Activate stat="5" amount="10">IncrementStat</Activate>
+		<Consumable/>
+		<Potion/>
+		<BagType>4</BagType>
+	</Object>
+	<Object type="0x526d" id="Potion of Grand Life">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x26</Index>
+		</Texture>
+		<SlotType>10</SlotType>
+		<Description>A potion that permanently increases health.</Description>
+		<Sound>use_potion</Sound>
+		<Activate stat="0" amount="50">IncrementStat</Activate>
+		<Consumable/>
+		<Potion/>
+		<BagType>4</BagType>
+	</Object>
+	<Object type="0x526e" id="Potion of Grand Mana">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj2</File>
+			<Index>0x27</Index>
+		</Texture>
+		<SlotType>10</SlotType>
+		<Description>A potion that permanently increases magic.</Description>
+		<Sound>use_potion</Sound>
+		<Activate stat="1" amount="50">IncrementStat</Activate>
+		<Consumable/>
+		<Potion/>
+		<BagType>3</BagType>
+	</Object>
+	<Object type="0x526f" id="Soul of Havoc">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj5</File>
+			<Index>0xba</Index>
+		</Texture>
+		<Animation period="1.0">
+			<Frame>
+				<Texture>
+					<File>lofiObj5</File>
+					<Index>0xa8</Index>
+				</Texture>
+			</Frame>
+			<Frame>
+				<Texture>
+					<File>lofiObj5</File>
+					<Index>0xa9</Index>
+				</Texture>
+			</Frame>
+			<Frame>
+				<Texture>
+					<File>lofiObj5</File>
+					<Index>0xb8</Index>
+				</Texture>
+			</Frame>
+			<Frame>
+				<Texture>
+					<File>lofiObj5</File>
+					<Index>0xb9</Index>
+				</Texture>
+			</Frame>
+		</Animation>
+		<SlotType>8</SlotType>
+		<Description>A lost soul harnessed for power.</Description>
+		<RateOfFire>0.20</RateOfFire>
+		<Sound>weapon/wand_of_death</Sound>
+		<Projectile>
+			<ObjectId>Havoc Vortex</ObjectId>
+			<Speed>50</Speed>
+			<MinDamage>1000</MinDamage>
+			<MaxDamage>2500</MaxDamage>
+			<LifetimeMS>3000</LifetimeMS>
+			<Size>300</Size>
+			<MultiHit/>
+		</Projectile>
+		<BagType>6</BagType>
+		<NumProjectiles>1</NumProjectiles>
+		<OldSound>magicShoot</OldSound>
+	</Object>
+	<Object type="0x5270" id="Ghastly Gem">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj5</File>
+			<Index>0xbe</Index>
+		</Texture>
+		<Description>A glowing gem whispering ancient knowledge.</Description>
+		<Component>Ghastly Gem</Component>
+		<BagType>5</BagType>
+	</Object>
+	<Object type="0x5271" id="Burning Gem">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj5</File>
+			<Index>0xce</Index>
+		</Texture>
+		<Description>A gem that looks like it's made of pure lava.</Description>
+		<Component>Burning Gem</Component>
+		<BagType>5</BagType>
+	</Object>
+	<Object type="0x5272" id="Helm of the Watcher">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj6</File>
+			<Index>0x6b</Index>
+		</Texture>
+		<Animation period="2.0">
+			<Frame>
+				<Texture>
+					<File>lofiObj6</File>
+					<Index>0x6b</Index>
+				</Texture>
+			</Frame>
+			<Frame>
+				<Texture>
+					<File>lofiObj6</File>
+					<Index>0x6c</Index>
+				</Texture>
+			</Frame>
+			<Frame>
+				<Texture>
+					<File>lofiObj6</File>
+					<Index>0x6d</Index>
+				</Texture>
+			</Frame>
+		</Animation>
+		<SlotType>16</SlotType>
+		<Description>A helmet fused with a deathly spirit.</Description>
+		<ActivateOnEquip stat="0" amount="20">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="1" amount="20">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="2" amount="-5">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="3" amount="8">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="4" amount="8">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="5" amount="10">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="6" amount="3">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="7" amount="3">IncrementStat</ActivateOnEquip>
+		<Usable/>
+		<BagType>6</BagType>
+		<FameBonus>6</FameBonus>
+		<MpCost>120</MpCost>
+		<Activate effect="Invisible" duration="4" range="4">ConditionEffectAura</Activate>
+		<Activate effect="Invulnerable" duration="1">ConditionEffectSelf</Activate>
+		<Activate effect="Berserk" duration="6" range="4">ConditionEffectAura</Activate>
+		<Activate effect="Speedy" duration="6">ConditionEffectSelf</Activate>
+		<Cooldown>10</Cooldown>
+	</Object>
+	<Object type="0x5273" id="Rune of the Sprites">
+		<Class>Equipment</Class>
+		<Texture>
+			<File>lofiObj6</File>
+			<Index>0xea</Index>
+		</Texture>
+		<SlotType>10</SlotType>
+		<Description>A rune which amplifies brutish characteristics.</Description>
+		<Sound>use_potion</Sound>
+		<Activate id="Ephemeral">RuneConsume</Activate>
+		<BagType>5</BagType>
+		<ExtraTooltipData>
+			<EffectInfo name="Ephemeral" description="(Damage/100)% on hit to increase ROF in exchange for damage.; 500 basefame for use"/>
+		</ExtraTooltipData>
+		<Consumable/>
 	</Object>
 </Objects>

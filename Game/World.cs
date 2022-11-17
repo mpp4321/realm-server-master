@@ -217,11 +217,12 @@ namespace RotMG.Game
             }
         }
 
-        public void BroadcastPacketNearby(byte[] packet, Vector2 target)
+        public void BroadcastPacketNearby(byte[] packet, Vector2 target, Func<Player, bool> pred=null)
         {
             var players = PlayerChunks.HitTest(target, Player.SightRadius).ToArray();
             if (players == null) return;
             foreach (var en in players)
+                if(pred?.Invoke(en as Player) ?? true)
                 (en as Player)?.Client.Send(packet);
         }
 
@@ -485,7 +486,7 @@ namespace RotMG.Game
             if (en.Id == 0)
                 throw new Exception("Entity has not been added yet.");
 #endif
-            if (en == null || EntityChunks == null) return;
+            if (en == null || EntityChunks == null || PlayerChunks == null) return;
 
             if (en is StaticObject)
             {
@@ -498,7 +499,7 @@ namespace RotMG.Game
             {
                 if (en is Player)
                 {
-                    Players.Remove(en?.Id ?? 0);
+                    Players.Remove(en.Id);
                     PlayerChunks.Remove(en);
                 }
                 else if (en is Decoy)
@@ -516,7 +517,6 @@ namespace RotMG.Game
                         Quests.Remove(en.Id);
                         foreach (var player in Players.Values)
                             player.TryGetNextQuest(en);
-
                     }
                 }
 
@@ -524,23 +524,29 @@ namespace RotMG.Game
                 {
                     Constants.Remove(en.Id);
                 }
+
+                en.Dispose();
             } catch
             {
+#if DEBUG
                 Console.WriteLine("Failed to remove entity, may have been removed already");
+#endif
             }
-            en.Dispose();
         }
 
         public virtual void Tick()
         {
             if (IsTemplate)
                 return;
-            
+
             AliveTime += Settings.MillisecondsPerTick;
-            
+
             if (!Persist && Players.Count <= 0 && AliveTime >= 30000)
+            {
                 Manager.RemoveWorld(this);
-            
+                return;
+            }
+
             var chunks = new HashSet<Chunk>();
             foreach (Entity en in Players.Values)
             {
@@ -563,9 +569,17 @@ namespace RotMG.Game
                 player.SendUpdate();
 
             //Tick logic first
-            foreach (var en in entities) 
+            foreach (var en in entities) {
+                if(en is Player pl)
+                {
+                    if(pl.Client.Active != true)
+                    {
+                        RemoveEntity(pl);
+                    }
+                }
                 if (en.TickEntity())
                     en.Tick();
+            }
 
             //Send NewTick to players
             foreach (var player in Players.Values)
@@ -622,6 +636,9 @@ namespace RotMG.Game
             });
         }
 
+        /// <summary>
+        ///  Careful calling this it can invalidate processes if called in the wrong part of the ticking process. (end of tick please)
+        /// </summary>
         public virtual void Dispose()
         {
             foreach (var en in Entities.Values) RemoveEntity(en);

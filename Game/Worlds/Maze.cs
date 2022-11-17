@@ -51,9 +51,9 @@ namespace RotMG.Game.Worlds
 
         public void GenerateMaze(int width, int height)
         {
-            var setPiece = Resources.SetPieces["testtopo"];
-
-            var model = OverlappingModel.Create<MapTile>(setPiece.Tiles, 3, true, 0);;
+            var setPiece = Resources.SetPieces["LibraryTopo"];
+            var model = OverlappingModel.Create<MapTile>(setPiece.Tiles, 4, false, 2);;
+            //var model = new AdjacentModel(TopoArray.Create(setPiece.Tiles, false).ToTiles());
 
             var topology = new GridTopology(width, height, true);
             var prop = new TilePropagator(model, topology);
@@ -64,9 +64,11 @@ namespace RotMG.Game.Worlds
             {
                 for (var x = 0; x < width; x++)
                 {
+                    if (x == 0 && y == 0) continue;
                     var js = output.Get(x, y);
                     var tile = this.Tiles[x, y];
                     tile.Type = js.GroundType;
+                    tile.Region = js.Region;
                     if (js.ObjectType != 0xff)
                     {
                         var entity = Entity.Resolve(js.ObjectType);

@@ -14,10 +14,8 @@
 	<SetPiece id="TriBrother">
         <Map>TricolorBrothers.jm</Map>
     </SetPiece>
+
 	<SetPiece id="LibraryTopo">
         <Map>testtopo.jm</Map>
-    </SetPiece>
-	<SetPiece id="SentinelDeath">
-        <Map>sentinelDeath.jm</Map>
     </SetPiece>
 </SetPieces>

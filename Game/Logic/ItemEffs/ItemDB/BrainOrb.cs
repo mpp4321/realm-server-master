@@ -11,7 +11,6 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
     {
         public void OnAbilityUse(Vector2 position, ItemDesc desc, ItemDataJson itemdata, Player p)
         {
-
             var iter = p.Parent.EntityChunks.HitTest(position, 3).OfType<Enemy>().Where(a => a.Type != 0x5004);
             if (iter.Count() > 5) iter = iter.Take(5);
             foreach (var j in iter)
@@ -23,19 +22,6 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
                 p.Parent.AddEntity(e, j.Position);
                 e.PlayerOwner = p;
             }
-
-        }
-
-        public void OnEnemyHit(Entity hit, Projectile by, ref int damageDone)
-        {
-        }
-
-        public void OnHitByEnemy(Player hit, Entity hitBy, Projectile by)
-        {
-        }
-
-        public void OnTick(Player p)
-        {
         }
     }
 }

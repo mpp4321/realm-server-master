@@ -178,6 +178,9 @@ namespace RotMG.Game.Entities
 
             if (ShotProjectiles.TryGetValue(bulletId, out var p))
             {
+#if DEBUG
+                Program.Print(PrintType.Info, "Hit with id: " + bulletId);
+#endif
                 var target = Parent.GetEntity(targetId);
                 if (target == null || !target.Desc.Enemy)
                 {
@@ -242,7 +245,7 @@ namespace RotMG.Game.Entities
             else
             {
 #if DEBUG
-                Program.Print(PrintType.Error, "Tried to hit enemy with undefined projectile");
+                Program.Print(PrintType.Error, "Tried to hit enemy with undefined projectile id: " + bulletId);
 #endif
             }
         }
@@ -393,7 +396,7 @@ namespace RotMG.Game.Entities
                     var packet = GameServer.AllyShoot(Id, desc.Type, attackAngle);
 
                     foreach (var en in Parent.PlayerChunks.HitTest(Position, SightRadius))
-                        if (en is Player player && player.Client.Account.AllyShots && !player.Equals(this))
+                        if (en is Player player && player.Client.Active && player.Client.Account.AllyShots && !player.Equals(this))
                             player.Client.Send(packet);
 
                     FameStats.Shots += numShots;
@@ -590,7 +593,8 @@ namespace RotMG.Game.Entities
                 var startId = NextProjectileId;
                 var desc = ac.Projectile.Desc.ExplodeProjectile;
                 var Damage = desc.Damage;
-                NextProjectileId -= count;
+                if(isPlayer)
+                    NextProjectileId -= count;
 
                 for (var i = 0; i < count; i++)
                 {

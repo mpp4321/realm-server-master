@@ -195,6 +195,9 @@ namespace RotMG.Networking
                     case PacketId.CrystalConv:
                         CrystalConv(client, rdr);
                         break;
+                    case PacketId.Reskin:
+                        Reskin(client, rdr);
+                        break;
                 }
             }
         }
@@ -205,6 +208,11 @@ namespace RotMG.Networking
             for (var i = 0; i < offer.Length; i++)
                 offer[i] = rdr.ReadBoolean();
             client.Player.ChangeTrade(offer);
+        }
+        private static void Reskin(Client client, PacketReader rdr)
+        {
+            var id = rdr.ReadInt32();
+            client.Player.ChangeSkin(id);
         }
 
         private static void TradeRequest(Client client, PacketReader rdr)

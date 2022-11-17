@@ -16,6 +16,10 @@ namespace RotMG.Game.Logic.Database
             db.Init("Dr Terrible",
                 HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("base",
+                    new OrderOnDeath(100, "Red Gas Spawner UL", "OFF"),
+                    new OrderOnDeath(100, "Red Gas Spawner UR", "OFF"),
+                    new OrderOnDeath(100, "Red Gas Spawner LL", "OFF"),
+                    new OrderOnDeath(100, "Red Gas Spawner LR", "OFF"),
                     new HealthTransition(.2f, "rage"),
                     new State("idle",
                         new PlayerWithinTransition(12, "GP", true)
@@ -380,43 +384,35 @@ namespace RotMG.Game.Logic.Database
                     )
                 );
             db.Init("Red Gas Spawner UL",
-                new State("base",
                     new ConditionalEffect(ConditionEffectIndex.Invincible),
                     new EntitiesNotExistsTransition(50, "OFF", "Dr Terrible"),
                     new State("OFF"),
                     new State("ON",
                         new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 1000)
-                    )
                     )
             );
             db.Init("Red Gas Spawner UR",
-               new State("base",
-                   new ConditionalEffect(ConditionEffectIndex.Invincible),
-                    new EntitiesNotExistsTransition(50, "OFF", "Dr Terrible"),
-                    new State("OFF"),
-                    new State("ON",
-                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 1000)
-                    )
-                    )
+                new ConditionalEffect(ConditionEffectIndex.Invincible),
+                new EntitiesNotExistsTransition(50, "OFF", "Dr Terrible"),
+                new State("OFF"),
+                new State("ON",
+                    new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 1000)
+                )
             );
             db.Init("Red Gas Spawner LL",
-                new State("base",
-                    new ConditionalEffect(ConditionEffectIndex.Invincible),
-                    new EntitiesNotExistsTransition(50, "OFF", "Dr Terrible"),
-                    new State("OFF"),
-                    new State("ON",
-                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 1000)
-                    )
-                    )
-            );
+                new ConditionalEffect(ConditionEffectIndex.Invincible),
+                new EntitiesNotExistsTransition(50, "OFF", "Dr Terrible"),
+                new State("OFF"),
+                new State("ON",
+                    new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 1000)
+                )
+        );
             db.Init("Red Gas Spawner LR",
-                new State("base",
-                    new ConditionalEffect(ConditionEffectIndex.Invincible),
-                    new EntitiesNotExistsTransition(50, "OFF", "Dr Terrible"),
-                    new State("OFF"),
-                    new State("ON",
-                        new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 1000)
-                    )
+                new ConditionalEffect(ConditionEffectIndex.Invincible),
+                new EntitiesNotExistsTransition(50, "OFF", "Dr Terrible"),
+                new State("OFF"),
+                new State("ON",
+                    new Shoot(10, count: 18, index: 0, fixedAngle: 0, angleOffset: 0, cooldown: 1000)
                 )
             );
             db.Init("Turret Attack",

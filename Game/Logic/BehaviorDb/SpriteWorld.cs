@@ -192,6 +192,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot(item: "Staff of Extreme Prejudice", chance: 0.006f, threshold: 0.01f),
                     new ItemLoot(item: "Cloak of the Planewalker", chance: 0.006f, threshold: 0.01f),
                     new ItemLoot("Corporeal Shield", 0.02f),
+                    new ItemLoot("Rune of the Sprites", 0.005f),
                     new ItemLoot("Bracelet of the Sprites", 0.01f, r: new LootDef.RarityModifiedData(1.0f, 2, true))
                 )
             );
@@ -383,7 +384,8 @@ namespace RotMG.Game.Logic.Database
                       new ItemLoot(item: "Cloak of the Planewalker", chance: 0.006f, threshold: 0.01f, r: new LootDef.RarityModifiedData(1.2f, 2, true)),
                       new ItemLoot("Corporeal Shield", 0.02f, r: new LootDef.RarityModifiedData(1.2f, 2, true)),
                       new ItemLoot("Bracelet of the Sprites", 0.005f, r: new LootDef.RarityModifiedData(1.0f, 4, true)),
-                      new ItemLoot("Piece of Havoc", 0.003f)
+                      new ItemLoot("Piece of Havoc", 0.003f),
+                      new ItemLoot("Rune of the Sprites", 0.01f)
                     ),
                     new Threshold(0.01f, LootTemplates.CrystalsDungeonBoss())
               );

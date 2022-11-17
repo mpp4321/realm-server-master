@@ -31,31 +31,31 @@ namespace RotMG.Game.Logic.Database
         public static MobDrop[] CrystalsRealmBoss()
         {
             return new MobDrop[] { 
-                new ItemLoot("Realm Equipment Crystal", 1.0f),
-                new ItemLoot("Realm Equipment Crystal", 0.75f),
                 new ItemLoot("Realm Equipment Crystal", 0.5f),
-                new ItemLoot("Realm Equipment Crystal", 0.25f),
                 new ItemLoot("Realm Equipment Crystal", 0.1f),
+                new ItemLoot("Realm Equipment Crystal", 0.05f),
+                new ItemLoot("Realm Equipment Crystal", 0.05f),
+                new ItemLoot("Realm Equipment Crystal", 0.05f),
             };
         }
         public static MobDrop[] CrystalsDungeonBoss()
         {
             return new MobDrop[] { 
-                new ItemLoot("Realm Equipment Crystal", 1.0f),
-                new ItemLoot("Realm Equipment Crystal", 1.0f),
-                new ItemLoot("Realm Equipment Crystal", 0.75f),
                 new ItemLoot("Realm Equipment Crystal", 0.5f),
                 new ItemLoot("Realm Equipment Crystal", 0.25f),
+                new ItemLoot("Realm Equipment Crystal", 0.1f),
+                new ItemLoot("Realm Equipment Crystal", 0.05f),
+                new ItemLoot("Realm Equipment Crystal", 0.05f),
             };
         }
         public static MobDrop[] CrystalsHardRegular()
         {
             return new MobDrop[] { 
-                new ItemLoot("Realm Equipment Crystal", 1.0f),
-                new ItemLoot("Realm Equipment Crystal", 1.0f),
-                new ItemLoot("Realm Equipment Crystal", 1.0f),
-                new ItemLoot("Realm Equipment Crystal", 0.75f),
                 new ItemLoot("Realm Equipment Crystal", 0.5f),
+                new ItemLoot("Realm Equipment Crystal", 0.25f),
+                new ItemLoot("Realm Equipment Crystal", 0.25f),
+                new ItemLoot("Realm Equipment Crystal", 0.05f),
+                new ItemLoot("Realm Equipment Crystal", 0.05f)
             };
         }
     }

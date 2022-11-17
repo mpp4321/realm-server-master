@@ -2635,7 +2635,6 @@
       <File>lofiObj5</File>
       <Index>0xda</Index>
     </Texture>
-    <AngleCorrection>1</AngleCorrection>
   </Object>
   <Object type="0x2152" id="Pumpkin Projectile">
     <Class>Projectile</Class>
@@ -3922,8 +3921,9 @@
     <Class>Projectile</Class>
     <Texture>
       <File>lofiObj2</File>
-      <Index>0xbd</Index>
+      <Index>0x124</Index>
     </Texture>
+    <AngleCorrection>2</AngleCorrection>
   </Object>
   <Object type="0x21FD" id="Heat Bolt">
     <Class>Projectile</Class>
@@ -4092,5 +4092,45 @@
 		<Index>0xfa</Index>
 	</Texture>
     <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x2228" id="Fluff Ball">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjsBig</File>
+      <Index>0x11</Index>
+    </Texture>
+    <Rotation>-5</Rotation>
+  </Object>
+  <Object type="0x2229" id="Heroic Flame">
+    <Class>Projectile</Class>
+	<Texture>
+	  <File>lofiObj6</File>
+	  <Index>0xfa</Index>
+  	</Texture>
+    <Rotation>180</Rotation>
+  </Object>
+  <Object type="0x222a" id="Demonic Mystic Shot">
+    <Class>Projectile</Class>
+	<Texture>
+	  <File>lofiObj5</File>
+	  <Index>0xfb</Index>
+  	</Texture>
+    <AngleCorrection>1</AngleCorrection>
+  </Object>
+  <Object type="0x222b" id="Void Vortex">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjsBig</File>
+      <Index>0x12</Index>
+    </Texture>
+    <Rotation>-90</Rotation>
+  </Object>
+  <Object type="0x222c" id="Havoc Vortex">
+    <Class>Projectile</Class>
+    <Texture>
+      <File>lofiProjsBig</File>
+      <Index>0x13</Index>
+    </Texture>
+    <Rotation>-90</Rotation>
   </Object>
 </Objects><!--next avaliable is 0x2225-->

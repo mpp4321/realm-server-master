@@ -145,7 +145,7 @@ namespace RotMG.Game.Entities
             if (HasConditionEffect(ConditionEffectIndex.Weak))
                 return MinAttackMult;
 
-            var ret = MinAttackMult + GetStat(2) / 75f * (MaxAttackMult - MinAttackMult);
+            var ret = MinAttackMult + Math.Max(0,GetStat(2)) / 75f * (MaxAttackMult - MinAttackMult);
             if (HasConditionEffect(ConditionEffectIndex.Damaging))
                 ret = ret * 1.5f;
             return ret;
@@ -330,6 +330,14 @@ namespace RotMG.Game.Entities
                     ClearItemData(crystals[i]);
                 }
                 UpdateInventory();
+            }
+        }
+
+        public void ChangeSkin(int id)
+        {
+            if (this.Client.Account.OwnedSkins.Contains(id))
+            {
+                this.SkinType = id;
             }
         }
     }

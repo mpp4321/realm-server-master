@@ -51,7 +51,8 @@ namespace RotMG.Game.Entities
                     Boosts[s.Key] += s.Value;
 
                 var data = ItemDatas[i];
-                if (data.Meta == -1)
+
+                if (data.Meta == -1 && data.ExtraStatBonuses.Count() == 0)
                     continue;
 
                 Boosts[0] += (int)ItemDesc.GetStat(data, ItemData.MaxHP, 5, item.EnchantmentStrength);

@@ -291,4 +291,10 @@
 		<BlockSight>1</BlockSight>
         <DoElites/>
 	</World>
+	<World name="SentinelDen" display="Sentinel's Den">
+		<Maps>sentinelwp.jm</Maps>
+		<Portals>0x5e4f</Portals>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+	</World>
 </Worlds>

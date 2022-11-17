@@ -319,6 +319,9 @@ namespace RotMG.Game.Entities
             if (Dead) 
                 return;
 
+            if (Parent.Name.Equals("Nexus") || Parent.Name.Equals("Dreamland"))
+                return;
+
             Client.Active = false;
             Dead = true;
 
@@ -498,6 +501,7 @@ namespace RotMG.Game.Entities
         public override void Dispose()
         {
             TileUpdates = null;
+
             EntityUpdates.Clear();
             Entities.Clear();
             CalculatedSightCircle.Clear();
@@ -509,6 +513,7 @@ namespace RotMG.Game.Entities
             ShootAEs.Clear();
             AwaitingGoto.Clear();
             PrivateSVs.Clear();
+            UniqueEffectsFromSet.Clear();
             base.Dispose();
         }
 

@@ -32,7 +32,10 @@ namespace RotMG.Game.Logic.Behaviors
     #endif
                 var player = GameUtils.GetNearestPlayer(host, 16) as Player;
                 if (player == null) return false;
-                (host as Enemy).Death(player);
+                Manager.StartOfTickAction(() =>
+                {
+                    (host as Enemy).Death(player);
+                });
                 return true;
             }
 

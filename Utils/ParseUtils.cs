@@ -100,11 +100,12 @@ namespace RotMG.Utils
             return (ActivateEffectIndex)Enum.Parse(typeof(ActivateEffectIndex), value.Replace(" ", ""));
         }
 
-        public static string[] ParseStringArray(this XElement element, string name, string seperator, string[] undefined = null, Regex regex=null)
+        public static string[] ParseStringArray(this XElement element, string name, string seperator, string[] undefined = null, Regex regex=null, bool doRemoveWhiteSpaces = true)
         {
             var value = name[0].Equals('@') ? element.Attribute(name.Remove(0, 1))?.Value : element.Element(name)?.Value;
             if (string.IsNullOrWhiteSpace(value)) return undefined;
-            value = Regex.Replace(value, @"\s+", "");
+            if(doRemoveWhiteSpaces)
+                value = Regex.Replace(value, @"\s+", "");
             return regex != null ? regex.Split(value) : value.Split(seperator);
         }
 

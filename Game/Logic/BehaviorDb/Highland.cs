@@ -624,10 +624,11 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.75f)
                         )
                     ),
-                new ItemLoot("Health Potion", 0.03f),
-                new ItemLoot("Magic Potion", 0.03f),
-                new TierLoot(7, LootType.Weapon, 0.04f),
-                new TierLoot(7, LootType.Armor, 0.05f)
+                new ItemLoot("Greater Health Potion", 0.5f),
+                new ItemLoot("Magic Potion", 0.5f),
+                new ItemLoot("White Drake in an Orb", 0.005f, 0.01f),
+                new TierLoot(7, LootType.Weapon, 0.2f),
+                new TierLoot(7, LootType.Armor, 0.2f)
             );
             db.Init("Shield Orc Shield",
                 new State("base",

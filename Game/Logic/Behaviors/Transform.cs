@@ -25,8 +25,11 @@ namespace RotMG.Game.Logic.Behaviors
             {
                 return false;
             }
-            host.Parent.AddEntity(entity, host.Position);
-            host.Parent.RemoveEntity(host);
+            Manager.StartOfTickAction(() =>
+            {
+                host?.Parent?.AddEntity(entity, host.Position);
+                host?.Parent?.RemoveEntity(host);
+            });
             return true;
         }
 

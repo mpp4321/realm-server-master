@@ -255,6 +255,9 @@ namespace RotMG.Game.Entities
             
             SaveToCharacter();
             TradePartner.SaveToCharacter();
+
+            TradePartner.Client.Character.Save();
+            Client.Character.Save();
             
             TradeDone(TradeResult.Successful);
         }

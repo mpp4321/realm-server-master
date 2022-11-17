@@ -341,7 +341,6 @@ namespace RotMG.Game.Logic.Database
 					new TierLoot(5, LootType.Ring, 0.8f),
 					new ItemLoot("Bow of Janus rage", 0.025f),
 					new ItemLoot("Eye of Janus", 0.025f),
-					new ItemLoot("Angel's Halo", 0.025f),
 					new ItemLoot("Key of Rage", 0.025f),
 					new ItemLoot("Warden Armor", 0.025f),
 					new ItemLoot("Timeworn Daggers", 0.025f)

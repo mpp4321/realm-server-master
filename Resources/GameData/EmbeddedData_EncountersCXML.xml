@@ -1303,7 +1303,7 @@
 			<LifetimeMS>2000</LifetimeMS>
 			<ConditionEffect duration="3.0">Dazed</ConditionEffect>
 		</Projectile>
-	  </Object>
+	</Object>
 	<Object type="0x5020" id="Blue Fire Brother">
 		<Class>Character</Class>
 		<AnimatedTexture>
@@ -1334,7 +1334,7 @@
 			<LifetimeMS>2000</LifetimeMS>
 			<ConditionEffect duration="3.0">Quiet</ConditionEffect>
 		</Projectile>
-	  </Object>
+	</Object>
 	<Object type="0x5021" id="Yellow Fire Brother">
 		<Class>Character</Class>
 		<AnimatedTexture>
@@ -1366,7 +1366,7 @@
 			<LifetimeMS>2000</LifetimeMS>
 			<ConditionEffect duration="1.0">Stunned</ConditionEffect>
 		</Projectile>
-	  </Object>
+	</Object>
 	<Object type="0x5023" id="Oyster King">
 		<Class>Character</Class>
 		<AnimatedTexture>
@@ -1558,7 +1558,10 @@
 	</Object>
 	<Object type="0x5206" id="Super Snail">
 		<Class>Character</Class>
-		<AnimatedTexture><File>chars8x8rPets1</File><Index>0x03</Index></AnimatedTexture>
+		<AnimatedTexture>
+			<File>chars8x8rPets1</File>
+			<Index>0x03</Index>
+		</AnimatedTexture>
 		<StasisImmune/>
 		<Level>20</Level>
 		<XpMult>2</XpMult>
@@ -1590,93 +1593,93 @@
 		<Enemy/>
 		<Friendly/>
 		<AnimatedTexture>
-		  <File>chars16x16rEncounters</File>
-		  <Index>110</Index>
+			<File>chars16x16rEncounters</File>
+			<Index>110</Index>
 		</AnimatedTexture>
 		<Size>100</Size>
 	</Object>
-   <Object type="0x520a" id="NM Green Dragon God Hardmode">
-      <DisplayId>Limoz the Plague Bearer</DisplayId>
-      <Group>Dragon Gods</Group>
-      <Enemy/>
-      <Class>Character</Class>
-      <AnimatedTexture>
-         <File>chars16x16dEncounters2</File>
-         <Index>49</Index>
-      </AnimatedTexture>
-      <AltTexture id="1">
-         <AnimatedTexture>
-            <File>chars16x16dEncounters2</File>
-            <Index>50</Index>
-         </AnimatedTexture>
-      </AltTexture>
-      <HitSound>monster/skeletons_hit</HitSound>
-      <DeathSound>monster/skeletons_death</DeathSound>
-      <Size>225</Size>
-      <MaxHitPoints>110000</MaxHitPoints>
-      <Defense>60</Defense>
-      <XpMult>1.0</XpMult>
-      <Level>20</Level>
-      <Quest/>
-      <God/>
-      <ParalyzeImmune/>
-      <DazedImmune/>
-      <StasisImmune/>
-      <StunImmune/>
-      <Projectile id="0">
-         <ObjectId>Dragon Attack Green Ball</ObjectId>
-         <Damage>135</Damage>
-         <Speed>70</Speed>
-         <LifetimeMS>1900</LifetimeMS>
-		 <ConditionEffect duration="3.0">Bleeding</ConditionEffect>
-         <PassesCover/>
-      </Projectile>
-      <Projectile id="1">
-         <ObjectId>Dragon Attack Green Spin Ball</ObjectId>
-         <Damage>120</Damage>
-         <Speed>80</Speed>
-         <Size>100</Size>
-         <LifetimeMS>500</LifetimeMS>
-         <ConditionEffect duration="5">Sick</ConditionEffect>
-      </Projectile>
-      <Projectile id="2">
-         <ObjectId>Dragon Attack Green Arrow</ObjectId>
-         <Speed>50</Speed>
-         <Damage>300</Damage>
-		 <ArmorPierce/>
-         <Size>250</Size>
-         <LifetimeMS>2400</LifetimeMS>
-      </Projectile>
-      <Projectile id="3">
-         <ObjectId>Dragon Attack Green Bullet</ObjectId>
-         <Damage>120</Damage>
-         <Speed>100</Speed>
-         <LifetimeMS>1000</LifetimeMS>
-      </Projectile>
-      <Projectile id="4">
-         <ObjectId>Dragon Attack Green Spine</ObjectId>
-         <Speed>55</Speed>
-         <Damage>100</Damage>
-         <Size>100</Size>
-         <LifetimeMS>2500</LifetimeMS>
-      </Projectile>
-      <Projectile id="5">
-         <ObjectId>Dragon Attack Blue Fireball</ObjectId>
-         <Speed>75</Speed>
-         <Damage>75</Damage>
-         <Size>140</Size>
-         <LifetimeMS>1500</LifetimeMS>
-         <ConditionEffect duration="8">Weak</ConditionEffect>
-      </Projectile>
-      <Projectile id="6">
-         <ObjectId>Dragon Attack Red Spinning Fireball</ObjectId>
-         <Speed>55</Speed>
-         <Damage>120</Damage>
-         <Size>110</Size>
-         <LifetimeMS>2000</LifetimeMS>
-         <ConditionEffect duration="3">Armor Broken</ConditionEffect>
-      </Projectile>
-   </Object>
+	<Object type="0x520a" id="NM Green Dragon God Hardmode">
+		<DisplayId>Limoz the Plague Bearer</DisplayId>
+		<Group>Dragon Gods</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<AnimatedTexture>
+			<File>chars16x16dEncounters2</File>
+			<Index>49</Index>
+		</AnimatedTexture>
+		<AltTexture id="1">
+			<AnimatedTexture>
+				<File>chars16x16dEncounters2</File>
+				<Index>50</Index>
+			</AnimatedTexture>
+		</AltTexture>
+		<HitSound>monster/skeletons_hit</HitSound>
+		<DeathSound>monster/skeletons_death</DeathSound>
+		<Size>225</Size>
+		<MaxHitPoints>110000</MaxHitPoints>
+		<Defense>60</Defense>
+		<XpMult>1.0</XpMult>
+		<Level>20</Level>
+		<Quest/>
+		<God/>
+		<ParalyzeImmune/>
+		<DazedImmune/>
+		<StasisImmune/>
+		<StunImmune/>
+		<Projectile id="0">
+			<ObjectId>Dragon Attack Green Ball</ObjectId>
+			<Damage>135</Damage>
+			<Speed>70</Speed>
+			<LifetimeMS>1900</LifetimeMS>
+			<ConditionEffect duration="3.0">Bleeding</ConditionEffect>
+			<PassesCover/>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Dragon Attack Green Spin Ball</ObjectId>
+			<Damage>120</Damage>
+			<Speed>80</Speed>
+			<Size>100</Size>
+			<LifetimeMS>500</LifetimeMS>
+			<ConditionEffect duration="5">Sick</ConditionEffect>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Dragon Attack Green Arrow</ObjectId>
+			<Speed>50</Speed>
+			<Damage>300</Damage>
+			<ArmorPierce/>
+			<Size>250</Size>
+			<LifetimeMS>2400</LifetimeMS>
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Dragon Attack Green Bullet</ObjectId>
+			<Damage>120</Damage>
+			<Speed>100</Speed>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+		<Projectile id="4">
+			<ObjectId>Dragon Attack Green Spine</ObjectId>
+			<Speed>55</Speed>
+			<Damage>100</Damage>
+			<Size>100</Size>
+			<LifetimeMS>2500</LifetimeMS>
+		</Projectile>
+		<Projectile id="5">
+			<ObjectId>Dragon Attack Blue Fireball</ObjectId>
+			<Speed>75</Speed>
+			<Damage>75</Damage>
+			<Size>140</Size>
+			<LifetimeMS>1500</LifetimeMS>
+			<ConditionEffect duration="8">Weak</ConditionEffect>
+		</Projectile>
+		<Projectile id="6">
+			<ObjectId>Dragon Attack Red Spinning Fireball</ObjectId>
+			<Speed>55</Speed>
+			<Damage>120</Damage>
+			<Size>110</Size>
+			<LifetimeMS>2000</LifetimeMS>
+			<ConditionEffect duration="3">Armor Broken</ConditionEffect>
+		</Projectile>
+	</Object>
 	<Object type="0x520b" id="Dragon God Gas Cloud">
 		<Enemy/>
 		<Class>Character</Class>
@@ -1688,5 +1691,161 @@
 		<MaxHitPoints>1000000</MaxHitPoints>
 		<Defense>0</Defense>
 		<XpMult>0</XpMult>
+	</Object>
+	<Object type="0x520c" id="Sheep God">
+		<Group>Sheep</Group>
+
+		<Class>Character</Class>
+		<Enemy/>
+		<AnimatedTexture>
+			<File>chars8x8rBeach</File>
+			<Index>0</Index>
+		</AnimatedTexture>
+		<Size>300</Size>
+		<Projectile id="0">
+			<ObjectId>Ice Burst</ObjectId>
+			<Speed>40</Speed>
+			<Damage>120</Damage>
+			<Size>130</Size>
+			<LifetimeMS>2400</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Fluff Ball</ObjectId>
+			<Speed>75</Speed>
+			<Damage>250</Damage>
+			<Size>300</Size>
+			<LifetimeMS>2000</LifetimeMS>
+			<PassesCover/>
+			<Amplitude>0.1</Amplitude>
+			<Frequency>50</Frequency>
+			<ConditionEffect duration="5">Bleeding</ConditionEffect>
+		</Projectile>
+		<MaxHitPoints>1000000</MaxHitPoints>
+		<Defense>40</Defense>
+		<XpMult>0.8</XpMult>
+	</Object>
+	<Object type="0x520d" id="Sheep Statue">
+		<Group>Sheep</Group>
+		<Class>Character</Class>
+		<Enemy/>
+		<AnimatedTexture>
+			<File>chars8x8rBeach</File>
+			<Index>0</Index>
+		</AnimatedTexture>
+		<Projectile id="0">
+			<ObjectId>Bone Bolt</ObjectId>
+			<Speed>40</Speed>
+			<Damage>200</Damage>
+			<Size>200</Size>
+			<LifetimeMS>500</LifetimeMS>
+		</Projectile>
+		<Size>200</Size>
+		<MaxHitPoints>100000</MaxHitPoints>
+		<Defense>90</Defense>
+		<XpMult>3.0</XpMult>
+	</Object>
+	<Object type="0x520e" id="Sentinel Cube">
+		<Group>Cube</Group>
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>lofiProjsBig</File>
+			<Index>0x21</Index>
+		</Texture>
+		<Size>200</Size>
+		<MaxHitPoints>1000000</MaxHitPoints>
+		<Defense>500</Defense>
+		<XpMult>0.8</XpMult>
+	</Object>
+	<Object type="0x520f" id="Sentinel Slayer">
+		<Group>Cube</Group>
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>lofiProjsBig</File>
+			<Index>0x23</Index>
+		</Texture>
+		<Projectile id="0">
+		  <ObjectId>Armor Pierce Bullet</ObjectId>
+		  <Speed>55</Speed>
+		  <ArmorPiercing/>
+		  <Damage>60</Damage>
+		  <LifetimeMS>1000</LifetimeMS>
+		  <Size>125</Size>
+		</Projectile>
+		<Size>100</Size>
+		<MaxHitPoints>150000</MaxHitPoints>
+		<Defense>100</Defense>
+		<XpMult>0.3</XpMult>
+	</Object>
+	<Object type="0x5211" id="Sentinel Charger">
+		<Group>Cube</Group>
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>lofiProjsBig</File>
+			<Index>0x22</Index>
+		</Texture>
+		<Projectile id="0">
+		  <ObjectId>Small White Shuriken</ObjectId>
+		  <Damage>100</Damage>
+		  <Speed>120</Speed>
+		  <LifetimeMS>500</LifetimeMS>
+		  <ConditionEffect duration="2">Slowed</ConditionEffect>
+		  <Boomerang/>
+		</Projectile>
+		<Size>120</Size>
+		<MaxHitPoints>200000</MaxHitPoints>
+		<Defense>300</Defense>
+		<XpMult>0.3</XpMult>
+	</Object>
+	<Object type="0x5210" id="Sentinel Watcher">
+		<Group>Cube</Group>
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>lofiProjsBig</File>
+			<Index>0x24</Index>
+		</Texture>
+		<Projectile id="0">
+			<ObjectId>White Bolt</ObjectId>
+			<Speed>150</Speed>
+			<Size>200</Size>
+			<Damage>70</Damage>
+			<ArmorPiercing/>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+		<Size>120</Size>
+		<MaxHitPoints>130000</MaxHitPoints>
+		<Defense>0</Defense>
+		<XpMult>0.3</XpMult>
+	</Object>
+	<Object type="0x5212" id="Sentinel Blob">
+		<Group>Cube</Group>
+		<Class>Character</Class>
+		<Enemy/>
+		<Texture>
+			<File>d3LofiObjEmbed</File>
+			<Index>0x476</Index>
+		</Texture>
+		<Projectile id="0">
+			<ObjectId>Chain Boomerang</ObjectId>
+			<Speed>50</Speed>
+			<Size>200</Size>
+			<Damage>160</Damage>
+			<ArmorPiercing/>
+			<LifetimeMS>2000</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Bone Bolt</ObjectId>
+			<Speed>100</Speed>
+			<Size>100</Size>
+			<Damage>35</Damage>
+			<LifetimeMS>1000</LifetimeMS>
+		</Projectile>
+		<Size>240</Size>
+		<MaxHitPoints>130000</MaxHitPoints>
+		<Defense>200</Defense>
+		<XpMult>0.3</XpMult>
 	</Object>
 </Objects>

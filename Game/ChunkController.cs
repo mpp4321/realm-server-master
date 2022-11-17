@@ -89,7 +89,7 @@ namespace RotMG.Game
             if (!en.CurrentChunk.Entities.Contains(en))
                 throw new Exception("Chunk doesn't contain entity.");
 #endif
-            en.CurrentChunk?.Entities.Remove(en);
+            en.CurrentChunk.Entities.Remove(en);
             en.CurrentChunk = null;
         }
 

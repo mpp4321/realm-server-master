@@ -526,7 +526,7 @@ namespace RotMG.Common
         {
             var accountInUse = acc.Connected && Manager.GetClient(acc.Id) != null;
             // acc connected is true but we are null client
-            if (!accountInUse && acc.Connected)
+            if (accountInUse && acc.Connected)
             {
                 acc.Connected = false;
                 acc.LastSeen = Database.UnixTime();

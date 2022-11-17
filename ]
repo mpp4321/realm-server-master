@@ -1,4 +1,4 @@
-﻿using RotMG.Common;
+using RotMG.Common;
 using RotMG.Game.Entities;
 using RotMG.Game.Logic.Behaviors;
 using RotMG.Game.Logic.Conditionals;
@@ -209,7 +209,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Wisdom", 0.25f),
                     new ItemLoot("Spectral Gown", 0.02f, r: new RarityModifiedData(1.2f)),
                     new ItemLoot("Ghastly Gem", 0.005f)
-                ),
+                    ),
                 new Threshold(.01f,
                     LootTemplates.MountainDrops()
                 )

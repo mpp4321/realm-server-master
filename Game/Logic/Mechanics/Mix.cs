@@ -31,26 +31,6 @@ namespace RotMG.Game.Logic.Mechanics
             return pred(s1) ? (slot1, slot2) : pred(s2) ? (slot2, slot1) : (-1, -1);
         }
 
-        public static void DoMixComponents(Player p, int slot1, int slot2, IEnumerable<ItemDesc> descs)
-        {
-            var componentItem = descs.Where(a => a.Component != null).FirstOrDefault();
-
-            if (componentItem == null) return;
-
-            var itemCombined = descs.Where(a => a.Component == null).FirstOrDefault();
-
-            if (itemCombined == null) return;
-
-            var slotCombiningInto = p.Inventory[slot1] == itemCombined.Type ? slot1 : slot2;
-            var slotConsuming = slotCombiningInto == slot1 ? slot2 : slot1;
-
-            p.ItemDatas[slotCombiningInto].ItemComponent = componentItem.Component;
-            p.Inventory[slotConsuming] = -1;
-
-            p.SendInfo("Success!");
-            p.UpdateInventory();
-        }
-
         public static bool DoMix(Player p, int slot1, int slot2)
         {
             var items = new int[] { p.Inventory[slot1], p.Inventory[slot2] };
@@ -101,10 +81,24 @@ namespace RotMG.Game.Logic.Mechanics
             {"AttackComp", (id, json) => {
                 json.ExtraStatBonuses[(ulong) ItemData.Attack] += 6;
             } },
-            {"FireRune", (id, json) => {
-                var v = json.ExtraStatBonuses.GetValueOrDefault((ulong) ItemData.Attack);
-                json.ExtraStatBonuses[(ulong) ItemData.Attack] = v + 1000;
-            } }
+            {
+                "FireRune", (id, json) => {
+                    var v = json.ExtraStatBonuses.GetValueOrDefault((ulong) ItemData.Attack);
+                    json.ExtraStatBonuses[(ulong) ItemData.Attack] = v + 1000;
+                } 
+            },
+            {
+                "Ghastly Gem", (id, json) => {
+                    var v = json.ExtraStatBonuses.GetValueOrDefault((ulong) ItemData.Wisdom);
+                    json.ExtraStatBonuses[(ulong) ItemData.Wisdom] = v + 5;
+                } 
+            },
+            {
+                "Burning Gem", (id, json) => {
+                    var v = json.ExtraStatBonuses.GetValueOrDefault((ulong) ItemData.Attack);
+                    json.ExtraStatBonuses[(ulong) ItemData.Attack] = v + 5;
+                } 
+            }
         };
 
         private static Dictionary<string, Action<int, ItemDataJson>> OnRemove = new Dictionary<string, Action<int, ItemDataJson>>()
@@ -115,26 +109,40 @@ namespace RotMG.Game.Logic.Mechanics
             {"FireRune", (id, json) => {
                 var v = json.ExtraStatBonuses.GetValueOrDefault((ulong) ItemData.Attack);
                 json.ExtraStatBonuses[(ulong) ItemData.Attack] = v - 1000;
-            } }
+            } },
+            {
+                "Ghastly Gem", (id, json) => {
+                    var v = json.ExtraStatBonuses.GetValueOrDefault((ulong) ItemData.Wisdom);
+                    json.ExtraStatBonuses[(ulong) ItemData.Wisdom] = v - 5;
+                } 
+            },
+            {
+                "Burning Gem", (id, json) => {
+                    var v = json.ExtraStatBonuses.GetValueOrDefault((ulong) ItemData.Attack);
+                    json.ExtraStatBonuses[(ulong) ItemData.Attack] = v - 5;
+                } 
+            }
         };
 
         private static void ApplyComponent(Player p, (int, int) itemPair)
         {
+            var currentlyOn = p.ItemDatas.GetValue(itemPair.Item2) as ItemDataJson;
             var desc = Resources.Type2Item[(ushort) p.Inventory[itemPair.Item1]].Component;
 
             p.Inventory[itemPair.Item1] = -1;
             p.ItemDatas[itemPair.Item1] = new ItemDataJson();
 
+            if (currentlyOn?.ItemComponent != null && OnRemove.TryGetValue(currentlyOn.ItemComponent, out var remove))
+            {
+                remove(itemPair.Item2, currentlyOn);
+            }
+
             if (OnApply.TryGetValue(desc, out var add))
             {
-                add(itemPair.Item2, p.ItemDatas[itemPair.Item2]);
+                add(itemPair.Item2, currentlyOn);
             }
 
-            if (OnRemove.TryGetValue(desc, out var remove))
-            {
-                remove(itemPair.Item2, p.ItemDatas[itemPair.Item2]);
-            }
-
+            p.ItemDatas[itemPair.Item2] = currentlyOn;
             p.ItemDatas[itemPair.Item2].ItemComponent = desc;
         }
 
@@ -149,12 +157,14 @@ namespace RotMG.Game.Logic.Mechanics
             float scale = eff.StatScale;
             ItemDataModType typeOfMod = Enum.Parse<ItemDataModType>(crystal.ActivateEffects[0].Id ?? p.Client.Character.ItemDataModifier);
             var item = Resources.Type2Item[(ushort)p.Inventory[itemPair.Item2]];
-            var r = item.Roll(new RarityModifiedData(scale, power, true), typeOfMod);
+            var preData = p.ItemDatas[itemPair.Item2];
+            var r = item.Roll(new RarityModifiedData(scale, power, true), typeOfMod, preData);
             var upgradeOnly = eff.UpgradeOnly;
+            var currentLevel = p.ItemDatas[itemPair.Item2].ItemLevel;
             if(upgradeOnly)
             {
-                var currentLevel = p.ItemDatas[itemPair.Item2].ItemLevel;
-                r = item.Roll(new RarityModifiedData(scale, currentLevel, true), typeOfMod);
+                var miscInt = p.ItemDatas[itemPair.Item2].MiscIntOne;
+                r = item.Roll(new RarityModifiedData(1.0f - (0.015f * currentLevel), currentLevel, true), typeOfMod, preData);
                 if(currentLevel < 1)
                 {
                     return false;
@@ -169,7 +179,14 @@ namespace RotMG.Game.Logic.Mechanics
                 if(upgradeOnly)
                 {
                     if(r.Item1)
+                    {
+                        var newLevel = r.Item2.ItemLevel;
                         p.ItemDatas[itemPair.Item2].ItemLevel = r.Item2.ItemLevel;
+                        if(newLevel > currentLevel)
+                            p.ItemDatas[itemPair.Item2].MiscIntOne = -1;
+                        else
+                            p.ItemDatas[itemPair.Item2].MiscIntOne += 1;
+                    }
                 } else
                 {
                     p.ItemDatas[itemPair.Item2] = r.Item1 ? r.Item2 : new ItemDataJson();
@@ -179,7 +196,14 @@ namespace RotMG.Game.Logic.Mechanics
        }
 
         private static Dictionary<int, Dictionary<int, int>> ItemTransforms = new Dictionary<int, Dictionary<int, int>> {
-            { Resources.Id2Item["Piece of Havoc"].Type, new Dictionary<int, int> { { 0xc24, 0xccd }, { Resources.Id2Item["Cracked Waraxe"].Type, Resources.Id2Item["Paladin's Waraxe"].Type } } },
+            { 
+                Resources.Id2Item["Piece of Havoc"].Type, new Dictionary<int, int> {
+                    { 0xc24, 0xccd },
+                    { Resources.Id2Item["Cracked Waraxe"].Type, Resources.Id2Item["Paladin's Waraxe"].Type },
+                    { Resources.Id2Item["Soul of the Lost Land"].Type, Resources.Id2Item["Soul of Havoc"].Type },
+                    { Resources.Id2Item["Rusted Helm"].Type, Resources.Id2Item["Helm of the Watcher"].Type }
+                } 
+            },
             { Resources.Id2Item["Golden Demonic Metal"].Type, new Dictionary<int, int> { { Resources.Id2Item["Demon Blade"].Type, Resources.Id2Item["Gilded Demon Blade"].Type } } }
         };
 

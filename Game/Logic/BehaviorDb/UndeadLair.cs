@@ -116,6 +116,7 @@ namespace RotMG.Game.Logic.Database
                 new ItemLoot("Ghastly Equipment Crystal", 0.02f)
             ),
             new Threshold(0.01f,
+                new ItemLoot("Ghastly Gem", 0.03f),
                 new ItemLoot("Undead Lair Key", 0.03f),
                 new ItemLoot("Doom Bow", 0.03f),
                 new ItemLoot("Hide of Undead Regeneration", 0.005f),

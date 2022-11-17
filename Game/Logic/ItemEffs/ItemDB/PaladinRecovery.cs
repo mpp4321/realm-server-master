@@ -28,7 +28,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
             var nova_blue = GameServer.ShowEffect(ShowEffectIndex.Nova, p.Id, 0xffffffff, new Vector2(5, 0));
             foreach (var j in p.Parent.PlayerChunks.HitTest(p.Position, Math.Max(4, Player.SightRadius)))
             {
-                if (j is Player pl && pl.Client.Account.Effects)
+                if (j is Player pl && (pl?.Client?.Account?.Effects ?? false))
                 {
                     pl.Client?.Send(nova_blue);
                 }

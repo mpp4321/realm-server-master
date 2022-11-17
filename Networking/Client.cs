@@ -42,7 +42,11 @@ namespace RotMG.Networking
             _receive = receive;
         }
 
-        public void DisconnectNoAddBack(bool force = false) // clears all individual client data without pushing instance back
+        public bool HasEffectsEnabled()
+        {
+            return Account?.Effects ?? false;
+        }
+        public void DisconnectNoAddBack() // clears all individual client data without pushing instance back
         {
             // Still
             try
@@ -71,15 +75,7 @@ namespace RotMG.Networking
 
                     if (!Character.Dead) //Already saved during death.
                     {
-                        Character.Save();
-                    }
-
-                    if(Player.Parent == null)
-                    {
-                        Manager.RemoveEntityImportant(Player);
-                    } else
-                    {
-                        Player.Parent.RemoveEntity(Player);
+                        Database.SaveCharacter(Character);
                     }
                 }
 
@@ -88,6 +84,9 @@ namespace RotMG.Networking
             {
                 Program.Print(PrintType.Error, ex.ToString());
             }
+
+            if(Player?.Parent != null)
+                Player.Parent.RemoveEntity(Player);
 
             if(State != ProtocolState.Disconnected)
             {
@@ -100,6 +99,9 @@ namespace RotMG.Networking
                 {
                     Program.Print(PrintType.Error, ex);
                 }
+
+                //Push back client to queue. Once!
+                GameServer.AddBack(this);
             }
 
             //Shutdown socket
@@ -120,13 +122,11 @@ namespace RotMG.Networking
 
         public void Disconnect() //Disconnects, clears all individual client data and pushes the instance back to the server queue.
         {
-            Manager.RemoveClient(this);
-
             // clear data
-            DisconnectNoAddBack(true);
+            DisconnectNoAddBack();
 
-            //Push back client to queue
-            GameServer.AddBack(this);
+            // remove client
+            Manager.RemoveClient(this);
         }
 
         private void CleanupPet()

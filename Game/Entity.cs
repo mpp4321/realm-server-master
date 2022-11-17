@@ -137,7 +137,7 @@ namespace RotMG.Game
 
         public World ParentNullable { get => _world; }
 
-        public World Parent { get => _world ?? Manager.Worlds.GetValueOrDefault(LastWorldID); set {
+        public World Parent { get => _world; set {
                 _world = value;
                 LastWorldID = _world?.Id ?? LastWorldID;
             }
@@ -660,7 +660,10 @@ namespace RotMG.Game
                 {
                     var state = CurrentStates[i];
                     foreach (var behavior in state.Behaviors)
-                        behavior.Tick(this);
+                    {
+                        if(Parent != null) // Last behavior may remove this entity
+                            behavior.Tick(this);
+                    }
                 }
 
                 //Loop through state transitions

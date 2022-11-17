@@ -53,6 +53,11 @@ namespace RotMG.Game.Entities
             //if (Dead == true)
             //    throw new Exception("Already dead");
 #endif
+#if RELEASE
+
+            if (Dead == true)
+                return;
+#endif
 
             Parent?.EnemyKilled(this, killer);
 
@@ -96,17 +101,18 @@ namespace RotMG.Game.Entities
             }
 
             Dead = true;
-            Parent.RemoveEntity(this);
+            // If world was removed in the same tick as death
+            Parent?.RemoveEntity(this);
         }
 
         public bool Damage(Player hitter, int damage, ConditionEffectDesc[] effects, bool pierces, bool showToHitter = false)
         {
 #if DEBUG
-            if (effects == null)
-                throw new Exception("Null effects");
             if (hitter == null)
                 throw new Exception("Undefined hitter");
 #endif
+            if (effects == null)
+                effects = new ConditionEffectDesc[] { };
             if (HasConditionEffect(ConditionEffectIndex.Invincible) || HasConditionEffect(ConditionEffectIndex.Stasis)
                 || HasConditionEffect(ConditionEffectIndex.Invulnerable))
                 return false;
@@ -136,14 +142,14 @@ namespace RotMG.Game.Entities
             hitter.FameStats.DamageDealt += damageWithDefense;
 
             var packet = GameServer.Damage(Id, new ConditionEffectIndex[0], damageWithDefense);
-            foreach (var en in Parent.PlayerChunks.HitTest(Position, Player.SightRadius))
+            foreach (var en in Parent?.PlayerChunks?.HitTest(Position, Player.SightRadius))
                 if (en is Player player && player.Client.Account.AllyDamage && !player.Equals(hitter))
                     player.Client.Send(packet);
 
             if (showToHitter)
                 hitter.Client.Send(packet);
 
-            if (Hp <= 0)
+            if (Hp <= 0 && !Dead)
             {
                 Death(hitter);
                 return true;

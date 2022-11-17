@@ -121,12 +121,14 @@ namespace RotMG.Game.Entities
                 if (Level == 20)
                 {
                     var text = GameServer.Text("", 0, -1, 0, "", $"{Name} achieved level 20");
-                    foreach (var player in Parent.Players.Values)
-                        player.Client.Send(text);
+                    if(Parent != null)
+                        foreach (var player in Parent.Players.Values)
+                            player.Client.Send(text);
                 }
 
                 RecalculateEquipBonuses();
-                GetNextQuest(true);
+                // Level up while joining instance is a thing that can happen wtf
+                if(Parent != null) GetNextQuest(true);
             }
 
             TrySetSV(StatType.Exp, EXP - GetLevelEXP(Level));

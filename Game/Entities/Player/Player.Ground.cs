@@ -88,7 +88,7 @@ namespace RotMG.Game.Entities
 #endif
 
                 // Dont worry about updating other players of this
-                AwaitingGoto.Enqueue(time);
+                AwaitingGoto.Enqueue(Manager.TotalTimeUnsynced);
                 var go = GameServer.Goto(Id, Position);
                 Client.Send(go);
 

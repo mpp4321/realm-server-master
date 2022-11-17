@@ -918,8 +918,8 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Blue Ring", 0.01f),
                     new ItemLoot("Spell of Kinetic Projection", 0.01f),
                     new ItemLoot("Fiery Equipment Crystal", 0.03f, 0.01f),
-                    new ItemLoot("Lesser Fiery Equipment Crystal", 1.0f)
-                    //new ItemLoot("Small Heavy Chainmail Cloth", 0.1f),
+                    new ItemLoot("Lesser Fiery Equipment Crystal", 1.0f),
+                    new ItemLoot("Burning Gem", 0.07f)
                     //new ItemLoot("Skull of Endless Torment", 0.004f),
                     //new ItemLoot("Staff of Eruption", 0.008f),
                     //new ItemLoot("Ring of the Inferno", 0.008f)//Trap of Everlasting Fire

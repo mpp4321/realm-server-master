@@ -4284,6 +4284,29 @@
 			<Index>0x26</Index>
 		</Texture>
 	</Ground>
-	
+	<Ground type="0x1a46" id="Green Cube Tile">
+		<Texture>
+			<File>lofiEnvironment2</File>
+			<Index>0x16a</Index>
+		</Texture>
+	</Ground>
+	<Ground type="0x1a47" id="Red Cube Tile">
+		<Texture>
+			<File>lofiEnvironment2</File>
+			<Index>0x16b</Index>
+		</Texture>
+	</Ground>
+	<Ground type="0x1a48" id="Yellow Cube Tile">
+		<Texture>
+			<File>lofiEnvironment2</File>
+			<Index>0x16c</Index>
+		</Texture>
+	</Ground>
+	<Ground type="0x1a49" id="Pink Cube Tile">
+		<Texture>
+			<File>lofiEnvironment2</File>
+			<Index>0x16d</Index>
+		</Texture>
+	</Ground>
 </GroundTypes>
 <!-- Next is : 0xb032 !-->

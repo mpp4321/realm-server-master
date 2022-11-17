@@ -27,17 +27,37 @@ namespace RotMG.Game.Logic.Behaviors
         private struct HPScaleState
         {
             public int TimeLeft { get; set; }
-            public HashSet<int> Players { get; set; }
+            public HashSet<Player> Players { get; set; }
         }
 
         public override void Enter(Entity host)
         {
-            host.StateObject[Id] = new HPScaleState()
+            if(host is Enemy en)
             {
-                /* Here we set to 200 to make sure that it doesn't die within 1 second */
-                TimeLeft = 200,
-                Players = new HashSet<int>()
-            };
+                var nearbyPlayerCount = en.GetNearbyPlayers(30f)
+                    .OfType<Player>()
+                    .ToHashSet();
+
+                UpdateEntityHealth(en, nearbyPlayerCount);
+                host.StateObject[Id] = new HPScaleState()
+                {
+                    /* Here we set to 200 to make sure that it doesn't die within 1 second */
+                    TimeLeft = 200,
+                    Players = nearbyPlayerCount
+                };
+            }
+        }
+
+        public void UpdateEntityHealth(Enemy en, HashSet<Player> set)
+        {
+            var setCount = set.Count();
+            var oldMaxHp = en.MaxHp;
+            en.MaxHp = (int)(en.Desc.MaxHp * (1.0f + (Factor * (setCount - 1)) ));
+            if(en.IsElite)
+            {
+                en.MaxHp = (int)(en.MaxHp * 1.75f);
+            }
+            en.Hp += (en.MaxHp - oldMaxHp);
         }
 
         public override bool Tick(Entity host)
@@ -46,26 +66,19 @@ namespace RotMG.Game.Logic.Behaviors
             HPScaleState state = (HPScaleState) objstate;
             if (!hasState)
                 return false;
+
             if(host is Enemy en && state.TimeLeft <= 0)
             {
-                var setOfPlayers = en.DamageStorage.Keys.Select(a => a.AccountId).ToHashSet();
-                var setCount = setOfPlayers.Count();
-                if(setCount > 1)
-                {
-                    state.Players = setOfPlayers;
-                    var oldMaxHp = en.MaxHp;
-                    en.MaxHp = (int)(en.Desc.MaxHp * (1.0f + (Factor * (setCount - 1)) ));
-                    if(en.IsElite)
-                    {
-                        en.MaxHp = (int)(en.MaxHp * 1.75f);
-                    }
-                    en.Hp += (en.MaxHp - oldMaxHp);
-                    state.TimeLeft = cooldown.Next(MathUtils.GetStaticRandom());
-                }
+                var setOfPlayers = en.GetNearbyPlayers(30f).OfType<Player>()
+                    .ToHashSet();
+                UpdateEntityHealth(en, setOfPlayers);
+                state.Players = setOfPlayers;
+                state.TimeLeft = cooldown.Next(MathUtils.GetStaticRandom());
             } else
             {
                 state.TimeLeft -= Settings.MillisecondsPerTick;
             }
+
             host.StateObject[Id] = state;
             return false;
         }

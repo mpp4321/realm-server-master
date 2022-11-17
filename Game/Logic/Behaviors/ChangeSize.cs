@@ -34,10 +34,7 @@ namespace RotMG.Game.Logic.Behaviors
                 if (size != target)
                 {
                     size += rate;
-                    if ((rate > 0 && size > target) ||
-                        (rate < 0 && size < target))
-                        size = target;
-
+                    size = Math.Min(Math.Max(size, 0), target);
                     host.Size = size;
                 }
                 cool = 150;

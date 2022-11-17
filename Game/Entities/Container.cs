@@ -35,11 +35,10 @@ namespace RotMG.Game.Entities
                 case 3: return BlueBag;
                 case 4: return SmallWhiteBag;
                 case 5: return WhiteBag;
-                case 6: return YellowBag;
+                case 6: return YellowBag; // TODO
+                case 7: return YellowBag;
+                case 8: return YellowBag;
             }
-#if DEBUG
-            throw new Exception("Not valid bag type");
-#endif
             if(bagType > 6)
             {
                 return YellowBag;

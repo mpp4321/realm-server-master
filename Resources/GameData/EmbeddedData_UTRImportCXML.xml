@@ -477,36 +477,6 @@
 		<Godly />
 		<DisplayId>Drannol's Judgement</DisplayId>
 	</Object>
-	<Object type="0x5865" id="Blazed Bow">
-		<Class>Equipment</Class>
-		<Item />
-		<Texture>
-			<File>UTRImport</File>
-			<Index>0x15</Index>
-		</Texture>
-		<SlotType>3</SlotType>
-		<Description>It is said that this bow was once wielded by Apollo...</Description>
-		<RateOfFire>1</RateOfFire>
-		<Sound>weapon/double_bow</Sound>
-		<Projectile>
-			<ObjectId>Blazed Shot</ObjectId>
-			<Speed>185</Speed>
-			<MinDamage>90</MinDamage>
-			<MaxDamage>180</MaxDamage>
-			<LifetimeMS>420</LifetimeMS>
-			<MultiHit />
-		</Projectile>
-		<BagType>14</BagType>
-		<ActivateOnEquip stat="0" amount="-100">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="2" amount="8">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="5" amount="4">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="3" amount="10">IncrementStat</ActivateOnEquip>
-		<Godly />
-		<FameBonus>19</FameBonus>
-		<NumProjectiles>4</NumProjectiles>
-		<OldSound>arrowShoot</OldSound>
-		<DisplayId>Blazed Bow</DisplayId>
-	</Object>
 	<Object type="0x5866" id="Ring of the Seven Seas">
 		<Class>Equipment</Class>
 		<Item />
@@ -4815,8 +4785,8 @@
 		<Projectile id="0">
 			<ObjectId>Poison Fireball</ObjectId>
 			<Speed>130</Speed>
-			<MinDamage>165</MinDamage>
-			<MaxDamage>185</MaxDamage>
+			<MinDamage>245</MinDamage>
+			<MaxDamage>335</MaxDamage>
 			<LifetimeMS>400</LifetimeMS>
 			<Amplitude>0.5</Amplitude>
 			<Frequency>1</Frequency>
@@ -6786,8 +6756,19 @@
 			<Wavy />
 			<MultiHit />
 		</Projectile>
-		<ActivateOnEquip stat="4" amount="-10">IncrementStat</ActivateOnEquip>
-		<BagType>6</BagType>
+		<Projectile>
+			<ObjectId>White Flame</ObjectId>
+			<Size>150</Size>
+			<Speed>60</Speed>
+			<MinDamage>250</MinDamage>
+			<MaxDamage>300</MaxDamage>
+			<LifetimeMS>1100</LifetimeMS>
+			<Wavy />
+			<MultiHit />
+		</Projectile>
+		<ActivateOnEquip stat="4" amount="-5">IncrementStat</ActivateOnEquip>
+		<BagType>5</BagType>
+		<FameBonus>5</FameBonus>
 		<NumProjectiles>1</NumProjectiles>
 		<OldSound>magicShoot</OldSound>
 	</Object>
@@ -7725,12 +7706,12 @@
 		<Projectile>
 			<ObjectId>White Bolt</ObjectId>
 			<Speed>150</Speed>
-			<MinDamage>290</MinDamage>
-			<MaxDamage>345</MaxDamage>
+			<MinDamage>360</MinDamage>
+			<MaxDamage>400</MaxDamage>
 			<LifetimeMS>350</LifetimeMS>
 		</Projectile>
-		<BagType>6</BagType>
-		<FameBonus>6</FameBonus>
+		<BagType>5</BagType>
+		<FameBonus>5</FameBonus>
 		<OldSound>bladeSwing</OldSound>
 	</Object>
 	<Object type="0x1669" id="Hylian Shield">
@@ -7760,8 +7741,8 @@
 		<ActivateOnEquip stat="7" amount="4">IncrementStat</ActivateOnEquip>
 		<ConditionEffect duration="3">Stunned</ConditionEffect>
 		<Usable />
-		<BagType>6</BagType>
-		<FameBonus>6</FameBonus>
+		<BagType>5</BagType>
+		<FameBonus>5</FameBonus>
 		<MpCost>100</MpCost>
 		<Activate>Shoot</Activate>
 		<NumProjectiles>5</NumProjectiles>
@@ -13816,7 +13797,7 @@
 		</Texture>
 		<SlotType>24</SlotType>
 		<Description>An astronomically heavy katana. It is forged from dark matter.</Description>
-		<RateOfFire>0.5</RateOfFire>
+		<RateOfFire>1</RateOfFire>
 		<Sound>weapon/long_sword</Sound>
 		<Projectile>
 			<ObjectId>IT Void Star</ObjectId>
@@ -18112,13 +18093,15 @@
 		</Texture>
 		<SlotType>9</SlotType>
 		<Description>A necklace that greatly improves your skills to hunt and kill monsters.</Description>
-		<Steal type="life" amount="7" />
 		<ActivateOnEquip stat="0" amount="20">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="3" amount="8">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="2" amount="15">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="4" amount="25" isPerc="true">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="4" amount="25">IncrementStat</ActivateOnEquip>
+		<UniqueEffect>PredatorNecklace</UniqueEffect>
+		<ExtraTooltipData>
+			<EffectInfo name="Predator" description="Sap life from nearby enemies every few seconds." />
+		</ExtraTooltipData>
 		<BagType>8</BagType>
-		<Legendary />
 	</Object>
 	<Object type="0x61bb" id="Ancient Stone Maul">
 		<Class>Equipment</Class>
@@ -21626,13 +21609,13 @@
 		<Projectile>
 			<ObjectId>Blazed Shot</ObjectId>
 			<Speed>185</Speed>
-			<MinDamage>70</MinDamage>
-			<MaxDamage>95</MaxDamage>
+			<MinDamage>85</MinDamage>
+			<MaxDamage>110</MaxDamage>
 			<LifetimeMS>420</LifetimeMS>
 			<ArmorPiercing/>
 		</Projectile>
-		<BagType>6</BagType>
 		<ActivateOnEquip stat="6" amount="10">IncrementStat</ActivateOnEquip>
+		<BagType>6</BagType>
 		<FameBonus>6</FameBonus>
 		<NumProjectiles>3</NumProjectiles>
 		<OldSound>arrowShoot</OldSound>
@@ -21651,9 +21634,7 @@
 		<ActivateOnEquip stat="1" amount="100">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="5" amount="7">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="2" amount="7">IncrementStat</ActivateOnEquip>
-		<Steal type="mana" amount="2" />
-		<BagType>14</BagType>
-		<Godly />
+		<BagType>6</BagType>
 		<FameBonus>6</FameBonus>
 		<DisplayId>Ring of the Seven Seas</DisplayId>
 	</Object>

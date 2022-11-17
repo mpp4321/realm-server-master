@@ -546,7 +546,7 @@ namespace RotMG.Game.Entities
                                         {
                                             var dmg = StatScaling(statForScale, eff.TotalDamage, eff.StatMin, eff.StatScale);
                                             e.ApplyPoison(this, new ConditionEffectDesc[0], (int)(dmg
-                                                / (StatScaling(statForScale, eff.DurationMS, eff.StatMin, eff.StatScale)
+                                                / (eff.DurationMS
                                                 / 1000f)), dmg);
                                         }
                                 }
@@ -658,11 +658,11 @@ namespace RotMG.Game.Entities
                         ApplyConditionEffect(ConditionEffectIndex.Invincible, 4000);
                         ApplyConditionEffect(ConditionEffectIndex.Invisible, 4000);
                         ApplyConditionEffect(ConditionEffectIndex.Stunned, 4000);
-                        Teleport(time, eff.Position, false);
+                        Teleport(Manager.TotalTimeUnsynced, eff.Position, false);
                     }
                     else if (inRange)
                     { //Less than 0 means its a manual teleport thingy like a scroll
-                        Teleport(time, target, true);
+                        Teleport(Manager.TotalTimeUnsynced, target, true);
                     }
                     break;
                 case ActivateEffectIndex.TeleportQuest:
@@ -916,7 +916,8 @@ namespace RotMG.Game.Entities
                                                 Resources.Id2Item["Potion of Mana"].Type,
                                                 Resources.Id2Item["Potion of Vitality"].Type,
                                                 Resources.Id2Item["Potion of Wisdom"].Type,
-                                                Resources.Id2Item["Potion of Defense"].Type
+                                                Resources.Id2Item["Potion of Defense"].Type,
+                                                Resources.Id2Item["Realm Equipment Crystal"].Type
                                             }
                                         };
                                     dt.StoredItems.RemoveAt(0);
@@ -962,7 +963,7 @@ namespace RotMG.Game.Entities
                         }
                         Manager.AddTimedAction(FISH_TIME, () =>
                         {
-                            if(worldBefore == Parent.Id) { 
+                            if(Parent != null) { 
                                 var itemId = GetFreeInventorySlot();
                                 if(itemId != -1)
                                 {
@@ -1124,7 +1125,6 @@ namespace RotMG.Game.Entities
                     if (j is Player k && k.Client.Account.Effects)
                         foreach (var p in pkts)
                         {
-                            Console.WriteLine(p.Length);
                             k.Client.Send(p);
                         }
             }

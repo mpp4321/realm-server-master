@@ -29,6 +29,7 @@ namespace RotMG.Game
         public static Dictionary<int, World> Worlds;
         public static Dictionary<int, World> Realms;
         public static List<Tuple<int, Action>> Timers;
+        public static List<Action> PostponedActions;
 
         public static BehaviorDb Behaviors;
         public static Stopwatch TickWatch;
@@ -50,6 +51,7 @@ namespace RotMG.Game
             Worlds = new Dictionary<int, World>();
             Realms = new Dictionary<int, World>();
             Timers = new List<Tuple<int, Action>>();
+            PostponedActions = new();
 
             Behaviors = new BehaviorDb();
 
@@ -92,14 +94,18 @@ namespace RotMG.Game
         {
             if (!world.IsTemplate)
             {
+
                 if (world.Portal?.Parent == null) {
                     var v = world.Portal?.LastWorldID ?? -1;
                     if(v != -1 && Worlds.ContainsKey(v))
-                        Worlds[v].RemoveEntity(world.Portal);
+                    {
+                        StartOfTickAction(() => Worlds[v].RemoveEntity(world.Portal));
+                    }
                 } else
-                    world.Portal?.Parent?.RemoveEntity(world.Portal);
+                    StartOfTickAction(() => world.Portal?.Parent?.RemoveEntity(world.Portal));
             }
-            world.Dispose();
+            StartOfTickAction(() => world.Dispose());
+
             Worlds.Remove(world.Id);
             if (world is Realm)
                 Realms.Remove(world.Id);
@@ -193,17 +199,6 @@ namespace RotMG.Game
             }
         }
 
-        // Forcfully removes entity from all instances currently loaded
-        // used for player disconnects so we can assure they will be removed
-        // even if their world is invalidated
-        public static void RemoveEntityImportant(Entity en)
-        {
-            foreach(var world in Worlds.Values)
-            {
-                world.RemoveEntity(en);
-            }
-        }
-
         public static void Tick()
         {
             TotalTimeUnsynced = (int)TickWatch.ElapsedMilliseconds;
@@ -227,10 +222,25 @@ namespace RotMG.Game
                 foreach (var world in Worlds.Values.ToArray())
                     world.Tick();
 
+                foreach (var timer in PostponedActions.ToArray())
+                {
+                    timer();
+                    PostponedActions.Remove(timer);
+                }
+
                 TickDelta = (int)(TickWatch.ElapsedMilliseconds - LastTickTime);
                 TotalTime += Settings.MillisecondsPerTick;
                 TotalTicks++;
             }
+        }
+
+        /// <summary>
+        ///  Runs an action on the beginning of a tick. Useful if you want to avoid nullifying a value in the middle of a process. 
+        /// </summary>
+        /// <param name="value">The action to postpone.</param>
+        public static void StartOfTickAction(Action value)
+        {
+            PostponedActions.Add(value);
         }
     }
 }

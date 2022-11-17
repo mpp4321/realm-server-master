@@ -132,7 +132,10 @@ namespace RotMG.Game.Logic
         public void Handle(Enemy enemy, Player killer)
         {
             var possibleDrops = GetPossibleDrops();
-            possibleDrops.AddRange(enemy.Parent.WorldLoot.GetPossibleDrops());
+
+            if(enemy.Parent != null) // TODO look into this
+                possibleDrops.AddRange(enemy.Parent.WorldLoot.GetPossibleDrops());
+
             var dropDictionary = possibleDrops.GroupBy(d => d.Item).ToDictionary(drop => drop.Key, drop => drop.First());
             var requiredDrops = possibleDrops.GroupBy(d => d.Item).ToDictionary(drop => drop.Key, drop => drop.Sum(a => a.Min));
 
@@ -270,6 +273,9 @@ namespace RotMG.Game.Logic
                 for (var k = 0; k < bagCount; k++)
                 {
                     var d = Resources.Type2Item[loot[k].Item];
+
+                    if (d.NoLootAnnouncement) continue;
+
                     if (d.BagType > bagType)
                     {
                         bagType = d.BagType;
@@ -283,7 +289,6 @@ namespace RotMG.Game.Logic
                         }
                     }
                 }
-                var isEquipCrystal = topItem?.Id.Contains("Equipment Crystal") ?? false;
 
                 if (player != null)
                 {
@@ -293,10 +298,16 @@ namespace RotMG.Game.Logic
                 }
 
                 var precentFormatted = String.Format("{0:0.##}", ((float)enemy.DamageStorage.GetValueOrDefault(player, 0) / enemy.MaxHp) * 100.0);
-                if(topItem != null && !isEquipCrystal)
+                if(topItem != null)
                 {
                     switch(topItem.BagType)
                     {
+                        case 8:
+                            player.Client.Send(GameServer.LootNotif(0));
+                            break;
+                        case 7:
+                            player.Client.Send(GameServer.LootNotif(0));
+                            break;
                         case 6:
                             player.Client.Send(GameServer.LootNotif(0));
                             break;
@@ -312,13 +323,14 @@ namespace RotMG.Game.Logic
                 {
                     switch (sItem.BagType)
                     {
+                        case 7:
+                            Manager.Announce("<LOOT> " + player.Name + " just got a mythic item " + sItem.DisplayId + " with " + precentFormatted + "%!");
+                            break;
                         case 6:
-                            if(!isEquipCrystal)
-                                Manager.Announce("<LOOT> " + player.Name + " just got a legendary item " + sItem.DisplayId + " with " + precentFormatted + "%!");
+                            Manager.Announce("<LOOT> " + player.Name + " just got a legendary item " + sItem.DisplayId + " with " + precentFormatted + "%!");
                             break;
                         case 5:
-                            if(!isEquipCrystal)
-                                Manager.Announce("<LOOT> " + player.Name + " just got a rare item " + sItem.DisplayId + " with " + precentFormatted  + "%!");
+                            Manager.Announce("<LOOT> " + player.Name + " just got a rare item " + sItem.DisplayId + " with " + precentFormatted  + "%!");
                             break;
                     }
                 }

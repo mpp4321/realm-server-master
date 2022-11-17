@@ -26,7 +26,7 @@ namespace RotMG.Game.Entities
             "commands", "g", "guild", "tell", "allyshots", "allydamage", "effects", "sounds", "vault", "realm",
             "notifications", "online", "who", "server", "pos", "loc", "where", "find", "fame", "famestats", "stats",
             "trade", "currentsong", "song", "mix", "quest", "lefttomax", "pinvite", "pcreate", "p", "paccept", "pleave",
-            "psummon", "takefame", "clearrunes", "market", "mymarket", "removemarket", "glands", "fixbonuses", "lockitem"
+            "psummon", "takefame", "clearrunes", "myrunes", "market", "mymarket", "removemarket", "glands", "fixbonuses", "lockitem"
         };
 
         //List of command, rank required
@@ -40,7 +40,7 @@ namespace RotMG.Game.Entities
             "announce", "announcement", "legendary", "roll", "disconnect", "dcAll", "dc", "songs", "changesong",
             "terminate", "stop", "gimme", "give", "gift", "closerealm", "rank", "create", "spawn", "killall",
             "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute", "setcomp", "quake",
-            "unlockskin", "summonhere", "makedonator", "lbadd", "lb", "l20", "visit", "wlb", "doneegg", "makepublicbag", "instances", "joininstance"
+            "unlockskin", "summonhere", "makedonator", "lbadd", "lb", "l20", "visit", "wlb", "doneegg", "makepublicbag", "instances", "joininstance", "setitem"
         };
 
 
@@ -347,14 +347,15 @@ namespace RotMG.Game.Entities
                         {
                             if (j.Length < 2)
                             {
-                                SendError("Usage: /setcomp <slot> <id>");
+                                SendError("Usage: /setcomp <slot> <id> <value>");
                                 return;
                             }
                             var slot = int.Parse(j[0]);
-                            var id = j[1];
+                            var id = ulong.Parse(j[1]);
+                            var value = int.Parse(j[2]);
                             if (Inventory[slot] != -1)
                             {
-                                ItemDatas[slot].ItemComponent = id;
+                                ItemDatas[slot].ExtraStatBonuses[id] = value;
                                 UpdateInventorySlot(slot);
                             }
                         }
@@ -843,6 +844,7 @@ namespace RotMG.Game.Entities
                                 else
                                 {
                                     Client.Account.OwnedSkins.Add(directid);
+                                    Client.Account.Save();
                                 }
                             }
                             else
@@ -1056,7 +1058,7 @@ namespace RotMG.Game.Entities
                                 var totalFame = Client.Account.Stats.Fame;
                                 if(toTake <= totalFame && Client.Player.GetFreeInventorySlot() != -1)
                                 {
-                                    SendInfo("Heres your fame little one.");
+                                    SendInfo("Heres your fame, little one.");
                                     Client.Account.Stats.TotalFame -= toTake;
                                     Client.Account.Stats.Fame -= toTake;
                                     Client.Player.SetPrivateSV(StatType.Fame, Client.Account.Stats.Fame);
@@ -1087,7 +1089,10 @@ namespace RotMG.Game.Entities
                         }
                         break;
                     case "/lb":
-                        SendInfo($"Your lootboost: {LootBoost}");
+                        {
+                            var lootBoostFromWorld = Client.Player.Parent?.WorldLB ?? 0.0f;
+                            SendInfo($"Your lootboost: {LootBoost + lootBoostFromWorld}");
+                        }
                         break;
                     case "/fixme":
                         // Reset expected projectile ids and send player client
@@ -1172,19 +1177,25 @@ namespace RotMG.Game.Entities
                             _c.UpdateInventory();
                         }
                         break;
+                    case "/myrunes":
+                        {
+                            var runesString = string.Join(", ", Client.Character.SelectedRunes);
+                            SendInfo($"Your runes {runesString}.");
+                        }
+                        break;
                     case "/clearrunes":
                         {
-                            if (j.Length == 0) break;
-                            if (int.TryParse(j[0], out var min)) 
+                            if (j.Length == 0)
                             {
-                                Client.Character.SelectedRunes = Client.Character.SelectedRunes.Where(
-                                        a => ItemHandlerRegistry.RuneFameCosts[a] >= min
-                                    ).ToArray();
-                                SendInfo("Cleared runes with cost less than " + min);
-                            } else
-                            {
-                                SendInfo("You must supply a minimum rune cost /clearrunes <min cost>");
+                                SendInfo("You must supply a name. /clearrunes <name>");
+                                break;
                             }
+                            var runes = string.Join(" ", j);
+                            Client.Character.SelectedRunes = Client.Character.SelectedRunes.Where(
+                                    a => !a.Contains(runes)
+                            ).ToArray();
+                            SendInfo($"Cleared runes containing ${runes}.");
+                            Client.Character.Save();
                         }
                         break;
                     case "/fixbonuses":
@@ -1234,6 +1245,28 @@ namespace RotMG.Game.Entities
                             {
                                 Manager.ReInitBehaviors();
                                 SendInfo("Done.");
+                            }
+                        }
+                        break;
+                    case "/setitem":
+                        {
+                            if(Client.Account.Ranked)
+                            {
+                                if (j.Length < 1)
+                                {
+                                    SendError("Usage: /setitem <slot> <id>");
+                                    return;
+                                }
+                                var slot1 = int.Parse(j[0]) + 3;
+                                var id = string.Join(" ", j.AsEnumerable().Skip(1));
+                                var item = Resources.ClosestItemToString(id.ToLower());
+                                try
+                                {
+                                    Inventory[slot1] = item.Type;
+                                    UpdateInventory();
+                                    SendInfo("Done");
+                                }
+                                catch { SendInfo("Invalid slot"); }
                             }
                         }
                         break;

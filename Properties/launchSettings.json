@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "RotMG": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false,
+      "remoteDebugMachine": "root@194.113.194.154:22",
+      "authenticationMode": "Windows"
+    }
+  }
+}

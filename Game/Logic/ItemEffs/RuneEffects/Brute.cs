@@ -7,7 +7,6 @@ namespace RotMG.Game.Logic.ItemEffs.RuneEffects
 {
     class Brute : IItemHandler
     {
-
         public virtual void OnHitByEnemy(Player hit, Entity hitBy, Projectile by) 
         {
             var pureDamageTaken = by.Damage;

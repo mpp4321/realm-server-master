@@ -143,7 +143,7 @@ namespace RotMG.Common
             // now 10 stats
             Stats = Stats.Concat(Enumerable.Range(Stats.Length, 10 - Stats.Length).Select(a => Resources.Type2Player[(ushort) ClassType].Stats[a].StartingValue)).ToArray();
             Inventory = Data.ParseIntArray("Equipment", ",").Select(a => a != 0 ? a : -1).ToArray();
-            ItemDatas = Data.ParseStringArray("ItemDatas", null, regex: new System.Text.RegularExpressions.Regex(@"(?<=}),(?={)"));
+            ItemDatas = Data.ParseStringArray("ItemDatas", null, regex: new System.Text.RegularExpressions.Regex(@"(?<=}),(?={)"), doRemoveWhiteSpaces: false);
             ItemDataJsons = ItemDatas?.Select(a => ItemDesc.ParseItemDataJson(a)).ToArray();
             Fame = Data.ParseInt("Fame");
             Tex1 = Data.ParseInt("Tex1");

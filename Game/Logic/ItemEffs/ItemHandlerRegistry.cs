@@ -55,6 +55,8 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("ObsidianPlatemail", new ObsidianPlatemail());
             Registry.Add("PaladinRecovery", new PaladinRecovery());
             Registry.Add("CosmicCloak", new CosmicCloak());
+            Registry.Add("PredatorNecklace", new PredatorNecklace());
+            Registry.Add("WhiteDragonInAnOrb", new WhiteDragonInAnOrb());
 
             //components
 
@@ -77,6 +79,8 @@ namespace RotMG.Game.Logic.ItemEffs
             RuneFameCosts.Add("Elven", 500);
             Registry.Add("Juggernaut", new Juggernaut());
             RuneFameCosts.Add("Juggernaut", 150);
+            Registry.Add("Ephemeral", new EphemeralRune());
+            RuneFameCosts.Add("Ephemeral", 500);
         }
 
     }

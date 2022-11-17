@@ -41,7 +41,10 @@ namespace RotMG.Game.Worlds
         public override void Tick()
         {
             if (Closed && Players.Count <= 0)
+            {
                 Manager.RemoveWorld(this);
+                return;
+            }
 
             if (AliveTime % 60000 == 0)
                 EnsurePopulation();

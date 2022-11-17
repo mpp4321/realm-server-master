@@ -317,6 +317,13 @@ namespace RotMG.Game.Logic.Database
                 new TimedTransition("Die", 4500)),
                 new State("Die", new Decay(0))
             );
+
+            db.Init("White Drake", new Follow(1f, 10f, 1f, 0), new HealEntity(4f, "Player", 50, cooldown: 500), 
+                new QueuedBehav(
+                    new CooldownBehav(5000, null),
+                    new Decay(0)
+                )
+            );
         }
     }
 }
