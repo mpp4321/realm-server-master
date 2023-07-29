@@ -1,8 +1,11 @@
-﻿using RotMG.Game.Logic.Behaviors;
+﻿using RotMG.Common;
+using RotMG.Game.Logic.Behaviors;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
+using RotMG.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace RotMG.Game.Logic.Database
@@ -232,6 +235,10 @@ namespace RotMG.Game.Logic.Database
             db.Init("Archdemon Malphas",
                 HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("Waiting",
+                    new ConditionalEffect(ConditionEffectIndex.Invulnerable, duration: Settings.MillisecondsPerTick, reapply: (e) =>
+                    {
+                        return e?.GetNearbyPlayers(14f).Count() == 0;
+                    }),
                     new PlayerWithinTransition(14, "base", seeInvis: true)
                 ),
                 new State("base",
@@ -239,7 +246,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(10, 1, 5, 3, fixedAngle: 0f, rotateAngle: -26f / 2, cooldown: 150),
                     new Shoot(10, 1, 5, 3, fixedAngle: 0f, rotateAngle: -12f / 2, cooldown: 150),
                     new Shoot(10, 1, 5, 3, fixedAngle: 0f, rotateAngle: 26f / 2, cooldown: 150),
-                    new Grenade(10, 100, 2, cooldown: 400),
+                    new Grenade(14f, 100, 2, cooldown: 400),
                     new Prioritize(
                             new Follow(1.5f, 5, 4),
                             new Wander(0.2f)
@@ -274,9 +281,7 @@ namespace RotMG.Game.Logic.Database
                         new Spawn("Malphas Protector", 2, cooldown: 1000),
                         new HealthTransition(0.25f, "rage"),
                         new TimedTransition("burst1", 7000)
-
                 ),
-
                 new State("rage",
                     new ChangeSize(50, 150),
                     new Shoot(10, 4, index: 1, shootAngle: 90f, fixedAngle: 0, rotateAngle: 195f, cooldown: 200),

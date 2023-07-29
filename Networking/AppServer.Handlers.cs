@@ -25,7 +25,7 @@ namespace RotMG.Networking
                 {
                     data.Add(new XAttribute("nextCharId", acc?.NextCharId ?? 0));
                     data.Add(new XAttribute("maxNumChars", acc?.MaxNumChars ?? 0));
-                    data.Add(acc?.Export() ?? new XElement("Account"));
+                    data.Add(acc?.ExportApp() ?? new XElement("Account"));
                     data.Add(new XElement("OwnedSkins", string.Join(",", acc?.OwnedSkins ?? new List<int>())));
                     if(acc != null)
                     {
@@ -34,7 +34,7 @@ namespace RotMG.Networking
                         {
                             var character = Database.LoadCharacter(acc, charId);
                             if (character == null || character.Data == null) continue;
-                            var export = character.Export();
+                            var export = character.ExportApp();
                             export.Add(new XAttribute("id", charId));
                             data.Add(export);
                         }
@@ -239,7 +239,7 @@ namespace RotMG.Networking
                     data = WriteError("Not in a guild");
                 else
                 {
-                    data = Write(Database.GetGuild(acc.GuildName).Export().ToString());
+                    data = Write(Database.GetGuild(acc.GuildName).ExportApp().ToString());
                 }
             }, () => _listenEvent.Set());
             _listenEvent.WaitOne();

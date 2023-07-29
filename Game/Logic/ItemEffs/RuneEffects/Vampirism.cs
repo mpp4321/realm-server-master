@@ -11,7 +11,8 @@ namespace RotMG.Game.Logic.ItemEffs.RuneEffects
         {
             if(by.Owner is Player pl)
             {
-                pl.Heal((int)MathF.Ceiling((damageDone * 0.005f)), false, false);
+                var scale = 0.001f + pl.GetStatTotal(6) * 0.0001f; 
+                pl.Heal( (int)MathF.Ceiling((damageDone * scale)) , false, false);
             }
         }
     }

@@ -190,6 +190,7 @@ namespace RotMG.Game.Entities
             Level = client.Character.Level;
             Size = client.Character.Size > 0 ? client.Character.Size : 100;
             Glow = client.Character.GlowColor;
+            LootBoost = Settings.LootBoost;
 
             if (client.Character.HealthPotions != 0) HealthPotions = client.Character.HealthPotions;
             if (client.Character.MagicPotions != 0) MagicPotions = client.Character.MagicPotions;
@@ -223,6 +224,18 @@ namespace RotMG.Game.Entities
             PartyReconnect();
 
             UpdateRunes();
+
+            InvOnLoad();
+        }
+
+        public void InvOnLoad()
+        {
+            for(var i = 0; i < 4; i++)
+            {
+                var eff = Resources.Type2Item.GetValueOrDefault((ushort)Inventory[i])?.UniqueEffect;
+                if(eff != null)
+                    ItemHandlerRegistry.Registry[eff].OnLoad(this);
+            }
         }
 
         public void SaveToCharacter()
@@ -319,8 +332,11 @@ namespace RotMG.Game.Entities
             if (Dead) 
                 return;
 
-            if (Parent.Name.Equals("Nexus") || Parent.Name.Equals("Dreamland"))
+            if (Parent.Name.Equals("Nexus") || Parent.Name.Equals("Dreamland")) 
+            {
+                Client.Disconnect();
                 return;
+            }
 
             Client.Active = false;
             Dead = true;
@@ -374,12 +390,12 @@ namespace RotMG.Game.Entities
         public bool Damage(string hitter, int damage, ConditionEffectDesc[] effects, bool pierces, bool showSelf = false)
         {
 #if DEBUG
-            if (HasConditionEffect(ConditionEffectIndex.Invincible))
+            /*if (HasConditionEffect(ConditionEffectIndex.Invincible))
                 throw new Exception("Entity should not be damaged if invincible");
             if (effects == null)
                 throw new Exception("Null effects");
             if (string.IsNullOrWhiteSpace(hitter))
-                throw new Exception("Undefined hitter");
+                throw new Exception("Undefined hitter");*/
 #else
             if (HasConditionEffect(ConditionEffectIndex.Invincible))
                 return true;
@@ -435,12 +451,23 @@ namespace RotMG.Game.Entities
             TickBoosts();
             TickProjectiles();
 
+            if(Client?.Account != null)
+                Client.Account.EntitySpawnCooldown -= Settings.MillisecondsPerTick;
+
             //Iterate equipment and tick unique effs, maybe once every couple ticks for performance?
             for(int i = 0; i < 4; i++)
             {
                 var eff = Resources.Type2Item.GetValueOrDefault((ushort) Inventory[i])?.UniqueEffect;
                 if(eff != null)
                     ItemHandlerRegistry.Registry[eff].OnTick(this);
+            }
+
+            foreach(var rune in this.Client?.Character?.SelectedRunes ?? new string[] { })
+            {
+                if (ItemHandlerRegistry.Registry.TryGetValue(rune, out var eff))
+                {
+                    eff.OnTick(this);
+                }
             }
 
             base.Tick();

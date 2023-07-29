@@ -27,7 +27,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
             {
                 var damagelower = p.GetStatTotal(7) * 15;
                 var d = p.GetNextDamage(damagelower, (int)(damagelower * 1.3), new Common.ItemDataJson { });
-                var pr = new Projectile(p, desc.Projectile[0], startId + i, p.GetLastClientTime(), angle + MathF.PI * i, p.Position, d);
+                var pr = new Projectile(p, desc.Projectile[0], startId + i, p.GetLastClientTime(), angle + MathF.PI * i, p.Position, 0f, 0f, d);
                 projs.Add(pr);
             }
 

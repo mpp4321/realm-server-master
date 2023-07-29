@@ -1,4 +1,5 @@
 ﻿using RotMG.Game.Entities;
+using System;
 
 namespace RotMG.Game.Logic.ItemEffs.RuneEffects
 {
@@ -10,7 +11,8 @@ namespace RotMG.Game.Logic.ItemEffs.RuneEffects
             {
                 if (pl.HasConditionEffect(Common.ConditionEffectIndex.Quiet))
                     return;
-                pl.Heal((int)(damageDone * 0.01), true, false);
+                var scale = pl.GetStatTotal(7) * 0.0001f + 0.001f;
+                pl.Heal((int)MathF.Ceiling(damageDone * scale), true, false);
             }
         }
     }

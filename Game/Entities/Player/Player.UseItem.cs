@@ -69,6 +69,7 @@ namespace RotMG.Game.Entities
             }
             
             Client.Send(GameServer.Reconnect(world.Id));
+            Client.IsReconnecting = true;
             Manager.AddTimedAction(2000, Client.Disconnect);
         }
 
@@ -346,7 +347,7 @@ namespace RotMG.Game.Entities
                             var a = t == null ? MathUtils.NextAngle() : Position.Angle(t.Position);
                             var p = new List<Projectile>()
                                 {
-                                     new Projectile(this, desc.NextProjectile(startId + i), startId + i, time, a, Position, d)
+                                     new Projectile(this, desc.NextProjectile(startId + i), startId + i, time, a, Position, 0f, 0f, d)
                                 };
 
                             stars.Add(GameServer.ServerPlayerShoot(startId + i, Id, desc.Type, Position, a, 0, p));
@@ -708,7 +709,7 @@ namespace RotMG.Game.Entities
                         for (var i = 0; i < novaCount; i++)
                         {
                             var d = GetNextDamage(desc.NextProjectile(startId + i).MinDamage, desc.NextProjectile(startId + i).MaxDamage, ItemDatas[slot.SlotId]);
-                            var p = new Projectile(this, desc.NextProjectile(startId - i), startId + i, time, angleInc * i, center, d);
+                            var p = new Projectile(this, desc.NextProjectile(startId - i), startId + i, time, angleInc * i, center, 0f, 0f, d);
                             projs.Add(p);
                         }
 
@@ -779,8 +780,8 @@ namespace RotMG.Game.Entities
                                     if (Parent != null)
                                     {
                                         var entity = Resolve(obj.Type);
-                                        entity.PlayerOwner = this;
                                         placeholder.Parent.AddEntity(entity, placeholder.Position);
+                                        entity.PlayerOwner = this;
                                     }
                                     placeholder.Parent.RemoveEntity(placeholder);
                                 }
@@ -839,6 +840,7 @@ namespace RotMG.Game.Entities
                 case ActivateEffectIndex.RuneConsume:
                     if (Client.Character != null)
                     {
+                        const int MAX_FAME_REQ = 500;
                         SaveToCharacter();
                         string runeId = eff.Id;
                         int fameSumTotal = Client.Character.SelectedRunes.Count() == 0 ? 0
@@ -846,16 +848,17 @@ namespace RotMG.Game.Entities
                             {
                                 return a + b;
                             });
-                        int requiredFameTotal = ItemHandlerRegistry.RuneFameCosts[runeId] + fameSumTotal - 500;
+
+
                         if (Client.Character.SelectedRunes.Any(a => a.Equals(runeId)))
                         {
                             SendInfo("You have that rune already!");
                             return true;
                         }
 
-                        if(Client.Character.Fame < requiredFameTotal)
+                        if(fameSumTotal + ItemHandlerRegistry.RuneFameCosts[runeId] > MAX_FAME_REQ)
                         {
-                            SendInfo("You do not have the required base fame to use this.");
+                            SendInfo("You have reached the maximum amount of points you can spend on runes (500)!");
                             return true;
                         }
 
@@ -979,7 +982,7 @@ namespace RotMG.Game.Entities
                     break;
                 case ActivateEffectIndex.EggBreak:
                     {
-                        int overCharge = (ItemDatas[slot.SlotId].Meta - 500000) / 100000;
+                        int overCharge = (con.ItemDatas[slot.SlotId].Meta - 500000) / 100000;
                         overCharge = Math.Max(overCharge, 0);
                         overCharge = Math.Min(overCharge, 6);
 
@@ -987,8 +990,8 @@ namespace RotMG.Game.Entities
                         {
                             var randomGreen = Player.greenUtItems[MathUtils.NextInt(0, Player.greenUtItems.Count() - 1)];
                             var itemDesc = Resources.Id2Item[randomGreen];
-                            Inventory[slot.SlotId] = itemDesc.Type;
-                            ItemDatas[slot.SlotId] = itemDesc.Roll(
+                            con.Inventory[slot.SlotId] = itemDesc.Type;
+                            con.ItemDatas[slot.SlotId] = itemDesc.Roll(
                               r: new RarityModifiedData(1.0f, shift: overCharge, true)
                             ).Item2;
                         }
@@ -996,8 +999,8 @@ namespace RotMG.Game.Entities
                         {
                             var randomBlue = Player.blueRtItems[MathUtils.NextInt(0, Player.blueRtItems.Count() - 1)];
                             var itemDesc = Resources.Id2Item[randomBlue];
-                            Inventory[slot.SlotId] = itemDesc.Type;
-                            ItemDatas[slot.SlotId] = itemDesc.Roll(
+                            con.Inventory[slot.SlotId] = itemDesc.Type;
+                            con.ItemDatas[slot.SlotId] = itemDesc.Roll(
                               r: new RarityModifiedData(1.0f, shift: overCharge, true)
                             ).Item2;
                         }
@@ -1005,8 +1008,8 @@ namespace RotMG.Game.Entities
                         {
                             var randomBlue = Player.blueRtItems[MathUtils.NextInt(0, Player.blueRtItems.Count() - 1)];
                             var itemDesc = Resources.Id2Item[randomBlue];
-                            Inventory[slot.SlotId] = itemDesc.Type;
-                            ItemDatas[slot.SlotId] = itemDesc.Roll(
+                            con.Inventory[slot.SlotId] = itemDesc.Type;
+                            con.ItemDatas[slot.SlotId] = itemDesc.Roll(
                               r: new RarityModifiedData(1.0f, shift: overCharge, true)
                             ).Item2;
                         }
@@ -1014,7 +1017,7 @@ namespace RotMG.Game.Entities
                         {
                             SendInfo("This egg is not ready to hatch yet!");
                         }
-                        UpdateInventorySlot(slot.SlotId);
+                        con.UpdateInventorySlot(slot.SlotId);
                     }
                     break;
                 case ActivateEffectIndex.RemoveNegativeConditions:
@@ -1032,6 +1035,44 @@ namespace RotMG.Game.Entities
                     break;
                 case ActivateEffectIndex.RemoveNegativeConditionsSelf:
                     RemoveNegativeEffects();
+                    break;
+                case ActivateEffectIndex.TransformBag:
+                    {
+                        ItemDataJson dt = ItemDatas[slot.SlotId];
+                        if (dt != null && dt.StoredItems != null)
+                        {
+                            if (dt.StoredItems.Count > 3)
+                            {
+                                var allLegendaries = dt.StoredItems.Take(4).Select(v => Resources.Type2Item[(ushort)v]).All(v => v.BagType == 6);
+                                if(allLegendaries)
+                                {
+                                    ItemDatas[slot.SlotId] = new ItemDataJson();
+                                    Inventory[slot.SlotId] = Resources.Id2Item[legendaryTransformation[MathUtils.NextInt(0, legendaryTransformation.Count() - 1)]].Type;
+                                    SendInfo("Congrats you got a new legendary!");
+                                    UpdateInventorySlot(slot.SlotId);
+                                    return true;
+                                } else
+                                {
+                                    SendInfo("You must have 4 legendary tier items in this bag to continue.");
+                                    return true;
+                                }
+                            } else
+                            {
+                                SendInfo("You must have 4 legendary tier items in this bag to continue.");
+                                return true;
+                            }
+                        }
+                        else
+                        {
+
+                            con.ItemDatas[slot.SlotId] = new ItemDataJson();
+                            con.ItemDatas[slot.SlotId].StoredItems = new ();
+                            con.ItemDatas[slot.SlotId].AllowedTier = 6;
+                            con.UpdateInventorySlot(slot.SlotId);
+                            SendInfo("Bag broken, should be repaired.");
+                            return true;
+                        }
+                    }
                     break;
                 case ActivateEffectIndex.FameConsume:
                     {

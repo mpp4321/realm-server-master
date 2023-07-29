@@ -180,8 +180,8 @@ namespace RotMG.Game.Logic.Database
                     new Reproduce("Red Flaming Skull", 20, 5, cooldown: 1000)
                     ),
                 new Threshold(0.03f,
-                    new ItemLoot("Orb of Conflict", 0.005f),
-                    new ItemLoot("Thousand Suns Spell", 0.005f)
+                    new ItemLoot("Orb of Conflict", 0.01f),
+                    new ItemLoot("Thousand Suns Spell", 0.01f)
                 ),
                 new Threshold(0.005f,
                     new TierLoot(5, LootType.Ability, 0.2f, r: new RarityModifiedData(1.5f, 2)),
@@ -295,33 +295,42 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Cube God",
                 HPScale.BOSS_HP_SCALE_DEFAULT(),
-                new State("base",
+                 new State("base",
                     new Wander(.3f),
                     new Shoot(30, 9, 10, 0, predictive: .5f, cooldown: 750),
                     new Shoot(30, 4, 10, 1, predictive: .5f, cooldown: 1500),
                     new Reproduce("Cube Overseer", 30, 10, cooldown: 1500)
-                    ),
+                  ),
                   new Threshold(.005f,
                      LootTemplates.BasicPots()
-                     ),
+                  ),
                   new Threshold(0.01f,
                     new TierLoot(4, LootType.Ability, 0.2f),
                     new TierLoot(3, LootType.Ring, 0.2f),
                     new TierLoot(10, LootType.Armor, 0.2f),
                     new TierLoot(10, LootType.Weapon, 0.2f),
-                    new ItemLoot("Realm Equipment Crystal", 0.03f),
-                    new ItemLoot("Dirk of Cronus", 0.01f)
+                    new ItemLoot("Dirk of Cronus", 0.01f),
+                    new ItemLoot("Prism of Dancing Swords", 0.01f),
+                    new ItemLoot("Cosmic Cloak", 0.005f)
                   ),
                   new Threshold(0.001f, LootTemplates.CrystalsRealmBoss())
                 );
 
             db.Init("Lord of the Lost Lands",
-                HPScale.BOSS_HP_SCALE_DEFAULT(),
-                new State("base",
-                    new PlayerWithinTransition(6, "start", true)
-                ),
+                    HPScale.BOSS_HP_SCALE_DEFAULT(),
+                    new State("base",
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable, duration: Settings.MillisecondsPerTick, reapply: (e) =>
+                        {
+                            return e?.GetNearbyPlayers(8f).Count() == 0;
+                        }),
+                        new PlayerWithinTransition(6, "start", true)
+                    ),
                     new State("Start",
                         new SetAltTexture(0),
+                        new ConditionalEffect(ConditionEffectIndex.Invulnerable, duration: Settings.MillisecondsPerTick, reapply: (e) =>
+                        {
+                            return e?.GetNearbyPlayers(12f).Count() == 0;
+                        }),
                         new Prioritize(
                             new Wander(0.3f)
                             ),
@@ -896,11 +905,12 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Super Snail", 
                 new Charge(1f, 99, coolDown: 300, distance: 0.01f),
+                new Shoot(10, 1, index: 1, cooldown: 100, offsetX: 1f, offsetY: 1f),
+                new Shoot(10, 1, cooldown: 1000),
                 new Shoot(10, 1, cooldown: 1000),
                 new Shoot(10, 1, angleOffset: 180.0f, cooldown: 1000),
                 new Shoot(10, 1, angleOffset: 90.0f, cooldown: 1000),
                 new Shoot(10, 1, angleOffset: 270.0f, cooldown: 1000),
-
                 new Shoot(10, 4, 90f, 1, rotateAngle: 45f, cooldown: 500)
             );
 
@@ -995,6 +1005,20 @@ namespace RotMG.Game.Logic.Database
                 }
                 return true;
             }, 100), /*new ChangeSize(2, 0),*/ new Decay(5000));
+
+            db.Init("Demonic Crab",
+                new ConditionalEffectPlayerRange(ConditionEffectIndex.Invincible, 10),
+                new Shoot(10, count: 8, shootAngle: 45, 0, 0f, 45f / 2, cooldown: 3000),
+                new Shoot(10, 5, 30, index: 1, cooldown: 1000),
+                new Threshold(0.01f, LootTemplates.CrystalsRealmBoss()),
+                new Threshold(0.1f,
+                    new ItemLoot("Predator Necklace", 0.001f),
+                    new ItemLoot("Demonic Giant Claw Blade", 0.01f),
+                    new ItemLoot("Potion of Defense", 0.5f),
+                    new ItemLoot("Potion of Defense", 0.5f),
+                    new ItemLoot("Potion of Grand Defense", 0.1f)
+                )
+            );
 
         }
     }

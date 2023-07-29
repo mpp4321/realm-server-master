@@ -79,6 +79,8 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Crystal Prisoner",
                 HPScale.BOSS_HP_SCALE_DEFAULT(),
+                new DropPortalOnDeath("Ducky Docks Portal", dist: 0.5f),
+                new DropPortalOnDeath("Shoe World Portal", dist: 0.5f, probability: 0.1f),
                 new State("base",
                     new Spawn("Crystal Prisoner Steed", maxChildren: 3, initialSpawn: 0, cooldown: 200, givesNoXp: false),
                     new State("pause",

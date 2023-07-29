@@ -9,7 +9,8 @@ namespace RotMG.Game.Logic.ItemEffs
     public interface IItemHandler
     {
 
-        public virtual void OnItemEquip(Player p, int slot) { }
+        public virtual void OnItemEquip(Player p, int slot, IContainer container) { }
+        public virtual void OnItemRemove(Player p, int slot, IContainer container) { }
 
         public virtual void OnEnemyHit(Entity hit, Projectile by, ref int damageDone) { }
 
@@ -26,6 +27,8 @@ namespace RotMG.Game.Logic.ItemEffs
         }
 
         public virtual void ModifyDroppedItemData(Player p, ref ItemDataJson json) { }
+
+        public virtual void OnLoad(Player p) { }
 
     }
 }

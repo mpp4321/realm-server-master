@@ -271,6 +271,11 @@
 		<XpMult>0.7</XpMult>
 		<NoArticle />
 		<Projectile id="0">
+			<Shape x="3" y="3">
+			010
+			101
+			010
+			</Shape>
 			<ObjectId>Red Fire</ObjectId>
 			<Speed>110</Speed>
 			<Damage>145</Damage>
@@ -291,6 +296,14 @@
 			<Speed>50</Speed>
 			<Damage>165</Damage>
 			<Size>140</Size>
+			<LifetimeMS>2300</LifetimeMS>
+			<MultiHit />
+		</Projectile>
+		<Projectile id="3">
+			<ObjectId>Planet Shot</ObjectId>
+			<Speed>70</Speed>
+			<Damage>140</Damage>
+			<Size>200</Size>
 			<LifetimeMS>2300</LifetimeMS>
 			<MultiHit />
 		</Projectile>

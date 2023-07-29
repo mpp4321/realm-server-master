@@ -113,6 +113,7 @@ namespace RotMG.Game.Entities
 #endif
             if (effects == null)
                 effects = new ConditionEffectDesc[] { };
+
             if (HasConditionEffect(ConditionEffectIndex.Invincible) || HasConditionEffect(ConditionEffectIndex.Stasis)
                 || HasConditionEffect(ConditionEffectIndex.Invulnerable))
                 return false;
@@ -159,9 +160,9 @@ namespace RotMG.Game.Entities
 
         public override bool HitByProjectile(Projectile projectile)
         {
-#if DEBUG
-            if (projectile.Owner == null || !(projectile.Owner is Player))
-                throw new Exception("Projectile owner is not player");
+#if DEBUG 
+            if (projectile.Owner == null || (!(projectile.Owner is Player) || projectile.Owner.PlayerOwner is Player))
+            throw new Exception("Projectile owner is not player");
 #endif
 
             // This goes here to avoid checking condition effects too much

@@ -1,4 +1,5 @@
 ﻿using RotMG.Common;
+using RotMG.Game.Logic.ItemEffs;
 using RotMG.Game.Logic.Mechanics;
 using RotMG.Networking;
 using RotMG.Utils;
@@ -165,6 +166,8 @@ namespace RotMG.Game.Entities
             container.ItemDatas[0] = data;
 
             container.UpdateInventorySlot(0);
+
+            HandleOnRemove(0, container);
 
             RecalculateEquipBonuses();
             Parent.AddEntity(container, Position + MathUtils.Position(.2f, .2f));
@@ -354,19 +357,44 @@ namespace RotMG.Game.Entities
             con2.UpdateInventorySlot(slot2.SlotId);
 
             if (slot2.SlotId < 4 && con2 is Player)
-                HandleOnEquips(slot2.SlotId);
+                HandleOnEquips(slot2.SlotId, con2);
             if (slot1.SlotId < 4 && con1 is Player)
-                HandleOnEquips(slot1.SlotId);
+                HandleOnEquips(slot1.SlotId, con1);
+
+            if(slot1.SlotId > 3 && slot2.SlotId < 4)
+            {
+                HandleOnRemove(slot1.SlotId, con1);
+            }
+
+            if(slot2.SlotId > 3 && slot1.SlotId < 4)
+            {
+                HandleOnRemove(slot2.SlotId, con2);
+            }
 
             RecalculateEquipBonuses();
             Client.Send(ValidInvSwap);
         }
 
-        public void HandleOnEquips(int slot)
+        public void HandleOnEquips(int slot, IContainer container)
         {
-            foreach(var a in BuildAllItemHandlers())
+            if(Resources.Type2Item.TryGetValue((ushort) container.Inventory[slot], out var value))
             {
-                a.OnItemEquip(this, slot);
+                if (value.UniqueEffect == null) return;
+                if(ItemHandlerRegistry.Registry.TryGetValue(value.UniqueEffect, out var ueff))
+                {
+                    ueff.OnItemEquip(this, slot, container);
+                }
+            }
+        }
+        public void HandleOnRemove(int slot, IContainer container)
+        {
+            if(Resources.Type2Item.TryGetValue((ushort) container.Inventory[slot], out var value))
+            {
+                if (value.UniqueEffect == null) return;
+                if(ItemHandlerRegistry.Registry.TryGetValue(value.UniqueEffect, out var ueff))
+                {
+                    ueff.OnItemRemove(this, slot, container);
+                }
             }
         }
 
@@ -392,7 +420,20 @@ namespace RotMG.Game.Entities
 
             if(data2.AllowedItems != null)
             {
-                if(!data2.AllowedItems.Contains(item1))
+                if(!data2.AllowedItems.Contains(item1) && data2.AllowedTier == -1)
+                {
+                    Client.Send(InvalidInvSwap);
+                    return true;
+                }
+            } else if(data2.AllowedTier != -1)
+            {
+                if(data2.AllowedTier != d1.BagType)
+                {
+                    Client.Send(InvalidInvSwap);
+                    return true;
+                }
+
+                if(d1.SlotType == ItemType.Potion)
                 {
                     Client.Send(InvalidInvSwap);
                     return true;

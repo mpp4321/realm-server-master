@@ -28,6 +28,7 @@ namespace RotMG.Networking
         public Player Player;
         public wRandom Random;
         public bool Active; //Used in escape to stop incoming packets (so you don't die)
+        public bool IsReconnecting = false;
         public int DCTime;
 
         private Socket _socket;
@@ -109,6 +110,14 @@ namespace RotMG.Networking
 
             //Clear data 
             Active = false;
+            IsReconnecting = false;
+
+            Program.PushWork(() =>
+            {
+                if(this != null && IP != null)
+                    Manager.ClientsByIp[IP]?.Remove(this);
+            });
+            
             _send.Reset();
             _receive.Reset();
             _pending.Clear();
@@ -147,7 +156,7 @@ namespace RotMG.Networking
             Active = true;
             DCTime = -1;
 
-            Manager.AddClient(this);
+            Manager.AddClient(this, ip);
         }
 
         public void Tick()

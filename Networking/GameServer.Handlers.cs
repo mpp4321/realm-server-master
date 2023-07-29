@@ -953,7 +953,7 @@ namespace RotMG.Networking
             }
         }
 
-        public static byte[] EnemyShoot(int bulletId, int ownerId, byte bulletType, Vector2 startPos, float angle, short damage, byte numShots, float angleInc)
+        public static byte[] EnemyShoot(int bulletId, int ownerId, byte bulletType, Vector2 startPos, float angle, short damage, byte numShots, float angleInc, float offsetX = 0f, float offsetY = 0f)
         {
             using (var wtr = new PacketWriter(new MemoryStream()))
             {
@@ -964,6 +964,8 @@ namespace RotMG.Networking
                 startPos.Write(wtr);
                 wtr.Write(angle);
                 wtr.Write(damage);
+                wtr.Write(offsetX);
+                wtr.Write(offsetY);
                 if (numShots > 1)
                 {
                     wtr.Write(numShots);

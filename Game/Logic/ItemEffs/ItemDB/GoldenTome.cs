@@ -15,9 +15,9 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
 
         public void OnTick(Player p)
         {
-            foreach(Player pl in p.GetNearbyPlayers(1.5f))
+            foreach(Entity pl in p.GetNearbyPlayers(1.5f))
             {
-                if(pl.Id != p.Id)
+                if(pl.Id != p.Id && pl is Player)
                     pl?.ApplyConditionEffect(ConditionEffectIndex.Healing, 1000);
             }
         }

@@ -181,7 +181,8 @@ namespace RotMG.Game.Logic.Database
                         new Follow(1, range: 7),
                         new Wander(0.4f)
                         ),
-                    new Shoot(10, count: 3, shootAngle: 20, predictive: 1, cooldown: 500)
+                    new Shoot(10, count: 3, shootAngle: 20, predictive: 1, cooldown: 400),
+                    new Shoot(10, count: 2, shootAngle: 60, index: 1, predictive: 1, cooldown: 1000)
                     ),
                 new Threshold(0.01f,
                     new ItemLoot("Potion of Vitality", 0.25f),
@@ -248,7 +249,7 @@ namespace RotMG.Game.Logic.Database
                     new Shoot(12, index: 0, count: 4, shootAngle: 10, cooldown: 200, callback: (e) => {
                         e.ApplyConditionEffect((ConditionEffectIndex)MathUtils.Next(26), Settings.MillisecondsPerTick * 5);
                     }),
-                    new Shoot(10, index: 1, predictive: 1, cooldown: 1000),
+                    new Shoot(10, count: 2, shootAngle: 30, index: 1, predictive: 1, cooldown: 500),
                     new Reproduce("Sprite Child", 5, 5, 5000)
                     ),
                 new OnDeath(randomSpawnEventGod),
@@ -286,7 +287,8 @@ namespace RotMG.Game.Logic.Database
                         new Wander(0.4f)
                         ),
                     new Shoot(12, index: 0, count: 5, shootAngle: 72, predictive: 0.5f, cooldown: 750),
-                    new Shoot(10, index: 1, cooldown: 300)
+                    new Shoot(10, index: 1, cooldown: 600, cooldownVariance: 100),
+                    new Shoot(10, index: 2, cooldown: 600)
                     ),
                 new OnDeath(randomSpawnEventGod),
                 new Threshold(0.01f,
@@ -327,7 +329,7 @@ namespace RotMG.Game.Logic.Database
                         ),
                 new OnDeath(randomSpawnEventGod),
                     new Shoot(12, index: 0, count: 5, shootAngle: 10, predictive: 1, cooldown: 1000),
-                    new Shoot(10, index: 1, predictive: 1, cooldown: 650)
+                    new Shoot(10, index: 1, predictive: 1, cooldown: 500)
                     ),
                 new Threshold(0.01f,
                     LootTemplates.MountainDrops()
@@ -493,7 +495,7 @@ namespace RotMG.Game.Logic.Database
                     new TransitionFrom("base", "Wander"),
                     new State("Wander",
                         new Swirl(),
-                        new Shoot(10, 2, 10, 1, cooldown: 500),
+                        new Shoot(10, 2, 10, 1, cooldown: 200),
                         new TimedTransition("Triangle", 5000)
                     ),
                     new State("Triangle",
@@ -551,6 +553,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Vitality", 1.0f),
                     new ItemLoot("Potion of Defense", 1.0f),
                     new ItemLoot("Sanguine Femur", 0.015f),
+                    new ItemLoot("Orb of Eternal Flame", 0.015f),
                     new ItemLoot("Fire Dragon Battle Armor", 0.001f)
                 ),
             new Threshold(.01f,

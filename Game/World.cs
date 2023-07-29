@@ -632,7 +632,10 @@ namespace RotMG.Game
                     castle.IncomingPlayers = Players.Count;
                 
                 foreach (var player in Players.Values)
+                {
+                    player.Client.IsReconnecting = true;
                     player.Client.Send(GameServer.Reconnect(newWorld.Id));
+                }
             });
         }
 

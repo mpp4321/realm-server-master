@@ -26,6 +26,7 @@ namespace RotMG.Game
         // AppServer / Client needs access? might be causing account login issues...
         public static ConcurrentDictionary<int, int> AccountIdToClientId;
         public static ConcurrentDictionary<int, Client> Clients;
+        public static ConcurrentDictionary<string, List<Client>> ClientsByIp;
         public static Dictionary<int, World> Worlds;
         public static Dictionary<int, World> Realms;
         public static List<Tuple<int, Action>> Timers;
@@ -48,6 +49,7 @@ namespace RotMG.Game
             TickWatch = Stopwatch.StartNew();
             AccountIdToClientId = new ConcurrentDictionary<int, int>();
             Clients = new ConcurrentDictionary<int, Client>();
+            ClientsByIp = new ConcurrentDictionary<string, List<Client>>();
             Worlds = new Dictionary<int, World>();
             Realms = new Dictionary<int, World>();
             Timers = new List<Tuple<int, Action>>();
@@ -139,7 +141,7 @@ namespace RotMG.Game
             return null;
         }
 
-        public static void AddClient(Client client)
+        public static void AddClient(Client client, string ip)
         {
 #if DEBUG
             if (client == null)
@@ -147,6 +149,11 @@ namespace RotMG.Game
 #endif
             client.Id = ++NextClientId;
             Clients[client.Id] = client;
+            if (!ClientsByIp.ContainsKey(ip))
+            {
+                ClientsByIp[ip] = new List<Client>();
+            } 
+            ClientsByIp[ip].Add(client);
         }
 
         public static void RemoveClient(Client client)
@@ -212,6 +219,13 @@ namespace RotMG.Game
             {
                 LastTickTime = (int)TickWatch.ElapsedMilliseconds;
 
+                var handlingActions = PostponedActions.ToArray();
+                PostponedActions.Clear();
+                foreach (var action in handlingActions)
+                {
+                    action();
+                }
+
                 foreach (var timer in Timers.ToArray())
                     if (timer.Item1 == TotalTicks)
                     {
@@ -221,12 +235,6 @@ namespace RotMG.Game
 
                 foreach (var world in Worlds.Values.ToArray())
                     world.Tick();
-
-                foreach (var timer in PostponedActions.ToArray())
-                {
-                    timer();
-                    PostponedActions.Remove(timer);
-                }
 
                 TickDelta = (int)(TickWatch.ElapsedMilliseconds - LastTickTime);
                 TotalTime += Settings.MillisecondsPerTick;

@@ -11,22 +11,25 @@ namespace RotMG.Game.Logic.ItemEffs.RuneEffects
 {
     class EphemeralRune : IItemHandler
     {
+        int t = 0;
         public virtual void OnEnemyHit(Entity hit, Projectile by, ref int damageDone) 
         {
-            if(MathUtils.Chance(damageDone/100) && by.Owner is Player pl) {
+            if (t++ % 8 != 0) return;
+            if(by.DidCrit && by.Owner is Player pl)
+            {
                 pl.EffectBoosts.Add(new Player.BoostTimer()
                 {
-                    timer = 2f,
-                    amount = -10,
-                    index = 2,
+                    timer = 5f,
+                    amount = 3,
+                    index = 7,
                     id = -1
                 });
 
                 pl.EffectBoosts.Add(new Player.BoostTimer()
                 {
-                    timer = 2f,
-                    amount = 15,
-                    index = 5,
+                    timer = 5f,
+                    amount = 3,
+                    index = 4,
                     id = -1
                 });
 

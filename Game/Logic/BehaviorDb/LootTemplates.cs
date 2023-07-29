@@ -16,6 +16,13 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(7, TierLoot.LootType.Armor, 0.1f)
             };
         }
+        public static MobDrop[] Eggs(float chance=0.1f)
+        {
+            return new MobDrop[] { 
+                new ItemLoot("(Green) UT Egg", chance),
+                new ItemLoot("(Blue) RT Egg", chance / 2f)
+            };
+        }
 
         public static MobDrop[] BasicPots(float chance=0.5f)
         {

@@ -46,6 +46,10 @@ namespace RotMG.Game.Logic.Database
                     1f, range: 2
                 ));
 
+            db.Init("Realm Reaper Pet", new PetFollow(
+                    1f, range: 2
+                ));
+
             db.Init("Parthanax Pet", 
                 new State("0",
                     new TransitionOnItemNearby(10f, "Metal Kendo Stick", "say once"),

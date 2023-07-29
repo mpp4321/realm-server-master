@@ -501,7 +501,7 @@
 		<HitSound>monster/ogres_hit</HitSound>
 		<DeathSound>monster/ogres_death</DeathSound>
 		<Size>120</Size>
-		<MaxHitPoints>300</MaxHitPoints>
+		<MaxHitPoints>500</MaxHitPoints>
 		<Defense>7</Defense>
 		<Terrain>HighForest</Terrain>
 		<Projectile id="0">
@@ -519,7 +519,7 @@
 		<HitSound>monster/ogres_hit</HitSound>
 		<DeathSound>monster/ogres_death</DeathSound>
 		<Size>120</Size>
-		<MaxHitPoints>270</MaxHitPoints>
+		<MaxHitPoints>800</MaxHitPoints>
 		<Defense>7</Defense>
 		<Terrain>HighForest</Terrain>
 		<Projectile id="0">
@@ -537,7 +537,7 @@
 		<HitSound>monster/ogres_hit</HitSound>
 		<DeathSound>monster/ogres_death</DeathSound>
 		<Size>120</Size>
-		<MaxHitPoints>300</MaxHitPoints>
+		<MaxHitPoints>500</MaxHitPoints>
 		<Defense>7</Defense>
 		<Terrain>HighForest</Terrain>
 		<Projectile id="0">
@@ -555,7 +555,7 @@
 		<HitSound>monster/ogres_hit</HitSound>
 		<DeathSound>monster/ogres_death</DeathSound>
 		<Size>120</Size>
-		<MaxHitPoints>500</MaxHitPoints>
+		<MaxHitPoints>3000</MaxHitPoints>
 		<Defense>7</Defense>
 		<Terrain>HighForest</Terrain>
 		<SpawnProb>1.0</SpawnProb>

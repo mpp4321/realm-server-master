@@ -229,6 +229,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Will of the Den", 0.04f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
                     new ItemLoot("Arachnid Garment", 0.04f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
                     new ItemLoot("Viral Egg", 0.04f, r: new LootDef.RarityModifiedData(1.2f, 1, true)),
+                    new ItemLoot("Spider Seal", 0.04f),
                     new ItemLoot("Doku No Ken", 0.02f),
                     new ItemLoot("Spider Generator", 0.005f)
                     //new ItemLoot("Arachnid Miasma", 0.0125f, r: new LootDef.RarityModifiedData(1.2f, 1, true))

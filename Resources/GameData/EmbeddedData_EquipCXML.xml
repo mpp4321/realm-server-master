@@ -4358,6 +4358,7 @@
 		<BagType>0</BagType>
 		<MpCost>65</MpCost>
 		<Activate effect="Invisible" duration="3.5">ConditionEffectSelf</Activate>
+		<ActivateOnEquip stat="9" amount="1">IncrementStat</ActivateOnEquip>
 		<Cooldown>4.5</Cooldown>
 	</Object>
 	<Object type="0xa58" id="Cloak of Speed">
@@ -4376,6 +4377,7 @@
 		<BagType>0</BagType>
 		<MpCost>70</MpCost>
 		<Activate effect="Invisible" duration="4">ConditionEffectSelf</Activate>
+		<ActivateOnEquip stat="9" amount="2">IncrementStat</ActivateOnEquip>
 		<Cooldown>5</Cooldown>
 	</Object>
 	<Object type="0xadb" id="Cloak of the Night Thief">
@@ -4395,6 +4397,7 @@
 		<FameBonus>1</FameBonus>
 		<MpCost>75</MpCost>
 		<Activate effect="Invisible" duration="4.5">ConditionEffectSelf</Activate>
+		<ActivateOnEquip stat="9" amount="3">IncrementStat</ActivateOnEquip>
 		<Cooldown>5.5</Cooldown>
 	</Object>
 	<Object type="0xa59" id="Cloak of the Red Agent">
@@ -4415,6 +4418,7 @@
 		<FameBonus>2</FameBonus>
 		<MpCost>80</MpCost>
 		<Activate effect="Invisible" duration="5">ConditionEffectSelf</Activate>
+		<ActivateOnEquip stat="9" amount="4">IncrementStat</ActivateOnEquip>
 		<Cooldown>6</Cooldown>
 	</Object>
 	<Object type="0xae1" id="Cloak of Endless Twilight">
@@ -4435,6 +4439,7 @@
 		<FameBonus>3</FameBonus>
 		<MpCost>85</MpCost>
 		<Activate effect="Invisible" duration="5.5">ConditionEffectSelf</Activate>
+		<ActivateOnEquip stat="9" amount="5">IncrementStat</ActivateOnEquip>
 		<Cooldown>6.5</Cooldown>
 	</Object>
 	<Object type="0xb27" id="Cloak of Ghostly Concealment">
@@ -4452,6 +4457,7 @@
 		<ActivateOnEquip stat="6" amount="2">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="7" amount="2">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="5" amount="4">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="9" amount="6">IncrementStat</ActivateOnEquip>
 		<Usable/>
 		<BagType>2</BagType>
 		<FameBonus>4</FameBonus>
@@ -4471,6 +4477,7 @@
 		<Sound>spell/fire_nova</Sound>
 		<ActivateOnEquip stat="4" amount="5">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="5" amount="4">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="9" amount="6">IncrementStat</ActivateOnEquip>
 		<Usable/>
 		<BagType>4</BagType>
 		<FameBonus>6</FameBonus>
@@ -6237,11 +6244,13 @@
 		<ActivateOnEquip stat="4" amount="4">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="0" amount="40">IncrementStat</ActivateOnEquip>
 		<Usable/>
-		<BagType>4</BagType>
+		<Cooldown>5</Cooldown>
+		<BagType>5</BagType>
 		<FameBonus>6</FameBonus>
 		<MpCost>85</MpCost>
-		<Activate duration="5">Decoy</Activate>
-		<Activate duration="5" angleOffset="180">Decoy</Activate>
+		<Activate duration="4">Decoy</Activate>
+		<Activate duration="4" angleOffset="180">Decoy</Activate>
+		<Activate effect="Damaging" duration="4" >ConditionEffectSelf</Activate>
 	</Object>
 	<Object type="0xb21" id="Chicken Leg of Doom">
 		<Class>Equipment</Class>
@@ -6257,14 +6266,15 @@
 		<Projectile>
 			<ObjectId>Chicken Leg</ObjectId>
 			<Speed>100</Speed>
-			<MinDamage>65</MinDamage>
-			<MaxDamage>105</MaxDamage>
+			<MinDamage>135</MinDamage>
+			<MaxDamage>135</MaxDamage>
 			<LifetimeMS>600</LifetimeMS>
-			<Size>80</Size>
+			<Size>120</Size>
 		</Projectile>
-		<BagType>3</BagType>
+		<ActivateOnEquip stat="9" amount="99">IncrementStat</ActivateOnEquip>
+		<BagType>6</BagType>
 		<OldSound>daggerSwing</OldSound>
-		<FameBonus>4</FameBonus>
+		<FameBonus>20</FameBonus>
 	</Object>
 	<Object type="0xae5" id="Lightning Scepter">
 		<Class>Equipment</Class>
@@ -6933,7 +6943,7 @@
 		<Activate effect="Drunk" duration="6">ConditionEffectSelf</Activate>
 		<Activate effect="Invisible" duration="4">ConditionEffectSelf</Activate>
 	</Object>
-	<Object type="0x913" id="Crown">
+	<Object type="0x913" id="Super cool Crown">
 		<Class>Equipment</Class>
 		<Item/>
 		<Texture>
@@ -6941,15 +6951,7 @@
 			<Index>0xc6</Index>
 		</Texture>
 		<SlotType>9</SlotType>
-		<Description>Super regal!</Description>
-		<ActivateOnEquip stat="6" amount="6666">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="7" amount="6666">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="2" amount="100">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="4" amount="35">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="3" amount="100">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="5" amount="50">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="0" amount="6666">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="1" amount="6666">IncrementStat</ActivateOnEquip>
+		<Description>Super not regal!</Description>
 		<BagType>1</BagType>
 	</Object>
 	<Object type="0xc27" id="Captain's Ring">
@@ -10005,7 +10007,7 @@
 		<Activate id="Brute">RuneConsume</Activate>
 		<BagType>5</BagType>
 		<ExtraTooltipData>
-			<EffectInfo name="Brute" description="+1% damage per bonus vit; 500 basefame for use"/>
+			<EffectInfo name="Brute" description="Caps defense at 50 and for every point over 50 you get 1 attack and 1 vit; 250 rune points for use"/>
 		</ExtraTooltipData>
 		<Consumable/>
 	</Object>
@@ -10021,7 +10023,7 @@
 		<Activate id="Mage">RuneConsume</Activate>
 		<BagType>5</BagType>
 		<ExtraTooltipData>
-			<EffectInfo name="Mage" description="25% reduced mana cost; 500 basefame for use"/>
+			<EffectInfo name="Mage" description="25% reduced mana cost; 500 rune points for use"/>
 		</ExtraTooltipData>
 		<Consumable/>
 	</Object>
@@ -10224,7 +10226,7 @@
 		</Texture>
 		<SlotType>17</SlotType>
 		<Description>I was a fool before, but now everything is so clear. The phylactery speaks to me, knows me, protects me.</Description>
-		<RateOfFire>0.8</RateOfFire>
+		<RateOfFire>1</RateOfFire>
 		<Sound>weapon/wand_of_death</Sound>
 		<Projectile>
 			<ObjectId>Soul Orb</ObjectId>
@@ -10233,7 +10235,7 @@
 			<MaxDamage>100</MaxDamage>
 			<LifetimeMS>450</LifetimeMS>
 			<Amplitude>0.5</Amplitude>
-			<Size>60</Size>
+			<Size>100</Size>
 		</Projectile>
 		<ActivateOnEquip stat="4" amount="2">IncrementStat</ActivateOnEquip>
 		<BagType>4</BagType>
@@ -11415,7 +11417,7 @@
 		<Activate id="Juggernaut">RuneConsume</Activate>
 		<Consumable/>
 		<ExtraTooltipData>
-			<EffectInfo name="Juggernaut" description="3 second cooldown abilities give 1 second of invulnerable; 150 basefame for use."/>
+			<EffectInfo name="Juggernaut" description="3 second cooldown abilities (or greater) give 1 second of invulnerable; 250 fame points for use."/>
 		</ExtraTooltipData>
 	</Object>
 	<Object type="0xcf8" id="Overgrowth Helmet">
@@ -11498,7 +11500,7 @@
 		<BagType>5</BagType>
 		<Activate id="Elven">RuneConsume</Activate>
 		<ExtraTooltipData>
-			<EffectInfo name="Elven" description="1% manasteel; 500 basefame for use"/>
+			<EffectInfo name="Elven" description="1% manasteal; 500 fame points for use"/>
 		</ExtraTooltipData>
 		<Consumable/>
 	</Object>
@@ -12896,8 +12898,254 @@
 		<Activate id="Ephemeral">RuneConsume</Activate>
 		<BagType>5</BagType>
 		<ExtraTooltipData>
-			<EffectInfo name="Ephemeral" description="(Damage/100)% on hit to increase ROF in exchange for damage.; 500 basefame for use"/>
+			<EffectInfo name="Ephemeral" description="Crits give a small wis and speed boost; 250 fame points for use"/>
 		</ExtraTooltipData>
 		<Consumable/>
+	</Object>
+	<Object type="0x5274" id="Legendary Transformation Bag">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj4</File>
+			<Index>0xa6</Index>
+		</Texture>
+		<SlotType>10</SlotType>
+		<Description>A bag that transforms legendary items (fill with 4 legendaries and use it / note: you cannot withdrawl an item once you put it in).</Description>
+		<Activate>TransformBag</Activate>
+		<Potion/>
+		<StorageMax>4</StorageMax>
+		<InvUse/>
+		<BagType>6</BagType>
+	</Object>
+	<Object type="0x5275" id="Crown">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj3</File>
+			<Index>0xc6</Index>
+		</Texture>
+		<SlotType>9</SlotType>
+		<Description>Super regal!</Description>
+		<ActivateOnEquip stat="6" amount="6666">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="7" amount="6666">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="2" amount="100">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="4" amount="35">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="3" amount="100">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="5" amount="50">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="0" amount="6666">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="1" amount="6666">IncrementStat</ActivateOnEquip>
+		<BagType>1</BagType>
+	</Object>
+	<Object type="0x5276" id="Demonic Giant Claw Blade">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj5</File>
+			<Index>0xfc</Index>
+		</Texture>
+		<SlotType>1</SlotType>
+		<Description>A blade crafted from the carapace of a giant crab butt spin.</Description>
+		<RateOfFire>1</RateOfFire>
+		<Sound>weapon/glass_sword</Sound>
+		<Projectile id="0">
+			<ObjectId>Beam</ObjectId>
+			<Damage>350</Damage>
+			<Speed>20</Speed>
+			<Size>60</Size>
+			<LifetimeMS>200</LifetimeMS>
+		</Projectile>
+		<Projectile id="1">
+			<ObjectId>Beam</ObjectId>
+			<Damage>250</Damage>
+			<Speed>40</Speed>
+			<Size>100</Size>
+			<LifetimeMS>400</LifetimeMS>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Beam</ObjectId>
+			<Damage>200</Damage>
+			<Speed>60</Speed>
+			<Size>140</Size>
+			<LifetimeMS>600</LifetimeMS>
+		</Projectile>
+		<Projectile id="3">
+		  <ObjectId>White Bullet</ObjectId>
+		  <Speed>600</Speed>
+		  <Rotate></Rotate>
+		  <MaxRadius>3</MaxRadius>
+	   	  <RadialSpeed>2</RadialSpeed>
+		  <Damage>300</Damage>
+		  <Size>60</Size>
+		  <LifetimeMS>3000</LifetimeMS>
+		  <ArmorPiercing/>
+		</Projectile>
+		<BagType>6</BagType>
+		<FameBonus>6</FameBonus>
+		<NumProjectiles>4</NumProjectiles>
+		<ArcGap>0</ArcGap>
+		<OldSound>bladeSwing</OldSound>
+		<ExtraTooltipData>
+			<EffectInfo name="Crustacean Strike:" description="Fires a barage of 4 projectiles. Each projectile has a longer lifespand a lower damage than the one before it."/>
+		</ExtraTooltipData>
+	</Object>
+	<Object type="0x5277" id="Chain Ball">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj5</File>
+			<Index>0xfd</Index>
+		</Texture>
+		<SlotType>8</SlotType>
+		<Description>A ball on chain.</Description>
+		<RateOfFire>0.8</RateOfFire>
+		<Sound>weapon/fire_wand</Sound>
+		<Burst>1</Burst>
+		<BurstCooldown>1200</BurstCooldown>
+		<Projectile>
+			<ObjectId>Pet Bubble</ObjectId>
+			<Speed>80</Speed>
+			<Size>75</Size>
+			<MinDamage>300</MinDamage>
+			<MaxDamage>300</MaxDamage>
+			<DoStretchShot></DoStretchShot>
+			<StretchShotCount>8</StretchShotCount>
+			<LifetimeMS>1200</LifetimeMS>
+			<MultiHit/>
+			<Boomerang/>
+		</Projectile>
+		<Projectile id = "1">
+			<ObjectId>Black Eye</ObjectId>
+			<Size>150</Size>
+			<Speed>90</Speed>
+			<MinDamage>1000</MinDamage>
+			<MaxDamage>2000</MaxDamage>
+			<LifetimeMS>1200</LifetimeMS>
+			<MultiHit/>
+			<Boomerang/>
+		</Projectile>
+		<BagType>4</BagType>
+		<ArcGap>0</ArcGap>
+		<FameBonus>3</FameBonus>
+		<NumProjectiles>2</NumProjectiles>
+	</Object>
+	<Object type="0x5278" id="Spider Seal">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>lofiObj6</File>
+			<Index>0xa9</Index>
+		</Texture>
+		<SlotType>12</SlotType>
+		<Description>Throws a web dispensing ally which weakens and slows enemies.</Description>
+		<Sound>spell/light_heal</Sound>
+		<Usable/>
+		<BagType>5</BagType>
+		<MpCost>70</MpCost>
+		<Activate id="SpiderSealNet">TossObject</Activate>
+	</Object>
+	<Object type="0x527a" id="Pirate King's Cutlass">
+		<Class>Equipment</Class>
+		<SNormal />
+		<Item />
+		<Texture>
+		  <File>lofiObj3</File>
+		  <Index>0x403</Index>
+		</Texture>
+		<SlotType>1</SlotType>
+		<Description>Used only by the pirates who would make themselves kings, this cutlass is said to be cursed as each Pirate King seems to be killed rather unexpectedly.</Description>
+		<RateOfFire>1.2</RateOfFire>
+		<Sound>weapon/glass_sword</Sound>
+		<Projectile>
+		  <ObjectId>Gold Shot</ObjectId>
+		  <Speed>100</Speed>
+		  <MinDamage>184</MinDamage>
+		  <MaxDamage>231</MaxDamage>
+		  <LifetimeMS>325</LifetimeMS>
+		</Projectile>
+		<BagType>4</BagType>
+		<FameBonus>4</FameBonus>
+		<OldSound>bladeSwing</OldSound>
+     </Object>
+	<Object type="0x527b" id="Dark Water Dagger">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>CustomItems</File>
+			<Index>0x74</Index>
+		</Texture>
+		<SlotType>2</SlotType>
+		<Description>A dagger made of frozen bilgewater.</Description>
+		<RateOfFire>1</RateOfFire>
+		<Sound>weapon/dirk</Sound>
+		<NumProjectiles>2</NumProjectiles>
+		<Projectile>
+			<ObjectId>Night Slash</ObjectId>
+			<Speed>120</Speed>
+			<MinDamage>170</MinDamage>
+			<MaxDamage>200</MaxDamage>
+			<LifetimeMS>320</LifetimeMS>
+		</Projectile>
+		<BagType>6</BagType>
+		<OldSound>daggerSwing</OldSound>
+		<FameBonus>6</FameBonus>
+	</Object>
+	<Object type="0x75e" id="Cannon">
+		<Class>Equipment</Class>
+		<Item />
+		<Texture>
+			<File>CustomItems</File>
+			<Index>0x73</Index>
+		</Texture>
+		<SlotType>3</SlotType>
+		<Description>One of the main cannons the ghost ship had to sink other ships, the ghostly aura within it has the power to shoot many cannon balls at once.</Description>
+		<RateOfFire>0.33</RateOfFire>
+		<Sound>weapon/poor_quality_bow</Sound>
+		<Projectile>
+			<ObjectId>Giant Cannonball</ObjectId>
+			<Speed>150</Speed>
+			<MinDamage>500</MinDamage>
+			<MaxDamage>700</MaxDamage>
+			<LifetimeMS>500</LifetimeMS>
+			<Size>150</Size>
+			<ArmorPiercing />
+		</Projectile>
+		<NumProjectiles>1</NumProjectiles>
+		<ArcGap>5</ArcGap>
+		<ActivateOnEquip stat="0" amount="40">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="1" amount="40">IncrementStat</ActivateOnEquip>
+		<BagType>5</BagType>
+		<FameBonus>5</FameBonus>
+		<DisplayId>Cannon</DisplayId>
+	</Object>
+	<Object type="0x527c" id="Orb of Eternal Flame">
+		<Class>Equipment</Class>
+		<Item/>
+		<Texture>
+			<File>CustomItems</File>
+			<Index>0x75</Index>
+		</Texture>
+		<SlotType>21</SlotType>
+		<Description>A crystal orb that holds a realm of infinite fire.</Description>
+		<Usable/>
+		<Burst>1</Burst>
+		<BurstCooldown>1200</BurstCooldown>
+		<Projectile>
+			<ObjectId>Fire Elemental missiles</ObjectId>
+			<Speed>100</Speed>
+			<Size>120</Size>
+			<MinDamage>500</MinDamage>
+			<MaxDamage>500</MaxDamage>
+			<DoStretchShot></DoStretchShot>
+			<StretchShotCount>8</StretchShotCount>
+			<LifetimeMS>800</LifetimeMS>
+			<Amplitude>0.75</Amplitude>
+			<Frequency>2</Frequency>
+			<MultiHit/>
+			<ArmorPiercing/>
+		</Projectile>
+		<ArcGap>0</ArcGap>
+		<Activate>Shoot</Activate>
+		<BagType>5</BagType>
+		<MpCost>80</MpCost>
 	</Object>
 </Objects>

@@ -2,6 +2,7 @@
 using RotMG.Game.Logic.Behaviors;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
+using RotMG.Utils;
 using RoTMG.Game.Logic.Transitions;
 using System;
 using System.Collections.Generic;
@@ -213,6 +214,10 @@ namespace RotMG.Game.Logic.Database
 		);
 
 			db.Init("md Janus the Doorwarden",
+                new ConditionalEffect(ConditionEffectIndex.Invulnerable, duration: Settings.MillisecondsPerTick, reapply: (e) =>
+                {
+                    return e?.GetNearbyPlayers(10f).Count() == 0;
+                }),
 				new State("base",
 					//new DropPortalOnDeath("Puppet Encore Portal", 1, 120),
 					new HealthTransition(0.15f, "ragetime")

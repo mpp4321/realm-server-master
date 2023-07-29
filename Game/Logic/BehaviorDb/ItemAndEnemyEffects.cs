@@ -324,6 +324,15 @@ namespace RotMG.Game.Logic.Database
                     new Decay(0)
                 )
             );
+
+            db.Init("SpiderSealNet",
+                new Shoot(99f, 1, 0f, index: 0, fixedAngle: 0f, rotateAngle: 36f, cooldown: 100, playerOwner: e => e.PlayerOwner),
+                new ConditionalEffect(ConditionEffectIndex.Invincible, true, -1),
+                new QueuedBehav(
+                    new CooldownBehav(5000, null),
+                    new Decay(0)
+                )
+            );
         }
     }
 }

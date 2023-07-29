@@ -592,6 +592,7 @@
 			<Speed>75</Speed>
 			<Size>80</Size>
 			<LifetimeMS>1200</LifetimeMS>
+			<ConditionEffect duration="3">Bleeding</ConditionEffect>
 		</Projectile>		
 	</Object>
 	<Object type="0x0948" id="Worker Wasp">

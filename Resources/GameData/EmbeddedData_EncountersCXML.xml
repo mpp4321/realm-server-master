@@ -1582,9 +1582,12 @@
 		<Projectile id="1">
 			<ObjectId>Dragon Attack Red Small Fireball</ObjectId>
 			<Speed>100</Speed>
+			<Rotate></Rotate>
+			<MaxRadius>3</MaxRadius>
+			<RadialSpeed>1</RadialSpeed>
 			<Damage>80</Damage>
 			<Size>100</Size>
-			<LifetimeMS>1000</LifetimeMS>
+			<LifetimeMS>3000</LifetimeMS>
 		</Projectile>
 	</Object>
 	<Object type="0x5207" id="Sand Monster Ally">
@@ -1848,4 +1851,41 @@
 		<Defense>200</Defense>
 		<XpMult>0.3</XpMult>
 	</Object>
+	  <Object type="0x5213" id="Demonic Crab">
+		<Group>Demons</Group>
+		<Enemy/>
+		<Class>Character</Class>
+		<Flying/>
+		<Quest/>
+		<God/>
+		<StasisImmune/>
+		<AnimatedTexture>
+		  <File>chars16x16dEncounters</File>
+		  <Index>24</Index>
+		</AnimatedTexture>
+		<HitSound>monster/demons_hit</HitSound>
+		<DeathSound>monster/demons_death</DeathSound>
+		<MaxHitPoints>20000</MaxHitPoints>
+		<Size>200</Size>
+		<Defense>20</Defense>
+		<Projectile id="0">
+		  <ObjectId>White Bullet</ObjectId>
+		  <Speed>100</Speed>
+			<Rotate></Rotate>
+	   	  <RadialSpeed>2</RadialSpeed>
+			<MaxRadius>6</MaxRadius>
+		  <Damage>60</Damage>
+		  <Size>60</Size>
+		  <LifetimeMS>3000</LifetimeMS>
+		  <ArmorPiercing/>
+		</Projectile>
+		<Projectile id="1">
+		  <ObjectId>Silver Shield</ObjectId>
+		  <Speed>300</Speed>
+		  <Damage>35</Damage>
+		  <Size>120</Size>
+		  <LifetimeMS>1000</LifetimeMS>
+		  <ConditionEffect duration="1">Weak</ConditionEffect>
+		</Projectile>
+	  </Object>
 </Objects>

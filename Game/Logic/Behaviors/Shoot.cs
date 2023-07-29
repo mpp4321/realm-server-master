@@ -20,6 +20,8 @@ namespace RotMG.Game.Logic.Behaviors
         public readonly float? RotateAngle;
         public readonly float AngleOffset;
         public readonly float? DefaultAngle;
+        public readonly float OffsetX;
+        public readonly float OffsetY;
         public readonly float Predictive;
         public readonly int Index;
         public readonly int CooldownOffset;
@@ -48,10 +50,14 @@ namespace RotMG.Game.Logic.Behaviors
             int cooldown = 0,
             ConditionEffectIndex[] effect = null,
             int effect_duration = 0,
+            float offsetX = 0f,
+            float offsetY = 0f,
             Action<Entity> callback = null,
             Func<Entity, Player> playerOwner = null)
         {
             Range = range;
+            OffsetX = offsetX;
+            OffsetY = offsetX;
             Count = count;
             ShootAngle = count == 1 ? 0 : (shootAngle ?? 360f / count) * MathUtils.ToRadians;
             Index = index;
@@ -121,12 +127,12 @@ namespace RotMG.Game.Logic.Behaviors
                             targetPos -= history;
                             targetPos *= PredictNumTicks;
                             targetPos += target.Position;
-                            Vector2 dirVector = targetPos - host.Position;
+                            Vector2 dirVector = targetPos - (host.Position - new Vector2(OffsetX, OffsetY));
                             angle = (float)Math.Atan2(dirVector.Y, dirVector.X);
                         }
                         else
                         {
-                            angle = (float)Math.Atan2(target.Position.Y - host.Position.Y, target.Position.X - host.Position.X);
+                            angle = (float)Math.Atan2(target.Position.Y - (host.Position.Y + OffsetY), target.Position.X - (host.Position.X + OffsetX));
                         }
                     }
                     else if (DefaultAngle != null)
@@ -171,7 +177,7 @@ namespace RotMG.Game.Logic.Behaviors
 
                     for (byte k = 0; k < count; k++)
                     {
-                        var p = new Projectile(owner, desc, startId + k, Manager.TotalTime, startAngle + ShootAngle * k, host.Position, damage, (e) => { 
+                        var p = new Projectile(owner, desc, startId + k, Manager.TotalTime, startAngle + ShootAngle * k, host.Position, 0f, 0f, damage, (e) => { 
                             if(effect.Length > 0)
                             {
                                 foreach(var eff in effect)
@@ -202,7 +208,7 @@ namespace RotMG.Game.Logic.Behaviors
                         }
                     }
 
-                    var packet = GameServer.EnemyShoot(startId, host.Id, desc.BulletType, host.Position, startAngle, (short)damage, count, ShootAngle);
+                    var packet = GameServer.EnemyShoot(startId, host.Id, desc.BulletType, host.Position, startAngle, (short)damage, count, ShootAngle, OffsetX, OffsetY);
                     var isOwnerPlayer = owner is Player;
                     var ownerAccId = isOwnerPlayer ? (owner as Player).AccountId : -1;
 

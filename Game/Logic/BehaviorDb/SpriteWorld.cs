@@ -330,29 +330,46 @@ namespace RotMG.Game.Logic.Database
                       new State("shootLikeDumb",
                           new HealthTransition(0.5f, "black towers shoot"),
                           new State("1",
-                              new Wander(1),
-                              new Shoot(50, count: 8, shootAngle: 60, index: 0, predictive: 1, cooldown: 600),
+                              new MoveTo(1f, 37, 38),
+                              new TransitionFrom("1", "1.1"),
+                              new Shoot(50, count: 3, shootAngle: 30, index: 0, cooldown: 1000),
+                              new State("1.1",
+                                  new TimedTransition("1.2", 4000),
+                                  new Shoot(90, count: 4, angleOffset: 90, fixedAngle: 45, index: 3, cooldown: 100)
+                              ),
+                              new State("1.2",
+                                  new TimedTransition("1.1", 4000),
+                                  new Shoot(90, count: 4, fixedAngle: 0, angleOffset: 90, index: 3, cooldown: 100)
+                              ),
                               new TimedTransition("2", 11750)
-                              ),
+                          ),
                           new State("2",
-                              new ConditionalEffect(ConditionEffectIndex.Invincible),
-                              new Shoot(50, count: 8, shootAngle: 45, index: 0, predictive: 1, cooldown: 600),
-                              new Shoot(80, count: 4, angleOffset: 15, shootAngle: 90, index: 0, predictive: 4, cooldown: 600),
-                              new TimedTransition("3", 3750)
+                              new Flash(0xff, 1.0, 3),
+                              new TimedTransition("raged", 1000) { SubIndex = 0 },
+                              new State("raged",
+                                  new Follow(2f, 30f, 4f),
+                                  new Shoot(50, count: 3, shootAngle: 30, index: 0, predictive: 1, cooldown: 500)
                               ),
+                              new TimedTransition("3", 5000)
+                          ),
                           new State("3",
+                              new Wander(0.8f),
                               new Shoot(80, count: 4, shootAngle: 90, index: 0, predictive: 4, cooldown: 600),
                               new Shoot(85, count: 4, shootAngle: 90, index: 0, predictive: 2, cooldown: 600),
                               new Shoot(90, count: 4, shootAngle: 90, index: 0, predictive: 1, cooldown: 600),
                               new TossObject("Native Sprite God", 10, cooldown: 11000),
-                              new TimedTransition("1", 10750)
-                              )
+                              new QueuedBehav(
+                                  new TimedBehav(9700),
+                                  new TimedBehav(1000, new Flash(0xffff, 1.0, 4))
+                              ),
+                              new TimedTransition("1", 10700)
+                          )
                       ),
                       new State("black towers shoot",
                           new OrderOnEntry(99f, "Black Sprite Tree", "shoot"),
                           new MoveTo(1f, 37, 38),
                           //Will auto make it 360f / 8
-                          new Shoot(99f, count: 8, shootAngle: null, index: 0, defaultAngle: 0f, rotateAngle: 15f, cooldown: 600, cooldownVariance: 250, cooldownOffset: 2000),
+                          new Shoot(99f, count: 8, shootAngle: null, index: 0, defaultAngle: 0f, rotateAngle: 15f, cooldown: 300, cooldownOffset: 2000),
                           new Shoot(50f, 2, shootAngle: 30f, 0, 1, cooldown: 1500, cooldownVariance: 500, predictive: 1),
                           new TransitionFrom("black towers shoot", "defendmode"),
                           new State("defendmode",
@@ -360,7 +377,7 @@ namespace RotMG.Game.Logic.Database
                             new EntitiesNotExistsTransition(99, "weakened", "Black Sprite Tree")
                           ),
                           new State("weakened")
-                      ),
+                    ),
                     new Threshold(0.01f,
                       new TierLoot(tier: 9, type: LootType.Armor, chance: 0.4f),
                       new TierLoot(tier: 10, type: LootType.Armor, chance: 0.4f),

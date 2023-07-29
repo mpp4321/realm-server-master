@@ -179,7 +179,7 @@ namespace RotMG.Game.Entities
             if (ShotProjectiles.TryGetValue(bulletId, out var p))
             {
 #if DEBUG
-                Program.Print(PrintType.Info, "Hit with id: " + bulletId);
+                //Program.Print(PrintType.Info, "Hit with id: " + bulletId);
 #endif
                 var target = Parent.GetEntity(targetId);
                 if (target == null || !target.Desc.Enemy)
@@ -349,7 +349,8 @@ namespace RotMG.Game.Entities
                         if (didCrit) damage *= 2;
                         damage = (int)(damage * GetAttackMultiplier());
                         //var uneffs = this.Inventory.Take(4).Select(a => Resources.Type2Item[Convert.ToUInt16(a)].UniqueEffect).Where(a => a != null).ToArray();
-                        var projectile = new Projectile(this, desc.NextProjectile(startId - i), startId - i, time, angle + arcGap * i, pos, damage);
+                        var projectile = new Projectile(this, desc.NextProjectile(startId - i), startId - i, time, angle + arcGap * i, pos, 0f, 0f, damage);
+                        projectile.DidCrit = didCrit;
                         AddShotProjectiles(time, projectile);
                     }
 
@@ -381,16 +382,42 @@ namespace RotMG.Game.Entities
                     for (var i = 0; i < numShots; i++)
                     {
                         var pdesc = desc.NextProjectile(Math.Abs(startId - i));
-                        var damage = GetNextDamageSeeded(pdesc.MinDamage, pdesc.MaxDamage, ItemDatas[1], desc.EnchantmentStrength);
-                        var didCrit = Client.Random.NextFloat() * 100 < GetStatTotal(9);
-                        if (didCrit)
-                            damage *= 2;
-                        damage = (int)(damage * GetAttackMultiplier());
-                        //var compeffs = this.ItemDatas.Take(4).Select(a => a.ItemComponent != null ? a.ItemComponent : null).Where(a => a != null);
-                        var uneffs = BuildAllItemHandlers();
-                        var projectile = new Projectile(this, pdesc, startId - i, time, angle + arcGap * i, pos, damage, uniqueEff: uneffs.ToArray());
-                        foreach (var ae in abilityEffects) ae.OnProjectileShoot(this, ref projectile);
-                        AddShotProjectiles(time, projectile);
+
+                        if (pdesc.DoStretchShot)
+                        {
+                            NextProjectileId -= pdesc.StretchShotCount;
+                            for (var z = 0; z < pdesc.StretchShotCount; z++)
+                            {
+                                var damage = GetNextDamageSeeded(pdesc.MinDamage, pdesc.MaxDamage, ItemDatas[1], desc.EnchantmentStrength);
+                                var didCrit = Client.Random.NextFloat() * 100 < GetStatTotal(9);
+                                if (didCrit)
+                                    damage *= 2;
+                                damage = (int)(damage * GetAttackMultiplier());
+                                //var compeffs = this.ItemDatas.Take(4).Select(a => a.ItemComponent != null ? a.ItemComponent : null).Where(a => a != null);
+                                var uneffs = BuildAllItemHandlers();
+                                var projectile = new Projectile(this, pdesc, startId - i - z, time, angle + arcGap * i, pos, 0f, 0f, damage, uniqueEff: uneffs.ToArray());
+                                projectile.DidCrit = didCrit;
+                                projectile.OverrideSpeed = pdesc.Speed - (z / pdesc.StretchShotCount) * pdesc.Speed; 
+                                foreach (var ae in abilityEffects) ae.OnProjectileShoot(this, ref projectile);
+                                AddShotProjectiles(time, projectile);
+                            }
+                        }
+                        else 
+                        {
+                            var damage = GetNextDamageSeeded(pdesc.MinDamage, pdesc.MaxDamage, ItemDatas[1], desc.EnchantmentStrength);
+                            var didCrit = Client.Random.NextFloat() * 100 < GetStatTotal(9);
+                            if (didCrit)
+                                damage *= 2;
+                            damage = (int)(damage * GetAttackMultiplier());
+                            //var compeffs = this.ItemDatas.Take(4).Select(a => a.ItemComponent != null ? a.ItemComponent : null).Where(a => a != null);
+                            var uneffs = BuildAllItemHandlers();
+                            var projectile = new Projectile(this, pdesc, startId - i, time, angle + arcGap * i, pos, 0f, 0f, damage, uniqueEff: uneffs.ToArray());
+                            projectile.DidCrit = didCrit;
+                            foreach (var ae in abilityEffects) ae.OnProjectileShoot(this, ref projectile);
+                            AddShotProjectiles(time, projectile);
+                        }
+
+
                     }
 
                     var packet = GameServer.AllyShoot(Id, desc.Type, attackAngle);
@@ -532,7 +559,7 @@ namespace RotMG.Game.Entities
         public override bool HitByProjectile(Projectile projectile)
         {
 
-            if (projectile.Owner is Player)
+            if (projectile.Owner is Player || projectile.Owner.Desc.Friendly)
                 return false;
 
             if (HasConditionEffect(ConditionEffectIndex.Invincible)
@@ -601,7 +628,7 @@ namespace RotMG.Game.Entities
                     var Angle = 360f / count * i * MathUtils.ToRadians;
                     var p = new Projectile(ac.Projectile.Owner, desc, startId - i, time, Angle, ac.Projectile.PositionAt(
                        time - ac.Projectile.Time
-                    ), Damage);
+                    ), 0f, 0f, Damage);
                     projs.Add(p);
                     if (isPlayer)
                     {

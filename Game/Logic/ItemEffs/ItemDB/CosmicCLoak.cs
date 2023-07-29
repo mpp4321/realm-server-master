@@ -6,19 +6,24 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
 {
     class CosmicCloak : IItemHandler
     {
+        int t = 0;
         public void OnTick(Player p)
         {
-            p.MP -= (int)(p.GetMPRegen() * 2 * Settings.SecondsPerTick);
+            if (t++ % 8 != 0) return;
+
+            p.MP -= (int)(p.GetMPRegen() * 16 * Settings.SecondsPerTick);
             p.MP = Math.Max(0, p.MP);
-            float percentManaLeft = p.MP / (float) p.GetStatTotal(1);
-            float attackBoost = 1 - percentManaLeft;
-            attackBoost *= 80;
+            var maxMana = p.GetStatTotal(1);
+            var totalPossibleBoost = (int)(maxMana / 10);
+            float percentManaLeft = p.MP / (float) maxMana;
+            float attackBoost = 1f - percentManaLeft;
+            attackBoost *= totalPossibleBoost;
             p.AddIdentifiedEffectBoost(new Player.BoostTimer()
             {
-                amount = (int)attackBoost,
+                amount = (int) attackBoost,
                 id = "CosmicCloak".GetHashCode(),
                 index = 2,
-                timer = 200,
+                timer = 2f,
             }, false);
             p.UpdateStats();
         }

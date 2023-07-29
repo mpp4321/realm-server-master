@@ -87,11 +87,14 @@ namespace RotMG.Game.Worlds
 
             foreach(var shopPoint in GetAllRegion(Region.Store4))
             {
-                if((++alternating) % 2 == 1)
+                if((++alternating) % 3 == 1)
                 {
                     CreateShopAt(shopPoint, Resources.Id2Item["Realm Equipment Crystal"].Type, 25, Currency.Fame);
-                } else {
+                } else if (alternating % 3 == 2) {
                     CreateShopAt(shopPoint, Resources.Id2Item["Oryx Equipment Crystal"].Type, 100, Currency.Fame);
+                } else
+                {
+                    CreateShopAt(shopPoint, Resources.Id2Item["Legendary Transformation Bag"].Type, 1500, Currency.Fame);
                 }
             }
         }

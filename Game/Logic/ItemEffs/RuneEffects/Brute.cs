@@ -7,20 +7,38 @@ namespace RotMG.Game.Logic.ItemEffs.RuneEffects
 {
     class Brute : IItemHandler
     {
-        public virtual void OnHitByEnemy(Player hit, Entity hitBy, Projectile by) 
+        int t = 0;
+        public virtual void OnTick(Player host) 
         {
-            var pureDamageTaken = by.Damage;
-            hit.AddIdentifiedEffectBoost(new Player.BoostTimer()
+            t++;
+            if (t % 8 != 0) return;
+
+            var defOver50 = host.GetStatTotalNotTemporary(3) - 50;
+            if(defOver50 > 0)
             {
-                timer = 10.0f,
-                index = 2 * (pureDamageTaken / 100),
-                amount = 6,
-                id = "Brute".GetHashCode()
-            }, true, (a, b) =>
-            {
-                return Math.Min(a + b, 30);
-            });
-            hit.UpdateStats();
+                host.AddIdentifiedEffectBoost(new Player.BoostTimer
+                {
+                    amount = defOver50,
+                    id = "BruteAtk".GetHashCode(),
+                    index = 2,
+                    timer = 1.0f
+                });
+                host.AddIdentifiedEffectBoost(new Player.BoostTimer
+                {
+                    amount = defOver50,
+                    id = "BruteVit".GetHashCode(),
+                    index = 6,
+                    timer = 1.0f
+                });
+                host.AddIdentifiedEffectBoost(new Player.BoostTimer
+                {
+                    amount = -defOver50,
+                    id = "BruteDef".GetHashCode(),
+                    index = 3,
+                    timer = 1.0f
+                });
+                host.UpdateStats();
+            }
         }
 
     }

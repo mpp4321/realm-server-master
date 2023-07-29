@@ -23,7 +23,7 @@ namespace RotMG.Game.Entities
 
         private readonly string[] _unrankedCommands =
         {
-            "commands", "g", "guild", "tell", "allyshots", "allydamage", "effects", "sounds", "vault", "realm",
+            "commands", "teleport", "tp", "g", "guild", "tell", "allyshots", "allydamage", "effects", "sounds", "vault", "realm",
             "notifications", "online", "who", "server", "pos", "loc", "where", "find", "fame", "famestats", "stats",
             "trade", "currentsong", "song", "mix", "quest", "lefttomax", "pinvite", "pcreate", "p", "paccept", "pleave",
             "psummon", "takefame", "clearrunes", "myrunes", "market", "mymarket", "removemarket", "glands", "fixbonuses", "lockitem"
@@ -32,7 +32,7 @@ namespace RotMG.Game.Entities
         //List of command, rank required
         private readonly (string, int)[] _donatorCommands =
         {
-           ("size", 1), ("glow", 1), ("give", 3), ("spawn", 3), ("l20", 3)
+           ("size", 1), ("glow", 1), ("spawn", 3), ("l20", 3)
         };
 
         private readonly string[] _rankedCommands =
@@ -42,7 +42,6 @@ namespace RotMG.Game.Entities
             "setpiece", "max", "tq", "god", "eff", "effect", "ban", "unban", "mute", "unmute", "setcomp", "quake",
             "unlockskin", "summonhere", "makedonator", "lbadd", "lb", "l20", "visit", "wlb", "doneegg", "makepublicbag", "instances", "joininstance", "setitem"
         };
-
 
         public void SendInfo(string text) => Client.Send(GameServer.Text("", 0, -1, 0, "", text));
         public void SendError(string text) => Client.Send(GameServer.Text("*Error*", 0, -1, 0, "", text));
@@ -107,9 +106,46 @@ namespace RotMG.Game.Entities
 
                             if (!Database.AccountExists(j[0], out var account))
                                 SendError($"Player {j[0]} doesn't exist");
+
                             account.Banned = true;
                             account.Save();
-                            SendInfo(account.Name + " has been banned");
+
+                            var playersConnected = Manager.Clients.Values.Where(x => x.Player?.Name == j[0]);
+
+                            if(playersConnected.Any())
+                            {
+                                playersConnected.First().Disconnect();
+                                SendInfo(account.Name + " has been kicked.");
+                            }
+
+                            SendInfo(account.Name + " has been banned.");
+                        }
+                        break;
+                    case "/teleport":
+                    case "/tp":
+                        {
+                            if (j.Length == 0)
+                            {
+                                SendError("Usage: /teleport <player name>");
+                                return;
+                            }
+
+                            if (!Parent.AllowTeleport)
+                            {
+                                SendError("You cannot teleport in this area.");
+                                return;
+                            }
+
+                            var playersInInstanceMatchingName = Client.Player.Parent?.Players.Values.Where(x => x.Name.ToLower().Contains(j[0].ToLower()));
+
+                            if(playersInInstanceMatchingName.Any())
+                            {
+                                if (!EntityTeleport(_clientTime, playersInInstanceMatchingName.First().Id))
+                                {
+                                    SendError("Too early to teleport.");
+                                    return;
+                                }
+                            }
                         }
                         break;
                     case "/unban":
@@ -355,6 +391,7 @@ namespace RotMG.Game.Entities
                             var value = int.Parse(j[2]);
                             if (Inventory[slot] != -1)
                             {
+                                var itemData = ItemData.T1;
                                 ItemDatas[slot].ExtraStatBonuses[id] = value;
                                 UpdateInventorySlot(slot);
                             }
@@ -398,7 +435,7 @@ namespace RotMG.Game.Entities
                         break;
                     case "/gimme":
                     case "/give":
-                        if (Client.Account.Ranked || Client.Account.Donator >= 3)
+                        if (Client.Account.Ranked)
                         {
                             if (j.Length == 0)
                             {
@@ -481,6 +518,13 @@ namespace RotMG.Game.Entities
                                 return;
                             }
 
+                            if(Client.Account.Donator >= 3 && Client.Account.EntitySpawnCooldown > 0)
+                            {
+                                SendError($"You will need to wait {Client.Account.EntitySpawnCooldown} more ticks before spawning again");
+                                return;
+                            }
+                            Client.Account.EntitySpawnCooldown = 5000;
+
                             if (string.IsNullOrWhiteSpace(input))
                             {
                                 SendError("Usage: /spawn <count> <entity>");
@@ -490,6 +534,11 @@ namespace RotMG.Game.Entities
                             int spawnCount;
                             if (!int.TryParse(j[0], out spawnCount))
                                 spawnCount = -1;
+
+                            if(Client.Account.Donator >= 3 && !Client.Account.Ranked)
+                            {
+                                spawnCount = Math.Min(5, spawnCount);
+                            }
 
                             var desc = Resources.ClosestObjectToString((spawnCount == -1 ? input : string.Join(' ', j.Skip(1))));
 
@@ -510,6 +559,7 @@ namespace RotMG.Game.Entities
                                     for (var i = 0; i < spawnCount; i++)
                                     {
                                         var entity = Resolve(desc.Type);
+                                        entity.ApplyConditionEffect(ConditionEffectIndex.Stasis, 2500);
                                         if (command.Equals("/spawnelite"))
                                             (entity as Enemy).MakeElite();
                                         Parent?.AddEntity(entity, pos);
@@ -720,6 +770,7 @@ namespace RotMG.Game.Entities
                             SendInfo("No available realms");
                             return;
                         }
+                        Client.IsReconnecting = true;
                         Client.Send(GameServer.Reconnect(realm.Id));
                         break;
                     case "/fame":
@@ -1012,6 +1063,7 @@ namespace RotMG.Game.Entities
                         {
                             var instanceId = int.Parse(j[0]);
 
+                            Client.IsReconnecting = true;
                             Client.Send(GameServer.Reconnect(instanceId));
                             Manager.AddTimedAction(2000, Client.Disconnect);
                         }
@@ -1048,6 +1100,11 @@ namespace RotMG.Game.Entities
                         break;
                     case "/takefame":
                         {
+                            if(j.Length == 0)
+                            {
+                                SendInfo("/takefame <amount>");
+                                break;
+                            }
                             if(int.TryParse(j[0], out var toTake))
                             {
                                 if(toTake < 0)
@@ -1059,14 +1116,12 @@ namespace RotMG.Game.Entities
                                 if(toTake <= totalFame && Client.Player.GetFreeInventorySlot() != -1)
                                 {
                                     SendInfo("Heres your fame, little one.");
-                                    Client.Account.Stats.TotalFame -= toTake;
                                     Client.Account.Stats.Fame -= toTake;
                                     Client.Player.SetPrivateSV(StatType.Fame, Client.Account.Stats.Fame);
                                     Client.Account.Save();
 
                                     var item = Resources.Id2Item["Fame Consumable"];
                                     var slot = Client.Player.GetFreeInventorySlot();
-
 
                                     Client.Player.Inventory[slot] = item.Type;
                                     Client.Player.ItemDatas[slot] = new ItemDataJson()
@@ -1133,6 +1188,7 @@ namespace RotMG.Game.Entities
                                         var x = c.Player?.Parent?.Id;
                                         if (x.HasValue)
                                         {
+                                            Client.IsReconnecting = true;
                                             Client.Send(GameServer.Reconnect(x.Value));
                                             SendInfo("Found and summoned");
                                         }

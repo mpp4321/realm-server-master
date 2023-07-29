@@ -911,6 +911,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Small Crossbox Cloth", 0.1f),
                     new ItemLoot("Large Heavy Chainmail Cloth", 0.1f),
                     new ItemLoot("Book of Shaitan", 0.01f),
+                    new ItemLoot("Volcanic Vengeance", 0.02f),
                     new ItemLoot("Piercing Fire", 0.01f),
                     new ItemLoot("Master Sword", 0.01f),
                     new ItemLoot("Hylian Shield", 0.01f),

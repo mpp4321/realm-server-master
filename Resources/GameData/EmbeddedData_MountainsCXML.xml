@@ -22,6 +22,14 @@
 			<Size>60</Size>
 			<ArmorPiercing/>
 		</Projectile>
+		<Projectile id="1">
+			<ObjectId>IT Void Star</ObjectId>
+			<Size>50</Size>
+			<Damage>1</Damage>
+			<Speed>100</Speed>
+			<LifetimeMS>2000</LifetimeMS>
+			<ConditionEffect duration="3">Armor Broken</ConditionEffect>
+		</Projectile>
 	</Object>
 	<Object type="0x652" id="Sprite God">
 		<Enemy/>
@@ -137,9 +145,17 @@
 		<Projectile id="1">
 			<ObjectId>Purple Star</ObjectId>
 			<Damage>0</Damage>
+			<Size>150</Size>
 			<Speed>70</Speed>
 			<LifetimeMS>3000</LifetimeMS>
 			<ConditionEffect duration="5">Blind</ConditionEffect>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Lightning Bolt</ObjectId>
+			<Damage>0</Damage>
+			<Speed>120</Speed>
+			<LifetimeMS>1000</LifetimeMS>
+			<ConditionEffect duration="1">Paralyzed</ConditionEffect>
 		</Projectile>
 	</Object>
 	<Object type="0x657" id="Flying Brain">

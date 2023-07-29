@@ -868,7 +868,7 @@ namespace RotMG.Game
             var damage = damageOver ?? desc.Damage;
             var startId = Parent.NextProjectileId;
 
-            return new Projectile(this, desc, startId + projectileIdOffset, Manager.TotalTime, angle, Position, damage);
+            return new Projectile(this, desc, startId + projectileIdOffset, Manager.TotalTime, angle, Position, 0f, 0f,damage);
         }
 
 

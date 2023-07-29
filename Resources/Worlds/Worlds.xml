@@ -297,4 +297,16 @@
 		<Background>0</Background>
 		<BlockSight>1</BlockSight>
 	</World>
+	<World name="DDocks" display="Ducky Docks">
+		<Maps>DDocks/0.jm</Maps>
+		<Portals>0x708b</Portals>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+	</World>
+	<World name="BWGrotto" display="Bilgewater's Grotto">
+		<Maps>Grotto/0.jm</Maps>
+		<Portals>0x75d</Portals>
+		<Background>0</Background>
+		<BlockSight>1</BlockSight>
+	</World>
 </Worlds>

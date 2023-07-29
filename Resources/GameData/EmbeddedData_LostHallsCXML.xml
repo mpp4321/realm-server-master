@@ -10634,4 +10634,110 @@
      	</Texture>
       <DisplayId>Castle of Fire Portal</DisplayId>
    </Object>
+   
+   <Object type="0x7001" id="ClassyBrown1">
+      <Class>Wall</Class>
+      <Texture>
+         <File>miu8x8</File>
+         <Index>0x140</Index>
+      </Texture>
+      <Top>
+		  <Texture>
+			 <File>miu8x8</File>
+			 <Index>0x147</Index>
+		  </Texture>
+      </Top>
+      <HitSound>monster/stone_walls_hit</HitSound>
+      <DeathSound>monster/stone_walls_death</DeathSound>
+      <Static />
+      <FullOccupy />
+      <OccupySquare />
+      <EnemyOccupySquare />
+   </Object>
+   <Object type="0x7002" id="ClassyBrown2">
+      <Class>Wall</Class>
+      <Texture>
+         <File>miu8x8</File>
+         <Index>0x141</Index>
+      </Texture>
+      <Top>
+		  <Texture>
+			 <File>miu8x8</File>
+			 <Index>0x147</Index>
+		  </Texture>
+      </Top>
+      <HitSound>monster/stone_walls_hit</HitSound>
+      <DeathSound>monster/stone_walls_death</DeathSound>
+      <Static />
+      <FullOccupy />
+      <OccupySquare />
+      <EnemyOccupySquare />
+      <BlocksSight />
+   </Object>
+   <Object type="0x7003" id="ClassyBrown3">
+      <Class>Wall</Class>
+      <Texture>
+         <File>miu8x8</File>
+         <Index>0x142</Index>
+      </Texture>
+      <Top>
+		  <Texture>
+			 <File>miu8x8</File>
+			 <Index>0x147</Index>
+		  </Texture>
+      </Top>
+      <HitSound>monster/stone_walls_hit</HitSound>
+      <DeathSound>monster/stone_walls_death</DeathSound>
+      <Static />
+      <FullOccupy />
+      <OccupySquare />
+      <EnemyOccupySquare />
+      <BlocksSight />
+   </Object>
+   <Object type="0x7004" id="ClassyBrown4">
+      <Class>Wall</Class>
+      <Texture>
+         <File>miu8x8</File>
+         <Index>0x143</Index>
+      </Texture>
+      <Top>
+		  <Texture>
+			 <File>miu8x8</File>
+			 <Index>0x147</Index>
+		  </Texture>
+      </Top>
+      <HitSound>monster/stone_walls_hit</HitSound>
+      <DeathSound>monster/stone_walls_death</DeathSound>
+      <Static />
+      <FullOccupy />
+      <OccupySquare />
+      <EnemyOccupySquare />
+      <BlocksSight />
+   </Object>
+	<Object type="0x7005" id="ClassyBrownMossy">
+		<Class>Wall</Class>
+		<RandomTexture>
+			<Texture>
+				<File>miu8x8</File>
+				<Index>0x145</Index>
+			</Texture>
+			<Texture>
+				<File>miu8x8</File>
+				<Index>0x146</Index>
+			</Texture>
+		</RandomTexture>
+		<Top>
+			<Texture>
+				<File>miu8x8</File>
+				<Index>0x147</Index>
+			</Texture>
+		</Top>
+		<HitSound>monster/stone_walls_hit</HitSound>
+		<DeathSound>monster/stone_walls_death</DeathSound>
+		<Static />
+		<FullOccupy />
+		<OccupySquare />
+		<EnemyOccupySquare />
+		<BlocksSight />
+	</Object>
 </Objects>

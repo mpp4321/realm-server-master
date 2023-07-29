@@ -1,21 +1,130 @@
 ﻿using RotMG.Utils;
 using System.Collections.Generic;
-using System.IO;
+using Functional.Maybe;
 using System.Linq;
 using System.Xml.Linq;
 using RotMG.Game;
 using System;
+using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 namespace RotMG.Common
 {
     public interface IDatabaseInfo
     {
-        XElement Export(bool appExport = true);
+        void Export(IData data);
+        XElement ExportApp();
+    }
+
+    public interface IData
+    {
+        public IData Child(string childName);
+        public string Path();
+        public string GetKey(string subKey);
+        public string GetKeyOr(string subKey, string defaultValue);
+        public int GetInt(string subKey, int def=0);
+        public bool GetBool(string subKey, bool def=false);
+        public Maybe<T> GetKeyParsed<T>(string subKey); 
+        public void SetKey(string subKey, object value);
+        public void SetKey(string subKey, string value);
+        public void DelKey(string subKey);
+        public IData Element(string subKey);
+        public List<IData> Elements(string subKey);
+    }
+
+    public class RedisObject : IData
+    {
+        private string parentPath;
+
+        public RedisObject(string parentPath) 
+        {
+            this.parentPath = parentPath;
+        }
+
+        public string Path()
+        {
+            return this.parentPath;
+        }
+
+        private string CombineSubPath(string subKey)
+        {
+            return $"{parentPath}.{subKey}";
+        }
+
+        public void DelKey(string subKey)
+        {
+            Database.DeleteKey(CombineSubPath(subKey), false);
+        }
+
+        public string GetKey(string subKey)
+        {
+            return Database.GetKey(CombineSubPath(subKey), false);
+        }
+        public int GetInt(string subKey, int def=0)
+        {
+            return int.Parse(Database.GetKeyOr(CombineSubPath(subKey), def.ToString(), false));
+        }
+        public bool GetBool(string subKey, bool def=false)
+        {
+            return bool.Parse(Database.GetKeyOr(CombineSubPath(subKey), def.ToString(), false));
+        }
+
+        public void SetKey(string subKey, object value)
+        {
+            try
+            {
+                Database.SetKey(CombineSubPath(subKey), JsonConvert.SerializeObject(value), false);
+            } catch
+            {
+                Program.Print(PrintType.Error, $"Failed to serialize object ${CombineSubPath(subKey)}");
+            }
+        }
+
+        public void SetKey(string subKey, string value)
+        {
+            Database.SetKey(CombineSubPath(subKey), value, false);
+        }
+
+        public Maybe<T> GetKeyParsed<T>(string subKey)
+        {
+            try
+            {
+                return JsonConvert.DeserializeObject<T>(GetKey(subKey)).ToMaybe();
+            } catch
+            {
+
+                Program.Print(PrintType.Error, $"Failed to deserialize object ${CombineSubPath(subKey)}");
+                return Maybe<T>.Nothing;
+            }
+        }
+
+        public IData Element(string subKey)
+        {
+            return new RedisObject(CombineSubPath(subKey));
+        }
+
+        public string GetKeyOr(string subKey, string defaultValue)
+        {
+            if(Database.KeyExists(CombineSubPath(subKey))) {
+                return GetKey(subKey);
+            }
+            return defaultValue;
+        }
+
+        public List<IData> Elements(string subKey)
+        {
+            return Database.GetList(subKey).Select(v => (IData) new RedisObject(CombineSubPath(v))).ToList();
+        }
+
+        public IData Child(string childName)
+        {
+            return new RedisObject($"{this.Path()}.{childName}");
+        }
     }
 
     public abstract class DatabaseModel : IDatabaseInfo
     {
-        public XElement Data = null;
+        public IData Data = null;
         public readonly string Path;
         public DatabaseModel(string key)
         {
@@ -28,44 +137,42 @@ namespace RotMG.Common
 
         public void Reload()
         {
-            if (File.Exists(Path))
+            try
             {
-                try
-                {
-                    Data = XElement.Parse(File.ReadAllText(Path));
-                    Load();
-                } catch(Exception e)
-                {
-                    Console.WriteLine("Error:" + e);
-                    Console.WriteLine("failed to load " + Path);
-                }
-            } else
+                Data = new RedisObject(Path);
+                Load();
+            } catch(Exception e)
             {
-                Console.WriteLine("File doesn't exist " + Path);
+                Console.WriteLine("Error:" + e);
+                Console.WriteLine("failed to load " + Path);
             }
         }
 
         public virtual void Save()
         {
-            Data = Export(false);
-            File.WriteAllText(Path, Data.ToString());
+            Export(Data);
         }
 
         protected abstract void Load();
-        public abstract XElement Export(bool appExport = true);
+
+        // This is now nullable XElement for the sake of the app exports.
+        public abstract void Export(IData Data);
+
+        // This is now nullable XElement for the sake of the app exports.
+        public abstract XElement? ExportApp();
     }
 
     public class VaultChestModel : DatabaseModel
     {
         public readonly int Id;
         public int[] Inventory;
-        public string[] ItemDatas;
+        public ItemDataJson[] ItemDatas;
         public VaultChestModel(int accountId, int key) : base($"vault.{accountId}.{key}")
         {
             Id = key;
         }
         private VaultChestModel() : base(null) { }
-        public static VaultChestModel CreateFrom(int Id, int[] inventory, string[] itemDatas)
+        public static VaultChestModel CreateFrom(int Id, int[] inventory, ItemDataJson[] itemDatas)
         {
             var model = new VaultChestModel();
             model.Inventory = inventory;
@@ -75,16 +182,19 @@ namespace RotMG.Common
 
         protected override void Load()
         {
-            Inventory = Data.ParseIntArray("Inventory", ",");
-            ItemDatas = Data.ParseStringArray("ItemDatas", null, regex: new System.Text.RegularExpressions.Regex(@"(?<=}),(?={)"))?.Take(8).ToArray() ?? Enumerable.Repeat("{\"Meta\": -1}", 8).ToArray();
+            Inventory = Data.GetKeyParsed<int[]>("Inventory").OrElse(new int[8]);
+            ItemDatas = Data.GetKeyParsed<ItemDataJson[]>("ItemDatas").OrElse(Enumerable.Repeat(new ItemDataJson(), 20).ToArray()).ToArray();
         }
 
-        public override XElement Export(bool appExport = true)
+        public override void Export(IData Data)
         {
-            var data = new XElement("Vault");
-            data.Add(new XElement("Inventory", string.Join(",", Inventory)));
-            data.Add(new XElement("ItemDatas", string.Join(",", ItemDatas)));
-            return data;
+            Data.SetKey("Inventory", Inventory);
+            Data.SetKey("ItemDatas", ItemDatas);
+        }
+
+        public override XElement ExportApp()
+        {
+            throw new NotImplementedException();
         }
     }
 
@@ -100,9 +210,7 @@ namespace RotMG.Common
         public int[] Stats;
         public int[] Inventory;
 
-        public string ItemDataModifier;
-
-        public string[] ItemDatas;
+        public string ItemDataModifier = "Classical";
 
         public string[] SelectedRunes = new string[] { };
 
@@ -124,7 +232,7 @@ namespace RotMG.Common
         public int PetId;
 
         public int GlowColor = 0; 
-        public int Size = 0; 
+        public int Size = 0;
 
         public CharacterModel(int accountId, int key) : base($"char.{accountId}.{key}") 
         {
@@ -133,37 +241,40 @@ namespace RotMG.Common
 
         protected override void Load()
         {
-            Level = Data.ParseInt("Level");
-            Experience = Data.ParseInt("Experience");
-            ClassType = Data.ParseInt("ClassType");
-            HP = Data.ParseInt("HP");
-            MP = Data.ParseInt("MP");
-            Stats = Data.ParseIntArray("Stats", ",");
+            Level = Data.GetInt("Level");
+            Experience = Data.GetInt("Experience");
+            ClassType = Data.GetInt("ClassType");
+            HP = Data.GetInt("HP");
+            MP = Data.GetInt("MP");
+            Stats = Data.GetKeyParsed<int[]>("Stats").OrElse(new int[10]);
             // There are 9 stats including new protection, this is to ensure backwards compatibility with old stat blocks
             // now 10 stats
             Stats = Stats.Concat(Enumerable.Range(Stats.Length, 10 - Stats.Length).Select(a => Resources.Type2Player[(ushort) ClassType].Stats[a].StartingValue)).ToArray();
-            Inventory = Data.ParseIntArray("Equipment", ",").Select(a => a != 0 ? a : -1).ToArray();
-            ItemDatas = Data.ParseStringArray("ItemDatas", null, regex: new System.Text.RegularExpressions.Regex(@"(?<=}),(?={)"), doRemoveWhiteSpaces: false);
-            ItemDataJsons = ItemDatas?.Select(a => ItemDesc.ParseItemDataJson(a)).ToArray();
-            Fame = Data.ParseInt("Fame");
-            Tex1 = Data.ParseInt("Tex1");
-            Tex2 = Data.ParseInt("Tex2");
-            SkinType = Data.ParseInt("SkinType");
-            HealthPotions = Data.ParseInt("HealthPotions");
-            MagicPotions = Data.ParseInt("MagicPotions");
-            CreationTime = Data.ParseInt("CreationTime");
-            Deleted = Data.ParseBool("Deleted");
-            Dead = Data.ParseBool("Dead");
-            DeathFame = Data.ParseInt("DeathFame");
-            DeathTime = Data.ParseInt("DeathTime");
-            HasBackpack = Data.ParseBool("HasBackpack");
+            Inventory = Data.GetKeyParsed<int[]>("Equipment").OrElse(Enumerable.Repeat(-1, 20).ToArray()).Select(v => v != 0 ? v : -1).ToArray();
+            ItemDataJsons = Data.GetKeyParsed<ItemDataJson[]>("ItemDatas").OrElse<ItemDataJson[]>(Enumerable.Repeat(new ItemDataJson(), 20).ToArray());
+            Fame = Data.GetInt("Fame");
+            Tex1 = Data.GetInt("Tex1");
+            Tex2 = Data.GetInt("Tex2");
+            SkinType = Data.GetInt("SkinType");
+            HealthPotions = Data.GetInt("HealthPotions");
+            MagicPotions = Data.GetInt("MagicPotions");
+            CreationTime = Data.GetInt("CreationTime");
+            Deleted = Data.GetBool("Deleted");
+            Dead = Data.GetBool("Dead");
+            DeathFame = Data.GetInt("DeathFame");
+            DeathTime = Data.GetInt("DeathTime");
+            HasBackpack = Data.GetBool("HasBackpack");
             FameStats = new FameStatsInfo(Data.Element("FameStats"));
-            PetId = Data.ParseInt("PetId");
-            ItemDataModifier = Data.ParseString("ItemDataModifier", "Classical");
-            SelectedRunes = Data.ParseStringArray("Runes", ",", new string[] { });
+            PetId = Data.GetInt("PetId");
+            ItemDataModifier = Data.GetKey("ItemDataModifier");
+            if(ItemDataModifier == "")
+            {
+                ItemDataModifier = "Classical";
+            }
+            SelectedRunes = Data.GetKeyParsed<string[]>("Runes").OrElse(new string[0]);
 
-            GlowColor = Data.ParseInt("GlowColor");
-            Size = Data.ParseInt("Size");
+            GlowColor = Data.GetInt("GlowColor");
+            Size = Data.GetInt("Size");
         }
 
         public XElement ExportFame()
@@ -174,7 +285,7 @@ namespace RotMG.Common
             data.Add(new XElement("Exp", Experience));
             data.Add(new XElement("CurrentFame", Fame));
             data.Add(new XElement("Equipment", string.Join(",", Inventory)));
-            data.Add(new XElement("ItemDatas", string.Join(",", ItemDatas)));
+            data.Add(new XElement("ItemDatas", ItemDataJsons));
             data.Add(new XElement("MaxHitPoints", Stats[0]));
             data.Add(new XElement("HitPoints", HP));
             data.Add(new XElement("MaxMagicPoints", Stats[1]));
@@ -190,64 +301,62 @@ namespace RotMG.Common
             data.Add(new XElement("Texture", SkinType));
             return data;
         }
-
-        public override XElement Export(bool appExport = true)
+        public override XElement ExportApp()
         {
             var data = new XElement("Char");
-            if (appExport) //char/list export
-            {
-                data.Add(new XElement("ObjectType", ClassType));
-                data.Add(new XElement("Level", Level));
-                data.Add(new XElement("Exp", Experience));
-                data.Add(new XElement("CurrentFame", Fame));
-                data.Add(new XElement("Equipment", string.Join(",", Inventory)));
-                data.Add(new XElement("ItemDatas", string.Join(",", ItemDataJsons.Select(a => ItemDesc.ExportItemDataJson(a)).ToArray())));
-                data.Add(new XElement("MaxHitPoints", Stats[0]));
-                data.Add(new XElement("HitPoints", HP));
-                data.Add(new XElement("MaxMagicPoints", Stats[1]));
-                data.Add(new XElement("MagicPoints", MP));
-                data.Add(new XElement("Attack", Stats[2]));
-                data.Add(new XElement("Defense", Stats[3]));
-                data.Add(new XElement("Speed", Stats[4]));
-                data.Add(new XElement("Dexterity", Stats[5]));
-                data.Add(new XElement("HpRegen", Stats[6]));
-                data.Add(new XElement("MpRegen", Stats[7]));
-                data.Add(new XElement("Protection", Stats[8]));
-                data.Add(new XElement("CritChance", Stats[9]));
-                data.Add(new XElement("Tex1", Tex1));
-                data.Add(new XElement("Tex2", Tex2));
-                data.Add(new XElement("Texture", SkinType));
-            }
-            else //database export
-            {
-                data.Add(new XElement("Level", Level));
-                data.Add(new XElement("Experience", Experience));
-                data.Add(new XElement("ClassType", ClassType));
-                data.Add(new XElement("HP", HP));
-                data.Add(new XElement("MP", MP));
-                data.Add(new XElement("Stats", string.Join(",", Stats)));
-                data.Add(new XElement("Equipment", string.Join(",", Inventory)));
-                data.Add(new XElement("ItemDatas", string.Join(",", ItemDataJsons.Select(a => ItemDesc.ExportItemDataJson(a)).ToArray())));
-                data.Add(new XElement("Fame", Fame));
-                data.Add(new XElement("Tex1", Tex1));
-                data.Add(new XElement("Tex2", Tex2));
-                data.Add(new XElement("SkinType", SkinType));
-                data.Add(new XElement("HealthPotions", HealthPotions));
-                data.Add(new XElement("MagicPotions", MagicPotions));
-                data.Add(new XElement("HasBackpack", HasBackpack));
-                data.Add(new XElement("CreationTime", CreationTime));
-                data.Add(new XElement("Deleted", Deleted));
-                data.Add(new XElement("Dead", Dead));
-                data.Add(new XElement("DeathFame", DeathFame));
-                data.Add(new XElement("DeathTime", DeathTime));
-                data.Add(new XElement("PetId", PetId));
-                data.Add(new XElement("ItemDataModifier", ItemDataModifier));
-                data.Add(new XElement("Runes", string.Join(",", SelectedRunes)));
-                data.Add(new XElement("GlowColor", GlowColor));
-                data.Add(new XElement("Size", Size));
-                data.Add(FameStats.Export(appExport));
-            }
+            data.Add(new XElement("ObjectType", ClassType));
+            data.Add(new XElement("Level", Level));
+            data.Add(new XElement("Exp", Experience));
+            data.Add(new XElement("CurrentFame", Fame));
+            data.Add(new XElement("Equipment", string.Join(",", Inventory)));
+            data.Add(new XElement("ItemDatas", string.Join(",", ItemDataJsons.Select(a => ItemDesc.ExportItemDataJson(a)).ToArray())));
+            data.Add(new XElement("MaxHitPoints", Stats[0]));
+            data.Add(new XElement("HitPoints", HP));
+            data.Add(new XElement("MaxMagicPoints", Stats[1]));
+            data.Add(new XElement("MagicPoints", MP));
+            data.Add(new XElement("Attack", Stats[2]));
+            data.Add(new XElement("Defense", Stats[3]));
+            data.Add(new XElement("Speed", Stats[4]));
+            data.Add(new XElement("Dexterity", Stats[5]));
+            data.Add(new XElement("HpRegen", Stats[6]));
+            data.Add(new XElement("MpRegen", Stats[7]));
+            data.Add(new XElement("Protection", Stats[8]));
+            data.Add(new XElement("CritChance", Stats[9]));
+            data.Add(new XElement("Tex1", Tex1));
+            data.Add(new XElement("Tex2", Tex2));
+            data.Add(new XElement("Texture", SkinType));
             return data;
+        }
+
+        public override void Export(IData Data)
+        {
+            Data.SetKey("Level", Level);
+            Data.SetKey("Experience", Experience.ToString());
+            Data.SetKey("ClassType", ClassType.ToString());
+            Data.SetKey("HP", HP.ToString());
+            Data.SetKey("MP", MP.ToString());
+            Data.SetKey("Stats", Stats);
+            Data.SetKey("Equipment", Inventory);
+            Data.SetKey("ItemDatas", JsonConvert.SerializeObject(ItemDataJsons));
+            Data.SetKey("Fame", Fame.ToString());
+            Data.SetKey("Tex1", Tex1.ToString());
+            Data.SetKey("Tex2", Tex2.ToString());
+            Data.SetKey("SkinType", SkinType.ToString());
+            Data.SetKey("HealthPotions", HealthPotions.ToString());
+            Data.SetKey("MagicPotions", MagicPotions.ToString());
+            Data.SetKey("CreationTime", CreationTime.ToString());
+            Data.SetKey("Deleted", Deleted.ToString());
+            Data.SetKey("Dead", Dead.ToString());
+            Data.SetKey("DeathFame", DeathFame.ToString());
+            Data.SetKey("DeathTime", DeathTime.ToString());
+            Data.SetKey("HasBackpack", HasBackpack.ToString());
+            FameStats.Export(Data);
+            Data.SetKey("PetId", PetId.ToString());
+            Data.SetKey("ItemDataModifier", ItemDataModifier.ToString());
+            Data.SetKey("Runes", SelectedRunes);
+
+            Data.SetKey("GlowColor", GlowColor.ToString());
+            Data.SetKey("Size", Size.ToString());
         }
 
         public ItemDesc GetDescription(int k)
@@ -270,19 +379,21 @@ namespace RotMG.Common
         }
 
 
-        public override XElement Export(bool appExport = true)
+        public override void Export(IData Data)
         {
-            var data = new XElement("Market");
-            var xElemList = Posts.Select(a => a.Export()).ToArray();
-            data.Add(new XElement("CurrentListings", xElemList));
-            data.Add(new XElement("NextPostId", NextPostId));
-            return data;
+            Data.SetKey("CurrentListings", Posts);
+            Data.SetKey("NextPostId", NextPostId.ToString());
+        }
+
+        public override XElement ExportApp()
+        {
+            throw new NotImplementedException();
         }
 
         protected override void Load()
         {
-            Posts = Data.Element("CurrentListings").Elements().Select(a => new MarketPost(a)).ToList();
-            NextPostId = Data.ParseInt("NextPostId");
+            Posts = Data.GetKeyParsed<List<MarketPost>>("CurrentListings").OrElse(new List<MarketPost>());
+            NextPostId = Data.GetInt("NextPostId");
         }
     }
 
@@ -296,7 +407,6 @@ namespace RotMG.Common
 
         public MarketPost()
         {
-
         }
 
         public MarketPost(XElement elem)
@@ -308,7 +418,7 @@ namespace RotMG.Common
             AccountId = elem.ParseInt("AccountId");
         }
 
-        public XElement Export(bool appExport = true)
+        public XElement ExportApp()
         {
             XElement elem = new XElement("MarketPost");
             elem.Add(new XElement("Item", Item));
@@ -318,10 +428,17 @@ namespace RotMG.Common
             elem.Add(new XElement("AccountId", AccountId));
             return elem;
         }
+
+        public void Export(IData parent)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class FameStatsInfo : IDatabaseInfo
     {
+        private IData Data;
+
         public int Shots;
         public int ShotsThatDamage;
         public int TilesUncovered;
@@ -359,79 +476,83 @@ namespace RotMG.Common
         public int TombsCompleted;
 
         public FameStatsInfo() { }
-        public FameStatsInfo(XElement data)
+        public FameStatsInfo(IData data)
         {
-            Shots = data.ParseInt("Shots");
-            ShotsThatDamage = data.ParseInt("ShotsThatDamage");
-            TilesUncovered = data.ParseInt("TilesUncovered");
-            QuestsCompleted = data.ParseInt("QuestsCompleted");
-            Escapes = data.ParseInt("Escapes");
-            NearDeathEscapes = data.ParseInt("NearDeathEscapes");
-            MinutesActive = data.ParseInt("MinutesActive");
+            this.Data = data;
 
-            LevelUpAssists = data.ParseInt("LevelUpAssists");
-            PotionsDrank = data.ParseInt("PotionsDrank");
-            Teleports = data.ParseInt("Teleports");
-            AbilitiesUsed = data.ParseInt("AbilitiesUsed");
+            Shots = data.GetInt("Shots");
+            ShotsThatDamage = data.GetInt("ShotsThatDamage");
+            TilesUncovered = data.GetInt("TilesUncovered");
+            QuestsCompleted = data.GetInt("QuestsCompleted");
+            Escapes = data.GetInt("Escapes");
+            NearDeathEscapes = data.GetInt("NearDeathEscapes");
+            MinutesActive = data.GetInt("MinutesActive");
 
-            DamageTaken = data.ParseInt("DamageTaken");
-            DamageDealt = data.ParseInt("DamageDealt");
+            LevelUpAssists = data.GetInt("LevelUpAssists");
+            PotionsDrank = data.GetInt("PotionsDrank");
+            Teleports = data.GetInt("Teleports");
+            AbilitiesUsed = data.GetInt("AbilitiesUsed");
 
-            MonsterKills = data.ParseInt("MonsterKills");
-            MonsterAssists = data.ParseInt("MonsterAssists");
-            GodKills = data.ParseInt("GodKills");
-            GodAssists = data.ParseInt("GodAssists");
-            OryxKills = data.ParseInt("OryxKills");
-            OryxAssists = data.ParseInt("OryxAssists");
-            CubeKills = data.ParseInt("CubeKills");
-            CubeAssists = data.ParseInt("CubeAssists");
-            CyanBags = data.ParseInt("CyanBags");
-            BlueBags = data.ParseInt("BlueBags");
-            WhiteBags = data.ParseInt("WhiteBags");
+            DamageTaken = data.GetInt("DamageTaken");
+            DamageDealt = data.GetInt("DamageDealt");
 
-            PirateCavesCompleted = data.ParseInt("PirateCavesCompleted");
-            UndeadLairsCompleted = data.ParseInt("UndeadLairsCompleted");
-            AbyssOfDemonsCompleted = data.ParseInt("AbyssOfDemonsCompleted");
-            SnakePitsCompleted = data.ParseInt("SnakePitsCompleted");
-            SpiderDensCompleted = data.ParseInt("SpiderDensCompleted");
-            SpriteWorldsCompleted = data.ParseInt("SpriteWorldsCompleted");
-            TombsCompleted = data.ParseInt("TombsCompleted");
+            MonsterKills = data.GetInt("MonsterKills");
+            MonsterAssists = data.GetInt("MonsterAssists");
+            GodKills = data.GetInt("GodKills");
+            GodAssists = data.GetInt("GodAssists");
+            OryxKills = data.GetInt("OryxKills");
+            OryxAssists = data.GetInt("OryxAssists");
+            CubeKills = data.GetInt("CubeKills");
+            CubeAssists = data.GetInt("CubeAssists");
+            CyanBags = data.GetInt("CyanBags");
+            BlueBags = data.GetInt("BlueBags");
+            WhiteBags = data.GetInt("WhiteBags");
+
+            PirateCavesCompleted = data.GetInt("PirateCavesCompleted");
+            UndeadLairsCompleted = data.GetInt("UndeadLairsCompleted");
+            AbyssOfDemonsCompleted = data.GetInt("AbyssOfDemonsCompleted");
+            SnakePitsCompleted = data.GetInt("SnakePitsCompleted");
+            SpiderDensCompleted = data.GetInt("SpiderDensCompleted");
+            SpriteWorldsCompleted = data.GetInt("SpriteWorldsCompleted");
+            TombsCompleted = data.GetInt("TombsCompleted");
         }
 
-        public XElement Export(bool appExport = true)
+        public XElement Export(IData data)
         {
-            var data = new XElement("FameStats");
-            data.Add(new XElement("Shots", Shots));
-            data.Add(new XElement("ShotsThatDamage", ShotsThatDamage));
-            data.Add(new XElement("TilesUncovered", TilesUncovered));
-            data.Add(new XElement("QuestsCompleted", QuestsCompleted));
-            data.Add(new XElement("PirateCavesCompleted", PirateCavesCompleted));
-            data.Add(new XElement("UndeadLairsCompleted", UndeadLairsCompleted));
-            data.Add(new XElement("AbyssOfDemonsCompleted", AbyssOfDemonsCompleted));
-            data.Add(new XElement("SnakePitsCompleted", SnakePitsCompleted));
-            data.Add(new XElement("SpiderDensCompleted", SpiderDensCompleted));
-            data.Add(new XElement("SpriteWorldsCompleted", SpriteWorldsCompleted));
-            data.Add(new XElement("Escapes", Escapes));
-            data.Add(new XElement("NearDeathEscapes", NearDeathEscapes));
-            data.Add(new XElement("LevelUpAssists", LevelUpAssists));
-            data.Add(new XElement("DamageTaken", DamageTaken));
-            data.Add(new XElement("DamageDealt", DamageDealt));
-            data.Add(new XElement("Teleports", Teleports));
-            data.Add(new XElement("PotionsDrank", PotionsDrank));
-            data.Add(new XElement("MonsterKills", MonsterKills));
-            data.Add(new XElement("MonsterAssists", MonsterAssists));
-            data.Add(new XElement("GodKills", GodKills));
-            data.Add(new XElement("GodAssists", GodAssists));
-            data.Add(new XElement("OryxKills", OryxKills));
-            data.Add(new XElement("OryxAssists", OryxAssists));
-            data.Add(new XElement("CubeKills", CubeKills));
-            data.Add(new XElement("CubeAssists", CubeAssists));
-            data.Add(new XElement("CyanBags", CyanBags));
-            data.Add(new XElement("BlueBags", BlueBags));
-            data.Add(new XElement("WhiteBags", WhiteBags));
-            data.Add(new XElement("MinutesActive", MinutesActive));
-            data.Add(new XElement("AbilitiesUsed", AbilitiesUsed));
-            return data;
+            if (data == null)
+                return null;
+
+            data.SetKey("Shots", Shots.ToString());
+            data.SetKey("ShotsThatDamage", ShotsThatDamage.ToString());
+            data.SetKey("TilesUncovered", TilesUncovered.ToString());
+            data.SetKey("QuestsCompleted", QuestsCompleted.ToString());
+            data.SetKey("PirateCavesCompleted", PirateCavesCompleted.ToString());
+            data.SetKey("UndeadLairsCompleted", UndeadLairsCompleted.ToString());
+            data.SetKey("AbyssOfDemonsCompleted", AbyssOfDemonsCompleted.ToString());
+            data.SetKey("SnakePitsCompleted", SnakePitsCompleted.ToString());
+            data.SetKey("SpiderDensCompleted", SpiderDensCompleted.ToString());
+            data.SetKey("SpriteWorldsCompleted", SpriteWorldsCompleted.ToString());
+            data.SetKey("Escapes", Escapes.ToString());
+            data.SetKey("NearDeathEscapes", NearDeathEscapes.ToString());
+            data.SetKey("LevelUpAssists", LevelUpAssists.ToString());
+            data.SetKey("DamageTaken", DamageTaken.ToString());
+            data.SetKey("DamageDealt", DamageDealt.ToString());
+            data.SetKey("Teleports", Teleports.ToString());
+            data.SetKey("PotionsDrank", PotionsDrank.ToString());
+            data.SetKey("MonsterKills", MonsterKills.ToString());
+            data.SetKey("MonsterAssists", MonsterAssists.ToString());
+            data.SetKey("GodKills", GodKills.ToString());
+            data.SetKey("GodAssists", GodAssists.ToString());
+            data.SetKey("OryxKills", OryxKills.ToString());
+            data.SetKey("OryxAssists", OryxAssists.ToString());
+            data.SetKey("CubeKills", CubeKills.ToString());
+            data.SetKey("CubeAssists", CubeAssists.ToString());
+            data.SetKey("CyanBags", CyanBags.ToString());
+            data.SetKey("BlueBags", BlueBags.ToString());
+            data.SetKey("WhiteBags", WhiteBags.ToString());
+            data.SetKey("MinutesActive", MinutesActive.ToString());
+            data.SetKey("AbilitiesUsed", AbilitiesUsed.ToString());
+            return null;
         }
 
         public void ExportTo(XElement e)
@@ -467,6 +588,18 @@ namespace RotMG.Common
             e.Add(new XElement("MinutesActive", MinutesActive));
             e.Add(new XElement("AbilitiesUsed", AbilitiesUsed));
         }
+
+        void IDatabaseInfo.Export(IData parent)
+        {
+            throw new NotImplementedException();
+        }
+
+        public XElement ExportApp()
+        {
+            XElement elem = new XElement("Fame");
+            ExportTo(elem);
+            return elem;
+        }
     }
 
     public class GuildModel : DatabaseModel
@@ -486,44 +619,44 @@ namespace RotMG.Common
 
         protected override void Load()
         {
-            Level = Data.ParseInt("Level");
-            Fame = Data.ParseInt("Fame");
-            TotalFame = Data.ParseInt("TotalFame");
-            Members = Data.ParseIntList("Members", ",", new List<int>());
-            BoardMessage = Data.ParseString("BoardMessage", "");
+            Level = Data.GetInt("Level");
+            Fame = Data.GetInt("Fame");
+            TotalFame = Data.GetInt("TotalFame");
+            Members = Data.GetKeyParsed<List<int>>("Members").OrElse(new List<int>());
+            BoardMessage = Data.GetKey("BoardMessage");
         }
 
-        public override XElement Export(bool appExport = true)
+        public override XElement ExportApp()
         {
             var data = new XElement("Guild");
             data.Add(new XElement("TotalFame", TotalFame));
-            if (appExport)
+            data.Add(new XAttribute("name", Name));
+            data.Add(new XElement("CurrentFame", Fame));
+            data.Add(new XElement("HallType", "Guild Hall " + Level));
+            foreach (var member in from i in Members
+                    select new AccountModel(i) into acc
+                    orderby acc.GuildRank descending, 
+                            acc.GuildFame descending, 
+                            acc.Name
+                    select acc)
             {
-                data.Add(new XAttribute("name", Name));
-                data.Add(new XElement("CurrentFame", Fame));
-                data.Add(new XElement("HallType", "Guild Hall " + Level));
-                foreach (var member in from i in Members
-                        select new AccountModel(i) into acc
-                        orderby acc.GuildRank descending, 
-                                acc.GuildFame descending, 
-                                acc.Name
-                        select acc)
-                {
-                    data.Add(new XElement("Member",
-                        new XElement("Name", member.Name),
-                        new XElement("Rank", member.GuildRank),
-                        new XElement("Fame", member.GuildFame),
-                        new XElement("LastSeen", member.LastSeen)));
-                }
-            }
-            else
-            {
-                data.Add(new XElement("Level", Level));
-                data.Add(new XElement("Fame", Fame));
-                data.Add(new XElement("Members", string.Join(",", Members)));
-                data.Add(new XElement("BoardMessage", BoardMessage));
+                data.Add(new XElement("Member",
+                    new XElement("Name", member.Name),
+                    new XElement("Rank", member.GuildRank),
+                    new XElement("Fame", member.GuildFame),
+                    new XElement("LastSeen", member.LastSeen)));
             }
             return data;
+        }
+
+        public override void Export(IData Data)
+        {
+            Data.SetKey("TotalFame", TotalFame.ToString());
+            Data.SetKey("Level", Level.ToString());
+            Data.SetKey("Fame", Fame.ToString());
+            Data.SetKey("TotalFame", TotalFame.ToString());
+            Data.SetKey("Members", Members);
+            Data.SetKey("BoardMessage", BoardMessage);
         }
     }
 
@@ -561,14 +694,13 @@ namespace RotMG.Common
         public bool Sounds;
         public bool Notifications;
         public List<int> Gifts;
+        public int EntitySpawnCooldown;
 
         public AccountModel() : base(null) { }
         public AccountModel(int key) : base($"account.{key}")
         {
             Id = key;
-
-            if (Data != null)
-                Name = Database.UsernameFromId(key);
+            Name = Database.UsernameFromId(key);
         }
 
         public override void Save()
@@ -582,39 +714,40 @@ namespace RotMG.Common
 
         protected override void Load()
         {
-            NextCharId = Data.ParseInt("NextCharId");
-            MaxNumChars = Data.ParseInt("MaxNumChars");
-            VaultCount = Data.ParseInt("VaultCount");
-            AliveChars = Data.ParseIntList("AliveChars", ",", new List<int>());
-            DeadChars = Data.ParseIntList("DeadChars", ",", new List<int>());
-            OwnedSkins = Data.ParseIntList("OwnedSkins", ",", new List<int>());
-            Ranked = Data.ParseBool("Ranked");
-            Muted = Data.ParseBool("Muted");
-            Banned = Data.ParseBool("Banned");
-            GuildName = Data.ParseString("GuildName");
-            GuildRank = Data.ParseInt("GuildRank");
-            GuildFame = Data.ParseInt("GuildFame");
-            Connected = Data.ParseBool("Connected");
-            RegisterTime = Data.ParseInt("RegisterTime");
-            LastSeen = Data.ParseInt("LastSeen");
-            LockedIds = Data.ParseIntList("LockedIds", ",", new List<int>());
-            IgnoredIds = Data.ParseIntList("IgnoredIds", ",", new List<int>());
-            AllyShots = Data.ParseBool("AllyShots", true);
-            AllyDamage = Data.ParseBool("AllyDamage", true);
-            Effects = Data.ParseBool("Effects", true);
-            Sounds = Data.ParseBool("Sounds", true);
-            Notifications = Data.ParseBool("Notifications", true);
-            Gifts = Data.ParseIntList("Gifts", ",", new List<int>());
+            NextCharId = Data.GetInt("NextCharId");
+            MaxNumChars = Data.GetInt("MaxNumChars", 4);
+            VaultCount = Data.GetInt("VaultCount", 1);
+            AliveChars = Data.GetKeyParsed<List<int>>("AliveChars").OrElse(new List<int>());
+            DeadChars = Data.GetKeyParsed<List<int>>("DeadChars").OrElse(new List<int>());
+            OwnedSkins = Data.GetKeyParsed<List<int>>("OwnedSkins").OrElse(new List<int>());
+            Ranked = bool.Parse(Data.GetKeyOr("Ranked", "false"));
+            Muted = bool.Parse(Data.GetKeyOr("Muted", "false"));
+            Banned = bool.Parse(Data.GetKeyOr("Banned", "false"));
+            GuildName = Data.GetKey("GuildName");
+            GuildRank = Data.GetInt("GuildRank");
+            GuildFame = Data.GetInt("GuildFame");
+            Connected = bool.Parse(Data.GetKeyOr("Connected", "false"));
+            RegisterTime = Data.GetInt("RegisterTime");
+            LastSeen = Data.GetInt("LastSeen");
+            LockedIds = Data.GetKeyParsed<List<int>>("LockedIds").OrElse(new List<int>());
+            IgnoredIds = Data.GetKeyParsed<List<int>>("IgnoredIds").OrElse(new List<int>());
+            AllyShots = Data.GetBool("AllyShots");
+            AllyDamage = Data.GetBool("AllyDamage", true);
+            Effects = Data.GetBool("Effects", true);
+            Sounds = Data.GetBool("Sounds", true);
+            Notifications = bool.Parse(Data.GetKeyOr("Notifications", "true"));
+            Gifts = Data.GetKeyParsed<List<int>>("Gifts").OrElse(new List<int>());
+            EntitySpawnCooldown = Data.GetInt("EntitySpawnCooldown", 0);
 
-            Donator = Data.ParseInt("Donator", 0);
+            Donator = Data.GetInt("Donator");
 
             Stats = new StatsInfo
             {
-                BestCharFame = Data.Element("Stats").ParseInt("BestCharFame"),
-                TotalFame = Data.Element("Stats").ParseInt("TotalFame"),
-                Fame = Data.Element("Stats").ParseInt("Fame"),
-                TotalCredits = Data.Element("Stats").ParseInt("TotalCredits"),
-                Credits = Data.Element("Stats").ParseInt("Credits")
+                BestCharFame = Data.Element("Stats").GetInt("BestCharFame"),
+                TotalFame = Data.Element("Stats").GetInt("TotalFame"),
+                Fame = Data.Element("Stats").GetInt("Fame"),
+                TotalCredits = Data.Element("Stats").GetInt("TotalCredits"),
+                Credits = Data.Element("Stats").GetInt("Credits")
             };
 
             var classStats = new List<ClassStatsInfo>();
@@ -622,57 +755,54 @@ namespace RotMG.Common
             {
                 classStats.Add(new ClassStatsInfo
                 {
-                    ObjectType = e.ParseInt("@objectType"),
-                    BestFame = e.ParseInt("BestFame"),
-                    BestLevel = e.ParseInt("BestLevel")
+                    ObjectType = e.GetInt("@objectType"),
+                    BestFame = e.GetInt("BestFame"),
+                    BestLevel = e.GetInt("BestLevel")
                 });
             }
             Stats.ClassStats = classStats.ToArray();
         }
 
-        public override XElement Export(bool appExport = true)
+        public override XElement ExportApp()
         {
             var data = new XElement("Account");
             data.Add(new XElement("AccountId", Id));
-
-            if (appExport)
-            {
-                data.Add(new XElement("Name", Name));
-                data.Add(new XElement("Guild", 
-                    new XElement("Name", GuildName), 
-                    new XElement("Rank", GuildRank)));
-            }
-            else
-            {
-                data.Add(new XElement("AliveChars", string.Join(",", AliveChars)));
-                data.Add(new XElement("DeadChars", string.Join(",", DeadChars)));
-                data.Add(new XElement("OwnedSkins", string.Join(",", OwnedSkins)));
-                data.Add(new XElement("Ranked", Ranked));
-                data.Add(new XElement("Muted", Muted));
-                data.Add(new XElement("Banned", Banned));
-                data.Add(new XElement("Connected", Connected));
-                data.Add(new XElement("NextCharId", NextCharId));
-                data.Add(new XElement("MaxNumChars", MaxNumChars));
-                data.Add(new XElement("VaultCount", VaultCount));
-                data.Add(new XElement("GuildName", GuildName));
-                data.Add(new XElement("GuildRank", GuildRank));
-                data.Add(new XElement("GuildFame", GuildFame));
-                data.Add(new XElement("RegisterTime", RegisterTime));
-                data.Add(new XElement("LastSeen", LastSeen));
-                data.Add(new XElement("LockedIds", string.Join(",", LockedIds)));
-                data.Add(new XElement("IgnoredIds", string.Join(",", IgnoredIds)));
-                data.Add(new XElement("AllyShots", AllyShots));
-                data.Add(new XElement("AllyDamage", AllyDamage));
-                data.Add(new XElement("Effects", Effects));
-                data.Add(new XElement("Sounds", Sounds));
-                data.Add(new XElement("Notifications", Notifications));
-                data.Add(new XElement("Gifts", string.Join(",", Gifts)));
-                data.Add(new XElement("Donator", Donator));
-            }
-
-            data.Add(Stats.Export(appExport));
-
+            data.Add(new XElement("Name", Name));
+            data.Add(new XElement("Guild", 
+                new XElement("Name", GuildName), 
+                new XElement("Rank", GuildRank)));
+            data.Add(Stats.ExportApp());
             return data;
+        }
+
+        public override void Export(IData Data)
+        {
+            Data.SetKey("AccountId", Id);
+            Data.SetKey("AliveChars", AliveChars);
+            Data.SetKey("DeadChars", DeadChars);
+            Data.SetKey("OwnedSkins", OwnedSkins);
+            Data.SetKey("Ranked", Ranked.ToString());
+            Data.SetKey("Banned", Banned.ToString());
+            Data.SetKey("Connected", Connected.ToString());
+            Data.SetKey("NextCharId", NextCharId.ToString());
+            Data.SetKey("MaxNumChars", MaxNumChars.ToString());
+            Data.SetKey("VaultCount", VaultCount.ToString());
+            Data.SetKey("GuildName", GuildName);
+            Data.SetKey("GuildRank", GuildRank.ToString());
+            Data.SetKey("RegisterTime", RegisterTime.ToString());
+            Data.SetKey("LastSeen", LastSeen.ToString());
+            Data.SetKey("LockedIds", LockedIds);
+            Data.SetKey("IgnoredIds", IgnoredIds);
+            Data.SetKey("AllyShots", AllyShots.ToString());
+            Data.SetKey("AllyDamage", AllyDamage.ToString());
+            Data.SetKey("Effects", Effects.ToString());
+            Data.SetKey("Sounds", Sounds.ToString());
+            Data.SetKey("Notifications", Notifications.ToString());
+            Data.SetKey("Gifts", Gifts);
+            Data.SetKey("Donator", Donator);
+            Data.SetKey("EntitySpawnCooldown", EntitySpawnCooldown.ToString());
+
+            Stats.Export(Data.Element("Stats"));
         }
     }
 
@@ -682,7 +812,16 @@ namespace RotMG.Common
         public int BestLevel;
         public int BestFame;
 
-        public XElement Export(bool appExport = true)
+        public void Export(IData parent)
+        {
+            var child = parent.Child($"ClassStats.{ObjectType.ToString()}");
+
+            child.SetKey("objectType", ObjectType.ToString());
+            child.SetKey("BestLevel", BestLevel.ToString());
+            child.SetKey("BestFame", BestFame.ToString());
+        }
+
+        public XElement ExportApp()
         {
             var data = new XElement("ClassStats");
             data.Add(new XAttribute("objectType", ObjectType));
@@ -701,7 +840,16 @@ namespace RotMG.Common
         public int TotalCredits;
         public ClassStatsInfo[] ClassStats;
 
-        public XElement Export(bool appExport = true)
+        public void Export(IData parent)
+        {
+            parent.SetKey("BestCharFame", BestCharFame.ToString());
+            parent.SetKey("TotalFame", TotalFame.ToString());
+            parent.SetKey("Fame", Fame.ToString());
+            parent.SetKey("TotalCredits", TotalCredits.ToString());
+            parent.SetKey("Credits", Credits.ToString());
+        }
+
+        public XElement ExportApp()
         {
             var data = new XElement("Stats");
             data.Add(new XElement("BestCharFame", BestCharFame));
@@ -710,7 +858,7 @@ namespace RotMG.Common
             data.Add(new XElement("TotalCredits", TotalCredits));
             data.Add(new XElement("Credits", Credits));
             foreach (var k in ClassStats)
-                data.Add(k.Export(appExport));
+                data.Add(k.ExportApp());
             return data;
         }
 

@@ -234,6 +234,9 @@ namespace RotMG.Game.Entities
                     if(agg)
                     {
                         EffectBoosts[i].amount = aggf(EffectBoosts[i].amount, t.amount);
+                    } else
+                    {
+                        EffectBoosts[i].amount = t.amount;
                     }
                     EffectBoosts[i].timer = t.timer;
                     return;
@@ -299,6 +302,10 @@ namespace RotMG.Game.Entities
         internal int GetBoosts(int v)
         {
             return Boosts[v] + GetTemporaryStatBoost(v);
+        }
+        internal int GetStatTotalNotTemporary(int v)
+        {
+            return Math.Max(0, Stats[v] + Boosts[v]);
         }
 
         public void ClearItemData(int slot)

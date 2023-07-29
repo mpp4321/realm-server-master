@@ -18,7 +18,6 @@ namespace RotMG.Common
         Fame,
         GuildFame
     }
-
     
     public enum ItemData : ulong
     {
@@ -156,6 +155,7 @@ namespace RotMG.Common
         FameConsume,
         TossObject,
         TeleportQuest,
+        TransformBag,
     }
 
     public enum ShowEffectIndex
@@ -336,7 +336,7 @@ namespace RotMG.Common
     {
         public readonly ItemType[] SlotTypes;
         public readonly int[] Equipment;
-        public readonly string[] ItemDatas;
+        public readonly ItemDataJson[] ItemDatas;
         public readonly StatDesc[] Stats;
         public readonly int[] StartingValues;
 
@@ -351,9 +351,9 @@ namespace RotMG.Common
             for (var k = 0; k < 20; k++)
                 Equipment[k] = k >= equipment.Length ? -1 : equipment[k];
 
-            ItemDatas = new string[20];
+            ItemDatas = new ItemDataJson[20];
             for (var k = 0; k < 20; k++)
-                ItemDatas[k] = "{}";
+                ItemDatas[k] = new ItemDataJson();
 
             Stats = new StatDesc[PLAYER_STAT_NUM];
             for (var i = 0; i < Stats.Length; i++)
@@ -522,11 +522,15 @@ namespace RotMG.Common
         public int MiscIntOne { get; set; } = -1;
 
         public Dictionary<ulong, int> ExtraStatBonuses = new Dictionary<ulong, int>();
+
+        // Really only used client side I guess
+        public string Rename = null;
         public string ItemComponent = null;
         public string SkinId = null;
 
         public List<int> StoredItems = null;
         public List<int> AllowedItems = null;
+        public int AllowedTier = -1;
 
         public int ItemLevel = -1;
 
@@ -837,7 +841,6 @@ namespace RotMG.Common
                 var settings = new JsonSerializerSettings();
                 settings.MissingMemberHandling = MissingMemberHandling.Ignore;
                 settings.DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate;
-                
                 return settings; 
             };
 
@@ -1241,6 +1244,8 @@ namespace RotMG.Common
         public readonly int LifetimeMS;
         public readonly int Size;
         public readonly float Speed;
+        public readonly float MaxRadius;
+        public readonly float RadialSpeed;
 
         public readonly int Damage;
         public readonly int MinDamage; //Only for players
@@ -1254,6 +1259,7 @@ namespace RotMG.Common
         public readonly bool Wavy;
         public readonly bool Parametric;
         public readonly bool Boomerang;
+        public readonly bool Rotate;
 
         public readonly float Amplitude;
         public readonly float Frequency;
@@ -1320,6 +1326,10 @@ namespace RotMG.Common
 
             DoStretchShot = e.ParseBool("DoStretchShot", false);
             StretchShotCount = e.ParseInt("StretchShotCount", -1);
+
+            Rotate = e.ParseBool("Rotate", false);
+            RadialSpeed = e.ParseFloat("RadialSpeed", 1f);
+            MaxRadius = e.ParseFloat("MaxRadius", 0f);
         }
 
     }

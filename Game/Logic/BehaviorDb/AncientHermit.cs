@@ -138,14 +138,14 @@ namespace RotMG.Game.Logic.Database
                     new TierLoot(11, LootType.Armor, 0.2f, r: new(0.8f, 4, true)),
                     new TierLoot(10, LootType.Weapon, 0.35f, r: new(0.8f, 4, true)),
                     new TierLoot(10, LootType.Armor, 0.35f, r: new(0.8f, 4, true)),
-                    new ItemLoot("King of the Jellyfish", 0.01f),
+                    new ItemLoot("King of the Jellyfish", 0.001f),
                     new ItemLoot("Potion of Wisdom", 0.25f),
                     new ItemLoot("Potion of Dexterity", 0.15f),
                     new ItemLoot("Potion of Defense", 0.25f),
                     new ItemLoot("Potion of Wisdom", 0.15f),
                     new Threshold(0.01f, LootTemplates.CrystalsHardRegular()),
                     new ItemLoot("Coral Bow", 0.15f, r: new(1.0f, 1, true)),
-                    new ItemLoot("Helm of the Juggernaut", 0.025f, r: new(1.0f, 0, true))
+                    new ItemLoot("Helm of the Juggernaut", 0.005f, r: new(1.0f, 0, true))
                 )
             );
 

@@ -3,6 +3,7 @@ using RotMG.Game.Logic.ItemEffs;
 using RotMG.Utils;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace RotMG.Game
 {
@@ -13,6 +14,8 @@ namespace RotMG.Game
         public readonly ProjectileDesc Desc;
         public readonly int Id;
         public readonly float Angle;
+        public readonly float OffsetX;
+        public readonly float OffsetY;
         public float OverrideSpeed = -1f;
         public readonly Vector2 StartPosition;
         public int Damage;
@@ -20,8 +23,9 @@ namespace RotMG.Game
         public readonly IItemHandler[] UniqueEffects = new IItemHandler[] { };
 
         public int Time;
+        public bool DidCrit = false;
 
-        public Projectile(Entity owner, ProjectileDesc desc, int id, int time, float angle, Vector2 startPos, int damage, Action<Entity> hitDelegate = null, IItemHandler[] uniqueEff = null, float overrideSpeed = -1f)
+        public Projectile(Entity owner, ProjectileDesc desc, int id, int time, float angle, Vector2 startPos, float offsetX, float offsetY, int damage, Action<Entity> hitDelegate = null, IItemHandler[] uniqueEff = null, float overrideSpeed = -1f)
         {
             Owner = owner;
             Desc = desc;
@@ -31,6 +35,8 @@ namespace RotMG.Game
             StartPosition = startPos;
             Damage = damage;
             Hit = new HashSet<int>();
+            OffsetX = offsetX;
+            OffsetY = offsetY;
             OnHitDelegate = hitDelegate;
             UniqueEffects = uniqueEff ?? new IItemHandler[] { };
             OverrideSpeed = overrideSpeed;
@@ -44,6 +50,8 @@ namespace RotMG.Game
             Id = newid;
             Time = p.Time;
             Angle = p.Angle;
+            OffsetX = p.OffsetX;
+            OffsetY = p.OffsetY;
             StartPosition = p.StartPosition;
             Damage = p.Damage;
             Hit = new HashSet<int>();
@@ -102,7 +110,7 @@ namespace RotMG.Game
         public Vector2 PositionAt(float elapsed)
         {
             elapsed = float.IsNaN(elapsed) ? 0.0f : elapsed;
-            var p = new Vector2(StartPosition.X, StartPosition.Y);
+            var p = new Vector2(StartPosition.X + OffsetX, StartPosition.Y + OffsetY);
             //var speed = SpeedAt(elapsed)//////;
             var accel = OverrideSpeed == -1f ? Desc.Accelerate : OverrideSpeed;
 
@@ -136,6 +144,16 @@ namespace RotMG.Game
             else
             {
                 dist = elapsed * Desc.Speed / 10000f;
+            }
+
+            if(Desc.Rotate)
+            {
+                var t = Desc.RadialSpeed * elapsed / Desc.LifetimeMS * 2 * MathF.PI;
+                if(dist > Desc.MaxRadius)
+                {
+                    dist = Desc.MaxRadius;
+                }
+                return new Vector2(p.X + dist * MathF.Cos(t + Angle), p.Y + dist * MathF.Sin(t + Angle));
             }
 
             //Phase != 1 -> MathF.PI locked else 0 lock

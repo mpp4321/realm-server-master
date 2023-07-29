@@ -200,7 +200,7 @@ namespace RotMG.Game.Logic
                     foreach (var ih in player.BuildAllItemHandlers())
                         ih.ModifyDrop(player, drop, ref enemy.DamageStorage, ref baseMod);
 
-                    var chance = drop.Chance * baseMod;
+                    var chance = 1f - MathF.Pow((1f - drop.Chance), baseMod);
                     if (drop.Threshold > 0 && t >= drop.Threshold && MathUtils.Chance(chance))
                     {
                         if(drop.MaxTop == 1 && !sentTopDamage)
@@ -377,7 +377,7 @@ namespace RotMG.Game.Logic
                 loot.RemoveRange(0, bagCount);
 
                 var position = MathUtils.PlusMinus() * MathUtils.NextFloat() * MathUtils.Position(1.0f, 1.0f);
-                enemy.Parent.AddEntity(c, enemy.Position + position);
+                enemy?.Parent?.AddEntity(c, enemy.Position + position);
             }
         }
     }

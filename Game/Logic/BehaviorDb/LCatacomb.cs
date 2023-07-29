@@ -2,8 +2,10 @@
 using RotMG.Game.Logic.Behaviors;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
+using RotMG.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using static RotMG.Game.Logic.Loots.TierLoot;
 
@@ -15,6 +17,10 @@ namespace RotMG.Game.Logic.Database
         {
             db.Init("Undead Giant Hand", 
                 new State("base", 
+                    new ConditionalEffect(ConditionEffectIndex.Invulnerable, duration: Settings.MillisecondsPerTick, reapply: (e) =>
+                    {
+                        return e?.GetNearbyPlayers(10f).Count() == 0;
+                    }),
                     new State("playerwait", new PlayerWithinTransition(10f, "jumping", false)),
                     new State("jumping",
                         new ChangeSize(-10, 0),

@@ -156,6 +156,7 @@ namespace RotMG.Game.Logic.Database
                 );
             
             db.Init("Realm Reaper",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("invis",
                     new ChangeSize(100, 0),
                     new ConditionalEffect(ConditionEffectIndex.Invincible),

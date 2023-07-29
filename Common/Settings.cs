@@ -15,6 +15,7 @@ namespace RotMG.Common
         public static int MillisecondsPerTick;
         public static float SecondsPerTick;
         public static int MaxRealms;
+        public static float LootBoost;
 
         public static void Init()
         {
@@ -30,6 +31,7 @@ namespace RotMG.Common
                 MillisecondsPerTick = 1000 / TicksPerSecond;
                 SecondsPerTick = 1f / TicksPerSecond;
                 MaxRealms = data.ParseInt("MaxRealms");
+                LootBoost = data.ParseFloat("LootBoost", 0.0f);
             }
         }
     }

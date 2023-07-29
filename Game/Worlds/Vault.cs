@@ -45,7 +45,7 @@ namespace RotMG.Game.Worlds
                 } else
                 {
                     chestModel.Inventory = Enumerable.Repeat(-1, 8).ToArray();
-                    chestModel.ItemDatas = Enumerable.Repeat(new ItemDataJson(), 8).Select(a => ItemDesc.ExportItemDataJson(a)).ToArray();
+                    chestModel.ItemDatas = Enumerable.Repeat(new ItemDataJson(), 8).ToArray();
                     chestModel.Save();
 
                     var chest = new VaultChest(chestModel);

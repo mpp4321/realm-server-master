@@ -1,6 +1,9 @@
-﻿using RotMG.Game.Logic.Behaviors;
+﻿using RotMG.Common;
+using RotMG.Game.Logic.Behaviors;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
+using RotMG.Utils;
+using System.Linq;
 
 namespace RotMG.Game.Logic.Database
 {
@@ -68,6 +71,10 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Parthanax",
                     new HPScale(0.3f),
+                    new ConditionalEffect(ConditionEffectIndex.Invulnerable, duration: Settings.MillisecondsPerTick, reapply: (e) =>
+                    {
+                        return e?.GetNearbyPlayers(10f).Count() == 0;
+                    }),
                     new State("p_t", new PlayerWithinTransition(20f, "chat_intro")),
                     new State("chat_intro",
                         new Taunt(cooldown: 1000, "Welcome to my den humans...", "Prepare to die!")

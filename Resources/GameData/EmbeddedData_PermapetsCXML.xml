@@ -1755,4 +1755,30 @@
         <Activate id="Parthanax Pet" cooldown="10">PermaPet</Activate>
         <OldSound>use_potion</OldSound>
     </Object>
+    <Object type="0x165b" id="Realm Reaper Pet">
+        <DisplayId>Realm Reaper</DisplayId>
+        <Class>Character</Class>
+		<MaxHitPoints>1</MaxHitPoints>
+		<AnimatedTexture>
+			<File>d3Chars16x16rEmbed</File>
+			<Index>33</Index>
+		</AnimatedTexture>
+        <NoMiniMap/>
+        <Size>60</Size>
+    </Object>
+    <Object type="0x165c" id="Realm Reaper Generator">
+        <DisplayId>Realm Reaper</DisplayId>
+        <Class>Equipment</Class>
+        <Item/>
+		<AnimatedTexture>
+			<File>d3Chars16x16rEmbed</File>
+			<Index>33</Index>
+		</AnimatedTexture>
+        <SlotType>10</SlotType>
+        <Description>KinkyInky's pet of choice.</Description>
+        <Sound>spell/light_heal</Sound>
+        <InvUse/>
+        <Activate id="Realm Reaper Pet" cooldown="10">PermaPet</Activate>
+        <OldSound>use_potion</OldSound>
+    </Object>
 </Objects>

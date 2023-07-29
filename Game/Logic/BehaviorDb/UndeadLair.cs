@@ -4,6 +4,8 @@ using RotMG.Common;
 using RotMG.Game.Logic.Behaviors;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
+using RotMG.Utils;
+using System.Linq;
 using static RotMG.Game.Logic.Loots.TierLoot;
 
 namespace RotMG.Game.Logic.Database
@@ -19,6 +21,10 @@ namespace RotMG.Game.Logic.Database
                 new TransformOnDeath("Ghost Mage of Septavius", 1, 3),
                 new TransformOnDeath("Ghost Rogue of Septavius", 1, 3),
                 new TransformOnDeath("Ghost Warrior of Septavius", 1, 3),
+                new ConditionalEffect(ConditionEffectIndex.Invulnerable, duration: Settings.MillisecondsPerTick, reapply: (e) =>
+                {
+                    return e?.GetNearbyPlayers(8f).Count() == 0;
+                }),
                 new State("base",
                     new Spawn("Lair Ghost Archer", 1, 1, cooldown: 2000),
                     new Spawn("Lair Ghost Knight", 2, 2, cooldown: 3000),
@@ -26,8 +32,8 @@ namespace RotMG.Game.Logic.Database
                     new Spawn("Lair Ghost Rogue", 2, 2, cooldown: 3000),
                     new Spawn("Lair Ghost Paladin", 1, 1, cooldown: 2000),
                     new Spawn("Lair Ghost Warrior", 2, 2, cooldown: 3000),
-                    new PlayerWithinTransition(8, "transition", seeInvis: true) { SubIndex = 1 },
                     new HealthTransition(0.3f, "warning"),
+                    new PlayerWithinTransition(8, "transition", seeInvis: true) { SubIndex = 1}, 
                     new State("transition",
                         new Wander(speed: 0.1f),
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),

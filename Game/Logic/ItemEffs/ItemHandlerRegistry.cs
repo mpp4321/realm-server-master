@@ -72,15 +72,15 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("Vampirism", new Vampirism());
             RuneFameCosts.Add("Vampirism", 500);
             Registry.Add("Brute", new Brute());
-            RuneFameCosts.Add("Brute", 500);
+            RuneFameCosts.Add("Brute", 250);
             Registry.Add("Mage", new Mage());
             RuneFameCosts.Add("Mage", 500);
             Registry.Add("Elven", new Elven());
             RuneFameCosts.Add("Elven", 500);
             Registry.Add("Juggernaut", new Juggernaut());
-            RuneFameCosts.Add("Juggernaut", 150);
+            RuneFameCosts.Add("Juggernaut", 250);
             Registry.Add("Ephemeral", new EphemeralRune());
-            RuneFameCosts.Add("Ephemeral", 500);
+            RuneFameCosts.Add("Ephemeral", 250);
         }
 
     }

@@ -1,6 +1,7 @@
 ﻿using RotMG.Common;
 using RotMG.Game.Entities;
 using RotMG.Game.Logic.Behaviors;
+using RotMG.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -164,7 +165,7 @@ namespace RotMG.Game.Logic.Mechanics
             if(upgradeOnly)
             {
                 var miscInt = p.ItemDatas[itemPair.Item2].MiscIntOne;
-                r = item.Roll(new RarityModifiedData(1.0f - (0.015f * currentLevel), currentLevel, true), typeOfMod, preData);
+                r = item.Roll(new RarityModifiedData(1.0f - (0.015f * (currentLevel - miscInt)), currentLevel, true), typeOfMod, preData);
                 if(currentLevel < 1)
                 {
                     return false;
@@ -181,9 +182,11 @@ namespace RotMG.Game.Logic.Mechanics
                     if(r.Item1)
                     {
                         var newLevel = r.Item2.ItemLevel;
-                        p.ItemDatas[itemPair.Item2].ItemLevel = r.Item2.ItemLevel;
                         if(newLevel > currentLevel)
+                        {
+                            p.ItemDatas[itemPair.Item2].ItemLevel = currentLevel + MathUtils.NextInt(1, 2);
                             p.ItemDatas[itemPair.Item2].MiscIntOne = -1;
+                        }
                         else
                             p.ItemDatas[itemPair.Item2].MiscIntOne += 1;
                     }

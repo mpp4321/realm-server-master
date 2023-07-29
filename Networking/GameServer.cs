@@ -7,6 +7,9 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using RotMG.Utils;
+using Functional.Maybe;
+using System.Security.Cryptography.X509Certificates;
+using System.Linq;
 
 namespace RotMG.Networking
 {
@@ -76,7 +79,7 @@ namespace RotMG.Networking
         public const int PrefixLength = 5;
         public const int PrefixLengthWithId = PrefixLength - 1;
         public const int AddBackMinDelay = 10000;
-        public const byte MaxClientsPerIp = 4;
+        public const byte MaxClientsPerIp = 1;
 
         private static bool _terminating;
         private static Socket _listener;
@@ -164,7 +167,9 @@ namespace RotMG.Networking
                         _connected[ip] = 1;
                     else
                     {
-                        if (_connected[ip] == MaxClientsPerIp)
+                        var activeClientsByIp = Manager.ClientsByIp[ip].Where(x => x.Active && !x.IsReconnecting && x.IP == ip).Count();
+
+                        if (activeClientsByIp >= MaxClientsPerIp)
                         {
 #if DEBUG
                             Program.Print(PrintType.Warn, $"Too many clients connected, disconnecting <{skt.RemoteEndPoint}>");

@@ -227,8 +227,8 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Worker Wasp",
                 new State("base",
-                    new HealEntity(5, "Wasp Queen", 5, cooldown: 500),
-                    new Shoot(8, cooldown: 4000),
+                    new HealEntity(5, "Wasp Queen", 80, cooldown: 500),
+                    new Shoot(8, cooldown: 2000),
                     new Prioritize(
                         new Orbit(1, 2, target: "Wasp Queen", speedVariance: 0.3f, radiusVariance: 0.5f),
                         new Wander(0.75f)
@@ -237,7 +237,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Warrior Wasp",
                 new State("base",
-                    new Shoot(8, predictive: 0.5f, cooldown: 500),
+                    new Shoot(8, predictive: 0.5f, cooldown: 200),
                     new State("protecting",
                         new Prioritize(
                             new Orbit(1, 2, target: "Wasp Queen", radiusVariance: 0),

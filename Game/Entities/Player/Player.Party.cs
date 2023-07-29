@@ -1,4 +1,5 @@
 ﻿using RotMG.Common;
+using RotMG.Game.Worlds;
 using RotMG.Networking;
 using System;
 using System.Collections.Generic;
@@ -193,6 +194,11 @@ namespace RotMG.Game.Entities
 
         public void SummonParty()
         {
+            if(Parent is Vault)
+            {
+                SendError("You cannot summon to a vault!");
+                return;
+            }
             if (CurrentParty == null) {
                 SendError("You are not in a party!");
                 return;

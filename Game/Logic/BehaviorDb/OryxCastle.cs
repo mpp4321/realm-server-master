@@ -11,7 +11,6 @@ namespace RotMG.Game.Logic.Database
 {
     class OryxCastle : IBehaviorDatabase
     {
-
         public void Init(BehaviorDb db)
         {
             db.Init("Oryx Stone Guardian Right",

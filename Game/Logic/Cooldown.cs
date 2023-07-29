@@ -39,6 +39,11 @@ namespace wServer.logic
                 return this;
         }
 
+        public int NextNoVariance()
+        {
+            return CoolDown;
+        }
+
         public int Next(Random rand)
         {
             if (Variance == 0)

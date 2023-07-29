@@ -10,7 +10,7 @@ namespace RotMG.Game.Entities
         public VaultChest(VaultChestModel model) : base(0x0504, -1, null)
         {
             Inventory = model.Inventory;
-            ItemDatas = model.ItemDatas.Select(a => a == null ? new ItemDataJson() { Meta = -1 } : ItemDesc.ParseOrDefault(a)).ToArray();
+            ItemDatas = model.ItemDatas;
             _model = model;
 
             if(model != null && model.Data != null)
@@ -19,8 +19,8 @@ namespace RotMG.Game.Entities
 
         public override void UpdateInventorySlot(int slot)
         {
+            _model.ItemDatas = ItemDatas;
             base.UpdateInventorySlot(slot);
-            _model.ItemDatas = ItemDatas.Select(a => ItemDesc.ExportItemDataJson(a)).ToArray();
             _model.Save();
         }
     }

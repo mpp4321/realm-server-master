@@ -90,10 +90,9 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(3, LootType.Ability, 0.2f)
             );
             db.Init("Ogre King",
-                    new DropPortalOnDeath("Snake Pit Portal", 20, timeout: 100),
-                    new Spawn("Ogre Warrior", 4, cooldown: 12000),
-                    new Spawn("Ogre Mage", 2, cooldown: 16000),
-                    new Spawn("Ogre Wizard", 2, cooldown: 20000),
+                    new Spawn("Ogre Warrior", 4, cooldown: 2000),
+                    new Spawn("Ogre Mage", 2, cooldown: 4000),
+                    new Spawn("Ogre Wizard", 2, cooldown: 4000),
                     new State("idle",
                         new Prioritize(
                             new StayAbove(0.3f, 160),
@@ -138,19 +137,20 @@ namespace RotMG.Game.Logic.Database
                             ),
                         new TimedTransition("idle", 12000) { SubIndex = 1 }
                         ),
-                new TierLoot(4, LootType.Weapon, 0.2f),
-                new TierLoot(5, LootType.Weapon, 0.02f),
-                new TierLoot(4, LootType.Armor, 0.2f),
-                new TierLoot(5, LootType.Armor, 0.12f),
-                new TierLoot(6, LootType.Armor, 0.02f),
-                new TierLoot(2, LootType.Ring, 0.1f),
-                new TierLoot(2, LootType.Ability, 0.18f)
+                new TierLoot(4, LootType.Weapon, 0.5f),
+                new TierLoot(5, LootType.Weapon, 0.52f),
+                new TierLoot(4, LootType.Armor, 0.7f),
+                new TierLoot(5, LootType.Armor, 0.62f),
+                new TierLoot(6, LootType.Armor, 0.52f),
+                new TierLoot(2, LootType.Ring, 0.6f),
+                new TierLoot(2, LootType.Ability, 0.68f),
+                new ItemLoot("Chain Ball", 0.05f)
             );
 
             db.Init("Ogre Warrior",
                 new StayBack(0.5f, 0.5f, "Ogre Warrior"),
                 new State("base",
-                    new Shoot(3, cooldown: 120),
+                    new Shoot(3, count: 4, shootAngle: 90, rotateAngle: 45, fixedAngle: 0, cooldown: 100),
                     new Prioritize(
                         new StayAbove(1.2f, 160),
                         new Protect(1.2f, "Ogre King", 15, 10, 5),
@@ -163,7 +163,7 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Ogre Mage",
                 new State("base",
-                    new Shoot(10, cooldown: 250),
+                    new Shoot(10, cooldown: 200),
                     new Prioritize(
                         new StayAbove(1.2f, 160),
                         new Protect(1.2f, "Ogre King", 30, 10, reprotectRange: 1),
@@ -174,13 +174,14 @@ namespace RotMG.Game.Logic.Database
             );
             db.Init("Ogre Wizard",
                 new State("base",
-                    new Shoot(10, cooldown: 300),
+                    new Shoot(10, cooldown: 200),
+                    new HealEntity(5f, "Ogre King", 100, cooldown: new wServer.logic.Cooldown(1000, 200)),
                     new Prioritize(
                         new StayAbove(1.2f, 160),
                         new Protect(1.2f, "Ogre King", 30, 10, reprotectRange: 1),
                         new Orbit(0.5f, 6),
                         new Wander(0.4f)
-                        )
+                    )
                     ),
                 new ItemLoot("Magic Potion", 0.03f)
             );

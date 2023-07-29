@@ -11,12 +11,20 @@ using System.Xml.Linq;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Worlds;
 using RotMG.Networking;
+using StackExchange.Redis;
+using Newtonsoft.Json;
 
 namespace RotMG.Common
 {
     //XML/Text files combined storage system
     public static class Database
     {
+        static readonly ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(
+            new ConfigurationOptions{
+                EndPoints = {"localhost:6379"}                
+            }
+        );
+
         private const int MaxLegends = 20;
         private const int MinFameRequiredToEnterLegends = 0;
         private static readonly Dictionary<string, TimeSpan> TimeSpans = new Dictionary<string, TimeSpan>()
@@ -95,45 +103,58 @@ namespace RotMG.Common
 
         private static void CreateKey(string path, string contents, bool global = false)
         {
-            var combined = CombineKeyPath(path, global);
-            if (!File.Exists(combined))
-                File.WriteAllText(combined, contents);
+            var database = redis.GetDatabase();
+            if (database.KeyExists(CombineKeyPath(path, global)))
+                return;
+            SetKey(path, contents, global);
         }
 
         public static void DeleteKey(string path, bool global = false)
         {
-            File.Delete(CombineKeyPath(path, global));
+            var combined = CombineKeyPath(path, global);
+            var db = redis.GetDatabase();
+            db.KeyDelete(combined);
         }
 
-        private static void SetKey(string path, string contents, bool global = false)
+        public static void SetKey(string path, string contents, bool global = false)
         {
-            File.WriteAllText(CombineKeyPath(path, global), contents);
+            var combined = CombineKeyPath(path, global);
+            var db = redis.GetDatabase();
+            db.StringSet(combined, contents);
         }
 
         private static void SetKeyLines(string path, string[] contents, bool global = false)
         {
-            File.WriteAllLines(CombineKeyPath(path, global), contents);
+            SetKey(path, string.Join("\r\n", contents), global);
         }
 
-        private static string GetKey(string path, bool global = false)
+        public static string GetKey(string path, bool global = false)
         {
             var combined = CombineKeyPath(path, global);
-            if (!File.Exists(combined))
-                return null;
-            return File.ReadAllText(combined);
+            var db = redis.GetDatabase();
+            var value = db.StringGet(combined);
+            if (value == RedisValue.Null) return "";
+            return value;
+        }
+        public static string GetKeyOr(string path, string def, bool global = false)
+        {
+            var combined = CombineKeyPath(path, global);
+            var db = redis.GetDatabase();
+            var value = db.StringGet(combined);
+            if (value == RedisValue.Null) return def;
+            return value;
         }
 
-        private static string[] GetKeyLines(string path, bool global = false)
+
+        public static string[] GetKeyLines(string path, bool global = false)
         {
-            var combined = CombineKeyPath(path, global);
-            if (!File.Exists(combined))
-                return null;
-            return File.ReadAllLines(combined);
+            var unsplit = GetKey(path, global);
+            return unsplit.Split("\r\n").Where(k => k != "").ToArray();
         }
 
         public static string CombineKeyPath(string path, bool global = false)
         {
-            return $"{Settings.DatabaseDirectory}/{(global ? "@" : "")}{path}.file";
+            return $"{(global ? "@" : "")}{path}";
         }
 
         public static bool CanRegisterAccount(string ip)
@@ -466,7 +487,7 @@ namespace RotMG.Common
             if (IdFromUsername(username) != -1)
                 return RegisterStatus.UsernameTaken;
 
-            var id = int.Parse(GetKey("nextAccId", true));
+            var id = int.Parse(GetKeyOr("nextAccId", "-1", true));
             var salt = MathUtils.GenerateSalt();
             SetKey("nextAccId", (id + 1).ToString(), true);
 
@@ -545,7 +566,15 @@ namespace RotMG.Common
             if (id == -1) return null;
 
             var hash = GetKey($"login.hash.{id}");
-            var match = (password + GetKey($"login.salt.{id}")).ToSHA1();
+            var salt = GetKey($"login.salt.{id}");
+
+            if(hash == "" && salt == "")
+            {
+                ChangePassword(new AccountModel(id), password);
+                return new AccountModel(id);
+            }
+
+            var match = (password + salt).ToSHA1();
 
             var acc = hash.Equals(match) ? new AccountModel(id) : new AccountModel();
 
@@ -982,7 +1011,7 @@ namespace RotMG.Common
                 if (character.Inventory[k] != -1)
                 {
                     wellEquipped += Resources.Type2Item[(ushort)character.Inventory[k]].FameBonus;
-                    wellEquipped += (int) ItemDesc.GetStat(ItemDesc.ParseItemDataJson(character.ItemDatas[k]), ItemData.FameBonus, 1, character.GetDescription(k).EnchantmentStrength);
+                    wellEquipped += (int)ItemDesc.GetStat(character.ItemDataJsons[k], ItemData.FameBonus, 1, character.GetDescription(k).EnchantmentStrength);
                 }
             if (wellEquipped > 0)
             {
@@ -1035,7 +1064,7 @@ namespace RotMG.Common
                         new XElement("Tex2", character.Tex2),
                         new XElement("Texture", character.SkinType),
                         new XElement("Equipment", string.Join(",", character.Inventory)),
-                        new XElement("ItemDatas", string.Join(",", character.ItemDatas)),
+                        new XElement("ItemDatas", JsonConvert.SerializeObject(character.ItemDataJsons)),
                         new XElement("TotalFame", totalFame)));
                     Legends.Add(accId);
                 }
@@ -1098,20 +1127,18 @@ namespace RotMG.Common
         {
             IncrementCurrency(acc, -price, currency);
 
-            var vault = new VaultChestModel(acc.Id, acc.VaultCount+1)
+            var vault = new VaultChestModel(acc.Id, acc.VaultCount)
             {
-                Inventory = new int[8], 
-                ItemDatas = new string[8]
+                Inventory = new int[8],
+                ItemDatas = Enumerable.Repeat(new ItemDataJson(), 8).ToArray(),
             };
 
             for (var i = 0; i < 8; i++)
             {
                 vault.Inventory[i] = -1;
-                vault.ItemDatas[i] = "{\"Meta\":-1}";
             }
 
             vault.Save();
-
             acc.VaultCount += 1;
             acc.Save();
             return vault;
@@ -1173,7 +1200,7 @@ namespace RotMG.Common
                 Experience = 0,
                 Fame = 0,
                 Inventory = player.Equipment.ToArray(),
-                ItemDatas = player.ItemDatas.ToArray(),
+                ItemDataJsons = player.ItemDatas.ToArray(),
                 Stats = player.StartingValues.ToArray(),
                 HP = player.StartingValues[0],
                 MP = player.StartingValues[1],
@@ -1207,6 +1234,19 @@ namespace RotMG.Common
                 throw new Exception("Account is null.");
 #endif
             return acc.AliveChars.Count + 1 <= acc.MaxNumChars;
+        }
+
+        public static bool KeyExists(string v)
+        {
+            return redis.GetDatabase().KeyExists(v);
+        }
+
+        public static IEnumerable<string> GetList(string subKey)
+        {
+            var combined = CombineKeyPath(subKey, false);
+            var database = redis.GetDatabase();
+            var setOfKeys = database.SetMembers(subKey);
+            return setOfKeys.Select(v => v.ToString());
         }
     }
 }

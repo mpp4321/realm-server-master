@@ -396,6 +396,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Enraged Bunny",
                 new State("base",
                     new Shoot(9, predictive: 0.5f, cooldown: 400),
+                    new Shoot(9, count: 2, shootAngle: 30, cooldown: 100, effect: new[] { ConditionEffectIndex.Quiet }),
                     new State("red",
                         new Flash(0xff0000, 1.5f, 1),
                         new TimedTransition("yellow", 1600)
