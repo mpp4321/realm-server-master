@@ -13,7 +13,7 @@ namespace RotMG.Game
     {
         public JSMap(string data)
         {
-            var json = JsonConvert.DeserializeObject<json_dat>(data);
+            var json = JsonConvert.DeserializeObject<JsonDat>(data);
             var buffer = ZlibStream.UncompressBuffer(json.data);
             var dict = new Dictionary<ushort, MapTile>();
             var tiles = new MapTile[json.width, json.height];
@@ -35,7 +35,21 @@ namespace RotMG.Game
             {
                 for (var y = 0; y < json.height; y++)
                     for (var x = 0; x < json.width; x++)
-                        tiles[x, y] = dict[(ushort)rdr.ReadInt16()];
+                    {
+                        var key = (ushort)rdr.ReadInt16();
+                        if (dict.ContainsKey(key))
+                            tiles[x, y] = dict[key];
+                        else { 
+                            tiles[x, y] = new MapTile() {
+                                Terrain = Terrain.None,
+                                Elevation = 0,
+                                GroundType = 255,
+                                ObjectType = 255,
+                                Region = Region.None,
+                                Key = null
+                            };
+                        }
+                    }
             }
 
             //Add composite under cave walls
@@ -74,22 +88,22 @@ namespace RotMG.Game
                 }
         }
 
-        private struct json_dat
+        public struct JsonDat
         {
             public byte[] data { get; set; }
-            public loc[] dict { get; set; }
+            public Loc[] dict { get; set; }
             public int height { get; set; }
             public int width { get; set; }
         }
 
-        private struct loc
+        public struct Loc
         {
             public string ground { get; set; }
-            public obj[] objs { get; set; }
-            public obj[] regions { get; set; }
+            public Obj[] objs { get; set; }
+            public Obj[] regions { get; set; }
         }
 
-        private struct obj
+        public struct Obj
         {
             public string id { get; set; }
             public string name { get; set; }

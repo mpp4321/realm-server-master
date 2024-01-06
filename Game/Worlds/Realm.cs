@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using RotMG.Common;
 using RotMG.Game.Entities;
 
@@ -21,6 +22,10 @@ namespace RotMG.Game.Worlds
         public Realm(Map map, WorldDesc desc) : base(map, desc)
         {
             Map = map as WMap;
+
+            /*var json = WMap.Convert(Map);
+            File.WriteAllText("testJsonOutput.jm", json);*/
+
             DisplayName = WorldNames.Dequeue();
 
             foreach (var terrain in Map.Terrains.Keys)

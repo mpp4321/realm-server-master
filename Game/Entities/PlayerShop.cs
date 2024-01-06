@@ -55,7 +55,7 @@ namespace RotMG.Game.Entities
             {
 
                 player.SendInfo("Inventory full, sent to gift chest.");
-                Database.AddGift(account, Type);
+                Database.AddGift(account, (int) SVs[StatType.MerchandiseType], itemJson);
 
             }
 

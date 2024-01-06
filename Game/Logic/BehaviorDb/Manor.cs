@@ -208,7 +208,8 @@ namespace RotMG.Game.Logic.Database
                  new ItemLoot("Realm Equipment Crystal", 0.4f),
                  new ItemLoot("Potion of Defense", 1.0f, min: 3),
                  new ItemLoot("Potion of Mana", 1.0f),
-                 new ItemLoot("Prism of Redirection", 0.01f)
+                 new ItemLoot("Prism of Redirection", 0.02f),
+                 new ItemLoot("Bone Dagger", 0.04f)
                 ),
                 new Threshold(0.01f, LootTemplates.CrystalsRealmBoss())
                );

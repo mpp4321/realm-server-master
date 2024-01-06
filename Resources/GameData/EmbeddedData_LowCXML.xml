@@ -204,6 +204,14 @@
 			<Speed>50</Speed>
 			<LifetimeMS>340</LifetimeMS>
 		</Projectile>		
+		<Projectile id="3">
+			<ObjectId>Cyan Magic</ObjectId>
+			<Damage>20</Damage>
+			<Size>200</Size>
+			<Speed>100</Speed>
+			<LifetimeMS>1000</LifetimeMS>
+			<ConditionEffect duration="1">Stunned</ConditionEffect>
+		</Projectile>		
 	</Object>
 	<Object type="0x618" id="Undead Hobbit Rogue">
 		<Group>Undead Hobbits</Group>

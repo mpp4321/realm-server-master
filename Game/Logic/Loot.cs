@@ -192,8 +192,9 @@ namespace RotMG.Game.Logic
                     if (drop.MaxTop < c)
                         continue;
                     //up to 50% lootboost if you did all the damage
-                    var baseMod = (1f + 0.5f * t);
-                    baseMod += enemy.IsElite ? 1f : 0f;
+                    var thresholdBonus = (MathF.Pow(2*t - 1.1f, 3) + 1) / 4f;
+                    var baseMod = (1f + thresholdBonus);
+                    baseMod += enemy.IsElite ? 0.75f : 0f;
                     baseMod += player.LootBoost;
                     baseMod += player.Parent?.WorldLB ?? 0.0f;
 

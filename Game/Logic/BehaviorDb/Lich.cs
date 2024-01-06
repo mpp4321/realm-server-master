@@ -1,9 +1,12 @@
 ﻿using RotMG.Common;
 using RotMG.Game.Logic.Behaviors;
+using RotMG.Game.Logic.Conditionals;
 using RotMG.Game.Logic.Loots;
 using RotMG.Game.Logic.Transitions;
+using RotMG.Utils;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using static RotMG.Game.Logic.LootDef;
 using static RotMG.Game.Logic.Loots.TierLoot;
@@ -153,16 +156,18 @@ namespace RotMG.Game.Logic.Database
                     )
             );
             db.Init("Actual Lich",
+                HPScale.BOSS_HP_SCALE_DEFAULT(),
                 new State("base",
                     new Prioritize(
                         new Protect(0.9f, "Phylactery Bearer", acquireRange: 15, protectionRange: 2, reprotectRange: 2),
                         new Wander(0.5f)
-                        ),
+                    ),
                     new Spawn("Mummy", maxChildren: 4, cooldown: 4000, givesNoXp: false, dispersion: 3.0f),
                     new Spawn("Mummy King", maxChildren: 2, cooldown: 4000, givesNoXp: false, dispersion: 3.0f),
                     new Spawn("Mummy Pharaoh", maxChildren: 1, cooldown: 4000, givesNoXp: false, dispersion: 3.0f),
                     new State("typeA",
                         new Shoot(10, index: 0, count: 2, shootAngle: 7, cooldown: 800),
+                        new Shoot(10, index: 2, count: 4, shootAngle: 7, cooldown: 2000),
                         new TimedTransition("typeB", 8000)
                         ),
                     new State("typeB",
@@ -175,17 +180,15 @@ namespace RotMG.Game.Logic.Database
                         )
                     ),
                 new Threshold(0.01f,
-                    new TierLoot(2, LootType.Ring, 0.11f),
-                    new TierLoot(3, LootType.Ring, 0.01f),
-                    new TierLoot(5, LootType.Weapon, 0.3f),
-                    new TierLoot(6, LootType.Weapon, 0.2f),
-                    new TierLoot(7, LootType.Weapon, 0.05f),
-                    new TierLoot(5, LootType.Armor, 0.3f),
-                    new TierLoot(6, LootType.Armor, 0.2f),
-                    new TierLoot(7, LootType.Armor, 0.05f),
-                    new TierLoot(1, LootType.Ability, 0.9f),
-                    new TierLoot(2, LootType.Ability, 0.15f),
-                    new TierLoot(3, LootType.Ability, 0.02f),
+                    new TierLoot(4, LootType.Ring, 0.11f),
+                    new TierLoot(5, LootType.Ring, 0.01f),
+                    new TierLoot(9, LootType.Weapon, 0.3f),
+                    new TierLoot(10, LootType.Weapon, 0.2f),
+                    new TierLoot(9, LootType.Armor, 0.3f),
+                    new TierLoot(10, LootType.Armor, 0.2f),
+                    new TierLoot(3, LootType.Ability, 0.9f),
+                    new TierLoot(4, LootType.Ability, 0.15f),
+                    new TierLoot(5, LootType.Ability, 0.01f),
                     new ItemLoot("Health Potion", 0.4f),
                     new ItemLoot("Magic Potion", 0.4f),
                     new ItemLoot("Ancient Skull", 0.01f, 0.01f)
@@ -258,6 +261,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new ItemLoot("Tincture of Defense", 0.02f),
                 new ItemLoot("Magic Potion", 0.03f),
+                new ItemLoot("Potion of Defense", 1f),
                 new ItemLoot("The Phylactery", 0.05f, 0.001f),
                 new ItemLoot("Soul of the Bearer", 0.05f, 0.001f)
 

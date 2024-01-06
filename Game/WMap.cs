@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Ionic.Zlib;
+using Newtonsoft.Json;
 using RotMG.Common;
 using RotMG.Utils;
 
@@ -82,6 +84,56 @@ namespace RotMG.Game
                         }
                     }
                 }
+            }
+        }
+
+        public static string Convert(WMap wMap)
+        {
+            var newTiles = new JSMap.Loc[wMap.Width, wMap.Height];
+            for (var x = 0; x < wMap.Width; x++)
+            {
+                for (var y = 0; y < wMap.Height; y++)
+                {
+                    var tile = wMap.Tiles[x, y];
+                    newTiles[x, y] = new JSMap.Loc
+                    {
+                        ground = tile.GroundType == 255 ? null : Resources.Type2Tile[tile.GroundType].Id,
+                        objs = tile.ObjectType == 255 ? null : new[] { new JSMap.Obj { id = Resources.Type2Object[tile.ObjectType].Id, name = tile.Key } },
+                        regions = tile.Region == Region.None ? null : new[] { new JSMap.Obj { id = tile.Region.ToString().Replace(" ", "") } }
+                    };
+                }
+            }
+
+            var buildingList = new List<JSMap.Loc>();
+            var tileToIndex = new Dictionary<JSMap.Loc, int>();
+            using (var ms = new MemoryStream())
+            {
+                using (var writer = new BinaryWriter(new ZlibStream(ms, CompressionMode.Compress)))
+                {
+                    for (var y = 0; y < wMap.Height; y++)
+                    {
+                        for (var x = 0; x < wMap.Width; x++)
+                        {
+                            var tile = newTiles[x, y];
+                            if(!tileToIndex.ContainsKey(tile)) {
+                                tileToIndex[tile] = buildingList.Count();
+                                buildingList.Add(tile);
+                            } 
+                            var index = tileToIndex[tile];
+                            writer.Write((short)index);
+                        }
+                    }
+                }
+
+                var jsonDat = new JSMap.JsonDat
+                {
+                    width = wMap.Width,
+                    height = wMap.Height,
+                    data = ms.ToArray(),
+                    dict = buildingList.ToArray(),
+                };
+
+                return JsonConvert.SerializeObject(jsonDat);
             }
         }
     }

@@ -41,7 +41,6 @@ namespace RotMG.Game.SetPieces
                 SetPiece("", new Building(), 80, 100, Terrain.LowForest, Terrain.LowPlains, Terrain.MidForest),
                 SetPiece("", new Graveyard(), 5, 10, Terrain.LowSand, Terrain.LowPlains),
                 SetPiece("Actual Ent Ancient", new Grove(), 17, 25, Terrain.MidForest, Terrain.MidPlains),
-                SetPiece("Actual Lich", new LichyTemple(), 4, 7, Terrain.MidForest, Terrain.MidPlains),
                 SetPiece("Cyclops God", new Castle(), 4, 7, Terrain.HighForest, Terrain.HighPlains),
                 SetPiece("Actual Ghost King", new Tower(), 8, 15, Terrain.HighForest, Terrain.HighPlains),
                 SetPiece("", new TempleA(), 10, 20, Terrain.MidForest, Terrain.MidPlains),
@@ -50,6 +49,7 @@ namespace RotMG.Game.SetPieces
                 SetPiece("Phoenix Lord", new Pyre(), 3, 8, Terrain.MidSand, Terrain.HighSand),
                 SetPiece("Red Demon",new LavaFissure(), 3, 8, Terrain.Mountains),
                 SetPiece("", new Crystal(), 6, 8, Terrain.Mountains),
+                SetPiece("Actual Lich", new LichyTemple(), 4, 7, Terrain.Mountains, Terrain.HighForest, Terrain.HighPlains),
                 SetPiece("", new KageKami(), 3, 4, Terrain.HighForest, Terrain.HighPlains)
             };
 

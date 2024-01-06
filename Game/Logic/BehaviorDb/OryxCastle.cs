@@ -514,7 +514,10 @@ namespace RotMG.Game.Logic.Database
 
             db.Init("Oryx the Mad God 2",
                             new State("base",
-                                new HPScale(0.3f),
+                                new HPScale(0.3f)
+                                {
+                                    Radius = 999f
+                                },
                                 new State("Attack",
                                     new Wander(.1f),
                                     new ConditionalEffect(ConditionEffectIndex.Invincible, duration: 10000),
@@ -592,7 +595,10 @@ namespace RotMG.Game.Logic.Database
                         );
 
             db.Init("Oryx the Mad God 1",
-                new HPScale(0.2f),
+                new HPScale(0.2f)
+                {
+                    Radius = 999f,
+                },
                 new State("base",
                     new DropPortalOnDeath("Locked Wine Cellar Portal", 100, timeout: 120),
                     new HealthTransition(.2f, "rage"),

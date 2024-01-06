@@ -352,3 +352,6 @@ MigrationBackup/
 Database/
 
 server\ password.txt
+/redis
+/]
+/EquipmentStats.xlsx

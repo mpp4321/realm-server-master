@@ -186,6 +186,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.01f,
                     new ItemLoot("Potion of Vitality", 0.25f),
+                    new ItemLoot("Visceration Flail", 0.01f),
                     new ItemLoot("Antique White Clothing Dye", 0.01f),
                     new ItemLoot("Antique White Accessory Dye", 0.01f)
                     ),
@@ -581,6 +582,7 @@ namespace RotMG.Game.Logic.Database
             db.Init("Greater Fire Skeleton", 
                 new DropPortalOnDeath("Shaitans Lair Portal", 1f),
                 new State("starting",
+                    new DistanceInvuln(8f),
                     new PlayerWithinTransition(8f, "throwreddemon", true)
                 ),
                 new State("throwreddemon", 

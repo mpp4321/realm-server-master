@@ -1,0 +1,1 @@
+scp -r .\Resources\* root@194.113.194.154:/server/Resources/

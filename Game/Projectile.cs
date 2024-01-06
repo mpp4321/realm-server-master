@@ -82,7 +82,7 @@ namespace RotMG.Game
                 speed += speedIncreaseByLifeTime;
             }
 
-            var hasSpeedClamp = Desc.SpeedClamp > 0;
+            var hasSpeedClamp = Desc.SpeedClamp >= 0;
 
             if (hasSpeedClamp)
             {

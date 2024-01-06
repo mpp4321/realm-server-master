@@ -19,6 +19,7 @@ namespace RotMG.Game.Logic.Behaviors
         };
 
         private float Factor { get; set; }
+        public float Radius { get; set; } = 30f;
         private Cooldown cooldown { get; } = new Cooldown(1000, 0);
         public HPScale(float factor)
         {
@@ -34,7 +35,7 @@ namespace RotMG.Game.Logic.Behaviors
         {
             if(host is Enemy en)
             {
-                var nearbyPlayerCount = en.GetNearbyPlayers(30f)
+                var nearbyPlayerCount = en.GetNearbyPlayers(Radius)
                     .OfType<Player>()
                     .ToHashSet();
 

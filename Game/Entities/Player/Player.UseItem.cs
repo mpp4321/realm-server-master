@@ -899,6 +899,17 @@ namespace RotMG.Game.Entities
                 case ActivateEffectIndex.RemoveFromBag:
                     {
                         ItemDataJson dt = ItemDatas[slot.SlotId];
+                        var allowedItems = new List<int> {
+                                                Resources.Id2Item["Potion of Attack"].Type,
+                                                Resources.Id2Item["Potion of Dexterity"].Type,
+                                                Resources.Id2Item["Potion of Speed"].Type,
+                                                Resources.Id2Item["Potion of Life"].Type,
+                                                Resources.Id2Item["Potion of Mana"].Type,
+                                                Resources.Id2Item["Potion of Vitality"].Type,
+                                                Resources.Id2Item["Potion of Wisdom"].Type,
+                                                Resources.Id2Item["Potion of Defense"].Type,
+                                                Resources.Id2Item["Realm Equipment Crystal"].Type
+                                            };
                         if (dt != null && dt.StoredItems != null)
                         {
                             if (dt.StoredItems.Count > 0)
@@ -911,17 +922,7 @@ namespace RotMG.Game.Entities
                                     ItemDatas[freeSlot] = new ItemDataJson()
                                         {
                                             StoredItems = new List<int>(),
-                                            AllowedItems = new List<int> {
-                                                Resources.Id2Item["Potion of Attack"].Type,
-                                                Resources.Id2Item["Potion of Dexterity"].Type,
-                                                Resources.Id2Item["Potion of Speed"].Type,
-                                                Resources.Id2Item["Potion of Life"].Type,
-                                                Resources.Id2Item["Potion of Mana"].Type,
-                                                Resources.Id2Item["Potion of Vitality"].Type,
-                                                Resources.Id2Item["Potion of Wisdom"].Type,
-                                                Resources.Id2Item["Potion of Defense"].Type,
-                                                Resources.Id2Item["Realm Equipment Crystal"].Type
-                                            }
+                                            AllowedItems = allowedItems,
                                         };
                                     dt.StoredItems.RemoveAt(0);
                                     UpdateInventorySlot(freeSlot);
@@ -934,6 +935,7 @@ namespace RotMG.Game.Entities
 
                             con.ItemDatas[slot.SlotId] = new ItemDataJson();
                             con.ItemDatas[slot.SlotId].StoredItems = new ();
+                            con.ItemDatas[slot.SlotId].AllowedItems = allowedItems;
                             con.UpdateInventorySlot(slot.SlotId);
                             SendInfo("Bag broken, should be repaired.");
                             return true;

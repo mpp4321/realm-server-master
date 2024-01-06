@@ -1,4 +1,5 @@
-﻿using RotMG.Game.Logic.ItemEffs.ItemDB;
+﻿using RotMG.Common;
+using RotMG.Game.Logic.ItemEffs.ItemDB;
 using RotMG.Game.Logic.ItemEffs.RuneEffects;
 using RotMG.Game.Logic.ItemEffs.SetEffects;
 using RotMG.Game.Logic.Mechanics.Database;
@@ -13,6 +14,7 @@ namespace RotMG.Game.Logic.ItemEffs
 
         public static Dictionary<string, IItemHandler> Registry = new Dictionary<string, IItemHandler>();
         public static Dictionary<string, int> RuneFameCosts = new Dictionary<string, int>();
+        public static Dictionary<string, int> RuneHandlerToItemId = new Dictionary<string, int>();
 
         static ItemHandlerRegistry()
         {
@@ -57,6 +59,8 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("CosmicCloak", new CosmicCloak());
             Registry.Add("PredatorNecklace", new PredatorNecklace());
             Registry.Add("WhiteDragonInAnOrb", new WhiteDragonInAnOrb());
+            Registry.Add("LifeSteal", new Lifesteal());
+            Registry.Add("ManaSteal", new Manasteal());
 
             //components
 
@@ -69,18 +73,25 @@ namespace RotMG.Game.Logic.ItemEffs
             //Runes
             Registry.Add("Percise", new Percise());
             RuneFameCosts.Add("Percise", 500);
+            RuneHandlerToItemId.Add("Percise", Resources.Id2Item["Rune of the Brute"].Type);
             Registry.Add("Vampirism", new Vampirism());
             RuneFameCosts.Add("Vampirism", 500);
+            RuneHandlerToItemId.Add("Vampirism", Resources.Id2Item["Rune of Vampirism"].Type);
             Registry.Add("Brute", new Brute());
             RuneFameCosts.Add("Brute", 250);
+            RuneHandlerToItemId.Add("Brute", Resources.Id2Item["Rune of the Brute"].Type);
             Registry.Add("Mage", new Mage());
             RuneFameCosts.Add("Mage", 500);
+            RuneHandlerToItemId.Add("Mage", Resources.Id2Item["Rune of the Mage"].Type);
             Registry.Add("Elven", new Elven());
             RuneFameCosts.Add("Elven", 500);
+            RuneHandlerToItemId.Add("Elven", Resources.Id2Item["Rune of Elven Magic"].Type);
             Registry.Add("Juggernaut", new Juggernaut());
             RuneFameCosts.Add("Juggernaut", 250);
+            RuneHandlerToItemId.Add("Juggernaut", Resources.Id2Item["Rune of the Juggernaut"].Type);
             Registry.Add("Ephemeral", new EphemeralRune());
             RuneFameCosts.Add("Ephemeral", 250);
+            RuneHandlerToItemId.Add("Ephemeral", Resources.Id2Item["Rune of the Sprites"].Type);
         }
 
     }

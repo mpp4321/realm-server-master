@@ -348,8 +348,8 @@
 		<Projectile>
 			<ObjectId>Crystal Aqua Slash</ObjectId>
 			<Speed>100</Speed>
-			<MinDamage>210</MinDamage>
-			<MaxDamage>275</MaxDamage>
+			<MinDamage>190</MinDamage>
+			<MaxDamage>235</MaxDamage>
 			<LifetimeMS>450</LifetimeMS>
 		</Projectile>
 		<BagType>4</BagType>
@@ -370,8 +370,8 @@
 		<Projectile>
 			<ObjectId>Bone Bolt</ObjectId>
 			<Speed>130</Speed>
-			<MinDamage>210</MinDamage>
-			<MaxDamage>275</MaxDamage>
+			<MinDamage>180</MinDamage>
+			<MaxDamage>225</MaxDamage>
 			<LifetimeMS>260</LifetimeMS>
 		</Projectile>
 		<BagType>4</BagType>
@@ -394,9 +394,9 @@
 		<Projectile>
 			<ObjectId>Stone Slash</ObjectId>
 			<Speed>100</Speed>
-			<MinDamage>400</MinDamage>
-			<MaxDamage>500</MaxDamage>
-			<LifetimeMS>400</LifetimeMS>
+			<MinDamage>450</MinDamage>
+			<MaxDamage>550</MaxDamage>
+			<LifetimeMS>450</LifetimeMS>
 		</Projectile>
 		<BagType>5</BagType>
 		<FameBonus>4</FameBonus>
@@ -595,7 +595,7 @@
 		</Texture>
 		<SlotType>8</SlotType>
 		<Description>A wand created from the wood of Sprite trees.</Description>
-		<RateOfFire>1</RateOfFire>
+		<RateOfFire>1.6</RateOfFire>
 		<Sound>weapon/sprite_wand</Sound>
 		<Projectile>
 			<ObjectId>Fire Bolt</ObjectId>
@@ -603,6 +603,8 @@
 			<MinDamage>50</MinDamage>
 			<MaxDamage>150</MaxDamage>
 			<LifetimeMS>770</LifetimeMS>
+			<Amplitude>0.7</Amplitude>
+			<Frequency>2</Frequency>
 			<MultiHit/>
 		</Projectile>
 		<BagType>1</BagType>
@@ -791,6 +793,7 @@
 			<MinDamage>160</MinDamage>
 			<MaxDamage>200</MaxDamage>
 			<LifetimeMS>650</LifetimeMS>
+			<ArmorPiercing>true</ArmorPiercing>
 			<MultiHit/>
 		</Projectile>
 		<BagType>5</BagType>
@@ -818,6 +821,7 @@
 			<Amplitude>2.55</Amplitude>
 			<Accelerate>-85</Accelerate>
 			<SpeedClamp>1</SpeedClamp>
+			<MultiHit/>
 			<PassesCover/>
 		</Projectile>
 		<BagType>4</BagType>
@@ -1911,7 +1915,7 @@
 		<ActivateOnEquip stat="4" amount="4">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="5" amount="4">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="6" amount="4">IncrementStat</ActivateOnEquip>
-		<BagType>4</BagType>
+		<BagType>5</BagType>
 		<FameBonus>6</FameBonus>
 		<OldSound>daggerSwing</OldSound>
 	</Object>
@@ -2287,8 +2291,8 @@
 		<Projectile>
 			<ObjectId>Black Arrow</ObjectId>
 			<Speed>140</Speed>
-			<MinDamage>400</MinDamage>
-			<MaxDamage>500</MaxDamage>
+			<MinDamage>550</MinDamage>
+			<MaxDamage>700</MaxDamage>
 			<LifetimeMS>503</LifetimeMS>
 			<MultiHit/>
 		</Projectile>
@@ -2311,36 +2315,36 @@
 		<Projectile id="0">
 			<ObjectId>Coral Arrow</ObjectId>
 			<Speed>185</Speed>
-			<MinDamage>60</MinDamage>
-			<MaxDamage>80</MaxDamage>
+			<MinDamage>70</MinDamage>
+			<MaxDamage>90</MaxDamage>
 			<LifetimeMS>420</LifetimeMS>
 			<MultiHit/>
 		</Projectile>
 		<Projectile id="1">
 			<ObjectId>Coral Arrow</ObjectId>
 			<Speed>185</Speed>
-			<MinDamage>60</MinDamage>
-			<MaxDamage>80</MaxDamage>
+			<MinDamage>70</MinDamage>
+			<MaxDamage>90</MaxDamage>
 			<LifetimeMS>420</LifetimeMS>
 			<MultiHit/>
 		</Projectile>
 		<Projectile id="2">
 			<ObjectId>Thunder Swirl</ObjectId>
 			<Speed>185</Speed>
-			<MinDamage>60</MinDamage>
-			<MaxDamage>80</MaxDamage>
+			<MinDamage>70</MinDamage>
+			<MaxDamage>90</MaxDamage>
 	        <Size>110</Size>
 	        <LifetimeMS>420</LifetimeMS>
-	       <ConditionEffect duration="0.2">Armor Broken</ConditionEffect>
+	       <ConditionEffect duration="0.4">Armor Broken</ConditionEffect>
 		</Projectile>
 		<Projectile id="3">
 			<ObjectId>Thunder Swirl</ObjectId>
 			<Speed>185</Speed>
-			<MinDamage>60</MinDamage>
-			<MaxDamage>80</MaxDamage>
+			<MinDamage>70</MinDamage>
+			<MaxDamage>90</MaxDamage>
 	        <Size>110</Size>
 	        <LifetimeMS>420</LifetimeMS>
-	       <ConditionEffect duration="0.2">Armor Broken</ConditionEffect>
+	       <ConditionEffect duration="0.4">Armor Broken</ConditionEffect>
 		</Projectile>
 		<BagType>4</BagType>
 		<FameBonus>6</FameBonus>
@@ -6615,13 +6619,13 @@
 		</Texture>
 		<SlotType>17</SlotType>
 		<Description>An ancient staff used both for sacrifice and communion with the gods.</Description>
-		<RateOfFire>0.67</RateOfFire>
+		<RateOfFire>1.4</RateOfFire>
 		<Sound>monster/djinn_hit</Sound>
 		-<Projectile>
 			<ObjectId>Crystal Serpent Missile</ObjectId>
 			<Speed>100</Speed>
 			<MinDamage>50</MinDamage>
-			<MaxDamage>170</MaxDamage>
+			<MaxDamage>70</MaxDamage>
 			<LifetimeMS>975</LifetimeMS>
 			<Amplitude>0.46</Amplitude>
 			<Frequency>0.98</Frequency>
@@ -6659,6 +6663,7 @@
 		<Description>A ring made from a splinter of crystallized sacrificial bone.</Description>
 		<ActivateOnEquip stat="5" amount="8">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="7" amount="8">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="9" amount="2">IncrementStat</ActivateOnEquip>
 		<BagType>4</BagType>
 	</Object>
 	<Object type="0xc18" id="Coral Silk Armor">
@@ -6767,6 +6772,10 @@
 			<MaxDamage>110</MaxDamage>
 			<LifetimeMS>800</LifetimeMS>
 		</Projectile>
+		<UniqueEffect>LifeSteal</UniqueEffect>
+		<ExtraTooltipData>
+			<EffectInfo name="Life Steal" description="Provides a tiny amount of health back on hit."/>
+		</ExtraTooltipData>
 		<BagType>2</BagType>
 		<FameBonus>3</FameBonus>
 		<OldSound>magicShoot</OldSound>
@@ -6881,6 +6890,7 @@
 			<MinDamage>90</MinDamage>
 			<MaxDamage>150</MaxDamage>
 			<LifetimeMS>320</LifetimeMS>
+			<ConditionalEffect duration="1">Bleeding</ConditionalEffect>
 			<MultiHit/>
 		</Projectile>
 		<BagType>4</BagType>
@@ -6910,7 +6920,7 @@
 		<SlotType>17</SlotType>
 		<Tier>0</Tier>
 		<Description>A staff that channels the ultimate force of Anatis.</Description>
-		<RateOfFire>0.25</RateOfFire>
+		<RateOfFire>1</RateOfFire>
 		<Sound>monster/chicken_death</Sound>
 		<Projectile>
 			<ObjectId>Anatis</ObjectId>
@@ -6922,7 +6932,7 @@
 			<Frequency>1</Frequency>
 			<Size>80</Size>
 		</Projectile>
-		<BagType>2</BagType>
+		<BagType>3</BagType>
 		<NumProjectiles>1</NumProjectiles>
 		<ArcGap>0</ArcGap>
 		<OldSound>magicShoot</OldSound>
@@ -7000,24 +7010,25 @@
 		<Projectile>
 			<ObjectId>Spirit Dagger Slash</ObjectId>
 			<Speed>130</Speed>
-			<MinDamage>185</MinDamage>
-			<MaxDamage>220</MaxDamage>
+			<MinDamage>90</MinDamage>
+			<MaxDamage>105</MaxDamage>
 			<LifetimeMS>400</LifetimeMS>
 			<Amplitude>0.2</Amplitude>
 			<Frequency>0.2</Frequency>
 		</Projectile>
 		<Projectile id="1">
 			<ObjectId>White Flame</ObjectId>
-			<MinDamage>185</MinDamage>
-			<MaxDamage>220</MaxDamage>
+			<MinDamage>90</MinDamage>
+			<MaxDamage>105</MaxDamage>
 			<Size>80</Size>
-			<Speed>130</Speed>
+			<Speed>110</Speed>
 			<Amplitude>0.8</Amplitude>
 			<Frequency>2</Frequency>
 			<LifetimeMS>400</LifetimeMS>
 			<ArmorPiercing>true</ArmorPiercing>
 			<ConditionEffect duration="5" probability="0.02">Paralyzed</ConditionEffect>
 		</Projectile>
+		<NumProjectiles>2</NumProjectiles>
 		<ExtraTooltipData>
 			<EffectInfo name="Ghost Shock" description="2% on hit w/ white flames to paralyze for 5 seconds."/>
 		</ExtraTooltipData>
@@ -8433,9 +8444,6 @@
 		<Projectile>
 			<ObjectId>T5 Katana</ObjectId>
 			<Speed>0</Speed>
-			<Accelerate>900</Accelerate>
-			<AccelerateDelay>300</AccelerateDelay>
-			<SpeedClamp>130</SpeedClamp>
 			<MinDamage>80</MinDamage>
 			<MaxDamage>110</MaxDamage>
 			<LifetimeMS>600</LifetimeMS>
@@ -8452,9 +8460,6 @@
 		<Projectile>
 			<ObjectId>T5 Katana</ObjectId>
 			<Speed>0</Speed>
-			<Accelerate>900</Accelerate>
-			<AccelerateDelay>300</AccelerateDelay>
-			<SpeedClamp>130</SpeedClamp>
 			<MinDamage>80</MinDamage>
 			<MaxDamage>110</MaxDamage>
 			<LifetimeMS>600</LifetimeMS>
@@ -8497,7 +8502,7 @@
 		</Texture>
 		<SlotType>2</SlotType>
 		<Description>A dagger made of the fang of the Great Coil Snake.</Description>
-		<RateOfFire>1</RateOfFire>
+		<RateOfFire>1.2</RateOfFire>
 		<Sound>weapon/blunt_dagger</Sound>
 		<Projectile>
 			<ObjectId>Fang Projectile</ObjectId>
@@ -8507,7 +8512,7 @@
 			<LifetimeMS>300</LifetimeMS>
 		</Projectile>
 		<ExtraTooltipData>
-			<EffectInfo name="Poison Coating:" description="On hit, 10% chance to poison the struck enemy for 500 damage over 5 seconds."/>
+			<EffectInfo name="Poison Coating:" description="On hit, 15% chance to poison the struck enemy for 300 damage over 5 seconds."/>
 		</ExtraTooltipData>
 		<BagType>4</BagType>
 		<UniqueEffect>PoisonDagger</UniqueEffect>
@@ -8530,6 +8535,7 @@
 			<MinDamage>190</MinDamage>
 			<MaxDamage>210</MaxDamage>
 			<LifetimeMS>458</LifetimeMS>
+			<ConditionalEffect chance="0.05" duration="1">Paralyzed</ConditionalEffect>
 		</Projectile>
 		<BagType>4</BagType>
 		<OldSound>bladeSwing</OldSound>
@@ -8913,11 +8919,11 @@
 		<Projectile>
 			<ObjectId>TWand Projectile</ObjectId>
 			<Speed>200</Speed>
-			<MinDamage>125</MinDamage>
-			<MaxDamage>130</MaxDamage>
+			<MinDamage>120</MinDamage>
+			<MaxDamage>125</MaxDamage>
 			<LifetimeMS>375</LifetimeMS>
-			<Amplitude>0.1</Amplitude>
-			<Frequency>0.1</Frequency>
+			<Amplitude>0.3</Amplitude>
+			<Frequency>1</Frequency>
 			<MultiHit/>
 		</Projectile>
 		<NumProjectiles>2</NumProjectiles>
@@ -8938,24 +8944,24 @@
 		<Sound>weapon/glass_sword</Sound>
 		<Projectile id="0">
 			<ObjectId>Beam</ObjectId>
-			<Damage>300</Damage>
+			<Damage>200</Damage>
 			<Speed>20</Speed>
 			<Size>60</Size>
-			<LifetimeMS>200</LifetimeMS>
+			<LifetimeMS>300</LifetimeMS>
 		</Projectile>
 		<Projectile id="1">
 			<ObjectId>Beam</ObjectId>
-			<Damage>200</Damage>
+			<Damage>150</Damage>
 			<Speed>40</Speed>
 			<Size>100</Size>
-			<LifetimeMS>400</LifetimeMS>
+			<LifetimeMS>500</LifetimeMS>
 		</Projectile>
 		<Projectile id="2">
 			<ObjectId>Beam</ObjectId>
 			<Damage>100</Damage>
 			<Speed>60</Speed>
 			<Size>140</Size>
-			<LifetimeMS>600</LifetimeMS>
+			<LifetimeMS>700</LifetimeMS>
 		</Projectile>
 		<Projectile id="3">
 			<ObjectId>Beam</ObjectId>
@@ -9125,8 +9131,8 @@
 		<Projectile id ="0">
 			<ObjectId>Crypt Staff Shot 2</ObjectId>
 			<Speed>160</Speed>
-			<MinDamage>80</MinDamage>
-			<MaxDamage>95</MaxDamage>
+			<MinDamage>60</MinDamage>
+			<MaxDamage>75</MaxDamage>
 			<LifetimeMS>425</LifetimeMS>
 			<Frequency>2</Frequency>
 			<Amplitude>0.5</Amplitude>
@@ -9134,8 +9140,8 @@
 		<Projectile id ="1">
 			<ObjectId>Crypt Staff Shot 1</ObjectId>
 			<Speed>160</Speed>
-			<MinDamage>80</MinDamage>
-			<MaxDamage>95</MaxDamage>
+			<MinDamage>140</MinDamage>
+			<MaxDamage>155</MaxDamage>
 			<LifetimeMS>425</LifetimeMS>
 			<Frequency>2</Frequency>
 			<Amplitude>0.5</Amplitude>
@@ -9143,8 +9149,8 @@
 		<Projectile id ="2">
 			<ObjectId>Crypt Staff Shot 2</ObjectId>
 			<Speed>160</Speed>
-			<MinDamage>80</MinDamage>
-			<MaxDamage>95</MaxDamage>
+			<MinDamage>60</MinDamage>
+			<MaxDamage>75</MaxDamage>
 			<LifetimeMS>425</LifetimeMS>
 		</Projectile>
 		<ArcGap>0</ArcGap>
@@ -9169,14 +9175,14 @@
 			<Speed>180</Speed>
 			<MinDamage>100</MinDamage>
 			<MaxDamage>130</MaxDamage>
-			<LifetimeMS>475</LifetimeMS>
+			<LifetimeMS>500</LifetimeMS>
 		</Projectile>
 		<Projectile>
 			<ObjectId>Crypt Bow Shot 2</ObjectId>
 			<Speed>180</Speed>
 			<MinDamage>100</MinDamage>
 			<MaxDamage>130</MaxDamage>
-			<LifetimeMS>475</LifetimeMS>
+			<LifetimeMS>500</LifetimeMS>
 		</Projectile>
 		<ArcGap>3</ArcGap>
 		<BagType>5</BagType>
@@ -9291,11 +9297,10 @@
 		<BurstCooldown>500</BurstCooldown>
 		<Projectile>
 			<ObjectId>Thunder Projectile</ObjectId>
-			<Speed>40</Speed>
+			<Speed>200</Speed>
 			<MinDamage>200</MinDamage>
 			<MaxDamage>300</MaxDamage>
-			<Accelerate>80</Accelerate>
-			<LifetimeMS>3000</LifetimeMS>
+			<LifetimeMS>400</LifetimeMS>
 			<ArmorPiercing>true</ArmorPiercing>
 			<Amplitude>0.1</Amplitude>
 			<Frequency>16</Frequency>
@@ -9356,15 +9361,15 @@
 		</Animation>
 		<SlotType>8</SlotType>
 		<Description>A lost soul harnessed for power.</Description>
-		<RateOfFire>0.30</RateOfFire>
+		<RateOfFire>0.25</RateOfFire>
 		<Sound>weapon/wand_of_death</Sound>
 		<Projectile>
 			<ObjectId>Void Vortex</ObjectId>
 			<Speed>50</Speed>
 			<MinDamage>750</MinDamage>
 			<MaxDamage>1000</MaxDamage>
-			<LifetimeMS>3000</LifetimeMS>
-			<Size>300</Size>
+			<LifetimeMS>2000</LifetimeMS>
+			<Size>200</Size>
 			<MultiHit/>
 		</Projectile>
 		<BagType>5</BagType>
@@ -9438,8 +9443,8 @@
 		<Projectile>
 			<ObjectId>Red Arrow</ObjectId>
 			<Speed>160</Speed>
-			<MinDamage>135</MinDamage>
-			<MaxDamage>210</MaxDamage>
+			<MinDamage>120</MinDamage>
+			<MaxDamage>170</MaxDamage>
 			<LifetimeMS>440</LifetimeMS>
 			<MultiHit/>
 		</Projectile>
@@ -9462,8 +9467,8 @@
 		<Projectile>
 			<ObjectId>Malphas Axe Projectile</ObjectId>
 			<Speed>150</Speed>
-			<MinDamage>280</MinDamage>
-			<MaxDamage>300</MaxDamage>
+			<MinDamage>240</MinDamage>
+			<MaxDamage>275</MaxDamage>
 			<LifetimeMS>380</LifetimeMS>
 		</Projectile>
 		<ActivateOnEquip stat="0" amount="100">IncrementStat</ActivateOnEquip>
@@ -9547,8 +9552,8 @@
 		<Projectile>
 			<ObjectId>Cyclops Hammershot</ObjectId>
 			<Speed>75</Speed>
-			<MinDamage>300</MinDamage>
-			<MaxDamage>400</MaxDamage>
+			<MinDamage>700</MinDamage>
+			<MaxDamage>850</MaxDamage>
 			<Size>200</Size>
 			<LifetimeMS>400</LifetimeMS>
 		</Projectile>
@@ -9658,8 +9663,8 @@
 			<ObjectId>Magma Bolt</ObjectId>
 			<Speed>65</Speed>
 			<Size>125</Size>
-			<MinDamage>155</MinDamage>
-			<MaxDamage>205</MaxDamage>
+			<MinDamage>125</MinDamage>
+			<MaxDamage>175</MaxDamage>
 			<LifetimeMS>1200</LifetimeMS>
 			<Amplitude>0.5</Amplitude>
 			<Frequency>2</Frequency>
@@ -10060,7 +10065,7 @@
 			<MaxDamage>160</MaxDamage>
 			<LifetimeMS>800</LifetimeMS>
 		</Projectile>
-		<BagType>5</BagType>
+		<BagType>4</BagType>
 		<FameBonus>4</FameBonus>
 		<OldSound>bladeSwing</OldSound>
 	</Object>
@@ -10226,18 +10231,18 @@
 		</Texture>
 		<SlotType>17</SlotType>
 		<Description>I was a fool before, but now everything is so clear. The phylactery speaks to me, knows me, protects me.</Description>
-		<RateOfFire>1</RateOfFire>
+		<RateOfFire>0.75</RateOfFire>
 		<Sound>weapon/wand_of_death</Sound>
 		<Projectile>
 			<ObjectId>Soul Orb</ObjectId>
 			<Speed>160</Speed>
 			<MinDamage>80</MinDamage>
-			<MaxDamage>100</MaxDamage>
+			<MaxDamage>190</MaxDamage>
 			<LifetimeMS>450</LifetimeMS>
 			<Amplitude>0.5</Amplitude>
 			<Size>100</Size>
 		</Projectile>
-		<ActivateOnEquip stat="4" amount="2">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="4" amount="6">IncrementStat</ActivateOnEquip>
 		<BagType>4</BagType>
 		<FameBonus>4</FameBonus>
 		<OldSound>bladeSwing</OldSound>
@@ -10427,8 +10432,8 @@
 		<Description>A skull shaped necklace imbued with undead wisdom.</Description>
 		<ActivateOnEquip stat="1" amount="90">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="2" amount="10">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="6" amount="-5">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="7" amount="5">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="8" amount="-5">IncrementStat</ActivateOnEquip>
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>
 		<ExtraTooltipData>
@@ -10466,8 +10471,8 @@
 		<Projectile>
 			<ObjectId>T0 Wand</ObjectId>
 			<Speed>40</Speed>
-			<MinDamage>110</MinDamage>
-			<MaxDamage>115</MaxDamage>
+			<MinDamage>80</MinDamage>
+			<MaxDamage>85</MaxDamage>
 			<LifetimeMS>1800</LifetimeMS>
 			<Frequency>0.95</Frequency>
 			<Amplitude>0.35</Amplitude>
@@ -10478,6 +10483,10 @@
 		<ActivateOnEquip stat="2" amount="2">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="6" amount="-3">IncrementStat</ActivateOnEquip>
 		<NumProjectiles>4</NumProjectiles>
+		<UniqueEffect>ManaSteal</UniqueEffect>
+		<ExtraTooltipData>
+			<EffectInfo name="Mana Steal" description="Provides a tiny amount of mana back on hit."/>
+		</ExtraTooltipData>
 		<BagType>5</BagType>
 		<FameBonus>6</FameBonus>
 		<OldSound>magicShoot</OldSound>
@@ -10568,7 +10577,7 @@
 		</ExtraTooltipData>
 		<Description>A bracelet empowered with the same magic that gives the sprites their intangible form.</Description>
 		<ActivateOnEquip stat="0" amount="60">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="3" amount="2">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="3" amount="12">IncrementStat</ActivateOnEquip>
 		<UniqueEffect>SpriteRing</UniqueEffect>
 		<BagType>4</BagType>
 		<FameBonus>4</FameBonus>
@@ -10662,6 +10671,7 @@
 			<MinDamage>80</MinDamage>
 			<MaxDamage>100</MaxDamage>
 			<LifetimeMS>800</LifetimeMS>
+			<MultiHit/>
 			<ArmorPiercing>true</ArmorPiercing>
 			<Boomerang/>
 		</Projectile>
@@ -10704,13 +10714,15 @@
 		</Texture>
 		<SlotType>8</SlotType>
 		<Description>A wand basked in enchanted water from the oasis.</Description>
-		<RateOfFire>1</RateOfFire>
+		<RateOfFire>1.3</RateOfFire>
 		<Sound>weapon/sprite_wand</Sound>
 		<Projectile>
 			<ObjectId>Fish Shot</ObjectId>
 			<Speed>100</Speed>
-			<MinDamage>100</MinDamage>
-			<MaxDamage>125</MaxDamage>
+			<SpeedClamp>0</SpeedClamp>
+			<Acceleration>-100</Acceleration>
+			<MinDamage>130</MinDamage>
+			<MaxDamage>155</MaxDamage>
 			<LifetimeMS>850</LifetimeMS>
 			<MultiHit/>
 			<ArcGap>30</ArcGap>
@@ -10811,8 +10823,8 @@
 		<Projectile>
 			<ObjectId>Fairy Bullet</ObjectId>
 			<Speed>140</Speed>
-			<MinDamage>100</MinDamage>
-			<MaxDamage>130</MaxDamage>
+			<MinDamage>90</MinDamage>
+			<MaxDamage>105</MaxDamage>
 			<LifetimeMS>325</LifetimeMS>
 			<Size>80</Size>
 		</Projectile>
@@ -11026,7 +11038,7 @@
 			<MaxDamage>60</MaxDamage>
 			<LifetimeMS>900</LifetimeMS>
 			<Size>50</Size>
-			<ArmorPiercing/>
+			<ConditionalEffect duration="10" chance="0.05">Weak</ConditionalEffect>
 			<Wavy/>
 		</Projectile>
 		<ActivateOnEquip stat="4" amount="4">IncrementStat</ActivateOnEquip>
@@ -11036,7 +11048,7 @@
 		<FameBonus>5</FameBonus>
 		<NumProjectiles>3</NumProjectiles>
 		<OldSound>arrowShoot</OldSound>
-		<ArcGap>30</ArcGap>
+		<ArcGap>8</ArcGap>
 	</Object>
 	<Object type="0x5258" id="Earth's Remembrance">
 		<Class>Equipment</Class>
@@ -11215,7 +11227,7 @@
 		</Texture>
 		<SlotType>3</SlotType>
 		<Description>A bow radiating a blinding light.</Description>
-		<RateOfFire>1.2</RateOfFire>
+		<RateOfFire>1</RateOfFire>
 		<Sound>weapon/poor_quality_bow</Sound>
 		<Projectile>
 			<ObjectId>Gold Arrow</ObjectId>
@@ -11247,7 +11259,7 @@
 			<Speed>100</Speed>
 			<Size>150</Size>
 			<MinDamage>175</MinDamage>
-			<MaxDamage>290</MaxDamage>
+			<MaxDamage>220</MaxDamage>
 			<LifetimeMS>600</LifetimeMS>
 		</Projectile>
 		<BagType>5</BagType>
@@ -11262,7 +11274,7 @@
 		</Texture>
 		<SlotType>1</SlotType>
 		<Description>A royal spear passed through generations.</Description>
-		<RateOfFire>0.9</RateOfFire>
+		<RateOfFire>1</RateOfFire>
 		<Sound>weapon/glass_sword</Sound>
 		<Projectile id="0">
 			<ObjectId>OryxSpear</ObjectId>
@@ -11270,7 +11282,7 @@
 			<MaxDamage>500</MaxDamage>
 			<Speed>80</Speed>
 			<Size>120</Size>
-			<LifetimeMS>800</LifetimeMS>
+			<LifetimeMS>656</LifetimeMS>
 		</Projectile>
 		<EnchantmentStrength>10</EnchantmentStrength>
 		<BagType>6</BagType>
@@ -11520,11 +11532,11 @@
 			<Speed>180</Speed>
 			<MinDamage>100</MinDamage>
 			<MaxDamage>110</MaxDamage>
-			<LifetimeMS>350</LifetimeMS>
+			<LifetimeMS>445</LifetimeMS>
 			<Boomerang/>
 			<MultiHit/>
 		</Projectile>
-		<ArcGap>15</ArcGap>
+		<ArcGap>20</ArcGap>
 		<NumProjectiles>3</NumProjectiles>
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>
@@ -11577,7 +11589,7 @@
 		</Texture>
 		<SlotType>24</SlotType>
 		<Description>A haunted scythe used for more than farming.</Description>
-		<RateOfFire>0.8</RateOfFire>
+		<RateOfFire>0.65</RateOfFire>
 		<Sound>weapon/long_sword</Sound>
 		<Projectile>
 			<ObjectId>Dark Large Bolt</ObjectId>
@@ -11589,6 +11601,7 @@
 			<Frequency>1</Frequency>
 			<Size>100</Size>
 			<SmartAngle></SmartAngle>
+			<ConditionalEffect duration="1">CursedLower</ConditionalEffect>
 		</Projectile>
 		<Projectile>
 			<ObjectId>Dark Large Slash</ObjectId>
@@ -11600,6 +11613,7 @@
 			<Frequency>1</Frequency>
 			<Size>100</Size>
 			<SmartAngle></SmartAngle>
+			<ConditionalEffect duration="1">CursedLower</ConditionalEffect>
 		</Projectile>
 		<NumProjectiles>1</NumProjectiles>
 		<BagType>6</BagType>
@@ -11680,9 +11694,9 @@
 		<Sound>weapon/fire_wand</Sound>
 		<Projectile>
 			<ObjectId>Blazed Shot</ObjectId>
-			<Speed>150</Speed>
-			<MinDamage>1400</MinDamage>
-			<MaxDamage>1800</MaxDamage>
+			<Speed>100</Speed>
+			<MinDamage>1100</MinDamage>
+			<MaxDamage>1500</MaxDamage>
 			<LifetimeMS>550</LifetimeMS>
 		</Projectile>
 		<BagType>6</BagType>
@@ -11753,7 +11767,7 @@
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>
 	</Object>
-	<Object type="0xd4b" id="Bow of Janus rage">
+	<Object type="0xd4b" id="Bow of Janus Rage">
 		<Class>Equipment</Class>
 		<Item />
 		<Texture>
@@ -11770,13 +11784,14 @@
 			<MinDamage>100</MinDamage>
 			<MaxDamage>150</MaxDamage>
 			<LifetimeMS>410</LifetimeMS>
+			<ArmorPiercing>true</ArmorPiercing>
 			<Size>100</Size>
 		</Projectile>
 		<NumProjectiles>4</NumProjectiles>
 		<ArcGap>4</ArcGap>
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>
-		<DisplayId>Bow of Janus rage</DisplayId>
+		<DisplayId>Bow of Janus Rage</DisplayId>
 	</Object>
 	<Object type="0xd4c" id="Key of Rage">
 		<Class>Equipment</Class>
@@ -12074,14 +12089,13 @@
 			<MinDamage>150</MinDamage>
 			<MaxDamage>150</MaxDamage>
 			<LifetimeMS>400</LifetimeMS>
-			<Wavy/>
 			<MultiHit/>
 		</Projectile>
 		<ActivateOnEquip stat="4" amount="10">IncrementStat</ActivateOnEquip>
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>
 		<NumProjectiles>2</NumProjectiles>
-		<ArcGap>20</ArcGap>
+		<ArcGap>12</ArcGap>
 		<OldSound>bladeSwing</OldSound>
 	</Object>
 	<Object type="0x5109" id="Golden Demonic Metal">
@@ -12550,8 +12564,8 @@
 			<ObjectId>Paladin Waraxe Shot</ObjectId>
 			<Speed>100</Speed>
 			<Size>200</Size>
-			<MinDamage>350</MinDamage>
-			<MaxDamage>450</MaxDamage>
+			<MinDamage>400</MinDamage>
+			<MaxDamage>500</MaxDamage>
 			<LifetimeMS>600</LifetimeMS>
 		</Projectile>
 		<BagType>6</BagType>
@@ -12614,9 +12628,10 @@
 			<MaxDamage>145</MaxDamage>
 			<LifetimeMS>650</LifetimeMS>
 			<MultiHit/>
-			<Amplitude>0.5</Amplitude>
+			<Amplitude>0.8</Amplitude>
 			<Frequency>2</Frequency>
 		</Projectile>
+		<ArcGap>0</ArcGap>
 		<NumProjectiles>2</NumProjectiles>
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>
@@ -12802,13 +12817,13 @@
 		</Animation>
 		<SlotType>8</SlotType>
 		<Description>A lost soul harnessed for power.</Description>
-		<RateOfFire>0.20</RateOfFire>
+		<RateOfFire>0.25</RateOfFire>
 		<Sound>weapon/wand_of_death</Sound>
 		<Projectile>
 			<ObjectId>Havoc Vortex</ObjectId>
 			<Speed>50</Speed>
-			<MinDamage>1000</MinDamage>
-			<MaxDamage>2500</MaxDamage>
+			<MinDamage>850</MinDamage>
+			<MaxDamage>1300</MaxDamage>
 			<LifetimeMS>3000</LifetimeMS>
 			<Size>300</Size>
 			<MultiHit/>
@@ -13053,7 +13068,7 @@
 		</Texture>
 		<SlotType>1</SlotType>
 		<Description>Used only by the pirates who would make themselves kings, this cutlass is said to be cursed as each Pirate King seems to be killed rather unexpectedly.</Description>
-		<RateOfFire>1.2</RateOfFire>
+		<RateOfFire>1.4</RateOfFire>
 		<Sound>weapon/glass_sword</Sound>
 		<Projectile>
 		  <ObjectId>Gold Shot</ObjectId>
@@ -13061,6 +13076,7 @@
 		  <MinDamage>184</MinDamage>
 		  <MaxDamage>231</MaxDamage>
 		  <LifetimeMS>325</LifetimeMS>
+	    	<MultiHit/>
 		</Projectile>
 		<BagType>4</BagType>
 		<FameBonus>4</FameBonus>

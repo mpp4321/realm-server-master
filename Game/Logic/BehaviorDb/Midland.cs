@@ -706,7 +706,10 @@ namespace RotMG.Game.Logic.Database
                         new StayBack(0.65f, 8),
                         new Order(8, "Horned Drake", "protect_me")
                         )
-                    )
+                    ),
+                new Threshold(0.01f,
+                    new ItemLoot("Drake's Dialect", 0.01f)
+                )
             );
             db.Init("Nomadic Shaman",
                 new State("base",

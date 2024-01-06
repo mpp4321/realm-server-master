@@ -118,7 +118,7 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("(Green) UT Egg", 0.1f, 0.01f),
                     new ItemLoot("(Blue) RT Egg", 0.01f, 0.01f),
                     new ItemLoot("Realm Equipment Crystal", 1.0f),
-                    new ItemLoot("Void Blade", 0.003f, 0.01f)
+                    new ItemLoot("Void Blade", 0.03f, 0.01f)
                     //new ItemLoot("Murky Toxin", 0.004f),
                     //new ItemLoot("Virulent Venom", 0.006f),
                     //new ItemLoot("Dagger of Toxin", 0.006f),

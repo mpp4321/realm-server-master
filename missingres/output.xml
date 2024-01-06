@@ -2101,4 +2101,18 @@
       <Size>160</Size>
       <XpMult>0.0</XpMult>
    </Object>
+
+   <Object type="0x7523" id="ClassyBrown1">
+      <Class>Character</Class>
+      <Enemy/>
+      <Texture>
+         <File>invisible</File>
+         <Index>0</Index>
+      </Texture>
+      <NoMiniMap/>
+      <Size>0</Size>
+      <StasisImmune/>
+   </Object>
+   
+   
 </Objects>

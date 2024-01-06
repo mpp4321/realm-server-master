@@ -234,9 +234,10 @@ namespace RotMG.Common
             return true;
         }
 
-        public static void AddGift(AccountModel acc, int item)
+        public static void AddGift(AccountModel acc, int item, ItemDataJson itemJson)
         {
             acc.Gifts.Add(item);
+            acc.GiftData.Add(itemJson);
             acc.Save();
         }
 

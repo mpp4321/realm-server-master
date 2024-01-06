@@ -468,7 +468,7 @@ namespace RotMG.Game.Entities
                                 var itemString = string.Join(' ', j).Trim().ToLower();
                                 if (Resources.IdLower2Item.TryGetValue(itemString, out var gift))
                                 {
-                                    Database.AddGift(acc, gift.Type);
+                                    Database.AddGift(acc, gift.Type, new());
                                     SendInfo("Success");
                                 }
                                 else SendError($"Item <{itemString}> not found in GameData");
@@ -750,7 +750,10 @@ namespace RotMG.Game.Entities
                         else SendInfo(findTarget.ToString());
                         break;
                     case "/vault":
-                        Client.Send(GameServer.Reconnect(Manager.VaultId));
+                        { 
+                            Client.IsReconnecting = true;
+                            Client.Send(GameServer.Reconnect(Manager.VaultId));
+                        }
                         break;
                     case "/realm":
                         var realmIds = new List<int>(Manager.Realms.Keys);
@@ -1235,8 +1238,7 @@ namespace RotMG.Game.Entities
                         break;
                     case "/myrunes":
                         {
-                            var runesString = string.Join(", ", Client.Character.SelectedRunes);
-                            SendInfo($"Your runes {runesString}.");
+                            Client.Send(GameServer.OpenRunesMenu(Client.Player));
                         }
                         break;
                     case "/clearrunes":

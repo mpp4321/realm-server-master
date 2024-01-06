@@ -36,27 +36,28 @@ namespace RotMG.Game.Logic.Database
                 new State("base",
                     new State("idle",
                         new PlayerWithinTransition(12, "ring1")
-                        ),
+                    ),
                     new State("ring1",
                         new Shoot(1, fixedAngle: 0, count: 15, shootAngle: 24, cooldown: 1200, index: 0),
                         new TimedTransition("ring2", 400)
-                        ),
+                    ),
                     new State("ring2",
                         new Shoot(1, fixedAngle: 8, count: 15, shootAngle: 24, cooldown: 1200, index: 1),
                         new TimedTransition("ring3", 400)
-                        ),
+                    ),
                     new State("ring3",
                         new Shoot(1, fixedAngle: 16, count: 15, shootAngle: 24, cooldown: 1200, index: 2),
                         new TimedTransition("idle", 400)
-                        ),
+                    ),
                     new Prioritize(
                         new StayAbove(0.4f, 9),
                         new Follow(0.75f, range: 6),
                         new Wander(0.4f)
-                        ),
+                    ),
+                    new Shoot(1, predictive: 1f, index: 3),
                     new Spawn("Hobbit Archer", maxChildren: 4, cooldown: 12000, givesNoXp: false),
                     new Spawn("Hobbit Rogue", maxChildren: 3, cooldown: 6000, givesNoXp: false)
-                    ),
+                ),
                 new TierLoot(2, LootType.Weapon, 1.0f),
                 new TierLoot(2, LootType.Armor, 1.0f),
                 new TierLoot(1, LootType.Ring, 0.5f),
@@ -550,7 +551,7 @@ namespace RotMG.Game.Logic.Database
                         ),
                     new DropPortalOnDeath("Pirate Cave Portal", .01f)
                     )
-            );;
+            ); ;
             db.EveryInit = new IBehavior[] { };
 
             //Sumo dungeon boss
@@ -569,7 +570,7 @@ namespace RotMG.Game.Logic.Database
                     var entity = Entity.Resolve(Resources.Id2Object["The Ring Portal"].Type);
                     world.AddEntity(entity, new(25.5f, 98.5f));
                 }),
-                new State ("base",
+                new State("base",
                     new ConditionalEffect(Common.ConditionEffectIndex.Invincible),
                     new PlayerWithinTransition(18, "reveal", true)
                     ),
@@ -705,7 +706,7 @@ namespace RotMG.Game.Logic.Database
                            new Follow(0.05f, range: 1),
                            new Wander(0.05f)
                            ),
-                       new HealthTransition(0.5f, "rage") 
+                       new HealthTransition(0.5f, "rage")
                        ),
                    new State("rage",
                        new TransitionFrom("rage", "shoot"),

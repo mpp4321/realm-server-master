@@ -1314,7 +1314,7 @@ namespace RotMG.Common
             Accelerate = e.ParseFloat("Accelerate");
             DoAccelerate = MathF.Abs(Accelerate) > 0.0f;
             AccelerateDelay = e.ParseFloat("AccelerateDelay");
-            SpeedClamp = e.ParseFloat("SpeedClamp");
+            SpeedClamp = e.ParseFloat("SpeedClamp", -1f);
 
             {
                 var explodeXML = e.Element("ExplodeProjectile");

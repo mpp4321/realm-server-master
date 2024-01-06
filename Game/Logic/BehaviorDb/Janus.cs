@@ -344,7 +344,7 @@ namespace RotMG.Game.Logic.Database
 					new TierLoot(9, LootType.Armor, 0.9f),
 					new TierLoot(10, LootType.Weapon, 0.05f, r: new LootDef.RarityModifiedData(1.0f, 3, true)),
 					new TierLoot(5, LootType.Ring, 0.8f),
-					new ItemLoot("Bow of Janus rage", 0.025f),
+					new ItemLoot("Bow of Janus Rage", 0.025f),
 					new ItemLoot("Eye of Janus", 0.025f),
 					new ItemLoot("Key of Rage", 0.025f),
 					new ItemLoot("Warden Armor", 0.025f),

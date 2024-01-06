@@ -11,9 +11,9 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
     {
         public void OnEnemyHit(Entity hit, Projectile by, ref int damageDone) 
         {
-            if(MathUtils.Chance(.1f))
+            if(MathUtils.Chance(.15f))
             {
-                hit.ApplyConditionEffect(Common.ConditionEffectIndex.ArmorBroken, 1000);
+                hit.ApplyConditionEffect(Common.ConditionEffectIndex.ArmorBroken, 3000);
             }
         }
 

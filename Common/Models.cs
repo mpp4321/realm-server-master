@@ -694,6 +694,7 @@ namespace RotMG.Common
         public bool Sounds;
         public bool Notifications;
         public List<int> Gifts;
+        public List<ItemDataJson> GiftData;
         public int EntitySpawnCooldown;
 
         public AccountModel() : base(null) { }
@@ -737,6 +738,12 @@ namespace RotMG.Common
             Sounds = Data.GetBool("Sounds", true);
             Notifications = bool.Parse(Data.GetKeyOr("Notifications", "true"));
             Gifts = Data.GetKeyParsed<List<int>>("Gifts").OrElse(new List<int>());
+            var giftDataList = Data.GetKeyParsed<List<ItemDataJson>>("GiftData").OrElse(new List<ItemDataJson>());
+            while (giftDataList.Count < Gifts.Count)
+            {
+                giftDataList.Add(new ItemDataJson());
+            }
+            GiftData = giftDataList;
             EntitySpawnCooldown = Data.GetInt("EntitySpawnCooldown", 0);
 
             Donator = Data.GetInt("Donator");
@@ -799,6 +806,7 @@ namespace RotMG.Common
             Data.SetKey("Sounds", Sounds.ToString());
             Data.SetKey("Notifications", Notifications.ToString());
             Data.SetKey("Gifts", Gifts);
+            Data.SetKey("GiftData", GiftData);
             Data.SetKey("Donator", Donator);
             Data.SetKey("EntitySpawnCooldown", EntitySpawnCooldown.ToString());
 

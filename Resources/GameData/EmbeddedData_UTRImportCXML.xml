@@ -4757,14 +4757,14 @@
 		<Projectile id="0">
 			<ObjectId>Poison Fireball</ObjectId>
 			<Speed>130</Speed>
-			<MinDamage>245</MinDamage>
-			<MaxDamage>335</MaxDamage>
+			<MinDamage>225</MinDamage>
+			<MaxDamage>285</MaxDamage>
 			<LifetimeMS>400</LifetimeMS>
 			<Amplitude>0.5</Amplitude>
 			<Frequency>1</Frequency>
 			<Size>90</Size>
 			<MultiHit />
-			<CondChance effect="Bleeding" chance="10" duration="3" />
+			<ConditionalEffect chance="0.1" duration="3">Bleeding</ConditionalEffect>
 		</Projectile>
 		<BagType>6</BagType>
 		<FameBonus>4</FameBonus>
@@ -13769,7 +13769,7 @@
 		</Texture>
 		<SlotType>24</SlotType>
 		<Description>An astronomically heavy katana. It is forged from dark matter.</Description>
-		<RateOfFire>1</RateOfFire>
+		<RateOfFire>0.6</RateOfFire>
 		<Sound>weapon/long_sword</Sound>
 		<Projectile>
 			<ObjectId>IT Void Star</ObjectId>
@@ -13779,7 +13779,7 @@
 			<LifetimeMS>4500</LifetimeMS>
 			<MultiHit />
 		</Projectile>
-		<BagType>6</BagType>
+		<BagType>5</BagType>
 		<FameBonus>6</FameBonus>
 		<OldSound>bladeSwing</OldSound>
 		<DisplayId>Void Blade</DisplayId>
@@ -20567,7 +20567,8 @@
 			<Speed>190</Speed>
 			<MinDamage>145</MinDamage>
 			<MaxDamage>165</MaxDamage>
-			<LifetimeMS>374</LifetimeMS>
+			<LifetimeMS>326</LifetimeMS>
+			<ArmorPiercing>true</ArmorPiercing>
 			<MultiHit />
 		</Projectile>
 		<BagType>5</BagType>
@@ -21572,10 +21573,10 @@
 		<Projectile>
 			<ObjectId>Blazed Shot</ObjectId>
 			<Speed>185</Speed>
-			<MinDamage>85</MinDamage>
-			<MaxDamage>110</MaxDamage>
+			<MinDamage>75</MinDamage>
+			<MaxDamage>105</MaxDamage>
 			<LifetimeMS>420</LifetimeMS>
-			<ArmorPiercing/>
+			<ArmorPiercing>true</ArmorPiercing>
 		</Projectile>
 		<ActivateOnEquip stat="6" amount="10">IncrementStat</ActivateOnEquip>
 		<BagType>6</BagType>

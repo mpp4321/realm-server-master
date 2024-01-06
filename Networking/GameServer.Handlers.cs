@@ -1,6 +1,7 @@
 ﻿using RotMG.Common;
 using RotMG.Game;
 using RotMG.Game.Entities;
+using RotMG.Game.Logic.ItemEffs;
 using RotMG.Utils;
 using System;
 using System.Collections.Generic;
@@ -78,7 +79,9 @@ namespace RotMG.Networking
             FixMeDesync,
             LootNotif,
             BulletExplosion,
-            CrystalConv
+            CrystalConv,
+            OpenRunesMenu,
+            RemoveRune,
         }
 
         public static void Read(Client client, int id, byte[] data)
@@ -197,6 +200,9 @@ namespace RotMG.Networking
                         break;
                     case PacketId.Reskin:
                         Reskin(client, rdr);
+                        break;
+                    case PacketId.RemoveRune:
+                        RemoveRune(client, rdr);
                         break;
                 }
             }
@@ -776,6 +782,21 @@ namespace RotMG.Networking
                 return (wtr.BaseStream as MemoryStream).ToArray();
             }
         }
+        public static byte[] OpenRunesMenu(Player p)
+        {
+            var runes = p.Client.Character.SelectedRunes;
+            using (var wtr = new PacketWriter(new MemoryStream()))
+            {
+                wtr.Write((byte)PacketId.OpenRunesMenu);
+                wtr.Write((byte)runes.Count());
+                foreach(var rune in runes)
+                {
+                    wtr.Write(ItemHandlerRegistry.RuneHandlerToItemId[rune]);
+                    wtr.Write(ItemHandlerRegistry.RuneFameCosts[rune]);
+                }
+                return (wtr.BaseStream as MemoryStream).ToArray();
+            }
+        }
 
         public static byte[] TradeRequested(string name)
         {
@@ -1186,6 +1207,20 @@ namespace RotMG.Networking
                 wtr.Write((byte)'\n');
                 return (wtr.BaseStream as MemoryStream).ToArray();
             }
+        }
+
+        private static void RemoveRune(Client client, PacketReader rdr)
+        {
+            var rune = rdr.ReadString();
+            var listVersion = client.Character.SelectedRunes.ToList();
+            if(listVersion.Remove(rune))
+            {
+                client.Player.SendInfo("Removed rune.");
+            } else
+            {
+                client.Player.SendInfo("Rune not found.");
+            }
+            client.Character.SelectedRunes = listVersion.ToArray();
         }
     }
 }

@@ -99,9 +99,12 @@ namespace RotMG.Game.Worlds
             }
         }
 
-        private void CreateShopAt(IntPoint shop1Point, int type, int price, Currency currency)
+        private void CreateShopAt(IntPoint shop1Point, int type, int price, Currency currency, ItemDataJson itemDataJson = null)
         {
-            var shopEntity = new NexusShop(0x01ca);
+            var shopEntity = new NexusShop(0x01ca)
+            {
+                itemJson = itemDataJson
+            };
 
             //So client gets these values
             shopEntity.TrySetSV(StatType.MerchandiseType, type);

@@ -34,7 +34,7 @@ namespace RotMG.Game.Logic.Database
 
                        foreach (var en in foundEnemies)
                        {
-                           (en as Enemy).Damage(h.PlayerOwner, 100, new ConditionEffectDesc[] { }, false, true);
+                           (en as Enemy).Damage(h.PlayerOwner, 500, new ConditionEffectDesc[] { }, false, true);
                        }
                    }),
                     new Suicide()

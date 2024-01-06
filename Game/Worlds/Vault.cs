@@ -63,12 +63,16 @@ namespace RotMG.Game.Worlds
 
             // Spawn gift chests
             var gifts = new List<int>(client.Account.Gifts);
+            var giftdata = new List<ItemDataJson>(client.Account.GiftData);
             while (gifts.Count > 0 && giftChestLocations.Count > 0)
             {
                 var count = Math.Min(8, gifts.Count);
+                var countData = Math.Min(8, giftdata.Count);
                 var items = gifts.GetRange(0, count);
+                var datas = giftdata.GetRange(0, countData);
                 gifts.RemoveRange(0, count);
-                var chest = new GiftChest(items, client.Account);
+                giftdata.RemoveRange(0, countData);
+                var chest = new GiftChest(items, datas, client.Account);
                 AddEntity(chest, giftChestLocations[0].ToVector2() + .5f);
                 giftChestLocations.RemoveAt(0);
             }

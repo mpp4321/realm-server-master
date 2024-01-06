@@ -6,8 +6,8 @@ namespace RotMG.Game.Entities
 {
     public class GiftChest : OneWayContainer
     {
-        public GiftChest(List<int> items, AccountModel owner) 
-            : base(items, 0x0744, -1, null)
+        public GiftChest(List<int> items, List<ItemDataJson> itemDatas, AccountModel owner) 
+            : base(items, itemDatas, 0x0744, -1, null)
         {
         }
 

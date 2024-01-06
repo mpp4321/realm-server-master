@@ -11,7 +11,7 @@
 		<HitSound>monster/oryx_hit</HitSound>
 		<DeathSound>monster/oryx_death</DeathSound>
 		<Size>120</Size>
-		<MaxHitPoints>75000</MaxHitPoints>
+		<MaxHitPoints>125000</MaxHitPoints>
 		<Defense>60</Defense>
 		<Quest/>
 		<God/>
@@ -297,18 +297,18 @@
 		<HitSound>monster/skeletons_hit</HitSound>
 		<DeathSound>monster/skeletons_death</DeathSound>
 		<Size>120</Size>
-		<MaxHitPoints>4000</MaxHitPoints>
-		<Defense>7</Defense>
+		<MaxHitPoints>40000</MaxHitPoints>
+		<Defense>25</Defense>
 		<Hero/>
 		<Quest/>
-		<Level>12</Level>
+		<Level>20</Level>
 		<XpMult>2.5</XpMult>
 		<Projectile id="0">
 			<ObjectId>Blue Magic</ObjectId>
-			<Damage>50</Damage>
-			<Speed>80</Speed>
+			<Damage>75</Damage>
+			<Speed>120</Speed>
 			<LifetimeMS>2200</LifetimeMS>
-			<Size>60</Size>
+			<Size>100</Size>
 		</Projectile>
 		<Projectile id="1">
 			<ObjectId>Blue Magic</ObjectId>
@@ -316,6 +316,14 @@
 			<Speed>60</Speed>
 			<LifetimeMS>2000</LifetimeMS>
 			<Size>110</Size>
+		</Projectile>
+		<Projectile id="2">
+			<ObjectId>Green Magic</ObjectId>
+			<Damage>10</Damage>
+			<Speed>200</Speed>
+			<LifetimeMS>1000</LifetimeMS>
+			<Size>100</Size>
+			<ConditionEffect duration="1">Slowed</ConditionEffect>
 		</Projectile>
 	</Object>
 	<Object type="0x091d" id="Phylactery Bearer">
@@ -334,14 +342,14 @@
 		<XpMult>0.3</XpMult>
 		<Projectile id="0">
 			<ObjectId>Sparkling Bolt</ObjectId>
-			<Damage>35</Damage>
+			<Damage>55</Damage>
 			<Speed>60</Speed>
 			<Size>50</Size>
 			<LifetimeMS>2000</LifetimeMS>
 		</Projectile>
 		<Projectile id="1">
 			<ObjectId>Grey Boomerang</ObjectId>
-			<Damage>60</Damage>
+			<Damage>100</Damage>
 			<Speed>70</Speed>
 			<Size>80</Size>
 			<LifetimeMS>2000</LifetimeMS>
@@ -1019,7 +1027,7 @@
 		<HitSound>monster/ghost_god_hit</HitSound>
 		<DeathSound>monster/ghost_god_death</DeathSound>
 		<Size>100</Size>
-		<MaxHitPoints>27000</MaxHitPoints>
+		<MaxHitPoints>80000</MaxHitPoints>
 		<Defense>25</Defense>
 		<God/>
 		<StasisImmune/>
@@ -1130,7 +1138,7 @@
 		<MaxHitPoints>90000</MaxHitPoints>
 		<Defense>0</Defense>
 		<Level>20</Level>
-		<XpMult>100.25</XpMult>
+		<XpMult>10.25</XpMult>
 		<Projectile id="0">
 			<ObjectId>Advanced Fire Bolt</ObjectId>
 			<Size>150</Size>

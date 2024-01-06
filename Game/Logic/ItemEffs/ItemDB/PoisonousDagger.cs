@@ -16,11 +16,11 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
 
         public void OnEnemyHit(Entity hit, Projectile by, ref int damageDone)
         {
-            if(MathUtils.NextFloat() < 0.105f)
+            if(MathUtils.NextFloat() < 0.15f)
             {
                 if (!(hit is Enemy en) || !(by.Owner is Player pl))
                     return;
-                en.ApplyPoison(pl, new ConditionEffectDesc[] { }, 100, 500);
+                en.ApplyPoison(pl, new ConditionEffectDesc[] { }, 100, 300);
             }
         }
 
