@@ -405,7 +405,10 @@ namespace RotMG.Game.Entities
                         else 
                         {
                             var damage = GetNextDamageSeeded(pdesc.MinDamage, pdesc.MaxDamage, ItemDatas[1], desc.EnchantmentStrength);
-                            var didCrit = Client.Random.NextFloat() * 100 < GetStatTotal(9);
+                            var luck = GetStatTotal(9);
+                            var floatPart = Client.Random.NextFloat();
+                            var roll = floatPart * 100f;
+                            var didCrit = roll < luck;
                             if (didCrit)
                                 damage *= 2;
                             damage = (int)(damage * GetAttackMultiplier());

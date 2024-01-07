@@ -607,7 +607,7 @@
 			<Frequency>2</Frequency>
 			<MultiHit/>
 		</Projectile>
-		<BagType>1</BagType>
+		<BagType>4</BagType>
 		<OldSound>magicShoot</OldSound>
 	</Object>
 	<Object type="0xa07" id="Wand of Death">
@@ -3801,7 +3801,8 @@
 		<SlotType>9</SlotType>
 		<Description>The malachite stone makes you feel at peace with the land.</Description>
 		<ActivateOnEquip stat="7" amount="8">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="5" amount="8">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="5" amount="4">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="3" amount="8">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="1" amount="200">IncrementStat</ActivateOnEquip>
 		<BagType>6</BagType>
 		<FameBonus>5</FameBonus>
@@ -6593,8 +6594,8 @@
 		<ActivateOnEquip stat="7" amount="6">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="4" amount="6">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="1" amount="160">IncrementStat</ActivateOnEquip>
-		<BagType>5</BagType>
-		<FameBonus>5</FameBonus>
+		<BagType>4</BagType>
+		<FameBonus>4</FameBonus>
 	</Object>
 	<Object type="0xc14" id="Robe of the Tlatoani">
 		<Class>Equipment</Class>
@@ -6776,7 +6777,7 @@
 		<ExtraTooltipData>
 			<EffectInfo name="Life Steal" description="Provides a tiny amount of health back on hit."/>
 		</ExtraTooltipData>
-		<BagType>2</BagType>
+		<BagType>4</BagType>
 		<FameBonus>3</FameBonus>
 		<OldSound>magicShoot</OldSound>
 	</Object>
@@ -6848,6 +6849,8 @@
 		<Description>A ring that symbolizes divine might.</Description>
 		<ActivateOnEquip stat="6" amount="6">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="7" amount="9">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="8" amount="-6">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="3" amount="-9">IncrementStat</ActivateOnEquip>
 		<FameBonus>6</FameBonus>
 		<BagType>6</BagType>
 		<UniqueEffect>Immunity</UniqueEffect>
@@ -6890,7 +6893,7 @@
 			<MinDamage>90</MinDamage>
 			<MaxDamage>150</MaxDamage>
 			<LifetimeMS>320</LifetimeMS>
-			<ConditionalEffect duration="1">Bleeding</ConditionalEffect>
+			<ConditionEffect duration="1">Bleeding</ConditionEffect>
 			<MultiHit/>
 		</Projectile>
 		<BagType>4</BagType>
@@ -7147,8 +7150,8 @@
 		<ActivateOnEquip stat="6" amount="6">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="7" amount="6">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="3" amount="-5">IncrementStat</ActivateOnEquip>
-		<BagType>5</BagType>
-		<FameBonus>5</FameBonus>
+		<BagType>4</BagType>
+		<FameBonus>4</FameBonus>
 	</Object>
 	<Object type="0xc32" id="Robe of the Mad Scientist">
 		<Class>Equipment</Class>
@@ -8115,11 +8118,11 @@
 		</Texture>
 		<SlotType>9</SlotType>
 		<Description>A high-fructose ring that'll give you pep, but hurt your concentration.</Description>
-		<ActivateOnEquip stat="4" amount="10">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="6" amount="10">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="4" amount="20">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="6" amount="20">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="1" amount="-100">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="7" amount="-10">IncrementStat</ActivateOnEquip>
-		<BagType>2</BagType>
+		<BagType>3</BagType>
 	</Object>
 	<Object type="0xc60" id="Rock Candy">
 		<Class>Equipment</Class>
@@ -8443,7 +8446,7 @@
 		<Sound>weapon/blunt_sword</Sound>
 		<Projectile>
 			<ObjectId>T5 Katana</ObjectId>
-			<Speed>0</Speed>
+			<Speed>130</Speed>
 			<MinDamage>80</MinDamage>
 			<MaxDamage>110</MaxDamage>
 			<LifetimeMS>600</LifetimeMS>
@@ -8459,7 +8462,7 @@
 		</Projectile>
 		<Projectile>
 			<ObjectId>T5 Katana</ObjectId>
-			<Speed>0</Speed>
+			<Speed>130</Speed>
 			<MinDamage>80</MinDamage>
 			<MaxDamage>110</MaxDamage>
 			<LifetimeMS>600</LifetimeMS>
@@ -8535,7 +8538,7 @@
 			<MinDamage>190</MinDamage>
 			<MaxDamage>210</MaxDamage>
 			<LifetimeMS>458</LifetimeMS>
-			<ConditionalEffect chance="0.05" duration="1">Paralyzed</ConditionalEffect>
+			<ConditionEffect probability="0.05" duration="1">Paralyzed</ConditionEffect>
 		</Projectile>
 		<BagType>4</BagType>
 		<OldSound>bladeSwing</OldSound>
@@ -8995,7 +8998,7 @@
 		<BagType>4</BagType>
 		<FameBonus>4</FameBonus>
 		<ExtraTooltipData>
-			<EffectInfo name="Myelin Sheathing:" description="While equipped, your shots have a 10% chance to fire an arc of electricity based on the projectile's damage. Damage from the electric bolt will spread itself evenly among the targets near to the enemy struck."/>
+			<EffectInfo name="Myelin Sheathing:" description="While equipped, your shots have a 10% chance to fire an arc of electricity based on the projectile's damage. Damage from the electric bolt will spread itself evenly among the targets near to the enemy struck up to 3 enemies."/>
 		</ExtraTooltipData>
 	</Object>
 	<Object type="0xc88" id="Spectral Gown">
@@ -9393,6 +9396,9 @@
 		<ExtraTooltipData>
 			<EffectInfo name="Essence Drain" description="While equipped, slowly drains the wearer's health down to 50% of maximum HP."/>
 		</ExtraTooltipData>
+		<ExtraTooltipData>
+			<EffectInfo name="Ancient Rage" description="While at 50% or less hp cycle between either 15 attack or dexterity every 10 seconds."/>
+		</ExtraTooltipData>
 	</Object>
 	<Object type="0xc99" id="Wooden Prism">
 		<Class>Equipment</Class>
@@ -9489,6 +9495,7 @@
 		<Description>The head of the cyclops king, good for fame.</Description>
 		<ActivateOnEquip stat="3" amount="6">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="6" amount="6">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="2" amount="6">IncrementStat</ActivateOnEquip>
 		<BagType>4</BagType>
 		<FameBonus>10</FameBonus>
 	</Object>
@@ -9501,7 +9508,7 @@
 		</Texture>
 		<SlotType>9</SlotType>
 		<Description>The wisdom of a king lies in the crown.</Description>
-		<ActivateOnEquip stat="0" amount="150">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="0" amount="130">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="2" amount="5">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="7" amount="10">IncrementStat</ActivateOnEquip>
 		<BagType>5</BagType>
@@ -9670,6 +9677,11 @@
 			<Frequency>2</Frequency>
 			<ArmorPiercing>true</ArmorPiercing>
 		</Projectile>
+		<ActivateOnEquip stat="9" amount="3">IncrementStat</ActivateOnEquip>
+		<UniqueEffect>CritBomb</UniqueEffect>
+		<ExtraTooltipData>
+			<EffectInfo name="Critical Bomb" description="Relays the damage to surrounding enemies on crit."/>
+		</ExtraTooltipData>
 		<BagType>5</BagType>
 		<FameBonus>6</FameBonus>
 		<NumProjectiles>2</NumProjectiles>
@@ -9798,7 +9810,7 @@
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>
 		<ExtraTooltipData>
-			<EffectInfo name="Retaliation:" description="Upon being hit, you have a 10% chance to quickly strike the enemy with the same force."/>
+			<EffectInfo name="Retaliation:" description="Upon being hit, you have a 20% chance to quickly strike the enemy with the same force scaling with protection."/>
 		</ExtraTooltipData>
 		<UniqueEffect>OphGem</UniqueEffect>
 	</Object>
@@ -9840,8 +9852,8 @@
 			<ObjectId>Fire Missile</ObjectId>
 			<Speed>140</Speed>
 			<MinDamage>60</MinDamage>
-			<MaxDamage>100</MaxDamage>
-			<LifetimeMS>375</LifetimeMS>
+			<MaxDamage>140</MaxDamage>
+			<LifetimeMS>446</LifetimeMS>
 			<Amplitude>0.25</Amplitude>
 			<Frequency>2</Frequency>
 			<Size>150</Size>
@@ -9850,13 +9862,13 @@
 			<ObjectId>Blue Missile</ObjectId>
 			<Speed>140</Speed>
 			<MinDamage>60</MinDamage>
-			<MaxDamage>100</MaxDamage>
-			<LifetimeMS>375</LifetimeMS>
+			<MaxDamage>140</MaxDamage>
+			<LifetimeMS>446</LifetimeMS>
 			<Amplitude>0.25</Amplitude>
 			<Frequency>2</Frequency>
 			<Size>150</Size>
 		</Projectile>
-		<BagType>5</BagType>
+		<BagType>6</BagType>
 		<NumProjectiles>2</NumProjectiles>
 		<ArcGap>0</ArcGap>
 		<OldSound>magicShoot</OldSound>
@@ -10195,7 +10207,8 @@
 		<ActivateOnEquip stat="0" amount="15">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="1" amount="50">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="2" amount="5">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="7" amount="8">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="7" amount="10">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="6" amount="10">IncrementStat</ActivateOnEquip>
 		<BagType>4</BagType>
 		<FameBonus>5</FameBonus>
 	</Object>
@@ -10280,7 +10293,7 @@
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>
 		<ExtraTooltipData>
-			<EffectInfo name="Spider's Will" description="While at full health, gain 15 dex."/>
+			<EffectInfo name="Spider's Will" description="While at 80% or above health, gain 15 dex."/>
 		</ExtraTooltipData>
 		<UniqueEffect>WillOfDen</UniqueEffect>
 	</Object>
@@ -10688,7 +10701,7 @@
 		<SlotType>9</SlotType>
 		<Description>A squishy ring.</Description>
 		<ActivateOnEquip stat="0" amount="50">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="8" amount="3">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="8" amount="5">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="3" amount="5">IncrementStat</ActivateOnEquip>
 		<BagType>4</BagType>
 	</Object>
@@ -11038,7 +11051,7 @@
 			<MaxDamage>60</MaxDamage>
 			<LifetimeMS>900</LifetimeMS>
 			<Size>50</Size>
-			<ConditionalEffect duration="10" chance="0.05">Weak</ConditionalEffect>
+			<ConditionEffect duration="10" probability="0.05">Weak</ConditionEffect>
 			<Wavy/>
 		</Projectile>
 		<ActivateOnEquip stat="4" amount="4">IncrementStat</ActivateOnEquip>
@@ -11337,11 +11350,12 @@
 		</Texture>
 		<SlotType>9</SlotType>
 		<Description>Pure dominion.</Description>
-		<ActivateOnEquip stat="2" amount="7">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="0" amount="120">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="2" amount="6">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="3" amount="7">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="5" amount="7">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="5" amount="6">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="7" amount="7">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="9" amount="7">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="9" amount="6">IncrementStat</ActivateOnEquip>
 		<BagType>6</BagType>
 		<FameBonus>6</FameBonus>
 		<EnchantmentStrength>15</EnchantmentStrength>
@@ -11369,6 +11383,11 @@
 			<LifetimeMS>440</LifetimeMS>
 			<ConditionEffect duration="1">Bleeding</ConditionEffect>
 		</Projectile>
+		<ActivateOnEquip stat="9" amount="3">IncrementStat</ActivateOnEquip>
+		<UniqueEffect>CritBomb</UniqueEffect>
+		<ExtraTooltipData>
+			<EffectInfo name="Critical Bomb" description="Relays the damage to surrounding enemies on crit."/>
+		</ExtraTooltipData>
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>
 		<NumProjectiles>3</NumProjectiles>
@@ -11601,7 +11620,7 @@
 			<Frequency>1</Frequency>
 			<Size>100</Size>
 			<SmartAngle></SmartAngle>
-			<ConditionalEffect duration="1">CursedLower</ConditionalEffect>
+			<ConditionEffect duration="1">CursedLower</ConditionEffect>
 		</Projectile>
 		<Projectile>
 			<ObjectId>Dark Large Slash</ObjectId>
@@ -11613,7 +11632,7 @@
 			<Frequency>1</Frequency>
 			<Size>100</Size>
 			<SmartAngle></SmartAngle>
-			<ConditionalEffect duration="1">CursedLower</ConditionalEffect>
+			<ConditionEffect duration="1">CursedLower</ConditionEffect>
 		</Projectile>
 		<NumProjectiles>1</NumProjectiles>
 		<BagType>6</BagType>
@@ -11672,12 +11691,12 @@
 		</Texture>
 		<SlotType>9</SlotType>
 		<Description>A horn of a legendary dragon.</Description>
-		<ActivateOnEquip stat="0" amount="75">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="1" amount="75">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="8" amount="10">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="3" amount="10">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="2" amount="10">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="9" amount="5">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="0" amount="55">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="1" amount="55">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="8" amount="7">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="3" amount="7">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="2" amount="7">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="9" amount="3">IncrementStat</ActivateOnEquip>
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>
 	</Object>
@@ -11825,13 +11844,14 @@
 			<Index>0x113</Index>
 		</Texture>
 		<Description>Why is this sparkling eye still alive ? Thanks to petrovlolo to made this set</Description>
+		<ActivateOnEquip stat="0" amount="50">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="1" amount="50">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="2" amount="12">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="3" amount="-6">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="4" amount="-3">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="5" amount="5">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="7" amount="5">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="8" amount="-10">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="8" amount="-5">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="9" amount="5">IncrementStat</ActivateOnEquip>
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>
@@ -11898,6 +11918,7 @@
 			<EffectInfo name="" description="10% on hit to proc."/>
 		</ExtraTooltipData>
 		<ActivateOnEquip stat="5" amount="8">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="9" amount="5">IncrementStat</ActivateOnEquip>
 		<BagType>6</BagType>
 		<UniqueEffect>Thunderbolts</UniqueEffect>
 	</Object>
@@ -12326,6 +12347,10 @@
 			<Size>100</Size>
 			<SmartAngle></SmartAngle>
 		</Projectile>
+		<UniqueEffect>CritBomb</UniqueEffect>
+		<ExtraTooltipData>
+			<EffectInfo name="Critical Bomb" description="Relays the damage to surrounding enemies on crit."/>
+		</ExtraTooltipData>
 		<ActivateOnEquip stat="9" amount="10">IncrementStat</ActivateOnEquip>
 		<EnchantmentStrength>10</EnchantmentStrength>
 		<NumProjectiles>3</NumProjectiles>
@@ -12410,6 +12435,10 @@
 		</Projectile>
 		<ActivateOnEquip stat="9" amount="10">IncrementStat</ActivateOnEquip>
 		<EnchantmentStrength>8</EnchantmentStrength>
+		<UniqueEffect>CritBomb</UniqueEffect>
+		<ExtraTooltipData>
+			<EffectInfo name="Critical Bomb" description="Relays the damage to surrounding enemies on crit."/>
+		</ExtraTooltipData>
 		<ArcGap>0</ArcGap>
 		<NumProjectiles>2</NumProjectiles>
 		<BagType>5</BagType>
@@ -12455,6 +12484,10 @@
 			<MaxDamage>502</MaxDamage>
             <LifetimeMS>500</LifetimeMS>
 		</Projectile>
+		<UniqueEffect>CritBomb</UniqueEffect>
+		<ExtraTooltipData>
+			<EffectInfo name="Critical Bomb" description="Relays the damage to surrounding enemies on crit."/>
+		</ExtraTooltipData>
 		<ActivateOnEquip stat="9" amount="10">IncrementStat</ActivateOnEquip>
 		<EnchantmentStrength>8</EnchantmentStrength>
 		<BagType>5</BagType>

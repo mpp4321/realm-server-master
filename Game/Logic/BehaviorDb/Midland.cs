@@ -669,6 +669,7 @@ namespace RotMG.Game.Logic.Database
                 new TierLoot(3, LootType.Ring, 0.45f),
                 new TierLoot(2, LootType.Ability, 0.5f),
                 new TierLoot(3, LootType.Ability, 0.3f),
+                new ItemLoot("Drake Scale Hat", 0.025f),
                 new ItemLoot("Health Potion", 0.3f),
                 new ItemLoot("Magic Potion", 0.1f),
                 new ItemLoot("Drake's Dialect", 0.025f)
@@ -708,7 +709,8 @@ namespace RotMG.Game.Logic.Database
                         )
                     ),
                 new Threshold(0.01f,
-                    new ItemLoot("Drake's Dialect", 0.01f)
+                    new ItemLoot("Drake's Dialect", 0.01f),
+                    new ItemLoot("Drake Scale Hat", 0.01f)
                 )
             );
             db.Init("Nomadic Shaman",

@@ -61,6 +61,8 @@ namespace RotMG.Game.Logic.ItemEffs
             Registry.Add("WhiteDragonInAnOrb", new WhiteDragonInAnOrb());
             Registry.Add("LifeSteal", new Lifesteal());
             Registry.Add("ManaSteal", new Manasteal());
+            Registry.Add("MasterSword", new MasterSword());
+            Registry.Add("CritBomb", new CritBomb());
 
             //components
 

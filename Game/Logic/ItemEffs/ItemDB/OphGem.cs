@@ -20,7 +20,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
 
         public void OnHitByEnemy(Player hit, Entity hitBy, Projectile by)
         {
-            if(MathUtils.Next(10) == 0)
+            if(MathUtils.Next(5) == 0)
             {
                 hit.Parent?.BroadcastPacketNearby(GameServer.Notification
                 (
@@ -28,7 +28,9 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
                     "Retaliaton!",
                     0xff22ff22
                 ), hitBy.Position);
-                (hitBy as Enemy)?.Damage(hit, by.Damage, new ConditionEffectDesc[0], true, true);
+                var protTotal = hit.GetStatTotal(8);
+                var damage = by.Damage * (10.0 * (protTotal / 100.0));
+                (hitBy as Enemy)?.Damage(hit, (int)damage, new ConditionEffectDesc[0], true, true);
             }
         }
 

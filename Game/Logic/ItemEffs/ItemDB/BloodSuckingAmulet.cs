@@ -27,6 +27,17 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
             if(p.Hp > ((int)(maxHp) / 2))
             {
                 p.Hp -= (int)(hpRegenPerTick + 2);
+            } else
+            {
+                var c = Manager.TotalTimeUnsynced % 20000 > 10000;
+                p.AddIdentifiedEffectBoost(new Player.BoostTimer()
+                {
+                    amount = 15,
+                    id = "BloodSuck".GetHashCode(),
+                    index = c ? 2 : 5,
+                    timer = 0.2f,
+                }, false);
+                p.UpdateStats();
             }
         }
     }

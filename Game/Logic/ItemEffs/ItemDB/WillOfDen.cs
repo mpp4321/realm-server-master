@@ -12,7 +12,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
         {
             t++;
             if (t % 4 != 0) return;
-            if(p.GetStatTotal(0) == p.Hp)
+            if(p.GetStatTotal(0) > p.Hp * 0.8)
             {
                 p.AddIdentifiedEffectBoost(new Player.BoostTimer
                 {

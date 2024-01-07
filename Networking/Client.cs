@@ -284,7 +284,9 @@ namespace RotMG.Networking
         }
         public float NextFloat()
         {
-            return 2 * (Gen() >> 8) / (1 << 24);
+            var t24 = (float)(Gen() >> 8);
+            var s = (float)(1 << 24);
+            return t24 / s;
         }
 
         private uint Gen()

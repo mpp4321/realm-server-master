@@ -168,7 +168,8 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Potion of Defense", 0.25f),
                     new ItemLoot("Potion of Wisdom", 0.15f),
                     new ItemLoot("Realm Equipment Crystal", 0.3f),
-                    new ItemLoot("Helm of the Juggernaut", 0.0005f)
+                    new ItemLoot("Helm of the Juggernaut", 0.0005f),
+                    new ItemLoot("Kingly Pearl", 0.03f, 0.0005f)
                 )
             );
 
@@ -181,6 +182,7 @@ namespace RotMG.Game.Logic.Database
                     ),
                 new Threshold(0.03f,
                     new ItemLoot("Orb of Conflict", 0.01f),
+                    new ItemLoot("Artifact of Earth", 0.005f),
                     new ItemLoot("Thousand Suns Spell", 0.01f)
                 ),
                 new Threshold(0.005f,

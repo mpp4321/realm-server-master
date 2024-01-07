@@ -23,7 +23,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
                 if (!(hit is Enemy en) || !(by.Owner is Player pl))
                     return;
 
-                var entities = en.GetNearbyEntities(10.0f).OfType<Enemy>().Where(a => !a.HasConditionEffect(ConditionEffectIndex.Invincible) && !a.HasConditionEffect(ConditionEffectIndex.Invulnerable));
+                var entities = en.GetNearbyEntities(10.0f).OfType<Enemy>().Where(a => !a.HasConditionEffect(ConditionEffectIndex.Invincible) && !a.HasConditionEffect(ConditionEffectIndex.Invulnerable)).Take(3);
                 int N = entities.Count();
                 int dmgSpread = (int)((by.Damage + 1.0f) / (2.0f * N));
 

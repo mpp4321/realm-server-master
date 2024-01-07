@@ -183,7 +183,6 @@ namespace RotMG.Game.Logic.Database
                     new ItemLoot("Realm Equipment Crystal", 0.04f),
                     new ItemLoot("(Green) UT Egg", 0.02f, 0.01f),
                     new ItemLoot("(Blue) RT Egg", 0.005f, 0.01f),
-                    new ItemLoot("Band of Exoneration", 0.001f, 0.01f),
                     new ItemLoot("Wine Cellar Incantation", 0.05f),
                     new ItemLoot(item: "Potion of Dexterity", chance: 1.0f),
                     new ItemLoot(item: "Potion of Defense", chance: 0.3f),

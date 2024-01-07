@@ -234,9 +234,11 @@ namespace RotMG.Game.Entities
                     if(agg)
                     {
                         EffectBoosts[i].amount = aggf(EffectBoosts[i].amount, t.amount);
+                        EffectBoosts[i].index = t.index;
                     } else
-                    {
+                    { 
                         EffectBoosts[i].amount = t.amount;
+                        EffectBoosts[i].index = t.index;
                     }
                     EffectBoosts[i].timer = t.timer;
                     return;

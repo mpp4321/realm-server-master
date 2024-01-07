@@ -170,7 +170,7 @@
 			<MinDamage>100</MinDamage>
 			<MaxDamage>145</MaxDamage>
 			<LifetimeMS>250</LifetimeMS>
-			<CondChance effect="Paralyzed" chance="0.25" duration="3" />
+			<ConditionEffect probability="0.25" duration="3">Paralyzed</ConditionEffect>
 			<ArmorPiercing />
 			<MultiHit />
 			<Wavy />
@@ -1748,9 +1748,9 @@
 		</Texture>
 		<SlotType>9</SlotType>
 		<Description>Those fortunate enough to carry this sack will be granted immense luck.</Description>
-		<ActivateOnEquip stat="6" amount="-10">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="3" amount="-10">IncrementStat</ActivateOnEquip>
-		<ActivateOnEquip stat="0" amount="-100">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="0" amount="-50">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="3" amount="-5">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="8" amount="-40">IncrementStat</ActivateOnEquip>
 		<UniqueEffect>JackpotItem</UniqueEffect>
 		<ExtraTooltipData>
 			<EffectInfo name="Gambler's Luck" description="100% lootboost; upon equiping this item you have a 50% chance to disconnect." />
@@ -4764,7 +4764,7 @@
 			<Frequency>1</Frequency>
 			<Size>90</Size>
 			<MultiHit />
-			<ConditionalEffect chance="0.1" duration="3">Bleeding</ConditionalEffect>
+			<ConditionEffect probability="0.1" duration="3">Bleeding</ConditionEffect>
 		</Projectile>
 		<BagType>6</BagType>
 		<FameBonus>4</FameBonus>
@@ -7678,10 +7678,14 @@
 		<Projectile>
 			<ObjectId>White Bolt</ObjectId>
 			<Speed>150</Speed>
-			<MinDamage>360</MinDamage>
-			<MaxDamage>400</MaxDamage>
+			<MinDamage>344</MinDamage>
+			<MaxDamage>384</MaxDamage>
 			<LifetimeMS>350</LifetimeMS>
 		</Projectile>
+		<ExtraTooltipData>
+			<EffectInfo name="Hero" description="While at 100% health deal 20% more projectile damage. (Note: display damage will not account for this)." />
+		</ExtraTooltipData>
+		<UniqueEffect>MasterSword</UniqueEffect>
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>
 		<OldSound>bladeSwing</OldSound>
@@ -7743,6 +7747,7 @@
 		<SlotType>9</SlotType>
 		<Description>A nice, cool ring that Link would wear. SO SHOULD YOU!</Description>
 		<ActivateOnEquip stat="3" amount="10">IncrementStat</ActivateOnEquip>
+		<ActivateOnEquip stat="0" amount="80">IncrementStat</ActivateOnEquip>
 		<ActivateOnEquip stat="9" amount="5">IncrementStat</ActivateOnEquip>
 		<BagType>5</BagType>
 		<FameBonus>5</FameBonus>

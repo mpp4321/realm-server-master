@@ -9,7 +9,7 @@ namespace RotMG.Game.Logic.ItemEffs.ItemDB
         { 
             if(MathUtils.Chance(0.1f))
             {
-                Decoy d = new Decoy(hit, 0f, 1600) { Speed = 0.0f };
+                Decoy d = new Decoy(hit, 0f, 3600) { Speed = 0.0f };
                 hit.Parent.AddEntity(d, hit.Position);
             }
         }
